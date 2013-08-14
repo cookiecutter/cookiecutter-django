@@ -1,0 +1,5 @@
+# Pro-tip: Try not to put anything here. There should be no dependency in
+#	production that isn't in development.
+-r base.txt
+
+gunicorn==0.17.4
