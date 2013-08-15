@@ -195,14 +195,23 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     # Database migration helpers:
     'south',
+    'floppy_forms',
+    'crispy_forms',
+    # 'avatar',
 )
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
+    'users',  # new users app goes here!
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+INSTALLED_APPS += (
+    'allauth',  # registration
+    'allauth.account',  # registration
+    'allauth.socialaccount',  # registration
+)
 ########## END APP CONFIGURATION
 
 
