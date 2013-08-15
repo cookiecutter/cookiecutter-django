@@ -2,5 +2,9 @@
 -r base.txt
 coverage==3.6
 django-discover-runner==0.4
-django-debug-toolbar==0.9.4
-Sphinx==1.2b1
+Sphinx
+
+
+# django-debug-toolbar that works with Django 1.5+
+git+git://github.com/django-debug-toolbar/django-debug-toolbar@7e4ecfd04cfe61b51e1fd6fdf0ce1c800a3ebb3b
+

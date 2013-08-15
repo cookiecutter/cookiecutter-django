@@ -3,3 +3,8 @@
 -r base.txt
 
 gunicorn==0.17.4
+django-storages==1.1.4
+gevent==0.13.8
+gunicorn==0.14.3
+psycopg2==2.5
+boto==2.9.5
