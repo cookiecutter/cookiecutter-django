@@ -30,3 +30,8 @@ Using this template
     $ pip install cookiecutter
     $ cookiecutter https://github.com/sloria/cookiecutter-dj-project.git
     
+
+"Your Stuff"
+-------------
+
+Scattered throughout the Python and HTML of this project are places marked with "your stuff". This is where third-party libraries are to be integrated with your project.

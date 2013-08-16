@@ -141,6 +141,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
+    # Your stuff: custom template context processers go here
 )
 
 
@@ -182,7 +183,7 @@ THIRD_PARTY_APPS = (
 # Apps specific for this project go here.
 LOCAL_APPS = (
     'users',  # custom users app
-    # Your custom apps go here
+    # Your stuff: custom apps go here
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -206,7 +207,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 ########## End URL Configuration
 
 ########## django-secure
-
 INSTALLED_APPS += ("djangosecure", )
 
 # set this to 60 seconds and then to 518400 when you can prove it works
@@ -349,3 +349,7 @@ LOGGING = {
     }
 }
 ########## END LOGGING CONFIGURATION
+
+
+########## Your stuff: Below this line define 3rd party libary settings
+
