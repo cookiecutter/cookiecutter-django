@@ -4,5 +4,6 @@
     "author_name": "Your Name",
     "email": "Your email",
     "description": "A short description of the project.",
-    "year": "Current year"
+    "year": "Current year",
+    "domain_name": "Domain name"
 }
