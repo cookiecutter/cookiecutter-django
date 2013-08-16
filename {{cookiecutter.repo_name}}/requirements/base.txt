@@ -32,3 +32,6 @@ https://bitbucket.org/andrewgodwin/south/get/59f6bae8b1a501ca14a5f23f8b11c44c42f
 
 # django-crispy-forms with support for Bootstrap 3
 git+git://github.com/maraujop/django-crispy-forms@42c84a9b02d885de249c1d003c2e7ad031283c26
+
+
+# Your custom requirements go here
