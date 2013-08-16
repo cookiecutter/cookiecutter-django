@@ -1,5 +1,4 @@
-Django==1.5.2
-bpython==0.12
+https://github.com/django/django/archive/1.6b1.tar.gz
 django-braces==1.2.2
 django-model-utils==1.4.0
 django-allauth==0.12.0
@@ -16,9 +15,9 @@ https://bitbucket.org/andrewgodwin/south/get/59f6bae8b1a501ca14a5f23f8b11c44c42f
 
 
 # Useful things
-# django-avatar that work with Django 1.5
+# django-avatar that work with Django 1.5+
 # git+git://github.com/jezdez/django-avatar@6393d25166a6c2d2df0bd28e19f161fac2bb1166
 
 
-# django-crispy-forms with support for Django 1.5
+# django-crispy-forms with support for Bootstrap 3
 git+git://github.com/maraujop/django-crispy-forms@42c84a9b02d885de249c1d003c2e7ad031283c26
