@@ -8,11 +8,19 @@ A cookiecutter_ template for Django.
 Features
 ---------
 
-* Cutting edge: For Django 1.6
-* Twitter Bootstrap 3 and starter templates
+* Cutting edge: For Django 1.6 and other bleeding edge stuff
+* Twitter Bootstrap 3
 * Registration via django-allauth
 * Procfile for deploying to Heroku
 * Heroku optimized requirements
+* Basic caching setup
+
+Constraints
+-----------
+
+* Only maintained 3rd party libraries are used.
+* PostgreSQL everywhere
+* 12Factor App for settings
 
 Using this template
 --------------------
@@ -20,5 +28,5 @@ Using this template
 .. code-block:: bash
 
     $ pip install cookiecutter
-    $ cookiecutter https://github.com/sloria/cookiecutter-flask.git
+    $ cookiecutter https://github.com/sloria/cookiecutter-dj-project.git
     
