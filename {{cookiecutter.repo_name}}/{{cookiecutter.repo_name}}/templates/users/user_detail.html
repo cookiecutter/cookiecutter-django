@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load avatar_tags %}
+{% load static %}
+
+{% block title %}User: {{ object.username }}{% endblock %}
+
+{% block content %}
+<div class="container">
+
+<div class="row">
+  <div class="col-lg-3">
+
+    <h2>{{ object.username }} 
+
+    </h2>
+    <p>{{ object.tagline }}</p>
+
+    {% if object == request.user %}
+        <!-- Action buttons -->
+        <div class="well">          
+          <div class="row">
+
+            <div class="col-6">
+              <a class="btn btn-primary btn-block" href="{% url 'users:update' %}">My Info</a>
+              <a class="btn btn-primary btn-block" href="{% url 'account_email' %}">E-Mail</a>
+            </div>
+            <div class="col-6">
+              <a class="btn btn-info btn-block" href="">Avatar</a>
+            </div>
+          </div>
+        </div>
+        <!-- End Action buttons -->
+    {% endif %}
+
+
+    </div>
+  </div>
+</div>
+{% endblock content %}

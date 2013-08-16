@@ -32,12 +32,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">{{ project_name }}</a>
+          <a class="brand" href="{% url 'about '%}">{{ project_name }}</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li class="active"><a href="{% url 'about '%}">Home</a></li>
+              <li><a href="{% url 'about '%}">About</a></li>
+
+              {% if request.user.is_authenticated %}
+                <a href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a>
+                <a href="{% url 'account_logout' %}">{% trans "Logout" %}</a>
+              {% else %}
+                <a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a> or
+                <a href="{% url 'account_login' %}">{% trans "Log In" %}</a>
+              {% endif %}
             </ul>
           </div><!--/.nav-collapse -->
         </div>

@@ -1,0 +1,4 @@
+{% load account %}{% user_display user as user_display %}{% load i18n %}{% autoescape off %}{% blocktrans with current_site.name as site_name %}User {{ user_display }} at {{ site_name }} has given this as an email address.
+
+To confirm this is correct, go to {{ activate_url }}
+{% endblocktrans %}{% endautoescape %}
