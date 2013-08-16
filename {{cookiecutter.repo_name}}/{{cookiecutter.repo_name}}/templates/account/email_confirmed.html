@@ -1,4 +1,4 @@
-{% extends "account/base.html" %}
+{% raw %}{% extends "account/base.html" %}
 
 {% load i18n %}
 {% load account %}
@@ -7,11 +7,16 @@
 
 
 {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+        <h2>{% trans "Confirm E-mail Address" %}</h2>
 
-<h1>{% trans "Confirm E-mail Address" %}</h1>
-
-{% user_display email_address.user as user_display %}
-        
-<p>{% blocktrans with email_address.email as email %}You have confirmed that <a href="mailto:{{email}}">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}</p>
-
+        {% user_display email_address.user as user_display %}
+                
+        <p>{% blocktrans with email_address.email as email %}You have confirmed that <a href="mailto:{{email}}">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}</p>
+    </div>
+  </div>
+</div>
 {% endblock %}
+{% endraw %}
