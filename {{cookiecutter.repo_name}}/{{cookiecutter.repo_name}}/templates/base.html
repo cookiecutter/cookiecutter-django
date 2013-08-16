@@ -1,4 +1,4 @@
-{% raw %}{% load staticfiles %}<!DOCTYPE html>
+{% raw %}{% load staticfiles i18n %}<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -32,11 +32,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="{% url 'about '%}">{{ project_name }}</a>
+          <a class="brand" href="{% url 'home' %}">{{ project_name }}</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="{% url 'about '%}">Home</a></li>
-              <li><a href="{% url 'about '%}">About</a></li>
+              <li class="active"><a href="{% url 'home' %}">Home</a></li>
+              <li><a href="{% url 'about' %}">About</a></li>
 
               {% if request.user.is_authenticated %}
                 <a href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a>
