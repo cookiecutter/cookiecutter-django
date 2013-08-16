@@ -1,4 +1,6 @@
 {
     "project_name": "project_name",
-    "repo_name":"repo_name"
+    "repo_name":"repo_name",
+    "author_name": "Your Name",
+    "description": "A short description of the project."
 }
