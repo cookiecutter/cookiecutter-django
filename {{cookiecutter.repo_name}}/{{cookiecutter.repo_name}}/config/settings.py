@@ -11,17 +11,20 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-from os.path import abspath, basename, dirname, join, normpath
+from os.path import join
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+########## DEBUG CONFIGURATION
 if os.environ.get("DATABASE_URL", None):
-    ########## DEBUG CONFIGURATION
+
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
     DEBUG = False
+else:
+    DEBUG = True
 
-    # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
-    TEMPLATE_DEBUG = DEBUG
-    ########## END DEBUG CONFIGURATION
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
+TEMPLATE_DEBUG = DEBUG
+########## END DEBUG CONFIGURATION
 
 
 ########## SECRET CONFIGURATION
@@ -54,7 +57,7 @@ MANAGERS = ADMINS
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 import dj_database_url
 DATABASES = {'default': dj_database_url.config()}
-if DATABASES == {}:
+if DATABASES == {'default': {}}:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -100,7 +103,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    #'djstripe.middleware.SubscriptionPaymentMiddleware', # TODO fix this by settings
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 ########## END MIDDLEWARE CONFIGURATION
@@ -141,11 +143,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
 )
 
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-)
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
 TEMPLATE_DIRS = (
@@ -201,10 +198,10 @@ INSTALLED_APPS += (
 
 
 ########## URL Configuration
-ROOT_URLCONF = '{{cookiecutter.repo_nam}}.urls'
+ROOT_URLCONF = 'config.urls'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
-WSGI_APPLICATION = '{{cookiecutter.repo_nam}}.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 ########## End URL Configuration
 
 ########## django-secure
@@ -308,7 +305,7 @@ else:
 
     ########## EMAIL
     DEFAULT_FROM_EMAIL = environ.get('DEFAULT_FROM_EMAIL',
-            '{{cookiecutter.project_name}} <{{cookiecutter.project_name}}-noreply@{{cookiecutter.domain_name}}>')
+            '{{cookiecutter.project_name}} <{{cookiecutter.project_name}}-noreply@{{cookiecutter.doman_name}}>')
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST = environ.get('EMAIL_HOST', 'smtp.sendgrid.com')
     EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD', '')

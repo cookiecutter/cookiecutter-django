@@ -6,6 +6,8 @@ django-braces==1.2.2
 django-model-utils==1.4.0
 django-floppyforms==1.1
 Pillow==2.1.0
+dj-database-url==0.2.2
+django-secure==1.0
 
 # For user registration, either via email or social
 # Well-built with regular release cycles!
