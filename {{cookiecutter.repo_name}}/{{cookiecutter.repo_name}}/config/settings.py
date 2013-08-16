@@ -14,18 +14,21 @@ import os
 from os.path import abspath, basename, dirname, join, normpath
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+if os.environ.get("DATABASE_URL", None):
+    ########## DEBUG CONFIGURATION
+    # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
+    DEBUG = False
+
+    # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
+    TEMPLATE_DEBUG = DEBUG
+    ########## END DEBUG CONFIGURATION
+
 
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Note: This key only used for development and testing.
 SECRET_KEY = "CHANGE THIS!!!"
 ########## END SECRET CONFIGURATION
-
-########## SITE CONFIGURATION
-# Hosts/domain names that are valid for this site
-# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["*", ]
-########## END SITE CONFIGURATION
 
 
 ########## FIXTURE CONFIGURATION
@@ -34,15 +37,6 @@ FIXTURE_DIRS = (
     join(BASE_DIR, 'fixtures'),
 )
 ########## END FIXTURE CONFIGURATION
-
-
-########## DEBUG CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
-DEBUG = False
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
-TEMPLATE_DEBUG = DEBUG
-########## END DEBUG CONFIGURATION
 
 
 ########## MANAGER CONFIGURATION
@@ -99,6 +93,18 @@ MEDIA_ROOT = join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 ########## END MEDIA CONFIGURATION
 
+########## MIDDLEWARE CONFIGURATION
+MIDDLEWARE_CLASSES = (
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    #'djstripe.middleware.SubscriptionPaymentMiddleware', # TODO fix this by settings
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+########## END MIDDLEWARE CONFIGURATION
+
 
 ########## STATIC FILE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
@@ -154,6 +160,51 @@ TEMPLATE_LOADERS = (
 )
 ########## END TEMPLATE CONFIGURATION
 
+########## APP CONFIGURATION
+DJANGO_APPS = (
+    # Default Django apps:
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    # Useful template tags:
+    # 'django.contrib.humanize',
+
+    # Admin
+    'django.contrib.admin',
+)
+THIRD_PARTY_APPS = (
+    'south',  # Database migration helpers:
+    'crispy_forms',  # Form layouts
+    # 'avatar',  # for user avatars
+)
+
+# Apps specific for this project go here.
+LOCAL_APPS = (
+    'users',  # custom users app
+)
+
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+
+INSTALLED_APPS += (
+    # Needs to come last for now because of a weird edge case between
+    #   South and allauth
+    'allauth',  # registration
+    'allauth.account',  # registration
+    # 'allauth.socialaccount',  # registration
+)
+########## END APP CONFIGURATION
+
+
+########## URL Configuration
+ROOT_URLCONF = 'cl.urls'
+
+WSGI_APPLICATION = 'cl.wsgi.application'
+########## End URL Configuration
 
 ########## django-secure
 
@@ -190,3 +241,79 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 AUTH_USER_MODEL = "users.User"
 LOGIN_REDIRECT_URL = "users:redirect"
 ########## END Custom user app defaults
+
+
+########## SLUGLIFIER
+AUTOSLUG_SLUGIFY_FUNCTION = "slugify.slugify"
+########## END SLUGLIFIER
+
+
+################## PRODUCTION SETTINGS
+if DEBUG:
+    EMAIL_HOST = "localhost"
+    EMAIL_PORT = 1025
+    MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
+    INSTALLED_APPS += ('debug_toolbar',)
+
+    INTERNAL_IPS = ('127.0.0.1',)
+
+    DEBUG_TOOLBAR_CONFIG = {
+        'INTERCEPT_REDIRECTS': False,
+        'SHOW_TEMPLATE_CONTEXT': True,
+    }
+else:
+
+    TEMPLATE_DEBUG = DEBUG
+
+    ########## SITE CONFIGURATION
+    # Hosts/domain names that are valid for this site
+    # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
+    ALLOWED_HOSTS = ["*"]
+    ########## END SITE CONFIGURATION
+
+    INSTALLED_APPS += ("gunicorn", )
+
+    ########## STORAGE CONFIGURATION
+    from S3 import CallingFormat
+    from os import environ
+    # See: http://django-storages.readthedocs.org/en/latest/index.html
+    INSTALLED_APPS += (
+        'storages',
+    )
+
+    # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
+    STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+    # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
+    AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
+
+    # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
+    AWS_ACCESS_KEY_ID = environ.get('AWS_ACCESS_KEY_ID', '')
+    AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY', '')
+    AWS_STORAGE_BUCKET_NAME = environ.get('AWS_STORAGE_BUCKET_NAME', '')
+    AWS_AUTO_CREATE_BUCKET = True
+    AWS_QUERYSTRING_AUTH = False
+
+    # AWS cache settings, don't change unless you know what you're doing:
+    AWS_EXPIREY = 60 * 60 * 24 * 7
+    AWS_HEADERS = {
+        'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIREY,
+            AWS_EXPIREY)
+    }
+
+    # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
+    STATIC_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+    ########## END STORAGE CONFIGURATION
+
+    ########## EMAIL
+    DEFAULT_FROM_EMAIL = environ.get('DEFAULT_FROM_EMAIL',
+            '{{cookiecutter.project_name <{{cookiecutter.project_name-noreply@cheeseland.com>')
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = environ.get('EMAIL_HOST', 'smtp.sendgrid.com')
+    EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD', '')
+    EMAIL_HOST_USER = os.environ.get('SENDGRID_USERNAME', '')
+    EMAIL_PORT = environ.get('EMAIL_PORT', 587)
+    EMAIL_SUBJECT_PREFIX = environ.get('EMAIL_SUBJECT_PREFIX', '[{{cookiecutter.project_name}}] ')
+    EMAIL_USE_TLS = True
+    SERVER_EMAIL = EMAIL_HOST_USER
+    ########## END EMAIL
