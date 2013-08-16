@@ -194,7 +194,7 @@ INSTALLED_APPS += (
     #   South and allauth
     'allauth',  # registration
     'allauth.account',  # registration
-    # 'allauth.socialaccount',  # registration
+    'allauth.socialaccount',  # registration
 )
 ########## END APP CONFIGURATION
 
