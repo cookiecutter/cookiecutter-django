@@ -1,6 +1,8 @@
 cookiecutter-dj-project
 =======================
 
+**note**: There is a bug in regards to authentication. I'm working it out!
+
 A cookiecutter_ template for Django.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
