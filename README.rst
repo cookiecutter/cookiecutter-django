@@ -1,8 +1,6 @@
 cookiecutter-dj-project
 =======================
 
-**note**: There is a bug in regards to authentication. I'm working it out!
-
 A cookiecutter_ template for Django.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
@@ -13,6 +11,7 @@ Features
 * Cutting edge: For Django 1.6 and other bleeding edge stuff
 * Twitter Bootstrap 3
 * Registration via django-allauth
+* User avatars via django-avatar
 * Procfile for deploying to Heroku
 * Heroku optimized requirements
 * Basic caching setup
