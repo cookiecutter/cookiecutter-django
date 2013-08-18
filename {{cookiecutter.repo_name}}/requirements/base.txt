@@ -27,7 +27,7 @@ https://bitbucket.org/andrewgodwin/south/get/59f6bae8b1a501ca14a5f23f8b11c44c42f
 
 # Useful things
 # django-avatar that work with Django 1.5+
-# git+git://github.com/jezdez/django-avatar@6393d25166a6c2d2df0bd28e19f161fac2bb1166
+git+git://github.com/jezdez/django-avatar@6393d25166a6c2d2df0bd28e19f161fac2bb1166
 
 
 # django-crispy-forms with support for Bootstrap 3
