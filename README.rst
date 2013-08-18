@@ -81,3 +81,30 @@ It's time to write the code!!!
 -------------
 
 Scattered throughout the Python and HTML of this project are places marked with "your stuff". This is where third-party libraries are to be integrated with your project.
+
+
+Not Exactly What You Want?
+---------------------------
+
+This is what I want. It might not be what you want. Don't worry, you have options:
+
+Fork This
+~~~~~~~~~~
+
+If you have differences in your preferred setup, I encourage you to fork this to create your own version.
+Once you have your fork working, let me know and I'll add it to a '*Similar Cookiecutter Templates*' list here.
+It's up to you whether or not to rename your fork.
+
+If you do rename your fork, I encourage you to submit it to the following places:
+
+* cookiecutter_ so it gets listed in the README as a template. 
+* The cookiecutter grid_ on Django Packages.
+
+.. _cookiecutter: https://github.com/audreyr/cookiecutter
+.. _grid: https://www.djangopackages.com/grids/g/cookiecutter/
+
+Or Submit a Pull Request
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+I also accept pull requests on this, if they're small, atomic, and if they make my own project development
+experience better. 
