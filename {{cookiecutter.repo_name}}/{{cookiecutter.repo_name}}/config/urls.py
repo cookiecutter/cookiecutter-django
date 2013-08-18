@@ -26,7 +26,7 @@ urlpatterns = patterns('',
     url(r'^accounts/', include('allauth.urls')),
 
     # Uncomment the next line to enable avatars
-    #url(r'^avatar/', include('avatar.urls')),
+    url(r'^avatar/', include('avatar.urls')),
 
     # Your stuff: custom urls go here
 

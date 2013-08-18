@@ -7,34 +7,29 @@
 {% block content %}
 <div class="container">
 
-<div class="row">
-  <div class="col-lg-3">
+  <div class="row">
+    <div class="col-sm-12">
 
-    <h2>{{ object.username }} 
-
-    </h2>
-    <p>{{ object.tagline }}</p>
-
-    {% if object == request.user %}
-        <!-- Action buttons -->
-        <div class="well">          
-          <div class="row">
-
-            <div class="col-6">
-              <a class="btn btn-primary btn-block" href="{% url 'users:update' %}">My Info</a>
-              <a class="btn btn-primary btn-block" href="{% url 'account_email' %}">E-Mail</a>
-            </div>
-            <div class="col-6">
-              <a class="btn btn-info btn-block" href="">Avatar</a>
-            </div>
-          </div>
-        </div>
-        <!-- End Action buttons -->
-    {% endif %}
-
-
+      <h2>{{ object.username }}</h2>
     </div>
   </div>
+
+{% if object == request.user %}
+<!-- Action buttons -->     
+<div class="row">
+
+  <div class="col-sm-12 ">
+    <a class="btn btn-primary" href="{% url 'users:update' %}">My Info</a>
+    <a class="btn btn-primary" href="{% url 'account_email' %}">E-Mail</a>
+    <a class="btn btn-info" href="{% url 'avatar_change' %}">Avatar</a>
+    <!-- Your Stuff: Custom user template urls -->
+  </div>
+
+</div>
+<!-- End Action buttons -->
+{% endif %}
+
+
 </div>
 {% endblock content %}
 {% endraw %}
