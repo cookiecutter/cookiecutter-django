@@ -86,7 +86,7 @@ Scattered throughout the Python and HTML of this project are places marked with 
 Not Exactly What You Want?
 ---------------------------
 
-This is what I want. It might not be what you want. Don't worry, you have options:
+This is what I want. *It might not be what you want.* Don't worry, you have options:
 
 Fork This
 ~~~~~~~~~~
