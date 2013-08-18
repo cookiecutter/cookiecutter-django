@@ -21,7 +21,7 @@ Constraints
 
 * Only maintained 3rd party libraries are used.
 * PostgreSQL everywhere
-* 12Factor App for settings
+* Environment variables for configuration (This won't work with Apache/mod_wsgi)
 
 Using this template
 --------------------
