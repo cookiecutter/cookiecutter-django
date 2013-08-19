@@ -10,6 +10,7 @@ Features
 
 * Cutting edge: For Django 1.6 and other bleeding edge stuff
 * Twitter Bootstrap 3
+* AngularJS
 * Registration via django-allauth
 * User avatars via django-avatar
 * Procfile for deploying to Heroku
