@@ -53,7 +53,6 @@ It prompts you for questions. Answer them::
     full_name (default is "Your full name here")? Daniel Greenfeld
     email (default is "you@example.com")? pydanny@gmail.com
     project_name (default is "dj-project")? redditclone
-    repo_name (default is "dj_project")? redditclone
     app_name (default is "djproject")? redditclone
     project_short_description (default is "Your project description goes here")? A reddit clone.
     release_date (default is "2013-08-15")? 2013-08-15
