@@ -21,3 +21,13 @@ Deployment
 * heroku run python {{cookiecutter.repo_name}}/manage.py syncdb --noinput --settings=config.settings
 * heroku run python {{cookiecutter.repo_name}}/manage.py migrate --settings=config.settings
 * heroku run python {{cookiecutter.repo_name}}/manage.py collectstatic --settings=config.settings
+
+Run this script: (TODO - automate this)
+
+.. code-block:: python
+
+    from django.contrib.sites.models import Site
+    site = Site.objects.get()
+    site.domain = "{{cookiecutter.project_name}}.com"
+    site.domain = "{{cookiecutter.project_name}}"
+    site.save()
