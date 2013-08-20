@@ -1,4 +1,4 @@
-cookiecutter-dj-project
+cookiecutter-django
 =======================
 
 A cookiecutter_ template for Django.
