@@ -357,6 +357,11 @@ LOGGING = {
 }
 ########## END LOGGING CONFIGURATION
 
+########## CACHING
+from memcacheify import memcacheify
+CACHES = memcacheify()
+########## END CACHING
+
 
 ########## Your stuff: Below this line define 3rd party libary settings
 
