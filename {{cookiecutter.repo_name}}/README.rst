@@ -29,5 +29,5 @@ Run this script: (TODO - automate this)
     from django.contrib.sites.models import Site
     site = Site.objects.get()
     site.domain = "{{cookiecutter.project_name}}.com"
-    site.domain = "{{cookiecutter.project_name}}"
+    site.name = "{{cookiecutter.project_name}}"
     site.save()
