@@ -1,0 +1,24 @@
+{% extends "avatar/base.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+    <h2>{% trans "Please select the avatars that you would like to delete." %}</h2>
+    {% if not avatars %}
+        {% url 'avatar_change' as avatar_change_url %}
+        <p>{% blocktrans %}You have no avatars to delete. Please <a href="{{ avatar_change_url }}">upload one</a> now.{% endblocktrans %}</p>
+    {% else %}
+        <form method="POST" action="{% url 'avatar_delete' %}">
+            <ul>
+                {{ delete_avatar_form.as_ul }}
+            </ul>
+            <p>{% csrf_token %}<input type="submit" value="{% trans "Delete These" %}" /></p>
+        </form>
+    {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
