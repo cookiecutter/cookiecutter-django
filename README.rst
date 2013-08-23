@@ -44,7 +44,7 @@ First, get cookiecutter. Trust me, it's awesome::
 
 Now run it against this repo::
 
-    $ cookiecutter https://github.com/pydanny/cookiecutter-dj-project.git
+    $ cookiecutter https://github.com/pydanny/cookiecutter-django.git
 
 You'll be prompted for some questions, answer them, then it will create a Django project for you.
 
@@ -53,7 +53,7 @@ You'll be prompted for some questions, answer them, then it will create a Django
 
 It prompts you for questions. Answer them::
 
-    Cloning into 'cookiecutter-dj-project'...
+    Cloning into 'cookiecutter-django'...
     remote: Counting objects: 49, done.
     remote: Compressing objects: 100% (33/33), done.
     remote: Total 49 (delta 6), reused 48 (delta 5)
