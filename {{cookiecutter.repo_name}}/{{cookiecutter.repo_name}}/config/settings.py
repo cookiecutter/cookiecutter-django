@@ -30,7 +30,7 @@ TEMPLATE_DEBUG = DEBUG
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Note: This key only used for development and testing.
-SECRET_KEY = "{{cookiecutter.secret_key}}"
+SECRET_KEY = "{{cookiecutter.secret_key()}}"
 ########## END SECRET CONFIGURATION
 
 
