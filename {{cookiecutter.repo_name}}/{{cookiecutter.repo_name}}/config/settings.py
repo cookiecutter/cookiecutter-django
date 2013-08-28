@@ -287,6 +287,12 @@ else:
     EMAIL_USE_TLS = True
     SERVER_EMAIL = EMAIL_HOST_USER
     ########## END EMAIL
+    
+    ########## CACHING
+    from memcacheify import memcacheify
+    CACHES = memcacheify()
+    ########## END CACHING
+
 
 ########## TEMPLATE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
@@ -356,11 +362,6 @@ LOGGING = {
     }
 }
 ########## END LOGGING CONFIGURATION
-
-########## CACHING
-from memcacheify import memcacheify
-CACHES = memcacheify()
-########## END CACHING
 
 
 ########## Your stuff: Below this line define 3rd party libary settings
