@@ -276,14 +276,14 @@ else:
     ########## END STORAGE CONFIGURATION
 
     ########## EMAIL
-    DEFAULT_FROM_EMAIL = environ.get('DEFAULT_FROM_EMAIL',
+    DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL',
             '{{cookiecutter.project_name}} <{{cookiecutter.project_name}}-noreply@{{cookiecutter.doman_name}}>')
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_HOST = environ.get('EMAIL_HOST', 'smtp.sendgrid.com')
+    EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.sendgrid.com')
     EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD', '')
     EMAIL_HOST_USER = os.environ.get('SENDGRID_USERNAME', '')
-    EMAIL_PORT = environ.get('EMAIL_PORT', 587)
-    EMAIL_SUBJECT_PREFIX = environ.get('EMAIL_SUBJECT_PREFIX', '[{{cookiecutter.project_name}}] ')
+    EMAIL_PORT = os.environ.get('EMAIL_PORT', 587)
+    EMAIL_SUBJECT_PREFIX = os.environ.get('EMAIL_SUBJECT_PREFIX', '[{{cookiecutter.project_name}}] ')
     EMAIL_USE_TLS = True
     SERVER_EMAIL = EMAIL_HOST_USER
     ########## END EMAIL
