@@ -17,6 +17,7 @@ Deployment
 * heroku config:add AWS_ACCESS_KEY_ID=YOUR_ID
 * heroku config:add AWS_SECRET_ACCESS_KEY=YOUR_KEY
 * heroku config:add AWS_STORAGE_BUCKET_NAME=BUCKET
+* heroku labs:enable user-env-compile
 * git push heroku master
 * heroku run python {{cookiecutter.repo_name}}/manage.py syncdb --noinput --settings=config.settings
 * heroku run python {{cookiecutter.repo_name}}/manage.py migrate --settings=config.settings
