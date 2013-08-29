@@ -110,7 +110,7 @@ MIDDLEWARE_CLASSES = (
 
 ########## STATIC FILE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = join(os.path.dirname(BASE_DIR), 'static')
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = '/static/'
