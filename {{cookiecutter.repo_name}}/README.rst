@@ -4,7 +4,7 @@
 {{cookiecutter.description}}
 
 
-LICENSE: MIT
+LICENSE: BSD
 
 Deployment
 ------------
