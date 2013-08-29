@@ -277,7 +277,7 @@ else:
 
     ########## EMAIL
     DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL',
-            '{{cookiecutter.project_name}} <{{cookiecutter.project_name}}-noreply@{{cookiecutter.doman_name}}>')
+            '{{cookiecutter.project_name}} <{{cookiecutter.project_name}}-noreply@{{cookiecutter.domain_name}}>')
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.sendgrid.com')
     EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD', '')
