@@ -31,7 +31,7 @@ git+git://github.com/jezdez/django-avatar@6393d25166a6c2d2df0bd28e19f161fac2bb11
 
 
 # django-crispy-forms with support for Bootstrap 3
-git+git://github.com/maraujop/django-crispy-forms@42c84a9b02d885de249c1d003c2e7ad031283c26
+django-crispy-forms==1.4.0
 
 
 # Your custom requirements go here
