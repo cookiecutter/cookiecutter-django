@@ -54,18 +54,19 @@ You'll be prompted for some questions, answer them, then it will create a Django
 It prompts you for questions. Answer them::
 
     Cloning into 'cookiecutter-django'...
-    remote: Counting objects: 49, done.
-    remote: Compressing objects: 100% (33/33), done.
-    remote: Total 49 (delta 6), reused 48 (delta 5)
-    Unpacking objects: 100% (49/49), done.
-    full_name (default is "Your full name here")? Daniel Greenfeld
-    email (default is "you@example.com")? pydanny@gmail.com
-    project_name (default is "dj-project")? redditclone
-    app_name (default is "djproject")? redditclone
-    project_short_description (default is "Your project description goes here")? A reddit clone.
-    release_date (default is "2013-08-15")? 2013-08-15
-    year (default is "2013")? 2013
-    version (default is "0.1.0")? 0.3.0
+    remote: Counting objects: 550, done.
+    remote: Compressing objects: 100% (310/310), done.
+    remote: Total 550 (delta 283), reused 479 (delta 222)
+    Receiving objects: 100% (550/550), 127.66 KiB | 58 KiB/s, done.
+    Resolving deltas: 100% (283/283), done.
+    project_name (default is "project_name")? redditclone
+    repo_name (default is "repo_name")? redditclone       
+    author_name (default is "Your Name")? Daniel Greenfeld
+    email (default is "Your email")? pydanny@gmail.com
+    description (default is "A short description of the project.")? A reddit clone.
+    year (default is "Current year")? 2013
+    domain_name (default is "Domain name")? 
+
 
 Enter the project and take a look around::
 
