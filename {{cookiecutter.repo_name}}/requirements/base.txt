@@ -1,17 +1,25 @@
 # Bleeding edge Django
 https://github.com/django/django/archive/1.6b1.tar.gz
 
-# Views, models, forms, and images fundamentals
-django-braces==1.2.2
-django-model-utils==1.4.0
-django-floppyforms==1.1
-Pillow==2.1.0
+# Configuration
 dj-database-url==0.2.2
+django-configurations==0.5.1
 django-secure==1.0
+
+# Forms
+django-braces==1.2.2
+django-crispy-forms==1.4.0
+django-floppyforms==1.1
+
+# Models
+django-model-utils==1.5.0
+
+# images
+Pillow==2.1.0
 
 # For user registration, either via email or social
 # Well-built with regular release cycles!
-django-allauth==0.12.0
+django-allauth==0.13.0
 
 # For the persistance stores
 psycopg2==2.5
@@ -28,10 +36,6 @@ https://bitbucket.org/andrewgodwin/south/get/59f6bae8b1a501ca14a5f23f8b11c44c42f
 # Useful things
 # django-avatar that work with Django 1.5+
 git+git://github.com/jezdez/django-avatar@6393d25166a6c2d2df0bd28e19f161fac2bb1166
-
-
-# django-crispy-forms with support for Bootstrap 3
-django-crispy-forms==1.4.0
 
 
 # Your custom requirements go here
