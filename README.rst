@@ -84,12 +84,29 @@ Create a GitHub repo and push it there::
 Now take a look at your repo. Awesome, right?
 
 It's time to write the code!!!
-    
+
 
 "Your Stuff"
 -------------
 
 Scattered throughout the Python and HTML of this project are places marked with "your stuff". This is where third-party libraries are to be integrated with your project.
+
+Releases
+--------
+
+Want a stable release? You can find them at https://github.com/pydanny/cookiecutter-django/releases
+
+**note**: Cookiecutter won't support tagged releases until 0.7.0 comes out, which should be any day! Which means, if you want to use a 
+tagged release of cookiecutter-django, then you have to install Cookiecutter directly from GitHub. To do that, follow these steps:
+
+1. Enter your virtualenv.
+2. Run these commands:
+
+.. code-block:: bash
+    
+    (cookiecutter) $ git clone https://github.com/audreyr/cookiecutter.git
+    (cookiecutter) cd cookiecutter
+    (cookiecutter) python setup.py develop
 
 
 Not Exactly What You Want?
