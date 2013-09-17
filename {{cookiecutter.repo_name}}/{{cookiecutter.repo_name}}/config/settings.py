@@ -13,71 +13,70 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 import os
 from os.path import join
 
-import dj_database_url
+# See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
+try:
+    from S3 import CallingFormat
+    AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
+except ImportError:
+    # TODO: Fix this where even if in Dev this class is called.
+    pass
+
 from configurations import Configuration, values
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-########## APP CONFIGURATION
-DJANGO_APPS = (
-    # Default Django apps:
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-
-    # Useful template tags:
-    # 'django.contrib.humanize',
-
-    # Admin
-    'django.contrib.admin',
-)
-THIRD_PARTY_APPS = (
-    'south',  # Database migration helpers:
-    'crispy_forms',  # Form layouts
-    'avatar',  # for user avatars
-)
-
-# Apps specific for this project go here.
-LOCAL_APPS = (
-    'users',  # custom users app
-    # Your stuff: custom apps go here
-)
-
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
-
-INSTALLED_APPS += (
-    # Needs to come last for now because of a weird edge case between
-    #   South and allauth
-    'allauth',  # registration
-    'allauth.account',  # registration
-    'allauth.socialaccount',  # registration
-)
-########## END APP CONFIGURATION
-
-########## MIDDLEWARE CONFIGURATION
-MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-)
-########## END MIDDLEWARE CONFIGURATION
-
 
 class Common(Configuration):
 
-    ########## INSTALLED_APPS
-    INSTALLED_APPS = INSTALLED_APPS
-    ########## END INSTALLED_APPS
+    ########## APP CONFIGURATION
+    DJANGO_APPS = (
+        # Default Django apps:
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.sites',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+
+        # Useful template tags:
+        # 'django.contrib.humanize',
+
+        # Admin
+        'django.contrib.admin',
+    )
+    THIRD_PARTY_APPS = (
+        'south',  # Database migration helpers:
+        'crispy_forms',  # Form layouts
+        'avatar',  # for user avatars
+    )
+
+    # Apps specific for this project go here.
+    LOCAL_APPS = (
+        'users',  # custom users app
+        # Your stuff: custom apps go here
+    )
+
+    # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
+    INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+
+    INSTALLED_APPS += (
+        # Needs to come last for now because of a weird edge case between
+        #   South and allauth
+        'allauth',  # registration
+        'allauth.account',  # registration
+        'allauth.socialaccount',  # registration
+    )
+    ########## END APP CONFIGURATION
 
     ########## MIDDLEWARE CONFIGURATION
-    MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES
+    MIDDLEWARE_CLASSES = (
+        'django.contrib.sessions.middleware.SessionMiddleware',
+        'django.middleware.common.CommonMiddleware',
+        'django.middleware.csrf.CsrfViewMiddleware',
+        'django.contrib.auth.middleware.AuthenticationMiddleware',
+        'django.contrib.messages.middleware.MessageMiddleware',
+        'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    )
     ########## END MIDDLEWARE CONFIGURATION
 
     ########## DEBUG
@@ -115,7 +114,7 @@ class Common(Configuration):
     ########## DATABASE CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-    DATABASES = {'default': dj_database_url.config()}
+    DATABASES = {'default': values.DatabaseURLValue()}
     if DATABASES == {'default': {}}:
         DATABASES = {
             'default': {
@@ -131,7 +130,7 @@ class Common(Configuration):
     CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': 'unique-snowflake'
+        'LOCATION': ''
         }
     }
     ########## END CACHING
@@ -193,25 +192,6 @@ class Common(Configuration):
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-url
     MEDIA_URL = '/media/'
     ########## END MEDIA CONFIGURATION
-
-    ########## STATIC FILE CONFIGURATION
-    # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-    STATIC_ROOT = 'staticfiles'
-
-    # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-    STATIC_URL = '/static/'
-
-    # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
-    STATICFILES_DIRS = (
-        join(BASE_DIR, 'static'),
-    )
-
-    # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
-    STATICFILES_FINDERS = (
-        'django.contrib.staticfiles.finders.FileSystemFinder',
-        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    )
-    ########## END STATIC FILE CONFIGURATION
 
     ########## URL Configuration
     ROOT_URLCONF = 'config.urls'
@@ -281,7 +261,7 @@ class Common(Configuration):
 class Local(Common):
 
     ########## INSTALLED_APPS
-    INSTALLED_APPS = INSTALLED_APPS
+    INSTALLED_APPS = Common.INSTALLED_APPS
     ########## END INSTALLED_APPS
 
     ########## Mail settings
@@ -290,7 +270,7 @@ class Local(Common):
     ########## End mail settings
 
     ########## django-debug-toolbar
-    MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
+    MIDDLEWARE_CLASSES = Common.MIDDLEWARE_CLASSES + ('debug_toolbar.middleware.DebugToolbarMiddleware',)
     INSTALLED_APPS += ('debug_toolbar',)
 
     INTERNAL_IPS = ('127.0.0.1',)
@@ -300,6 +280,25 @@ class Local(Common):
         'SHOW_TEMPLATE_CONTEXT': True,
     }
     ########## end django-debug-toolbar
+    
+    ########## STATIC FILE CONFIGURATION
+    # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
+    STATIC_ROOT = 'staticfiles'
+
+    # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
+    STATIC_URL = '/static/'
+
+    # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
+    STATICFILES_DIRS = (
+        join(BASE_DIR, 'static'),
+    )
+
+    # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
+    STATICFILES_FINDERS = (
+        'django.contrib.staticfiles.finders.FileSystemFinder',
+        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    )
+    ########## END STATIC FILE CONFIGURATION
 
     ########## Your local stuff: Below this line define 3rd party libary settings
 
@@ -307,7 +306,7 @@ class Local(Common):
 class Production(Common):
 
     ########## INSTALLED_APPS
-    INSTALLED_APPS = INSTALLED_APPS
+    INSTALLED_APPS = Common.INSTALLED_APPS
     ########## END INSTALLED_APPS
 
     ########## SECRET KEY
@@ -344,14 +343,6 @@ class Production(Common):
 
     # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
     STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-
-    # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
-    try:
-        from S3 import CallingFormat
-        AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
-    except ImportError:
-        # TODO: Fix this where even if in Dev this class is called.
-        pass
 
     # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
     AWS_ACCESS_KEY_ID = values.SecretValue()
@@ -397,8 +388,7 @@ class Production(Common):
 
     ########## CACHING
     # Only do this here because thanks to django-pylibmc-sasl and pylibmc memcacheify is painful to install on windows.
-    from memcacheify import memcacheify
-    CACHES = memcacheify()
+    CACHES = values.CacheURLValue()
     ########## END CACHING
 
     ########## Your production stuff: Below this line define 3rd party libary settings

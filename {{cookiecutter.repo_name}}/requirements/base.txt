@@ -2,7 +2,6 @@
 https://github.com/django/django/archive/1.6b1.tar.gz
 
 # Configuration
-dj-database-url==0.2.2
 django-configurations==0.5.1
 django-secure==1.0
 
