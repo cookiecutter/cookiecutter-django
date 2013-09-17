@@ -114,7 +114,7 @@ class Common(Configuration):
     ########## DATABASE CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-    DATABASES = {'default': values.DatabaseURLValue()}
+    DATABASES = values.DatabaseURLValue()
     if DATABASES == {'default': {}}:
         DATABASES = {
             'default': {

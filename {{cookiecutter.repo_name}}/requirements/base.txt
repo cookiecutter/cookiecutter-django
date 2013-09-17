@@ -4,6 +4,8 @@ https://github.com/django/django/archive/1.6b4.tar.gz
 # Configuration
 django-configurations==0.5.1
 django-secure==1.0
+django-cache-url==0.6.0
+dj-database-url==0.2.2
 
 # Forms
 django-braces==1.2.2
