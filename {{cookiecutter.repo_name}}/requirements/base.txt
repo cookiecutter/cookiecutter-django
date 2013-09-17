@@ -1,5 +1,5 @@
 # Bleeding edge Django
-https://github.com/django/django/archive/1.6b1.tar.gz
+https://github.com/django/django/archive/1.6b4.tar.gz
 
 # Configuration
 django-configurations==0.5.1
