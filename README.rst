@@ -77,7 +77,7 @@ Create a GitHub repo and push it there::
 
     $ git init
     $ git add .
-    $ git commit -m "first awesome commit!"
+    $ git commit -m "first awesome commit"
     $ git remote add origin git@github.com:pydanny/redditclone.git
     $ git push -u origin master
 
