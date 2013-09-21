@@ -33,6 +33,8 @@ django-autoslug==1.7.1
 # South==0.8.1
 https://bitbucket.org/andrewgodwin/south/get/59f6bae8b1a501ca14a5f23f8b11c44c42f33147.zip
 
+# The ever necessary HAMLpy
+hamlpy==0.82.2
 
 # Useful things
 # django-avatar that work with Django 1.5+
