@@ -1,3 +1,6 @@
+Code Contributors
+=================
+
 Daniel Greenfeld
 a7p
 Lukas Klein
@@ -5,3 +8,12 @@ Ben Lopatin
 Bouke Haarsma
 Agam Dua
 Vitaly Babiy
+Jim Monroe
+
+Special Thanks
+==============
+
+The following haven't provided code directly, but have provided guidance and advice.
+
+Audrey Roy (cookiecutter)
+Jannis Leidel (django-configurations)
