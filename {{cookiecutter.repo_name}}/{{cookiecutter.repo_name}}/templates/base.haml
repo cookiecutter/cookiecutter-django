@@ -1,0 +1,79 @@
+{% load staticfiles i18n %}
+!!!
+// TODO: find the right way for implementing ng-app to html using hamlpy
+<html 'lang'='en' ng-app>
+  %head
+    %meta{charset: "utf-8"}
+    %title
+       - block title 
+          {{ project_name }}
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
+    %meta{content: "", name: "description"}
+    %meta{content: "", name: "author"}
+
+
+    / HTML5 shim, for IE6-8 support of HTML5 elements
+    /[if lt IE 9]
+      %script{src: "http://html5shim.googlecode.com/svn/trunk/html5.js"}
+
+    - block css
+      / Latest compiled and minified CSS
+      %link{href: "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css", rel: "stylesheet"}/
+     
+      / Optional theme
+      %link{href: "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css", rel: "stylesheet"}/
+     
+      / Your stuff: Third-party css libraries go here
+      / This file store project specific CSS
+      %link{href: "{% static 'css/project.css' %}", rel: "stylesheet"}/
+
+
+
+    - block angular
+      %script{src: "//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"}
+
+  %body
+    .header.navbar
+      .container
+        %a.navbar-brand{href: "/"} 
+          {{cookiecutter.repo_name}}
+        %ul.nav.navbar-nav
+          %li.active
+            %a{href: "{% url 'home' %}"} Home
+          %li
+            %a{href: "{% url 'about' %}"} About
+          - if request.user.is_authenticated
+            %li
+              %a{href: "{% url 'users:detail' request.user.username  %}"} 
+                {% trans "My Profile" %}
+            %li
+              %a{href: "{% url 'account_logout' %}"} 
+                {% trans "Logout" %}
+            {% else %}
+            %li
+              %a{href: "{% url 'account_signup' %}"} 
+                {% trans "Sign Up" %}
+            %li
+              %a{href: "{% url 'account_login' %}"} 
+                {% trans "Log In" %}
+
+
+
+    .container
+      - block content
+        %p Use this document as a way to quick start any new project.
+    
+    - block modal
+
+    / Placed at the end of the document so the pages load faster
+    - block javascript
+      / Latest JQuery
+      %script{src: "//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"}
+      
+      / Latest compiled and minified JavaScript
+      %script{src: "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"}
+      
+      / Your stuff: Third-party javascript libraries go here
+      / place project specific Javascript in this file
+      %script{src: "{% static 'js/project.js' %}"}
+</html>
