@@ -20,7 +20,6 @@ Deployment
 * heroku config:add DJANGO_AWS_ACCESS_KEY_ID=YOUR_ID
 * heroku config:add DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_KEY
 * heroku config:add DJANGO_AWS_STORAGE_BUCKET_NAME=BUCKET
-* heroku config:add CACHE_URL=memcached://127.0.0.1:11211
 * git push heroku master
 * heroku run python {{cookiecutter.repo_name}}/manage.py syncdb --noinput --settings=config.settings
 * heroku run python {{cookiecutter.repo_name}}/manage.py migrate --settings=config.settings
