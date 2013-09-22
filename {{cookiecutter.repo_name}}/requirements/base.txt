@@ -13,8 +13,10 @@ django-crispy-forms==1.4.0
 django-floppyforms==1.1
 
 # Models
-django-model-utils==1.5.0
 South==0.8.2
+# hack so django-model-utils doesn't override Django 1.6b4 install
+git+git://github.com/pydanny/django-model-utils@d71bf2db7581d91dcc8e0a66fd4859eb8969d256
+
 
 # images
 Pillow==2.1.0
