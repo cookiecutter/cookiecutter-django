@@ -169,6 +169,8 @@ class Common(Configuration):
     )
 
     TEMPLATE_LOADERS = (
+            'hamlpy.template.loaders.HamlPyFilesystemLoader',
+            'hamlpy.template.loaders.HamlPyAppDirectoriesLoader',
             'django.template.loaders.filesystem.Loader',
             'django.template.loaders.app_directories.Loader',
         )
