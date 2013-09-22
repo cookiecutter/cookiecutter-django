@@ -14,6 +14,7 @@ django-floppyforms==1.1
 
 # Models
 django-model-utils==1.5.0
+South==0.8.2
 
 # images
 Pillow==2.1.0
@@ -28,10 +29,6 @@ psycopg2==2.5
 # Unicode slugification
 unicode-slugify==0.1.1
 django-autoslug==1.7.1  
-
-# There are edge cases for South with Django 1.5+ that haven't been addressed yet.
-# South==0.8.1
-https://bitbucket.org/andrewgodwin/south/get/59f6bae8b1a501ca14a5f23f8b11c44c42f33147.zip
 
 # Useful things
 django-avatar==2.0
