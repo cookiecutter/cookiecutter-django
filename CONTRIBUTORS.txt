@@ -1,14 +1,16 @@
 Code Contributors
 =================
 
-Daniel Greenfeld
+Daniel Greenfeld*
 a7p
 Lukas Klein
 Ben Lopatin
 Bouke Haarsma
 Agam Dua
 Vitaly Babiy
-Jim Munro
+Jim Munro*
+
+* Possesses commit rights
 
 Special Thanks
 ==============
