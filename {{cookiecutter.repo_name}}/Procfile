@@ -1,1 +1,1 @@
-web: gunicorn {{cookiecutter.repo_name}}/config/wsgi.py
+web: gunicorn --pythonpath="$PWD/{{cookiecutter.repo_name}}" config.wsgi:application
