@@ -177,6 +177,25 @@ class Common(Configuration):
     CRISPY_TEMPLATE_PACK = 'bootstrap3'
     ########## END TEMPLATE CONFIGURATION
 
+    ########## STATIC FILE CONFIGURATION
+    # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
+    STATIC_ROOT = 'staticfiles'
+
+    # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
+    STATIC_URL = '/static/'
+
+    # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
+    STATICFILES_DIRS = (
+        join(BASE_DIR, 'static'),
+    )
+
+    # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
+    STATICFILES_FINDERS = (
+        'django.contrib.staticfiles.finders.FileSystemFinder',
+        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    )
+    ########## END STATIC FILE CONFIGURATION
+
     ########## MEDIA CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
     MEDIA_ROOT = join(BASE_DIR, 'media')
@@ -273,25 +292,6 @@ class Local(Common):
     }
     ########## end django-debug-toolbar
 
-    ########## STATIC FILE CONFIGURATION
-    # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-    STATIC_ROOT = 'staticfiles'
-
-    # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-    STATIC_URL = '/static/'
-
-    # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
-    STATICFILES_DIRS = (
-        join(BASE_DIR, 'static'),
-    )
-
-    # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
-    STATICFILES_FINDERS = (
-        'django.contrib.staticfiles.finders.FileSystemFinder',
-        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    )
-    ########## END STATIC FILE CONFIGURATION
-
     ########## Your local stuff: Below this line define 3rd party libary settings
 
 
@@ -310,13 +310,13 @@ class Production(Common):
 
     # set this to 60 seconds and then to 518400 when you can prove it works
     SECURE_HSTS_SECONDS = 60
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_FRAME_DENY = True
-    SECURE_CONTENT_TYPE_NOSNIFF = True
-    SECURE_BROWSER_XSS_FILTER = True
-    SESSION_COOKIE_SECURE = True
-    SESSION_COOKIE_HTTPONLY = True
-    SECURE_SSL_REDIRECT = True
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = values.BooleanValue(True)
+    SECURE_FRAME_DENY = values.BooleanValue(True)
+    SECURE_CONTENT_TYPE_NOSNIFF = values.BooleanValue(True)
+    SECURE_BROWSER_XSS_FILTER = values.BooleanValue(True)
+    SESSION_COOKIE_SECURE = values.BooleanValue(True)
+    SESSION_COOKIE_HTTPONLY = values.BooleanValue(True)
+    SECURE_SSL_REDIRECT = values.BooleanValue(True)
     ########## end django-secure
 
     ########## SITE CONFIGURATION
