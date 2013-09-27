@@ -42,55 +42,41 @@ Add pgbackups to handle backups of the PostgreSQL database::
 
 Add sendgrid to handle the sending of emails::
 
-.. code-block:: bash
-
 	$ heroku addons:add sendgrid:starter
 	Adding sendgrid:starter on {{cookiecutter.project_name}}... done, v5 (free)
 	Use `heroku addons:docs sendgrid` to view documentation.
 
 Add memcachier for memcached service::
 
-.. code-block:: bash
-
 	$ heroku addons:add memcachier:dev
 	Adding memcachier:dev on {{cookiecutter.project_name}}... done, v7 (free)
 	MemCachier is now up and ready to go. Happy bananas!
 	Use `heroku addons:docs memcachier` to view documentation.
 
-Promote the database you just created. Please note that your database might be called something other than "GOLD".
-
-.. code-block:: bash
+Promote the database you just created. Please note that your database might be called something other than "GOLD"::
 
 	$ heroku pg:promote HEROKU_POSTGRESQL_GOLD
 	Promoting HEROKU_POSTGRESQL_GOLD_URL to DATABASE_URL... done
 
-Set the DJANGO_CONFIGURATION environment variable so that Heroku knows we're in production.
-
-.. code-block:: bash
+Set the DJANGO_CONFIGURATION environment variable so that Heroku knows we're in production::
 
 	$ heroku config:add DJANGO_CONFIGURATION=Production
 	Setting config vars and restarting {{cookiecutter.project_name}}... done, v8
 	DJANGO_CONFIGURATION: Production
 
-Don't forget to replace the secret key with a random string.
-
-.. code-block:: bash
+Don't forget to replace the secret key with a random string::
 
 	$ heroku config:add DJANGO_SECRET_KEY='!!!REPLACE-ME!!!'
 	Setting config vars and restarting {{cookiecutter.project_name}}... done, v9
 	DJANGO_SECRET_KEY: abcdefghijklmnopqrstuvwxyz
 
-If you're using AWS S3 to serve up static assets, then you need to set these values.
-
-.. code-block:: bash
+If you're using AWS S3 to serve up static assets, then you need to set these values::
 
 	$ heroku config:add DJANGO_AWS_ACCESS_KEY_ID=YOUR_ID
 	$ heroku config:add DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_KEY
 	$ heroku config:add DJANGO_AWS_STORAGE_BUCKET_NAME=BUCKET
 
-Commit all the files in your project, and now we're finally ready to push the code to Heroku!
-
-.. code-block:: bash
+Commit all the files in your project, and now we're finally ready to push the code to Heroku!::
 
 	$ git commit -a
 	$ git push heroku master
@@ -119,6 +105,8 @@ Commit all the files in your project, and now we're finally ready to push the co
 
 	To git@heroku.com:{{cookiecutter.project_name}}.git
 	 * [new branch]      master -> master
+
+Run the syncdb, migrate and collectstatic Django management commands::
 
 	$ heroku run python {{cookiecutter.repo_name}}/manage.py syncdb --noinput --settings=config.settings
 	$ heroku run python {{cookiecutter.repo_name}}/manage.py migrate --settings=config.settings
