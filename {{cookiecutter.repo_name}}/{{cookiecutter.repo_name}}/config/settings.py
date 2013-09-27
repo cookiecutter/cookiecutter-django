@@ -284,6 +284,13 @@ class Local(Common):
         join(BASE_DIR, '..', 'static'),
     )
 
+    # as recommended on # https://devcenter.heroku.com/articles/django-assets
+    # PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
+
+    # STATICFILES_DIRS = (
+    #     join(PROJECT_PATH, 'static'),
+    # )
+
     # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
     STATICFILES_FINDERS = (
         'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -326,46 +333,63 @@ class Production(Common):
 
     INSTALLED_APPS += ("gunicorn", )
 
-    try: # serve static assets using S3
-        # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
-        AWS_ACCESS_KEY_ID = values.SecretValue()
-        AWS_SECRET_ACCESS_KEY = values.SecretValue()
-        AWS_STORAGE_BUCKET_NAME = values.SecretValue()
-        AWS_AUTO_CREATE_BUCKET = True
-        AWS_QUERYSTRING_AUTH = False
+    ########## STATIC FILE CONFIGURATION
+    # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
+    STATIC_ROOT = 'staticfiles'
 
-        # AWS cache settings, don't change unless you know what you're doing:
-        AWS_EXPIREY = 60 * 60 * 24 * 7
-        AWS_HEADERS = {
-            'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIREY,
-                AWS_EXPIREY)
-        }
+    # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
+    STATIC_URL = '/static/'
 
-        ########## STORAGE CONFIGURATION
-        # See: http://django-storages.readthedocs.org/en/latest/index.html
-        INSTALLED_APPS += (
-            'storages',
-        )
+    # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
+    STATICFILES_DIRS = (
+        join(BASE_DIR, '..', 'static'),
+    )
 
-        # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
-        STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    # as recommended on # https://devcenter.heroku.com/articles/django-assets
+    # PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 
-        # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-        STATIC_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+    # STATICFILES_DIRS = (
+    #     join(PROJECT_PATH, 'static'),
+    # )
 
-        # TODO: check that this actually works
-        MEDIA_URL = 'https://s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
+    # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
+    STATICFILES_FINDERS = (
+        'django.contrib.staticfiles.finders.FileSystemFinder',
+        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    )
+    
+    # TODO: check to see if AWS keys are set and if they are, serve static assets using S3
+    # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
+    # AWS_ACCESS_KEY_ID = values.SecretValue()
 
-        ########## END STORAGE CONFIGURATION
-    except: # serve static assets using wsgi
-        PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
-        STATIC_ROOT = 'staticfiles'
-        STATIC_URL = '/static/'
+    # AWS_SECRET_ACCESS_KEY = values.SecretValue()
+    # AWS_STORAGE_BUCKET_NAME = values.SecretValue()
+    # AWS_AUTO_CREATE_BUCKET = True
+    # AWS_QUERYSTRING_AUTH = False
 
-        STATICFILES_DIRS = (
-            join(PROJECT_PATH, 'static'),
-        )
+    # # AWS cache settings, don't change unless you know what you're doing:
+    # AWS_EXPIREY = 60 * 60 * 24 * 7
+    # AWS_HEADERS = {
+    #     'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIREY,
+    #         AWS_EXPIREY)
+    # }
 
+    # ########## STORAGE CONFIGURATION
+    # # See: http://django-storages.readthedocs.org/en/latest/index.html
+    # INSTALLED_APPS += (
+    #     'storages',
+    # )
+
+    # # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
+    # STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+    # # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
+    # STATIC_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+
+    # # TODO: check that this actually works
+    # MEDIA_URL = 'https://s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
+
+    ########## END STORAGE CONFIGURATION
 
     ########## EMAIL
     DEFAULT_FROM_EMAIL = values.Value(
