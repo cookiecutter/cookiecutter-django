@@ -13,11 +13,11 @@ If you haven't cloned the project from an existing git repo, then you need to in
 	$ git init
 	Initialized empty Git repository in /path/to/your/project/{{cookiecutter.repo_name}}/.git/
 
-Add the Heroku git repo as a remote, so that we can push to it.
+Add the Heroku git repo as a remote, so that we can push to it::
 
 	$ git remote add heroku git@heroku.com:{{cookiecutter.project_name}}.git
 
-Add a PostgreSQL database. Note that you will probably get a color other than "GOLD". This is normal.
+Add a PostgreSQL database. Note that you will probably get a color other than "GOLD". This is normal::
 
 	$ heroku addons:add heroku-postgresql:dev
 	Adding heroku-postgresql:dev on {{cookiecutter.project_name}}... done, v3 (free)
