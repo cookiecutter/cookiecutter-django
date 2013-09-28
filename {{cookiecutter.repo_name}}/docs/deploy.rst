@@ -1,28 +1,23 @@
 Deploy
 ========
 
-From within your project's directory, run these commands to deploy the project to Heroku::
-
-.. code-block:: bash
+From within your project's directory, run this command to create a Heroku app::
 
 	$ heroku create {{cookiecutter.project_name}}
 	Creating {{cookiecutter.project_name}}... done, stack is cedar
 	http://{{cookiecutter.project_name}}.herokuapp.com/ | git@heroku.com:{{cookiecutter.project_name}}.git
 
-	$ git init
-	Initialized empty Git repository in /path/to/your/project/{{cookiecutter.project_name}}/.git/
+If you haven't cloned the project from an existing git repo, then you need to initialize it::
 
+	$ cd {{cookiecutter.repo_name}}
+	$ git init
+	Initialized empty Git repository in /path/to/your/project/{{cookiecutter.repo_name}}/.git/
 
 Add the Heroku git repo as a remote, so that we can push to it.
 
-.. code-block:: bash
-
 	$ git remote add heroku git@heroku.com:{{cookiecutter.project_name}}.git
 
-
 Add a PostgreSQL database. Note that you will probably get a color other than "GOLD". This is normal.
-
-.. code-block:: bash
 
 	$ heroku addons:add heroku-postgresql:dev
 	Adding heroku-postgresql:dev on {{cookiecutter.project_name}}... done, v3 (free)
@@ -32,8 +27,6 @@ Add a PostgreSQL database. Note that you will probably get a color other than "G
  	! data from another database with pgbackups:restore.
 
 Add pgbackups to handle backups of the PostgreSQL database::
-
-.. code-block:: bash
 
 	$ heroku addons:add pgbackups
 	Adding pgbackups on {{cookiecutter.project_name}}... done, v4 (free)
