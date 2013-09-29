@@ -124,7 +124,11 @@ TODO: Explain how to serve static files with dj-static_.
 
 .. _dj-static: https://github.com/kennethreitz/dj-static
 
-Run this script: (TODO - automate this)
+Open up a django shell on your heroku instance::
+
+	$ heroku run python {{cookiecutter.repo_name}}/manage.py shell --settings=config.settings
+
+Run the following lines of code from within that shell: (TODO - automate this)
 
 .. code-block:: python
 
