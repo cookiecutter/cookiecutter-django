@@ -46,6 +46,21 @@ Add memcachier for memcached service::
 	MemCachier is now up and ready to go. Happy bananas!
 	Use `heroku addons:docs memcachier` to view documentation.
 
+Look up the name of your database. You should have gotten the name as part of the feedback when you created the
+database, but just in case you lost that record::
+
+	$ heroku pg
+	=== HEROKU_POSTGRESQL_GOLD_URL (DATABASE_URL)
+	Plan:        Dev
+	Status:      available
+	Connections: 1
+	PG Version:  9.2.4
+	Created:     2013-09-29 02:00 UTC
+	Data Size:   6.3 MB
+	Tables:      0
+	Rows:        0/10000 (In compliance)
+	Fork/Follow: Unsupported
+
 Promote the database you just created. Please note that your database might be called something other than "GOLD"::
 
 	$ heroku pg:promote HEROKU_POSTGRESQL_GOLD
