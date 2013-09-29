@@ -85,7 +85,7 @@ Now take a look at your repo. Awesome, right?
 
 If you check out your new application, you will see that you can find documentation in the "docs" directory that explains everything about your app as it exists in its initial cookiecutter state, including how to deploy it. 
 
-If you want to read the documentation from your browser instead of a text editing window, you'll have to compile it first. First, make sure that you have all of the local packages that you need (including the ones you need to generate this documentation) by running "pip install -r requirements/local.txt". Go into the docs directory and run "make html". That will generate html from the .rst files. If you point your browser to your local variant of "/path/to/my_cookiecutter_project/docs/_build/html/index.html".
+If you want to read the documentation from your browser instead of a text editing window, you'll have to compile it first. First, make sure that you have all of the local packages that you need (including the ones you need to generate this documentation) by running "pip install -r requirements/local.txt". Go into the docs directory and run "make html". That will generate html from the .rst files. Point your browser to your local variant of "/path/to/my_cookiecutter_project/docs/_build/html/index.html".
 
 So, you now have a simple django application. Go forth and code!
 
