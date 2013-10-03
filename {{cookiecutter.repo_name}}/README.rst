@@ -29,12 +29,3 @@ Run these commands to deploy the project to Heroku:
     heroku run python {{cookiecutter.repo_name}}/manage.py migrate --settings=config.settings
     heroku run python {{cookiecutter.repo_name}}/manage.py collectstatic --settings=config.settings
 
-Run this script: (TODO - automate this)
-
-.. code-block:: python
-
-    from django.contrib.sites.models import Site
-    site = Site.objects.get()
-    site.domain = "{{cookiecutter.domain_name}}"
-    site.name = "{{cookiecutter.project_name}}"
-    site.save()
