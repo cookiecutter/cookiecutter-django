@@ -100,6 +100,10 @@ class Common(Configuration):
         join(BASE_DIR, 'fixtures'),
     )
     ########## END FIXTURE CONFIGURATION
+    
+    ########## EMAIL CONFIGURATION
+    EMAIL_BACKEND = values.Value('django.core.mail.backends.smtp.EmailBackend')
+    ########## END EMAIL CONFIGURATION
 
     ########## MANAGER CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
@@ -357,7 +361,6 @@ class Production(Common):
     ########## EMAIL
     DEFAULT_FROM_EMAIL = values.Value(
             '{{cookiecutter.project_name}} <{{cookiecutter.project_name}}-noreply@{{cookiecutter.domain_name}}>')
-    EMAIL_BACKEND = values.Value('django.core.mail.backends.smtp.EmailBackend')
     EMAIL_HOST = values.Value('smtp.sendgrid.com')
     EMAIL_HOST_PASSWORD = values.SecretValue(environ_prefix="", environ_name="SENDGRID_PASSWORD")
     EMAIL_HOST_USER = values.SecretValue(environ_prefix="", environ_name="SENDGRID_USERNAME")
