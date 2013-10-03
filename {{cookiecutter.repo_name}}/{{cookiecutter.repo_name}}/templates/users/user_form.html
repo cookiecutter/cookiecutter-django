@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1>{% block header %}User: {{ user.username }}{% endblock %}</h1>
-            <form class="form-horizontal" method="post" action="">
+            <form class="form-horizontal" method="post" action="{% url 'users:update' %}">
                 {% csrf_token %}
                 {{ form|crispy }}
                 <div class="control-group">
