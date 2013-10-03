@@ -9,6 +9,7 @@ Bouke Haarsma
 Agam Dua
 Vitaly Babiy
 Jim Munro*
+Tom Offermann
 
 * Possesses commit rights
 
