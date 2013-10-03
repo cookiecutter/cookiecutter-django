@@ -1,1 +1,1 @@
-web: python {{cookiecutter.repo_name}}/manage.py run_gunicorn --settings=config.settings -b "0.0.0.0:$PORT" -w 3
+web: gunicorn --pythonpath="$PWD/{{cookiecutter.repo_name}}" config.wsgi:application
