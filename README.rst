@@ -8,7 +8,7 @@ A cookiecutter_ template for Django.
 Features
 ---------
 
-* Cutting edge: For Django 1.6 and other bleeding edge stuff
+* Cutting edge: For Django 1.5 and other bleeding edge stuff
 * Twitter Bootstrap 3
 * AngularJS
 * Registration via django-allauth
@@ -24,13 +24,6 @@ Constraints
 * PostgreSQL everywhere
 * Environment variables for configuration (This won't work with Apache/mod_wsgi)
 
-Caution: Bleeding Edge Requirements
-------------------------------------
-
-The cookiecutter-django project is bleeding edge in that it uses unreleased versions of several packages like Django,
-South, django-crispy-forms, django-avatar, and more. 
-
-Consider yourself warned.
 
 Usage
 ------
