@@ -2,7 +2,7 @@
 <html lang="en" ng-app>
   <head>
     <meta charset="utf-8">
-    <title>{% block title %}{{ project_name }}{% endblock title %}</title>
+    <title>{% block title %}{% endraw %}{{ cookiecutter.project_name }}{% raw %}{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -35,7 +35,7 @@
 
     <div class="header navbar">
       <div class="container">
-        <a class="navbar-brand" href="/">{{cookiecutter.repo_name}}</a>
+        <a class="navbar-brand" href="/">{% endraw %}{{ cookiecutter.repo_name }}{% raw %}</a>
         <ul class="nav navbar-nav">
           <li class="active"><a href="{% url 'home' %}">Home</a></li>
           <li><a href="{% url 'about' %}">About</a></li>
