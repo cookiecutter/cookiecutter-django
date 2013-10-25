@@ -11,6 +11,7 @@ Features
 * Cutting edge: For Django 1.6 and other bleeding edge stuff
 * Twitter Bootstrap 3
 * AngularJS
+* Settings management via django-configurations
 * Registration via django-allauth
 * User avatars via django-avatar
 * Procfile for deploying to Heroku
@@ -22,13 +23,12 @@ Constraints
 
 * Only maintained 3rd party libraries are used.
 * PostgreSQL everywhere
-* Environment variables for configuration (This won't work with Apache/mod_wsgi)
+* Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
 Caution: Bleeding Edge Requirements
 ------------------------------------
 
-The cookiecutter-django project is bleeding edge in that it uses unreleased versions of several packages like Django,
-South, django-crispy-forms, django-avatar, and more. 
+The cookiecutter-django project is bleeding edge in that it uses the Django 1.6c1 release candidate. 
 
 Consider yourself warned.
 
@@ -81,7 +81,7 @@ Create a GitHub repo and push it there::
     $ git remote add origin git@github.com:pydanny/redditclone.git
     $ git push -u origin master
 
-Now take a look at your repo. Awesome, right?
+Now take a look at your repo. Don't forget to carefully look at the generated README. Awesome, right?
 
 It's time to write the code!!!
 
