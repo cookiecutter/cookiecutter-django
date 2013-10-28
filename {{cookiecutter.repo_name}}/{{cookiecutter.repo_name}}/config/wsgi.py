@@ -26,7 +26,12 @@ os.environ.setdefault("DJANGO_CONFIGURATION", "Local")
 # file. This includes Django's development server, if the WSGI_APPLICATION
 # setting points here.
 from configurations.wsgi import get_wsgi_application
-application = get_wsgi_application()
+
+# serve static assets using wsgi
+# https://devcenter.heroku.com/articles/django-assets
+from dj_static import Cling
+
+application = Cling(get_wsgi_application())
 
 # Apply WSGI middleware here.
 # from helloworld.wsgi import HelloWorldApplication

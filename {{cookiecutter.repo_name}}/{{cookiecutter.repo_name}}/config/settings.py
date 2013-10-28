@@ -133,7 +133,7 @@ class Common(Configuration):
 
     ########## GENERAL CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#time-zone
-    TIME_ZONE = 'America/Los_Angeles'
+    TIME_ZONE = 'America/New_York'
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
     LANGUAGE_CODE = 'en-us'
@@ -280,8 +280,7 @@ class Local(Common):
     ########## END INSTALLED_APPS
 
     ########## Mail settings
-    EMAIL_HOST = "localhost"
-    EMAIL_PORT = 1025
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     ########## End mail settings
 
     ########## django-debug-toolbar
@@ -295,6 +294,32 @@ class Local(Common):
         'SHOW_TEMPLATE_CONTEXT': True,
     }
     ########## end django-debug-toolbar
+
+    ########## STATIC FILE CONFIGURATION
+    # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
+    STATIC_ROOT = 'staticfiles'
+
+    # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
+    STATIC_URL = '/static/'
+
+    # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
+    STATICFILES_DIRS = (
+        join(BASE_DIR, '..', 'static'),
+    )
+
+    # as recommended on # https://devcenter.heroku.com/articles/django-assets
+    # PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
+
+    # STATICFILES_DIRS = (
+    #     join(PROJECT_PATH, 'static'),
+    # )
+
+    # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
+    STATICFILES_FINDERS = (
+        'django.contrib.staticfiles.finders.FileSystemFinder',
+        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    )
+    ########## END STATIC FILE CONFIGURATION
 
     ########## Your local stuff: Below this line define 3rd party libary settings
 
@@ -331,31 +356,62 @@ class Production(Common):
 
     INSTALLED_APPS += ("gunicorn", )
 
-    ########## STORAGE CONFIGURATION
-    # See: http://django-storages.readthedocs.org/en/latest/index.html
-    INSTALLED_APPS += (
-        'storages',
-    )
-
-    # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
-    STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-
-    # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
-    AWS_ACCESS_KEY_ID = values.SecretValue()
-    AWS_SECRET_ACCESS_KEY = values.SecretValue()
-    AWS_STORAGE_BUCKET_NAME = values.SecretValue()
-    AWS_AUTO_CREATE_BUCKET = True
-    AWS_QUERYSTRING_AUTH = False
-
-    # AWS cache settings, don't change unless you know what you're doing:
-    AWS_EXPIREY = 60 * 60 * 24 * 7
-    AWS_HEADERS = {
-        'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIREY,
-            AWS_EXPIREY)
-    }
+    ########## STATIC FILE CONFIGURATION
+    # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
+    STATIC_ROOT = 'staticfiles'
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-    STATIC_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+    STATIC_URL = '/static/'
+
+    # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
+    STATICFILES_DIRS = (
+        join(BASE_DIR, '..', 'static'),
+    )
+
+    # as recommended on # https://devcenter.heroku.com/articles/django-assets
+    # PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
+
+    # STATICFILES_DIRS = (
+    #     join(PROJECT_PATH, 'static'),
+    # )
+
+    # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
+    STATICFILES_FINDERS = (
+        'django.contrib.staticfiles.finders.FileSystemFinder',
+        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    )
+    
+    # TODO: check to see if AWS keys are set and if they are, serve static assets using S3
+    # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
+    # AWS_ACCESS_KEY_ID = values.SecretValue()
+
+    # AWS_SECRET_ACCESS_KEY = values.SecretValue()
+    # AWS_STORAGE_BUCKET_NAME = values.SecretValue()
+    # AWS_AUTO_CREATE_BUCKET = True
+    # AWS_QUERYSTRING_AUTH = False
+
+    # # AWS cache settings, don't change unless you know what you're doing:
+    # AWS_EXPIREY = 60 * 60 * 24 * 7
+    # AWS_HEADERS = {
+    #     'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIREY,
+    #         AWS_EXPIREY)
+    # }
+
+    # ########## STORAGE CONFIGURATION
+    # # See: http://django-storages.readthedocs.org/en/latest/index.html
+    # INSTALLED_APPS += (
+    #     'storages',
+    # )
+
+    # # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
+    # STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+    # # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
+    # STATIC_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+
+    # # TODO: check that this actually works
+    # MEDIA_URL = 'https://s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
+
     ########## END STORAGE CONFIGURATION
 
     ########## EMAIL

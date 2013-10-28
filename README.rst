@@ -8,7 +8,7 @@ A cookiecutter_ template for Django.
 Features
 ---------
 
-* Cutting edge: For Django 1.6 and other bleeding edge stuff
+* Cutting edge: For Django 1.5 and other bleeding edge stuff
 * Twitter Bootstrap 3
 * AngularJS
 * Settings management via django-configurations
@@ -25,12 +25,6 @@ Constraints
 * PostgreSQL everywhere
 * Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
-Caution: Bleeding Edge Requirements
-------------------------------------
-
-The cookiecutter-django project is bleeding edge in that it uses the Django 1.6c1 release candidate. 
-
-Consider yourself warned.
 
 Usage
 ------
@@ -83,8 +77,11 @@ Create a GitHub repo and push it there::
 
 Now take a look at your repo. Don't forget to carefully look at the generated README. Awesome, right?
 
-It's time to write the code!!!
+If you check out your new application, you will see that you can find documentation in the "docs" directory that explains everything about your app as it exists in its initial cookiecutter state, including how to deploy it. 
 
+If you want to read the documentation from your browser instead of a text editing window, you'll have to compile it first. First, make sure that you have all of the local packages that you need (including the ones you need to generate this documentation) by running "pip install -r requirements/local.txt". Go into the docs directory and run "make html". That will generate html from the .rst files. Point your browser to your local variant of "/path/to/my_cookiecutter_project/docs/_build/html/index.html".
+
+So, you now have a simple django application. Go forth and code!
 
 "Your Stuff"
 -------------

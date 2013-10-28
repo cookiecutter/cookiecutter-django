@@ -59,3 +59,4 @@ Run these commands to deploy the project to Heroku:
     heroku run python {{cookiecutter.repo_name}}/manage.py migrate --settings=config.settings
     heroku run python {{cookiecutter.repo_name}}/manage.py collectstatic --settings=config.settings
 
+For instructions on how to deploy this project to Heroku, look in docs/deploy.rst.
