@@ -10,6 +10,7 @@ Agam Dua
 Vitaly Babiy
 Jim Munro*
 Tom Offermann
+Lyla Fischer
 
 * Possesses commit rights
 
@@ -20,3 +21,5 @@ The following haven't provided code directly, but have provided guidance and adv
 
 Audrey Roy (cookiecutter)
 Jannis Leidel (django-configurations)
+Nate Aune
+Barry Morrison
