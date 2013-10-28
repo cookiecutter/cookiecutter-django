@@ -6,3 +6,4 @@ gunicorn==0.17.4
 django-storages==1.1.4
 gevent==0.13.8
 boto==2.9.5
+dj-static==0.0.5
