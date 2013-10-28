@@ -30,7 +30,7 @@ DJANGO_SECURE_CONTENT_TYPE_NOSNIFF      SECURE_CONTENT_TYPE_NOSNIFF n/a         
 DJANGO_SECURE_FRAME_DENY                SECURE_FRAME_DENY           n/a                                         True
 DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS   HSTS_INCLUDE_SUBDOMAINS     n/a                                         True
 DJANGO_SESSION_COOKIE_HTTPONLY          SESSION_COOKIE_HTTPONLY     n/a                                         True
-DJANGO_SESSION_COOKIE_SECURE            SESSION_COOKIE_SECURE       n/a                                         True
+DJANGO_SESSION_COOKIE_SECURE            SESSION_COOKIE_SECURE       n/a                                         False
 ======================================= =========================== =========================================== ===========================================
 
 * TODO: Add vendor-added settings in another table
