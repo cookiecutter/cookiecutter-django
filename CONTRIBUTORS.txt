@@ -11,6 +11,7 @@ Vitaly Babiy
 Jim Munro*
 Tom Offermann
 Lyla Fischer
+Taylor Baldwin
 
 * Possesses commit rights
 
