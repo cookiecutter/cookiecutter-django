@@ -52,6 +52,8 @@ django-suit
 # suporte a internaciolizacao para o Brasil
 django-localflavor-br
 
+django-municipios
+
 # Django Extra Views provides a number of additional class-based generic views to complement those provide by Django itself.
 # http://django-extra-views.readthedocs.org/
 # https://github.com/AndrewIngram/django-extra-views
