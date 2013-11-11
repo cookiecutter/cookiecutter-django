@@ -28,7 +28,8 @@
     {% block angular %}
       <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     {% endblock %}
-
+    {% block extrahead %}
+    {% endblock extrahead %}
   </head>
 
   <body>
@@ -53,6 +54,12 @@
 
     <div class="container">
 
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+
       {% block content %}
         <p>Use this document as a way to quick start any new project.</p>
       {% endblock content %}
@@ -76,6 +83,11 @@
       <!-- place project specific Javascript in this file -->
       <script src="{% static 'js/project.js' %}"></script>
     {% endblock javascript %}
+    {% block autocompleteligth %}
+      <!--/. autocomplete_light static files-->
+      {% include 'autocomplete_light/static.html' %}
+      <!--/. end autocomplete_light static files -->
+    {% endblock autocompleteligth %}
   </body>
 </html>
  {% endraw %}

@@ -13,13 +13,13 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 import os
 from os.path import join
 
-# See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
-try:
-    from S3 import CallingFormat
-    AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
-except ImportError:
-    # TODO: Fix this where even if in Dev this class is called.
-    pass
+## See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
+#try:
+#    from S3 import CallingFormat
+#    AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
+#except ImportError:
+#    # TODO: Fix this where even if in Dev this class is called.
+#    pass
 
 from configurations import Configuration, values
 
@@ -40,7 +40,7 @@ class Common(Configuration):
 
         # Useful template tags:
         # 'django.contrib.humanize',
-
+	'django-suit', # django-admin theme
         # Admin
         'django.contrib.admin',
     )
@@ -48,6 +48,14 @@ class Common(Configuration):
         'south',  # Database migration helpers:
         'crispy_forms',  # Form layouts
         'avatar',  # for user avatars
+        'autocomplete_light',
+        'municipios', # for Brazilian cities and states
+        'django_localflavor_br',
+        'bootstrap_toolkit',
+        #Bootstrap 3 integration with Django. Easily generate Bootstrap3 compatible HTML using template tags.
+        #https://github.com/dyve/django-bootstrap3
+        'bootstrap3',
+        'extra_views',
     )
 
     # Apps specific for this project go here.
@@ -66,6 +74,14 @@ class Common(Configuration):
         'allauth.account',  # registration
         'allauth.socialaccount',  # registration
     )
+
+    ########## django-suit
+    # http://django-suit.readthedocs.org/en/develop/configuration.html
+    SUIT_CONFIG = {
+        'ADMIN_NAME': '{{cookiecutter.repo_name}}'
+    }
+
+    ########## END django-suit CONFIGURATION
     ########## END APP CONFIGURATION
 
     ########## MIDDLEWARE CONFIGURATION
@@ -117,7 +133,8 @@ class Common(Configuration):
 
     ########## DATABASE CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-    DATABASES = values.DatabaseURLValue('postgres://localhost/{{cookiecutter.repo_name}}')
+    #DATABASES = values.DatabaseURLValue('postgres://localhost/{{cookiecutter.repo_name}}')
+    DATABASES = values.DatabaseURLValue('sqlite:////{0}.sqlite'.format(join(BASE_DIR, '{{cookiecutter.repo_name}}')))
     ########## END DATABASE CONFIGURATION
 
     ########## CACHING
@@ -133,10 +150,10 @@ class Common(Configuration):
 
     ########## GENERAL CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#time-zone
-    TIME_ZONE = 'America/Los_Angeles'
+    TIME_ZONE = 'America/Araguaina'
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-    LANGUAGE_CODE = 'en-us'
+    LANGUAGE_CODE = 'pt-br'
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
     SITE_ID = 1
@@ -296,6 +313,12 @@ class Local(Common):
     }
     ########## end django-debug-toolbar
 
+    ########## django-snippetscream - https://github.com/shaunsephton/django-snippetscream
+    # autocreate a superuser: user: admin , pass: admin
+    CREATE_DEFAULT_SUPERUSER = True
+    INSTALLED_APPS += ('snippetscream', )
+    ########## end django-snippetscream
+
     ########## Your local stuff: Below this line define 3rd party libary settings
 
 
@@ -331,32 +354,32 @@ class Production(Common):
 
     INSTALLED_APPS += ("gunicorn", )
 
-    ########## STORAGE CONFIGURATION
-    # See: http://django-storages.readthedocs.org/en/latest/index.html
-    INSTALLED_APPS += (
-        'storages',
-    )
+    ########### STORAGE CONFIGURATION
+    ## See: http://django-storages.readthedocs.org/en/latest/index.html
+    #INSTALLED_APPS += (
+    #    'storages',
+    #)
 
-    # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
-    STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    ## See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
+    #STATICFILES_STORAGE = DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
-    # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
-    AWS_ACCESS_KEY_ID = values.SecretValue()
-    AWS_SECRET_ACCESS_KEY = values.SecretValue()
-    AWS_STORAGE_BUCKET_NAME = values.SecretValue()
-    AWS_AUTO_CREATE_BUCKET = True
-    AWS_QUERYSTRING_AUTH = False
+    ## See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
+    #AWS_ACCESS_KEY_ID = values.SecretValue()
+    #AWS_SECRET_ACCESS_KEY = values.SecretValue()
+    #AWS_STORAGE_BUCKET_NAME = values.SecretValue()
+    #AWS_AUTO_CREATE_BUCKET = True
+    #AWS_QUERYSTRING_AUTH = False
 
-    # AWS cache settings, don't change unless you know what you're doing:
-    AWS_EXPIREY = 60 * 60 * 24 * 7
-    AWS_HEADERS = {
-        'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIREY,
-            AWS_EXPIREY)
-    }
+    ## AWS cache settings, don't change unless you know what you're doing:
+    #AWS_EXPIREY = 60 * 60 * 24 * 7
+    #AWS_HEADERS = {
+    #    'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIREY,
+    #        AWS_EXPIREY)
+    #}
 
-    # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-    STATIC_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
-    ########## END STORAGE CONFIGURATION
+    ## See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
+    #STATIC_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+    ########### END STORAGE CONFIGURATION
 
     ########## EMAIL
     DEFAULT_FROM_EMAIL = values.Value(

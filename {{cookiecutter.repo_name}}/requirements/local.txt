@@ -8,3 +8,5 @@ Sphinx
 # django-debug-toolbar that works with Django 1.6
 django-debug-toolbar==0.11.0
 
+# collection of snipplets for django. Utilizado para criacao automatica do usuario admin
+django-snippetscream

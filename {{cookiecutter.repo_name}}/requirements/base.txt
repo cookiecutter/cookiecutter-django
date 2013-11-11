@@ -37,3 +37,23 @@ django-avatar==2.0
 
 
 # Your custom requirements go here
+
+#Bootstrap 3 integration with Django. Easily generate Bootstrap3 compatible HTML using template tags.
+#https://github.com/dyve/django-bootstrap3
+django-bootstrap3
+django-bootstrap-toolkit
+
+# autocomplete
+django-autocomplete-light
+
+# django admin theme
+django-suit
+
+# suporte a internaciolizacao para o Brasil
+django-localflavor-br
+
+# Django Extra Views provides a number of additional class-based generic views to complement those provide by Django itself.
+# http://django-extra-views.readthedocs.org/
+# https://github.com/AndrewIngram/django-extra-views
+-e git://github.com/AndrewIngram/django-extra-views.git#egg=django-extra-views
+

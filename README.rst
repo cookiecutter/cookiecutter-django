@@ -83,6 +83,11 @@ Create a GitHub repo and push it there::
 
 Now take a look at your repo. Don't forget to carefully look at the generated README. Awesome, right?
 
+
+Now install all the supporting libraries into your virtualenv::
+
+    $ pip install -r requirements/local.txt
+  
 It's time to write the code!!!
 
 
