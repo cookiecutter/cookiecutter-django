@@ -40,7 +40,7 @@ class Common(Configuration):
 
         # Useful template tags:
         # 'django.contrib.humanize',
-	'django-suit', # django-admin theme
+        'suit', # django-admin theme
         # Admin
         'django.contrib.admin',
     )
