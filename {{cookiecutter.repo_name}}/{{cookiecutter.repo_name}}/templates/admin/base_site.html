@@ -1,0 +1,65 @@
+{% raw %}{% extends "admin/base.html" %}
+{% load admin_static %}
+
+{# Additional <head> content here, some extra meta tags or favicon #}
+{#{% block extrahead %}#}
+{#{% endblock %}#}
+
+
+{# Additional CSS includes #}
+{#{% block extrastyle %}#}
+{#  <link rel="stylesheet" type="text/css" href="{% static 'css/my_project.css' %}" media="all">#}
+{#{% endblock %}#}
+
+
+{# Additional JS files in footer, right before </body> #}
+{% block extrajs %}
+  <script type="text/javascript" src="{% static 'js/my_project.js' %}"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.js" type="text/javascript"></script>
+   {% include 'autocomplete_light/static.html' %}
+{% endblock %}
+
+
+{# Footer links (left side) #}
+{#{% block footer_links %}#}
+{#  <a href="/docs/" class="icon"><i class="icon-question-sign"></i>Documentation</a>#}
+{#{% endblock %}#}
+
+{# Additional header content like notifications or language switcher #}
+{#{% block header_content %}#}
+{#    {{ block.super }}#}
+{#    <div class="header-content">#}
+{#        <!-- First icon column -->#}
+{#        <div class="header-column icon">#}
+{#            <i class="icon-home"></i><br>#}
+{#            <i class="icon-cog"></i>#}
+{#        </div>#}
+{#        <div class="header-column" style="margin-right: 20px">#}
+{#            <a href="/" class="grey">Front-end</a><br>#}
+{#            <a href="" class="grey">One more link</a>#}
+{#        </div>#}
+{#        <!-- Second icon column -->#}
+{#        <div class="header-column icon">#}
+{#            <i class="icon-comment"></i>#}
+{#        </div>#}
+{#        <div class="header-column">#}
+{#            <a href="" class="grey">5 new messages</a>#}
+{#        </div>#}
+{#    </div>#}
+{#{% endblock %}#}
+
+{# Footer branding name (center) #}
+{% block footer_branding %}
+    SGT - Sistema de Gerenciamento de Transportes
+{% endblock %}
+{% block footer_links %}
+          <a href="http://fabiodev.info/support/" target="_blank" class="icon"><i class="icon-question-sign"></i>Suporte</a>
+{#          <a href="http://djangosuit.com/pricing/" target="_blank" class="icon"><i class="icon-bookmark"></i>Licence</a>#}
+          <a href="https://bitbucket.org/sgtto/projetoposto/issues" target="_blank" class="icon"><i class="icon-comment"></i>Informe um bug</a>
+{% endblock %}
+
+{# Footer copyright (right side) #}
+{% block copyright %}
+  Copyrightleft &copy; 2013 <br> Desenvolvido por <a href="http://fabiodev.info" target="_blank">{% endraw %}{{cookiecutter.author_name}}{% raw %}</a>
+{% endblock %}
+ {% endraw %}

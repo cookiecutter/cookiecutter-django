@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
+
+import autocomplete_light
+autocomplete_light.autodiscover()
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -31,4 +35,17 @@ urlpatterns = patterns('',
     # Your stuff: custom urls go here
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+urlpatterns += patterns('',
+    url(r'^autocomplete/', include('autocomplete_light.urls')),
+
+)
+
+urlpatterns += patterns('',
+    url(r'^municipios_app/', include('municipios.urls')),
+)
+
+
+urlpatterns += staticfiles_urlpatterns()
 

@@ -1,5 +1,5 @@
 # Bleeding edge Django
-https://github.com/django/django/archive/1.6c1.tar.gz
+django
 
 # Configuration
 django-configurations==0.5.1
@@ -15,7 +15,7 @@ django-floppyforms==1.1
 # Models
 South==0.8.2
 # hack so django-model-utils doesn't override Django 1.6b4 install
-git+git://github.com/pydanny/django-model-utils@d71bf2db7581d91dcc8e0a66fd4859eb8969d256
+django-model-utils==1.5.0
 
 
 # images
@@ -30,10 +30,32 @@ psycopg2==2.5
 
 # Unicode slugification
 unicode-slugify==0.1.1
-django-autoslug==1.7.1  
+django-autoslug==1.7.1
 
 # Useful things
 django-avatar==2.0
 
 
 # Your custom requirements go here
+
+#Bootstrap 3 integration with Django. Easily generate Bootstrap3 compatible HTML using template tags.
+#https://github.com/dyve/django-bootstrap3
+django-bootstrap3
+django-bootstrap-toolkit
+
+# autocomplete
+django-autocomplete-light
+
+# django admin theme
+django-suit
+
+# suporte a internaciolizacao para o Brasil
+django-localflavor-br
+
+django-municipios
+
+# Django Extra Views provides a number of additional class-based generic views to complement those provide by Django itself.
+# http://django-extra-views.readthedocs.org/
+# https://github.com/AndrewIngram/django-extra-views
+-e git://github.com/AndrewIngram/django-extra-views.git#egg=django-extra-views
+
