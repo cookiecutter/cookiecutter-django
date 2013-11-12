@@ -282,6 +282,7 @@ class Local(Common):
     ########## Mail settings
     EMAIL_HOST = "localhost"
     EMAIL_PORT = 1025
+    EMAIL_BACKEND = values.Value('django.core.mail.backends.console.EmailBackend')
     ########## End mail settings
 
     ########## django-debug-toolbar
