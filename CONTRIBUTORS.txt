@@ -12,6 +12,8 @@ Jim Munro*
 Tom Offermann
 Lyla Fischer
 Taylor Baldwin
+Chris Curvey (@ccurvey)
+Fábio C. Barrionuevo da Luz (@luzfcb)
 
 * Possesses commit rights
 
