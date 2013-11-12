@@ -25,12 +25,6 @@ Constraints
 * PostgreSQL everywhere
 * Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
-Caution: Bleeding Edge Requirements
-------------------------------------
-
-The cookiecutter-django project is bleeding edge in that it uses the Django 1.6c1 release candidate. 
-
-Consider yourself warned.
 
 Usage
 ------

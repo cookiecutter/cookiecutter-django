@@ -35,6 +35,16 @@ DJANGO_SESSION_COOKIE_SECURE            SESSION_COOKIE_SECURE       n/a         
 
 * TODO: Add vendor-added settings in another table
 
+Developer Installation
+-----------------------
+
+For getting this running on your local machine:
+
+1. Set up a virtualenv. 
+2. Install all the supporting libraries into your virtualenv::
+
+    pip install -r requirements/local.txt
+
 
 Deployment
 ------------

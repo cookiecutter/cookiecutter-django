@@ -52,12 +52,14 @@
 
           <h2>{% trans "Add E-mail Address" %}</h2>
           
-          <form method="post" action="" class="add_email">
+          <form method="post" action="." class="add_email">
               {% csrf_token %}
               {{ form|crispy }}
               <button class="btn" name="action_add" type="submit">{% trans "Add E-mail" %}</button>
           </form>
-    
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 
