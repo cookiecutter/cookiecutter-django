@@ -73,6 +73,14 @@ Enter the project and take a look around::
     $ cd redditclone/
     $ ls
 
+Next, install your local dependancies::
+
+    $ pip install -r requirements/local.txt
+
+For production::
+
+    $ pip install -r requirements.txt
+
 Create a GitHub repo and push it there::
 
     $ git init
