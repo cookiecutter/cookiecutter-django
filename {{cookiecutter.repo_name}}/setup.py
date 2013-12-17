@@ -4,7 +4,7 @@
 import os
 import sys
 
-import {{ cookiecutter.repo_name }}
+import {{ cookiecutter.project_name }}
 
 try:
     from setuptools import setup
@@ -13,15 +13,13 @@ except ImportError:
 
 version = {{ cookiecutter.repo_name }}.__version__
 
-readme = open('README.rst').read()
-
 setup(
     name='{{ cookiecutter.project_name }}',
     version=version,
     author='{{ cookiecutter.full_name }}',
     author_email='{{ cookiecutter.email }}',
     packages=[
-        '{{ cookiecutter.repo_name }}',
+        '{{ cookiecutter.project_name }}',
     ],
     include_package_data=True,
     install_requires=[
