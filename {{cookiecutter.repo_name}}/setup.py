@@ -10,6 +10,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
+import {{ cookiecutter.project_name }}
 version = {{ cookiecutter.repo_name }}.__version__
 
 setup(
@@ -24,5 +25,5 @@ setup(
     install_requires=[
     ],
     zip_safe=False,
-    scripts=['manage.py'],
+    scripts=['{{ cookiecutter.project_name }}/manage.py'],
 )
