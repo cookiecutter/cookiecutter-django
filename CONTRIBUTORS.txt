@@ -15,6 +15,7 @@ Taylor Baldwin
 Chris Curvey (@ccurvey)
 Fábio C. Barrionuevo da Luz (@luzfcb)
 Saurabh Kumar
+Ashley Camba
 
 * Possesses commit rights
 
