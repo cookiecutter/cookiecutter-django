@@ -14,6 +14,7 @@ Lyla Fischer
 Taylor Baldwin
 Chris Curvey (@ccurvey)
 Fábio C. Barrionuevo da Luz (@luzfcb)
+Saurabh Kumar
 
 * Possesses commit rights
 
