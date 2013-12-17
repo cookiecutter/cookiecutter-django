@@ -8,7 +8,7 @@ A cookiecutter_ template for Django.
 Features
 ---------
 
-* Cutting edge: For Django 1.6 and other bleeding edge stuff
+* For Django 1.6
 * Twitter Bootstrap 3
 * AngularJS
 * Settings management via django-configurations
