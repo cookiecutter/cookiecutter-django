@@ -4,7 +4,6 @@
 import os
 import sys
 
-import {{ cookiecutter.project_name }}
 
 try:
     from setuptools import setup
@@ -25,4 +24,5 @@ setup(
     install_requires=[
     ],
     zip_safe=False,
+    scripts=['manage.py'],
 )
