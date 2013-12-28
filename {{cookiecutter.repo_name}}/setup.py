@@ -11,7 +11,7 @@ except ImportError:
     from distutils.core import setup
 
 import {{ cookiecutter.project_name }}
-version = {{ cookiecutter.repo_name }}.__version__
+version = {{ cookiecutter.project_name }}.__version__
 
 setup(
     name='{{ cookiecutter.project_name }}',
