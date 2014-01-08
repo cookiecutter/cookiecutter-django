@@ -59,11 +59,11 @@ Run these commands to deploy the project to Heroku:
     heroku addons:add sendgrid:starter
     heroku addons:add memcachier:dev
     heroku pg:promote HEROKU_POSTGRESQL_COLOR
-    heroku config:add DJANGO_CONFIGURATION=Production
-    heroku config:add DJANGO_SECRET_KEY=RANDOM_SECRET_KEY
-    heroku config:add DJANGO_AWS_ACCESS_KEY_ID=YOUR_ID
-    heroku config:add DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_KEY
-    heroku config:add DJANGO_AWS_STORAGE_BUCKET_NAME=BUCKET
+    heroku config:set DJANGO_CONFIGURATION=Production
+    heroku config:set DJANGO_SECRET_KEY=RANDOM_SECRET_KEY
+    heroku config:set DJANGO_AWS_ACCESS_KEY_ID=YOUR_ID
+    heroku config:set DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_KEY
+    heroku config:set DJANGO_AWS_STORAGE_BUCKET_NAME=BUCKET
     git push heroku master
     heroku run python {{cookiecutter.repo_name}}/manage.py syncdb --noinput --settings=config.settings
     heroku run python {{cookiecutter.repo_name}}/manage.py migrate --settings=config.settings
