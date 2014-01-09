@@ -24,3 +24,9 @@ nosetests.xml
 *~
 *.swp
 *.swo
+
+# npm
+node_modules/
+
+# Campass
+.sass-cache
