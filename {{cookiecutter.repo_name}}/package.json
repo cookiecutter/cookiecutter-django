@@ -1,0 +1,17 @@
+{
+  "name": "{{cookiecutter.project_name}}",
+  "version": "{{ cookiecutter.version }}",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-bg-shell": "~2.3.1",
+    "connect-livereload": "~0.3.2",
+    "grunt-contrib-compass": "~0.7.0",
+    "time-grunt": "~0.2.7",
+    "load-grunt-tasks": "~0.2.1"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
