@@ -1,32 +1,32 @@
-/* line 5, ../scss/project.scss */
+/* line 5, ../sass/project.scss */
 .alert-debug {
   color: black;
   background-color: white;
   border-color: #d6e9c6;
 }
 
-/* line 11, ../scss/project.scss */
+/* line 11, ../sass/project.scss */
 .alert-info {
   color: #3a87ad;
   background-color: #d9edf7;
   border-color: #bce8f1;
 }
 
-/* line 17, ../scss/project.scss */
+/* line 17, ../sass/project.scss */
 .alert-success {
   color: #468847;
   background-color: #dff0d8;
   border-color: #d6e9c6;
 }
 
-/* line 23, ../scss/project.scss */
+/* line 23, ../sass/project.scss */
 .alert-warning {
   color: black;
   background-color: orange;
   border-color: #d6e9c6;
 }
 
-/* line 29, ../scss/project.scss */
+/* line 29, ../sass/project.scss */
 .alert-error {
   color: #b94a48;
   background-color: #f2dede;
