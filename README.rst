@@ -59,7 +59,7 @@ It prompts you for questions. Answer them::
     author_name (default is "Your Name")? Daniel Greenfeld
     email (default is "Your email")? pydanny@gmail.com
     description (default is "A short description of the project.")? A reddit clone.
-    year (default is "Current year")? 2013
+    year (default is "Current year")? 2014
     domain_name (default is "Domain name")?
 
 

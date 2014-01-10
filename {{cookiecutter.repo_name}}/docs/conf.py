@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # {{ cookiecutter.project_name }} documentation build configuration file, created by
-# sphinx-quickstart on Sun Feb 17 11:46:20 2013.
+# sphinx-quickstart.
 #
 # This file is execfile()d with the current directory set to its containing dir.
 #
