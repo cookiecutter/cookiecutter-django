@@ -17,7 +17,7 @@ module.exports = function (grunt) {
       app: this.app,
       templates: this.app + '/templates',
       css: this.app + '/static/css',
-      scss: this.app + '/static/scss',
+      sass: this.app + '/static/sass',
       fonts: this.app + '/static/fonts',
       images: this.app + '/static/images',
       js: this.app + '/static/js',
@@ -36,13 +36,13 @@ module.exports = function (grunt) {
         files: ['Gruntfile.js']
       },
       compass: {
-        files: ['<%= paths.scss %>/**/*.{scss,sass}'],
+        files: ['<%= paths.sass %>/**/*.{scss,sass}'],
         tasks: ['compass:server']
       },
       livereload: {
         files: [
           '<%= paths.js %>/**/*.js',
-          '<%= paths.scss %>/**/*.{scss,sass}',
+          '<%= paths.sass %>/**/*.{scss,sass}',
           '<%= paths.app %>/**/*.html'
           ],
         options: {
@@ -55,7 +55,7 @@ module.exports = function (grunt) {
     // see: https://github.com/gruntjs/grunt-contrib-compass
     compass: {
       options: {
-          sassDir: '<%= paths.scss %>',
+          sassDir: '<%= paths.sass %>',
           cssDir: '<%= paths.css %>',
           fontsDir: '<%= paths.fonts %>',
           imagesDir: '<%= paths.images %>',
