@@ -100,7 +100,7 @@ class Common(Configuration):
         join(BASE_DIR, 'fixtures'),
     )
     ########## END FIXTURE CONFIGURATION
-    
+
     ########## EMAIL CONFIGURATION
     EMAIL_BACKEND = values.Value('django.core.mail.backends.smtp.EmailBackend')
     ########## END EMAIL CONFIGURATION
@@ -347,6 +347,10 @@ class Production(Common):
     AWS_STORAGE_BUCKET_NAME = values.SecretValue()
     AWS_AUTO_CREATE_BUCKET = True
     AWS_QUERYSTRING_AUTH = False
+
+    # see: https://github.com/antonagestam/collectfast
+    AWS_PRELOAD_METADATA = True
+    INSTALLED_APPS += ("collectfast", )
 
     # AWS cache settings, don't change unless you know what you're doing:
     AWS_EXPIREY = 60 * 60 * 24 * 7
