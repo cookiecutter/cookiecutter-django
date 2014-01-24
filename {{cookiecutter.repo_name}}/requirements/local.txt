@@ -1,9 +1,8 @@
 # Local development dependencies go here
 -r base.txt
-coverage==3.6
-django-discover-runner==0.4
+coverage==3.7.1
+django-discover-runner==1.0
 Sphinx
 
-
 # django-debug-toolbar that works with Django 1.5+
-django-debug-toolbar==1.0
+django-debug-toolbar==1.0.1
