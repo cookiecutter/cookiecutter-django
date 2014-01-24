@@ -2,8 +2,8 @@
 #	production that isn't in development.
 -r base.txt
 
-gunicorn==0.17.4
-django-storages==1.1.4
+gunicorn==18.0
+django-storages==1.1.8
 Collectfast==0.1.13
-gevent==0.13.8
-boto==2.9.5
+gevent==1.0
+boto==2.23.0
