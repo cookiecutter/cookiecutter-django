@@ -17,7 +17,8 @@ Fábio C. Barrionuevo da Luz (@luzfcb)
 Saurabh Kumar
 Ashley Camba
 Yaroslav Halchenko
-Pablo / (@oubiga)
+Pablo / @oubiga
+Tom Atkins / @knitatoms
 
 * Possesses commit rights
 
