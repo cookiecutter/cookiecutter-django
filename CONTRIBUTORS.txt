@@ -19,6 +19,7 @@ Ashley Camba
 Yaroslav Halchenko
 Pablo / @oubiga
 Tom Atkins / @knitatoms
+Julio Castillo / @juliocc
 
 * Possesses commit rights
 
