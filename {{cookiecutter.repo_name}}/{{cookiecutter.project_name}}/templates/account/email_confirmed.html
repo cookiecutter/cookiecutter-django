@@ -14,7 +14,7 @@
 
         {% user_display email_address.user as user_display %}
                 
-        <p>{% blocktrans with email_address.email as email %}You have confirmed that <a href="mailto:{{email}}">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}</p>
+        <p>{% blocktrans with email_address.email as email %}You have confirmed that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}</p>
     </div>
   </div>
 </div>
