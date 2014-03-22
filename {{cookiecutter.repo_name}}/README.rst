@@ -9,9 +9,9 @@ LICENSE: BSD
 Settings
 ------------
 
-cookiecutter-django relies extensively on environment settings which **will not work with Apache/mod_wsgi setups**. It has been deployed successfully with both Gunicorn/Nginx and even uWSGI/Nginx.
+{{cookiecutter.project_name}} relies extensively on environment settings which **will not work with Apache/mod_wsgi setups**. It has been deployed successfully with both Gunicorn/Nginx and even uWSGI/Nginx.
 
-For configuration purposes, the following table maps the cookiecutter-django environment variables to their Django setting:
+For configuration purposes, the following table maps the '{{cookiecutter.project_name}}' environment variables to their Django setting:
 
 ======================================= =========================== ============================================== ===========================================
 Environment Variable                    Django Setting              Development Default                            Production Default
@@ -35,25 +35,50 @@ DJANGO_SESSION_COOKIE_SECURE            SESSION_COOKIE_SECURE       n/a         
 
 * TODO: Add vendor-added settings in another table
 
-Developer Installation
------------------------
+Getting up and running
+----------------------
 
-For getting this running on your local machine:
+The steps below will get you up and running with a local development environment. We assume you have the following installed:
 
-1. Set up a virtualenv.
-2. Install all the supporting libraries into your virtualenv::
+* pip
+* virtualenv
+* PostgreSQL
 
-    pip install -r requirements/local.txt
+First make sure to create and activate a virtualenv_, then open a terminal at the project root and install the requirements for local development::
 
-3. Install Grunt Dependencies.
+    $ pip install -r requirements/local.txt
 
-    npm install
+.. _virtualenv: http://docs.python-guide.org/en/latest/dev/virtualenvs/
 
-4. Run development server. (For browser auto-reload, use Livereload_ plugins.)
+You can now run the usual Django ``runserver`` command (replace ``yourapp`` with the name of the directory containing the Django project)::
 
-    grunt serve
+    $ python yourapp/manage.py runserver
 
-.. _livereload: https://github.com/gruntjs/grunt-contrib-watch#using-live-reload-with-the-browser-extension
+The base app will run but you'll need to carry out a few steps to make the sign-up and login forms work. These are currently detailed in `issue #39`_.
+
+.. _issue #39: https://github.com/pydanny/cookiecutter-django/issues/39
+
+**Live reloading and Sass CSS compilation**
+
+If you'd like to take advantage of live reloading and Sass / Compass CSS compilation you can do so with the included Grunt task.
+
+Make sure that nodejs_ is installed. Then in the project root run::
+
+    $ npm install
+
+.. _nodejs: http://nodejs.org/download/
+
+Now you just need::
+
+    $ grunt serve
+
+The base app will now run as it would with the usual ``manage.py runserver`` but with live reloading and Sass compilation enabled.
+
+To get live reloading to work you'll probably need to install an `appropriate browser extension`_
+
+.. _appropriate browser extension: http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-
+
+It's time to write the code!!!
 
 
 Deployment
@@ -73,9 +98,9 @@ Run these commands to deploy the project to Heroku:
     heroku config:set DJANGO_SECRET_KEY=RANDOM_SECRET_KEY
     heroku config:set DJANGO_AWS_ACCESS_KEY_ID=YOUR_ID
     heroku config:set DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_KEY
-    heroku config:set DJANGO_AWS_STORAGE_BUCKET_NAME=BUCKET
+    heroku config:set DJANGO_AWS_STORAGE_BUCKET_NAME=YOUR_BUCKET_NAME
     git push heroku master
-    heroku run python {{cookiecutter.repo_name}}/manage.py syncdb --noinput --settings=config.settings
-    heroku run python {{cookiecutter.repo_name}}/manage.py migrate --settings=config.settings
-    heroku run python {{cookiecutter.repo_name}}/manage.py collectstatic --settings=config.settings
-
+    heroku run python {{cookiecutter.repo_name}}/manage.py syncdb
+    heroku run python {{cookiecutter.repo_name}}/manage.py migrate
+    heroku run python {{cookiecutter.repo_name}}/manage.py createsuperuser
+    heroku open

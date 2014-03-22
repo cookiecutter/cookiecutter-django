@@ -54,7 +54,7 @@ It prompts you for questions. Answer them::
     remote: Total 550 (delta 283), reused 479 (delta 222)
     Receiving objects: 100% (550/550), 127.66 KiB | 58 KiB/s, done.
     Resolving deltas: 100% (283/283), done.
-    project_name (default is "project_name")? redditclone
+    project_name (default is "project_name")? Reddit Clone
     repo_name (default is "repo_name")? redditclone
     author_name (default is "Your Name")? Daniel Greenfeld
     email (default is "Your email")? pydanny@gmail.com
@@ -87,9 +87,11 @@ The steps below will get you up and running with a local development environment
 * virtualenv
 * PostgreSQL
 
-First make sure to create and activate a virtualenv, then open a terminal at the project root and install the requirements for local development::
+First make sure to create and activate a virtualenv_, then open a terminal at the project root and install the requirements for local development::
 
     $ pip install -r requirements/local.txt
+
+.. _virtualenv: http://docs.python-guide.org/en/latest/dev/virtualenvs/
 
 You can now run the usual Django ``runserver`` command (replace ``yourapp`` with the name of the directory containing the Django project)::
 
@@ -107,7 +109,7 @@ Make sure that nodejs_ is installed. Then in the project root run::
 
     $ npm install
 
-.. _nodejs: http://nodejs.org/download/ 
+.. _nodejs: http://nodejs.org/download/
 
 Now you just need::
 
@@ -115,7 +117,7 @@ Now you just need::
 
 The base app will now run as it would with the usual ``manage.py runserver`` but with live reloading and Sass compilation enabled.
 
-To get live reloading to work you'll probably need to install an `appropriate browser extension`_ 
+To get live reloading to work you'll probably need to install an `appropriate browser extension`_
 
 .. _appropriate browser extension: http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-
 
