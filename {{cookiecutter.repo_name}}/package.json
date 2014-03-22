@@ -1,5 +1,5 @@
 {
-  "name": "{{cookiecutter.project_name}}",
+  "name": "{{cookiecutter.repo_name}}",
   "version": "{{ cookiecutter.version }}",
   "dependencies": {},
   "devDependencies": {
