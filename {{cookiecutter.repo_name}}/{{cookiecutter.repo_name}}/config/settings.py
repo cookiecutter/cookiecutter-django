@@ -81,7 +81,7 @@ class Common(Configuration):
 
     ########## DEBUG
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
-    DEBUG = values.BooleanValue(True)
+    DEBUG = values.BooleanValue(False)
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
     TEMPLATE_DEBUG = DEBUG
@@ -275,6 +275,11 @@ class Common(Configuration):
 
 class Local(Common):
 
+    ########## DEBUG
+    DEBUG = values.BooleanValue(True)
+    TEMPLATE_DEBUG = DEBUG
+    ########## END DEBUG
+
     ########## INSTALLED_APPS
     INSTALLED_APPS = Common.INSTALLED_APPS
     ########## END INSTALLED_APPS
@@ -326,7 +331,7 @@ class Production(Common):
 
     ########## SITE CONFIGURATION
     # Hosts/domain names that are valid for this site
-    # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
+    # See https://docs.djangoproject.com/en/1.6/ref/settings/#allowed-hosts
     ALLOWED_HOSTS = ["*"]
     ########## END SITE CONFIGURATION
 
