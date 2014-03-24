@@ -65,7 +65,7 @@ Run these commands to deploy the project to Heroku:
 
     heroku create --buildpack https://github.com/heroku/heroku-buildpack-python
     heroku addons:add heroku-postgresql:dev
-    heroku addons:add pgbackups
+    heroku addons:add pgbackups:auto-month
     heroku addons:add sendgrid:starter
     heroku addons:add memcachier:dev
     heroku pg:promote HEROKU_POSTGRESQL_COLOR
