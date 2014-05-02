@@ -93,14 +93,17 @@ Run these commands to deploy the project to Heroku:
     heroku addons:add pgbackups:auto-month
     heroku addons:add sendgrid:starter
     heroku addons:add memcachier:dev
-    heroku pg:promote HEROKU_POSTGRESQL_COLOR
+    heroku pg:promote DATABASE_URL
     heroku config:set DJANGO_CONFIGURATION=Production
-    heroku config:set DJANGO_SECRET_KEY=RANDOM_SECRET_KEY
-    heroku config:set DJANGO_AWS_ACCESS_KEY_ID=YOUR_ID
-    heroku config:set DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_KEY
-    heroku config:set DJANGO_AWS_STORAGE_BUCKET_NAME=YOUR_BUCKET_NAME
+    heroku config:set DJANGO_SECRET_KEY=RANDOM_SECRET_KEY_HERE
+    heroku config:set DJANGO_AWS_ACCESS_KEY_ID=YOUR_AWS_ID_HERE
+    heroku config:set DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY_HERE
+    heroku config:set DJANGO_AWS_STORAGE_BUCKET_NAME=YOUR_AWS_S3_BUCKET_NAME_HERE
+    heroku config:set SENDGRID_USERNAME=YOUR_SENDGRID_USERNAME_HERE
+    heroku config:set SENDGRID_PASSWORD=YOUR_SENDGRID_PASSWORD_HERE
     git push heroku master
-    heroku run python {{cookiecutter.repo_name}}/manage.py syncdb
-    heroku run python {{cookiecutter.repo_name}}/manage.py migrate
+    heroku run python {{cookiecutter.repo_name}}/manage.py syncdb --noinput --settings=config.settings
+    heroku run python {{cookiecutter.repo_name}}/manage.py migrate --noinput --settings=config.settings
     heroku run python {{cookiecutter.repo_name}}/manage.py createsuperuser
     heroku open
+
