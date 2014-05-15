@@ -5,4 +5,4 @@ django-discover-runner==1.0
 Sphinx
 
 # django-debug-toolbar that works with Django 1.5+
-django-debug-toolbar==1.1
+django-debug-toolbar==1.2

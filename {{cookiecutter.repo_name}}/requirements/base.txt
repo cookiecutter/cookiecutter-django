@@ -1,5 +1,5 @@
 # Bleeding edge Django
-django==1.6.4
+django==1.6.5
 
 # Configuration
 django-configurations==0.8
@@ -24,7 +24,7 @@ Pillow==2.4.0
 django-allauth==0.16.1
 
 # For the persistance stores
-psycopg2==2.5.2
+psycopg2==2.5.3
 
 # Unicode slugification
 unicode-slugify==0.1.1
