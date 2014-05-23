@@ -20,6 +20,7 @@ Yaroslav Halchenko
 Pablo / @oubiga
 Tom Atkins / @knitatoms
 Julio Castillo / @juliocc
+Kevin A. Stone
 
 * Possesses commit rights
 
