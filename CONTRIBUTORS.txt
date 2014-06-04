@@ -21,6 +21,7 @@ Pablo / @oubiga
 Tom Atkins / @knitatoms
 Julio Castillo / @juliocc
 Kevin A. Stone
+mozillazg / @mozillazg
 
 * Possesses commit rights
 
