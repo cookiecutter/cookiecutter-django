@@ -23,6 +23,7 @@ Julio Castillo / @juliocc
 Kevin A. Stone
 mozillazg / @mozillazg
 Henrique G. G. Pereira / @ikkebr
+Travis McNeill / gh: Tavistock / @tavistock_esq 
 
 * Possesses commit rights
 
