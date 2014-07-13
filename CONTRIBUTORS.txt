@@ -24,6 +24,7 @@ Kevin A. Stone
 mozillazg / @mozillazg
 Henrique G. G. Pereira / @ikkebr
 Travis McNeill / gh: Tavistock / @tavistock_esq 
+Matt Linares
 
 * Possesses commit rights
 
