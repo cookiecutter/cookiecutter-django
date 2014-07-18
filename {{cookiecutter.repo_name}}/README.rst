@@ -102,8 +102,8 @@ Run these commands to deploy the project to Heroku:
     heroku config:set SENDGRID_USERNAME=YOUR_SENDGRID_USERNAME_HERE
     heroku config:set SENDGRID_PASSWORD=YOUR_SENDGRID_PASSWORD_HERE
     git push heroku master
-    heroku run python {{cookiecutter.repo_name}}/manage.py syncdb --noinput --settings=config.settings
-    heroku run python {{cookiecutter.repo_name}}/manage.py migrate --noinput --settings=config.settings
+    heroku run python {{cookiecutter.repo_name}}/manage.py syncdb --noinput
+    heroku run python {{cookiecutter.repo_name}}/manage.py migrate --noinput
     heroku run python {{cookiecutter.repo_name}}/manage.py createsuperuser
     heroku open
 
