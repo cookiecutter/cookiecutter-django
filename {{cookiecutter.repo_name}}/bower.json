@@ -1,0 +1,22 @@
+{
+  "name": "{{cookiecutter.repo_name}}",
+  "version": "{{cookiecutter.version}}",
+  "authors": [
+    "{{cookiecutter.author_name}} <{{cookiecutter.author_email}}>"
+  ],
+  "description": "{{cookiecutter.repo_name}}",
+  "main": "{{cookiecutter.project_name}}/static/css/main.css",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "{{cookiecutter.project_name}}/static/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0"
+  }
+}

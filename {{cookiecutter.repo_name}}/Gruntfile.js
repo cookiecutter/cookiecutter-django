@@ -75,6 +75,22 @@ module.exports = function (grunt) {
       }
     },
 
+    bower: {
+      dev: {
+        dest: '{{cookiecutter.project_name}}/static/',
+        js_dest: '{{cookiecutter.project_name}}/static/js/',
+        css_dest: '{{cookiecutter.project_name}}/static/css/',
+        eot_dest: '{{cookiecutter.project_name}}/static/fonts/',
+        svg_dest: '{{cookiecutter.project_name}}/static/fonts/',
+        ttf_dest: '{{cookiecutter.project_name}}/static/fonts/',
+        woff_dest: '{{cookiecutter.project_name}}/static/fonts/',
+
+        options: {
+          expand: true
+        }
+      }
+    },
+
     // see: https://npmjs.org/package/grunt-bg-shell
     bgShell: {
       _defaults: {

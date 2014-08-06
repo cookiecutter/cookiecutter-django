@@ -9,7 +9,8 @@
     "connect-livereload": "~0.3.2",
     "grunt-contrib-compass": "~0.7.0",
     "time-grunt": "~0.2.7",
-    "load-grunt-tasks": "~0.2.1"
+    "load-grunt-tasks": "~0.2.1",
+    "grunt-bower": "^0.13.4"
   },
   "engines": {
     "node": ">=0.8.0"
