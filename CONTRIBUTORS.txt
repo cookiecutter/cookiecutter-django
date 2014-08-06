@@ -20,6 +20,7 @@ Yaroslav Halchenko
 Pablo / @oubiga
 Tom Atkins / @knitatoms
 Julio Castillo / @juliocc
+Burhan Khalid / @burhan
 
 * Possesses commit rights
 
