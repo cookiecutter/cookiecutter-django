@@ -364,7 +364,7 @@ class Production(Common):
     # if foo is the default, or whatever the value of the environment variable.
     # This causes the URL to be https://s3.amazonaws.com/&lt;Value%20Default:%20foo%gt;/
     # @burhan 2014-07-20
-    STATIC_URL = 'https://s3.amazonaws.com/%s/' % (AWS_STORAGE_BUCKET_NAME.setup('DJANGO_AWS_STORAGE_BUCKET_NAME'),)
+    STATIC_URL = 'https://s3.amazonaws.com/%s/' % (AWS_STORAGE_BUCKET_NAME,)
     ########## END STORAGE CONFIGURATION
 
     ########## EMAIL
