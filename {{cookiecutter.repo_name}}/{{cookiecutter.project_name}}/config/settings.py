@@ -353,10 +353,10 @@ class Production(Common):
     INSTALLED_APPS += ("collectfast", )
 
     # AWS cache settings, don't change unless you know what you're doing:
-    AWS_EXPIREY = 60 * 60 * 24 * 7
+    AWS_EXPIRY = 60 * 60 * 24 * 7
     AWS_HEADERS = {
-        'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIREY,
-            AWS_EXPIREY)
+        'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIRY,
+            AWS_EXPIRY)
     }
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
@@ -364,7 +364,7 @@ class Production(Common):
     # if foo is the default, or whatever the value of the environment variable.
     # This causes the URL to be https://s3.amazonaws.com/&lt;Value%20Default:%20foo%gt;/
     # @burhan 2014-07-20
-    STATIC_URL = 'https://s3.amazonaws.com/%s/' % (AWS_STORAGE_BUCKET_NAME,)
+    STATIC_URL = 'https://s3.amazonaws.com/%s/' % (AWS_STORAGE_BUCKET_NAME.to_python('DJANGO_AWS_BUCKET_NAME'),)
     ########## END STORAGE CONFIGURATION
 
     ########## EMAIL
