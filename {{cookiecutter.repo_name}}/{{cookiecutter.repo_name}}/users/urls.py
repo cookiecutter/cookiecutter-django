@@ -4,7 +4,7 @@ from django.conf.urls import patterns, url
 from users import views
 
 urlpatterns = patterns('',
-    # URL pattern for the UserListView
+    # URL pattern for the UserListView  # noqa
     url(
         regex=r'^$',
         view=views.UserListView.as_view(),

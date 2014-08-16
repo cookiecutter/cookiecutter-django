@@ -26,6 +26,7 @@ Henrique G. G. Pereira / @ikkebr
 Travis McNeill / gh: Tavistock / @tavistock_esq 
 Matt Linares
 Russell Davies
+Sławek Ehlert / @slafs
 
 * Possesses commit rights
 
