@@ -4,4 +4,4 @@ coverage==3.7.1
 Sphinx
 
 # django-debug-toolbar that works with Django 1.5+
-django-debug-toolbar==1.2
+django-debug-toolbar==1.2.1

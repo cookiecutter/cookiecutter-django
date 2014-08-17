@@ -2,8 +2,8 @@
 #	production that isn't in development.
 -r base.txt
 
-gunicorn==18.0
+gunicorn==19.1.1
 django-storages==1.1.8
 Collectfast==0.2.0
 gevent==1.0.1
-boto==2.28.0
+boto==2.32.1

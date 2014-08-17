@@ -10,18 +10,17 @@ dj-database-url==0.3.0
 # Forms
 django-braces==1.4.0
 django-crispy-forms==1.4.0
-django-floppyforms==1.1.1
-
+django-floppyforms==1.2.0
 # Models
 South==0.8.4
-django-model-utils==2.0.3
+django-model-utils==2.2
 
 # images
-Pillow==2.4.0
+Pillow==2.5.2
 
 # For user registration, either via email or social
 # Well-built with regular release cycles!
-django-allauth==0.16.1
+django-allauth==0.18.0
 
 # For the persistance stores
 psycopg2==2.5.3
