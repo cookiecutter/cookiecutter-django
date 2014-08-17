@@ -406,3 +406,5 @@ class Production(Common):
 
     ########## Your production stuff: Below this line define 3rd party libary settings
 
+
+# Generated on {{cookiecutter.now}}
