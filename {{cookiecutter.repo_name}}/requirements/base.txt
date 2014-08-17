@@ -11,8 +11,9 @@ dj-database-url==0.3.0
 django-braces==1.4.0
 django-crispy-forms==1.4.0
 django-floppyforms==1.2.0
+
 # Models
-South==0.8.4
+South==1.0
 django-model-utils==2.2
 
 # images

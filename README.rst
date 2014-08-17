@@ -1,6 +1,10 @@
 cookiecutter-django
 =======================
 
+.. image:: https://requires.io/github/pydanny/cookiecutter-django/requirements.png?branch=master
+     :target: https://requires.io/github/pydanny/cookiecutter-django/requirements/?branch=master
+     :alt: Requirements Status
+
 A cookiecutter_ template for Django.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
