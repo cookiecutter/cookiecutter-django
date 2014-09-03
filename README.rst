@@ -12,7 +12,7 @@ A cookiecutter_ template for Django.
 Features
 ---------
 
-* For Django 1.6
+* For Django 1.7
 * Twitter Bootstrap_ 3
 * AngularJS_
 * Settings management via django-configurations_

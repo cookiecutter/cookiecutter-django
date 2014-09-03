@@ -37,9 +37,11 @@ class Common(Configuration):
         'django.contrib.admin',
     )
     THIRD_PARTY_APPS = (
-        'south',  # Database migration helpers:
         'crispy_forms',  # Form layouts
         'avatar',  # for user avatars
+        'allauth',  # registration
+        'allauth.account',  # registration
+        'allauth.socialaccount',  # registration
     )
 
     # Apps specific for this project go here.
@@ -50,14 +52,6 @@ class Common(Configuration):
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
     INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
-
-    INSTALLED_APPS += (
-        # Needs to come last for now because of a weird edge case between
-        #   South and allauth
-        'allauth',  # registration
-        'allauth.account',  # registration
-        'allauth.socialaccount',  # registration
-    )
     # END APP CONFIGURATION
 
     # MIDDLEWARE CONFIGURATION
@@ -70,6 +64,13 @@ class Common(Configuration):
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
     )
     # END MIDDLEWARE CONFIGURATION
+
+    # MIGRATIONS CONFIGURATION
+    MIGRATION_MODULES = {
+        'sites': 'contrib.sites.migrations'
+    }
+    # END MIGRATIONS CONFIGURATION
+
 
     # DEBUG
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
