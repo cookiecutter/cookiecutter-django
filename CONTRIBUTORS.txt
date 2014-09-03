@@ -27,6 +27,7 @@ Travis McNeill / gh: Tavistock / @tavistock_esq
 Matt Linares
 Russell Davies
 Sławek Ehlert / @slafs
+Alberto Sanchez / @alb3rto
 
 * Possesses commit rights
 
