@@ -22,6 +22,10 @@ from .common import Common
 
 class Production(Common):
 
+    # This ensures that Django will be able to detect a secure connection
+    # properly on Heroku.
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
     # INSTALLED_APPS
     INSTALLED_APPS = Common.INSTALLED_APPS
     # END INSTALLED_APPS
