@@ -23,11 +23,13 @@ Julio Castillo / @juliocc
 Kevin A. Stone
 mozillazg / @mozillazg
 Henrique G. G. Pereira / @ikkebr
-Travis McNeill / gh: Tavistock / @tavistock_esq 
+Travis McNeill / gh: Tavistock / @tavistock_esq
 Matt Linares
 Russell Davies
 Sławek Ehlert / @slafs
 Alberto Sanchez / @alb3rto
+Eyad Al Sibai / @eyadsibai
+
 
 * Possesses commit rights
 
