@@ -32,5 +32,7 @@ django-autoslug==1.7.2
 # Useful things
 django-avatar==2.0
 
+# Time zones support
+pytz==2014.7
 
 # Your custom requirements go here
