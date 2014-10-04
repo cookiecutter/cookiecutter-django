@@ -100,8 +100,7 @@ Run these commands to deploy the project to Heroku:
     heroku config:set DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY_HERE
     heroku config:set DJANGO_AWS_STORAGE_BUCKET_NAME=YOUR_AWS_S3_BUCKET_NAME_HERE
     git push heroku master
-    heroku run python {{cookiecutter.repo_name}}/manage.py syncdb --noinput
-    heroku run python {{cookiecutter.repo_name}}/manage.py migrate --noinput
+    heroku run python {{cookiecutter.repo_name}}/manage.py migrate
     heroku run python {{cookiecutter.repo_name}}/manage.py createsuperuser
     heroku open
 
