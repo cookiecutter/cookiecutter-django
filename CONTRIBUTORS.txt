@@ -32,6 +32,7 @@ Eyad Al Sibai / @eyadsibai
 Chris Franklin
 Benjamin Abel
 Felipe Arruda / @arruda
+Matt Warren / @mfwarren
 
 * Possesses commit rights
 
