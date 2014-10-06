@@ -29,6 +29,7 @@ Russell Davies
 Sławek Ehlert / @slafs
 Alberto Sanchez / @alb3rto
 Eyad Al Sibai / @eyadsibai
+Matt Warren / @mfwarren
 
 
 * Possesses commit rights
