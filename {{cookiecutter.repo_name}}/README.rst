@@ -144,5 +144,9 @@ You can then deploy by running the following commands.
     ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_AWS_ACCESS_KEY_ID=YOUR_AWS_ID_HERE
     ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY_HERE
     ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_AWS_STORAGE_BUCKET_NAME=YOUR_AWS_S3_BUCKET_NAME_HERE
+    ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} SENDGRID_USERNAME=YOUR_SENDGRID_USERNAME
+    ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} SENDGRID_PASSWORD=YOUR_SENDGRID_PASSWORD
     ssh -t dokku@yourservername.com dokku run {{cookiecutter.repo_name}} python {{cookiecutter.repo_name}}/manage.py migrate
     ssh -t dokku@yourservername.com dokku run {{cookiecutter.repo_name}} python {{cookiecutter.repo_name}}/manage.py createsuperuser
+
+When deploying via Dokku make sure you backup your database in some fashion as it is NOT done automatically.
