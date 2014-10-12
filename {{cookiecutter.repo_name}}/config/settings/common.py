@@ -255,7 +255,6 @@ LOGGING = {
         },
     }
 }
-
 {% if cookiecutter.use_celery == "y" %}
 ########## CELERY
 # if you are not using the django database broker (e.g. rabbitmq, redis, memcached), you can remove the next line.
@@ -263,5 +262,4 @@ INSTALLED_APPS += ('kombu.transport.django',)
 BROKER_URL = env("CELERY_BROKER_URL", default='django://')
 ########## END CELERY
 {% endif %}
-
 # Your common stuff: Below this line define 3rd party library settings
