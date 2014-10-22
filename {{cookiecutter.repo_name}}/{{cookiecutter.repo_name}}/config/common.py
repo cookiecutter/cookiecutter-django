@@ -103,7 +103,7 @@ class Common(Configuration):
     # MANAGER CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
     ADMINS = (
-        ('{{cookiecutter.author_name}}', '{{cookiecutter.email}}'),
+        ("""{{cookiecutter.author_name}}""", '{{cookiecutter.email}}'),
     )
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
