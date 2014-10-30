@@ -4,4 +4,4 @@ before_install:
   - time pip install pep8
 
 script:
-  - pep8 --ignore E201,E202,E501 .
+  - pep8 --ignore E201,E202 --max-line-length=120 --exclude='migrations' .
