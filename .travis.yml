@@ -1,0 +1,7 @@
+language: python
+
+before_install:
+  - time pip install pep8
+
+script:
+  - pep8 --ignore E121,E122,E201,E202,E231,E265,E401,E501 .
