@@ -11,9 +11,12 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   readme
    install
    deploy
    tests
+   contributing
+   authors
 
 
 
