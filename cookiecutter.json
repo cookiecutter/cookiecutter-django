@@ -2,7 +2,7 @@
     "project_name": "project_name is the title of the project.",
     "repo_name":"repo_name is used for describing the directory structure.",
     "author_name": "Your Name",
-    "github_username": "your username",
+    "github_username": "your GitHub username",
     "email": "Your email",
     "description": "A short description of the project.",
     "year": "2014",
