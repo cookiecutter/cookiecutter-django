@@ -60,9 +60,9 @@ Ready to contribute? Here's how to set up `{{ cookiecutter.repo_name }}` for loc
 1. Fork the `{{ cookiecutter.repo_name }}` repo on GitHub.
 2. Clone your fork locally::
 
-    $ git clone git@github.com:your_name_here/{{ cookiecutter.repo_name }}.git
+    $ git clone  https://github.com/your_username_here/{{ cookiecutter.repo_name }}.git
 
-3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
+3. Install your local copy into a `virtualenv <http://virtualenv.readthedocs.org/en/latest/>`_. Assuming you have `virtualenvwrapper <http://virtualenvwrapper.readthedocs.org/en/latest/>`_ installed, this is how you set up your fork for local development::
 
     $ mkvirtualenv {{ cookiecutter.repo_name }}
     $ cd {{ cookiecutter.repo_name }}/
