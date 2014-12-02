@@ -50,9 +50,9 @@ First make sure to create and activate a virtualenv_, then open a terminal at th
 
 .. _virtualenv: http://docs.python-guide.org/en/latest/dev/virtualenvs/
 
-You can now run the usual Django ``runserver`` command::
+You can now run the ``runserver_plus`` command::
 
-    $ python {{cookiecutter.repo_name}}/manage.py runserver
+    $ python {{cookiecutter.repo_name}}/manage.py runserver_plus
 
 The base app will run but you'll need to carry out a few steps to make the sign-up and login forms work. These are currently detailed in `issue #39`_.
 
