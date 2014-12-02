@@ -33,6 +33,7 @@ Chris Franklin
 Benjamin Abel
 Felipe Arruda / @arruda
 Matt Warren / @mfwarren
+Martin Blech
 
 * Possesses commit rights
 
