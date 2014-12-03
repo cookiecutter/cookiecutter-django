@@ -4,7 +4,7 @@ Production Configurations
 
 - Use djangosecure
 - Use Amazon's S3 for storing static files and uploaded media
-- Use sendgird to sendemails
+- Use sendgrid to send emails
 - Use MEMCACHIER on Heroku
 '''
 from configurations import values
@@ -74,13 +74,13 @@ class Production(Common):
 
     # see: https://github.com/antonagestam/collectfast
     AWS_PRELOAD_METADATA = True
-    INSTALLED_APPS += ("collectfast", )
+    INSTALLED_APPS += ('collectfast', )
 
     # AWS cache settings, don't change unless you know what you're doing:
-    AWS_EXPIREY = 60 * 60 * 24 * 7
+    AWS_EXPIRY = 60 * 60 * 24 * 7
     AWS_HEADERS = {
         'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (
-            AWS_EXPIREY, AWS_EXPIREY)
+            AWS_EXPIRY, AWS_EXPIRY)
     }
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
