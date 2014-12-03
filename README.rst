@@ -6,7 +6,7 @@ cookiecutter-django
      :alt: Requirements Status
 
 .. image:: https://travis-ci.org/pydanny/cookiecutter-django.svg?branch=master
-     :target: https://travis-ci.org/pydanny/cookiecutter-django.svg?branch=master
+     :target: https://travis-ci.org/pydanny/cookiecutter-django?branch=master
      :alt: Build Status
 
 A cookiecutter_ template for Django.
