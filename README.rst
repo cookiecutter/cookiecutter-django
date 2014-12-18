@@ -114,7 +114,7 @@ First make sure to create and activate a virtualenv_, then open a terminal at th
 Then, create a PostgreSQL database and add the database configuration using the  ``dj-database-url`` app pattern: ``postgres://db_owner:password@dbserver_ip:port/db_name`` either:
 
 * in the ``config.common.py`` setting file,
-* or in the env variable ``DATABASE_URL`` 
+* or in the env variable ``DATABASE_URL``
 
 
 
