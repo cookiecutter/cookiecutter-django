@@ -5,3 +5,8 @@ before_install:
 
 script:
   - pep8 --ignore E201,E202 --max-line-length=120 --exclude='migrations' .
+
+notifications:
+  email:
+    on_success: never
+    on_failure: never
