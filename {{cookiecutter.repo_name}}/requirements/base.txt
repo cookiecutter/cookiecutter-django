@@ -15,14 +15,14 @@ django-floppyforms==1.3.0
 # Models
 django-model-utils==2.2
 
-# images
+# Images
 Pillow==2.6.1
 
 # For user registration, either via email or social
 # Well-built with regular release cycles!
 django-allauth==0.18.0
 
-# For the persistance stores
+# For the persistence stores
 psycopg2==2.5.4
 
 # Unicode slugification
