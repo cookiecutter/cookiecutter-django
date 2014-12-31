@@ -34,6 +34,7 @@ Benjamin Abel
 Felipe Arruda / @arruda
 Matt Warren / @mfwarren
 Martin Blech
+Andy Rose
 
 * Possesses commit rights
 
