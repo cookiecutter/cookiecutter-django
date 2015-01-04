@@ -13,7 +13,7 @@ Tom Offermann
 Lyla Fischer
 Taylor Baldwin
 Chris Curvey (@ccurvey)
-Fábio C. Barrionuevo da Luz (@luzfcb)
+Fábio C. Barrionuevo da Luz (@luzfcb)*
 Saurabh Kumar (gh: theskumar / @_theskumar)*
 Ashley Camba
 Yaroslav Halchenko
