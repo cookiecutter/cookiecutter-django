@@ -35,6 +35,7 @@ Felipe Arruda / @arruda
 Matt Warren / @mfwarren
 Martin Blech
 Andy Rose
+Andrew Mikhnevich / @zcho
 
 * Possesses commit rights
 
