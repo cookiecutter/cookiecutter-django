@@ -13,6 +13,11 @@ A cookiecutter_ template for Django.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
+Please update your version of cookiecutter!
+--------------------------------------------
+
+This cookiecutter template uses features that exists only in cookiecutter 0.9.0 or higher.
+
 Features
 ---------
 
