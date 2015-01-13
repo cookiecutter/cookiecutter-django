@@ -1,11 +1,12 @@
 {
     "project_name": "project_name is the title of the project.",
-    "repo_name":"repo_name is used for describing the directory structure.",
+    "repo_name": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
+    "package_name": "{{ cookiecutter.repo_name|replace('-', '') }}",
     "author_name": "Your Name",
     "email": "Your email",
     "description": "A short description of the project.",
-    "year": "2015",
     "domain_name": "example.com",
     "version": "0.1.0",
-    "now": "2014/06/15"
+    "now": "2015/01/13",
+    "year": "{{ cookiecutter.now[:4] }}"
 }
