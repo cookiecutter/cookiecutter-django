@@ -77,13 +77,15 @@ It prompts you for questions. Answer them::
     remote: Total 550 (delta 283), reused 479 (delta 222)
     Receiving objects: 100% (550/550), 127.66 KiB | 58 KiB/s, done.
     Resolving deltas: 100% (283/283), done.
-    project_name (default is "project_name")? Reddit Clone
-    repo_name (default is "repo_name")? redditclone
+    project_name (default is "project_name is the title of the project.")? Reddit Clone
+    repo_name (default is "reddit_clone")? reddit
     author_name (default is "Your Name")? Daniel Greenfeld
     email (default is "Your email")? pydanny@gmail.com
     description (default is "A short description of the project.")? A reddit clone.
-    year (default is "Current year")? 2014
-    domain_name (default is "Domain name")?
+    domain_name (default is "example.com")? myreddit.com
+    version (default is "0.1.0")? 0.0.1
+    now (default is "2015/01/13")? 2015/01/16
+    year (default is "2015")?
 
 
 Enter the project and take a look around::
