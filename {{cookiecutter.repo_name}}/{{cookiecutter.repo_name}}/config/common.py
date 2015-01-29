@@ -203,10 +203,10 @@ class Common(Configuration):
     # END MEDIA CONFIGURATION
 
     # URL Configuration
-    ROOT_URLCONF = 'urls'
+    ROOT_URLCONF = '{{ cookiecutter.repo_name }}.urls'
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
-    WSGI_APPLICATION = 'wsgi.application'
+    WSGI_APPLICATION = '{{ cookiecutter.repo_name }}.wsgi.application'
     # End URL Configuration
 
     # AUTHENTICATION CONFIGURATION
