@@ -36,6 +36,7 @@ Matt Warren / @mfwarren
 Martin Blech
 Andy Rose
 Andrew Mikhnevich / @zcho
+Kevin Ndung'u / @kevgathuku
 
 * Possesses commit rights
 
