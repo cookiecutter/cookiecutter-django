@@ -16,7 +16,7 @@ version = {{ cookiecutter.repo_name }}.__version__
 setup(
     name='{{ cookiecutter.project_name }}',
     version=version,
-    author='{{ cookiecutter.full_name }}',
+    author="{{ cookiecutter.full_name }}",
     author_email='{{ cookiecutter.email }}',
     packages=[
         '{{ cookiecutter.repo_name }}',
