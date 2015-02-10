@@ -9,6 +9,10 @@ cookiecutter-django
      :target: https://travis-ci.org/pydanny/cookiecutter-django?branch=master
      :alt: Build Status
 
+.. image:: https://landscape.io/github/pydanny/cookiecutter-django/master/landscape.svg?style=flat
+   :target: https://landscape.io/github/pydanny/cookiecutter-django/master
+   :alt: Code Health
+
 A cookiecutter_ template for Django.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
