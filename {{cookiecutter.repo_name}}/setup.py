@@ -16,14 +16,14 @@ version = {{ cookiecutter.repo_name }}.__version__
 setup(
     name='{{ cookiecutter.project_name }}',
     version=version,
-    author='{{ cookiecutter.full_name }}',
+    author="{{ cookiecutter.author_name }}",
     author_email='{{ cookiecutter.email }}',
     packages=[
         '{{ cookiecutter.repo_name }}',
     ],
     include_package_data=True,
     install_requires=[
-        'Django>=1.6.5',
+        'Django>=1.7.4',
     ],
     zip_safe=False,
     scripts=['{{ cookiecutter.repo_name }}/manage.py'],

@@ -57,7 +57,6 @@ class Common(Configuration):
     # MIDDLEWARE CONFIGURATION
     MIDDLEWARE_CLASSES = (
         # Make sure djangosecure.middleware.SecurityMiddleware is listed first
-        'djangosecure.middleware.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
         'django.middleware.csrf.CsrfViewMiddleware',
@@ -85,7 +84,7 @@ class Common(Configuration):
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
     # Note: This key only used for development and testing.
     #       In production, this is changed to a values.SecretValue() setting
-    SECRET_KEY = "CHANGEME!!!"
+    SECRET_KEY = 'CHANGEME!!!'
     # END SECRET CONFIGURATION
 
     # FIXTURE CONFIGURATION
@@ -126,8 +125,12 @@ class Common(Configuration):
     # END CACHING
 
     # GENERAL CONFIGURATION
-    # See: https://docs.djangoproject.com/en/dev/ref/settings/#time-zone
-    TIME_ZONE = 'America/Los_Angeles'
+
+    # Local time zone for this installation. Choices can be found here:
+    # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
+    # although not all choices may be available on all operating systems.
+    # In a Windows environment this must be set to your system time zone.
+    TIME_ZONE = '{{ cookiecutter.timezone }}'
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
     LANGUAGE_CODE = 'en-us'
@@ -149,8 +152,8 @@ class Common(Configuration):
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
     TEMPLATE_CONTEXT_PROCESSORS = (
         'django.contrib.auth.context_processors.auth',
-        "allauth.account.context_processors.account",
-        "allauth.socialaccount.context_processors.socialaccount",
+        'allauth.account.context_processors.account',
+        'allauth.socialaccount.context_processors.socialaccount',
         'django.core.context_processors.debug',
         'django.core.context_processors.i18n',
         'django.core.context_processors.media',
@@ -211,25 +214,25 @@ class Common(Configuration):
 
     # AUTHENTICATION CONFIGURATION
     AUTHENTICATION_BACKENDS = (
-        "django.contrib.auth.backends.ModelBackend",
-        "allauth.account.auth_backends.AuthenticationBackend",
+        'django.contrib.auth.backends.ModelBackend',
+        'allauth.account.auth_backends.AuthenticationBackend',
     )
 
     # Some really nice defaults
-    ACCOUNT_AUTHENTICATION_METHOD = "username"
+    ACCOUNT_AUTHENTICATION_METHOD = 'username'
     ACCOUNT_EMAIL_REQUIRED = True
-    ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+    ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
     # END AUTHENTICATION CONFIGURATION
 
     # Custom user app defaults
     # Select the correct user model
-    AUTH_USER_MODEL = "users.User"
-    LOGIN_REDIRECT_URL = "users:redirect"
-    LOGIN_URL = "account_login"
+    AUTH_USER_MODEL = 'users.User'
+    LOGIN_REDIRECT_URL = 'users:redirect'
+    LOGIN_URL = 'account_login'
     # END Custom user app defaults
 
     # SLUGLIFIER
-    AUTOSLUG_SLUGIFY_FUNCTION = "slugify.slugify"
+    AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
     # END SLUGLIFIER
 
     # LOGGING CONFIGURATION
@@ -263,5 +266,9 @@ class Common(Configuration):
         }
     }
     # END LOGGING CONFIGURATION
+
+    @classmethod
+    def post_setup(cls):
+        cls.DATABASES['default']['ATOMIC_REQUESTS'] = True
 
     # Your common stuff: Below this line define 3rd party library settings

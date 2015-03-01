@@ -4,7 +4,7 @@ Production Configurations
 
 - Use djangosecure
 - Use Amazon's S3 for storing static files and uploaded media
-- Use sendgird to sendemails
+- Use sendgrid to send emails
 - Use MEMCACHIER on Heroku
 '''
 from configurations import values
@@ -36,6 +36,15 @@ class Production(Common):
 
     # django-secure
     INSTALLED_APPS += ("djangosecure", )
+
+    # MIDDLEWARE CONFIGURATION
+    MIDDLEWARE_CLASSES = (
+        # Make sure djangosecure.middleware.SecurityMiddleware is listed first
+        'djangosecure.middleware.SecurityMiddleware',
+    )
+
+    MIDDLEWARE_CLASSES += Common.MIDDLEWARE_CLASSES
+    # END MIDDLEWARE CONFIGURATION
 
     # set this to 60 seconds and then to 518400 when you can prove it works
     SECURE_HSTS_SECONDS = 60
@@ -74,13 +83,13 @@ class Production(Common):
 
     # see: https://github.com/antonagestam/collectfast
     AWS_PRELOAD_METADATA = True
-    INSTALLED_APPS += ("collectfast", )
+    INSTALLED_APPS += ('collectfast', )
 
     # AWS cache settings, don't change unless you know what you're doing:
-    AWS_EXPIREY = 60 * 60 * 24 * 7
+    AWS_EXPIRY = 60 * 60 * 24 * 7
     AWS_HEADERS = {
         'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (
-            AWS_EXPIREY, AWS_EXPIREY)
+            AWS_EXPIRY, AWS_EXPIRY)
     }
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
@@ -119,4 +128,4 @@ class Production(Common):
         CACHES = values.CacheURLValue(default="memcached://127.0.0.1:11211")
     # END CACHING
 
-    # Your production stuff: Below this line define 3rd party libary settings
+    # Your production stuff: Below this line define 3rd party library settings

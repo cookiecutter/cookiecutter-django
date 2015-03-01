@@ -6,12 +6,17 @@ cookiecutter-django
      :alt: Requirements Status
 
 .. image:: https://travis-ci.org/pydanny/cookiecutter-django.svg?branch=master
-     :target: https://travis-ci.org/pydanny/cookiecutter-django.svg?branch=master
+     :target: https://travis-ci.org/pydanny/cookiecutter-django?branch=master
      :alt: Build Status
 
 A cookiecutter_ template for Django.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
+
+Please update your version of cookiecutter!
+--------------------------------------------
+
+This cookiecutter template uses features that exists only in cookiecutter 0.9.0 or higher.
 
 Features
 ---------
@@ -72,13 +77,15 @@ It prompts you for questions. Answer them::
     remote: Total 550 (delta 283), reused 479 (delta 222)
     Receiving objects: 100% (550/550), 127.66 KiB | 58 KiB/s, done.
     Resolving deltas: 100% (283/283), done.
-    project_name (default is "project_name")? Reddit Clone
-    repo_name (default is "repo_name")? redditclone
+    project_name (default is "project_name is the title of the project.")? Reddit Clone
+    repo_name (default is "reddit_clone")? reddit
     author_name (default is "Your Name")? Daniel Greenfeld
     email (default is "Your email")? pydanny@gmail.com
     description (default is "A short description of the project.")? A reddit clone.
-    year (default is "Current year")? 2014
-    domain_name (default is "Domain name")?
+    domain_name (default is "example.com")? myreddit.com
+    version (default is "0.1.0")? 0.0.1
+    now (default is "2015/01/13")? 2015/01/16
+    year (default is "2015")?
 
 
 Enter the project and take a look around::
@@ -114,7 +121,7 @@ First make sure to create and activate a virtualenv_, then open a terminal at th
 Then, create a PostgreSQL database and add the database configuration using the  ``dj-database-url`` app pattern: ``postgres://db_owner:password@dbserver_ip:port/db_name`` either:
 
 * in the ``config.common.py`` setting file,
-* or in the env variable ``DATABASE_URL`` 
+* or in the env variable ``DATABASE_URL``
 
 
 

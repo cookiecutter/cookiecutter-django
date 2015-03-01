@@ -18,7 +18,6 @@ Getting up and running
 
 Just follow the steps described in https://{{ cookiecutter.repo_name }}.readthedocs.org/en/latest/install.html and you'll get yourself an up and running local development environment.
 
-
 Deployment
 ------------
 
