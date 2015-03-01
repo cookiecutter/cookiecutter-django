@@ -14,7 +14,6 @@ Contents:
    readme
    install
    deploy
-   tests
    contributing
    authors
 

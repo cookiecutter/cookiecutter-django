@@ -62,11 +62,7 @@ Ready to contribute? Here's how to set up `{{ cookiecutter.repo_name }}` for loc
 
     $ git clone  https://github.com/your_username_here/{{ cookiecutter.repo_name }}.git
 
-3. Install your local copy into a `virtualenv <http://virtualenv.readthedocs.org/en/latest/>`_. Assuming you have `virtualenvwrapper <http://virtualenvwrapper.readthedocs.org/en/latest/>`_ installed, this is how you set up your fork for local development::
-
-    $ mkvirtualenv {{ cookiecutter.repo_name }}
-    $ cd {{ cookiecutter.repo_name }}/
-    $ python setup.py develop
+3. Install your local copy following the instructions in the docs https://{{ cookiecutter.repo_name }}.readthedocs.org/en/latest/install.html
 
 4. Create a branch for local development::
 
@@ -74,21 +70,14 @@ Ready to contribute? Here's how to set up `{{ cookiecutter.repo_name }}` for loc
 
    Now you can make your changes locally.
 
-5. When you're done making changes, check that your changes pass flake8 and the tests, including testing other Python versions with tox::
 
-    $ flake8 {{ cookiecutter.repo_name }} tests
-    $ python setup.py test
-    $ tox
-
-   To get flake8 and tox, just pip install them into your virtualenv.
-
-6. Commit your changes and push your branch to GitHub::
+5. Commit your changes and push your branch to GitHub::
 
     $ git add .
     $ git commit -m "Your detailed description of your changes."
     $ git push origin name-of-your-bugfix-or-feature
 
-7. Submit a pull request through the GitHub website.
+6. Submit a pull request through the GitHub website.
 
 Pull Request Guidelines
 -----------------------
@@ -97,15 +86,4 @@ Before you submit a pull request, check that it meets these guidelines:
 
 1. The pull request should include tests.
 2. If the pull request adds functionality, the docs should be updated. Put
-   your new functionality into a function with a docstring, and add the
-   feature to the list in README.rst.
-3. The pull request should work for Python 2.6, 2.7, 3.3, and 3.4, and for PyPy. Check
-   https://travis-ci.org/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/pull_requests
-   and make sure that the tests pass for all supported Python versions.
-
-Tips
-----
-
-To run a subset of tests::
-
-    $ python -m unittest tests.test_{{ cookiecutter.repo_name }}
+   your new functionality into a function with a docstring.
