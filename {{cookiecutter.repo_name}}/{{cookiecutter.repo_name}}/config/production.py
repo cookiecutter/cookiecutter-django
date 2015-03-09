@@ -7,6 +7,8 @@ Production Configurations
 - Use sendgrid to send emails
 - Use MEMCACHIER on Heroku
 '''
+import django
+
 from configurations import values
 
 # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
@@ -83,7 +85,10 @@ class Production(Common):
 
     # see: https://github.com/antonagestam/collectfast
     AWS_PRELOAD_METADATA = True
-    INSTALLED_APPS += ('collectfast', )
+    if django.VERSION < (1, 7):
+        INSTALLED_APPS += ('collectfast', )
+    else:
+        INSTALLED_APPS = ('collectfast', ) + INSTALLED_APPS
 
     # AWS cache settings, don't change unless you know what you're doing:
     AWS_EXPIRY = 60 * 60 * 24 * 7
