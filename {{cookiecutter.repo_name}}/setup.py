@@ -1,30 +1,24 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-import os
-import sys
-
+from __future__ import unicode_literals
 
 try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
 
-import {{ cookiecutter.repo_name }}
-version = {{ cookiecutter.repo_name }}.__version__
-
 setup(
-    name='{{ cookiecutter.project_name }}',
-    version=version,
+    name="{{ cookiecutter.project_name }}",
+    version="{{ cookiecutter.version }}",
     author="{{ cookiecutter.author_name }}",
-    author_email='{{ cookiecutter.email }}',
+    author_email="{{ cookiecutter.email }}",
     packages=[
-        '{{ cookiecutter.repo_name }}',
+        "{{ cookiecutter.repo_name }}",
     ],
     include_package_data=True,
     install_requires=[
-        'Django>=1.7.4',
+        "Django==1.7.6",
     ],
     zip_safe=False,
-    scripts=['{{ cookiecutter.repo_name }}/manage.py'],
+    scripts=["{{ cookiecutter.repo_name }}/manage.py"],
 )
