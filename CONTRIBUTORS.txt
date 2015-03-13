@@ -37,6 +37,7 @@ Martin Blech
 Andy Rose
 Andrew Mikhnevich / @zcho
 Kevin Ndung'u / @kevgathuku
+Kaveh / @ka7eh
 
 * Possesses commit rights
 
