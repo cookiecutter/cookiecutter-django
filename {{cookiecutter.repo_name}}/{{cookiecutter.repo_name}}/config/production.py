@@ -9,14 +9,6 @@ Production Configurations
 '''
 from configurations import values
 
-# See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
-try:
-    from S3 import CallingFormat
-    AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
-except ImportError:
-    # TODO: Fix this where even if in Dev this class is called.
-    pass
-
 from .common import Common
 
 
@@ -92,6 +84,12 @@ class Production(Common):
         'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (
             AWS_EXPIRY, AWS_EXPIRY)
     }
+    # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html
+    try:
+        from boto.s3.connection import OrdinaryCallingFormat
+        AWS_S3_CALLING_FORMAT = OrdinaryCallingFormat()
+    except ImportError:
+        pass
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
     STATIC_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
