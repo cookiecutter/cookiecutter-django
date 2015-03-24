@@ -92,9 +92,6 @@ class Production(Common):
         'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (
             AWS_EXPIRY, AWS_EXPIRY)
     }
-
-    # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-    STATIC_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
     # END STORAGE CONFIGURATION
 
     # EMAIL
@@ -130,3 +127,8 @@ class Production(Common):
     # END CACHING
 
     # Your production stuff: Below this line define 3rd party library settings
+
+    @classmethod
+    def post_setup(cls):
+        # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
+        cls.STATIC_URL = 'https://s3.amazonaws.com/%s/' % cls.AWS_STORAGE_BUCKET_NAME
