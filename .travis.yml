@@ -3,8 +3,12 @@ language: python
 before_install:
   - time pip install pep8
 
+install:
+- pip install -r dev-requirements.txt
+
 script:
   - pep8 --ignore E201,E202 --max-line-length=120 --exclude='migrations' .
+  - make test
 
 notifications:
   email:
