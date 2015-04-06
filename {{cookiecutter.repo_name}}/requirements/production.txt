@@ -6,4 +6,4 @@ gunicorn==19.3.0
 django-storages==1.1.8
 Collectfast==0.2.1
 gevent==1.0.1
-boto==2.36.0
+boto==2.37.0
