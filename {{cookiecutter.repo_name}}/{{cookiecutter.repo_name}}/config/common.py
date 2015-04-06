@@ -161,7 +161,7 @@ class Common(Configuration):
         'django.core.context_processors.tz',
         'django.contrib.messages.context_processors.messages',
         'django.core.context_processors.request',
-        # Your stuff: custom template context processers go here
+        # Your stuff: custom template context processors go here
     )
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
