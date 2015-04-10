@@ -1,7 +1,7 @@
 cookiecutter-django
 =======================
 
-.. image:: https://requires.io/github/pydanny/cookiecutter-django/requirements.png?branch=master
+.. image:: https://requires.io/github/pydanny/cookiecutter-django/requirements.svg?branch=master
      :target: https://requires.io/github/pydanny/cookiecutter-django/requirements/?branch=master
      :alt: Requirements Status
 
@@ -77,13 +77,14 @@ It prompts you for questions. Answer them::
     remote: Total 550 (delta 283), reused 479 (delta 222)
     Receiving objects: 100% (550/550), 127.66 KiB | 58 KiB/s, done.
     Resolving deltas: 100% (283/283), done.
-    project_name (default is "project_name is the title of the project.")? Reddit Clone
-    repo_name (default is "reddit_clone")? reddit
+    project_name (default is "project_name")? Reddit Clone
+    repo_name (default is "Reddit_Clone")? reddit
     author_name (default is "Your Name")? Daniel Greenfeld
     email (default is "Your email")? pydanny@gmail.com
     description (default is "A short description of the project.")? A reddit clone.
     domain_name (default is "example.com")? myreddit.com
     version (default is "0.1.0")? 0.0.1
+    timezone (default is "UTC")? 
     now (default is "2015/01/13")? 2015/01/16
     year (default is "2015")?
 
