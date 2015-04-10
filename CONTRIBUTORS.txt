@@ -38,6 +38,7 @@ Andy Rose
 Andrew Mikhnevich / @zcho
 Kevin Ndung'u / @kevgathuku
 Kaveh / @ka7eh
+Alex Tsai / @caffodian
 
 * Possesses commit rights
 
