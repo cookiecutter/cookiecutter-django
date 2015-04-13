@@ -3,3 +3,4 @@
 *.pyc
 local_settings.py
 repo_name
+.idea
