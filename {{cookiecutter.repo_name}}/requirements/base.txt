@@ -2,10 +2,8 @@
 django>=1.7.7,<1.8
 
 # Configuration
-django-configurations==0.8
+django-environ==0.3.0
 django-secure==1.0.1
-django-cache-url==0.8.0
-dj-database-url==0.3.0
 
 # Forms
 django-braces==1.4.0
