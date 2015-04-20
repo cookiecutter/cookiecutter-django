@@ -19,8 +19,8 @@ Environment Variable                    Django Setting              Development 
 DJANGO_AWS_ACCESS_KEY_ID                AWS_ACCESS_KEY_ID           n/a                                            raises error
 DJANGO_AWS_SECRET_ACCESS_KEY            AWS_SECRET_ACCESS_KEY       n/a                                            raises error
 DJANGO_AWS_STORAGE_BUCKET_NAME          AWS_STORAGE_BUCKET_NAME     n/a                                            raises error
-DJANGO_CACHES                           CACHES                      locmem                                         memcached
-DJANGO_DATABASES                        DATABASES                   See code                                       See code
+DJANGO_CACHES                           CACHES (default)            locmem                                         memcached
+DJANGO_DATABASES                        DATABASES (default)         See code                                       See code
 DJANGO_DEBUG                            DEBUG                       True                                           False
 DJANGO_EMAIL_BACKEND                    EMAIL_BACKEND               django.core.mail.backends.console.EmailBackend django.core.mail.backends.smtp.EmailBackend
 DJANGO_SECRET_KEY                       SECRET_KEY                  CHANGEME!!!                                    raises error
@@ -84,7 +84,7 @@ It's time to write the code!!!
 Deployment
 ------------
 
-It is possible to deploy to Heroku or to your own server by using Dokku, an open source Heroku clone. 
+It is possible to deploy to Heroku or to your own server by using Dokku, an open source Heroku clone.
 
 Heroku
 ^^^^^^
@@ -99,7 +99,6 @@ Run these commands to deploy the project to Heroku:
     heroku addons:add sendgrid:starter
     heroku addons:add memcachier:dev
     heroku pg:promote DATABASE_URL
-    heroku config:set DJANGO_CONFIGURATION=Production
     heroku config:set DJANGO_SECRET_KEY=RANDOM_SECRET_KEY_HERE
     heroku config:set DJANGO_AWS_ACCESS_KEY_ID=YOUR_AWS_ID_HERE
     heroku config:set DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY_HERE
@@ -113,7 +112,7 @@ Dokku
 ^^^^^
 
 You need to make sure you have a server running Dokku with at least 1GB of RAM. Backing services are
-added just like in Heroku however you must ensure you have the relevant Dokku plugins installed. 
+added just like in Heroku however you must ensure you have the relevant Dokku plugins installed.
 
 .. code-block:: bash
 
@@ -139,7 +138,6 @@ You can then deploy by running the following commands.
     ssh -t dokku@yourservername.com dokku memcached:link {{cookiecutter.repo_name}}-memcached {{cookiecutter.repo_name}}
     ssh -t dokku@yourservername.com dokku postgres:create {{cookiecutter.repo_name}}-postgres
     ssh -t dokku@yourservername.com dokku postgres:link {{cookiecutter.repo_name}}-postgres {{cookiecutter.repo_name}}
-    ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_CONFIGURATION=Production
     ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_SECRET_KEY=RANDOM_SECRET_KEY_HERE
     ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_AWS_ACCESS_KEY_ID=YOUR_AWS_ID_HERE
     ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY_HERE

@@ -24,7 +24,7 @@ Features
 * For Django 1.7
 * Twitter Bootstrap_ 3
 * AngularJS_
-* Settings management via django-configurations_
+* Settings management via django-environ_
 * Registration via django-allauth_
 * User avatars via django-avatar_
 * Procfile_ for deploying to Heroku
@@ -35,7 +35,7 @@ Features
 
 .. _Bootstrap: https://github.com/twbs/bootstrap
 .. _AngularJS: https://github.com/angular/angular.js
-.. _django-configurations: https://github.com/jezdez/django-configurations
+.. _django-environ: https://github.com/joke2k/django-environ
 .. _django-allauth: https://github.com/pennersr/django-allauth
 .. _django-avatar: https://github.com/jezdez/django-avatar/
 .. _Procfile: https://devcenter.heroku.com/articles/procfile
@@ -84,7 +84,7 @@ It prompts you for questions. Answer them::
     description (default is "A short description of the project.")? A reddit clone.
     domain_name (default is "example.com")? myreddit.com
     version (default is "0.1.0")? 0.0.1
-    timezone (default is "UTC")? 
+    timezone (default is "UTC")?
     now (default is "2015/01/13")? 2015/01/16
     year (default is "2015")?
 
