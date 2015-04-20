@@ -7,7 +7,7 @@ Local settings
 - Use Django Debug Toolbar
 '''
 
-from .common import *
+from .common import *  # noqa
 
 # DEBUG
 # ------------------------------------------------------------------------------
