@@ -70,8 +70,9 @@ INSTALLED_APPS = ('collectfast', ) + INSTALLED_APPS
 # AWS cache settings, don't change unless you know what you're doing:
 AWS_EXPIRY = 60 * 60 * 24 * 7
 AWS_HEADERS = {
-    'Cache-Control': 'max-age=%d, s-maxage=%d, must-revalidate' % (
-        AWS_EXPIRY, AWS_EXPIRY)
+    'Cache-Control': str.encode(
+        'max-age=%d, s-maxage=%d, must-revalidate' % (
+            AWS_EXPIREY, AWS_EXPIREY))
 }
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
