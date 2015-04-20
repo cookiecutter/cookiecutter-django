@@ -1,28 +1,16 @@
-import os
 import re
-import shutil
-import unittest
-from os.path import dirname, exists, join
 
-from cookiecutter.main import cookiecutter
+import sh
+
+from .base import DjangoCookieTestCase
 
 
-class TestCookiecutterSubstitution(unittest.TestCase):
+class TestCookiecutterSubstitution(DjangoCookieTestCase):
     """Test that all cookiecutter instances are substituted"""
-
-    cookiecutter(dirname(dirname(__file__)), no_input=True)
-
-    destpath = join(dirname(dirname(__file__)), 'project_name')
-
-    def tearDown(self):
-        if exists(self.destpath):
-            shutil.rmtree(self.destpath)
 
     def test_all_cookiecutter_instances_are_substituted(self):
         # Build a list containing absolute paths to the generated files
-        paths = [os.path.join(dirpath, file_path)
-                 for dirpath, subdirs, files in os.walk(self.destpath)
-                 for file_path in files]
+        paths = self.generate_project()
 
         # Construct the cookiecutter search pattern
         pattern = "{{(\s?cookiecutter)[.](.*?)}}"
@@ -36,6 +24,10 @@ class TestCookiecutterSubstitution(unittest.TestCase):
                     match,
                     "cookiecutter variable not replaced in {}".format(path))
 
-
-if __name__ == '__main__':
-    unittest.main()
+    def test_flake8_complaince(self):
+        """generated project should pass flake8"""
+        self.generate_project()
+        try:
+            sh.flake8(self.destpath)
+        except sh.ErrorReturnCode as e:
+            raise AssertionError(e)
