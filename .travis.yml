@@ -1,16 +1,13 @@
 language: python
-
-before_install:
-  - time pip install pep8
+sudo: false
 
 install:
-- pip install -r dev-requirements.txt
+- pip install -r requirements.txt
 
 script:
-  - pep8 --ignore E201,E202 --max-line-length=120 --exclude='migrations' .
-  - make test
+  - py.test
 
 notifications:
   email:
-    on_success: never
-    on_failure: never
+    on_success: change
+    on_failure: always

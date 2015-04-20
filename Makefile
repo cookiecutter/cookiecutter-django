@@ -1,4 +1,4 @@
 .PHONY: test
 
 test:
-	py.test -q tests/*.py
+	py.test tests/*.py

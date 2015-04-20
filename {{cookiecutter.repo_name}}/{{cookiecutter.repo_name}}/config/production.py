@@ -12,7 +12,7 @@ from __future__ import absolute_import, unicode_literals
 
 from boto.s3.connection import OrdinaryCallingFormat
 
-from .common import *
+from .common import *  # noqa
 
 # This ensures that Django will be able to detect a secure connection
 # properly on Heroku.

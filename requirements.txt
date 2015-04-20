@@ -1,0 +1,13 @@
+cookiecutter==1.0.0
+flake8==2.4.0
+sh
+
+# Debugging
+# -------------------------------------
+ipdb==0.8
+ipython==3.1.0
+
+# Testing
+# -------------------------------------
+pytest==2.7.0
+git+git://github.com/mverteuil/pytest-ipdb.git

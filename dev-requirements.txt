@@ -1,3 +1,0 @@
-cookiecutter
-pep8
-pytest
