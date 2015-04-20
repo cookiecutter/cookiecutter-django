@@ -1,5 +1,5 @@
 language: python
-
+sudo: false
 before_install:
   - time pip install pep8
 
