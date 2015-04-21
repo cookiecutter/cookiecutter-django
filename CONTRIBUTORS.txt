@@ -39,6 +39,7 @@ Andrew Mikhnevich / @zcho
 Kevin Ndung'u / @kevgathuku
 Kaveh / @ka7eh
 Alex Tsai / @caffodian
+Garry Cairns / @garry-cairns
 
 * Possesses commit rights
 
