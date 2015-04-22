@@ -4,6 +4,6 @@
 
 gunicorn==19.3.0
 django-storages-redux==1.2.3
-Collectfast==0.2.1
+Collectfast==0.2.3
 gevent==1.0.1
 boto==2.38.0
