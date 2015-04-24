@@ -52,7 +52,7 @@ First make sure to create and activate a virtualenv_, then open a terminal at th
 
 You can now run the ``runserver_plus`` command::
 
-    $ python {{cookiecutter.repo_name}}/manage.py runserver_plus
+    $ python manage.py runserver_plus
 
 The base app will run but you'll need to carry out a few steps to make the sign-up and login forms work. These are currently detailed in `issue #39`_.
 
@@ -104,8 +104,8 @@ Run these commands to deploy the project to Heroku:
     heroku config:set DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY_HERE
     heroku config:set DJANGO_AWS_STORAGE_BUCKET_NAME=YOUR_AWS_S3_BUCKET_NAME_HERE
     git push heroku master
-    heroku run python {{cookiecutter.repo_name}}/manage.py migrate
-    heroku run python {{cookiecutter.repo_name}}/manage.py createsuperuser
+    heroku run python manage.py migrate
+    heroku run python manage.py createsuperuser
     heroku open
 
 Dokku
@@ -144,7 +144,7 @@ You can then deploy by running the following commands.
     ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_AWS_STORAGE_BUCKET_NAME=YOUR_AWS_S3_BUCKET_NAME_HERE
     ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} SENDGRID_USERNAME=YOUR_SENDGRID_USERNAME
     ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} SENDGRID_PASSWORD=YOUR_SENDGRID_PASSWORD
-    ssh -t dokku@yourservername.com dokku run {{cookiecutter.repo_name}} python {{cookiecutter.repo_name}}/manage.py migrate
-    ssh -t dokku@yourservername.com dokku run {{cookiecutter.repo_name}} python {{cookiecutter.repo_name}}/manage.py createsuperuser
+    ssh -t dokku@yourservername.com dokku run {{cookiecutter.repo_name}} python manage.py migrate
+    ssh -t dokku@yourservername.com dokku run {{cookiecutter.repo_name}} python manage.py createsuperuser
 
 When deploying via Dokku make sure you backup your database in some fashion as it is NOT done automatically.

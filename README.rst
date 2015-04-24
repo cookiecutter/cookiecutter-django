@@ -121,20 +121,16 @@ First make sure to create and activate a virtualenv_, then open a terminal at th
 
 Then, create a PostgreSQL database and add the database configuration using the  ``dj-database-url`` app pattern: ``postgres://db_owner:password@dbserver_ip:port/db_name`` either:
 
-* in the ``config.common.py`` setting file,
-* or in the env variable ``DATABASE_URL``
+* in the ``config.settings.common.py`` setting file,
+* or in the environment variable ``DATABASE_URL``
 
 
+You can now run the usual Django ``migrate`` and ``runserver`` command::
 
-You can now run the usual Django ``migrate`` and ``runserver`` command (replace ``yourapp`` with the name of the directory containing the Django project)::
+    $ python manage.py migrate
 
-    $ python yourapp/manage.py migrate
+    $ python manage.py runserver
 
-    $ python yourapp/manage.py runserver
-
-The base app will run but you'll need to carry out a few steps to make the sign-up and login forms work. These are currently detailed in `issue #39`_.
-
-.. _issue #39: https://github.com/pydanny/cookiecutter-django/issues/39
 
 **Live reloading and Sass CSS compilation**
 

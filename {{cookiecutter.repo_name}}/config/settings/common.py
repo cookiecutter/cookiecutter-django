@@ -12,8 +12,8 @@ from __future__ import absolute_import, unicode_literals
 
 import environ
 
-APPS_DIR = environ.Path(__file__) - 1  # one folder back (/a/b/ - 1 = /a/)
-ROOT_DIR = APPS_DIR - 1
+ROOT_DIR = environ.Path(__file__) - 2  # one folder back (/a/b/ - 2 = /)
+APPS_DIR = ROOT_DIR.path('{{ cookiecutter.repo_name }}')
 
 env = environ.Env()
 
@@ -44,7 +44,7 @@ THIRD_PARTY_APPS = (
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
-    'users',  # custom users app
+    '{{ cookiecutter.repo_name }}.users',  # custom users app
     # Your stuff: custom apps go here
 )
 
@@ -93,7 +93,6 @@ FIXTURE_DIRS = (
 # EMAIL CONFIGURATION
 # ------------------------------------------------------------------------------
 EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
-# END EMAIL CONFIGURATION
 
 # MANAGER CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -137,7 +136,6 @@ USE_L10N = True
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
 USE_TZ = True
-# END GENERAL CONFIGURATION
 
 # TEMPLATE CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -198,10 +196,10 @@ MEDIA_URL = '/media/'
 
 # URL Configuration
 # ------------------------------------------------------------------------------
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'config.urls'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
-WSGI_APPLICATION = 'wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 # AUTHENTICATION CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -214,7 +212,6 @@ AUTHENTICATION_BACKENDS = (
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-# END AUTHENTICATION CONFIGURATION
 
 # Custom user app defaults
 # Select the correct user model
