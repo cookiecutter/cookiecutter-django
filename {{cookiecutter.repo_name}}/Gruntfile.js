@@ -21,7 +21,7 @@ module.exports = function (grunt) {
       fonts: this.app + '/static/fonts',
       images: this.app + '/static/images',
       js: this.app + '/static/js',
-      manageScript: this.app + '/manage.py'
+      manageScript: 'manage.py'
     }
   };
 

@@ -1,20 +1,12 @@
 # -*- coding: utf-8 -*-
-# Import the reverse lookup function
+from __future__ import absolute_import, unicode_literals
+
 from django.core.urlresolvers import reverse
+from django.views.generic import DetailView, ListView, RedirectView, UpdateView
 
-# view imports
-from django.views.generic import DetailView
-from django.views.generic import RedirectView
-from django.views.generic import UpdateView
-from django.views.generic import ListView
-
-# Only authenticated users can access views using this.
 from braces.views import LoginRequiredMixin
 
-# Import the form from users/forms.py
 from .forms import UserForm
-
-# Import the customized User model
 from .models import User
 
 
