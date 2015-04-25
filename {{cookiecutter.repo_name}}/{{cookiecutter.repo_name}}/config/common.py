@@ -12,7 +12,7 @@ from __future__ import absolute_import, unicode_literals
 
 import environ
 
-APPS_DIR = environ.Path(__file__) - 1  # one folder back (/a/b/ - 1 = /a/)
+APPS_DIR = environ.Path(__file__) - 2  # one folder back (/a/b/ - 1 = /a/)
 ROOT_DIR = APPS_DIR - 1
 
 env = environ.Env()
