@@ -18,7 +18,7 @@ TEMPLATE_DEBUG = DEBUG
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Note: This key only used for development and testing.
-SECRET_KEY = env("DJANGO_SECRET_KEY", 'CHANGEME!!!')
+SECRET_KEY = env("DJANGO_SECRET_KEY", default='CHANGEME!!!')
 
 # Mail settings
 # ------------------------------------------------------------------------------
@@ -50,5 +50,9 @@ DEBUG_TOOLBAR_CONFIG = {
     ],
     'SHOW_TEMPLATE_CONTEXT': True,
 }
+
+# TESTING
+# ------------------------------------------------------------------------------
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 # Your local stuff: Below this line define 3rd party library settings
