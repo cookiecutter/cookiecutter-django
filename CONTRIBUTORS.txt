@@ -41,6 +41,7 @@ Kaveh / @ka7eh
 Alex Tsai / @caffodian
 Garry Cairns / @garry-cairns
 Lin Xianyi / @iynaix
+Adam Dobrawy / @ad-m
 
 * Possesses commit rights
 
