@@ -27,7 +27,6 @@ Features
 * 12-Factor_ based settings via django-environ_
 * Optimized development and production settings
 * Registration via django-allauth_
-* User avatars via django-avatar_
 * Procfile_ for deploying to Heroku
 * Grunt build for compass and livereload
 * Basic e-mail configurations for send emails via SendGrid_
