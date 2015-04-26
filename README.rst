@@ -24,18 +24,19 @@ Features
 * For Django 1.7
 * Twitter Bootstrap_ 3
 * AngularJS_
-* Settings management via django-environ_
+* 12-Factor_ based settings via django-environ_
+* Optimized development and production settings
 * Registration via django-allauth_
 * User avatars via django-avatar_
 * Procfile_ for deploying to Heroku
-* Heroku optimized requirements
-* Basic caching setup
 * Grunt build for compass and livereload
 * Basic e-mail configurations for send emails via SendGrid_
+* Media storage using Amazon S3
 
 .. _Bootstrap: https://github.com/twbs/bootstrap
 .. _AngularJS: https://github.com/angular/angular.js
 .. _django-environ: https://github.com/joke2k/django-environ
+.. _12-Factor: http://12factor.net/
 .. _django-allauth: https://github.com/pennersr/django-allauth
 .. _django-avatar: https://github.com/jezdez/django-avatar/
 .. _Procfile: https://devcenter.heroku.com/articles/procfile
