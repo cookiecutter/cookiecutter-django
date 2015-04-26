@@ -32,6 +32,7 @@ Features
 * Grunt build for compass and livereload
 * Basic e-mail configurations for send emails via SendGrid_
 * Media storage using Amazon S3
+* Serve static files from Amazon S3 or Whitenoise_ (optional)
 
 .. _Bootstrap: https://github.com/twbs/bootstrap
 .. _AngularJS: https://github.com/angular/angular.js
@@ -41,6 +42,7 @@ Features
 .. _django-avatar: https://github.com/jezdez/django-avatar/
 .. _Procfile: https://devcenter.heroku.com/articles/procfile
 .. _SendGrid: https://sendgrid.com/
+.. _Whitenoise: https://whitenoise.readthedocs.org/
 
 
 Constraints

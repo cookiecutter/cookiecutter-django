@@ -8,5 +8,6 @@
     "version": "0.1.0",
     "timezone": "UTC",
     "now": "2015/01/13",
-    "year": "{{ cookiecutter.now[:4] }}"
+    "year": "{{ cookiecutter.now[:4] }}",
+    "use_whitenoise": "y"
 }
