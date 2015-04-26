@@ -95,10 +95,10 @@ Run these commands to deploy the project to Heroku:
 
     heroku create --buildpack https://github.com/heroku/heroku-buildpack-python
     heroku addons:add heroku-postgresql:dev
-    heroku addons:add pgbackups:auto-month
+    heroku pg:backups schedule DATABASE_URL
+    heroku pg:promote DATABASE_URL
     heroku addons:add sendgrid:starter
     heroku addons:add memcachier:dev
-    heroku pg:promote DATABASE_URL
     heroku config:set DJANGO_SECRET_KEY=RANDOM_SECRET_KEY_HERE
     heroku config:set DJANGO_AWS_ACCESS_KEY_ID=YOUR_AWS_ID_HERE
     heroku config:set DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY_HERE
