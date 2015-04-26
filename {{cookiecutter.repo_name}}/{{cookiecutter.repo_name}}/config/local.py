@@ -2,9 +2,10 @@
 '''
 Local settings
 
-- Runs in Debug mode
-- Uses console backend for emails
-- Use Django Debug Toolbar
+- Run in Debug mode
+- Use console backend for emails
+- Add Django Debug Toolbar
+- Add django-extensions as app
 '''
 
 from .common import *  # noqa
@@ -27,7 +28,6 @@ EMAIL_PORT = 1025
 EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND',
                     default='django.core.mail.backends.console.EmailBackend')
 
-
 # CACHING
 # ------------------------------------------------------------------------------
 CACHES = {
@@ -40,7 +40,7 @@ CACHES = {
 # django-debug-toolbar
 # ------------------------------------------------------------------------------
 MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
-INSTALLED_APPS += ('debug_toolbar', 'django_extensions',)
+INSTALLED_APPS += ('debug_toolbar', )
 
 INTERNAL_IPS = ('127.0.0.1', '10.0.2.2',)
 
@@ -50,6 +50,10 @@ DEBUG_TOOLBAR_CONFIG = {
     ],
     'SHOW_TEMPLATE_CONTEXT': True,
 }
+
+# django-extensions
+# ------------------------------------------------------------------------------
+INSTALLED_APPS += ('django_extensions', )
 
 # TESTING
 # ------------------------------------------------------------------------------
