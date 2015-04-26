@@ -11,6 +11,7 @@ from __future__ import absolute_import, unicode_literals
 
 
 from boto.s3.connection import OrdinaryCallingFormat
+from django.utils import six
 
 from .common import *  # noqa
 
@@ -80,7 +81,7 @@ AWS_EXPIRY = 60 * 60 * 24 * 7
 # Revert the following and use str after the above-mentioned bug is fixed in
 # either django-storage-redux or boto
 AWS_HEADERS = {
-    'Cache-Control': str.encode('max-age=%d, s-maxage=%d, must-revalidate' % (
+    'Cache-Control': six.b('max-age=%d, s-maxage=%d, must-revalidate' % (
         AWS_EXPIRY, AWS_EXPIRY))
 }
 
