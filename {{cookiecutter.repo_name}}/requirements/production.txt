@@ -2,8 +2,17 @@
 #	production that isn't in development.
 -r base.txt
 
-gunicorn==19.3.0
-django-storages-redux==1.2.3
-Collectfast==0.2.3
+# WSGI Handler
+# ------------------------------------------------
 gevent==1.0.1
+gunicorn==19.3.0
+
+# Static and Media Storage
+# ------------------------------------------------
 boto==2.38.0
+django-storages-redux==1.2.3
+{% if cookiecutter.use_whitenoise == 'y' -%}
+whitenoise==1.0.6
+{% else %}
+Collectfast==0.2.3
+{%- endif %}
