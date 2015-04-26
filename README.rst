@@ -21,7 +21,7 @@ This cookiecutter template uses features that exists only in cookiecutter 0.9.0 
 Features
 ---------
 
-* For Django 1.7
+* For Django 1.8
 * Twitter Bootstrap_ 3
 * AngularJS_
 * 12-Factor_ based settings via django-environ_
