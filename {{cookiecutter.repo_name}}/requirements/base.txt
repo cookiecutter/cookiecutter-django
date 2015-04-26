@@ -1,5 +1,5 @@
 # Bleeding edge Django
-django>=1.7.7,<1.8
+django==1.8
 
 # Configuration
 django-environ==0.3.0
@@ -26,9 +26,6 @@ psycopg2==2.6
 # Unicode slugification
 unicode-slugify==0.1.3
 django-autoslug==1.7.2
-
-# Useful things
-django-avatar==2.0
 
 # Time zones support
 pytz==2015.2

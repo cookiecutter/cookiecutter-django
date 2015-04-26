@@ -21,9 +21,6 @@ urlpatterns = patterns('',  # noqa
     url(r'^users/', include("{{ cookiecutter.repo_name }}.users.urls", namespace="users")),
     url(r'^accounts/', include('allauth.urls')),
 
-    # Uncomment the next line to enable avatars
-    url(r'^avatar/', include('avatar.urls')),
-
     # Your stuff: custom urls includes go here
 
 

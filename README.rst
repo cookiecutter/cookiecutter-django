@@ -21,13 +21,12 @@ This cookiecutter template uses features that exists only in cookiecutter 0.9.0 
 Features
 ---------
 
-* For Django 1.7
+* For Django 1.8
 * Twitter Bootstrap_ 3
 * AngularJS_
 * 12-Factor_ based settings via django-environ_
 * Optimized development and production settings
 * Registration via django-allauth_
-* User avatars via django-avatar_
 * Procfile_ for deploying to Heroku
 * Grunt build for compass and livereload
 * Basic e-mail configurations for send emails via SendGrid_
@@ -47,7 +46,7 @@ Constraints
 -----------
 
 * Only maintained 3rd party libraries are used.
-* PostgreSQL everywhere
+* PostgreSQL everywhere (9.0+)
 * Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
 
