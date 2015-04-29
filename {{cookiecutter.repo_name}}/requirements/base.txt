@@ -4,6 +4,10 @@ django==1.8
 # Configuration
 django-environ==0.3.0
 django-secure==1.0.1
+{% if cookiecutter.use_whitenoise == 'y' -%}
+whitenoise==1.0.6
+{%- endif %}
+
 
 # Forms
 django-braces==1.8.0
