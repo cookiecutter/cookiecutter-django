@@ -2,7 +2,7 @@
 -r base.txt
 coverage==3.7.1
 Sphinx
-django-extensions==1.5.2
+django-extensions==1.5.3
 Werkzeug==0.10.4
 
 # django-debug-toolbar that works with Django 1.5+
