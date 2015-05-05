@@ -13,11 +13,6 @@ A cookiecutter_ template for Django.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
-Please update your version of cookiecutter!
---------------------------------------------
-
-This cookiecutter template uses features that exists only in cookiecutter 0.9.0 or higher.
-
 Features
 ---------
 
@@ -155,6 +150,11 @@ To get live reloading to work you'll probably need to install an `appropriate br
 .. _appropriate browser extension: http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-
 
 It's time to write the code!!!
+
+For Readers of Two Scoops of Django 1.8
+--------------------------------------------
+
+You may notice that some elements of this project do not exactly match what we describe in chapter 3. The reason for that is this project, amongst other things, serves as a test bed for trying out new ideas and concepts. Sometimes they work, sometimes they don't, but the end result is that it won't necessarily match precisely what is described in the book I co-authored.
 
 "Your Stuff"
 -------------
