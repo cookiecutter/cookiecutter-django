@@ -112,13 +112,13 @@ SERVER_EMAIL = EMAIL_HOST_USER
 
 # TEMPLATE CONFIGURATION
 # ------------------------------------------------------------------------------
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
-TEMPLATE_LOADERS = (
-    ('django.template.loaders.cached.Loader', (
+# See: https://docs.djangoproject.com/en/dev/ref/templates/api/#django.template.loaders.cached.Loader
+TEMPLATES[0]['OPTIONS']['loaders'] = [
+    ('django.template.loaders.cached.Loader', [
         'django.template.loaders.filesystem.Loader',
         'django.template.loaders.app_directories.Loader',
-    )),
-)
+    ]),
+]
 
 # DATABASE CONFIGURATION
 # ------------------------------------------------------------------------------
