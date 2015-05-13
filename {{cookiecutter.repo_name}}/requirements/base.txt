@@ -32,6 +32,6 @@ unicode-slugify==0.1.3
 django-autoslug==1.7.2
 
 # Time zones support
-pytz==2015.2
+pytz==2015.4
 
 # Your custom requirements go here
