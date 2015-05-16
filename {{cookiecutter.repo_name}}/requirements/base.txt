@@ -12,7 +12,7 @@ whitenoise==1.0.6
 # Forms
 django-braces==1.8.0
 django-crispy-forms==1.4.0
-django-floppyforms==1.4.0
+django-floppyforms==1.4.1
 
 # Models
 django-model-utils==2.2
