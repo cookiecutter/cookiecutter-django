@@ -1,0 +1,17 @@
+# Only intended for development purposes.
+# For production deployment options, see the Deployment section in
+# README.rst
+
+db:
+  image: postgres
+web:
+  build: .
+  command: python manage.py runserver_plus 0.0.0.0:8000
+  volumes:
+    - .:/code
+  ports:
+    - "8000:8000"
+  links:
+    - db
+  environment:
+    - DATABASE_URL=postgres://postgres:postgres@db/postgres
