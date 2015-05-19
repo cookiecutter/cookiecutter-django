@@ -1,4 +1,4 @@
 # Test dependencies go here.
 -r base.txt
 coverage==4.0a5
-flake8==2.4.0
+flake8==2.4.1
