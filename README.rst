@@ -84,6 +84,7 @@ It prompts you for questions. Answer them::
     timezone (default is "UTC")?
     now (default is "2015/01/13")? 2015/01/16
     year (default is "2015")?
+    use_whitenoise (default is "y")?
 
 
 Enter the project and take a look around::

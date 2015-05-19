@@ -43,6 +43,7 @@ Garry Cairns / @garry-cairns
 Lin Xianyi / @iynaix
 Adam Dobrawy / @ad-m
 Daniele Tricoli / @eriol
+Harry Percival / @hjwp
 
 * Possesses commit rights
 
