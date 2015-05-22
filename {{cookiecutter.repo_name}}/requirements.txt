@@ -1,5 +1,5 @@
 # This file is here because many Platforms as a Service look for
 #	requirements.txt in the root directory of a project.
-pylibmc==1.4.2
+pylibmc==1.4.3
 django-heroku-memcacheify==0.8
 -r requirements/production.txt
