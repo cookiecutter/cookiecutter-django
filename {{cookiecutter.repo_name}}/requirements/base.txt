@@ -18,7 +18,7 @@ django-floppyforms==1.4.1
 django-model-utils==2.2
 
 # Images
-Pillow==2.8.1
+Pillow==2.8.2
 
 # For user registration, either via email or social
 # Well-built with regular release cycles!
