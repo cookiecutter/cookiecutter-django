@@ -25,7 +25,7 @@ Pillow==2.8.2
 django-allauth==0.20.0
 
 # For the persistence stores
-psycopg2==2.6
+psycopg2==2.6.1
 
 # Unicode slugification
 unicode-slugify==0.1.3
