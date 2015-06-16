@@ -101,12 +101,12 @@ Run these commands to deploy the project to Heroku:
 
     heroku create --buildpack https://github.com/heroku/heroku-buildpack-python
 
-    heroku addons:add heroku-postgresql:dev
+    heroku addons:create heroku-postgresql:dev
     heroku pg:backups schedule DATABASE_URL
     heroku pg:promote DATABASE_URL
 
-    heroku addons:add sendgrid:starter
-    heroku addons:add memcachier:dev
+    heroku addons:create sendgrid:starter
+    heroku addons:create memcachier:dev
 
     heroku config:set DJANGO_SECRET_KEY=RANDOM_SECRET_KEY_HERE
     heroku config:set DJANGO_SETTINGS_MODULE='config.settings.production'
