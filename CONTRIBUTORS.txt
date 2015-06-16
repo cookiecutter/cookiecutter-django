@@ -44,6 +44,7 @@ Lin Xianyi / @iynaix
 Adam Dobrawy / @ad-m
 Daniele Tricoli / @eriol
 Harry Percival / @hjwp
+Cullen Rhodes / @c-rhodes
 
 * Possesses commit rights
 
