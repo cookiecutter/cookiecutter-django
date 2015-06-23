@@ -1,0 +1,24 @@
+sic build dependencies on Fedora/RedHat
+make
+automake
+gcc
+gcc-c++mv
+gettext
+python-devel
+
+# Package dependencies
+zlib-devel
+libpqxx
+libtiff
+
+# In fedora, only includes libjpeg6
+# see https://fedoraproject.org/wiki/Features/libjpeg-turbo-jpeg8-ABI
+libjpeg-turbo
+freetype
+lcms-devel
+libwebp-devel
+
+libmemcached
+openssl-devel
+graphviz-devel
+
