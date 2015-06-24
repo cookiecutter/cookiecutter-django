@@ -9,5 +9,5 @@ ipython==3.2.0
 
 # Testing
 # -------------------------------------
-pytest==2.7.1
+pytest==2.7.2
 git+git://github.com/mverteuil/pytest-ipdb.git
