@@ -45,6 +45,7 @@ Adam Dobrawy / @ad-m
 Daniele Tricoli / @eriol
 Harry Percival / @hjwp
 Cullen Rhodes / @c-rhodes
+Burhan Khalid / @burhan
 
 * Possesses commit rights
 
