@@ -9,5 +9,6 @@
     "timezone": "UTC",
     "now": "2015/01/13",
     "year": "{{ cookiecutter.now[:4] }}",
-    "use_whitenoise": "y"
+    "use_whitenoise": "y",
+    "windows": "n"
 }
