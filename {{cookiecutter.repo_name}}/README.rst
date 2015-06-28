@@ -44,6 +44,9 @@ EMAIL_SUBJECT_PREFIX                    EMAIL_SUBJECT_PREFIX        n/a         
 Getting up and running
 ----------------------
 
+Basics
+^^^^^^
+
 The steps below will get you up and running with a local development environment. We assume you have the following installed:
 
 * pip
@@ -68,11 +71,21 @@ You can now run the ``runserver_plus`` command::
 
     $ python manage.py runserver_plus
 
-The base app will run but you'll need to carry out a few steps to make the sign-up and login forms work. These are currently detailed in `issue #39`_.
+Open up your browser to http://127.0.0.1:8000/ to see the site running locally.
 
-.. _issue #39: https://github.com/pydanny/cookiecutter-django/issues/39
+Setting Up Your Users
+^^^^^^^^^^^^^^^^^^^^^
 
-**Live reloading and Sass CSS compilation**
+To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
+
+To create an **superuser account**, use this command::
+
+    $ python manage.py createsuperuser
+
+For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
+
+Live reloading and Sass CSS compilation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you'd like to take advantage of live reloading and Sass / Compass CSS compilation you can do so with the included Grunt task.
 
