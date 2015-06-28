@@ -71,14 +71,18 @@ You can now run the ``runserver_plus`` command::
 
     $ python manage.py runserver_plus
 
+Open up your browser to http://127.0.0.1:8000/ to see the site running locally.
+
 Setting Up Your Users
 ^^^^^^^^^^^^^^^^^^^^^
 
-The base app will run but you'll need to carry out a few steps to make the sign-up and login forms work. 
+To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
 
-These are currently detailed in `issue #39`_.
+To create an **superuser account**, use this command::
 
-.. _issue #39: https://github.com/pydanny/cookiecutter-django/issues/39
+    $ python manage.py createsuperuser
+
+For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
 
 Live reloading and Sass CSS compilation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
