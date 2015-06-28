@@ -44,6 +44,9 @@ EMAIL_SUBJECT_PREFIX                    EMAIL_SUBJECT_PREFIX        n/a         
 Getting up and running
 ----------------------
 
+Basics
+^^^^^^
+
 The steps below will get you up and running with a local development environment. We assume you have the following installed:
 
 * pip
@@ -68,11 +71,17 @@ You can now run the ``runserver_plus`` command::
 
     $ python manage.py runserver_plus
 
-The base app will run but you'll need to carry out a few steps to make the sign-up and login forms work. These are currently detailed in `issue #39`_.
+Setting Up Your Users
+^^^^^^^^^^^^^^^^^^^^^
+
+The base app will run but you'll need to carry out a few steps to make the sign-up and login forms work. 
+
+These are currently detailed in `issue #39`_.
 
 .. _issue #39: https://github.com/pydanny/cookiecutter-django/issues/39
 
-**Live reloading and Sass CSS compilation**
+Live reloading and Sass CSS compilation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you'd like to take advantage of live reloading and Sass / Compass CSS compilation you can do so with the included Grunt task.
 
