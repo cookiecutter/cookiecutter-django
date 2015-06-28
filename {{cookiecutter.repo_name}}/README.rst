@@ -60,6 +60,10 @@ Create a local PostgreSQL database::
 
     $ createdb {{ cookiecutter.repo_name }}
 
+Run ``migrate`` on your new database::
+
+    $ python manage.py migrate
+
 You can now run the ``runserver_plus`` command::
 
     $ python manage.py runserver_plus
