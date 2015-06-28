@@ -56,6 +56,10 @@ First make sure to create and activate a virtualenv_, then open a terminal at th
 
 .. _virtualenv: http://docs.python-guide.org/en/latest/dev/virtualenvs/
 
+Create a local PostgreSQL database::
+
+    $ createdb {{ cookiecutter.repo_name }}
+
 You can now run the ``runserver_plus`` command::
 
     $ python manage.py runserver_plus
