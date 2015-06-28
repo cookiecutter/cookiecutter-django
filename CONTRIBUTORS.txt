@@ -45,6 +45,7 @@ Adam Dobrawy / @ad-m
 Daniele Tricoli / @eriol
 Harry Percival / @hjwp
 Cullen Rhodes / @c-rhodes
+Audrey Roy Greenfeld / @audreyr (and creator/maintainer of cookiecutter) * 
 
 * Possesses commit rights
 
@@ -53,7 +54,6 @@ Special Thanks
 
 The following haven't provided code directly, but have provided guidance and advice.
 
-Audrey Roy (cookiecutter)
 Jannis Leidel (django-configurations)
 Nate Aune
 Barry Morrison
