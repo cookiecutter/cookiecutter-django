@@ -14,3 +14,7 @@ django-storages-redux==1.2.3
 {% if cookiecutter.use_whitenoise != 'y' -%}
 Collectfast==0.2.3
 {%- endif %}
+
+# Mailgun Support
+# ---------------
+django-mailgun==0.2.2
