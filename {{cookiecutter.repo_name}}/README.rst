@@ -19,7 +19,7 @@ Environment Variable                    Django Setting              Development 
 DJANGO_AWS_ACCESS_KEY_ID                AWS_ACCESS_KEY_ID           n/a                                            raises error
 DJANGO_AWS_SECRET_ACCESS_KEY            AWS_SECRET_ACCESS_KEY       n/a                                            raises error
 DJANGO_AWS_STORAGE_BUCKET_NAME          AWS_STORAGE_BUCKET_NAME     n/a                                            raises error
-DJANGO_CACHES                           CACHES (default)            locmem                                         memcached
+DJANGO_CACHES                           CACHES (default)            locmem                                         redis
 DJANGO_DATABASES                        DATABASES (default)         See code                                       See code
 DJANGO_DEBUG                            DEBUG                       True                                           False
 DJANGO_SECRET_KEY                       SECRET_KEY                  CHANGEME!!!                                    raises error
@@ -127,7 +127,7 @@ Run these commands to deploy the project to Heroku:
     heroku pg:promote DATABASE_URL
 
     heroku addons:create sendgrid:starter
-    heroku addons:create memcachier:dev
+    heroku addons:create heroku-redis:hobby-dev
 
     heroku config:set DJANGO_SECRET_KEY=RANDOM_SECRET_KEY_HERE
     heroku config:set DJANGO_SETTINGS_MODULE='config.settings.production'
@@ -155,7 +155,7 @@ added just like in Heroku however you must ensure you have the relevant Dokku pl
 
     cd /var/lib/dokku/plugins
     git clone https://github.com/rlaneve/dokku-link.git link
-    git clone https://github.com/jezdez/dokku-memcached-plugin memcached
+    git clone https://github.com/luxifer/dokku-redis-plugin redis
     git clone https://github.com/jezdez/dokku-postgres-plugin postgres
     dokku plugins-install
 
@@ -171,8 +171,8 @@ You can then deploy by running the following commands.
 
     git remote add dokku dokku@yourservername.com:{{cookiecutter.repo_name}}
     git push dokku master
-    ssh -t dokku@yourservername.com dokku memcached:create {{cookiecutter.repo_name}}-memcached
-    ssh -t dokku@yourservername.com dokku memcached:link {{cookiecutter.repo_name}}-memcached {{cookiecutter.repo_name}}
+    ssh -t dokku@yourservername.com dokku redis:create {{cookiecutter.repo_name}}-redis
+    ssh -t dokku@yourservername.com dokku redis:link {{cookiecutter.repo_name}}-redis {{cookiecutter.repo_name}}
     ssh -t dokku@yourservername.com dokku postgres:create {{cookiecutter.repo_name}}-postgres
     ssh -t dokku@yourservername.com dokku postgres:link {{cookiecutter.repo_name}}-postgres {{cookiecutter.repo_name}}
     ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_SECRET_KEY=RANDOM_SECRET_KEY_HERE
