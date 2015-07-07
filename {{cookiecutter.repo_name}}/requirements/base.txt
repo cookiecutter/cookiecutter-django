@@ -5,7 +5,7 @@ django==1.8.2
 django-environ==0.3.0
 django-secure==1.0.1
 {% if cookiecutter.use_whitenoise == 'y' -%}
-whitenoise==2.0
+whitenoise==2.0.2
 {%- endif %}
 
 
@@ -18,11 +18,11 @@ django-floppyforms==1.4.1
 django-model-utils==2.2
 
 # Images
-Pillow==2.8.2
+Pillow==2.9.0
 
 # For user registration, either via email or social
 # Well-built with regular release cycles!
-django-allauth==0.20.0
+django-allauth==0.21.0
 
 # For the persistence stores
 psycopg2==2.6.1
