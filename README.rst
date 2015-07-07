@@ -24,7 +24,7 @@ Features
 * Registration via django-allauth_
 * Procfile_ for deploying to Heroku
 * Grunt build for compass and livereload
-* Basic e-mail configurations for send emails via SendGrid_
+* Basic e-mail configurations for send emails via Mailgun_
 * Media storage using Amazon S3
 * Serve static files from Amazon S3 or Whitenoise_ (optional)
 
@@ -35,7 +35,7 @@ Features
 .. _django-allauth: https://github.com/pennersr/django-allauth
 .. _django-avatar: https://github.com/jezdez/django-avatar/
 .. _Procfile: https://devcenter.heroku.com/articles/procfile
-.. _SendGrid: https://sendgrid.com/
+.. _Mailgun: https://mailgun.com/
 .. _Whitenoise: https://whitenoise.readthedocs.org/
 
 
