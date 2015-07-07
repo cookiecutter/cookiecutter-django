@@ -139,7 +139,7 @@ Run these commands to deploy the project to Heroku:
     heroku config:set DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY_HERE
     heroku config:set DJANGO_AWS_STORAGE_BUCKET_NAME=YOUR_AWS_S3_BUCKET_NAME_HERE
 
-    heroku config:set MAILGUN_SERVER_NAME=YOUR_MALGUN_SERVER
+    heroku config:set DJANGO_MAILGUN_SERVER_NAME=YOUR_MALGUN_SERVER
 
     git push heroku master
     heroku run python manage.py migrate
@@ -182,8 +182,8 @@ You can then deploy by running the following commands.
     ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_AWS_ACCESS_KEY_ID=YOUR_AWS_ID_HERE
     ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY_HERE
     ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_AWS_STORAGE_BUCKET_NAME=YOUR_AWS_S3_BUCKET_NAME_HERE
-    ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} MAILGUN_API_KEY=YOUR_MAILGUN_API_KEY
-    ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} MAILGUN_SERVER_NAME=YOUR_MAILGUN_SERVER
+    ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_MAILGUN_API_KEY=YOUR_MAILGUN_API_KEY
+    ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_MAILGUN_SERVER_NAME=YOUR_MAILGUN_SERVER
     ssh -t dokku@yourservername.com dokku run {{cookiecutter.repo_name}} python manage.py migrate
     ssh -t dokku@yourservername.com dokku run {{cookiecutter.repo_name}} python manage.py createsuperuser
 
