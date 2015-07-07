@@ -16,9 +16,6 @@ For configuration purposes, the following table maps the '{{cookiecutter.project
 ======================================= =========================== ============================================== ======================================================================
 Environment Variable                    Django Setting              Development Default                            Production Default
 ======================================= =========================== ============================================== ======================================================================
-DJANGO_AWS_ACCESS_KEY_ID                AWS_ACCESS_KEY_ID           n/a                                            raises error
-DJANGO_AWS_SECRET_ACCESS_KEY            AWS_SECRET_ACCESS_KEY       n/a                                            raises error
-DJANGO_AWS_STORAGE_BUCKET_NAME          AWS_STORAGE_BUCKET_NAME     n/a                                            raises error
 DJANGO_CACHES                           CACHES (default)            locmem                                         memcached
 DJANGO_DATABASES                        DATABASES (default)         See code                                       See code
 DJANGO_DEBUG                            DEBUG                       True                                           False
@@ -32,7 +29,7 @@ DJANGO_SESSION_COOKIE_HTTPONLY          SESSION_COOKIE_HTTPONLY     n/a         
 DJANGO_SESSION_COOKIE_SECURE            SESSION_COOKIE_SECURE       n/a                                            False
 DJANGO_DEFAULT_FROM_EMAIL               DEFAULT_FROM_EMAIL          n/a                                            "{{cookiecutter.project_name}} <noreply@{{cookiecutter.domain_name}}>"
 DJANGO_SERVER_EMAIL                     SERVER_EMAIL                n/a                                            "{{cookiecutter.project_name}} <noreply@{{cookiecutter.domain_name}}>" 
-EMAIL_SUBJECT_PREFIX                    EMAIL_SUBJECT_PREFIX        n/a                                            "[{{cookiecutter.project_name}}] "
+DJANGO_EMAIL_SUBJECT_PREFIX             EMAIL_SUBJECT_PREFIX        n/a                                            "[{{cookiecutter.project_name}}] "
 ======================================= =========================== ============================================== ======================================================================
 
 The following table lists settings and their defaults for third-party applications:
@@ -40,8 +37,11 @@ The following table lists settings and their defaults for third-party applicatio
 ======================================= =========================== ============================================== ======================================================================
 Environment Variable                    Django Setting              Development Default                            Production Default
 ======================================= =========================== ============================================== ======================================================================
-MAILGUN_API_KEY                         MAILGUN_ACCESS_KEY          n/a                                            raises error
-MAILGUN_SERVER_NAME                     MAILGUN_SERVER_NAME         n/a                                            raises error
+DJANGO_AWS_ACCESS_KEY_ID                AWS_ACCESS_KEY_ID           n/a                                            raises error
+DJANGO_AWS_SECRET_ACCESS_KEY            AWS_SECRET_ACCESS_KEY       n/a                                            raises error
+DJANGO_AWS_STORAGE_BUCKET_NAME          AWS_STORAGE_BUCKET_NAME     n/a                                            raises error
+DJANGO_MAILGUN_API_KEY                  MAILGUN_ACCESS_KEY          n/a                                            raises error
+DJANGO_MAILGUN_SERVER_NAME              MAILGUN_SERVER_NAME         n/a                                            raises error
 ======================================= =========================== ============================================== ======================================================================
 
 Getting up and running
