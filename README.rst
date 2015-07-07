@@ -28,6 +28,7 @@ Features
 * Media storage using Amazon S3
 * Serve static files from Amazon S3 or Whitenoise_ (optional)
 * Pre configured Celery_ (optional)
+* Integration with Maildump_ for local email testing (optional)
 
 .. _Bootstrap: https://github.com/twbs/bootstrap
 .. _AngularJS: https://github.com/angular/angular.js
@@ -39,6 +40,7 @@ Features
 .. _Mailgun: https://mailgun.com/
 .. _Whitenoise: https://whitenoise.readthedocs.org/
 .. _Celery: http://www.celeryproject.org/
+.. _Maildump: https://github.com/ThiefMaster/maildump
 
 
 Constraints

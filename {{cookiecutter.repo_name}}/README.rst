@@ -133,6 +133,8 @@ Email Server
 In development, it is often nice to be able to see emails that are being sent from your application. For this purpose,
 a Grunt task exists to start an instance of `maildump`_ which is a local SMTP server with an online interface.
 
+.. _maildump: https://github.com/ThiefMaster/maildump
+
 Make sure you have nodejs installed, and then type the following::
 
     $ grunt start-email-server
