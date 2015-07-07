@@ -46,6 +46,7 @@ Daniele Tricoli / @eriol
 Harry Percival / @hjwp
 Cullen Rhodes / @c-rhodes
 Audrey Roy Greenfeld / @audreyr (and creator/maintainer of cookiecutter) * 
+Burhan Khalid / @burhan
 
 * Possesses commit rights
 
