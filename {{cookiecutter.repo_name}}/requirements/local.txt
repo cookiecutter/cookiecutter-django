@@ -10,3 +10,6 @@ django-debug-toolbar==1.3.2
 
 # improved REPL
 ipdb==0.8.1
+
+# maildump
+maildump==0.5.1
