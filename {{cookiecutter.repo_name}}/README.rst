@@ -16,9 +16,6 @@ For configuration purposes, the following table maps the '{{cookiecutter.project
 ======================================= =========================== ============================================== ======================================================================
 Environment Variable                    Django Setting              Development Default                            Production Default
 ======================================= =========================== ============================================== ======================================================================
-DJANGO_AWS_ACCESS_KEY_ID                AWS_ACCESS_KEY_ID           n/a                                            raises error
-DJANGO_AWS_SECRET_ACCESS_KEY            AWS_SECRET_ACCESS_KEY       n/a                                            raises error
-DJANGO_AWS_STORAGE_BUCKET_NAME          AWS_STORAGE_BUCKET_NAME     n/a                                            raises error
 DJANGO_CACHES                           CACHES (default)            locmem                                         redis
 DJANGO_DATABASES                        DATABASES (default)         See code                                       See code
 DJANGO_DEBUG                            DEBUG                       True                                           False
@@ -30,16 +27,22 @@ DJANGO_SECURE_FRAME_DENY                SECURE_FRAME_DENY           n/a         
 DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS   HSTS_INCLUDE_SUBDOMAINS     n/a                                            True
 DJANGO_SESSION_COOKIE_HTTPONLY          SESSION_COOKIE_HTTPONLY     n/a                                            True
 DJANGO_SESSION_COOKIE_SECURE            SESSION_COOKIE_SECURE       n/a                                            False
-DJANGO_EMAIL_BACKEND                    EMAIL_BACKEND               django.core.mail.backends.console.EmailBackend django.core.mail.backends.smtp.EmailBackend
-DJANGO_EMAIL_HOST                       EMAIL_HOST                  localhost                                      smtp.sendgrid.com
-EMAIL_PORT                              EMAIL_PORT                  1025                                           587
-SENDGRID_USERNAME                       EMAIL_HOST_USER             n/a                                            raises error
-SENDGRID_PASSWORD                       EMAIL_HOST_PASSWORD         n/a                                            raises error
 DJANGO_DEFAULT_FROM_EMAIL               DEFAULT_FROM_EMAIL          n/a                                            "{{cookiecutter.project_name}} <noreply@{{cookiecutter.domain_name}}>"
-EMAIL_SUBJECT_PREFIX                    EMAIL_SUBJECT_PREFIX        n/a                                            "[{{cookiecutter.project_name}}] "
+DJANGO_SERVER_EMAIL                     SERVER_EMAIL                n/a                                            "{{cookiecutter.project_name}} <noreply@{{cookiecutter.domain_name}}>" 
+DJANGO_EMAIL_SUBJECT_PREFIX             EMAIL_SUBJECT_PREFIX        n/a                                            "[{{cookiecutter.project_name}}] "
 ======================================= =========================== ============================================== ======================================================================
 
-* TODO: Add vendor-added settings in another table
+The following table lists settings and their defaults for third-party applications:
+
+======================================= =========================== ============================================== ======================================================================
+Environment Variable                    Django Setting              Development Default                            Production Default
+======================================= =========================== ============================================== ======================================================================
+DJANGO_AWS_ACCESS_KEY_ID                AWS_ACCESS_KEY_ID           n/a                                            raises error
+DJANGO_AWS_SECRET_ACCESS_KEY            AWS_SECRET_ACCESS_KEY       n/a                                            raises error
+DJANGO_AWS_STORAGE_BUCKET_NAME          AWS_STORAGE_BUCKET_NAME     n/a                                            raises error
+DJANGO_MAILGUN_API_KEY                  MAILGUN_ACCESS_KEY          n/a                                            raises error
+DJANGO_MAILGUN_SERVER_NAME              MAILGUN_SERVER_NAME         n/a                                            raises error
+======================================= =========================== ============================================== ======================================================================
 
 Getting up and running
 ----------------------
@@ -126,8 +129,8 @@ Run these commands to deploy the project to Heroku:
     heroku pg:backups schedule DATABASE_URL
     heroku pg:promote DATABASE_URL
 
-    heroku addons:create sendgrid:starter
     heroku addons:create heroku-redis:hobby-dev
+    heroku addons:create mailgun
 
     heroku config:set DJANGO_SECRET_KEY=RANDOM_SECRET_KEY_HERE
     heroku config:set DJANGO_SETTINGS_MODULE='config.settings.production'
@@ -136,8 +139,7 @@ Run these commands to deploy the project to Heroku:
     heroku config:set DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY_HERE
     heroku config:set DJANGO_AWS_STORAGE_BUCKET_NAME=YOUR_AWS_S3_BUCKET_NAME_HERE
 
-    heroku config:set SENDGRID_USERNAME=YOUR_SENDGRID_USERNAME
-    heroku config:set SENDGRID_PASSWORD=YOUR_SENDGRID_PASSWORD
+    heroku config:set DJANGO_MAILGUN_SERVER_NAME=YOUR_MALGUN_SERVER
 
     git push heroku master
     heroku run python manage.py migrate
@@ -180,8 +182,8 @@ You can then deploy by running the following commands.
     ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_AWS_ACCESS_KEY_ID=YOUR_AWS_ID_HERE
     ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY_HERE
     ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_AWS_STORAGE_BUCKET_NAME=YOUR_AWS_S3_BUCKET_NAME_HERE
-    ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} SENDGRID_USERNAME=YOUR_SENDGRID_USERNAME
-    ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} SENDGRID_PASSWORD=YOUR_SENDGRID_PASSWORD
+    ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_MAILGUN_API_KEY=YOUR_MAILGUN_API_KEY
+    ssh -t dokku@yourservername.com dokku config:set {{cookiecutter.repo_name}} DJANGO_MAILGUN_SERVER_NAME=YOUR_MAILGUN_SERVER
     ssh -t dokku@yourservername.com dokku run {{cookiecutter.repo_name}} python manage.py migrate
     ssh -t dokku@yourservername.com dokku run {{cookiecutter.repo_name}} python manage.py createsuperuser
 
