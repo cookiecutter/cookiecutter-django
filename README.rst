@@ -150,6 +150,22 @@ To get live reloading to work you'll probably need to install an `appropriate br
 
 .. _appropriate browser extension: http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-
 
+**Running in an isolated Docker development environment**
+
+If you would rather run your application inside a separate Docker environment and avoid installing Postgres or any dependencies in your host OS, you can use the included Docker Compose configuration (``Dockerfile`` and ``docker-compose.yml``).
+
+Make sure that Docker_ is installed. In the project root run::
+
+    $ docker-compose up
+
+.. _Docker: https://docs.docker.com/installation/
+
+This command will download all the necessary dependencies and start your project. The first time, you will also need to run the following command to initialize the database::
+
+    $ docker-compose web python manage.py migrate
+
+If you're on OS X or Windows, run ``boot2docker ip`` to find out Docker's IP, otherwise it's localhost. Hit ``http://<docker_host>:8000/`` with your browser and you're ready to go.
+
 It's time to write the code!!!
 
 For Readers of Two Scoops of Django 1.8
