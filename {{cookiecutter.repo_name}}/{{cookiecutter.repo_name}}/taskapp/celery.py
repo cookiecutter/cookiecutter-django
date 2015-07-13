@@ -14,7 +14,7 @@ app = Celery('{{cookiecutter.repo_name}}')
 
 
 class CeleryConfig(AppConfig):
-    name = '{{cookiecutter.repo_name}}.taskman'
+    name = '{{cookiecutter.repo_name}}.taskapp'
     verbose_name = 'Celery Config'
 
     def ready(self):
@@ -28,5 +28,6 @@ class CeleryConfig(AppConfig):
 def debug_task(self):
     print('Request: {0!r}'.format(self.request))
 {% else %}
-# use this as a starting point for your project with celery.
+# Use this as a starting point for your project with celery.
+# If you are not using celery, you can remove this app
 {% endif %}
