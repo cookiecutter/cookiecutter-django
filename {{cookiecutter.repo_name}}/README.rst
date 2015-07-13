@@ -90,13 +90,17 @@ For convenience, you can keep your normal user logged in on Chrome and your supe
 Live reloading and Sass CSS compilation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you'd like to take advantage of live reloading and Sass / Compass CSS compilation you can do so with the included Grunt task.
+If you'd like to take advantage of live reloading and Sass / Compass CSS compilation you can do so with a little bit of prep work.
 
 Make sure that nodejs_ is installed. Then in the project root run::
 
     $ npm install
 
 .. _nodejs: http://nodejs.org/download/
+
+If you don't already have it, install `compass` (doesn't hurt if you run this command twice)::
+
+    gem install compass
 
 Now you just need::
 
