@@ -94,7 +94,7 @@ If you'd like to take advantage of live reloading and Sass / Compass CSS compila
 
 Make sure that nodejs_ is installed. Then in the project root run::
 
-    $ npm install grunt
+    $ npm install
 
 .. _nodejs: http://nodejs.org/download/
 
