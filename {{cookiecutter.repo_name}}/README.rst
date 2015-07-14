@@ -90,13 +90,17 @@ For convenience, you can keep your normal user logged in on Chrome and your supe
 Live reloading and Sass CSS compilation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you'd like to take advantage of live reloading and Sass / Compass CSS compilation you can do so with the included Grunt task.
+If you'd like to take advantage of live reloading and Sass / Compass CSS compilation you can do so with a little bit of prep work.
 
 Make sure that nodejs_ is installed. Then in the project root run::
 
-    $ npm install grunt
+    $ npm install
 
 .. _nodejs: http://nodejs.org/download/
+
+If you don't already have it, install `compass` (doesn't hurt if you run this command twice)::
+
+    gem install compass
 
 Now you just need::
 
@@ -107,6 +111,21 @@ The base app will now run as it would with the usual ``manage.py runserver`` but
 To get live reloading to work you'll probably need to install an `appropriate browser extension`_
 
 .. _appropriate browser extension: http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-
+
+{% if cookiecutter.use_celery == "y" %}
+Celery
+^^^^^^
+This app comes with Celery.
+
+To run a celery worker:
+
+.. code-block:: bash
+
+    cd {{cookiecutter.repo_name}}
+    celery -A {{cookiecutter.repo_name}} worker -l info
+
+Please note: For Celerys import magic to work, it is important *where* the celery commands are run. If you are in the same folder with *manage.py*, you should be right.
+{% endif %}
 
 It's time to write the code!!!
 

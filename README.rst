@@ -27,6 +27,7 @@ Features
 * Basic e-mail configurations for send emails via Mailgun_
 * Media storage using Amazon S3
 * Serve static files from Amazon S3 or Whitenoise_ (optional)
+* Pre configured Celery_ (optional)
 
 .. _Bootstrap: https://github.com/twbs/bootstrap
 .. _AngularJS: https://github.com/angular/angular.js
@@ -37,6 +38,7 @@ Features
 .. _Procfile: https://devcenter.heroku.com/articles/procfile
 .. _Mailgun: https://mailgun.com/
 .. _Whitenoise: https://whitenoise.readthedocs.org/
+.. _Celery: http://www.celeryproject.org/
 
 
 Constraints
