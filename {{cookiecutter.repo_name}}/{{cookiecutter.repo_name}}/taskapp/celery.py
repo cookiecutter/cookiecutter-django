@@ -4,10 +4,11 @@ import os
 from celery import Celery
 from django.apps import AppConfig
 from django.conf import settings
+from config import celery_config
 
 if not settings.configured:
     # set the default Django settings module for the 'celery' program.
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", celery_config.DJANGO_SETTINGS_MODULE)
 
 
 app = Celery('{{cookiecutter.repo_name}}')
