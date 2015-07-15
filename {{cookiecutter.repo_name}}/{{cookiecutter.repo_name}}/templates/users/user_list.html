@@ -1,4 +1,4 @@
-{% raw %}{% extends "base.html" %}
+{% extends "base.html" %}
 {% load static %}{% load i18n %}
 {% block title %}Members{% endblock %}
 
@@ -6,26 +6,15 @@
 
 <div class="container">
 
-  <div class="row">
-    <div class="col-xs-12">
-      <h2>Users</h2>
+    <h2>Users</h2>
+
+    <div class="list-group">
+        {% for user in user_list %}
+          <a href="{% url 'users:detail' user.username %}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ user.username }}</h4>
+          </a>
+        {% endfor %}
+
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="list-group">
-          {% for user in user_list %}
-            <a href="{% url 'users:detail' user.username %}" class="list-group-item">
-              <h4 class="list-group-item-heading">{{ user.username }}</h4>
-              <p class="list-group-item-text">{{ maker.tagline }}</p>
-            </a>
-          {% endfor %}
-
-      </div>
-    </div>
-  </div>
-
-</div>
-
-{% endblock content %}{% endraw %}
+{% endblock content %}
