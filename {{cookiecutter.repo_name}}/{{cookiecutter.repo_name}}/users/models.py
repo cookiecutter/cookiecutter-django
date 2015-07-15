@@ -10,7 +10,7 @@ class User(AbstractUser):
 
     # First Name and Last Name do not cover name patterns
     # around the globe.
-    name = models.CharField("Name", blank=True, max_length=255)
+    name = models.CharField("Name of User", blank=True, max_length=255)
 
     def __unicode__(self):
         return self.username
