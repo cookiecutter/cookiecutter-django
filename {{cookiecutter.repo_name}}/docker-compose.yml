@@ -1,0 +1,46 @@
+postgres:
+  image: postgres:9.4
+  volumes:
+    - /data/{{cookiecutter.repo_name}}/postgres:/var/lib/postgresql/data
+  env_file: env.production
+
+django:
+  build: .
+  links:
+    - postgres
+    - memcached
+    {% if cookiecutter.use_celery %}
+    - rabbitmq
+    {% endif %}
+  command: /gunicorn.sh
+  env_file: env.production
+
+nginx:
+  build: ./compose/nginx
+  links:
+    - django
+  ports:
+    - "0.0.0.0:80:80"
+
+memcached:
+  image: memcached
+{% if cookiecutter.use_celery %}
+rabbitmq:
+  image: rabbitmq
+
+celeryworker:
+  build: .
+  env_file: env.production
+  links:
+   - rabbitmq
+   - postgres
+  command: su -m django -c "celery -A {{cookiecutter.repo_name}}.taskman worker -l INFO"
+
+celerybeat:
+  build: .
+  env_file: env.production
+  links:
+    - rabbitmq
+    - postgres
+  command: su -m django -c "celery -A {{cookiecutter.repo_name}}.taskman beat -l INFO"
+{% endif %}
