@@ -22,7 +22,7 @@ module.exports = function (grunt) {
       images: this.app + '/static/images',
       js: this.app + '/static/js',
       manageScript: 'manage.py',
-      mailserverpid: 'mailserver.pid',
+      {% if cookiecutter.use_maildump=="y" -%}mailserverpid: 'mailserver.pid',{%- endif %}
     }
   };
 
@@ -84,12 +84,12 @@ module.exports = function (grunt) {
       runDjango: {
         cmd: 'python <%= paths.manageScript %> runserver'
       },
-      runMailDump: {
+      {% if cookiecutter.use_maildump == "y" -%}runMailDump: {
         cmd: 'maildump -p <%= paths.mailserverpid %>'
       },
       stopMailDump: {
         cmd: 'maildump -p <%= paths.mailserverpid %> --stop'
-      },
+      },{%- endif %}
     }
   });
 
@@ -105,12 +105,12 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'build'
   ]);
-
+  {% if cookiecutter.use_maildump == "y" -%}
   grunt.registerTask('start-email-server', [
       'bgShell:runMailDump'
   ]);
 
   grunt.registerTask('stop-email-server', [
       'bgShell:stopMailDump'
-  ]);
+  ]);{%- endif %}
 };

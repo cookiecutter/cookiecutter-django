@@ -126,7 +126,7 @@ To run a celery worker:
 
 Please note: For Celerys import magic to work, it is important *where* the celery commands are run. If you are in the same folder with *manage.py*, you should be right.
 {% endif %}
-
+{% if cookiecutter.use_maildump == "y" %}
 Email Server
 ^^^^^^^^^^^^
 
@@ -147,6 +147,7 @@ To stop the email server::
     $ grunt stop-email-server
 
 The email server listens on 127.0.0.1:1025
+{% endif %}
 
 It's time to write the code!!!
 
