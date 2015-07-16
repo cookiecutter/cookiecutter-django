@@ -126,6 +126,28 @@ To run a celery worker:
 
 Please note: For Celerys import magic to work, it is important *where* the celery commands are run. If you are in the same folder with *manage.py*, you should be right.
 {% endif %}
+{% if cookiecutter.use_maildump == "y" %}
+Email Server
+^^^^^^^^^^^^
+
+In development, it is often nice to be able to see emails that are being sent from your application. For this purpose,
+a Grunt task exists to start an instance of `maildump`_ which is a local SMTP server with an online interface.
+
+.. _maildump: https://github.com/ThiefMaster/maildump
+
+Make sure you have nodejs installed, and then type the following::
+
+    $ grunt start-email-server
+
+This will start an email server. The project is setup to deliver to the email server by default. To view messages
+that are sent by your application, open your browser to http://127.0.0.1:1080
+
+To stop the email server::
+
+    $ grunt stop-email-server
+
+The email server listens on 127.0.0.1:1025
+{% endif %}
 
 It's time to write the code!!!
 
