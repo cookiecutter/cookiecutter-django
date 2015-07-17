@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-07-17]
+### Changed
+- Fixed broken user_form.html (@pydanny)
+
 ## [2015-07-16]
 ### Changed
 - Added django-test-plus (@pydanny)
