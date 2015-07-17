@@ -3,6 +3,8 @@ All enhancements and patches to cookiecutter-django will be documented in this f
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2015-07-17]
+### Added
+- @models.permalink decorator to User.get_absolute_url() method
 ### Fixed
 - Broken user_form.html (@pydanny)
 
