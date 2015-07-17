@@ -8,11 +8,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2015-07-16]
 ### Added
-- django-test-plus package (@pydanny)
+- django-test-plus (@pydanny)
 - option use maildump instead of ConsoleEmailHandler (@burhan)
-- Changelog (@pydanny)
+- Changelog.md (@pydanny)
 ### Fixed
-- Where 'DEFAULT_FROM_EMAIL' was used to cast the value (@jayfk)
+- where 'DEFAULT_FROM_EMAIL' was used to cast the value (@jayfk)
 ### Removed
-- Unnecessary header block tag and 'user:' prefix. (@pydanny)
-
+- unnecessary header block tag and 'user:' prefix. (@pydanny)
