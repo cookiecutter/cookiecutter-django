@@ -173,7 +173,7 @@ Run these commands to deploy the project to Heroku:
     heroku addons:create mailgun
     heroku addons:create memcachier:dev
 
-    heroku config:set DJANGO_SECRET_KEY=RANDOM_SECRET_KEY_HERE
+    heroku config:set DJANGO_SECRET_KEY=`openssl rand -base64 32`
     heroku config:set DJANGO_SETTINGS_MODULE='config.settings.production'
 
     heroku config:set DJANGO_AWS_ACCESS_KEY_ID=YOUR_AWS_ID_HERE
