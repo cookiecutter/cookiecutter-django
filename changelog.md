@@ -2,6 +2,16 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-07-18]
+### Changed
+    - Heroku deployment docs (@stepmr)
+        - Heroku's free postgres tier is now "hobby-dev"
+        - pg:backups require a scheduled time
+        - add missing Mailgun API key
+        - Django recommends setting the PYTHONHASHSEED environment variable to random. See: https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/#python-options
+        - Use openssl to generate a secure, random secret_key
+
+
 ## [2015-07-17]
 ### Added
 - @models.permalink decorator to User.get_absolute_url() method
