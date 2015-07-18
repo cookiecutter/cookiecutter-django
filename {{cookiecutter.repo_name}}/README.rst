@@ -183,6 +183,8 @@ Run these commands to deploy the project to Heroku:
     heroku config:set DJANGO_MAILGUN_SERVER_NAME=YOUR_MALGUN_SERVER
     heroku config:set DJANGO_MAILGUN_API_KEY=YOUR_MAILGUN_API_KEY
     
+    heroku config:set PYTHONHASHSEED=random
+    
     git push heroku master
     heroku run python manage.py migrate
     heroku run python manage.py check --deploy
