@@ -256,11 +256,14 @@ LOGGING = {
     }
 }
 {% if cookiecutter.use_celery == "y" %}
-########## CELERY
+# ######### CELERY
 INSTALLED_APPS += ('{{cookiecutter.repo_name}}.taskapp.celery.CeleryConfig',)
 # if you are not using the django database broker (e.g. rabbitmq, redis, memcached), you can remove the next line.
 INSTALLED_APPS += ('kombu.transport.django',)
 BROKER_URL = env("CELERY_BROKER_URL", default='django://')
-########## END CELERY
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+# ######### END CELERY
 {% endif %}
 # Your common stuff: Below this line define 3rd party library settings
