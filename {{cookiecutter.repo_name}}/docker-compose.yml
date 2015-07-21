@@ -35,7 +35,7 @@ celeryworker:
    - rabbitmq
    - postgres
    - redis
-  command: su -m django -c "celery -A {{cookiecutter.repo_name}}.taskman worker -l INFO"
+  command: su -m django -c "celery -A {{cookiecutter.repo_name}}.taskapp worker -l INFO"
 
 celerybeat:
   build: .
@@ -44,5 +44,5 @@ celerybeat:
     - rabbitmq
     - postgres
     - redis
-  command: su -m django -c "celery -A {{cookiecutter.repo_name}}.taskman beat -l INFO"
+  command: su -m django -c "celery -A {{cookiecutter.repo_name}}.taskapp beat -l INFO"
 {% endif %}
