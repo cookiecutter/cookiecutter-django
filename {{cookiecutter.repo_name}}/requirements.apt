@@ -19,9 +19,6 @@ libfreetype6-dev
 liblcms1-dev
 libwebp-dev
 
-##pylibmc
-libmemcached-dev
-libssl-dev
 
 ##django-extensions
 graphviz-dev
