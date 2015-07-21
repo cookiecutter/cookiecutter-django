@@ -8,7 +8,7 @@ django:
   build: .
   links:
     - postgres
-    - memcached
+    - redis
     {% if cookiecutter.use_celery %}
     - rabbitmq
     {% endif %}
@@ -22,8 +22,8 @@ nginx:
   ports:
     - "0.0.0.0:80:80"
 
-memcached:
-  image: memcached
+redis:
+  image: redis:3.0
 {% if cookiecutter.use_celery %}
 rabbitmq:
   image: rabbitmq
@@ -34,6 +34,7 @@ celeryworker:
   links:
    - rabbitmq
    - postgres
+   - redis
   command: su -m django -c "celery -A {{cookiecutter.repo_name}}.taskman worker -l INFO"
 
 celerybeat:
@@ -42,5 +43,6 @@ celerybeat:
   links:
     - rabbitmq
     - postgres
+    - redis
   command: su -m django -c "celery -A {{cookiecutter.repo_name}}.taskman beat -l INFO"
 {% endif %}
