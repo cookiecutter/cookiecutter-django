@@ -45,10 +45,12 @@ Adam Dobrawy / @ad-m
 Daniele Tricoli / @eriol
 Harry Percival / @hjwp
 Cullen Rhodes / @c-rhodes
+Burhan Khalid / @burhan
 Audrey Roy Greenfeld / @audreyr (and creator/maintainer of cookiecutter) * 
 Burhan Khalid / @burhan
 Jannis Gebauer / @got_nil
 jayfk / @jayfk
+stepmr / @stepmr 
 
 * Possesses commit rights
 
