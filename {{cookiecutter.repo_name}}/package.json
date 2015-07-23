@@ -3,13 +3,16 @@
   "version": "{{ cookiecutter.version }}",
   "dependencies": {},
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-watch": "~0.5.3",
+    "grunt": "~0.4.5",
+    "grunt-contrib-watch": "~0.6.1",
     "grunt-bg-shell": "~2.3.1",
     "connect-livereload": "~0.3.2",
-    "grunt-contrib-compass": "~0.7.0",
-    "time-grunt": "~0.2.7",
-    "load-grunt-tasks": "~0.2.1"
+    "time-grunt": "~1.2.1",
+    "load-grunt-tasks": "~3.2.0",
+    "grunt-sass": "~1.0.0",
+    "grunt-postcss": "~0.5.5",
+    "cssnano": "~2.1.0",
+    "autoprefixer-core": "~5.2.1"
   },
   "engines": {
     "node": ">=0.8.0"
