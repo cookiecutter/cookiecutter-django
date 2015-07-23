@@ -36,9 +36,12 @@ module.exports = function (grunt) {
       gruntfile: {
         files: ['Gruntfile.js']
       },
-      compass: {
+      sass: {
         files: ['<%= paths.sass %>/**/*.{scss,sass}'],
-        tasks: ['compass:server']
+        tasks: ['sass:dev'],
+        options: {
+          atBegin: true
+        }
       },
       livereload: {
         files: [
@@ -53,26 +56,43 @@ module.exports = function (grunt) {
       },
     },
 
-    // see: https://github.com/gruntjs/grunt-contrib-compass
-    compass: {
-      options: {
-          sassDir: '<%= paths.sass %>',
-          cssDir: '<%= paths.css %>',
-          fontsDir: '<%= paths.fonts %>',
-          imagesDir: '<%= paths.images %>',
-          relativeAssets: false,
-          assetCacheBuster: false,
-          raw: 'Sass::Script::Number.precision = 10\n'
+    // see: https://github.com/sindresorhus/grunt-sass
+    sass: {
+      dev: {
+          options: {
+              outputStyle: 'nested',
+              sourceMap: false,
+              precision: 10
+          },
+          files: {
+              '<%= paths.css %>/project.css': '<%= paths.sass %>/project.scss'
+          },
       },
       dist: {
-        options: {
-          environment: 'production'
-        }
+          options: {
+              outputStyle: 'compressed',
+              sourceMap: false,
+              precision: 10
+          },
+          files: {
+              '<%= paths.css %>/project.css': '<%= paths.sass %>/project.scss'
+          },
+      }
+    },
+    
+    //see https://github.com/nDmitry/grunt-postcss
+    postcss: {
+      options: {
+        map: true, // inline sourcemaps
+
+        processors: [
+          require('pixrem')(), // add fallbacks for rem units
+          require('autoprefixer-core')({browsers: 'last 2 versions'}), // add vendor prefixes
+          require('cssnano')() // minify the result
+        ]
       },
-      server: {
-        options: {
-          // debugInfo: true
-        }
+      dist: {
+        src: '<%= paths.css %>/*.css'
       }
     },
 
@@ -99,7 +119,8 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
-    'compass:dist'
+    'sass:dist',
+    'postcss'
   ]);
 
   grunt.registerTask('default', [
