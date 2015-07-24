@@ -5,6 +5,11 @@ build-essential
 gettext
 python-dev
 
+##python3
+python3
+python3-dev
+virtualenvwrapper
+
 ##shared dependencies of:
 ##Pillow, pylibmc
 zlib1g-dev
@@ -13,7 +18,7 @@ zlib1g-dev
 libpq-dev
 
 ##Pillow dependencies
-libtiff4-dev
+libtiff5-dev
 libjpeg8-dev
 libfreetype6-dev
 liblcms1-dev
