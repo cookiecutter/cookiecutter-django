@@ -51,6 +51,7 @@ Burhan Khalid / @burhan
 Jannis Gebauer / @got_nil
 jayfk / @jayfk
 stepmr / @stepmr 
+Javi Palanca / @javipalanca
 
 * Possesses commit rights
 
