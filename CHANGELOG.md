@@ -3,12 +3,15 @@ All enhancements and patches to cookiecutter-django will be documented in this f
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2015-07-27]
-## Changed
+### Removed
+- removed django-allauth template context processors because is deprecated now. see: https://github.com/pennersr/django-allauth/commit/634f4fe60e67c266aadcfba2981074f005db340c (@burhan)
+
+### Changed
 - update version of ipython, django-allauth (@luzfcb)
 - update version of django-braces, django-floppyforms, django-model-utils (#287)(@burhan)
 
 ## [2015-07-21]
-## Changed
+### Changed
 - memcached is as a cache is replace with redis (#258)(@burhan)
 
 ## [2015-07-18]
