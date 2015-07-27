@@ -5,10 +5,12 @@ Production Configurations
 - Use djangosecure
 - Use Amazon's S3 for storing static files and uploaded media
 - Use mailgun to send emails
-- Use MEMCACHIER on Heroku
+- Use Redis on Heroku
 '''
+{% if cookiecutter.use_sentry == "y" %}
+import raven
+{% endif %}
 from __future__ import absolute_import, unicode_literals
-
 
 from boto.s3.connection import OrdinaryCallingFormat
 from django.utils import six
@@ -29,10 +31,25 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # ------------------------------------------------------------------------------
 INSTALLED_APPS += ("djangosecure", )
 
-MIDDLEWARE_CLASSES = (
-    # Make sure djangosecure.middleware.SecurityMiddleware is listed first
+{% if cookiecutter.use_sentry == "y" -%}
+# raven sentry client
+# See https://docs.getsentry.com/hosted/clients/python/integrations/django/
+INSTALLED_APPS += ('raven.contrib.django.raven_compat', )
+{%- endif %}
+
+SECURITY_MIDDLEWARE = (
     'djangosecure.middleware.SecurityMiddleware',
-) + MIDDLEWARE_CLASSES
+)
+
+{% if cookiecutter.use_sentry == "y" -%}
+RAVEN_MIDDLEWARE = ('raven.contrib.django.raven_compat.middleware.Sentry404CatchMiddleware',
+    'raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware',)
+MIDDLEWARE_CLASSES = SECURITY_MIDDLEWARE + RAVEN_MIDDLEWARE + MIDDLEWARE_CLASSES
+{%- endif %}
+
+# Make sure djangosecure.middleware.SecurityMiddleware is listed first
+MIDDLEWARE_CLASSES = SECURITY_MIDDLEWARE + MIDDLEWARE_CLASSES
+
 
 # set this to 60 seconds and then to 518400 when you can prove it works
 SECURE_HSTS_SECONDS = 60
@@ -137,5 +154,56 @@ CACHES = {
         }
     }
 }
+
+{% if cookiecutter.use_sentry == "y" %}
+# Sentry Configuration
+SENTRY_CLIENT = env('DJANGO_SENTRY_CLIENT')
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'root': {
+        'level': 'WARNING',
+        'handlers': ['sentry'],
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s '
+                      '%(process)d %(thread)d %(message)s'
+        },
+    },
+    'handlers': {
+        'sentry': {
+            'level': 'ERROR',
+            'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        }
+    },
+    'loggers': {
+        'django.db.backends': {
+            'level': 'ERROR',
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'raven': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'sentry.errors': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+            'propagate': False,
+        },
+    },
+}
+SENTRY_CELERY_LOGLEVEL = env('DJANGO_SENTRY_LOG_LEVEL', logging.INFO)
+RAVEN_CONFIG = {
+    'CELERY_LOGLEVEL': env('DJANGO_SENTRY_LOG_LEVEL', logging.INFO)
+}
+{% endif %}
 
 # Your production stuff: Below this line define 3rd party library settings
