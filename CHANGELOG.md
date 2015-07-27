@@ -2,6 +2,11 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-07-27]
+## Changed
+- update version of ipython, django-allauth (@luzfcb)
+- update version of django-braces, django-floppyforms, django-model-utils (#287)(@burhan)
+
 ## [2015-07-21]
 ## Changed
 - memcached is as a cache is replace with redis (#258)(@burhan)
