@@ -1,4 +1,5 @@
 import os
+import re
 import shutil
 import unittest
 from os.path import exists, dirname, join
@@ -13,6 +14,23 @@ class DjangoCookieTestCase(unittest.TestCase):
     root_dir = dirname(dirname(__file__))
     ctx = {}
     destpath = None
+
+    def check_paths(self, paths):
+        """
+        Method to check all paths have correct substitutions,
+        used by other tests cases
+        """
+        # Construct the cookiecutter search pattern
+        pattern = "{{(\s?cookiecutter)[.](.*?)}}"
+        re_obj = re.compile(pattern)
+
+        # Assert that no match is found in any of the files
+        for path in paths:
+            for line in open(path, 'r'):
+                match = re_obj.search(line)
+                self.assertIsNone(
+                    match,
+                    "cookiecutter variable not replaced in {}".format(path))
 
     def generate_project(self, extra_context=None):
         ctx = {
