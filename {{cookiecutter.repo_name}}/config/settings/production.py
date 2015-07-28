@@ -6,14 +6,18 @@ Production Configurations
 - Use Amazon's S3 for storing static files and uploaded media
 - Use mailgun to send emails
 - Use Redis on Heroku
-'''
 {% if cookiecutter.use_sentry == "y" %}
-import raven
+- Use sentry for error logging
 {% endif %}
+'''
 from __future__ import absolute_import, unicode_literals
 
 from boto.s3.connection import OrdinaryCallingFormat
 from django.utils import six
+{% if cookiecutter.use_sentry == "y" %}
+import raven
+import logging
+{% endif %}
 
 from .common import *  # noqa
 
@@ -31,7 +35,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # ------------------------------------------------------------------------------
 INSTALLED_APPS += ("djangosecure", )
 
-{% if cookiecutter.use_sentry == "y" -%}
+{% if cookiecutter.use_sentry == "y" - %}
 # raven sentry client
 # See https://docs.getsentry.com/hosted/clients/python/integrations/django/
 INSTALLED_APPS += ('raven.contrib.django.raven_compat', )
@@ -43,8 +47,9 @@ SECURITY_MIDDLEWARE = (
 
 {% if cookiecutter.use_sentry == "y" -%}
 RAVEN_MIDDLEWARE = ('raven.contrib.django.raven_compat.middleware.Sentry404CatchMiddleware',
-    'raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware',)
-MIDDLEWARE_CLASSES = SECURITY_MIDDLEWARE + RAVEN_MIDDLEWARE + MIDDLEWARE_CLASSES
+                    'raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware',)
+MIDDLEWARE_CLASSES = SECURITY_MIDDLEWARE + \
+    RAVEN_MIDDLEWARE + MIDDLEWARE_CLASSES
 {% else %}
 
 # Make sure djangosecure.middleware.SecurityMiddleware is listed first
@@ -54,9 +59,11 @@ MIDDLEWARE_CLASSES = SECURITY_MIDDLEWARE + MIDDLEWARE_CLASSES
 
 # set this to 60 seconds and then to 518400 when you can prove it works
 SECURE_HSTS_SECONDS = 60
-SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool("DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool(
+    "DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True)
 SECURE_FRAME_DENY = env.bool("DJANGO_SECURE_FRAME_DENY", default=True)
-SECURE_CONTENT_TYPE_NOSNIFF = env.bool("DJANGO_SECURE_CONTENT_TYPE_NOSNIFF", default=True)
+SECURE_CONTENT_TYPE_NOSNIFF = env.bool(
+    "DJANGO_SECURE_CONTENT_TYPE_NOSNIFF", default=True)
 SECURE_BROWSER_XSS_FILTER = True
 SESSION_COOKIE_SECURE = False
 SESSION_COOKIE_HTTPONLY = True
@@ -99,7 +106,8 @@ AWS_HEADERS = {
         AWS_EXPIRY, AWS_EXPIRY))
 }
 
-# URL that handles the media served from MEDIA_ROOT, used for managing stored files.
+# URL that handles the media served from MEDIA_ROOT, used for managing
+# stored files.
 MEDIA_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
 
 # Static Assests
@@ -111,7 +119,8 @@ STATICFILES_STORAGE = DEFAULT_FILE_STORAGE
 STATIC_URL = MEDIA_URL
 
 # See: https://github.com/antonagestam/collectfast
-# For Django 1.7+, 'collectfast' should come before 'django.contrib.staticfiles'
+# For Django 1.7+, 'collectfast' should come before
+# 'django.contrib.staticfiles'
 AWS_PRELOAD_METADATA = True
 INSTALLED_APPS = ('collectfast', ) + INSTALLED_APPS
 {%- endif %}
@@ -123,12 +132,14 @@ DEFAULT_FROM_EMAIL = env('DJANGO_DEFAULT_FROM_EMAIL',
 EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
 MAILGUN_ACCESS_KEY = env('DJANGO_MAILGUN_API_KEY')
 MAILGUN_SERVER_NAME = env('DJANGO_MAILGUN_SERVER_NAME')
-EMAIL_SUBJECT_PREFIX = env("DJANGO_EMAIL_SUBJECT_PREFIX", default='[{{cookiecutter.project_name}}] ')
+EMAIL_SUBJECT_PREFIX = env(
+    "DJANGO_EMAIL_SUBJECT_PREFIX", default='[{{cookiecutter.project_name}}] ')
 SERVER_EMAIL = env('DJANGO_SERVER_EMAIL', default=DEFAULT_FROM_EMAIL)
 
 # TEMPLATE CONFIGURATION
 # ------------------------------------------------------------------------------
-# See: https://docs.djangoproject.com/en/dev/ref/templates/api/#django.template.loaders.cached.Loader
+# See:
+# https://docs.djangoproject.com/en/dev/ref/templates/api/#django.template.loaders.cached.Loader
 TEMPLATES[0]['OPTIONS']['loaders'] = [
     ('django.template.loaders.cached.Loader', [
         'django.template.loaders.filesystem.Loader',
