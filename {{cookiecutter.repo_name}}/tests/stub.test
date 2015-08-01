@@ -1,4 +1,4 @@
-{% extends "base.yml" %}
+{% raw %}{% extends "base.yml" %}
 {% block test %}
 - engine: engine.py:ExecutionEngine
   name: Stub {{ python_version }}
@@ -7,4 +7,4 @@
   scenario:
     - Load website
     - Pause
-{% endblock %}
+{% endblock %}{% endraw %}
