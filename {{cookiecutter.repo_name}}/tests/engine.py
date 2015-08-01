@@ -1,4 +1,4 @@
-from subprocess import call, PIPE
+from subprocess import call
 from os import path
 import hitchpostgres
 import hitchselenium
