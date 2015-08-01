@@ -33,6 +33,9 @@ pip-log.txt
 .tox
 nosetests.xml
 
+# Hitch test .hitch directory
+tests/.hitch
+
 # Translations
 *.mo
 *.pot
