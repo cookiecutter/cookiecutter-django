@@ -28,6 +28,32 @@ environment:
     - automake
     - node
   - debs:
+    - python-setuptools
+    - python3-dev
+    - python-virtualenv
+    - python-pip
     - firefox
     - automake
     - libtool
+    - libreadline6
+    - libreadline6-dev
+    - libreadline-dev
+    - libsqlite3-dev
+    - libpq-dev
+    - libxml2
+    - libxml2-dev
+    - libssl-dev
+    - libbz2-dev
+    - wget
+    - curl
+    - llvm
+    - graphviz-dev
+    - libtiff4-dev
+    - libjpeg8-dev
+    - libfreetype6-dev
+    - liblcms1-dev
+    - libwebp-dev
+    - zlib1g-dev
+    - gettext
+    - python-dev
+    - build-essential

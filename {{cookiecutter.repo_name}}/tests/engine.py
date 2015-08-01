@@ -1,5 +1,5 @@
 from hitchserve import ServiceBundle
-from os import path, system, chdir
+from os import path
 from subprocess import call, PIPE
 import hitchpostgres
 import hitchselenium
@@ -7,15 +7,15 @@ import hitchpython
 import hitchredis
 import hitchtest
 import hitchsmtp
-import hitchcron
-import IPython
-import sys
+
 
 # Get directory above this file
 PROJECT_DIRECTORY = path.abspath(path.join(path.dirname(__file__), '..'))
 
+
 class ExecutionEngine(hitchtest.ExecutionEngine):
     """Engine for orchestating and interacting with the app."""
+
     def set_up(self):
         """Ensure virtualenv present, then run all services."""
         python_package = hitchpython.PythonPackage(
@@ -35,11 +35,9 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
         postgres_package.build()
         postgres_package.verify()
 
-        {% if cookiecutter.celery_support == "y" %}
         redis_package = hitchredis.RedisPackage(version="2.8.4")
         redis_package.build()
         redis_package.verify()
-        {% endif %}
 
         self.services = ServiceBundle(
             project_directory=PROJECT_DIRECTORY,
@@ -66,12 +64,11 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
             env_vars=self.settings['environment_variables'],
         )
 
-        {% if cookiecutter.celery_support == "y" %}
         self.services['Redis'] = hitchredis.RedisService(
             redis_package=redis_package,
             port=16379,
         )
-
+{% if cookiecutter.celery_support == "y" %}
         self.services['Celery'] = hitchpython.CeleryService(
             python=python_package.python,
             version="3.1.18",
@@ -81,17 +78,17 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
             ],
             env_vars=self.settings['environment_variables'],
         )
-        {% endif %}
-
+{% endif %}
         self.services['Firefox'] = hitchselenium.SeleniumService(
             xvfb=self.settings.get("quiet", False)
         )
 
-        #self.services['Cron'] = hitchcron.CronService(
-            #run=self.services['Django'].manage("trigger").command,
-            #every=1,
-            #needs=[ self.services['Django'], ],
-        #)
+#        import hitchcron
+#        self.services['Cron'] = hitchcron.CronService(
+#            run=self.services['Django'].manage("trigger").command,
+#            every=1,
+#            needs=[ self.services['Django'], ],
+#        )
 
         self.services.startup(interactive=False)
 
