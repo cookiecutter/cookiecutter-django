@@ -1,0 +1,10 @@
+{% extends "base.yml" %}
+{% block test %}
+- engine: engine.py:ExecutionEngine
+  name: Stub {{ python_version }}
+  preconditions:
+    python_version: "{{ python_version }}"
+  scenario:
+    - Load website
+    - Pause
+{% endblock %}
