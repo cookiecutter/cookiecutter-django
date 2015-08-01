@@ -1,9 +1,9 @@
-from hitchserve import ServiceBundle
-from os import path
 from subprocess import call, PIPE
+from os import path
 import hitchpostgres
 import hitchselenium
 import hitchpython
+import hitchserve
 import hitchredis
 import hitchtest
 import hitchsmtp
@@ -39,7 +39,7 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
         redis_package.build()
         redis_package.verify()
 
-        self.services = ServiceBundle(
+        self.services = hitchserve.ServiceBundle(
             project_directory=PROJECT_DIRECTORY,
             startup_timeout=float(self.settings["startup_timeout"]),
             shutdown_timeout=5.0,
@@ -132,7 +132,7 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
         """Wait for, and return email."""
         self.services['HitchSMTP'].logs.out.tail.until_json(
             lambda email: containing in email['payload'] or containing in email['subject'],
-            timeout=15,
+            timeout=25,
             lines_back=1,
         )
 
@@ -143,19 +143,15 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
     def on_failure(self):
         """Stop and IPython."""
         if not self.settings['quiet']:
-            if call(["which", "kaching"], stdout=PIPE, stderr=PIPE) == 0:
-                call(["kaching", "fail"])  # sudo pip install kaching for sad sound
             if self.settings.get("pause_on_failure", False):
                 self.pause(message=self.stacktrace.to_template())
 
     def on_success(self):
-        """Ka-ching!"""
-        if not self.settings['quiet'] and call(["which", "kaching"], stdout=PIPE, stderr=PIPE) == 0:
-            call(["kaching", "pass"])  # sudo pip install kaching for happy sound
+        """Pause on success if enabled."""
         if self.settings.get("pause_on_success", False):
             self.pause(message="SUCCESS")
 
     def tear_down(self):
-        """Commit genocide on the services required to run your test."""
+        """Shut down services required to run your test."""
         if hasattr(self, 'services'):
             self.services.shutdown()
