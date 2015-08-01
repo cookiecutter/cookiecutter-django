@@ -6,8 +6,8 @@ pause_on_success: false
 pause_on_failure: true
 startup_timeout: 45
 environment_variables:
-  DATABASE_URL: postgres://trackfeatures:password@127.0.0.1:15432/trackfeatures
-  SECRET_KEY: cj5^uos4tfCdfghjku5hq$9$(@-7-^e9&x_3vyfkigvspm6c=+
+  DATABASE_URL: postgres://{{cookiecutter.repo_name}}:password@127.0.0.1:15432/{{cookiecutter.repo_name}}
+  SECRET_KEY: cj5^uos4tfCdfghjkf5hq$9$(@-79^e9&x$3vyf#igvsfm4d=+
   CELERY_BROKER_URL: redis://localhost:16379
 window_size:
   width: 450

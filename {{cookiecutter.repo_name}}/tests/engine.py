@@ -45,12 +45,12 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
             shutdown_timeout=5.0,
         )
 
-        postgres_user = hitchpostgres.PostgresUser("trackfeatures", "password")
+        postgres_user = hitchpostgres.PostgresUser("{{cookiecutter.repo_name}}", "password")
 
         self.services['Postgres'] = hitchpostgres.PostgresService(
             postgres_package=postgres_package,
             users=[postgres_user, ],
-            databases=[hitchpostgres.PostgresDatabase("trackfeatures", postgres_user), ]
+            databases=[hitchpostgres.PostgresDatabase("{{cookiecutter.repo_name}}", postgres_user), ]
         )
 
         self.services['HitchSMTP'] = hitchsmtp.HitchSMTPService(port=1025)
@@ -72,7 +72,7 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
         self.services['Celery'] = hitchpython.CeleryService(
             python=python_package.python,
             version="3.1.18",
-            app="trackfeatures.taskapp", loglevel="INFO",
+            app="{{cookiecutter.repo_name}}.taskapp", loglevel="INFO",
             needs=[
                 self.services['Redis'], self.services['Django'],
             ],
