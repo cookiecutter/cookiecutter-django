@@ -6,7 +6,6 @@ from django.views.generic import DetailView, ListView, RedirectView, UpdateView
 
 from braces.views import LoginRequiredMixin
 
-from .forms import UserForm
 from .models import User
 
 
@@ -27,7 +26,7 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
 
 class UserUpdateView(LoginRequiredMixin, UpdateView):
 
-    form_class = UserForm
+    fields = ['name', ]
 
     # we already imported User in the view code above, remember?
     model = User
