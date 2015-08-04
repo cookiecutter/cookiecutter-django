@@ -155,6 +155,12 @@ It's time to write the code!!!
 Running end to end integration tests
 ------------------------------------
 
+N.B. The integration tests will not run on Windows.
+
+To install the test runner::
+
+  $ sudo pip install hitch
+
 To run the tests, enter the {{cookiecutter.repo_name}}/tests directory and run the following commands::
 
   $ hitch init
