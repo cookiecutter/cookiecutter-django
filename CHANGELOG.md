@@ -9,9 +9,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - factory-boy package for improved testing  (@pydanny)
 - Error message for duplicate usernames in `users.admin.MyUserCreationForm` (@pydanny)
 - Tests on `users.admin.MyUserCreationForm` (@pydanny)
+
 ### Changed
 - update django-all-auth to 0.23.0  (@pydanny)
 - update django-test-plus to 1.0.7  (@pydanny)
+
 ### Removed
 - Unnecessary users/forms.py module (@pydanny)
 
