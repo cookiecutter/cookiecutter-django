@@ -2,6 +2,12 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-08-03]
+### Added
+- factory-boy package for improved testing
+### Changed
+- update django-test-plus to 1.0.7
+
 ## [2015-07-30]
 ### Changed
 - update django-floppyforms version to 1.5.2
