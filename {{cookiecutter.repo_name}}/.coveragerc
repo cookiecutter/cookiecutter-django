@@ -1,0 +1,3 @@
+[run]
+include = {{cookiecutter.repo_name}}/*
+omit = ../*migrations*

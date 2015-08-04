@@ -93,7 +93,7 @@ Test coverage
 To run the tests, check your test coverage, and generate an HTML coverage report::
 
     $ coverage run manage.py test
-    $ coverage html --include={{ cookiecutter.repo_name }}/*
+    $ coverage html
 
 Live reloading and Sass CSS compilation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
