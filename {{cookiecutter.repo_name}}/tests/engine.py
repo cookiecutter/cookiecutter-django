@@ -80,7 +80,8 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
         )
 {% endif %}
         self.services['Firefox'] = hitchselenium.SeleniumService(
-            xvfb=self.settings.get("quiet", False)
+            xvfb=self.settings.get("quiet", False),
+            no_libfaketime=True,
         )
 
 #        import hitchcron
