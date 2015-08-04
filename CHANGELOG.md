@@ -4,9 +4,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2015-08-03]
 ### Added
-- factory-boy package for improved testing
+- Instructions for using coverage and generating reports (@audreyr)
+- Coverage project-level config file (@audreyr)
+- factory-boy package for improved testing  (@pydanny)
+- Error message for duplicate usernames in `users.admin.MyUserCreationForm` (@pydanny)
+- Tests on `users.admin.MyUserCreationForm` (@pydanny)
 ### Changed
-- update django-test-plus to 1.0.7
+- update django-all-auth to 0.23.0  (@pydanny)
+- update django-test-plus to 1.0.7  (@pydanny)
+### Removed
+- Unnecessary users/forms.py module (@pydanny)
 
 ## [2015-07-30]
 ### Changed
@@ -14,7 +21,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2015-07-29]
 ### Removed
-- Removed legacy permalink decorator from the users.User model.
+- Removed legacy permalink decorator from the users.User model. (@pydanny)
 
 ## [2015-07-27]
 ### Removed
