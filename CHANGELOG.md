@@ -2,6 +2,16 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-08-05]
+### Added
+- Making the user object python 2 and 3 friendly (@pydanny)
+- When using maildump, pin gevent. (@audreyr)
+- Updated coverage version. (@audreyr)
+
+## [2015-08-04]
+### Added
+- Better specification of migrations in .coveragerc. (@audreyr)
+
 ## [2015-08-03]
 ### Added
 - Instructions for using coverage and generating reports (@audreyr)
