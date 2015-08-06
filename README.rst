@@ -24,11 +24,12 @@ Features
 * Registration via django-allauth_
 * Procfile_ for deploying to Heroku
 * Grunt build for compass and livereload
-* Basic e-mail configurations for send emails via Mailgun_
+* Basic e-mail configurations for sending emails via Mailgun_
 * Media storage using Amazon S3
 * Serve static files from Amazon S3 or Whitenoise_ (optional)
 * Pre configured Celery_ (optional)
 * Integration with Maildump_ for local email testing (optional)
+* Integration with Sentry_ for error logging (optional)
 
 .. _Bootstrap: https://github.com/twbs/bootstrap
 .. _AngularJS: https://github.com/angular/angular.js
@@ -41,6 +42,7 @@ Features
 .. _Whitenoise: https://whitenoise.readthedocs.org/
 .. _Celery: http://www.celeryproject.org/
 .. _Maildump: https://github.com/ThiefMaster/maildump
+.. _Sentry: https://getsentry.com
 
 
 Constraints

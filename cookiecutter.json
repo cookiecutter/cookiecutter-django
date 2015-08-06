@@ -12,5 +12,6 @@
     "use_whitenoise": "y",
     "use_celery": "n",
     "use_maildump": "n",
+    "use_sentry": "n",
     "windows": "n"
 }
