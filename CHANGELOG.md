@@ -4,9 +4,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2015-08-05]
 ### Added
-- Making the user object python 2 and 3 friendly (@pydanny)
+- Sentry support (@burhan)
+
+### Changed
+- Maked the user object python 2 and 3 friendly (@pydanny)
 - When using maildump, pin gevent. (@audreyr)
 - Updated coverage version. (@audreyr)
+
 
 ## [2015-08-04]
 ### Added

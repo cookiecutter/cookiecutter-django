@@ -40,6 +40,9 @@ Environment Variable                    Django Setting              Development 
 DJANGO_AWS_ACCESS_KEY_ID                AWS_ACCESS_KEY_ID           n/a                                            raises error
 DJANGO_AWS_SECRET_ACCESS_KEY            AWS_SECRET_ACCESS_KEY       n/a                                            raises error
 DJANGO_AWS_STORAGE_BUCKET_NAME          AWS_STORAGE_BUCKET_NAME     n/a                                            raises error
+{% if cookiecutter.use_sentry == "y" -%}DJANGO_SENTRY_DSN                       SENTRY_DSN                  n/a                                            raises error
+DJANGO_SENTRY_CLIENT                    SENTRY_CLIENT               n/a                                            raven.contrib.django.raven_compat.DjangoClient
+DJANGO_SENTRY_LOG_LEVEL                 SENTRY_LOG_LEVEL            n/a                                            logging.INFO{%- endif %}
 DJANGO_MAILGUN_API_KEY                  MAILGUN_ACCESS_KEY          n/a                                            raises error
 DJANGO_MAILGUN_SERVER_NAME              MAILGUN_SERVER_NAME         n/a                                            raises error
 ======================================= =========================== ============================================== ======================================================================
@@ -156,6 +159,15 @@ To stop the email server::
     $ grunt stop-email-server
 
 The email server listens on 127.0.0.1:1025
+{% endif %}
+{% if cookiecutter.use_sentry == "y" %}
+Sentry
+^^^^^^
+
+Sentry is an error logging aggregator service. You can sign up for a free account at http://getsentry.com or download and host it yourself.
+The system is setup with reasonable defaults, including 404 logging and integration with the WSGI application.
+
+You must set the DSN url in production.
 {% endif %}
 
 It's time to write the code!!!

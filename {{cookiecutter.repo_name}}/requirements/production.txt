@@ -18,3 +18,9 @@ Collectfast==0.2.3
 # Mailgun Support
 # ---------------
 django-mailgun==0.2.2
+
+{% if cookiecutter.use_sentry == "y" -%}
+# Raven is the Sentry client
+# --------------------------
+raven
+{%- endif %}
