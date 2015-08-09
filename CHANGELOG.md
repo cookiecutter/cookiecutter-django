@@ -2,12 +2,27 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-08-09]
+### Added
+- test coverage, bringing it to 100% (@pydanny)
+
+## 2015-08-08
+### Added
+- Gitter badge (@pydanny)
+### Changed
+- Refactor of cookiecutter-django render tests (@burhan)
+
+## [2015-08-06]
+### Added
+- More test coverage, up to 97% (@pydanny)
+- Slight optimization to celery configuration (@jayfk)
+
 ## [2015-08-05]
 ### Added
 - Sentry support (@burhan)
 
 ### Changed
-- Maked the user object python 2 and 3 friendly (@pydanny)
+- Made the user object python 2 and 3 friendly (@pydanny)
 - When using maildump, pin gevent. (@audreyr)
 - Updated coverage version. (@audreyr)
 
