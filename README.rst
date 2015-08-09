@@ -8,10 +8,10 @@ cookiecutter-django
 .. image:: https://travis-ci.org/pydanny/cookiecutter-django.svg?branch=master
      :target: https://travis-ci.org/pydanny/cookiecutter-django?branch=master
      :alt: Build Status
-     
+
 .. image:: https://badges.gitter.im/Join Chat.svg
    :target: https://gitter.im/pydanny/cookiecutter-django?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
-     
+
 
 A cookiecutter_ template for Django.
 
@@ -21,12 +21,14 @@ Features
 ---------
 
 * For Django 1.8
+* Renders Django projects with 100% test coverage
 * Twitter Bootstrap_ 3
 * AngularJS_
 * 12-Factor_ based settings via django-environ_
 * Optimized development and production settings
 * Registration via django-allauth_
 * Procfile_ for deploying to Heroku
+* Works great with Dokku
 * Grunt build for compass and livereload
 * Basic e-mail configurations for sending emails via Mailgun_
 * Media storage using Amazon S3
