@@ -8,6 +8,10 @@ cookiecutter-django
 .. image:: https://travis-ci.org/pydanny/cookiecutter-django.svg?branch=master
      :target: https://travis-ci.org/pydanny/cookiecutter-django?branch=master
      :alt: Build Status
+     
+.. image:: https://badges.gitter.im/Join Chat.svg
+   :target: https://gitter.im/pydanny/cookiecutter-django?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+     
 
 A cookiecutter_ template for Django.
 
