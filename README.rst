@@ -1,6 +1,10 @@
 cookiecutter-django
 =======================
 
+.. image:: https://badges.gitter.im/Join%20Chat.svg
+   :alt: Join the chat at https://gitter.im/pydanny/cookiecutter-django
+   :target: https://gitter.im/pydanny/cookiecutter-django?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+
 .. image:: https://requires.io/github/pydanny/cookiecutter-django/requirements.svg?branch=master
      :target: https://requires.io/github/pydanny/cookiecutter-django/requirements/?branch=master
      :alt: Requirements Status
