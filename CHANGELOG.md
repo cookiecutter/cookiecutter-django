@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-08-12]
+### Added
+- hitch for end-to-end testing functionality (@crdoconnor)
+
 ## [2015-08-09]
 ### Added
 - test coverage, bringing it to 100% (@pydanny)

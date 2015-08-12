@@ -23,6 +23,7 @@ Features
 * For Django 1.8
 * Renders Django projects with 100% test coverage
 * Twitter Bootstrap_ 3
+* End-to-end via Hitch_
 * AngularJS_
 * 12-Factor_ based settings via django-environ_
 * Optimized development and production settings
@@ -37,6 +38,7 @@ Features
 * Integration with Maildump_ for local email testing (optional)
 * Integration with Sentry_ for error logging (optional)
 
+.. _Hitch: https://github.com/hitchtest/hitchtest
 .. _Bootstrap: https://github.com/twbs/bootstrap
 .. _AngularJS: https://github.com/angular/angular.js
 .. _django-environ: https://github.com/joke2k/django-environ
