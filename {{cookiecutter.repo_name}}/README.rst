@@ -159,7 +159,7 @@ N.B. The integration tests will not run on Windows.
 
 To install the test runner::
 
-  $ sudo pip install hitch
+  $ pip install hitch
 
 To run the tests, enter the {{cookiecutter.repo_name}}/tests directory and run the following commands::
 
