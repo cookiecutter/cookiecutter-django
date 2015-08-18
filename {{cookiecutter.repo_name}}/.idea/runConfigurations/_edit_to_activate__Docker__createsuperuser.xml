@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Docker: createsuperuser" type="Python.DjangoServer" factoryName="Django server" singleton="true">
+  <configuration default="false" name="[edit to activate] Docker: createsuperuser" type="Python.DjangoServer" factoryName="Django server" singleton="true">
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
     <envs>
@@ -11,7 +11,7 @@
     <option name="IS_MODULE_SDK" value="false" />
     <option name="ADD_CONTENT_ROOTS" value="true" />
     <option name="ADD_SOURCE_ROOTS" value="true" />
-    <module name="wawel_repo" />
+    <module name="coco_repo" />
     <PathMappingSettings>
       <option name="pathMappings">
         <list>

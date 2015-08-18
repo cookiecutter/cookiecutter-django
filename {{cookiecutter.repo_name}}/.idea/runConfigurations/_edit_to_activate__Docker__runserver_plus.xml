@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Docker: tests - users" type="DjangoTestsConfigurationType" factoryName="Django tests" singleton="true">
+  <configuration default="false" name="[edit to activate] Docker: runserver_plus" type="Python.DjangoServer" factoryName="Django server" singleton="true">
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
     <envs>
@@ -11,8 +11,7 @@
     <option name="IS_MODULE_SDK" value="false" />
     <option name="ADD_CONTENT_ROOTS" value="true" />
     <option name="ADD_SOURCE_ROOTS" value="true" />
-    <module name="wawel_repo" />
-    <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+    <module name="coco_repo" />
     <PathMappingSettings>
       <option name="pathMappings">
         <list>
@@ -20,11 +19,15 @@
         </list>
       </option>
     </PathMappingSettings>
-    <option name="TARGET" value=" wawel_repo.users" />
-    <option name="SETTINGS_FILE" value="" />
-    <option name="CUSTOM_SETTINGS" value="false" />
-    <option name="USE_OPTIONS" value="false" />
-    <option name="OPTIONS" value="" />
+    <option name="launchJavascriptDebuger" value="false" />
+    <option name="port" value="8000" />
+    <option name="host" value="0.0.0.0" />
+    <option name="additionalOptions" value="" />
+    <option name="browserUrl" value="" />
+    <option name="runTestServer" value="false" />
+    <option name="runNoReload" value="false" />
+    <option name="useCustomRunCommand" value="true" />
+    <option name="customRunCommand" value="runserver_plus" />
     <method />
   </configuration>
 </component>
