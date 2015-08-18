@@ -25,6 +25,7 @@ chown $user:$user /home/$user
 chmod 755 /home/$user
 
 ln -s /pycharm_helpers/ /home/$user/.pycharm_helpers
+chown $user:$user /pycharm_helpers/ /home/$user/.pycharm_helpers
 
 # TODO: get public key authorization to work
 mkdir /home/$user/.ssh

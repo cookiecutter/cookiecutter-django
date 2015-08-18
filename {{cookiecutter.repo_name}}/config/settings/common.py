@@ -100,9 +100,9 @@ MANAGERS = ADMINS
 DATABASES = {
     # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
     {% if cookiecutter.use_docker == 'y' %}
-    'default': 'postgres://postgres@postgres/postgres'),
+    'default': env.db('DATABASE_URL', default='postgres://postgres@postgres/postgres'),
     {% else %}
-    'default': env.db("DATABASE_URL", default="postgres://{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.repo_name}}"),
+    'default': env.db('DATABASE_URL', default='postgres://{% if cookiecutter.windows == "y" %}localhost{% endif %}/{{cookiecutter.repo_name}}'),
     {% endif %}
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
