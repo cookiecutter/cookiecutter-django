@@ -37,7 +37,7 @@ Features
 * Pre configured Celery_ (optional)
 * Integration with Maildump_ for local email testing (optional)
 * Integration with Sentry_ for error logging (optional)
-* Docker support using docker-compose_ for dev and prod
+* Docker support using docker-compose_ for dev (with debug) and prod
 
 .. _Hitch: https://github.com/hitchtest/hitchtest
 .. _Bootstrap: https://github.com/twbs/bootstrap

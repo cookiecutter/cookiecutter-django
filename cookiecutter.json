@@ -13,6 +13,6 @@
     "use_celery": "n",
     "use_maildump": "n",
     "use_sentry": "n",
-    "docker": "y",
+    "use_docker": "n",
     "windows": "n"
 }
