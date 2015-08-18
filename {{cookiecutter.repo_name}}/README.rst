@@ -200,7 +200,7 @@ The testing framework runs Django, Celery (if enabled), Postgres, HitchSMTP (a m
 Deployment
 ----------
 
-It is possible to deploy to Heroku or to your own server by using Dokku, an open source Heroku clone.
+It is possible to deploy to Heroku, to your own server by using Dokku, an open source Heroku clone or using docker-compose.
 
 Heroku
 ^^^^^^
@@ -277,3 +277,17 @@ You can then deploy by running the following commands.
     ssh -t dokku@yourservername.com dokku run {{cookiecutter.repo_name}} python manage.py createsuperuser
 
 When deploying via Dokku make sure you backup your database in some fashion as it is NOT done automatically.
+
+Docker
+^^^^^^
+
+You need a working docker and docker-compose installation on your production server.
+
+To get started, clone the git repo containing your projects code and set all needed environment variables in
+``env.production``.
+
+To start docker-compose in the foreground, run:
+
+.. code-block:: bash
+
+    docker-compose up
