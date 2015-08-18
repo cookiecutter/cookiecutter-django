@@ -2,18 +2,16 @@ postgres:
   image: postgres:9.4
   volumes:
     - /data/{{cookiecutter.repo_name}}/postgres:/var/lib/postgresql/data
-  env_file: env.production
+  env_file: .env
 
 django:
   build: .
+  user: django
   links:
     - postgres
     - redis
-    {% if cookiecutter.use_celery %}
-    - rabbitmq
-    {% endif %}
   command: /gunicorn.sh
-  env_file: env.production
+  env_file: .env
 
 nginx:
   build: ./compose/nginx
@@ -24,25 +22,22 @@ nginx:
 
 redis:
   image: redis:3.0
-{% if cookiecutter.use_celery %}
-rabbitmq:
-  image: rabbitmq
-
+{% if cookiecutter.use_celery == 'y' %}
 celeryworker:
   build: .
-  env_file: env.production
+  user: django
+  env_file: .env
   links:
-   - rabbitmq
    - postgres
    - redis
-  command: su -m django -c "celery -A {{cookiecutter.repo_name}}.taskapp worker -l INFO"
+  command: celery -A {{cookiecutter.repo_name}}.taskapp worker -l INFO
 
 celerybeat:
   build: .
-  env_file: env.production
+  user: django
+  env_file: .env
   links:
-    - rabbitmq
     - postgres
     - redis
-  command: su -m django -c "celery -A {{cookiecutter.repo_name}}.taskapp beat -l INFO"
+  command: celery -A {{cookiecutter.repo_name}}.taskapp beat -l INFO
 {% endif %}
