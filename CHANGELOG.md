@@ -2,6 +2,11 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-08-18]
+### Added
+- Docker support and docker-compose (@jayfk)
+
+
 ## [2015-08-12]
 ### Added
 - hitch for end-to-end testing functionality (@crdoconnor)
