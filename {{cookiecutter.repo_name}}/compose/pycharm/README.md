@@ -1,58 +1,42 @@
-docker-pycharm-python [![Docker Build Status](http://hubstatus.container42.com/tehsphinx/docker-pycharm-python)](https://registry.hub.docker.com/u/tehsphinx/docker-pycharm-python/)
-====
+# Run/Debug Configuration (for PyCharm)
 
-Easy to use and [fig](http://www.fig.sh/index.html) compatible Python development box to be used with [PyCharm (JetBrains)](https://www.jetbrains.com/pycharm/). 
-This box is NOT meant to be used in production. It comes with SSH/SFTP for PyCharm access.
+## Run debug docker container
 
-For me this was a test to see if docker could be used as a "vagrant replacement" especially when it comes down to 
-running unit tests and debugging from PyCharm IDE. So far it looks promising...
+To debug python code inside a docker container, you have to first run:
 
-Note: SSH/SFTP User and Password implementation is based on [atmoz/sftp](https://registry.hub.docker.com/u/atmoz/sftp), 
-but changed to use ENV variables for fig support.
+    $ docker-compose -f debug.yml up
+    
+Container should be ready, when 
 
-Usage
------
+    ...
+    debug_1    | Starting OpenBSD Secure Shell server: sshd
+    ...
 
-Best used with [fig](http://www.fig.sh/index.html).
+will be displayed in docker-compose logs.
 
-Example
---------
+## First time configuration
 
-Dockerfile
+If you haven't configure it yet, enable django support for your project: 
 
-```
-# Pull base image.
-FROM tehsphinx/docker-pycharm-python
+<img src="pycharm_configuration/1.png"/>
 
-# copy application to image
-ADD . /data/
-WORKDIR /data
+Next, you have to add python intepreter which is inside docker as remote interpreter:
 
-# If needed:
-# install any python requirements found in requirements.txt (this file must be in root path of your app)
-RUN pip install -r requirements.txt
-```
+<img src="pycharm_configuration/2.png"/>
 
-Configuration for fig (fig.yml) 
 
-```
-web:
-  build: .
-  command: python app.py
-  ports:
-   - "8080:8080"
-   - "2222:22"
-  volumes:
-   - .:/data
-  environment:
-    SFTP_USER: docker
-    SFTP_PASS: docker
-  links:
-   - db
-db:
-  image: postgres
-```
+<img src="pycharm_configuration/3.png"/>
 
-This samples a web server app (app.py) running on port 8080. PyCharm will be able to access the docker image with the
-given user and on port 2222. If you do not want to store your password in plain text, you can use the 
-Environment Variable "PASS_ENCRYPTED: true" to create the user with the already encrypted password.  
+The last thing, you have to properly setup you Run/Debug Configuration. Make sure, that you use host 0.0.0.0.
+
+<img src="pycharm_configuration/4.png"/>
+
+
+## How to debug?
+
+Having configuration prepared, simply run your "run" debug configuration: 
+
+<img src="pycharm_configuration/5.png"/>
+
+
+
