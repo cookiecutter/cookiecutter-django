@@ -99,7 +99,11 @@ MANAGERS = ADMINS
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
+    {% if cookiecutter.docker == 'y' %}
+    'default': 'postgres://postgres@postgres/postgres'),
+    {% else %}
     'default': env.db("DATABASE_URL", default="postgres://{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.repo_name}}"),
+    {% endif %}
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 

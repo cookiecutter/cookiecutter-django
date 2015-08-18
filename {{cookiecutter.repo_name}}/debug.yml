@@ -1,0 +1,19 @@
+postgres:
+  extends:
+    file: dev.yml
+    service: postgres
+
+debug:
+  build: compose/pycharm/
+  command: python -c "import signal; signal.pause()"
+  ports:
+   - "8000:8000"
+   - "2222:22"
+  volumes:
+   - .:/app
+   - /data/{{cookiecutter.repo_name}}/pycharm_helpers:/pycharm_helpers/
+  environment:
+    SFTP_USER: docker
+    SFTP_PASS: docker
+  links:
+   - postgres

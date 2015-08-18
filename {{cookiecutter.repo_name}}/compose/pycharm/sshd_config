@@ -1,0 +1,82 @@
+# TODO: this could use some cleanup...
+
+# der Port auf dem der ssh Server auf Verbindungen "warten" soll
+Port 22
+
+# Wenn AllowUsers definiert wurde, dann ist das anmelden auf dem SSH Server nur diesen Usern erlaubt.
+# Man kann mehrere User angeben. Sie werden dann durch Leerzeichen getrennt.
+#AllowUsers SystemUsername
+
+# Mit der aktuellen Version ist nur noch SSH2 erlaubt, aber bei älteren Versionen wäre auch SSH1 möglich.
+# Mit der Angabe von Protocol 2 beschränkt man es aber auf SSH2.
+Protocol 2
+
+# Mit ListenAddress kann man angeben an welchen Interfaces der sshd lauschen soll.
+# Der Standard 0.0.0.0 lauscht an alles verfügbaren Interfaces.
+# Man sollte es auf 1 Interface beschränken.
+ListenAddress 0.0.0.0
+
+# Der Pfad zum private Key
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_dsa_key
+
+# Logging
+SyslogFacility AUTH
+LogLevel INFO
+
+# Wenn aktiviert, dann wird eine eingehende Verbindung vom Hauptprozess getrennt.
+# Außerdem läuft sie dann unter den Rechten das angemeldeten Users.
+# Default ist yes und so sollte es auch bleiben.
+UsePrivilegeSeparation yes
+
+# Nach den hier angegebenen Sekunden wird die Verbindung getrennt
+# wenn der User sich nicht erfolgreich angemeldet hat
+LoginGraceTime 120
+
+# Mit PermitRootLogin kann man dem User root verbieten sich per SSH anzumelden.
+# Auch das ist eine Sicherheitseinstellung die Bruteforce Attacken auf den root User verhindern soll.
+# no = keine Rootanmeldung per SSH erlaubt | yes = root kann sich anmelden
+PermitRootLogin no
+
+# Überprüft die Besitzrechte der Userdateien und des Homedirs bevor sich ein User anmelden kann
+StrictModes yes
+
+# Erlaubt Public Key Authentification
+# Default ist yes, wenn man es nicht benutzt kann man es auch abschalten
+PubkeyAuthentication no
+
+# Erlaubt die Anmeldung mit Passwörtern. Bevor man dies abschaltet, sollte man einen anderen Weg haben!
+PasswordAuthentication yes
+
+# Da es nur Protocol Version 1 betrifft ist es nicht wichtig zu setzen.
+# Am besten man setzt es trotzdem, aber dann auf no!
+RSAAuthentication no
+
+# Es sollen keine ~/.rhosts und ~/.shosts Dateien im Homedir geladen werden
+IgnoreRhosts yes
+
+# Auch ein Überbleibsel von SSH1. No ist richtig!
+RhostsRSAAuthentication no
+
+# Eine vergleichbare Funktion von RhostsRSAAuthentication, aber für SSH2.
+# Hab ich noch nie gebraucht.
+HostbasedAuthentication no
+
+# Wenn man es auch yes setzt, kann man sich mit leeren Passwörtern anmelden.
+# Da sagt der gesunde Menschenverstand schon etwas anderes.
+PermitEmptyPasswords no
+
+# Ist ein Brutforce Schutz, der die maximalen unautorisierten Verbindungen steuert.
+MaxStartups 10:30:60
+
+# Aktiviert das Subsystem sftp
+#Subsystem   sftp    /usr/lib/openssh/sftp-server
+Subsystem sftp internal-sftp
+
+# Wenn man dies auf yes setzt wird einem User die /etc/motd angezeigt wenn er sich verbindet.
+PrintMotd no
+
+# Diese Settings sollten selbsterklärend sein.
+KeepAlive yes
+PrintLastLog yes
+UsePAM yes
