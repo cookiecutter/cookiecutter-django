@@ -37,8 +37,14 @@ nosetests.xml
 *.mo
 *.pot
 
+{% if cookiecutter.use_pycharm == 'y' %}
 # Pycharm
 .idea
+!.idea/modules.xml
+!.idea/{{cookiecutter.repo_name}}.iml
+!.idea/runConfigurations/Docker.xml
+{% endif %}
+
 
 # Vim
 
