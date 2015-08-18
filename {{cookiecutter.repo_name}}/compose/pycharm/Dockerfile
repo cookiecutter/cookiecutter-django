@@ -1,4 +1,4 @@
-FROM {{cookiecutter.repo_name}}_django
+FROM {{ cookiecutter.repo_name|replace('_', '') }}_django
 
 ENV SFTP_USER docker
 ENV SFTP_PASS changeme
@@ -18,5 +18,6 @@ COPY sshd_config /etc/ssh/sshd_config
 COPY entrypoint /
 
 EXPOSE 22
+EXPOSE 8000
 
 ENTRYPOINT ["/entrypoint"]
