@@ -13,9 +13,15 @@ debug:
    - "2222:22"
   volumes:
    - .:/app
-   - /data/{{cookiecutter.repo_name}}/pycharm_helpers:/pycharm_helpers/
+  volumes_from:
+   - pycharmhelpers
   environment:
     SFTP_USER: docker
     SFTP_PASS: docker
   links:
    - postgres
+
+pycharmhelpers:
+  image: pcdocker/pycharm_helpers
+  volumes:
+    - /pycharm_helpers
