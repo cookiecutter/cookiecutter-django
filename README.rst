@@ -37,6 +37,7 @@ Features
 * Pre configured Celery_ (optional)
 * Integration with Maildump_ for local email testing (optional)
 * Integration with Sentry_ for error logging (optional)
+* Docker support using docker-compose_ for dev and prod
 
 .. _Hitch: https://github.com/hitchtest/hitchtest
 .. _Bootstrap: https://github.com/twbs/bootstrap
@@ -51,6 +52,7 @@ Features
 .. _Celery: http://www.celeryproject.org/
 .. _Maildump: https://github.com/ThiefMaster/maildump
 .. _Sentry: https://getsentry.com
+.. _docker-compose: https://www.github.com/docker/compose
 
 
 Constraints
@@ -165,6 +167,34 @@ To get live reloading to work you'll probably need to install an `appropriate br
 .. _appropriate browser extension: http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-
 
 It's time to write the code!!!
+
+Getting up and running using docker
+----------------------------------
+
+The steps below will get you up and running with a local development environment. We assume you have the following installed:
+
+* docker
+* docker-compose
+
+Open a terminal at the project root and run the following for local development::
+
+    $ docker-compose -f dev.yml up
+
+You can also set the environment variable ``COMPOSE_FILE`` pointing to ``dev.yml`` like this::
+
+    $ export COMPOSE_FILE=dev.yml
+
+And then run::
+
+    $ docker-compose up
+
+
+To migrate your app and to create a superuser, run::
+
+    $ docker-compose run django python manage.py migrate
+
+    $ docker-compose run django python manage.py createsuperuser
+
 
 For Readers of Two Scoops of Django 1.8
 --------------------------------------------
