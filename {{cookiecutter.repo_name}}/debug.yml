@@ -14,7 +14,7 @@ debug:
   volumes:
    - .:/app
   environment:
-    SFTP_USER: docker
+    SFTP_USER: docker_{{ cookiecutter.repo_name }}
     SFTP_PASS: docker
   links:
    - postgres
