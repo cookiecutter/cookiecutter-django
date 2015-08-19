@@ -21,15 +21,20 @@ if [ -n "${USER_GID}" ]; then
 fi
 
 useradd $useraddOptions $user
-chown $user:$user /home/$user
-chmod 755 /home/$user
 
 ln -s /pycharm_helpers/ /home/$user/.pycharm_helpers
-chown -R $user:$user /pycharm_helpers/ /home/$user/.pycharm_helpers
+chown -R $user:$user /pycharm_helpers/
 
-# TODO: get public key authorization to work
 mkdir /home/$user/.ssh
+cat /ssh_id_rsa.pub > /home/$user/.ssh/authorized_keys
+
+chown $user:$user /home/$user
+chmod 755 /home/$user
 chmod 700 /home/$user/.ssh
+700 /home/docker/.ssh
+600 /home/docker/.ssh/authorized_keys
+
+chown -R $user:$user /home/$user/
 
 if [ -z "$pass" ]; then
     pass="$(echo `</dev/urandom tr -dc A-Za-z0-9 | head -c256`)"

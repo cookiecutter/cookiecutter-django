@@ -43,7 +43,7 @@ StrictModes yes
 
 # Erlaubt Public Key Authentification
 # Default ist yes, wenn man es nicht benutzt kann man es auch abschalten
-PubkeyAuthentication no
+PubkeyAuthentication yes
 
 # Erlaubt die Anmeldung mit Passwörtern. Bevor man dies abschaltet, sollte man einen anderen Weg haben!
 PasswordAuthentication yes
