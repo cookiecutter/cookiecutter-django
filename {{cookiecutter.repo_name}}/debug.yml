@@ -13,15 +13,8 @@ debug:
    - "2222:22"
   volumes:
    - .:/app
-  volumes_from:
-   - pycharmhelpers
   environment:
     SFTP_USER: docker
     SFTP_PASS: docker
   links:
    - postgres
-
-pycharmhelpers:
-  image: pcdocker/pycharm_helpers
-  volumes:
-    - /pycharm_helpers

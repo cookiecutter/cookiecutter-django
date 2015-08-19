@@ -1,0 +1,19 @@
+<application>
+  <component name="ProjectJdkTable">
+    <jdk version="2">
+      <name value="Remote Python 2.7.9 (ssh://docker@localhost:2222/usr/local/bin/python)" />
+      <type value="Python SDK" />
+      <homePath value="ssh://docker@localhost:2222/usr/local/bin/python" />
+      <roots>
+        <classPath>
+          <root type="composite" />
+        </classPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+      <additional HOST="localhost" PORT="2222" ANONYMOUS="false" USERNAME="docker" PASSWORD="" PRIVATE_KEY_FILE="$PROJECT_DIR$/compose/pycharm/.ssh_keys_to_docker/id_rsa" MY_KNOWN_HOSTS_FILE="" PASSPHRASE="" USE_KEY_PAIR="true" INTERPRETER_PATH="/usr/local/bin/python" HELPERS_PATH="/home/docker/.pycharm_helpers/" INITIALIZED="false" VALID="true" SKELETONS_PATH="" />
+    </jdk>
+  </component>
+</application>
+
