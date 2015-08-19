@@ -37,7 +37,8 @@ Features
 * Pre configured Celery_ (optional)
 * Integration with Maildump_ for local email testing (optional)
 * Integration with Sentry_ for error logging (optional)
-* Docker support using docker-compose_ for dev (with debug) and prod
+* Docker support using docker-compose_ for dev (with debug) and prod (optional)
+* PyCharm "Run/Debug Configurations" for django, grunt and docker (optional)
 
 .. _Hitch: https://github.com/hitchtest/hitchtest
 .. _Bootstrap: https://github.com/twbs/bootstrap
@@ -188,6 +189,14 @@ And then run::
 
     $ docker-compose up
 
+
+If you want to connect to python interpreter inside docker container with remote debbuger, you have to run different
+container with debug.yml (dev.yml has to be build first)::
+
+    $ docker-compose -f dev.yml build; docker-compose -f debug.yml up
+
+
+See `docker remote debugging instructions <{{cookiecutter.repo_name}}/docs/docker_remote_debugging.rst>`_ for particular IDE (PyCharm, etc).
 
 To migrate your app and to create a superuser, run::
 
