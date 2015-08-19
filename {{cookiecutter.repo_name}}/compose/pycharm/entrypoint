@@ -28,8 +28,8 @@ cat /ssh_id_rsa.pub > /home/$user/.ssh/authorized_keys
 chown $user:$user /home/$user
 chmod 755 /home/$user
 chmod 700 /home/$user/.ssh
-chmod 700 /home/docker/.ssh
-chmod 600 /home/docker/.ssh/authorized_keys
+chmod 700 /home/$user/.ssh
+chmod 600 /home/$user/.ssh/authorized_keys
 
 chown -R $user:$user /home/$user/
 

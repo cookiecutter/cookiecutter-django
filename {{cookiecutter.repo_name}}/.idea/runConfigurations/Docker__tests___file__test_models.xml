@@ -1,0 +1,30 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Docker: tests - file: test_models" type="DjangoTestsConfigurationType" factoryName="Django tests" singleton="true">
+    <option name="INTERPRETER_OPTIONS" value="" />
+    <option name="PARENT_ENVS" value="true" />
+    <envs>
+      <env name="PYTHONUNBUFFERED" value="1" />
+      <env name="DJANGO_SETTINGS_MODULE" value="config.settings.local" />
+    </envs>
+    <option name="SDK_HOME" value="sftp://docker_{{ cookiecutter.repo_name }}@localhost:2222/usr/local/bin/python" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <option name="IS_MODULE_SDK" value="true" />
+    <option name="ADD_CONTENT_ROOTS" value="true" />
+    <option name="ADD_SOURCE_ROOTS" value="true" />
+    <module name="{{ cookiecutter.repo_name }}" />
+    <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+    <PathMappingSettings>
+      <option name="pathMappings">
+        <list>
+          <mapping local-root="$PROJECT_DIR$" remote-root="/app" />
+        </list>
+      </option>
+    </PathMappingSettings>
+    <option name="TARGET" value="{{ cookiecutter.repo_name }}.users.tests.test_models" />
+    <option name="SETTINGS_FILE" value="" />
+    <option name="CUSTOM_SETTINGS" value="false" />
+    <option name="USE_OPTIONS" value="false" />
+    <option name="OPTIONS" value="" />
+    <method />
+  </configuration>
+</component>

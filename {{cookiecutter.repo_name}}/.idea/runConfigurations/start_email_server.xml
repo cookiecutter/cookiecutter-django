@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="start-email-server" type="js.build_tools.grunt" factoryName="Grunt.js">
+    <gruntfile value="$PROJECT_DIR$/Gruntfile.js" />
+    <tasks>
+      <task value="start-email-server" />
+    </tasks>
+    <pass-parent-env-vars value="true" />
+    <force value="false" />
+    <verbose value="true" />
+    <envs />
+    <method />
+  </configuration>
+</component>
