@@ -139,6 +139,7 @@ To run a celery worker:
 Please note: For Celerys import magic to work, it is important *where* the celery commands are run. If you are in the same folder with *manage.py*, you should be right.
 {% endif %}
 {% if cookiecutter.use_maildump == "y" %}
+
 Email Server
 ^^^^^^^^^^^^
 
@@ -161,6 +162,7 @@ To stop the email server::
 The email server listens on 127.0.0.1:1025
 {% endif %}
 {% if cookiecutter.use_sentry == "y" %}
+
 Sentry
 ^^^^^^
 
@@ -298,7 +300,9 @@ Prerequisites:
 Before you start, check out the `docker-compose.yml` file in the root of this project. This is where each component
 of this application gets its configuration from. It consists of a `postgres` service that runs the database, `redis`
 for caching, `nginx` as reverse proxy and last but not least the `django` application run by gunicorn.
-{% if cookiecutter.use_celery == 'y' -%}
+{% if cookiecutter.use_celery == 'y' %}
+
+
 Since this application also runs Celery, there are two more services with a service called `celeryworker` that runs the
 celery worker process and `celerybeat` that runs the celery beat process.
 {% endif %}
