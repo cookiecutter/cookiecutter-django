@@ -41,4 +41,15 @@ or you can also use ssh-key::
 PyCharm
 ^^^^^^^
 
-This repository comes with already prepared "Run/Debug Configurations" for docker
+This repository comes with already prepared "Run/Debug Configurations" for docker.
+
+Even if you tested ssh connection manually, you **have to** do that one more time, through PyCharm, to active "Run/Debug Configurations" for Docker. To do that, please go to *Settings > Build, Execution, Deployment > Deployment > docker_{{ cookiecutter.repo_name }}* and click *Test SFTP connection*:
+
+You should see:
+
+**Important note:** if in the future you will somehow lose ability to login to docker container through PyCharm, always start with *Test SFTP Connection*. Very often this solves all issues.
+
+Configure Remote Python Interpreter based on deployment settings
+----------------------------------------------------------------
+
+...
