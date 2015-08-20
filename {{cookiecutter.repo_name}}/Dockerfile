@@ -29,9 +29,9 @@ RUN groupadd -r django && useradd -r -g django django
 ADD . /app
 
 RUN npm install -g grunt grunt-cli
-RUN npm install
 
-RUN grunt build
+RUN cd /app && npm install
+RUN cd /app && grunt build
 
 RUN chown -R django /app
 
