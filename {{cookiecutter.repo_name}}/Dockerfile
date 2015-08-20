@@ -25,13 +25,10 @@ RUN \
   npm install -g npm && \
   printf '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc
 
-RUN groupadd -r django && useradd -r -g django django
-ADD . /app
-
 RUN npm install -g grunt grunt-cli
 
-RUN cd /app && npm install
-RUN cd /app && grunt build
+RUN groupadd -r django && useradd -r -g django django
+ADD . /app
 
 RUN chown -R django /app
 
@@ -42,5 +39,6 @@ RUN chmod +x /entrypoint.sh && chown django /entrypoint.sh
 RUN chmod +x /gunicorn.sh && chown django /gunicorn.sh
 
 WORKDIR /app
+USER django
 
 ENTRYPOINT ["/entrypoint.sh"]

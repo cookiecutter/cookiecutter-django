@@ -15,4 +15,8 @@ export DATABASE_URL=postgres://$POSTGRES_ENV_POSTGRES_USER:$POSTGRES_ENV_POSTGRE
 {% if cookiecutter.use_celery == 'y' %}
 export CELERY_BROKER_URL=$DJANGO_CACHE_URL
 {% endif %}
+
+npm install
+grunt build
+
 exec "$@"
