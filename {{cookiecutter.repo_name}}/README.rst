@@ -304,7 +304,7 @@ celery worker process and `celerybeat` that runs the celery beat process.
 {% endif %}
 
 
-All of these servicese except `redis` rely on environment variables set by you. There is an `env.example` file in the
+All of these services except `redis` rely on environment variables set by you. There is an `env.example` file in the
 root directory of this project as a starting point. Add your own variables to the file and rename it to `.env`. This
 file won't be tracked by git by default so you'll have to make sure to use some other mechanism to copy your secret if
 you are relying solely on git.
