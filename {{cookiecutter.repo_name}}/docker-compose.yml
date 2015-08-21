@@ -10,7 +10,7 @@ django:
   links:
     - postgres
     - redis
-  command: /gunicorn.sh
+  command: /app/compose/django/gunicorn.sh
   env_file: .env
 
 nginx:

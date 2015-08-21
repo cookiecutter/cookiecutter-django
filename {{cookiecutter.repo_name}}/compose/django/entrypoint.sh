@@ -16,7 +16,17 @@ export DATABASE_URL=postgres://$POSTGRES_ENV_POSTGRES_USER:$POSTGRES_ENV_POSTGRE
 export CELERY_BROKER_URL=$DJANGO_CACHE_URL
 {% endif %}
 
-npm install
-grunt build
+# create a user, with UID of host user,
+# read more about that trick: http://stackoverflow.com/a/28596874/338581
+TARGET_USER_GID=$(stat -c "%u" /app)
+useradd -m -s /bin/bash -u $TARGET_USER_GID django
 
-exec "$@"
+echo -e "\n------------------------------------------------------------\n"
+su -c "npm install" django
+echo -e "\n------------------------------------------------------------\n"
+su -c "grunt build" django
+echo -e "\n------------------------------------------------------------\n"
+
+# somehow, when $@ is used directly, this doesn't work
+COMMAND=$@
+su -c "$COMMAND" django
