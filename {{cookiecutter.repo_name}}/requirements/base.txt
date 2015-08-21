@@ -5,13 +5,13 @@ django==1.8.4
 django-environ==0.3.0
 django-secure==1.0.1
 {% if cookiecutter.use_whitenoise == 'y' -%}
-whitenoise==2.0.2
+whitenoise==2.0.3
 {%- endif %}
 
 
 # Forms
 django-braces==1.8.1
-django-crispy-forms==1.4.0
+django-crispy-forms==1.5.0
 django-floppyforms==1.5.2
 
 # Models
