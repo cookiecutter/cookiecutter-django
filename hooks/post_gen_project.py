@@ -12,21 +12,6 @@ def clean(items):
         else:
             os.remove(path)
 
-pycharm = '{{cookiecutter.use_pycharm}}' == 'y'
-docker = '{{cookiecutter.use_docker}}' == 'y'
-
-# ------------------------------------------------------------------------------
-docker_files = [
-    'debug.yml',
-    'dev.yml',
-    'docker-compose.yml',
-    'Dockerfile',
-    'compose/',
-]
-
-if not docker:
-    clean(docker_files)
-# ------------------------------------------------------------------------------
 pycharm_files = [
     '.idea/',
 ]
@@ -50,8 +35,5 @@ pycharm_docker_files = [
     '.idea/Docker__tests___users.xml',
 ]
 
-if not pycharm:
+if '{{cookiecutter.use_pycharm}}' != 'y':
     clean(pycharm_files)
-elif pycharm and not docker:
-    clean(pycharm_docker_files)
-# ------------------------------------------------------------------------------

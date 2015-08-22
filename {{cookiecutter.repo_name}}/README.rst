@@ -279,7 +279,6 @@ You can then deploy by running the following commands.
     ssh -t dokku@yourservername.com dokku run {{cookiecutter.repo_name}} python manage.py createsuperuser
 
 When deploying via Dokku make sure you backup your database in some fashion as it is NOT done automatically.
-{% if cookiecutter.use_docker == 'y' %}
 
 Docker
 ^^^^^^
@@ -395,4 +394,3 @@ If you want to scale your application, run::
 
 
 **Don't run the scale command on postgres or celerybeat**
-{% endif %}
