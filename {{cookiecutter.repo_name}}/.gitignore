@@ -41,6 +41,8 @@ nosetests.xml
 # Pycharm
 .idea/*
 !.idea/{{cookiecutter.repo_name}}.iml
+!.idea/dataSources.xml
+!.idea/dataSources.local.xml
 !.idea/deployment.xml
 !.idea/modules.xml
 !.idea/webResources.xml
