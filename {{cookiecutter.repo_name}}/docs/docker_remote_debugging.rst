@@ -35,7 +35,7 @@ You can test ssh conection using password *docker*, by::
     
 or you can also use ssh-key::
 
-    ssh -i compose/debug/.ssh_keys_to_docker/id_rsa docker_{{ cookiecutter.repo_name }}@localhost -p 2222
+    ssh -i compose/debug/keys_to_docker/id_rsa docker_{{ cookiecutter.repo_name }}@localhost -p 2222
 
 
 PyCharm

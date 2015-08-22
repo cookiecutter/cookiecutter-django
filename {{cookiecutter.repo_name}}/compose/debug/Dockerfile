@@ -15,7 +15,7 @@ RUN mkdir -p /var/run/sshd
 
 # Copy configuration and entrypoint script
 COPY sshd_config /etc/ssh/sshd_config
-ADD .ssh_keys_to_docker/id_rsa.pub /ssh_id_rsa.pub
+ADD keys_to_docker/id_rsa.pub /ssh_id_rsa.pub
 
 COPY entrypoint /
 
