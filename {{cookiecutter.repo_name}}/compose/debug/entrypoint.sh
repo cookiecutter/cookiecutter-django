@@ -7,6 +7,7 @@ USER=docker_{{ cookiecutter.repo_name }}
 # rename django username to docker_{{ cookiecutter.repo_name }}
 usermod -l $USER -m -d /home/$USER django
 groupmod -n $USER django
+sed -i "s/django/$USER/g" /tmp/environment
 
 mkdir /home/$USER/.ssh
 cat /app/compose/debug/keys_to_docker/id_rsa.pub > /home/$USER/.ssh/authorized_keys
