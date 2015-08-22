@@ -1,7 +1,9 @@
 FROM {{ cookiecutter.repo_name|replace('_', '') }}_django
 
 # Install OpenSSH
-RUN apt-get -y install openssh-server
+RUN apt-get update && \
+    apt-get -y install openssh-server && \
+    rm -rf /var/lib/apt/lists/*
 
 # sshd needs this directory to run
 RUN mkdir -p /var/run/sshd
