@@ -1,0 +1,12 @@
+
+You can now debug your project remotly using ssh connection:
+
+  User: docker_light
+  Password: docker
+
+You can also login without password, using debug-only ssh key:
+
+  $ ssh -i compose/debug/keys_to_docker/id_rsa docker_{{ cookiecutter.repo_name }}@localhost -p 2222
+
+Read more about remote debugging with various IDE (PyCharm, etc) in docs/docker_remote_debugging.rst
+

@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="ce16d0a1-6207-4682-89cf-b5cca576c85c" name="docker_{{ cookiecutter.repo_name }}" url="http://localhost">
-        <fileTransfer host="localhost" port="2222" privateKey="$PROJECT_DIR$/compose/pycharm/.ssh_keys_to_docker/id_rsa" accessType="SFTP" username="docker_{{ cookiecutter.repo_name }}" keyPair="true">
+        <fileTransfer host="localhost" port="2222" privateKey="$PROJECT_DIR$/compose/debug/keys_to_docker/id_rsa" accessType="SFTP" username="docker_{{ cookiecutter.repo_name }}" keyPair="true">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>
