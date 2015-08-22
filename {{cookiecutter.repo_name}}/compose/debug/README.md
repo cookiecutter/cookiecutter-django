@@ -5,8 +5,8 @@
 To debug python code inside a docker container, you have to first run:
 
     $ docker-compose -f debug.yml up
-    
-Container should be ready, when 
+
+Container should be ready, when
 
     ...
     debug_1    | Starting OpenBSD Secure Shell server: sshd

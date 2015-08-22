@@ -6,7 +6,7 @@ postgres:
     - /data/{{cookiecutter.repo_name}}/postgres:/var/lib/postgresql/data
 
 debug:
-  build: compose/pycharm/
+  build: compose/debug/
   command: python -c "import signal; signal.pause()"
   ports:
    - "8000:8000"
