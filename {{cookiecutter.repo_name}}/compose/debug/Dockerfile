@@ -1,9 +1,5 @@
 FROM {{ cookiecutter.repo_name|replace('_', '') }}_django
 
-ENV SFTP_USER docker
-ENV SFTP_PASS changeme
-ENV PASS_ENCRYPTED false
-
 # Install setuptools, pip and OpenSSH
 RUN \
     apt-get update && \
@@ -15,11 +11,8 @@ RUN mkdir -p /var/run/sshd
 
 # Copy configuration and entrypoint script
 COPY sshd_config /etc/ssh/sshd_config
-ADD keys_to_docker/id_rsa.pub /ssh_id_rsa.pub
-
-COPY entrypoint /
 
 EXPOSE 22
 EXPOSE 8000
 
-ENTRYPOINT ["/entrypoint"]
+ENTRYPOINT ["/app/compose/debug/entrypoint.sh"]

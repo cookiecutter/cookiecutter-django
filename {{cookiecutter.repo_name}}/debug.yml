@@ -7,7 +7,6 @@ postgres:
 
 debug:
   build: compose/debug/
-  command: python -c "import signal; signal.pause()"
   ports:
    - "8000:8000"
    - "2222:22"
