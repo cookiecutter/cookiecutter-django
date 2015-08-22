@@ -39,12 +39,21 @@ nosetests.xml
 
 {% if cookiecutter.use_pycharm == 'y' %}
 # Pycharm
-.idea
-!.idea/modules.xml
+.idea/*
 !.idea/{{cookiecutter.repo_name}}.iml
-!.idea/runConfigurations/Docker.xml
+!.idea/deployment.xml
+!.idea/modules.xml
+!.idea/webResources.xml
+!.idea/webServers.xml
+!.idea/runConfigurations
+!.idea/runConfigurations/build.xml
+!.idea/runConfigurations/compass.xml
+!.idea/runConfigurations/Docker__*.xml
+!.idea/runConfigurations/serve.xml
+!.idea/runConfigurations/start_email_server.xml
+!.idea/runConfigurations/stop_email_server.xml
+!.idea/runConfigurations/watch.xml
 {% endif %}
-
 
 # Vim
 
