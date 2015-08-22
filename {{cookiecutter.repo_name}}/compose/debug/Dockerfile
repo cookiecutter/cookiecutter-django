@@ -1,8 +1,7 @@
 FROM {{ cookiecutter.repo_name|replace('_', '') }}_django
 
-# Install setuptools, pip and OpenSSH
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python-pip python-setuptools python3-pip python3-setuptools openssh-server && \
-    rm -rf /var/lib/apt/lists/*
+# Install OpenSSH
+RUN apt-get -y install openssh-server
 
 # sshd needs this directory to run
 RUN mkdir -p /var/run/sshd
