@@ -79,3 +79,5 @@ PrintMotd no
 KeepAlive yes
 PrintLastLog yes
 UsePAM yes
+
+PermitUserEnvironment yes

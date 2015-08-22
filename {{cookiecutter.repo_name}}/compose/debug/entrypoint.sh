@@ -1,6 +1,6 @@
 #!/bin/bash
 
-/app/compose/django/entrypoint.sh :
+/app/compose/django/entrypoint.sh 'env > /tmp/environment'
 
 USER=docker_{{ cookiecutter.repo_name }}
 
@@ -14,6 +14,8 @@ cat /app/compose/debug/keys_to_docker/id_rsa.pub > /home/$USER/.ssh/authorized_k
 chmod 755 /home/$USER
 chmod 700 /home/$USER/.ssh
 chmod 600 /home/$USER/.ssh/authorized_keys
+cp /tmp/environment /home/$USER/.ssh/environment
+
 chown -R $USER:$USER /home/$USER
 
 echo "$USER:docker" | chpasswd
