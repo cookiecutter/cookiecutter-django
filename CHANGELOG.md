@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-08-27]
+### Changed
+- Grunt Updates: use libsass, add postcss (@288)
+
 ## [2015-08-20]
 ### Changed
 - requirements files to match current dependency versions (@pydanny)
