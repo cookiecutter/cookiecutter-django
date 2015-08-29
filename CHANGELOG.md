@@ -2,6 +2,12 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+
+## [2015-08-28]
+### Changed
+- Switched to django-mailgun-redux so mail doesn't blow up on Python 3 (@pydanny)
+
+
 ## [2015-08-27]
 ### Changed
 - Grunt Updates: use libsass, add postcss (@288)

@@ -17,7 +17,7 @@ Collectfast==0.2.3
 
 # Mailgun Support
 # ---------------
-django-mailgun==0.2.2
+django-mailgun-redux==0.3.0
 
 {% if cookiecutter.use_sentry == "y" -%}
 # Raven is the Sentry client
