@@ -32,3 +32,8 @@
   background-color: #f2dede;
   border-color: #eed3d7;
 }
+
+/* line 36, ../sass/project.scss */
+.navbar-header {
+  margin-bottom: 3rem;
+}

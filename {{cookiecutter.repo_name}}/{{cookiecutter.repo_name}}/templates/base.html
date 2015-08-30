@@ -15,10 +15,7 @@
 
     {% block css %}
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
 
     <!-- Your stuff: Third-party css libraries go here -->
 
@@ -33,38 +30,34 @@
   </head>
 
   <body>
-
-    <div class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+    
+    <div class="navbar-header">
+      <nav class="navbar navbar-dark navbar-static-top bg-inverse">
+        <div class="container">
           <a class="navbar-brand" href="/">{% endraw %}{{ cookiecutter.project_name }}{% raw %}</a>
-        </div>
+          <button type="button" class="navbar-toggler hidden-sm-up pull-right" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+            &#9776;
+          </button>
           
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'about' %}">About</a></li>
-          </ul>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-toggleable-xs" id="bs-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+            </ul>
         
-          <ul class="nav navbar-nav navbar-right">
-            {% if request.user.is_authenticated %}
-              <li><a href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a></li>
-              <li><a href="{% url 'account_logout' %}">{% trans "Logout" %}</a></li>
-            {% else %}
-              <li><a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li>
-              <li><a href="{% url 'account_login' %}">{% trans "Log In" %}</a></li>
-            {% endif %}
-          </ul>
+            <ul class="nav navbar-nav pull-right">
+              {% if request.user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">{% trans "Logout" %}</a></li>
+              {% else %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">{% trans "Log In" %}</a></li>
+              {% endif %}
+            </ul>
+          </div>
         </div>
-      </div>
+      </nav>
     </div>
 
     <div class="container">
@@ -88,10 +81,10 @@
     <!-- Placed at the end of the document so the pages load faster -->
     {% block javascript %}
       <!-- Latest JQuery -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
       <!-- Latest compiled and minified JavaScript -->
-      <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+      <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
 
       <!-- Your stuff: Third-party javascript libraries go here -->
 
