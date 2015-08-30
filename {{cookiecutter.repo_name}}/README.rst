@@ -200,7 +200,7 @@ The testing framework runs Django, Celery (if enabled), Postgres, HitchSMTP (a m
 Deployment
 ----------
 
-It is possible to deploy to Heroku, to your own server by using Dokku, an open source Heroku clone or using docker-compose.
+We providing tools and instructions for deploying using Docker and Heroku. Dokku is also an option, but doesn't have the same amount of support.
 
 Heroku
 ^^^^^^
@@ -303,6 +303,19 @@ If you need a shell, run::
 
    docker-compose run django python manage.py shell_plus
 
+To get an output of all running containers.
+
+To check your logs, run::
+
+   docker-compose logs
+
+If you want to scale your application, run::
+
+   docker-compose scale django=4
+   docker-compose scale celeryworker=2
+
+
+**Don't run the scale command on postgres or celerybeat**
 
 Once you are ready with your initial setup, you wan't to make sure that your application is run by a process manager to
 survive reboots and auto restarts in case of an error. You can use the process manager you are most familiar with. All
@@ -333,19 +346,6 @@ If you have errors, you can always check your stack with `docker-compose`. Switc
     docker-compose ps
 
 
-to get an output of all running containers.
-
-To check your logs, run::
-
-    docker-compose logs
-
-If you want to scale your application, run::
-
-    docker-compose scale django=4
-    docker-compose scale celeryworker=2
-
-
-**Don't run the scale command on postgres or celerybeat**
 
 Dokku
 ^^^^^^
