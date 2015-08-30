@@ -2,6 +2,11 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-08-30]
+### Changed
+- Moved from Bootstrap 3 to Bootstrap 4 (@audreyr)
+- Slight Reorganization of the README docs (@pydanny)
+- Dokku docs are out of the README and in the docs folder (@pydanny)
 
 ## [2015-08-28]
 ### Changed
