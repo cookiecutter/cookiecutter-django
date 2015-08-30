@@ -28,8 +28,6 @@ Features
 * 12-Factor_ based settings via django-environ_
 * Optimized development and production settings
 * Registration via django-allauth_
-* Procfile_ for deploying to Heroku
-* Works great with Dokku
 * Grunt build for compass and livereload
 * Basic e-mail configurations for sending emails via Mailgun_
 * Media storage using Amazon S3
@@ -38,6 +36,8 @@ Features
 * Integration with Maildump_ for local email testing (optional)
 * Integration with Sentry_ for error logging (optional)
 * Docker support using docker-compose_ for dev and prod
+* Procfile_ for deploying to Heroku
+* Works with Dokku
 
 .. _Hitch: https://github.com/hitchtest/hitchtest
 .. _Bootstrap: https://github.com/twbs/bootstrap
