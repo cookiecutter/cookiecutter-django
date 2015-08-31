@@ -22,7 +22,7 @@ Features
 
 * For Django 1.8
 * Renders Django projects with 100% test coverage
-* Twitter Bootstrap_ 3
+* Twitter Bootstrap_ v4.0.0-alpha
 * End-to-end via Hitch_
 * AngularJS_
 * 12-Factor_ based settings via django-environ_
