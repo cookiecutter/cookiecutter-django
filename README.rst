@@ -22,7 +22,7 @@ Features
 
 * For Django 1.8
 * Renders Django projects with 100% test coverage
-* Twitter Bootstrap_ v4.0.0-alpha
+* Twitter Bootstrap_ v4.0.0-alpha_
 * End-to-end via Hitch_
 * AngularJS_
 * 12-Factor_ based settings via django-environ_
@@ -39,6 +39,7 @@ Features
 * Procfile_ for deploying to Heroku
 * Works with Dokku
 
+.. _v4.0.0-alpha: http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/
 .. _Hitch: https://github.com/hitchtest/hitchtest
 .. _Bootstrap: https://github.com/twbs/bootstrap
 .. _AngularJS: https://github.com/angular/angular.js
