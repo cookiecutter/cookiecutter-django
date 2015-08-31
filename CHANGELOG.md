@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Moved from Bootstrap 3 to Bootstrap 4 (@audreyr)
 - Slight Reorganization of the README docs (@pydanny)
 - Dokku docs are out of the README and in the docs folder (@pydanny)
+- Small improvements in ``install_python_dependencies.sh`` and ``install_os_dependencies.sh`` scripts (@luzfcb)
+- Update version of django-crispy-forms, django-extensions, django-test-plus, gevent, coverage, hitchpython and hitchtest (@luzfcb)
+- Update AngularJS version to 1.4.4 (@luzfcb)
+- Update the usage example on README (@luzfcb)
 
 ## [2015-08-28]
 ### Changed
