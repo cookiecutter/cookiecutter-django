@@ -110,7 +110,7 @@ It prompts you for questions. Answer them::
 
 Enter the project and take a look around::
 
-    $ cd redditclone/
+    $ cd reddit/
     $ ls
 
 Create a GitHub repo and push it there::
