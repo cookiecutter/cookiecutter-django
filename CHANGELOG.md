@@ -24,6 +24,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2015-08-30]
 ### Changed
+- Fix issue #296 - change login.html to use [get_providers](https://github.com/pennersr/django-allauth/blob/master/allauth/socialaccount/templatetags/socialaccount.py#L84-L93) templatetag because ``allauth.socialaccount`` context processor now is [deprecated](http://django-allauth.readthedocs.org/en/latest/changelog.html#from-0-21-0) (@luzfcb)
+
+
+## [2015-08-30]
+### Changed
 - Moved from Bootstrap 3 to Bootstrap 4 (@audreyr)
 - Slight Reorganization of the README docs (@pydanny)
 - Dokku docs are out of the README and in the docs folder (@pydanny)
@@ -31,6 +36,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Update version of django-crispy-forms, django-extensions, django-test-plus, gevent, coverage, hitchpython and hitchtest (@luzfcb)
 - Update AngularJS version to 1.4.4 (@luzfcb)
 - Update the usage example on README (@luzfcb)
+
 
 ## [2015-08-28]
 ### Changed

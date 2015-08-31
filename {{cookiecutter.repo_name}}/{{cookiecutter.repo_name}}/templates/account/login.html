@@ -2,6 +2,7 @@
 
 {% load i18n %}
 {% load account %}
+{% load socialaccount %}
 {% load url from future %}
 {% load crispy_forms_tags %}
 
@@ -12,8 +13,8 @@
   <div class="row">
     <div class="col-md-5">
       <h2>{% trans "Sign In" %}</h2>
-
-      {% if socialaccount.providers  %}
+      {% get_providers as socialaccount_providers %}
+      {% if socialaccount_providers %}
       <p>{% blocktrans with site.name as site_name %}Please sign in with one
       of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
       for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
