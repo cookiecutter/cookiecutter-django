@@ -2,9 +2,9 @@
 -r base.txt
 coverage==3.7.1
 Sphinx
-django-extensions==1.5.5
+django-extensions==1.5.6
 Werkzeug==0.10.4
-django-test-plus==1.0.8
+django-test-plus==1.0.9
 factory_boy==2.5.2
 
 # django-debug-toolbar that works with Django 1.5+
@@ -15,7 +15,7 @@ ipdb==0.8.1
 
 {% if cookiecutter.use_maildump == "y" -%}
 # Required by maildump. Need to pin dependency to gevent beta to be Python 3-compatible.
-gevent==1.1b2
+gevent==1.1b3
 # Enables better email testing
 maildump==0.5.1
 {%- endif %}
