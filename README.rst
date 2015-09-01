@@ -37,7 +37,6 @@ Features
 * Integration with Sentry_ for error logging (optional)
 * Docker support using docker-compose_ for dev and prod
 * Procfile_ for deploying to Heroku
-* Works with Dokku
 
 .. _alpha: http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/
 .. _Hitch: https://github.com/hitchtest/hitchtest
@@ -98,9 +97,9 @@ It prompts you for questions. Answer them::
     description [A short description of the project.]: A reddit clone.
     domain_name [example.com]: myreddit.com
     version [0.1.0]: 0.0.1
-    timezone [UTC]: 
+    timezone [UTC]:
     now [2015/01/13]: 2015/08/30
-    year [2015]: 
+    year [2015]:
     use_whitenoise [y]: n
     use_celery [n]: y
     use_maildump [n]: y

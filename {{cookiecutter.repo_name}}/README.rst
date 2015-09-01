@@ -200,7 +200,7 @@ The testing framework runs Django, Celery (if enabled), Postgres, HitchSMTP (a m
 Deployment
 ----------
 
-We providing tools and instructions for deploying using Docker and Heroku. Dokku is also an option, but doesn't have the same amount of support.
+We providing tools and instructions for deploying using Docker and Heroku.
 
 Heroku
 ^^^^^^
@@ -344,12 +344,3 @@ To get the status, run::
 If you have errors, you can always check your stack with `docker-compose`. Switch to your projects root directory and run::
 
     docker-compose ps
-
-
-
-Dokku
-^^^^^^
-
-`Instructions for deploying with Dokku`_ can be found in the docs.
-
-.. _`Instructions for deploying with Dokku`: https://github.com/pydanny/cookiecutter-django/blob/master/%7B%7Bcookiecutter.repo_name%7D%7D/docs/deploy.rst
