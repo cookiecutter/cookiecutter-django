@@ -220,6 +220,7 @@ Run these commands to deploy the project to Heroku:
 
     heroku config:set DJANGO_SECRET_KEY=`openssl rand -base64 32`
     heroku config:set DJANGO_SETTINGS_MODULE='config.settings.production'
+    heroku config:set DJANGO_ALLOWED_HOSTS='.herokuapp.com'
 
     heroku config:set DJANGO_AWS_ACCESS_KEY_ID=YOUR_AWS_ID_HERE
     heroku config:set DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY_HERE
