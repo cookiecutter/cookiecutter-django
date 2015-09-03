@@ -28,6 +28,7 @@ Features
 * 12-Factor_ based settings via django-environ_
 * Optimized development and production settings
 * Registration via django-allauth_
+* Comes with custom user model ready to go.
 * Grunt build for compass and livereload
 * Basic e-mail configurations for sending emails via Mailgun_
 * Media storage using Amazon S3
