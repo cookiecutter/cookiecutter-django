@@ -205,6 +205,9 @@ We providing tools and instructions for deploying using Docker and Heroku.
 Heroku
 ^^^^^^
 
+.. image:: https://www.herokucdn.com/deploy/button.png
+    :target: https://heroku.com/deploy
+
 Run these commands to deploy the project to Heroku:
 
 .. code-block:: bash
