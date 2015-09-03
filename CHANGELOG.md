@@ -2,9 +2,13 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-09-03
+### Added
+- For security reasons, we set explicitly the list of allowed hosts (@bogdal)
+
 ## [2015-08-31]
-###
-- Dokku in favor of docker-compose and other modern Django tools (@pydanny) (@pydanny)
+### Removed
+- Dokku in favor of docker-compose and other modern Django tools (@pydanny)
 
 ## [2015-08-30]
 ### Changed
