@@ -30,6 +30,7 @@ DJANGO_SESSION_COOKIE_SECURE            SESSION_COOKIE_SECURE       n/a         
 DJANGO_DEFAULT_FROM_EMAIL               DEFAULT_FROM_EMAIL          n/a                                            "{{cookiecutter.project_name}} <noreply@{{cookiecutter.domain_name}}>"
 DJANGO_SERVER_EMAIL                     SERVER_EMAIL                n/a                                            "{{cookiecutter.project_name}} <noreply@{{cookiecutter.domain_name}}>"
 DJANGO_EMAIL_SUBJECT_PREFIX             EMAIL_SUBJECT_PREFIX        n/a                                            "[{{cookiecutter.project_name}}] "
+DJANGO_ALLOWED_HOSTS                    ALLOWED_HOSTS               ['*']                                          ['{{cookiecutter.domain_name}}']
 ======================================= =========================== ============================================== ======================================================================
 
 The following table lists settings and their defaults for third-party applications:
@@ -220,6 +221,7 @@ Run these commands to deploy the project to Heroku:
 
     heroku config:set DJANGO_SECRET_KEY=`openssl rand -base64 32`
     heroku config:set DJANGO_SETTINGS_MODULE='config.settings.production'
+    heroku config:set DJANGO_ALLOWED_HOSTS='.herokuapp.com'
 
     heroku config:set DJANGO_AWS_ACCESS_KEY_ID=YOUR_AWS_ID_HERE
     heroku config:set DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY_HERE
