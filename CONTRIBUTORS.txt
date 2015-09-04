@@ -50,6 +50,7 @@ Audrey Roy Greenfeld / @audreyr (and creator/maintainer of cookiecutter) *
 Jannis Gebauer / @got_nil
 jayfk / @jayfk
 stepmr / @stepmr 
+Adam Bogdał / @bogdal
 
 * Possesses commit rights
 
