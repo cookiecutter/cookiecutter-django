@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - post_gen_hook to generate a secret key for use in locals.py. You should define your own for production (@pydanny)
 
+## [2015-09-09]
+### Added
+- htmlcov to gitignore (@pydanny)
+
 ## [2015-09-04]
 ### Added
 - Easy deploy Heroku button and app.json file (@bogdal)
