@@ -2,9 +2,13 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-09-09]
+### Added
+- post_gen_hook to generate a secret key for use in locals.py. You should define your own for production (@pydanny)
+
 ## [2015-09-04]
 ### Added
-- Add easy deploy Heroku button and app.json file (@bogdal)
+- Easy deploy Heroku button and app.json file (@bogdal)
 
 ## [2015-09-03]
 ### Added
