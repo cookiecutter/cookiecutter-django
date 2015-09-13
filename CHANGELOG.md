@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-09-13]
+## Removed
+- Styles that already exist in Bootstrap 4 (or 3) (@audreyr)
+
 ## [2015-09-09]
 ### Added
 - post_gen_hook to generate a secret key for use in locals.py. You should define your own for production (@pydanny)
