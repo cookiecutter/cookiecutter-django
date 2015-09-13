@@ -6,6 +6,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## Removed
 - Styles that already exist in Bootstrap 4 (or 3) (@audreyr)
 
+### Changed
+- Fix issue #296 - change login.html to use [get_providers](https://github.com/pennersr/django-allauth/blob/master/allauth/socialaccount/templatetags/socialaccount.py#L84-L93) templatetag because ``allauth.socialaccount`` context processor now is [deprecated](http://django-allauth.readthedocs.org/en/latest/changelog.html#from-0-21-0) (@luzfcb)
+
 ## [2015-09-09]
 ### Added
 - post_gen_hook to generate a secret key for use in locals.py. You should define your own for production (@pydanny)
