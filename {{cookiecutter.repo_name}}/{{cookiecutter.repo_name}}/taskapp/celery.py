@@ -7,7 +7,7 @@ from django.conf import settings
 
 if not settings.configured:
     # set the default Django settings module for the 'celery' program.
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")  # noqa
 
 
 app = Celery('{{cookiecutter.repo_name}}')
@@ -26,7 +26,7 @@ class CeleryConfig(AppConfig):
 
 @app.task(bind=True)
 def debug_task(self):
-    print('Request: {0!r}'.format(self.request))
+    print('Request: {0!r}'.format(self.request))  # noqa
 {% else %}
 # Use this as a starting point for your project with celery.
 # If you are not using celery, you can remove this app
