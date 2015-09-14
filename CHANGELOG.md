@@ -2,8 +2,16 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-09-14]
+### Removed
+- Remove unused generated CSS styles (@audreyr)
+
+### Changed
+- Use Bootstrap margin utility class `m-b-lg` and remove our custom `navbar-header` class (@audreyr)
+- Update Hitch requirements (@audreyr)
+
 ## [2015-09-13]
-## Removed
+### Removed
 - Styles that already exist in Bootstrap 4 (or 3) (@audreyr)
 
 ### Changed
