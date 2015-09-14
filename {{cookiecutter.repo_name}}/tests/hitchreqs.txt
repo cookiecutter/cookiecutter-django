@@ -3,7 +3,7 @@ colorama==0.3.3
 faketime==0.9.6.3
 hitchcron==0.2
 hitchpostgres==0.6.2
-hitchpython==0.3.3
+hitchpython==0.3.4
 hitchredis==0.4.1
 hitchselenium==0.4
 hitchserve==0.4.3
@@ -15,7 +15,7 @@ Jinja2==2.8
 MarkupSafe==0.23
 patool==1.8
 psutil==3.2.1
-python-build==0.2.2
+python-build==0.2.3
 pyuv==1.2.0
 PyYAML==3.11
 requests==2.7.0
