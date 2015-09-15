@@ -3,6 +3,9 @@ All enhancements and patches to cookiecutter-django will be documented in this f
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2015-09-14]
+### Added
+- Functionality to delete taskapp if celery isn't going to be used (@pydanny)
+
 ### Removed
 - Remove unused generated CSS styles (@audreyr)
 

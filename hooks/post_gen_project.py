@@ -1,5 +1,10 @@
 """
-This code has been adopted from Django's standard crypto functions and
+Does the following:
+
+1. Generates and saves random secret key
+2. Removes the taskapp if celery isn't going to be used
+
+A portion of this code was adopted from Django's standard crypto functions and
 utilities, specifically:
     https://github.com/django/django/blob/master/django/utils/crypto.py
 """
@@ -7,6 +12,9 @@ import hashlib
 import os
 import random
 import shutil
+
+# Get the root project directory
+PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 
 # Use the system PRNG if possible
 try:
@@ -42,26 +50,41 @@ def get_random_string(
             ).digest())
     return ''.join(random.choice(allowed_chars) for i in range(length))
 
-# Get the root project directory
-project_directory = os.path.realpath(os.path.curdir)
+def make_secret_key(project_directory):
+    """Generates and saves random secret key"""
+    # Determine the local_setting_file_location
+    local_setting_file_location = os.path.join(
+        project_directory,
+        'config/settings/local.py'
+    )
 
-# Determine the local_setting_file_location
-local_setting_file_location = os.path.join(
-    project_directory,
-    'config/settings/local.py'
-)
+    # Open locals.py
+    with open(local_setting_file_location) as f:
+        local_py = f.read()
 
-# Open locals.py
-with open(local_setting_file_location) as f:
-    local_py = f.read()
+    # Generate a SECRET_KEY that matches the Django standard
+    SECRET_KEY = get_random_string()
+    SECRET_KEY = 'CHANGEME!!!' + SECRET_KEY
 
-# Generate a SECRET_KEY that matches the Django standard
-SECRET_KEY = get_random_string()
-SECRET_KEY = 'CHANGEME!!!' + SECRET_KEY
+    # Replace "CHANGEME!!!" with SECRET_KEY
+    local_py = local_py.replace('CHANGEME!!!', SECRET_KEY)
 
-# Replace "CHANGEME!!!" with SECRET_KEY
-local_py = local_py.replace('CHANGEME!!!', SECRET_KEY)
+    # Write the results to the locals.py module
+    with open(local_setting_file_location, 'w') as f:
+        f.write(local_py)
 
-# Write the results to the locals.py module
-with open(local_setting_file_location, 'w') as f:
-    f.write(local_py)
+def remove_task_app(project_directory):
+    """Removes the taskapp if celery isn't going to be used"""
+    # Determine the local_setting_file_location
+    task_app_location = os.path.join(
+        PROJECT_DIRECTORY,
+        '{{ cookiecutter.repo_name }}/taskapp'
+    )
+    shutil.rmtree(task_app_location)
+
+# 1. Generates and saves random secret key
+make_secret_key(PROJECT_DIRECTORY)
+
+# 2. Removes the taskapp if celery isn't going to be used
+if '{{ cookiecutter.use_celery }}'.lower() == 'n':
+    remove_task_app(PROJECT_DIRECTORY)
