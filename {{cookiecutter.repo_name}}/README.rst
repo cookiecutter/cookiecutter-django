@@ -126,8 +126,10 @@ To get live reloading to work you'll probably need to install an `appropriate br
 .. _appropriate browser extension: http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-
 
 {% if cookiecutter.use_celery == "y" %}
+
 Celery
 ^^^^^^
+
 This app comes with Celery.
 
 To run a celery worker:
@@ -138,8 +140,11 @@ To run a celery worker:
     celery -A {{cookiecutter.repo_name}}.taskapp worker -l info
 
 Please note: For Celerys import magic to work, it is important *where* the celery commands are run. If you are in the same folder with *manage.py*, you should be right.
+
 {% endif %}
+
 {% if cookiecutter.use_maildump == "y" %}
+
 Email Server
 ^^^^^^^^^^^^
 
@@ -160,8 +165,11 @@ To stop the email server::
     $ grunt stop-email-server
 
 The email server listens on 127.0.0.1:1025
+
 {% endif %}
+
 {% if cookiecutter.use_sentry == "y" %}
+
 Sentry
 ^^^^^^
 
@@ -169,6 +177,7 @@ Sentry is an error logging aggregator service. You can sign up for a free accoun
 The system is setup with reasonable defaults, including 404 logging and integration with the WSGI application.
 
 You must set the DSN url in production.
+
 {% endif %}
 
 It's time to write the code!!!
