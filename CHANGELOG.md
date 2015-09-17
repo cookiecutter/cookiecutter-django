@@ -2,6 +2,14 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-09-17]
+### Added
+- Fix for wsgi.py for Raven in dev (@yunti)
+
+## [2015-09-15]
+### Added
+- whitespace to allow proper rendering of RST (@IanLee1521 )
+
 ## [2015-09-14]
 ### Added
 - Functionality to delete taskapp if celery isn't going to be used (@pydanny)
