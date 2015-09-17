@@ -106,7 +106,7 @@ AWS_HEADERS = {
 # stored files.
 MEDIA_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
 
-# Static Assests
+# Static Assets
 # ------------------------
 {% if cookiecutter.use_whitenoise == 'y' -%}
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
