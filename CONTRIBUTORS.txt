@@ -51,7 +51,8 @@ Jannis Gebauer / @got_nil
 jayfk / @jayfk
 stepmr / @stepmr 
 Adam Bogdał / @bogdal
-Barclay Gauld /@yunti
+Barclay Gauld / @yunti
+Ian Lee / @IanLee1521
 
 * Possesses commit rights
 
