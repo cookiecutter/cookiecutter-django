@@ -15,7 +15,7 @@ ipdb==0.8.1
 
 {% if cookiecutter.use_maildump == "y" -%}
 # Required by maildump. Need to pin dependency to gevent beta to be Python 3-compatible.
-gevent==1.1b3
+gevent==1.1b5
 # Enables better email testing
 maildump==0.5.1
 {%- endif %}
