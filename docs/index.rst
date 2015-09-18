@@ -20,6 +20,7 @@ Contents:
    live-reloading-and-sass-compilation
    deployment-on-heroku
    deployment-with-docker
+   faq
 
 Indices and tables
 ==================

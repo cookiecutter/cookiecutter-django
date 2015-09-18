@@ -3,6 +3,9 @@ Does the following:
 
 1. Generates and saves random secret key
 2. Removes the taskapp if celery isn't going to be used
+3. Copy files from /docs/ to {{ cookiecutter.repo_name }}/docs/
+
+    TODO: this might have to be moved to a pre_gen_hook
 
 A portion of this code was adopted from Django's standard crypto functions and
 utilities, specifically:
@@ -12,6 +15,8 @@ import hashlib
 import os
 import random
 import shutil
+
+from cookiecutter.config import DEFAULT_CONFIG
 
 # Get the root project directory
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
@@ -82,9 +87,30 @@ def remove_task_app(project_directory):
     )
     shutil.rmtree(task_app_location)
 
+# IN PROGRESS
+# def copy_doc_files(project_directory):
+#     cookiecutters_dir = DEFAULT_CONFIG['cookiecutters_dir']
+#     cookiecutter_django_dir = os.path.join(
+#         cookiecutters_dir,
+#         'cookiecutter-django',
+#         'docs'
+#     )
+#     target_dir = os.path.join(
+#         project_directory,
+#         'docs'
+#     )
+#     for name in os.listdir(cookiecutter_django_dir):
+#         if name.endswith('.rst') and not name.startswith('index'):
+#             src = os.path.join(cookiecutter_django_dir, name)
+#             dst = os.path.join(target_dir, name)
+#             shutil.copyfile(src, dst)
+
 # 1. Generates and saves random secret key
 make_secret_key(PROJECT_DIRECTORY)
 
 # 2. Removes the taskapp if celery isn't going to be used
 if '{{ cookiecutter.use_celery }}'.lower() == 'n':
     remove_task_app(PROJECT_DIRECTORY)
+
+# 3. Copy files from /docs/ to {{ cookiecutter.repo_name }}/docs/
+# copy_doc_files(PROJECT_DIRECTORY)
