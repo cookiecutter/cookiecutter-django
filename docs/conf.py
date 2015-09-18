@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-cookiecutter-django documentation build configuration file, created by
-# sphinx-quickstart.
+# cookiecutter-django documentation build configuration file.
 #
 # This file is execfile()d with the current directory set to its containing dir.
 #

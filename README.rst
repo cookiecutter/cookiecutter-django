@@ -13,7 +13,7 @@ cookiecutter-django
    :target: https://gitter.im/pydanny/cookiecutter-django?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
 
-A cookiecutter_ template for Django.
+A Cookiecutter_ template for Django.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
@@ -123,108 +123,10 @@ Create a GitHub repo and push it there::
 
 Now take a look at your repo. Don't forget to carefully look at the generated README. Awesome, right?
 
-Getting up and running
-----------------------
+For development, see the following for local development:
 
-The steps below will get you up and running with a local development environment. We assume you have the following installed:
-
-* pip
-* virtualenv
-* PostgreSQL
-
-First make sure to create and activate a virtualenv_, then open a terminal at the project root and install the requirements for local development::
-
-    $ pip install -r requirements/local.txt
-
-.. _virtualenv: http://docs.python-guide.org/en/latest/dev/virtualenvs/
-
-Then, create a PostgreSQL database and add the database configuration using the  ``dj-database-url`` app pattern: ``postgres://db_owner:password@dbserver_ip:port/db_name`` either:
-
-* in the ``config.settings.common.py`` setting file,
-* or in the environment variable ``DATABASE_URL``
-
-
-You can now run the usual Django ``migrate`` and ``runserver`` command::
-
-    $ python manage.py migrate
-
-    $ python manage.py runserver
-
-**Setup your email backend**
-
-django-allauth sends an email to verify users (and superusers) after signup and login (if they are still not verified). To send email you need to `configure your email backend`_ 
-
-.. _configure your email backend: http://docs.djangoproject.com/en/1.8/topics/email/#smtp-backend
-
-In development you can (optionally) use Maildump_ for email testing. Or alternatively simply output emails to the console via: ``EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'``
-
-In production basic email configuration is setup to send emails with Mailgun_
-
-**Live reloading and Sass CSS compilation**
-
-If you'd like to take advantage of live reloading and Sass / Compass CSS compilation you can do so with the included Grunt task.
-
-Make sure that nodejs_ is installed. Then in the project root run::
-
-    $ npm install
-
-.. _nodejs: http://nodejs.org/download/
-
-Now you just need::
-
-    $ grunt serve
-
-The base app will now run as it would with the usual ``manage.py runserver`` but with live reloading and Sass compilation enabled.
-
-To get live reloading to work you'll probably need to install an `appropriate browser extension`_
-
-.. _appropriate browser extension: http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-
-
-It's time to write the code!!!
-
-Getting up and running using docker
-----------------------------------
-
-The steps below will get you up and running with a local development environment. We assume you have the following installed:
-
-* docker
-* docker-compose
-
-Open a terminal at the project root and run the following for local development::
-
-    $ docker-compose -f dev.yml up
-
-You can also set the environment variable ``COMPOSE_FILE`` pointing to ``dev.yml`` like this::
-
-    $ export COMPOSE_FILE=dev.yml
-
-And then run::
-
-    $ docker-compose up
-
-
-To migrate your app and to create a superuser, run::
-
-    $ docker-compose run django python manage.py migrate
-
-    $ docker-compose run django python manage.py createsuperuser
-
-
-If you are using `boot2docker` to develop on OS X or Windows, you need to create a `/data` partition inside your boot2docker
-vm to make all changes persistent. If you don't do that your `/data` directory will get wiped out on every reboot.
-
-To create a persistent folder, log into the `boot2docker` vm by running::
-
-    $ bootdocker ssh
-
-And then::
-
-    $ sudo su
-    $ echo 'ln -sfn /mnt/sda1/data /data' >> /var/lib/boot2docker/bootlocal.sh
-
-In case you are wondering why you can't use a host volume to keep the files on your mac: As of `boot2docker` 1.7 you'll
-run into permission problems with mounted host volumes if the container creates his own user and `chown`s the directories
-on the volume. Postgres is doing that, so we need this quick fix to ensure that all development data persists.
+* Developing locally
+* Developing locally using docker
 
 For Readers of Two Scoops of Django 1.8
 --------------------------------------------
