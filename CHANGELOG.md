@@ -2,6 +2,12 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-09-18]
+### Changed
+- Major reorganization of docs (@pydanny)
+- Fix expanded navbar on mobile (@jayfk)
+- Update various requirements (@audreyr)
+
 ## [2015-09-17]
 ### Added
 - Fix for wsgi.py for Raven in dev (@yunti)
