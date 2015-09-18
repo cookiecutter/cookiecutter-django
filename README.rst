@@ -150,6 +150,15 @@ You can now run the usual Django ``migrate`` and ``runserver`` command::
 
     $ python manage.py runserver
 
+**Setup your email backend**
+
+django-allauth sends an email to verify users (and superusers) after signup and login (if they are still not verified). To send email you need to `configure your email backend`_ 
+
+.. _configure your email backend: http://docs.djangoproject.com/en/1.8/topics/email/#smtp-backend
+
+In development you can (optionally) use Maildump_ for email testing. Or alternatively simply output emails to the console via: ``EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'``
+
+In production basic email configuration is setup to send emails with Mailgun_
 
 **Live reloading and Sass CSS compilation**
 
