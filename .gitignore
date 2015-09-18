@@ -24,6 +24,7 @@ sftp-config.json
 *.pot
 *.pyc
 .idea
+_build
 
 # Project Specific Stuff
 local_settings.py

@@ -15,6 +15,11 @@ Contents:
 
    developing-locally
    developing-locally-docker
+   settings
+   linters
+   live-reloading-and-sass-compilation
+   deployment-on-heroku
+   deployment-with-docker
 
 Indices and tables
 ==================
