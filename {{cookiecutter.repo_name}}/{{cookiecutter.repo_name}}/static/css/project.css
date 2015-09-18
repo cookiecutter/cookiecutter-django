@@ -11,3 +11,20 @@
   background-color: #f2dede;
   border-color: #eed3d7;
 }
+
+/* This is a fix for the bootstrap4 alpha release */
+@media (max-width: 47.9em) {
+  .navbar-nav .nav-item {
+    float: none;
+    width: 100%;
+    display: inline-block;
+  }
+
+  .navbar-nav .nav-item + .nav-item {
+    margin-left: 0;
+  }
+
+  .nav.navbar-nav.pull-right {
+    float: none !important;
+  }
+}
