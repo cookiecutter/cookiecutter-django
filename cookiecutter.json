@@ -13,5 +13,6 @@
     "use_celery": "n",
     "use_maildump": "n",
     "use_sentry": "n",
-    "windows": "n"
+    "windows": "n",
+    "use_python2": "n"
 }
