@@ -22,8 +22,6 @@ from whitenoise.django import DjangoWhiteNoise
 {% if cookiecutter.use_sentry == "y" -%}
 if os.environ.get("DJANGO_SETTINGS_MODULE") == "config.settings.production":
     from raven.contrib.django.raven_compat.middleware.wsgi import Sentry
-else:
-    pass
 {%- endif %}
 
 # We defer to a DJANGO_SETTINGS_MODULE already in the environment. This breaks
@@ -45,8 +43,6 @@ application = DjangoWhiteNoise(application)
 {% if cookiecutter.use_sentry == "y" -%}
 if os.environ.get("DJANGO_SETTINGS_MODULE") == "config.settings.production":
     application = Sentry(application)
-else:
-    pass
 {%- endif %}
 
 # Apply WSGI middleware here.
