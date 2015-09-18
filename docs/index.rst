@@ -7,6 +7,8 @@ A Cookiecutter_ template for Django.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
+.. note:: This is an in-progress documentation reorganization. Locations of files may change dramatically over the course of the next few days. See https://github.com/pydanny/cookiecutter-django/issues/335
+
 Contents:
 
 .. toctree::
