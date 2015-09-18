@@ -126,7 +126,7 @@ Now take a look at your repo. Don't forget to carefully look at the generated RE
 For development, see the following for local development:
 
 * `Developing locally`_
-* Developing locally using docker
+* `Developing locally using docker`_
 
 .. _`Developing locally`: http://cookiecutter-django.readthedocs.org/en/latest/developing-locally.html
 .. _`Developing locally using docker`: http://cookiecutter-django.readthedocs.org/en/latest/developing-locally-docker.html

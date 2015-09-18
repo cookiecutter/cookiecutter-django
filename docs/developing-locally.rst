@@ -1,6 +1,8 @@
 Getting Up and Running Locally
 ==============================
 
+.. index:: pip, virtualenv, PostgreSQL
+
 The steps below will get you up and running with a local development environment. We assume you have the following installed:
 
 * pip
@@ -33,7 +35,11 @@ django-allauth sends an email to verify users (and superusers) after signup and 
 
 In development you can (optionally) use Maildump_ for email testing. Or alternatively simply output emails to the console via: ``EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'``
 
+.. _Maildump: https://github.com/ThiefMaster/maildump
+
 In production basic email configuration is setup to send emails with Mailgun_
+
+.. _Mailgun: https://www.mailgun.com/
 
 **Live reloading and Sass CSS compilation**
 

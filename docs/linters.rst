@@ -1,4 +1,4 @@
 Linters
 =======
 
-TODO
+.. index:: linters

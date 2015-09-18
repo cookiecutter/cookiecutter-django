@@ -1,6 +1,8 @@
 FAQ
 ====
 
+.. index:: FAQ, 12-Factor App
+
 Why aren't you using just one configuration file (12-Factor App)
 ----------------------------------------------------------------------
 

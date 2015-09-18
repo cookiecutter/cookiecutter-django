@@ -1,6 +1,8 @@
 Deployment with Docker
 =================================================
 
+.. index:: Docker, deployment
+
 TODO: Review and revise
 
 **Warning**

@@ -26,5 +26,7 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
+
+.. At some point it would be good to have a module index of the high level things
+we are doing. Then we can * :ref:`modindex` back in.
