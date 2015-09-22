@@ -1,0 +1,3 @@
+{% if cookiecutter.use_python2 == 'n' -%}
+python-3.4.3
+{%- endif %}
