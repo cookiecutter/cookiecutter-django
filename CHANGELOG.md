@@ -2,6 +2,12 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-09-21]
+### Changed
+- django-mailgun-redux to django-mailgun, because @pydanny now has commit rights
+### Removed
+- Excess "loggers" from LOGGING setting (@siauPatrick)
+
 ## [2015-09-18]
 ### Changed
 - Major reorganization of docs (@pydanny)

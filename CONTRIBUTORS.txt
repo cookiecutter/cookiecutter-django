@@ -46,13 +46,14 @@ Daniele Tricoli / @eriol
 Harry Percival / @hjwp
 Cullen Rhodes / @c-rhodes
 Burhan Khalid / @burhan
-Audrey Roy Greenfeld / @audreyr (and creator/maintainer of cookiecutter) * 
+Audrey Roy Greenfeld / @audreyr (and creator/maintainer of cookiecutter) *
 Jannis Gebauer / @got_nil
 jayfk / @jayfk
-stepmr / @stepmr 
+stepmr / @stepmr
 Adam Bogdał / @bogdal
 Barclay Gauld / @yunti
 Ian Lee / @IanLee1521
+Roman Afanaskin / @siauPatrick
 
 * Possesses commit rights
 
