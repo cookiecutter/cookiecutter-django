@@ -45,12 +45,20 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
             shutdown_timeout=5.0,
         )
 
-        postgres_user = hitchpostgres.PostgresUser("{{cookiecutter.repo_name}}", "password")
+        postgres_user = hitchpostgres.PostgresUser(
+            "{{cookiecutter.repo_name}}",
+            "password"
+        )
 
         self.services['Postgres'] = hitchpostgres.PostgresService(
             postgres_package=postgres_package,
             users=[postgres_user, ],
-            databases=[hitchpostgres.PostgresDatabase("{{cookiecutter.repo_name}}", postgres_user), ]
+            databases=[
+                hitchpostgres.PostgresDatabase(
+                    "{{cookiecutter.repo_name}}",
+                    postgres_user
+                ),
+            ]
         )
 
         self.services['HitchSMTP'] = hitchsmtp.HitchSMTPService(port=1025)
