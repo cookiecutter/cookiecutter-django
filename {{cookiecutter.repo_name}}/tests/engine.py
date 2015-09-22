@@ -18,9 +18,7 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
 
     def set_up(self):
         """Ensure virtualenv present, then run all services."""
-        python_package = hitchpython.PythonPackage(
-            python_version=self.preconditions['python_version']
-        )
+        python_package = hitchpython.PythonPackage("2.7.10")
         python_package.build()
         python_package.verify()
 
