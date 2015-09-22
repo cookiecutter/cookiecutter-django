@@ -9,6 +9,7 @@ environment_variables:
   DATABASE_URL: postgres://{{cookiecutter.repo_name}}:password@127.0.0.1:15432/{{cookiecutter.repo_name}}
   SECRET_KEY: cj5^uos4tfCdfghjkf5hq$9$(@-79^e9&x$3vyf#igvsfm4d=+
   CELERY_BROKER_URL: redis://localhost:16379
+  DJANGO_EMAIL_BACKEND: django.core.mail.backends.smtp.EmailBackend
 window_size:
   width: 450
   height: 450
