@@ -8,6 +8,7 @@ Production Configurations
 - Use Redis on Heroku
 {% if cookiecutter.use_sentry == "y" %}
 - Use sentry for error logging
+- Use Rollbar for performance management
 {% endif %}
 '''
 from __future__ import absolute_import, unicode_literals
@@ -89,8 +90,11 @@ AWS_SECRET_ACCESS_KEY = env('DJANGO_AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = env('DJANGO_AWS_STORAGE_BUCKET_NAME')
 AWS_AUTO_CREATE_BUCKET = True
 AWS_QUERYSTRING_AUTH = False
+AWS_S3_LOCATION = env('DJANGO_AWS_S3_LOCATION', 'us-west-2')
+AWS_S3_HOST = env('DJANGO_AWS_S3_HOST', 's3-us-west-2.amazonaws.com')
 AWS_S3_CALLING_FORMAT = OrdinaryCallingFormat()
 
+MEDIA_URL = 'https://s3.amazonaws.com/%s/cookiecutter-django/' % AWS_STORAGE_BUCKET_NAME
 # AWS cache settings, don't change unless you know what you're doing:
 AWS_EXPIRY = 60 * 60 * 24 * 7
 
@@ -218,3 +222,10 @@ RAVEN_CONFIG = {
 }
 {% endif %}
 # Your production stuff: Below this line define 3rd party library settings
+
+# ROLLBAR CONFIG
+# ------------------------------------------------------------------------------
+ROLLBAR['branch'] = master
+ROLLBAR['enviroment'] = 'production'
+# must be last
+MIDDLEWARE_CLASSES += ('rollbar.contrib.django.middleware.RollbarNotifierMiddleware',)

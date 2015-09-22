@@ -27,6 +27,8 @@ You can either push the 'deploy' button in your generated README.rst or run thes
     heroku config:set DJANGO_MAILGUN_SERVER_NAME=YOUR_MALGUN_SERVER
     heroku config:set DJANGO_MAILGUN_API_KEY=YOUR_MAILGUN_API_KEY
 
+    heroku config:set DJANGO_ROLLBAR_ACCESS_TOKEN=YOUR_ROLLBAR_ACCESS_TOKEN
+
     heroku config:set PYTHONHASHSEED=random
 
     git push heroku master

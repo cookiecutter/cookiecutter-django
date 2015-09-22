@@ -67,3 +67,14 @@ CELERY_ALWAYS_EAGER = True
 ########## END CELERY
 {% endif %}
 # Your local stuff: Below this line define 3rd party library settings
+
+# ROLLBAR CONFIG WITH BRANCH GRAB
+# ------------------------------------------------------------------------------
+from subprocess import Popen, PIPE
+conn = Popen(["git", "rev-parse", "--symbolic-full-name", "--abbrev-ref", "HEAD"],stdout=PIPE)
+branch = bytes.decode(conn.stdout.read(), 'utf-8').strip()
+ROLLBAR['branch'] = branch
+ROLLBAR['enviroment'] = 'development'
+# must be last
+MIDDLEWARE_CLASSES += ('rollbar.contrib.django.middleware.RollbarNotifierMiddleware',)
+

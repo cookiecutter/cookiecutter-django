@@ -68,6 +68,15 @@ MIGRATION_MODULES = {
     'sites': '{{ cookiecutter.repo_name }}.contrib.sites.migrations'
 }
 
+# ROLLBAR CONFIGURATION
+# ------------------------------------------------------------------------------
+# We have to set the other settings in the child files to make sure we have
+# rollbar at the end of MIDDLEWARE_CLASSES
+ROLLBAR = {
+    'access_token': env('ROLLBAR_ACCESS_TOKEN'),
+    'root': str(ROOT_DIR),
+}
+
 # DEBUG
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
