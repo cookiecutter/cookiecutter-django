@@ -1,5 +1,5 @@
 {% if cookiecutter.use_python2 == 'n' -%}
-FROM python:3.4
+FROM python:3.5
 {% else %}
 FROM python:2.7
 {%- endif %}
