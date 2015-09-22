@@ -10,6 +10,8 @@ The steps below will get you up and running with a local development environment
 * PostgreSQL
 
 First make sure to create and activate a virtualenv_, then open a terminal at the project root and install the requirements for local development::
+    
+    $ mkvirtualenv --python=/usr/bin/python3 {{cookiecutter.repo_name}}
 
     $ pip install -r requirements/local.txt
 
