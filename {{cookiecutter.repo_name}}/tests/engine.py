@@ -18,7 +18,12 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
 
     def set_up(self):
         """Ensure virtualenv present, then run all services."""
+        {% if cookiecutter.use_python2 == 'n' -%}
         python_package = hitchpython.PythonPackage("2.7.10")
+        {% else %}
+        python_package = hitchpython.PythonPackage("3.5.0")
+        {%- endif %}
+
         python_package.build()
         python_package.verify()
 
