@@ -18,9 +18,11 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
 
     def set_up(self):
         """Ensure virtualenv present, then run all services."""
-        python_package = hitchpython.PythonPackage(
-            python_version=self.preconditions['python_version']
-        )
+        {% if cookiecutter.use_python2 == 'n' -%}
+        python_package = hitchpython.PythonPackage("2.7.10")
+        {%- else -%}
+        python_package = hitchpython.PythonPackage("3.5.0")
+        {%- endif %}
         python_package.build()
         python_package.verify()
 
@@ -45,12 +47,20 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
             shutdown_timeout=5.0,
         )
 
-        postgres_user = hitchpostgres.PostgresUser("{{cookiecutter.repo_name}}", "password")
+        postgres_user = hitchpostgres.PostgresUser(
+            "{{cookiecutter.repo_name}}",
+            "password"
+        )
 
         self.services['Postgres'] = hitchpostgres.PostgresService(
             postgres_package=postgres_package,
             users=[postgres_user, ],
-            databases=[hitchpostgres.PostgresDatabase("{{cookiecutter.repo_name}}", postgres_user), ]
+            databases=[
+                hitchpostgres.PostgresDatabase(
+                    "{{cookiecutter.repo_name}}",
+                    postgres_user
+                ),
+            ]
         )
 
         self.services['HitchSMTP'] = hitchsmtp.HitchSMTPService(port=1025)
