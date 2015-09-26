@@ -54,6 +54,7 @@ Adam Bogdał / @bogdal
 Barclay Gauld / @yunti
 Ian Lee / @IanLee1521
 Roman Afanaskin / @siauPatrick
+@kaidokert
 
 * Possesses commit rights
 
