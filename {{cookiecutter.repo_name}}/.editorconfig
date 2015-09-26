@@ -19,7 +19,7 @@ known_first_party={{ cookiecutter.repo_name }}
 multi_line_output=3
 default_section=THIRDPARTY
 
-[*.yml]
+[*.{html,css,scss,json,yml}]
 indent_style = space
 indent_size = 2
 
