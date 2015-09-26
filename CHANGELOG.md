@@ -3,6 +3,11 @@ All enhancements and patches to cookiecutter-django will be documented in this f
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2015-09-22]
+### Changed
+- django-mailgun requirement to 0.7.2 (@pydanny)
+- Remove commented-out flake8 ignore rule. (@audreyr)
+
+## [2015-09-22]
 ### Added
 - Add Python version option for deployment (@yunti)
 
