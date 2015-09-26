@@ -55,6 +55,7 @@ Code Contributors
 * Ian Lee / @IanLee1521
 * Roman Afanaskin / @siauPatrick
 * @kaidokert
+* Raphael Pierzina / @hackebrot
 
 \* Possesses commit rights
 
