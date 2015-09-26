@@ -2,10 +2,30 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2015-09-22]
+## [2015-09-26]
+### Added
+- Add .pylintrc and .pep8 (@kaidokert)
+
+### Changed
+- Move pep8 rules to setup.cfg (@audreyr)
+- Better pep8 rules for exclusion (@audreyr)
+- Document all linters (@audreyr)
+- Sass linting and improvements to alerts (@audreyr)
+
+## [2015-09-25]
 ### Changed
 - django-mailgun requirement to 0.7.2 (@pydanny)
 - Remove commented-out flake8 ignore rule. (@audreyr)
+
+## [2015-09-24]
+### Changed
+- Add user-uploaded media dir to .gitignore (@audreyr)
+- Update .editorconfig to use 2 spaces for html, css, scss, json (@audreyr)
+- Have flake8 ignore node_modules dir (@audreyr)
+
+## [2015-09-23]
+### Changed
+- Add workaround for django-debug-toolbar conflict with Bootstrap 4 (@audreyr)
 
 ## [2015-09-22]
 ### Added
