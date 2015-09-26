@@ -1,20 +1,20 @@
 Code Contributors
 =================
 
-* Daniel Greenfeld*
+* Daniel Greenfeld *
 * a7p
 * Lukas Klein
 * Ben Lopatin
 * Bouke Haarsma
 * Agam Dua
 * Vitaly Babiy
-* Jim Munro*
+* Jim Munro *
 * Tom Offermann
 * Lyla Fischer
 * Taylor Baldwin
 * Chris Curvey (@ccurvey)
-* Fábio C. Barrionuevo da Luz (@luzfcb)*
-* Saurabh Kumar (gh: theskumar / @_theskumar)*
+* Fábio C. Barrionuevo da Luz (@luzfcb) *
+* Saurabh Kumar (gh: theskumar / @_theskumar) *
 * Ashley Camba
 * Yaroslav Halchenko
 * Pablo / @oubiga
