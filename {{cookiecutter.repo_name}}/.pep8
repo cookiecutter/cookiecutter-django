@@ -1,3 +1,0 @@
-[pep8]
-max-line-length = 120
-exclude=.tox,.git,*/migrations/*,*/static/CACHE/*,docs,node_modules
