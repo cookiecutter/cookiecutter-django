@@ -2,24 +2,34 @@
 
 // bootstrap alert CSS, translated to the django-standard levels of
 // debug, info, success, warning, error
+
+$alert-debug-bgcolor: #fff;
+$alert-debug-border: #d6e9c6;
+$alert-debug-color: #000;
+
+$alert-error-bgcolor: #f2dede;
+$alert-error-border: #eed3d7;
+$alert-error-color: #b94a48;
+
 .alert-debug {
-  color: black;
-  background-color: white;
-  border-color: #d6e9c6;
+  background-color: $alert-debug-bgcolor;
+  border-color: $alert-debug-border;
+  color: $alert-debug-color;
 }
 
 .alert-error {
-  color: #b94a48;
-  background-color: #f2dede;
-  border-color: #eed3d7;
+  background-color: $alert-error-bgcolor;
+  border-color: $alert-error-border;
+  color: $alert-error-color;
 }
 
-/* This is a fix for the bootstrap4 alpha release */
+// This is a fix for the bootstrap4 alpha release
+
 @media (max-width: 47.9em) {
   .navbar-nav .nav-item {
+    display: inline-block;
     float: none;
     width: 100%;
-    display: inline-block;
   }
 
   .navbar-nav .nav-item + .nav-item {
@@ -31,10 +41,10 @@
   }
 }
 
-/* Display django-debug-toolbar.
-   See https://github.com/django-debug-toolbar/django-debug-toolbar/issues/742
-   and https://github.com/pydanny/cookiecutter-django/issues/317
-*/
+// Display django-debug-toolbar.
+// See https://github.com/django-debug-toolbar/django-debug-toolbar/issues/742
+// and https://github.com/pydanny/cookiecutter-django/issues/317
+
 [hidden][style="display: block;"] {
   display: block !important;
 }
