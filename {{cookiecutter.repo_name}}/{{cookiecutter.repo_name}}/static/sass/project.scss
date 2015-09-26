@@ -1,26 +1,27 @@
 // project specific CSS goes here
 
+// Alert colors
+
+$white: #fff;
+$mint-green: #d6e9c6;
+$black: #000;
+$pink: #f2dede;
+$dark-pink: #eed3d7;
+$red: #b94a48;
+
 // bootstrap alert CSS, translated to the django-standard levels of
 // debug, info, success, warning, error
 
-$alert-debug-bgcolor: #fff;
-$alert-debug-border: #d6e9c6;
-$alert-debug-color: #000;
-
-$alert-error-bgcolor: #f2dede;
-$alert-error-border: #eed3d7;
-$alert-error-color: #b94a48;
-
 .alert-debug {
-  background-color: $alert-debug-bgcolor;
-  border-color: $alert-debug-border;
-  color: $alert-debug-color;
+  background-color: $white;
+  border-color: $mint-green;
+  color: $black;
 }
 
 .alert-error {
-  background-color: $alert-error-bgcolor;
-  border-color: $alert-error-border;
-  color: $alert-error-color;
+  background-color: $pink;
+  border-color: $dark-pink;
+  color: $red;
 }
 
 // This is a fix for the bootstrap4 alpha release
