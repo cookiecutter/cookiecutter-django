@@ -15,3 +15,17 @@ The config for flake8 is located in setup.cfg. It specifies:
 
 * Set max line length to 120 chars
 * Exclude .tox,.git,*/migrations/*,*/static/CACHE/*,docs,node_modules
+
+pylint
+------
+
+This is included in flake8's checks, but you can also run it separately to see a more detailed report:
+
+    $ pylint <python files that you wish to lint>
+
+pep8
+-----
+
+This is included in flake8's checks, but you can also run it separately to see a more detailed report:
+
+    $ pep8 <python files that you wish to lint>
