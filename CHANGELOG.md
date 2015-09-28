@@ -2,6 +2,13 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-09-27]
+### Added
+- Added advice on how to persist changes with boot2docker (@jayfk)
+
+###Changed
+- Removed duplicate from `CONTRIBUTORS.rst` (@jayfk)
+
 ## [2015-09-26]
 ### Added
 - Add .pylintrc and .pep8 (@kaidokert)
