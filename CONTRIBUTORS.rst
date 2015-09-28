@@ -47,8 +47,7 @@ Code Contributors
 * Cullen Rhodes / @c-rhodes
 * Burhan Khalid / @burhan
 * Audrey Roy Greenfeld / @audreyr (and creator/maintainer of cookiecutter) *
-* Jannis Gebauer / @got_nil
-* jayfk / @jayfk
+* Jannis Gebauer / @jayfk *
 * stepmr / @stepmr
 * Adam Bogdał / @bogdal
 * Barclay Gauld / @yunti
