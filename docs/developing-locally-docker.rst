@@ -86,6 +86,7 @@ This can take a while, especially the first time you run this particular command
 on your development system.
 
 ::
+
     $ docker-compose build
 
 Boot the System
