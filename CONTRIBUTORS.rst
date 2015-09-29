@@ -55,6 +55,7 @@ Code Contributors
 * Roman Afanaskin / @siauPatrick
 * @kaidokert
 * Raphael Pierzina / @hackebrot
+* Alvaro [Andor] / @andor-pierdelacabeza
 
 \* Possesses commit rights
 
