@@ -2,6 +2,11 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-09-30]
+### Changed
+- Fixed Sentry logging with celery (@jayfk)
+- Added pep8 and pyflakes to requirements (@jayfk)
+
 ## [2015-09-29]
 ### Changed
 - Fix RST in Docker docs (@andor-pierdelacabeza)
