@@ -4,6 +4,10 @@ import os
 from celery import Celery
 from django.apps import AppConfig
 from django.conf import settings
+{% if cookiecutter.use_sentry == "y" -%}
+from raven import Client
+from raven.contrib.celery import register_signal
+{%- endif %}
 
 if not settings.configured:
     # set the default Django settings module for the 'celery' program.
@@ -22,6 +26,13 @@ class CeleryConfig(AppConfig):
         # pickle the object when using Windows.
         app.config_from_object('django.conf:settings')
         app.autodiscover_tasks(lambda: settings.INSTALLED_APPS, force=True)
+
+        {% if cookiecutter.use_sentry == "y" -%}
+        if hasattr(settings, 'RAVEN_CONFIG'):
+            # Celery signal registration
+            client = Client(dsn=settings.RAVEN_CONFIG['dsn'])
+            register_signal(client)
+        {%- endif %}
 
 
 @app.task(bind=True)
