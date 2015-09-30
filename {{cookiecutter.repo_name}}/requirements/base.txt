@@ -2,10 +2,10 @@
 django==1.8.4
 
 # Configuration
-django-environ==0.3.0
+django-environ==0.4.0
 django-secure==1.0.1
 {% if cookiecutter.use_whitenoise == 'y' -%}
-whitenoise==2.0.3
+whitenoise==2.0.4
 {%- endif %}
 
 
@@ -32,7 +32,7 @@ unicode-slugify==0.1.3
 django-autoslug==1.8.0
 
 # Time zones support
-pytz==2015.4
+pytz==2015.6
 
 # Redis support
 django-redis==4.2.0

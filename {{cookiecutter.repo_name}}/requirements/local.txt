@@ -1,8 +1,8 @@
 # Local development dependencies go here
 -r base.txt
-coverage==3.7.1
+coverage==4.0
 Sphinx
-django-extensions==1.5.6
+django-extensions==1.5.7
 Werkzeug==0.10.4
 django-test-plus==1.0.9
 factory_boy==2.5.2

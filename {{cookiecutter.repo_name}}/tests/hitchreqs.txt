@@ -3,10 +3,10 @@ colorama==0.3.3
 faketime==0.9.6.3
 hitchcron==0.2
 hitchpostgres==0.6.3
-hitchpython==0.3.5
+hitchpython==0.3.8
 hitchredis==0.4.3
-hitchselenium==0.4.1
-hitchserve==0.4.4
+hitchselenium==0.4.3
+hitchserve==0.4.5
 hitchsmtp==0.2.1
 hitchtest==0.8.0
 humanize==0.5.1

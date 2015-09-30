@@ -1,4 +1,4 @@
-cookiecutter==1.0.0
+cookiecutter==1.1.0
 flake8==2.4.1
 sh
 
@@ -9,7 +9,7 @@ ipython==4.0.0
 
 # Testing
 # -------------------------------------
-pytest==2.8.0
+pytest==2.8.1
 git+git://github.com/mverteuil/pytest-ipdb.git
 pep8==1.6.2
 pyflakes==1.0.0
