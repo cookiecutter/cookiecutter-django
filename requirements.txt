@@ -11,3 +11,5 @@ ipython==4.0.0
 # -------------------------------------
 pytest==2.8.0
 git+git://github.com/mverteuil/pytest-ipdb.git
+pep8==1.6.2
+pyflakes==1.0.0
