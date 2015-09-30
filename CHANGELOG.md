@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Fixed Sentry logging with celery (@jayfk)
 - Added pep8 and pyflakes to requirements (@jayfk)
+- Fixed url() arguments in urls.py because String view arguments to url() is deprecated in django 1.9 (@siauPatrick)
 
 ## [2015-09-29]
 ### Changed
