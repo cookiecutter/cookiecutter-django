@@ -98,14 +98,15 @@ It prompts you for questions. Answer them::
     description [A short description of the project.]: A reddit clone.
     domain_name [example.com]: myreddit.com
     version [0.1.0]: 0.0.1
-    timezone [UTC]:
-    now [2015/01/13]: 2015/08/30
-    year [2015]:
+    timezone [UTC]: 
+    now [2015/01/13]: 2015/09/30        
+    year [2015]: 
     use_whitenoise [y]: n
     use_celery [n]: y
-    use_maildump [n]: y
+    use_maildump [n]: n
     use_sentry [n]: y
-    windows [n]:
+    windows [n]: n
+    use_python2 [n]: y
 
 
 Enter the project and take a look around::
