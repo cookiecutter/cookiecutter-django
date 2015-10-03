@@ -12,8 +12,8 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name="home"),
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name="about"),
 
-    # Django Admin
-    url(r'^admin/', include(admin.site.urls)),
+    # Django Admin, use {% url 'admin:index' %}
+    url(settings.ADMIN_URL, include(admin.site.urls)),
 
     # User management
     url(r'^users/', include("{{ cookiecutter.repo_name }}.users.urls", namespace="users")),

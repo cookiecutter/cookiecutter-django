@@ -9,6 +9,7 @@ For configuration purposes, the following table maps environment variables to th
 ======================================= =========================== ============================================== ======================================================================
 Environment Variable                    Django Setting              Development Default                            Production Default
 ======================================= =========================== ============================================== ======================================================================
+DJANGO_ADMIN_URL                        n/a                         r'^admin/'                                     raises error
 DJANGO_CACHES                           CACHES (default)            locmem                                         redis
 DJANGO_DATABASES                        DATABASES (default)         See code                                       See code
 DJANGO_DEBUG                            DEBUG                       True                                           False

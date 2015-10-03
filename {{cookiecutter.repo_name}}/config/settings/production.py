@@ -217,4 +217,8 @@ RAVEN_CONFIG = {
     'DSN': SENTRY_DSN
 }
 {% endif %}
+
+# Custom Admin URL, use {% url 'admin:index' %}
+ADMIN_URL = env('ADMIN_URL')
+
 # Your production stuff: Below this line define 3rd party library settings
