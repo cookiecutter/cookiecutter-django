@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name="home"),
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name="about"),
 
-    # Django Admin, use {% url 'admin:index' %}
+    # Django Admin, use {% raw %}{% url 'admin:index' %}{% endraw %}
     url(settings.ADMIN_URL, include(admin.site.urls)),
 
     # User management
