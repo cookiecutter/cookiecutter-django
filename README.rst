@@ -135,9 +135,13 @@ For development, see the following for local development:
 Support This Project
 ---------------------------
 
-Spread the word about `Two Scoops Academy`_.
+This project is maintained by volunteers. Support their efforts by spreading the word about:
 
-.. _`Two Scoops Academy`: http://www.twoscoops.academy/
+.. image:: https://s3.amazonaws.com/tsacademy/images/tsa-logo-250x60-transparent-01.png
+   :name: Two Scoops Academy
+   :align: center
+   :alt: Two Scoops Academy
+   :target: http://www.twoscoops.academy/
 
 For Readers of Two Scoops of Django 1.8
 --------------------------------------------
