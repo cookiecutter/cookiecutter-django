@@ -9,14 +9,14 @@ All of these commands assume you are in the root of your generated project.
 Prerequisites
 --------------
 
+If you don't already have these installed, get them all by installing `Docker Toolbox`_.
+
 * docker
 * docker-machine
 * docker-compose
 * virtualbox
 
-If you don't already have these installed, you can get them at:
-
-* https://github.com/docker/toolbox/releases
+.. _`Docker Toolbox`: https://github.com/docker/toolbox/releases
 
 Create the Machine (Optional)
 -------------------------------
