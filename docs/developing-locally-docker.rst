@@ -69,22 +69,9 @@ Build the Stack
 ---------------
 
 This can take a while, especially the first time you run this particular command
-on your development system.
-
-::
+on your development system::
 
     $ docker-compose build
-
-Running bash commands (i.e. management commands)
-----------------------------------------------------
-
-This is done using the ``docker-compose run`` command. In the following examples
-we specify the ``django`` container as the location to run our management commands.
-
-Example:
-
-    $ docker-compose run django python manage.py migrate
-    $ docker-compose run django python manage.py createsuperuser
 
 Boot the System
 ---------------
@@ -105,12 +92,19 @@ You can also set the environment variable ``COMPOSE_FILE`` pointing to ``dev.yml
 And then run::
 
     $ docker-compose up
+    
+Running management commands
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As with any shell command that we wish to run in our container, this is done 
+using the ``docker-compose run`` command. 
 
 To migrate your app and to create a superuser, run::
 
     $ docker-compose run django python manage.py migrate
-
     $ docker-compose run django python manage.py createsuperuser
+
+Here we specify the ``django`` container as the location to run our management commands.
 
 Production Mode
 ~~~~~~~~~~~~~~~~
