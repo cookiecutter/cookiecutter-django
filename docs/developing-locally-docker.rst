@@ -75,28 +75,6 @@ on your development system.
 
     $ docker-compose build
 
-Boot the System
-------------------------------
-
-This brings up both Django and PostgreSQL. The first time it is run it might
-take a while to get started, but subsequent runs will occur quickly.
-
-::
-
-    $ docker-compose -f dev.yml up
-
-If you want to run the entire system in production mode, then run:
-
-::
-
-    $ docker-compose up
-
-If you want to run the stack in detached mode (in the background), use the ``-d`` argument::
-
-::
-
-    $ docker-compose up -d
-
 Running bash commands (i.e. management commands)
 ----------------------------------------------------
 
@@ -108,9 +86,13 @@ Example:
     $ docker-compose run django python manage.py migrate
     $ docker-compose run django python manage.py createsuperuser
 
+Boot the System
+---------------
 
-Working With Your Container
------------------------------
+This brings up both Django and PostgreSQL. 
+
+The first time it is run it might take a while to get started, but subsequent 
+runs will occur quickly.
 
 Open a terminal at the project root and run the following for local development::
 
@@ -130,6 +112,10 @@ To migrate your app and to create a superuser, run::
 
     $ docker-compose run django python manage.py createsuperuser
 
+Production Mode
+~~~~~~~~~~~~~~~~
+
+Instead of using `dev.yml`, you would use `docker-compose.yml`.
 
 Other Useful Tips
 ------------------
@@ -143,3 +129,12 @@ Using the ``eval`` command we can switch machines as needed.
 ::
 
     $ eval "$(docker-machine env dev1)"
+
+Detached Mode
+~~~~~~~~~~~~~
+
+If you want to run the stack in detached mode (in the background), use the ``-d`` argument::
+
+::
+
+    $ docker-compose up -d
