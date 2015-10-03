@@ -218,7 +218,7 @@ RAVEN_CONFIG = {
 }
 {% endif %}
 
-# Custom Admin URL, use {% url 'admin:index' %}
+# Custom Admin URL, use {% raw %}{% url 'admin:index' %}{% endraw %}
 ADMIN_URL = env('ADMIN_URL')
 
 # Your production stuff: Below this line define 3rd party library settings
