@@ -36,15 +36,12 @@ name them accordingly. Instead of 'dev1' you might have 'dev2', 'myproject',
 Get the IP Address
 --------------------
 
-Acquiring the IP Address is good for two reasons:
-
-1. Confirms that the machine is up and running.
-2. Tells us the IP address where our Django project is being served.
-
-::
+Once your machine is up and running, run this::
 
     $ docker-machine ip dev1
     123.456.789.012
+
+This is also the IP address where the Django project will be served from.
 
 Saving changes
 --------------
@@ -53,14 +50,11 @@ If you are using OS X or Windows, you need to create a /data partition inside th
 virtual machine that runs the docker deamon in order make all changes persistent.
 If you don't do that your /data directory will get wiped out on every reboot.
 
-To create a persistent folder, log into the virtual machine by running:
-
-::
+To create a persistent folder, log into the virtual machine by running::
 
     $ docker-machine ssh dev1
     $ sudo su
     $ echo 'ln -sfn /mnt/sda1/data /data' >> /var/lib/boot2docker/bootlocal.sh
-
 
 In case you are wondering why you can't use a host volume to keep the files on
 your mac: As of `boot2docker` 1.7 you'll run into permission problems with mounted
