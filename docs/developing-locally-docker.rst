@@ -18,17 +18,20 @@ If you don't already have these installed, you can get them at:
 
 * https://github.com/docker/toolbox/releases
 
-Create the Machine
--------------------
+Create the Machine (Optional)
+-------------------------------
 
-::
+On Ubuntu you have native Docker, so you don't need to create a VM with 
+docker-machine to use it.
+
+However, on Mac/Windows/other systems without native Docker, you'll want to 
+start by creating a VM with docker-machine::
 
     $ docker-machine create --driver virtualbox dev1
 
 **Note:** If you want to have more than one docker development environment, then
 name them accordingly. Instead of 'dev1' you might have 'dev2', 'myproject',
 'djangopackages', et al.
-
 
 Get the IP Address
 --------------------
