@@ -217,7 +217,6 @@ RAVEN_CONFIG = {
     'DSN': SENTRY_DSN
 }
 {% endif %}
-
 # Custom Admin URL, use {% raw %}{% url 'admin:index' %}{% endraw %}
 ADMIN_URL = env('ADMIN_URL')
 
