@@ -4,6 +4,7 @@ Getting Up and Running with Docker
 .. index:: Docker
 
 The steps below will get you up and running with a local development environment.
+All of these commands assume you are in the root of your generated project.
 
 Prerequisites
 --------------
@@ -17,11 +18,6 @@ If you don't already have these installed, you can get them at:
 
 * https://github.com/docker/toolbox/releases
 
-Go to the Root of your Project
-------------------------------
-
-All of these commands assume you are in the root of your generated project.
-
 Create the Machine
 -------------------
 
@@ -33,15 +29,6 @@ Create the Machine
 name them accordingly. Instead of 'dev1' you might have 'dev2', 'myproject',
 'djangopackages', et al.
 
-Make the new machine the active unit
--------------------------------------
-
-This tells our computer that all future commands are specifically for the just
-created machine. Using the ``eval`` command we can switch machines as needed.
-
-::
-
-    $ eval "$(docker-machine env dev1)"
 
 Get the IP Address
 --------------------
@@ -122,17 +109,8 @@ Example:
     $ docker-compose run django python manage.py createsuperuser
 
 
-
-Deprecated
-==========
-
-**Note:** This segment of documentation is being kept in this location as part of our documentation transition process.
-
-
-The steps below will get you up and running with a local development environment. We assume you have the following installed:
-
-* docker
-* docker-compose
+Working With Your Container
+-----------------------------
 
 Open a terminal at the project root and run the following for local development::
 
@@ -146,9 +124,22 @@ And then run::
 
     $ docker-compose up
 
-
 To migrate your app and to create a superuser, run::
 
     $ docker-compose run django python manage.py migrate
 
     $ docker-compose run django python manage.py createsuperuser
+
+
+Other Useful Tips
+------------------
+
+Make a machine the active unit
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This tells our computer that all future commands are specifically for the dev1 machine. 
+Using the ``eval`` command we can switch machines as needed.
+
+::
+
+    $ eval "$(docker-machine env dev1)"
