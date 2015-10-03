@@ -98,9 +98,9 @@ It prompts you for questions. Answer them::
     description [A short description of the project.]: A reddit clone.
     domain_name [example.com]: myreddit.com
     version [0.1.0]: 0.0.1
-    timezone [UTC]: 
-    now [2015/01/13]: 2015/09/30        
-    year [2015]: 
+    timezone [UTC]:
+    now [2015/01/13]: 2015/09/30
+    year [2015]:
     use_whitenoise [y]: n
     use_celery [n]: y
     use_maildump [n]: n
@@ -131,6 +131,13 @@ For development, see the following for local development:
 
 .. _`Developing locally`: http://cookiecutter-django.readthedocs.org/en/latest/developing-locally.html
 .. _`Developing locally using docker`: http://cookiecutter-django.readthedocs.org/en/latest/developing-locally-docker.html
+
+Support This Project
+---------------------------
+
+Spread the word about `Two Scoops Academy`_.
+
+.. _`Two Scoops Academy`: http://www.twoscoops.academy/
 
 For Readers of Two Scoops of Django 1.8
 --------------------------------------------
