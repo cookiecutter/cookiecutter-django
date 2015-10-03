@@ -16,7 +16,6 @@ Prerequisites
 If you don't already have these installed, you can get them at:
 
 * https://github.com/docker/toolbox/releases
-* https://www.virtualbox.org/wiki/Downloads
 
 Go to the Root of your Project
 ------------------------------
