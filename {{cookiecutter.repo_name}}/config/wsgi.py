@@ -15,6 +15,11 @@ framework.
 """
 import os
 
+{% if cookiecutter.use_newrelic == "y" -%}
+if os.environ.get("DJANGO_SETTINGS_MODULE") == "config.settings.production":
+    import newrelic.agent
+    newrelic.agent.initialize()
+{%- endif %}
 from django.core.wsgi import get_wsgi_application
 {% if cookiecutter.use_whitenoise == 'y' -%}
 from whitenoise.django import DjangoWhiteNoise
@@ -43,6 +48,10 @@ application = DjangoWhiteNoise(application)
 {% if cookiecutter.use_sentry == "y" -%}
 if os.environ.get("DJANGO_SETTINGS_MODULE") == "config.settings.production":
     application = Sentry(application)
+{%- endif %}
+{% if cookiecutter.use_newrelic == "y" -%}
+if os.environ.get("DJANGO_SETTINGS_MODULE") == "config.settings.production":
+    application = newrelic.agent.WSGIApplicationWrapper(application)
 {%- endif %}
 
 # Apply WSGI middleware here.

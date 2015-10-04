@@ -36,6 +36,7 @@ Features
 * Pre configured Celery_ (optional)
 * Integration with Maildump_ for local email testing (optional)
 * Integration with Sentry_ for error logging (optional)
+* Integration with NewRelic_ for performance monitoring (optional)
 * Docker support using docker-compose_ for dev and prod
 * Procfile_ for deploying to Heroku
 
@@ -53,6 +54,7 @@ Features
 .. _Celery: http://www.celeryproject.org/
 .. _Maildump: https://github.com/ThiefMaster/maildump
 .. _Sentry: https://getsentry.com
+.. _NewRelic: https://newrelic.com
 .. _docker-compose: https://www.github.com/docker/compose
 
 
@@ -105,6 +107,7 @@ It prompts you for questions. Answer them::
     use_celery [n]: y
     use_maildump [n]: n
     use_sentry [n]: y
+    use_newrelic [n]: y
     windows [n]: n
     use_python2 [n]: y
 

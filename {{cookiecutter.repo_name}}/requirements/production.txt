@@ -24,3 +24,9 @@ django-mailgun==0.7.2
 # --------------------------
 raven
 {%- endif %}
+
+{% if cookiecutter.use_newrelic == "y" -%}
+# Newrelic agent for performance monitoring
+# -----------------------------------------
+newrelic
+{%- endif %}

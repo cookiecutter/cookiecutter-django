@@ -131,6 +131,11 @@ MAILGUN_SERVER_NAME = env('DJANGO_MAILGUN_SERVER_NAME')
 EMAIL_SUBJECT_PREFIX = env("DJANGO_EMAIL_SUBJECT_PREFIX", default='[{{cookiecutter.project_name}}] ')
 SERVER_EMAIL = env('DJANGO_SERVER_EMAIL', default=DEFAULT_FROM_EMAIL)
 
+{% if cookiecutter.use_newrelic == 'y'-%}
+NEW_RELIC_LICENSE_KEY = env('NEW_RELIC_LICENSE_KEY')
+{%- endif %}
+
+
 # TEMPLATE CONFIGURATION
 # ------------------------------------------------------------------------------
 # See:
