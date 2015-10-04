@@ -1,3 +1,5 @@
+dockerfile: Dockerfile-dev
+
 postgres:
   image: postgres
   volumes:
