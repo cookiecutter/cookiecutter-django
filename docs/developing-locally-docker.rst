@@ -124,6 +124,8 @@ Using the ``eval`` command we can switch machines as needed.
 Detached Mode
 ~~~~~~~~~~~~~
 
-If you want to run the stack in detached mode (in the background), use the ``-d`` argument::
+If you want to run the stack in detached mode (in the background), use the ``-d`` argument:
+
+::
 
     $ docker-compose up -d
