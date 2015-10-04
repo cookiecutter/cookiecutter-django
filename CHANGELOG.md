@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [2015-10-04]
 ### Changed
 - Remove stray closing tags and fix navbar margin in in base.html (@hairychris)
+- Docker docs to be functional and more understandable (@audreyr)
 
 ## [2015-09-30]
 ### Changed
