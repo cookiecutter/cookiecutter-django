@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-10-04]
+### Changed
+- Remove stray closing tags and fix navbar margin in in base.html (@hairychris)
+
 ## [2015-09-30]
 ### Changed
 - Fixed Sentry logging with celery (@jayfk)

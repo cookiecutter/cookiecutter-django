@@ -56,6 +56,7 @@ Code Contributors
 * @kaidokert
 * Raphael Pierzina / @hackebrot
 * Alvaro [Andor] / @andor-pierdelacabeza
+* Chris Franklin / @hairychris
 
 \* Possesses commit rights
 
