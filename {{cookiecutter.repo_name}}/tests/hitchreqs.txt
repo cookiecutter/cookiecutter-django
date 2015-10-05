@@ -5,7 +5,7 @@ hitchcron==0.2
 hitchpostgres==0.6.3
 hitchpython==0.3.8
 hitchredis==0.4.3
-hitchselenium==0.4.3
+hitchselenium==0.4.5
 hitchserve==0.4.5
 hitchsmtp==0.2.1
 hitchtest==0.8.0
@@ -14,7 +14,7 @@ ipython==4.0.0
 Jinja2==2.8
 MarkupSafe==0.23
 patool==1.8
-psutil==3.2.1
+psutil==3.2.2
 python-build==0.2.3
 pyuv==1.2.0
 PyYAML==3.11
