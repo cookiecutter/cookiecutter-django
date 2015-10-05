@@ -1,4 +1,4 @@
-{% load crispy_forms_field %}
+{% raw %}{% load crispy_forms_field %}
 
 {% if field.is_hidden %}
     {{ field }}
@@ -45,4 +45,4 @@
         {% endif %}
         </div>
     {% endif %}
-{% endif %}
+{% endif %}{% endraw %}
