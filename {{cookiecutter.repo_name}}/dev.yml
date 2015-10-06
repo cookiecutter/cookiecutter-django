@@ -1,3 +1,4 @@
+
 postgres:
   image: postgres
   volumes:
@@ -6,6 +7,7 @@ postgres:
     - /data/{{cookiecutter.repo_name}}/postgres:/var/lib/postgresql/data
 
 django:
+  dockerfile: Dockerfile-dev
   build: .
   command: python /app/manage.py runserver_plus 0.0.0.0:8000
   volumes:
