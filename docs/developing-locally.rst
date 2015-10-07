@@ -17,7 +17,7 @@ First make sure to create and activate a virtualenv_, then open a terminal at th
 
 Then, create a PostgreSQL database with the following command, where `[repo_name]` is what value you entered for your project's `repo_name`::
 
-    createdb [repo_name]
+    $ createdb [repo_name]
 
 You can now run the usual Django ``migrate`` and ``runserver`` command::
 
