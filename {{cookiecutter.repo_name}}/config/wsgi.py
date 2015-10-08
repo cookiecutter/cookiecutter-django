@@ -53,7 +53,6 @@ if os.environ.get("DJANGO_SETTINGS_MODULE") == "config.settings.production":
 if os.environ.get("DJANGO_SETTINGS_MODULE") == "config.settings.production":
     application = newrelic.agent.WSGIApplicationWrapper(application)
 {%- endif %}
-
 # Apply WSGI middleware here.
 # from helloworld.wsgi import HelloWorldApplication
 # application = HelloWorldApplication(application)
