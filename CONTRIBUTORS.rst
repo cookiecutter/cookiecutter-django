@@ -57,6 +57,7 @@ Code Contributors
 * Raphael Pierzina / @hackebrot
 * Alvaro [Andor] / @andor-pierdelacabeza
 * Chris Franklin / @hairychris
+* Anna Callahan / @jazztpt
 
 \* Possesses commit rights
 
