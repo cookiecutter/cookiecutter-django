@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-10-11]
+### Changed
+- Fixed raven issue on development (#302) (@jazztpt )
+
 ## [2015-10-05]
 ### Changed
 - Update version of Django, Pillow, hitchselenium, psutil (@luzfcb)
