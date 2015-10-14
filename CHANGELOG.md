@@ -2,6 +2,17 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-10-14]
+### Added
+- Documention of project options (@audreyr)
+### Changed
+- Added clarification on building for local or production (@MathijsHoogland)
+- Whitespace correction in dev.yml (@MathijsHoogland)
+
+## [2015-10-13]
+### Changed
+- Requirements update (@theskumar)
+
 ## [2015-10-11]
 ### Changed
 - Fixed raven issue on development (#302) (@jazztpt )

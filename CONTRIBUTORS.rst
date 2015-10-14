@@ -58,6 +58,7 @@ Code Contributors
 * Alvaro [Andor] / @andor-pierdelacabeza
 * Chris Franklin / @hairychris
 * Anna Callahan / @jazztpt
+* Mathijs Hoogland / @MathijsHoogland
 
 \* Possesses commit rights
 
