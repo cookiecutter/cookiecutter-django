@@ -68,7 +68,9 @@ Build the Stack
 This can take a while, especially the first time you run this particular command
 on your development system::
 
-    $ docker-compose build
+    $ docker-compose -f dev.yml build
+    
+If you want to build the production environment you don't have to pass an argument -f, it will automatically use docker-compose.yml. 
 
 Boot the System
 ---------------
