@@ -2,6 +2,11 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-10-15]
+### Changed
+- Made `post_gen_hook` function to change secret keys in files more generic (@pydanny)
+- Set cryptographically randomized value to `DJANGO_SECRET_KEY` in `env.example` (@pydanny)
+
 ## [2015-10-14]
 ### Added
 - Documention of project options (@audreyr)
