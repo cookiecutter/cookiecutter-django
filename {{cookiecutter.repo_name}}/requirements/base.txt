@@ -24,8 +24,13 @@ Pillow==3.0.0
 # Well-built with regular release cycles!
 django-allauth==0.23.0
 
-# For the persistence stores
+{% if cookiecutter.windows == 'y' -%}
+# On Windows, you must download/install psycopg2 manually
+# from http://www.lfd.uci.edu/~gohlke/pythonlibs/#psycopg
+{% else %}
+# Python-PostgreSQL Database Adapter
 psycopg2==2.6.1
+{%- endif %}
 
 # Unicode slugification
 unicode-slugify==0.1.3

@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-10-19]
+### Changed
+- On Windows, don't install psycopg2 locally. Still install it in test/prod which are assumed to be Unix. (@audreyr)
+
 ## [2015-10-15]
 ### Changed
 - Made `post_gen_hook` function to change secret keys in files more generic (@pydanny)

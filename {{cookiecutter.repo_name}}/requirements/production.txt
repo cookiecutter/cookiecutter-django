@@ -2,6 +2,13 @@
 #	production that isn't in development.
 -r base.txt
 
+{% if cookiecutter.windows == 'y' -%}
+# Python-PostgreSQL Database Adapter
+# If using Win for dev, this assumes Unix in prod
+# ------------------------------------------------
+psycopg2==2.6.1
+{%- endif %}
+
 # WSGI Handler
 # ------------------------------------------------
 gevent==1.0.2
