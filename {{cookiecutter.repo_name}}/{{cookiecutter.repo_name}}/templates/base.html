@@ -51,8 +51,8 @@
                 <a class="nav-link nav-item" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a>
                 <a class="nav-link nav-item" href="{% url 'account_logout' %}">{% trans "Logout" %}</a>
               {% else %}
-                <a class="nav-link nav-item" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
-                <a class="nav-link nav-item" href="{% url 'account_login' %}">{% trans "Log In" %}</a>
+                <a id="sign-up-link" class="nav-link nav-item" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
+                <a id="log-in-link" class="nav-link nav-item" href="{% url 'account_login' %}">{% trans "Log In" %}</a>
               {% endif %}
             </nav>
           </div>
