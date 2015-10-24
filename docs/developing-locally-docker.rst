@@ -4,29 +4,28 @@ Getting Up and Running with Docker
 .. index:: Docker
 
 The steps below will get you up and running with a local development environment.
+All of these commands assume you are in the root of your generated project.
 
 Prerequisites
 --------------
+
+If you don't already have these installed, get them all by installing `Docker Toolbox`_.
 
 * docker
 * docker-machine
 * docker-compose
 * virtualbox
 
-If you don't already have these installed, you can get them at:
+.. _`Docker Toolbox`: https://github.com/docker/toolbox/releases
 
-* https://github.com/docker/toolbox/releases
-* https://www.virtualbox.org/wiki/Downloads
+Create the Machine (Optional)
+-------------------------------
 
-Go to the Root of your Project
-------------------------------
+On Ubuntu you have native Docker, so you don't need to create a VM with 
+docker-machine to use it.
 
-All of these commands assume you are in the root of your generated project.
-
-Create the Machine
--------------------
-
-::
+However, on Mac/Windows/other systems without native Docker, you'll want to 
+start by creating a VM with docker-machine::
 
     $ docker-machine create --driver virtualbox dev1
 
@@ -34,28 +33,15 @@ Create the Machine
 name them accordingly. Instead of 'dev1' you might have 'dev2', 'myproject',
 'djangopackages', et al.
 
-Make the new machine the active unit
--------------------------------------
-
-This tells our computer that all future commands are specifically for the just
-created machine. Using the ``eval`` command we can switch machines as needed.
-
-::
-
-    $ eval "$(docker-machine env dev1)"
-
 Get the IP Address
 --------------------
 
-Acquiring the IP Address is good for two reasons:
-
-1. Confirms that the machine is up and running.
-2. Tells us the IP address where our Django project is being served.
-
-::
+Once your machine is up and running, run this::
 
     $ docker-machine ip dev1
     123.456.789.012
+
+This is also the IP address where the Django project will be served from.
 
 Saving changes
 --------------
@@ -64,14 +50,11 @@ If you are using OS X or Windows, you need to create a /data partition inside th
 virtual machine that runs the docker deamon in order make all changes persistent.
 If you don't do that your /data directory will get wiped out on every reboot.
 
-To create a persistent folder, log into the virtual machine by running:
-
-::
+To create a persistent folder, log into the virtual machine by running::
 
     $ docker-machine ssh dev1
     $ sudo su
     $ echo 'ln -sfn /mnt/sda1/data /data' >> /var/lib/boot2docker/bootlocal.sh
-
 
 In case you are wondering why you can't use a host volume to keep the files on
 your mac: As of `boot2docker` 1.7 you'll run into permission problems with mounted
@@ -83,57 +66,19 @@ Build the Stack
 ---------------
 
 This can take a while, especially the first time you run this particular command
-on your development system.
+on your development system::
 
-::
-
-    $ docker-compose build
+    $ docker-compose -f dev.yml build
+    
+If you want to build the production environment you don't have to pass an argument -f, it will automatically use docker-compose.yml. 
 
 Boot the System
-------------------------------
+---------------
 
-This brings up both Django and PostgreSQL. The first time it is run it might
-take a while to get started, but subsequent runs will occur quickly.
+This brings up both Django and PostgreSQL. 
 
-::
-
-    $ docker-compose -f dev.yml up
-
-If you want to run the entire system in production mode, then run:
-
-::
-
-    $ docker-compose up
-
-If you want to run the stack in detached mode (in the background), use the ``-d`` argument::
-
-::
-
-    $ docker-compose up -d
-
-Running bash commands (i.e. management commands)
-----------------------------------------------------
-
-This is done using the ``docker-compose run`` command. In the following examples
-we specify the ``django`` container as the location to run our management commands.
-
-Example:
-
-    $ docker-compose run django python manage.py migrate
-    $ docker-compose run django python manage.py createsuperuser
-
-
-
-Deprecated
-==========
-
-**Note:** This segment of documentation is being kept in this location as part of our documentation transition process.
-
-
-The steps below will get you up and running with a local development environment. We assume you have the following installed:
-
-* docker
-* docker-compose
+The first time it is run it might take a while to get started, but subsequent 
+runs will occur quickly.
 
 Open a terminal at the project root and run the following for local development::
 
@@ -146,10 +91,43 @@ You can also set the environment variable ``COMPOSE_FILE`` pointing to ``dev.yml
 And then run::
 
     $ docker-compose up
+    
+Running management commands
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+As with any shell command that we wish to run in our container, this is done 
+using the ``docker-compose run`` command. 
 
 To migrate your app and to create a superuser, run::
 
     $ docker-compose run django python manage.py migrate
-
     $ docker-compose run django python manage.py createsuperuser
+
+Here we specify the ``django`` container as the location to run our management commands.
+
+Production Mode
+~~~~~~~~~~~~~~~~
+
+Instead of using `dev.yml`, you would use `docker-compose.yml`.
+
+Other Useful Tips
+------------------
+
+Make a machine the active unit
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This tells our computer that all future commands are specifically for the dev1 machine. 
+Using the ``eval`` command we can switch machines as needed.
+
+::
+
+    $ eval "$(docker-machine env dev1)"
+
+Detached Mode
+~~~~~~~~~~~~~
+
+If you want to run the stack in detached mode (in the background), use the ``-d`` argument:
+
+::
+
+    $ docker-compose up -d

@@ -2,6 +2,48 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-10-22]
+### Removed
+- Remove unnecessary .gitkeep in static/images/ (@audreyr)
+
+## [2015-10-21]
+### Changed
+- TODO (@pydanny)
+- TODO (@theskumar)
+
+## [2015-10-19]
+### Changed
+- On Windows, don't install psycopg2 locally. Still install it in test/prod which are assumed to be Unix. (@audreyr)
+
+## [2015-10-15]
+### Changed
+- Made `post_gen_hook` function to change secret keys in files more generic (@pydanny)
+- Set cryptographically randomized value to `DJANGO_SECRET_KEY` in `env.example` (@pydanny)
+
+## [2015-10-14]
+### Added
+- Documention of project options (@audreyr)
+### Changed
+- Added clarification on building for local or production (@MathijsHoogland)
+- Whitespace correction in dev.yml (@MathijsHoogland)
+
+## [2015-10-13]
+### Changed
+- Requirements update (@theskumar)
+
+## [2015-10-11]
+### Changed
+- Fixed raven issue on development (#302) (@jazztpt )
+
+## [2015-10-05]
+### Changed
+- Update version of Django, Pillow, hitchselenium, psutil (@luzfcb)
+
+## [2015-10-04]
+### Changed
+- Remove stray closing tags and fix navbar margin in in base.html (@hairychris)
+- Docker docs to be functional and more understandable (@audreyr)
+
 ## [2015-09-30]
 ### Changed
 - Fixed Sentry logging with celery (@jayfk)

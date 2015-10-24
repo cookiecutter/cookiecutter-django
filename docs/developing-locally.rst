@@ -15,11 +15,9 @@ First make sure to create and activate a virtualenv_, then open a terminal at th
 
 .. _virtualenv: http://docs.python-guide.org/en/latest/dev/virtualenvs/
 
-Then, create a PostgreSQL database and add the database configuration using the  ``dj-database-url`` app pattern: ``postgres://db_owner:password@dbserver_ip:port/db_name`` either:
+Then, create a PostgreSQL database with the following command, where `[repo_name]` is what value you entered for your project's `repo_name`::
 
-* in the ``config.settings.common.py`` setting file,
-* or in the environment variable ``DATABASE_URL``
-
+    $ createdb [repo_name]
 
 You can now run the usual Django ``migrate`` and ``runserver`` command::
 

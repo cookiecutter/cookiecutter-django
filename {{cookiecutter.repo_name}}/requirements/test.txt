@@ -1,5 +1,12 @@
 # Test dependencies go here.
 -r base.txt
+
+{% if cookiecutter.windows == 'y' -%}
+# Python-PostgreSQL Database Adapter
+# If using Win for dev, this assumes Unix in test/prod
+psycopg2==2.6.1
+{%- endif %}
+
 coverage==4.0
 flake8==2.4.1
 django-test-plus==1.0.9

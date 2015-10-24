@@ -55,28 +55,43 @@ def get_random_string(
             ).digest())
     return ''.join(random.choice(allowed_chars) for i in range(length))
 
-def make_secret_key(project_directory):
-    """Generates and saves random secret key"""
-    # Determine the local_setting_file_location
-    local_setting_file_location = os.path.join(
-        project_directory,
-        'config/settings/local.py'
-    )
-
+def set_secret_key(setting_file_location):
     # Open locals.py
-    with open(local_setting_file_location) as f:
-        local_py = f.read()
+    with open(setting_file_location) as f:
+        file_ = f.read()
 
     # Generate a SECRET_KEY that matches the Django standard
     SECRET_KEY = get_random_string()
     SECRET_KEY = 'CHANGEME!!!' + SECRET_KEY
 
     # Replace "CHANGEME!!!" with SECRET_KEY
-    local_py = local_py.replace('CHANGEME!!!', SECRET_KEY)
+    file_ = file_.replace('CHANGEME!!!', SECRET_KEY)
 
     # Write the results to the locals.py module
-    with open(local_setting_file_location, 'w') as f:
-        f.write(local_py)
+    with open(setting_file_location, 'w') as f:
+        f.write(file_)
+
+
+def make_secret_key(project_directory):
+    """Generates and saves random secret key"""
+    # Determine the local_setting_file_location
+    local_setting = os.path.join(
+        project_directory,
+        'config/settings/local.py'
+    )
+
+    # local.py settings file
+    set_secret_key(local_setting)
+
+    env_file = os.path.join(
+        project_directory,
+        'env.example'
+    )
+
+    # env.example file
+    set_secret_key(env_file)
+
+
 
 def remove_task_app(project_directory):
     """Removes the taskapp if celery isn't going to be used"""

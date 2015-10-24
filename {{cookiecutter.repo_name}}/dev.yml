@@ -1,4 +1,3 @@
-
 postgres:
   image: postgres
   volumes:
