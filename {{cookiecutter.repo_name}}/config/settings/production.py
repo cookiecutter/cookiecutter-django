@@ -218,6 +218,6 @@ RAVEN_CONFIG = {
 }
 {% endif %}
 # Custom Admin URL, use {% raw %}{% url 'admin:index' %}{% endraw %}
-ADMIN_URL = env('ADMIN_URL')
+ADMIN_URL = env('DJANGO_ADMIN_URL')
 
 # Your production stuff: Below this line define 3rd party library settings
