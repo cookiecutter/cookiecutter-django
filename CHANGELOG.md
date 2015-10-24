@@ -2,6 +2,13 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-10-24]
+### Changed
+- Replaced ADD with COPY in dockerfiles (@audreyr)
+- Simplified development dockerfile (@jayfk)
+- Moved the docker postgres volume on the development environment to it's own subfolder (@jayfk)
+- Renamed DJANGO_CACHE_URL to REDIS_URL (@jayfk / proposed by @pydanny)
+
 ## [2015-10-22]
 ### Removed
 - Remove unnecessary .gitkeep in static/images/ (@audreyr)
