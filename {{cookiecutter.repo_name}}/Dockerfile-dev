@@ -10,7 +10,7 @@ COPY ./requirements /requirements
 RUN pip install -r /requirements/local.txt
 
 COPY ./compose/django/entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh && chown django /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 WORKDIR /app
 
