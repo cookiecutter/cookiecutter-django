@@ -3,7 +3,9 @@ All enhancements and patches to cookiecutter-django will be documented in this f
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2015-10-25]
-- Added `setup.py` so we can list it on PyPI and therefore displayed on djangopackages.com as compatible with Python 3.
+### Added
+- `setup.py` so we can list it on PyPI and therefore displayed on djangopackages.com as compatible with Python 3. (@pydanny)
+- Versioning and tagging policy (@pydanny)
 
 ## [2015-10-24]
 ### Changed
