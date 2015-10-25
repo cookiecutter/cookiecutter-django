@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2015-10-24]
 ### Changed
+- Update nav in base template to latest Bootstrap 4 version (@audreyr)
 - Replaced ADD with COPY in dockerfiles (@audreyr)
 - Simplified development dockerfile (@jayfk)
 - Moved the docker postgres volume on the development environment to it's own subfolder (@jayfk)
