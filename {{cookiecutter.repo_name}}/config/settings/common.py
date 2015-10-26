@@ -220,7 +220,6 @@ LOGIN_URL = 'account_login'
 
 # SLUGLIFIER
 AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
-
 {% if cookiecutter.use_celery == "y" %}
 ########## CELERY
 INSTALLED_APPS += ('{{cookiecutter.repo_name}}.taskapp.celery.CeleryConfig',)

@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Move current logging config into production.py since it's not useful locally anyway. Used only if not using Sentry. (@audreyr)
 - `setup.py` so we can list it on PyPI and therefore displayed on djangopackages.com as compatible with Python 3. (@pydanny)
 - Versioning and tagging policy (@pydanny)
+- Fixed flake8 issue (@pydanny)
 
 ## [2015-10-24]
 ### Changed
