@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-10-27]
+### Added
+- Added sudo: true to the travis file (@MathijsHoogland)
+
 ## [2015-10-25]
 ### Added
 - Move current logging config into production.py since it's not useful locally anyway. Used only if not using Sentry. (@audreyr)
