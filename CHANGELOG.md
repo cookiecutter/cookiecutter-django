@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-10-28]
+### Changed
+- Update deployment-on-heroku.rst for ADMIN_URL (@yunti)
+
 ## [2015-10-27]
 ### Added
 - Added sudo: true to the travis file (@MathijsHoogland)
