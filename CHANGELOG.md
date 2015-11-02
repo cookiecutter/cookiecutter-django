@@ -2,6 +2,39 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-10-28]
+### Changed
+- Update deployment-on-heroku.rst for ADMIN_URL (@yunti)
+
+## [2015-10-27]
+### Added
+- Added sudo: true to the travis file (@MathijsHoogland)
+
+## [2015-10-25]
+### Added
+- Move current logging config into production.py since it's not useful locally anyway. Used only if not using Sentry. (@audreyr)
+- `setup.py` so we can list it on PyPI and therefore displayed on djangopackages.com as compatible with Python 3. (@pydanny)
+- Versioning and tagging policy (@pydanny)
+- Fixed flake8 issue (@pydanny)
+
+## [2015-10-24]
+### Changed
+- Update nav in base template to latest Bootstrap 4 version (@audreyr)
+- Replaced ADD with COPY in dockerfiles (@audreyr)
+- Simplified development dockerfile (@jayfk)
+- Moved the docker postgres volume on the development environment to it's own subfolder (@jayfk)
+- Renamed DJANGO_CACHE_URL to REDIS_URL (@jayfk / proposed by @pydanny)
+
+## [2015-10-22]
+### Removed
+- Remove unnecessary .gitkeep in static/images/ (@audreyr)
+
+## [2015-10-21]
+### Changed
+- Updated requirements (@theskumar)
+### Removed
+- editorconfig comment that was just a isort settings link (@pydanny)
+
 ## [2015-10-19]
 ### Changed
 - On Windows, don't install psycopg2 locally. Still install it in test/prod which are assumed to be Unix. (@audreyr)

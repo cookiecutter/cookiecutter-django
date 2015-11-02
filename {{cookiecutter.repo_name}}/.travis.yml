@@ -1,3 +1,4 @@
+sudo: true
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq build-essential gettext python-dev zlib1g-dev libpq-dev xvfb
