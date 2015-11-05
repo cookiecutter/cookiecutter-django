@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-11-05]
+### Changed
+- Update version of django-extensions (@luzfcb)
+
 ## [2015-11-04]
 ### Changed
 - Update version of Django, cookiecutter, celery, coverage, django-mailgun, django-redis, factory_boy, flake8, pytest and pytz (@luzfcb)
