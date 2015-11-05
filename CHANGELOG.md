@@ -2,6 +2,12 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-11-04]
+### Changed
+- Update version of Django, cookiecutter, celery, coverage, django-mailgun, django-redis, factory_boy, flake8, pytest and pytz (@luzfcb)
+- Update AngularJS version to 1.4.7 (@luzfcb)
+- Update 'now' date in cookiecutter.json (@luzfcb)
+
 ## [2015-10-28]
 ### Changed
 - Update deployment-on-heroku.rst for ADMIN_URL (@yunti)
