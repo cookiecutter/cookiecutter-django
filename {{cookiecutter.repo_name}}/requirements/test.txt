@@ -7,7 +7,7 @@
 psycopg2==2.6.1
 {%- endif %}
 
-coverage==4.0
-flake8==2.4.1
+coverage==4.0.2
+flake8==2.5.0
 django-test-plus==1.0.9
-factory_boy==2.5.2
+factory_boy==2.6.0
