@@ -3,8 +3,12 @@ All enhancements and patches to cookiecutter-django will be documented in this f
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2015-11-06]
+### Added
+- \*tests\* to `.coveragerc`, because including it is cheating! (@pydanny)
+- Binaryornot to cookiecutter-django's own tests because otherwise Python 3 blows up (@audreyr)
 ### Changed
-- Added *tests* to `.coveragerc`, because including it is cheating! (@pydanny)
+- `.travis.yml` configuration to support Python 3.4 and 3.5 (@pydanny)
+- `.gitignore` configuration so py.test cache files don't show up in git status.
 
 ## [2015-11-05]
 ### Changed
