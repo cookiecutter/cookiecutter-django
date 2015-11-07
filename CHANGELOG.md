@@ -2,7 +2,7 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2015-10-24]
+## [2015-11-7]
 ### Changed
 - Added newrelic support (@amjith)
 - Fixed an error where celery could'nt load the sentry DSN from settings (@jayfk)
