@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2015-10-24]
 ### Changed
+- Added newrelic support (@amjith)
 - Fixed an error where celery could'nt load the sentry DSN from settings (@jayfk)
 - Added DJANGO_SENTRY_DSN to env.example (@jayfk)
 - Renamed ADMIN_URL to DJANGO_ADMIN_URL in env.example (@ChrisPappalardo)
