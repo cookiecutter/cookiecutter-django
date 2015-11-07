@@ -59,6 +59,7 @@ Code Contributors
 * Chris Franklin / @hairychris
 * Anna Callahan / @jazztpt
 * Mathijs Hoogland / @MathijsHoogland
+* Chris Pappalardo / @ChrisPappalardo
 
 \* Possesses commit rights
 
