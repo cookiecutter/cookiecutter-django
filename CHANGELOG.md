@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - \*tests\* to `.coveragerc`, because including it is cheating! (@pydanny)
 - Binaryornot to cookiecutter-django's own tests because otherwise Python 3 blows up (@audreyr)
+
 ### Changed
 - `.travis.yml` configuration to support Python 3.4 and 3.5 (@pydanny)
 - `.gitignore` configuration so py.test cache files don't show up in git status.
