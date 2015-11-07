@@ -1,6 +1,7 @@
 cookiecutter==1.2.1
 flake8==2.5.0
 sh
+binaryornot==0.4.0
 
 # Debugging
 # -------------------------------------

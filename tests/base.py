@@ -4,6 +4,7 @@ import shutil
 import unittest
 from os.path import exists, dirname, join
 
+from binaryornot.check import is_binary
 import sh
 
 from cookiecutter.main import cookiecutter
@@ -26,11 +27,12 @@ class DjangoCookieTestCase(unittest.TestCase):
 
         # Assert that no match is found in any of the files
         for path in paths:
-            for line in open(path, 'r'):
-                match = re_obj.search(line)
-                self.assertIsNone(
-                    match,
-                    "cookiecutter variable not replaced in {}".format(path))
+            if not is_binary(path):
+                for line in open(path, 'r'):
+                    match = re_obj.search(line)
+                    self.assertIsNone(
+                        match,
+                        "cookiecutter variable not replaced in {}".format(path))
 
     def generate_project(self, extra_context=None):
         ctx = {
