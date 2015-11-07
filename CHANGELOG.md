@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [2015-11-05]
 ### Changed
 - Update version of django-extensions (@luzfcb)
+- Fix gevent requirement for Python 3 (@mcho421)
 
 ## [2015-11-04]
 ### Changed
