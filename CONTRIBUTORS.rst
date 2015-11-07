@@ -60,6 +60,7 @@ Code Contributors
 * Anna Callahan / @jazztpt
 * Mathijs Hoogland / @MathijsHoogland
 * Chris Pappalardo / @ChrisPappalardo
+* Amjith Ramanujam / @amjith
 
 \* Possesses commit rights
 
