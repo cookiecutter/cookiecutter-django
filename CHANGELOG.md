@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-10-24]
+### Changed
+- Renamed ADMIN_URL to DJANGO_ADMIN_URL in env.example (@ChrisPappalardo)
+
 ## [2015-11-06]
 ### Added
 - \*tests\* to `.coveragerc`, because including it is cheating! (@pydanny)
