@@ -61,6 +61,7 @@ Code Contributors
 * Mathijs Hoogland / @MathijsHoogland
 * Chris Pappalardo / @ChrisPappalardo
 * Amjith Ramanujam / @amjith
+* Garry Polley / @garrypolley
 
 \* Possesses commit rights
 
