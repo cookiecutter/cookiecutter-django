@@ -2,6 +2,7 @@
 
 import os
 import re
+import sh
 
 import pytest
 from binaryornot.check import is_binary
@@ -34,7 +35,7 @@ def build_files_list(root_dir):
         for file_path in files
     ]
 
-    
+
 def check_paths(paths):
     """Method to check all paths have correct substitutions,
     used by other tests cases
@@ -77,3 +78,13 @@ def test_enabled_features(cookies, feature_context):
     paths = build_files_list(str(result.project))
     assert paths
     check_paths(paths)
+
+
+def test_flake8_compliance(cookies):
+    """generated project should pass flake8"""
+    result = cookies.bake()
+
+    try:
+        sh.flake8(str(result.project))
+    except sh.ErrorReturnCode as e:
+        pytest.fail(e)
