@@ -3,10 +3,13 @@ All enhancements and patches to cookiecutter-django will be documented in this f
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2015-11-7]
+### Added
+- newrelic support (@amjith)
+- DJANGO_SENTRY_DSN to env.example (@jayfk)
+
 ### Changed
-- Added newrelic support (@amjith)
-- Fixed an error where celery could'nt load the sentry DSN from settings (@jayfk)
-- Added DJANGO_SENTRY_DSN to env.example (@jayfk)
+- Made `post_gen_hook.set_secret_key()` only changes one CHANGEME!!! at a time.
+- Fixed an error where celery couldn't load the sentry DSN from settings (@jayfk)
 - Renamed ADMIN_URL to DJANGO_ADMIN_URL in env.example (@ChrisPappalardo)
 
 ## [2015-11-06]

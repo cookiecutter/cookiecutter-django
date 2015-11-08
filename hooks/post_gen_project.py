@@ -62,10 +62,9 @@ def set_secret_key(setting_file_location):
 
     # Generate a SECRET_KEY that matches the Django standard
     SECRET_KEY = get_random_string()
-    SECRET_KEY = 'CHANGEME!!!' + SECRET_KEY
 
     # Replace "CHANGEME!!!" with SECRET_KEY
-    file_ = file_.replace('CHANGEME!!!', SECRET_KEY)
+    file_ = file_.replace('CHANGEME!!!', SECRET_KEY, 1)
 
     # Write the results to the locals.py module
     with open(setting_file_location, 'w') as f:
@@ -90,7 +89,6 @@ def make_secret_key(project_directory):
 
     # env.example file
     set_secret_key(env_file)
-
 
 
 def remove_task_app(project_directory):
