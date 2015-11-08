@@ -59,3 +59,21 @@ def test_default_configuration(cookies, context):
     paths = build_files_list(str(result.project))
     assert paths
     check_paths(paths)
+
+
+@pytest.fixture(params=['use_maildump', 'use_celery', 'windows'])
+def feature_context(request, context):
+    context.update({request.param: 'y'})
+    return context
+
+
+def test_enabled_features(cookies, feature_context):
+    result = cookies.bake(extra_context=feature_context)
+    assert result.exit_code == 0
+    assert result.exception is None
+    assert result.project.basename == feature_context['repo_name']
+    assert result.project.isdir()
+
+    paths = build_files_list(str(result.project))
+    assert paths
+    check_paths(paths)
