@@ -62,6 +62,7 @@ Code Contributors
 * Chris Pappalardo / @ChrisPappalardo
 * Amjith Ramanujam / @amjith
 * Garry Polley / @garrypolley
+* Théo Segonds / show0k
 
 \* Possesses commit rights
 
