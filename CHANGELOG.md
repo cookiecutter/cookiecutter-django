@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-11-09]
+### Changed
+- Now using py.test for our test suite!! (@hackebrot)
+
 ## [2015-11-08]
 ### Changed
 - bump django-extensions version (@garrypolley)
