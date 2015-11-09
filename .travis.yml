@@ -1,14 +1,17 @@
-language: python
-python:
-  - 3.5
-  - 3.4
-  - 2.7
-sudo: false
-install:
-- pip install -r requirements.txt
+# Config file for automatic testing at travis-ci.org
 
-script:
-  - py.test
+sudo: false
+language: python
+python: 3.5
+env:
+    - TOX_ENV=py27
+    - TOX_ENV=py34
+    - TOX_ENV=py35
+
+script: tox -e $TOX_ENV
+
+install:
+    - pip install tox
 
 notifications:
   email:
