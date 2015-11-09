@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [2015-11-09]
 ### Changed
 - Now using py.test for our test suite!! (@hackebrot)
+- Python version in travis.yml is now correct for the selected version of Django (@show0k)
 
 ## [2015-11-08]
 ### Changed
