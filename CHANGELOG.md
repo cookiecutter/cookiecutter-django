@@ -6,6 +6,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Update version of django-allauth (@yunti)
 
+### Removed
+- remove ```{% load url from future %}``` in templates - deprecated in django 1.9 (@yunti)
+
 ## [2015-11-11]
 ### Added
 - Added django_coverage_plugin to measure Django template coverage (@audreyr)
