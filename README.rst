@@ -85,6 +85,8 @@ You'll be prompted for some questions, answer them, then it will create a Django
 
 **Warning**: After this point, change 'Daniel Greenfeld', 'pydanny', etc to your own information.
 
+**Warning**: repo_name must be a valid Python module name or you will have issues on imports.
+
 It prompts you for questions. Answer them::
 
     Cloning into 'cookiecutter-django'...
