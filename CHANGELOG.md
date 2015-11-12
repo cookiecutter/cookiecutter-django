@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-11-11]
+### Added
+- Added django_coverage_plugin to measure Django template coverage (@audreyr)
+
 ## [2015-11-09]
 ### Changed
 - Now using py.test for our test suite!! (@hackebrot)
