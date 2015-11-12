@@ -8,5 +8,5 @@ class UserFactory(factory.django.DjangoModelFactory):
     password = factory.PosteGnerationMethodCall('set_password', 'password')
 
     class Meta:
-        model = 'users.User'
+        model = models.User
         django_get_or_create = ('username', )
