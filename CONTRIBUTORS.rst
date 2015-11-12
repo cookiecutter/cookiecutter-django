@@ -63,6 +63,7 @@ Code Contributors
 * Amjith Ramanujam / @amjith
 * Garry Polley / @garrypolley
 * Théo Segonds / show0k
+* Cristian Vargas / @cdvv7788
 
 \* Possesses commit rights
 
