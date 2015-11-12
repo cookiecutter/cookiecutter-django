@@ -1,7 +1,6 @@
 {% raw %}{% extends "account/base.html" %}
 
 {% load i18n %}
-{% load url from future %}
 {% load crispy_forms_tags %}
 
 {% block head_title %}{% trans "Account" %}{% endblock %}
@@ -13,7 +12,7 @@
       <h2>{% trans "E-mail Addresses" %}</h2>
       {% if user.emailaddress_set.all %}
       <p>{% trans 'The following e-mail addresses are associated with your account:' %}</p>
-          
+
       <form action="{% url 'account_email' %}" class="email_list" method="post">
       {% csrf_token %}
       <fieldset class="blockLabels">
@@ -44,14 +43,14 @@
       </fieldset>
       </form>
 
-      {% else %} 
+      {% else %}
       <p><strong>{% trans 'Warning:'%}</strong> {% trans "You currently do not have any e-mail address set up. You should really add an e-mail address so you can receive notifications, reset your password, etc." %}</p>
 
       {% endif %}
 
 
           <h2>{% trans "Add E-mail Address" %}</h2>
-          
+
           <form method="post" action="." class="add_email">
               {% csrf_token %}
               {{ form|crispy }}
