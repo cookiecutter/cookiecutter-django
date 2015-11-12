@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [2015-11-12]
 ### Changed
 - Update version of django-allauth (@yunti)
+- Added a warning in README.rst: ```repo_name must be a valid Python module``` @cdvv7788
 
 ### Removed
 - remove ```{% load url from future %}``` in templates - deprecated in django 1.9 (@yunti)
