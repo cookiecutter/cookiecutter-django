@@ -21,7 +21,6 @@ from django.utils import six
 import logging
 {% endif %}
 
-
 from .common import *  # noqa
 
 # SECRET CONFIGURATION
