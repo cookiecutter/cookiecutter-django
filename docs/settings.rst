@@ -24,7 +24,7 @@ DJANGO_SESSION_COOKIE_SECURE            SESSION_COOKIE_SECURE       n/a         
 DJANGO_DEFAULT_FROM_EMAIL               DEFAULT_FROM_EMAIL          n/a                                            "your_project_name <noreply@your_domain_name>"
 DJANGO_SERVER_EMAIL                     SERVER_EMAIL                n/a                                            "your_project_name <noreply@your_domain_name>"
 DJANGO_EMAIL_SUBJECT_PREFIX             EMAIL_SUBJECT_PREFIX        n/a                                            "[your_project_name] "
-DJANGO_ALLOWED_HOSTS                    ALLOWED_HOSTS               ['*']                                          ['your_project_name}']
+DJANGO_ALLOWED_HOSTS                    ALLOWED_HOSTS               ['*']                                          ['your_domain_name']
 ======================================= =========================== ============================================== ======================================================================
 
 The following table lists settings and their defaults for third-party applications, which may or may be part of your project:
