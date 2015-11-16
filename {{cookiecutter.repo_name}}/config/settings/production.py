@@ -9,6 +9,9 @@ Production Configurations
 {% if cookiecutter.use_sentry == "y" %}
 - Use sentry for error logging
 {% endif %}
+{% if cookiecutter.use_opbeat == "y" %}
+- Use opbeat for error reporting
+{% endif %}
 '''
 from __future__ import absolute_import, unicode_literals
 
@@ -17,6 +20,7 @@ from django.utils import six
 {% if cookiecutter.use_sentry == "y" %}
 import logging
 {% endif %}
+
 
 from .common import *  # noqa
 
@@ -52,7 +56,19 @@ MIDDLEWARE_CLASSES = SECURITY_MIDDLEWARE + \
 MIDDLEWARE_CLASSES = SECURITY_MIDDLEWARE + MIDDLEWARE_CLASSES
 
 {%- endif %}
-
+{% if cookiecutter.use_opbeat == "y" -%}
+# opbeat integration
+# See https://opbeat.com/languages/django/
+INSTALLED_APPS += ('opbeat.contrib.django',)
+OPBEAT = {
+    'ORGANIZATION_ID': env('DJANGO_OPBEAT_ORGANIZATION_ID'),
+    'APP_ID': env('DJANGO_OPBEAT_APP_ID'),
+    'SECRET_TOKEN': env('DJANGO_OPBEAT_SECRET_TOKEN')
+}
+MIDDLEWARE_CLASSES += (
+    'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
+)
+{%- endif %}
 # set this to 60 seconds and then to 518400 when you can prove it works
 SECURE_HSTS_SECONDS = 60
 SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool(
