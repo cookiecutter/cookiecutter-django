@@ -34,10 +34,10 @@ use_celery [n]
     Whether to use Celery_. This gives you the ability to use distributed task
     queues in your project.
 
-use_maildump [n]
-    Whether to use Maildump_. Maildump is a tool that simulates email receiving
-    for development purposes. It runs a super simple SMTP server which catches
-    any message sent to it. Then messages are displayed in a web interface.
+use_mailhog [n]
+    Whether to use MailHog_. MailHog is a tool that simulates email receiving
+    for development purposes. It runs a simple SMTP server which catches
+    any message sent to it. Messages are displayed in a web interface which runs at ``http://localhost:8025/`` You need to download the MailHog executable for your operating system, see the 'Developing Locally' docs for instructions.
 
 use_sentry [n]
     Whether to use Sentry_ to log errors from your project.
@@ -51,5 +51,5 @@ use_python2 [n]
 
 .. _WhiteNoise: https://github.com/evansd/whitenoise
 .. _Celery: https://github.com/celery/celery
-.. _Maildump: https://github.com/ThiefMaster/maildump
+.. _MailHog: https://github.com/mailhog/MailHog
 .. _Sentry: https://github.com/getsentry/sentry

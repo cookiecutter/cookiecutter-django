@@ -62,7 +62,7 @@ def test_default_configuration(cookies, context):
     check_paths(paths)
 
 
-@pytest.fixture(params=['use_maildump', 'use_celery', 'windows'])
+@pytest.fixture(params=['use_mailhog', 'use_celery', 'windows'])
 def feature_context(request, context):
     context.update({request.param: 'y'})
     return context

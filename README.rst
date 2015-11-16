@@ -32,13 +32,19 @@ Features
 * Grunt build for compass and livereload
 * Basic e-mail configurations for sending emails via Mailgun_
 * Media storage using Amazon S3
-* Serve static files from Amazon S3 or Whitenoise_ (optional)
-* Pre configured Celery_ (optional)
-* Integration with Maildump_ for local email testing (optional)
-* Integration with Sentry_ for error logging (optional)
-* Integration with NewRelic_ for performance monitoring (optional)
-* Docker support using docker-compose_ for dev and prod
+* Docker support using docker-compose_ for development and production
 * Procfile_ for deploying to Heroku
+
+Optional Integrations
+---------------------
+
+*These features can be enabled during initial project setup.*
+
+* Serve static files from Amazon S3 or Whitenoise_
+* Configuration for Celery_
+* Integration with MailHog_ for local email testing
+* Integration with Sentry_ for error logging
+* Integration with NewRelic_ for performance monitoring
 
 .. _alpha: http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/
 .. _Hitch: https://github.com/hitchtest/hitchtest
@@ -52,7 +58,7 @@ Features
 .. _Mailgun: https://mailgun.com/
 .. _Whitenoise: https://whitenoise.readthedocs.org/
 .. _Celery: http://www.celeryproject.org/
-.. _Maildump: https://github.com/ThiefMaster/maildump
+.. _MailHog: https://github.com/mailhog/MailHog
 .. _Sentry: https://getsentry.com
 .. _NewRelic: https://newrelic.com
 .. _docker-compose: https://www.github.com/docker/compose
@@ -107,7 +113,7 @@ It prompts you for questions. Answer them::
     year [2015]:
     use_whitenoise [y]: n
     use_celery [n]: y
-    use_maildump [n]: n
+    use_mailhog [n]: n
     use_sentry [n]: y
     use_newrelic [n]: y
     windows [n]: n
