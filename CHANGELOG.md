@@ -2,6 +2,14 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-11-16]
+### Changed
+- Cleanup of main README (@burhan)
+
+## [2015-11-15]
+### Added
+- Added `UserFactory` for users.User tests (@ad-m)
+
 ## [2015-11-12]
 ### Changed
 - Update version of django-allauth (@yunti)
