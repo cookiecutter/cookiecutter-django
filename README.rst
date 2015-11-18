@@ -118,7 +118,7 @@ It prompts you for questions. Answer them::
     use_maildump [n]: n
     use_sentry [n]: y
     use_newrelic [n]: y
-    use_obpeat [n]: y
+    use_opbeat [n]: y
     windows [n]: n
     use_python2 [n]: y
 
