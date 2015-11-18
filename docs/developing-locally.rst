@@ -31,9 +31,16 @@ django-allauth sends an email to verify users (and superusers) after signup and 
 
 .. _configure your email backend: http://docs.djangoproject.com/en/1.8/topics/email/#smtp-backend
 
-In development you can (optionally) use Maildump_ for email testing. Or alternatively simply output emails to the console via: ``EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'``
+In development you can (optionally) use MailHog_ for email testing. MailHog is built with Go so there are no dependencies. To use MailHog::
 
-.. _Maildump: https://github.com/ThiefMaster/maildump
+1. `Download the latest release`_ for your operating system
+2. Rename the executable to ``mailhog`` and copy it to the root of your project directory
+3. Make sure it is executable (e.g. ``chmod +x mailhog``)
+
+.. _Mailhog: https://github.com/mailhog/MailHog/
+.. _Download the latest release: https://github.com/mailhog/MailHog/releases
+
+Alternatively simply output emails to the console via: ``EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'``
 
 In production basic email configuration is setup to send emails with Mailgun_
 
