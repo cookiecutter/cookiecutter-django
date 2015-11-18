@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [2015-11-17]
 ### Added
 - initial configuration to support opbeat (@burhan)
+### Removed
+- Took *.pyc out of .gitignore, because it's already covered by *.py[cod] (@audreyr)
 
 ## [2015-11-16]
 ### Changed
