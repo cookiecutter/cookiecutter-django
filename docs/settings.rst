@@ -24,7 +24,7 @@ DJANGO_SESSION_COOKIE_SECURE            SESSION_COOKIE_SECURE       n/a         
 DJANGO_DEFAULT_FROM_EMAIL               DEFAULT_FROM_EMAIL          n/a                                            "your_project_name <noreply@your_domain_name>"
 DJANGO_SERVER_EMAIL                     SERVER_EMAIL                n/a                                            "your_project_name <noreply@your_domain_name>"
 DJANGO_EMAIL_SUBJECT_PREFIX             EMAIL_SUBJECT_PREFIX        n/a                                            "[your_project_name] "
-DJANGO_ALLOWED_HOSTS                    ALLOWED_HOSTS               ['*']                                          ['your_project_name}']
+DJANGO_ALLOWED_HOSTS                    ALLOWED_HOSTS               ['*']                                          ['your_domain_name']
 ======================================= =========================== ============================================== ======================================================================
 
 The following table lists settings and their defaults for third-party applications, which may or may be part of your project:
@@ -41,4 +41,7 @@ DJANGO_SENTRY_LOG_LEVEL                 SENTRY_LOG_LEVEL            n/a         
 DJANGO_MAILGUN_API_KEY                  MAILGUN_ACCESS_KEY          n/a                                            raises error
 DJANGO_MAILGUN_SERVER_NAME              MAILGUN_SERVER_NAME         n/a                                            raises error
 NEW_RELIC_LICENSE_KEY                   NEW_RELIC_LICENSE_KEY       n/a                                            raises error
+DJANGO_OPBEAT_APP_ID                    OPBEAT['APP_ID']            n/a                                            raises error
+DJANGO_OPBEAT_SECRET_TOKEN              OPBEAT['SECRET_TOKEN']      n/a                                            raises error
+DJANGO_OPBEAT_ORGANIZATION_ID           OPBEAT['ORGANIZATION_ID']   n/a                                            raises error
 ======================================= =========================== ============================================== ======================================================================

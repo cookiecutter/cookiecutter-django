@@ -32,13 +32,20 @@ Features
 * Grunt build for compass and livereload
 * Basic e-mail configurations for sending emails via Mailgun_
 * Media storage using Amazon S3
-* Serve static files from Amazon S3 or Whitenoise_ (optional)
-* Pre configured Celery_ (optional)
-* Integration with Maildump_ for local email testing (optional)
-* Integration with Sentry_ for error logging (optional)
-* Integration with NewRelic_ for performance monitoring (optional)
-* Docker support using docker-compose_ for dev and prod
+* Docker support using docker-compose_ for development and production
 * Procfile_ for deploying to Heroku
+
+Optional Integrations
+---------------------
+
+*These features can be enabled during initial project setup.*
+
+* Serve static files from Amazon S3 or Whitenoise_
+* Configuration for Celery_
+* Integration with Maildump_ for local email testing
+* Integration with Sentry_ for error logging
+* Integration with NewRelic_ for performance monitoring
+* Integration with Opbeat_ for performance monitoring
 
 .. _alpha: http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/
 .. _Hitch: https://github.com/hitchtest/hitchtest
@@ -56,6 +63,7 @@ Features
 .. _Sentry: https://getsentry.com
 .. _NewRelic: https://newrelic.com
 .. _docker-compose: https://www.github.com/docker/compose
+.. _Opbeat: https://opbeat.com/
 
 
 Constraints
@@ -110,6 +118,7 @@ It prompts you for questions. Answer them::
     use_maildump [n]: n
     use_sentry [n]: y
     use_newrelic [n]: y
+    use_obpeat [n]: y
     windows [n]: n
     use_python2 [n]: y
 
