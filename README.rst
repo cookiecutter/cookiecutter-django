@@ -45,6 +45,7 @@ Optional Integrations
 * Integration with Maildump_ for local email testing
 * Integration with Sentry_ for error logging
 * Integration with NewRelic_ for performance monitoring
+* Integration with Opbeat_ for performance monitoring
 
 .. _alpha: http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/
 .. _Hitch: https://github.com/hitchtest/hitchtest
@@ -62,6 +63,7 @@ Optional Integrations
 .. _Sentry: https://getsentry.com
 .. _NewRelic: https://newrelic.com
 .. _docker-compose: https://www.github.com/docker/compose
+.. _Opbeat: https://opbeat.com/
 
 
 Constraints
@@ -116,6 +118,7 @@ It prompts you for questions. Answer them::
     use_maildump [n]: n
     use_sentry [n]: y
     use_newrelic [n]: y
+    use_obpeat [n]: y
     windows [n]: n
     use_python2 [n]: y
 
