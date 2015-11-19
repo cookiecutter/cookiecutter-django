@@ -2,9 +2,17 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-11-18]
+### Added
+- Mailhog as a replacement for Maildump
+
+### Removed
+- Maildump because it didn't support Python 3
+
 ## [2015-11-17]
 ### Added
 - initial configuration to support opbeat (@burhan)
+
 ### Removed
 - Took *.pyc out of .gitignore, because it's already covered by *.py[cod] (@audreyr)
 

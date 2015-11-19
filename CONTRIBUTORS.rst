@@ -64,6 +64,7 @@ Code Contributors
 * Garry Polley / @garrypolley
 * Théo Segonds / show0k
 * Cristian Vargas / @cdvv7788
+* Tom Atkins / @keybits
 
 \* Possesses commit rights
 
