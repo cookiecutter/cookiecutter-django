@@ -61,28 +61,25 @@ Please note: For Celerys import magic to work, it is important *where* the celer
 
 {% endif %}
 
-{% if cookiecutter.use_maildump == "y" %}
+{% if cookiecutter.use_mailhog == "y" %}
 
 Email Server
 ^^^^^^^^^^^^
 
-In development, it is often nice to be able to see emails that are being sent from your application. For this purpose,
-a Grunt task exists to start an instance of `maildump`_ which is a local SMTP server with an online interface.
+In development, it is often nice to be able to see emails that are being sent from your application. If you choose to use `MailHog`_ when generating the project a local SMTP server with a web interface will be available.
 
-.. _maildump: https://github.com/ThiefMaster/maildump
+.. _mailhog: https://github.com/mailhog/MailHog
 
-Make sure you have nodejs installed, and then type the following::
+To start the service, make sure you have nodejs installed, and then type the following::
 
-    $ grunt start-email-server
+    $ npm install
+    $ grunt serve
 
-This will start an email server. The project is setup to deliver to the email server by default. To view messages
-that are sent by your application, open your browser to http://127.0.0.1:1080
+(After the first run you only need to type ``grunt serve``) This will start an email server that listens on ``127.0.0.1:1025`` in addition to starting your Django project and a watch task for live reload.
 
-To stop the email server::
+To view messages that are sent by your application, open your browser and go to ``http://127.0.0.1:8025``
 
-    $ grunt stop-email-server
-
-The email server listens on 127.0.0.1:1025
+The email server will exit when you exit the Grunt task on the CLI with Ctrl+C.
 
 {% endif %}
 

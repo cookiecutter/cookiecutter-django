@@ -42,7 +42,7 @@ Optional Integrations
 
 * Serve static files from Amazon S3 or Whitenoise_
 * Configuration for Celery_
-* Integration with Maildump_ for local email testing
+* Integration with MailHog_ for local email testing
 * Integration with Sentry_ for error logging
 * Integration with NewRelic_ for performance monitoring
 * Integration with Opbeat_ for performance monitoring
@@ -59,7 +59,7 @@ Optional Integrations
 .. _Mailgun: https://mailgun.com/
 .. _Whitenoise: https://whitenoise.readthedocs.org/
 .. _Celery: http://www.celeryproject.org/
-.. _Maildump: https://github.com/ThiefMaster/maildump
+.. _MailHog: https://github.com/mailhog/MailHog
 .. _Sentry: https://getsentry.com
 .. _NewRelic: https://newrelic.com
 .. _docker-compose: https://www.github.com/docker/compose
@@ -115,7 +115,7 @@ It prompts you for questions. Answer them::
     year [2015]:
     use_whitenoise [y]: n
     use_celery [n]: y
-    use_maildump [n]: n
+    use_mailhog [n]: n
     use_sentry [n]: y
     use_newrelic [n]: y
     use_obpeat [n]: y
