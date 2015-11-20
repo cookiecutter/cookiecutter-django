@@ -2,12 +2,17 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-11-20]
+### Changed
+- Using python 3.5 on Heroku/Travis (@bogdal)
+- Fixed typo in README (@tedmiston)
+
 ## [2015-11-18]
 ### Added
-- Mailhog as a replacement for Maildump
+- Mailhog as a replacement for Maildump (@keybits )
 
 ### Removed
-- Maildump because it didn't support Python 3
+- Maildump because it didn't support Python 3 (@keybits)
 
 ## [2015-11-17]
 ### Added

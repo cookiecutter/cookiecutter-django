@@ -65,6 +65,7 @@ Code Contributors
 * Théo Segonds / show0k
 * Cristian Vargas / @cdvv7788
 * Tom Atkins / @keybits
+* Taylor Edmiston / @tedmiston
 
 \* Possesses commit rights
 
