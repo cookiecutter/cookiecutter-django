@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [2015-11-22]
 ### Changed
 - Move div class unquote outside the django if tag (@jvanbrug)
+- Changed gevent to `1.1rc1` for python 3 users (@jondelmil / @jayfk)
 
 ## [2015-11-20]
 ### Changed
