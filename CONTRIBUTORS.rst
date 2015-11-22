@@ -67,6 +67,7 @@ Code Contributors
 * Tom Atkins / @keybits
 * Taylor Edmiston / @tedmiston
 * Jan Van Bruggen / @jvanbrug
+* Jon Miller / @jondelmil
 
 \* Possesses commit rights
 
