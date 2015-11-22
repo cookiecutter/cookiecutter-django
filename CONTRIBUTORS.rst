@@ -66,6 +66,7 @@ Code Contributors
 * Cristian Vargas / @cdvv7788
 * Tom Atkins / @keybits
 * Taylor Edmiston / @tedmiston
+* Jan Van Bruggen / @jvanbrug
 
 \* Possesses commit rights
 
