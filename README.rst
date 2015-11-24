@@ -111,7 +111,7 @@ It prompts you for questions. Answer them::
     domain_name [example.com]: myreddit.com
     version [0.1.0]: 0.0.1
     timezone [UTC]:
-    now [2015/01/13]: 2015/09/30
+    now [2015/11/22]: 2015/11/22
     year [2015]:
     use_whitenoise [y]: n
     use_celery [n]: y

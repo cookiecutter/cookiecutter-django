@@ -8,7 +8,7 @@ hitchpostgres==0.6.7
 hitchpython==0.5.0
 hitchredis==0.4.5
 hitchselenium==0.4.8
-hitchserve==0.4.5
+hitchserve==0.4.6
 hitchsmtp==0.2.1
 hitchsystem==0.1.1
 hitchtest==0.9.2
@@ -33,7 +33,7 @@ selenium==2.48.0
 simplegeneric==0.8.1
 six==1.10.0
 tblib==1.1.0
-tornado==4.2.1
+tornado==4.3
 traitlets==4.0.0
-unixpackage==0.3.7
+unixpackage==0.4.0
 xeger==0.3
