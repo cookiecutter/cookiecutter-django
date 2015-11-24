@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Update AngularJS version to 1.4.8 (@luzfcb)
 - Update version of cookiecutter, pytest, tox, whitenoise, django-test-plus, django_coverage_plugin, Werkzeug, hitchserve, tornado, unixpackage (@luzfcb)
 - Update 'now' date in cookiecutter.json (@luzfcb)
+- `sh` package version pinned to `1.11` (@luzfcb)
 
 ## [2015-11-22]
 ### Changed
