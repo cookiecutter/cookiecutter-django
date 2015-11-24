@@ -1,11 +1,11 @@
 # Local development dependencies go here
 -r base.txt
 coverage==4.0.2
-django_coverage_plugin==1.0
+django_coverage_plugin==1.1
 Sphinx
 django-extensions==1.5.9
-Werkzeug==0.10.4
-django-test-plus==1.0.9
+Werkzeug==0.11.2
+django-test-plus==1.0.11
 factory_boy==2.6.0
 
 # django-debug-toolbar that works with Django 1.5+

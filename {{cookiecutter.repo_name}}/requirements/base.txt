@@ -5,7 +5,7 @@ django==1.8.6
 django-environ==0.4.0
 django-secure==1.0.1
 {% if cookiecutter.use_whitenoise == 'y' -%}
-whitenoise==2.0.4
+whitenoise==2.0.6
 {%- endif %}
 
 

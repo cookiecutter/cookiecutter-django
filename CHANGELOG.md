@@ -2,6 +2,12 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-11-23]
+### Changed
+- Update AngularJS version to 1.4.8 (@luzfcb)
+- Update version of cookiecutter, pytest, tox, whitenoise, django-test-plus, django_coverage_plugin, Werkzeug, hitchserve, tornado, unixpackage (@luzfcb)
+- Update 'now' date in cookiecutter.json (@luzfcb)
+
 ## [2015-11-22]
 ### Changed
 - Move div class unquote outside the django if tag (@jvanbrug)
