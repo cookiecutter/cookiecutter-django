@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [2015-11-24]
 ### Changed
 - Update version of Django, coverage and click (@luzfcb)
+- Fixed configuration for Celery in local.py. (@luzfcb @hackebrot)
 
 ## [2015-11-23]
 ### Changed
