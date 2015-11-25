@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Update version of psutil, ipython (@luzfcb)
 - Update version of gunicorn (@audreyr)
 - Remove debugging tools from non-generated part of cookiecutter-django, since those are personal prefs (@audreyr)
+- Update version of Django in setup.py (@luzfcb)
 
 ## [2015-11-24]
 ### Changed
