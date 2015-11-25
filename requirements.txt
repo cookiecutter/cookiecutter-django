@@ -3,15 +3,8 @@ flake8==2.5.0
 sh==1.11
 binaryornot==0.4.0
 
-# Debugging
-# -------------------------------------
-ipdb==0.8.1
-ipython==4.0.0
-
 # Testing
-# -------------------------------------
 pytest==2.8.3
-git+git://github.com/mverteuil/pytest-ipdb.git
 pep8==1.6.2
 pyflakes==1.0.0
 tox==2.2.1
