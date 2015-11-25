@@ -21,7 +21,7 @@ path.py==8.1.2
 patool==1.8
 pexpect==4.0.1
 pickleshare==0.5
-psutil==3.2.2
+psutil==3.3.0
 ptyprocess==0.5
 pykwalify==1.5.0
 python-build==0.2.5
