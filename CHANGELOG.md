@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [2015-11-25]
 ### Changed
 - Update version of psutil (@luzfcb)
+- Update version of gunicorn (@audreyr)
 
 ## [2015-11-24]
 ### Changed

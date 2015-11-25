@@ -17,7 +17,7 @@ gevent==1.0.2
 # there's no python 3 support in stable, have to use the latest release candidate for gevent
 gevent==1.1rc1
 {% endif %}
-gunicorn==19.3.0
+gunicorn==19.4.1
 
 # Static and Media Storage
 # ------------------------------------------------
