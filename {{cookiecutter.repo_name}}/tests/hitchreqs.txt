@@ -1,4 +1,4 @@
-click==6.0
+click==6.2
 colorama==0.3.3
 decorator==4.0.4
 docopt==0.6.2
@@ -24,7 +24,7 @@ pickleshare==0.5
 psutil==3.3.0
 ptyprocess==0.5
 pykwalify==1.5.0
-python-build==0.2.5
+python-build==0.2.6
 python-dateutil==2.4.2
 pyuv==1.2.0
 PyYAML==3.11

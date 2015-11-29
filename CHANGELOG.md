@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-11-29]
+### Changed
+- Update version of click and python-build (@luzfcb)
+
 ## [2015-11-25]
 ### Changed
 - Update version of psutil, ipython (@luzfcb)
