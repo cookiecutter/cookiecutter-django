@@ -68,6 +68,7 @@ Code Contributors
 * Taylor Edmiston / @tedmiston
 * Jan Van Bruggen / @jvanbrug
 * Jon Miller / @jondelmil
+* Thomas Korrison / @failsafe86
 
 \* Possesses commit rights
 
