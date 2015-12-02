@@ -1,5 +1,5 @@
 # Bleeding edge Django
-django==1.8.7
+django==1.8.7  # rq.filter: >=1.8,<1.9
 
 # Configuration
 django-environ==0.4.0
