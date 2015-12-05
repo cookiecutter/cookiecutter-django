@@ -69,6 +69,7 @@ Code Contributors
 * Jan Van Bruggen / @jvanbrug
 * Jon Miller / @jondelmil
 * Thomas Korrison / @failsafe86
+* David Díaz / @DavidDiazPinto *
 
 \* Possesses commit rights
 
