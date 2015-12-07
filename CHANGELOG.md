@@ -2,9 +2,13 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-12-06]
+### Changed
+- Reorganization of contributors (@burhan)
+
 ## [2015-12-01]
 ### Changed
-- Update documentation to include the installation os dependecies before development requirements (@failsafe86)
+- Update documentation to include the installation os dependencies before development requirements (@failsafe86)
 
 ## [2015-11-29]
 ### Changed
