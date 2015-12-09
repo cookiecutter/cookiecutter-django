@@ -17,7 +17,7 @@ You can either push the 'deploy' button in your generated README.rst or run thes
     heroku addons:create mailgun
 
     heroku config:set DJANGO_ADMIN_URL=`openssl rand -base64 32`
-    heroku config:set DJANGO_SECRET_KEY=`openssl rand -base64 32`
+    heroku config:set DJANGO_SECRET_KEY=`openssl rand -base64 64`
     heroku config:set DJANGO_SETTINGS_MODULE='config.settings.production'
     heroku config:set DJANGO_ALLOWED_HOSTS='.herokuapp.com'
 
