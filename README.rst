@@ -20,7 +20,7 @@ A Cookiecutter_ template for Django.
 Features
 ---------
 
-* For Django 1.8
+* For Django 1.9
 * Renders Django projects with 100% test coverage
 * Twitter Bootstrap_ v4.0.0 - alpha_
 * End-to-end via Hitch_
