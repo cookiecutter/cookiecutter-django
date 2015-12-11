@@ -62,7 +62,7 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
             redis_package=redis_package,
             port=16379,
         )
-{% if cookiecutter.celery_support == "y" %}
+{% if cookiecutter.use_celery == "y" %}
         self.services['Celery'] = hitchpython.CeleryService(
             python=python_package.python,
             app="{{cookiecutter.repo_name}}.taskapp", loglevel="INFO",
