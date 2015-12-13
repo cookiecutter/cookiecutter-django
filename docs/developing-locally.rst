@@ -33,7 +33,7 @@ You can now run the usual Django ``migrate`` and ``runserver`` command::
 
 django-allauth sends an email to verify users (and superusers) after signup and login (if they are still not verified). To send email you need to `configure your email backend`_
 
-.. _configure your email backend: http://docs.djangoproject.com/en/1.8/topics/email/#smtp-backend
+.. _configure your email backend: http://docs.djangoproject.com/en/1.9/topics/email/#smtp-backend
 
 In development you can (optionally) use MailHog_ for email testing. MailHog is built with Go so there are no dependencies. To use MailHog::
 

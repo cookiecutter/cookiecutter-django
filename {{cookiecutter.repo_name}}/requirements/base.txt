@@ -1,5 +1,5 @@
 # Bleeding edge Django
-django==1.8.7  # rq.filter: >=1.8,<1.9
+django==1.9.0
 
 # Configuration
 django-environ==0.4.0
@@ -12,7 +12,7 @@ whitenoise==2.0.6
 # Forms
 django-braces==1.8.1
 django-crispy-forms==1.5.2
-django-floppyforms==1.5.2
+django-floppyforms==1.6.0
 
 # Models
 django-model-utils==2.3.1
