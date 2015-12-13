@@ -2,9 +2,14 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-12-13]
+### Changed
+- Support opbeat logging with celery (@stepmr)
+- Update runtime.txt with PY2 support (@stepmr)
+
 ## [2015-12-12]
 ### Added
-- Celery worker to Heroku procfile
+- Celery worker to Heroku procfile (@stepmr)
 
 ## [2015-12-11]
 ### Changed
