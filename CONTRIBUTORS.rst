@@ -7,7 +7,7 @@ and are able to accept and merge pull requests.
 =========================== ============= ===========
 Name                        Github        Twitter
 =========================== ============= ===========
-Daniel Greenfeld            `@pydanny`_   @pydanny
+Daniel Roy Greenfeld        `@pydanny`_   @pydanny
 Audrey Roy Greenfeld*       `@audreyr`_
 Jim Munro
 Fábio C. Barrionuevo da Luz @luzfcb
@@ -50,6 +50,7 @@ Listed in alphabetical order
   Andrew Mikhnevich        `@zcho`_
   Andy Rose
   Anna Callahan            `@jazztpt`_
+  Areski Belaid            `@areski`_
   Ashley Camba
   Barclay Gauld            `@yunti`_
   Ben Lopatin
@@ -98,6 +99,7 @@ Listed in alphabetical order
   Yaroslav Halchenko
 ========================== ============================ ==============
 
+.. _@areski: https://github.com/areski
 .. _@a7p: https://github.com/a7p
 .. _@bogdal: https://github.com/bogdal
 .. _@ad-m: https://github.com/ad-m

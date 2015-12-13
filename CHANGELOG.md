@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2015-12-13]
 ### Changed
+- Bumped Django to 1.9 (@areski)
 - Support opbeat logging with celery (@stepmr)
 - Update runtime.txt with PY2 support (@stepmr)
 
