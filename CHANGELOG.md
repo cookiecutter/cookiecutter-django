@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-12-15]
+### Changed
+- Fix celery worker app name in Procfile (@stepmr)
+
 ## [2015-12-13]
 ### Changed
 - Bumped Django to 1.9 (@areski)
