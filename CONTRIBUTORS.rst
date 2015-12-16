@@ -64,6 +64,7 @@ Listed in alphabetical order
   Cristian Vargas          `@cdvv7788`_
   Cullen Rhodes            `@c-rhodes`_
   Daniele Tricoli          `@eriol`_
+  Davur Clementsen         `@dsclementsen`_             @davur
   Eyad Al Sibai            `@eyadsibai`_
   Felipe Arruda            `@arruda`_
   Garry Cairns             `@garry-cairns`_
