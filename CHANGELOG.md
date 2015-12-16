@@ -2,6 +2,9 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-12-16]
+- Update preview 4xx error pages to accept `exception` argument (@theskumar)
+
 ## [2015-12-15]
 ### Changed
 - Fix celery worker app name in Procfile (@stepmr)
