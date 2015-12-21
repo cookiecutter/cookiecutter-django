@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-12-21]
+### Changed
+- Added sentry logger to celery config (@jayfk)
+
 ## [2015-12-16]
 - Update preview 4xx error pages to accept `exception` argument (@theskumar)
 
