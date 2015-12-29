@@ -24,7 +24,7 @@
     margin-left: 0;
   }
 
-  .nav.navbar-nav.pull-right {
+  .nav.navbar-nav.pull-xs-right {
     float: none !important;
   }
 }

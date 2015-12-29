@@ -35,7 +35,7 @@
       <nav class="navbar navbar-dark navbar-static-top bg-inverse">
         <div class="container">
           <a class="navbar-brand" href="/">{% endraw %}{{ cookiecutter.project_name }}{% raw %}</a>
-          <button type="button" class="navbar-toggler hidden-sm-up pull-right" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+          <button type="button" class="navbar-toggler hidden-sm-up pull-xs-right" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
             &#9776;
           </button>
 
@@ -50,7 +50,7 @@
               </li>
             </ul>
 
-            <ul class="nav navbar-nav pull-right">
+            <ul class="nav navbar-nav pull-xs-right">
               {% if request.user.is_authenticated %}
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a>
