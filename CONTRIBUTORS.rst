@@ -72,6 +72,7 @@ Listed in alphabetical order
   Harry Percival           `@hjwp`_
   Henrique G. G. Pereira   `@ikkebr`_
   Ian Lee                  `@IanLee1521`_
+  Jan Van Bruggen          `@jvanbrug`_
   Julio Castillo           `@juliocc`_
   Kaido Kert               `@kaidokert`_
   Kaveh                    `@ka7eh`_
@@ -141,3 +142,4 @@ Listed in alphabetical order
 .. _@show0k: https://github.com/show0k
 .. _@knitatoms: https://github.com/knitatoms
 .. _@Travistock: https://github.com/Tavistock
+.. _@jvanbrug: https://github.com/jvanbrug
