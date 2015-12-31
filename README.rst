@@ -146,6 +146,12 @@ For development, see the following for local development:
 .. _`Developing locally`: http://cookiecutter-django.readthedocs.org/en/latest/developing-locally.html
 .. _`Developing locally using docker`: http://cookiecutter-django.readthedocs.org/en/latest/developing-locally-docker.html
 
+For development and deployment:
+
+* `Development and Deployment of Cookiecutter-Django via Docker`_
+
+.. _`Development and Deployment of Cookiecutter-Django via Docker`: https://realpython.com/blog/python/development-and-deployment-of-cookiecutter-django-via-docker
+
 Support This Project
 ---------------------------
 
