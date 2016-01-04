@@ -54,6 +54,7 @@ To create a persistent folder, log into the virtual machine by running::
 
     $ docker-machine ssh dev1
     $ sudo su
+    $ mkdir /data
     $ echo 'ln -sfn /mnt/sda1/data /data' >> /var/lib/boot2docker/bootlocal.sh
 
 In case you are wondering why you can't use a host volume to keep the files on
@@ -100,8 +101,8 @@ using the ``docker-compose run`` command.
 
 To migrate your app and to create a superuser, run::
 
-    $ docker-compose run django python manage.py migrate
-    $ docker-compose run django python manage.py createsuperuser
+    $ docker-compose -f dev.yml run django python manage.py migrate
+    $ docker-compose -f dev.yml run django python manage.py createsuperuser
 
 Here we specify the ``django`` container as the location to run our management commands.
 
@@ -130,4 +131,4 @@ If you want to run the stack in detached mode (in the background), use the ``-d`
 
 ::
 
-    $ docker-compose up -d
+    $ docker-compose -f dev.yml up -d
