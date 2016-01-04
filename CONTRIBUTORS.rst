@@ -8,11 +8,11 @@ and are able to accept and merge pull requests.
 Name                        Github        Twitter
 =========================== ============= ===========
 Daniel Roy Greenfeld        `@pydanny`_   @pydanny
-Audrey Roy Greenfeld*       `@audreyr`_
-Jim Munro
+Audrey Roy Greenfeld*       `@audreyr`_   @audreyr
 Fábio C. Barrionuevo da Luz @luzfcb
 Saurabh Kumar               `@theskumar`_ @_theskumar
 Jannis Gebauer              `@jayfk`_
+Burhan Khalid               `@burhan`_    @burhan
 =========================== ============= ===========
 
 *Audrey is also the maintainer of cookiecutter.*

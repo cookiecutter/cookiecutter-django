@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [2015-1-4]
 ### Changed
 - Minor fixes in the docker documentation (@jayfk)
+- Made @burhan a core committer (@pydanny)
 
 ## [2015-12-30]
 ### Changed
