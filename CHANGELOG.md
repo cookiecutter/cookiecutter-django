@@ -3,6 +3,9 @@ All enhancements and patches to cookiecutter-django will be documented in this f
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2015-1-4]
+### Added
+- Add Tether.js because [is needed](http://v4-alpha.getbootstrap.com/components/tooltips/#overview) for proper positioning of Bootstrap tooltips (@EricZaporzan)
+
 ### Changed
 - Minor fixes in the docker documentation (@jayfk)
 - Made @burhan a core committer (@pydanny)
