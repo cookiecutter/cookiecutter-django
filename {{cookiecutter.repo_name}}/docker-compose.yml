@@ -1,5 +1,5 @@
 postgres:
-  image: postgres:9.4
+  image: postgres:9.5
   volumes:
     - /data/{{cookiecutter.repo_name}}/postgres:/var/lib/postgresql/data
   env_file: .env

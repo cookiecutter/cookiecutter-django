@@ -1,5 +1,5 @@
 postgres:
-  image: postgres
+  image: postgres:9.5
   volumes:
     # If you are using boot2docker, postgres data has to live in the VM for now until #581 is fixed
     # for more info see here: https://github.com/boot2docker/boot2docker/issues/581
