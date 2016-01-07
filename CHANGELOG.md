@@ -3,6 +3,8 @@ All enhancements and patches to cookiecutter-django will be documented in this f
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2015-1-6]
+### Added
+- You can now enable or disable user registration using the ACCOUNT_ALLOW_REGISTRATION setting. (@ddiazpinto)
 ### Changed
 - Use Postgres 9.5 on docker (@jayfk)
 
