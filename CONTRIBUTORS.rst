@@ -64,6 +64,7 @@ Listed in alphabetical order
   Cristian Vargas          `@cdvv7788`_
   Cullen Rhodes            `@c-rhodes`_
   Daniele Tricoli          `@eriol`_
+  David Díaz               `@ddiazpinto`_                @DavidDiazPinto
   Davur Clementsen         `@dsclementsen`_             @davur
   Eyad Al Sibai            `@eyadsibai`_
   Felipe Arruda            `@arruda`_
@@ -143,3 +144,4 @@ Listed in alphabetical order
 .. _@knitatoms: https://github.com/knitatoms
 .. _@Travistock: https://github.com/Tavistock
 .. _@jvanbrug: https://github.com/jvanbrug
+.. _@ddiazpinto: https://github.com/ddiazpinto

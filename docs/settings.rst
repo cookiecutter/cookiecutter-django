@@ -45,3 +45,10 @@ DJANGO_OPBEAT_APP_ID                    OPBEAT['APP_ID']            n/a         
 DJANGO_OPBEAT_SECRET_TOKEN              OPBEAT['SECRET_TOKEN']      n/a                                            raises error
 DJANGO_OPBEAT_ORGANIZATION_ID           OPBEAT['ORGANIZATION_ID']   n/a                                            raises error
 ======================================= =========================== ============================================== ======================================================================
+
+--------------
+Other Settings
+--------------
+
+ACCOUNT_ALLOW_REGISTRATION (=True)
+    Allow enable or disable user registration through `django-allauth` without disabling other characteristics like authentication and account management.
