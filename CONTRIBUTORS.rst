@@ -1,5 +1,8 @@
-Code Contributors
-=================
+Contributors
+============
+
+Core Developers
+----------------
 
 These contributors have commit flags for the repository,
 and are able to accept and merge pull requests.
@@ -9,13 +12,14 @@ Name                        Github        Twitter
 =========================== ============= ===========
 Daniel Roy Greenfeld        `@pydanny`_   @pydanny
 Audrey Roy Greenfeld*       `@audreyr`_   @audreyr
-Fábio C. Barrionuevo da Luz @luzfcb
+Fábio C. Barrionuevo da Luz `@luzfcb`_
 Saurabh Kumar               `@theskumar`_ @_theskumar
 Jannis Gebauer              `@jayfk`_
 Burhan Khalid               `@burhan`_    @burhan
 =========================== ============= ===========
 
-*Audrey is also the maintainer of cookiecutter.*
+*Audrey is also the creator of Cookiecutter. Audrey and
+Daniel are on the Cookiecutter core team.*
 
 .. _@pydanny: https://github.com/pydanny
 .. _@luzfcb: https://github.com/luzfcb
@@ -23,18 +27,10 @@ Burhan Khalid               `@burhan`_    @burhan
 .. _@audreyr: https://github.com/audreyr
 .. _@jayfk: https://github.com/jayfk
 
-Special Thanks
---------------
+Other Contributors
+-------------------
 
-The following haven't provided code directly, but have provided guidance and advice.
-
-* Jannis Leidel (django-configurations)
-* Nate Aune
-* Barry Morrison
-
-Contributors
-------------
-Listed in alphabetical order
+Listed in alphabetical order.
 
 ========================== ============================ ==============
   Name                     Github                        Twitter
@@ -145,3 +141,12 @@ Listed in alphabetical order
 .. _@Travistock: https://github.com/Tavistock
 .. _@jvanbrug: https://github.com/jvanbrug
 .. _@ddiazpinto: https://github.com/ddiazpinto
+
+Special Thanks
+~~~~~~~~~~~~~~
+
+The following haven't provided code directly, but have provided guidance and advice.
+
+* Jannis Leidel
+* Nate Aune
+* Barry Morrison
