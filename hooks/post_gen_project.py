@@ -103,8 +103,16 @@ def remove_task_app(project_directory):
 
 def remove_channels_files(project_directory):
     """Removes channels files if it isn't going to be used"""
-    for path in ["config/routing.py", '{{ cookiecutter.repo_name }}/channelsapp']:
-        shutil.rmtree(path)
+    routing_file = os.path.join(
+        PROJECT_DIRECTORY,
+        "config/routing.py"
+    )
+    os.remove(routing_file)
+    channels_app_location = os.path.join(
+        PROJECT_DIRECTORY,
+        '{{ cookiecutter.repo_name }}/channelsapp'
+    )
+    shutil.rmtree(channels_app_location)
 
 # IN PROGRESS
 # def copy_doc_files(project_directory):
