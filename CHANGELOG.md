@@ -2,6 +2,11 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-1-8]
+### Changed
+- Fixed redis url on docker (@jayfk)
+- Fixed docker on windows (@burhan)
+
 ## [2015-1-6]
 ### Added
 - You can now enable or disable user registration using the ACCOUNT_ALLOW_REGISTRATION setting. (@ddiazpinto)
