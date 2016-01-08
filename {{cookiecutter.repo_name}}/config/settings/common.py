@@ -211,6 +211,9 @@ AUTHENTICATION_BACKENDS = (
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_ADAPTER = '{{cookiecutter.repo_name}}.users.adapter.AccountAdapter'
+SOCIALACCOUNT_ADAPTER = '{{cookiecutter.repo_name}}.users.adapter.SocialAccountAdapter'
+ACCOUNT_ALLOW_REGISTRATION = True
 
 # Custom user app defaults
 # Select the correct user model

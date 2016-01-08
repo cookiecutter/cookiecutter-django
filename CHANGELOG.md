@@ -2,6 +2,20 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-1-6]
+### Added
+- You can now enable or disable user registration using the ACCOUNT_ALLOW_REGISTRATION setting. (@ddiazpinto)
+### Changed
+- Use Postgres 9.5 on docker (@jayfk)
+
+## [2015-1-4]
+### Added
+- Add Tether.js because [is needed](http://v4-alpha.getbootstrap.com/components/tooltips/#overview) for proper positioning of Bootstrap tooltips (@EricZaporzan)
+
+### Changed
+- Minor fixes in the docker documentation (@jayfk)
+- Made @burhan a core committer (@pydanny)
+
 ## [2015-12-30]
 ### Changed
 - Fixed a bug where the navbar was not displayed correctly (@jvanbrug)
@@ -75,7 +89,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2015-11-18]
 ### Added
-- Mailhog as a replacement for Maildump (@keybits )
+- Mailhog as a replacement for Maildump (@keybits)
 
 ### Removed
 - Maildump because it didn't support Python 3 (@keybits)
@@ -85,7 +99,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - initial configuration to support opbeat (@burhan)
 
 ### Removed
-- Took *.pyc out of .gitignore, because it's already covered by *.py[cod] (@audreyr)
+- Took `*.pyc` out of .gitignore, because it's already covered by `*.py[cod]` (@audreyr)
 
 ## [2015-11-16]
 ### Changed
@@ -201,7 +215,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2015-10-11]
 ### Changed
-- Fixed raven issue on development (#302) (@jazztpt )
+- Fixed raven issue on development (#302) (@jazztpt)
 
 ## [2015-10-05]
 ### Changed
