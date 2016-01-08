@@ -46,5 +46,9 @@ redis>=2.10.0
 {% if cookiecutter.use_celery == "y" %}
 celery==3.1.19
 {% endif %}
+{% if cookiecutter.use_channels == 'y' -%}
+channels==0.8
+autobahn[twisted]
+{% endif %}
 
 # Your custom requirements go here

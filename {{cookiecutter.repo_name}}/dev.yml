@@ -8,10 +8,29 @@ postgres:
 django:
   dockerfile: Dockerfile-dev
   build: .
+  {% if cookiecutter.use_channels == 'y' -%}
+  # we need to use runserver when using channels because runserver starts a worker process
+  # automatically when channels is installed
+  command: python /app/manage.py runserver 0.0.0.0:8000
+  {% else %}
   command: python /app/manage.py runserver_plus 0.0.0.0:8000
+  {% endif %}
   volumes:
     - .:/app
   ports:
     - "8000:8000"
   links:
     - postgres
+
+{% if cookiecutter.use_channels == 'y' -%}
+channelserver:
+  dockerfile: Dockerfile-dev
+  build: .
+  command: python /app/manage.py runwsserver
+  volumes:
+    - .:/app
+  ports:
+    - "9000:9000"
+  links:
+    - postgres
+{% endif %}

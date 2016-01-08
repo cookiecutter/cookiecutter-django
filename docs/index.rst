@@ -21,6 +21,7 @@ Contents:
    settings
    linters
    live-reloading-and-sass-compilation
+   channels
    deployment-on-heroku
    deployment-with-docker
    faq

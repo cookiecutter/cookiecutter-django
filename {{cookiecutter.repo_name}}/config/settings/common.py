@@ -231,6 +231,17 @@ INSTALLED_APPS += ('kombu.transport.django',)
 BROKER_URL = env("CELERY_BROKER_URL", default='django://')
 ########## END CELERY
 {% endif %}
+{% if cookiecutter.use_channels == 'y' -%}
+########## CHANNELS
+INSTALLED_APPS += ('channels',)
+CHANNEL_BACKENDS = {
+    "default": {
+        "BACKEND": "channels.backends.database.DatabaseChannelBackend",
+        "ROUTING": "config.routing.channel_routing",
+    },
+}
+########## END CHANNELS
+{% endif %}
 
 # Location of root django.contrib.admin URL, use {% raw %}{% url 'admin:index' %}{% endraw %}
 ADMIN_URL = r'^admin/'
