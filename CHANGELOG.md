@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [2015-1-8]
 ### Changed
 - Fixed redis url on docker (@jayfk)
+- Fixed docker on windows (@burhan)
 
 ## [2015-1-6]
 ### Added
