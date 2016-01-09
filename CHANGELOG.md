@@ -2,18 +2,23 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2015-1-8]
+## [2016-1-9]
+### Changed
+- Upgraded django-crispy-forms to 1.6 for [BS4 and django 1.9 compatibility fixes](https://github.com/maraujop/django-crispy-forms/blob/dev/CHANGELOG.md#160-201617) (@burhan)
+- Upgraded django-model-utils to 2.4, to enable [support for django 1.9](https://github.com/carljm/django-model-utils/blob/master/CHANGES.rst#24-2015-12-03) (@burhan)
+
+## [2016-1-8]
 ### Changed
 - Fixed redis url on docker (@jayfk)
 - Fixed docker on windows (@burhan)
 
-## [2015-1-6]
+## [2016-1-6]
 ### Added
 - You can now enable or disable user registration using the ACCOUNT_ALLOW_REGISTRATION setting. (@ddiazpinto)
 ### Changed
 - Use Postgres 9.5 on docker (@jayfk)
 
-## [2015-1-4]
+## [2016-1-4]
 ### Added
 - Add Tether.js because [is needed](http://v4-alpha.getbootstrap.com/components/tooltips/#overview) for proper positioning of Bootstrap tooltips (@EricZaporzan)
 
