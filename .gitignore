@@ -34,6 +34,9 @@ my_test_project/*
 # Generated when running py.test for the cookiecutter-django generation tests
 .cache/
 
+# Generated when running celery beat
+celerybeat-schedule.db
+
 # Unit test / coverage reports
 .coverage
 .tox
