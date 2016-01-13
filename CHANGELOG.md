@@ -2,9 +2,13 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2016-1-13]
+### Changed
+- Require Wheel 0.26.0. Needed to install certain packages on CPython 3.5+ like Pillow and psycopg2 (@audreyr)
+
 ## [2016-1-9]
 ### Changed
-- Upgraded django-exteions to 1.6.1 as it fixes a [JSONField bug](https://github.com/django-extensions/django-extensions/blob/master/CHANGELOG.md#161) (@burhan)
+- Upgraded django-extensions to 1.6.1 as it fixes a [JSONField bug](https://github.com/django-extensions/django-extensions/blob/master/CHANGELOG.md#161) (@burhan)
 - Upgraded Pillow to version 3.1.0 ([upstream changelog](https://github.com/python-pillow/Pillow/blob/master/CHANGES.rst#310-2016-01-04)) (@burhan)
 - Upgraded django to 1.9.1 to integrate various [bugfixes](https://docs.djangoproject.com/en/1.9/releases/1.9.1/) (@burhan)
 - Upgraded django-crispy-forms to 1.6 for [BS4 and django 1.9 compatibility fixes](https://github.com/maraujop/django-crispy-forms/blob/dev/CHANGELOG.md#160-201617) (@burhan)
