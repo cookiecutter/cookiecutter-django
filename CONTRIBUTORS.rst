@@ -57,6 +57,7 @@ Listed in alphabetical order.
   Chris Franklin
   Chris Franklin           `@hairychris`_
   Chris Pappalardo         `@ChrisPappalardo`_
+  Collederas               `@Collederas`
   Cristian Vargas          `@cdvv7788`_
   Cullen Rhodes            `@c-rhodes`_
   Daniele Tricoli          `@eriol`_
@@ -141,6 +142,7 @@ Listed in alphabetical order.
 .. _@Travistock: https://github.com/Tavistock
 .. _@jvanbrug: https://github.com/jvanbrug
 .. _@ddiazpinto: https://github.com/ddiazpinto
+.. _@Collederas: https://github.com/Collederas
 
 Special Thanks
 ~~~~~~~~~~~~~~

@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2016-1-13]
 ### Changed
+- Update setup.py version to 1.9.1 to match Django version. (@Collederas)
+
+## [2016-1-13]
+### Changed
 - Require Wheel 0.26.0. Needed to install certain packages on CPython 3.5+ like Pillow and psycopg2 (@audreyr)
 
 ## [2016-1-9]
