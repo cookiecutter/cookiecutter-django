@@ -23,10 +23,17 @@ Then, create a PostgreSQL database with the following command, where `[repo_name
 
     $ createdb [repo_name]
 
-You can now run the usual Django ``migrate`` and ``runserver`` command::
+`cookiecutter-django` uses the excellent `django-environ`_ package with its ``DATABASE_URL`` environment variable to simplify database configuration in your Django settings. Now all you have to do is compose a definition for ``DATABASE_URL``:
+
+.. parsed-literal::
+
+    $ export DATABASE_URL="postgres://*<pg_user_name>*:*<pg_user_password>*\ @127.0.0.1:\ *<pg_port>*/*<pg_database_name>*"
+
+.. _django-environ: http://django-environ.readthedocs.org
+
+You can now run the usual Django ``migrate`` and ``runserver`` commands::
 
     $ python manage.py migrate
-
     $ python manage.py runserver
 
 **Setup your email backend**
