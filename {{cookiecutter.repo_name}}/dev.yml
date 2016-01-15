@@ -8,7 +8,7 @@ postgres:
 django:
   dockerfile: Dockerfile-dev
   build: .
-  command: python /app/manage.py runserver_plus 0.0.0.0:8000
+  command: grunt serve
   volumes:
     - .:/app
   ports:

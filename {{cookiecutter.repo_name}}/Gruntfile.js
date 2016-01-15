@@ -110,7 +110,7 @@ module.exports = function (grunt) {
         bg: true
       },
       runDjango: {
-        cmd: 'python <%= paths.manageScript %> runserver'
+        cmd: 'python <%= paths.manageScript %> runserver_plus 0.0.0.0:8000'
       },
       {% if cookiecutter.use_mailhog == "y" -%}runMailHog: {
         cmd: './mailhog'
