@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2016-1-17]
+### Adding a section on third party articles referencing `cookiecutter-django` (@mjheo)
+
+
 ## [2016-1-16]
 ### Add explanation for having `django.contrib.sites`. (@pydanny)
 
