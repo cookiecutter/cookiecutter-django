@@ -3,6 +3,9 @@ All enhancements and patches to cookiecutter-django will be documented in this f
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2016-1-17]
+### Added
+- Added .dockerignore file (@bogdal)
+
 ### Changed
 - Removed the $-sign from allowed chars to generate the secret key (@jayfk)
 
