@@ -2,7 +2,7 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2016-1-17]
+## [2016-1-18]
 ### Added
 - Added .dockerignore file (@bogdal)
 
@@ -12,6 +12,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [2016-1-17]
 ### Added
 - Adding a section on third party articles referencing `cookiecutter-django` (@mjheo)
+
 ### Changed
 - Add celerybeat db to gitignore (@originell)
 
@@ -41,6 +42,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [2016-1-6]
 ### Added
 - You can now enable or disable user registration using the ACCOUNT_ALLOW_REGISTRATION setting. (@ddiazpinto)
+
 ### Changed
 - Use Postgres 9.5 on docker (@jayfk)
 
