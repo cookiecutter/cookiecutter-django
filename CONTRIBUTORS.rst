@@ -77,6 +77,7 @@ Listed in alphabetical order.
   Kevin A. Stone
   Kevin Ndung'u            `@kevgathuku`_
   Lin Xianyi               `@iynaix`_
+  Luis Nell                `@originell`_
   Lukas Klein
   Lyla Fischer
   Martin Blech
@@ -143,6 +144,7 @@ Listed in alphabetical order.
 .. _@jvanbrug: https://github.com/jvanbrug
 .. _@ddiazpinto: https://github.com/ddiazpinto
 .. _@Collederas: https://github.com/Collederas
+.. _@originell: https://github.com/originell
 
 Special Thanks
 ~~~~~~~~~~~~~~

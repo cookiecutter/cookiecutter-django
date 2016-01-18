@@ -5,7 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [2016-1-17]
 ### Added
 - Adding a section on third party articles referencing `cookiecutter-django` (@mjheo)
-
+### Changed
+- Add celerybeat db to gitignore (@originell)
 
 ## [2016-1-16]
 ### Added
