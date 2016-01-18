@@ -150,8 +150,10 @@ Articles
 ---------
 
 * `Development and Deployment of Cookiecutter-Django via Docker`_
+* `Development and Deployment of Cookiecutter-Django on Fedora`_
 
 .. _`Development and Deployment of Cookiecutter-Django via Docker`: https://realpython.com/blog/python/development-and-deployment-of-cookiecutter-django-via-docker
+.. _`Development and Deployment of Cookiecutter-Django on Fedora`: https://realpython.com/blog/python/development-and-deployment-of-cookiecutter-django-on-fedora/
 
 Support This Project
 ---------------------------
