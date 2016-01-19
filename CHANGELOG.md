@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [2016-1-18]
 ### Added
 - Added .dockerignore file (@bogdal)
+- Docker tests for travis (@jayfk)
 
 ### Changed
 - Removed the $-sign from allowed chars to generate the secret key (@jayfk)
