@@ -1,6 +1,10 @@
 # Config file for automatic testing at travis-ci.org
 
-sudo: false
+sudo: required
+
+services:
+  - docker
+
 language: python
 python: 3.5
 env:
@@ -8,7 +12,9 @@ env:
     - TOX_ENV=py34
     - TOX_ENV=py35
 
-script: tox -e $TOX_ENV
+script:
+    - tox -e $TOX_ENV
+    - sh tests/test_docker.sh
 
 install:
     - pip install tox
