@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2016-1-26]
+### Changed
+- Fixed NEW_RELIC_APP_NAME environment variable (@jayfk)
+
 ## [2016-1-18]
 ### Added
 - Added .dockerignore file (@bogdal)
