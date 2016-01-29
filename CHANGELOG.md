@@ -2,6 +2,16 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+
+## [2016-1-29]
+### Changed
+- Update AngularJS version to 1.4.9 (@luzfcb)
+- Update jQuery version to 2.2.0 (@luzfcb)
+- Update 'now' date in cookiecutter.json (@luzfcb)
+- Update version of boto, celery, django_coverage_plugin, django-storages-redux, flake8, gevent, gunicorn, pep8, pytest, tox, Werkzeug (@luzfcb)
+- Update version of Hitch tests dependencies: colorama, decorator, hitchpostgres, hitchpython, hitchredis, hitchselenium, hitchserve, hitchsystem, hitchtest, ipython, patool, pickleshare, psutil, python-build, requests, selenium, tblib, traitlets (@luzfcb)
+
+
 ## [2016-1-26]
 ### Changed
 - Fixed NEW_RELIC_APP_NAME environment variable (@jayfk)
