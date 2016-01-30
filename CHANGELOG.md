@@ -2,6 +2,9 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2016-1-30]
+### Changed
+- Update flake8 to 2.5.2 (@luzfcb)
 
 ## [2016-1-29]
 ### Changed
