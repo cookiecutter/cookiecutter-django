@@ -7,7 +7,7 @@
     "domain_name": "example.com",
     "version": "0.1.0",
     "timezone": "UTC",
-    "now": "2016/01/07",
+    "now": "2016/01/29",
     "year": "{{ cookiecutter.now[:4] }}",
     "use_whitenoise": "y",
     "use_celery": "n",

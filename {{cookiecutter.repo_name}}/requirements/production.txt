@@ -15,14 +15,14 @@ psycopg2==2.6.1
 gevent==1.0.2
 {% else %}
 # there's no python 3 support in stable, have to use the latest release candidate for gevent
-gevent==1.1rc1
+gevent==1.1rc3
 {% endif %}
-gunicorn==19.4.1
+gunicorn==19.4.5
 
 # Static and Media Storage
 # ------------------------------------------------
-boto==2.38.0
-django-storages-redux==1.3
+boto==2.39.0
+django-storages-redux==1.3.2
 {% if cookiecutter.use_whitenoise != 'y' -%}
 Collectfast==0.2.3
 {%- endif %}
