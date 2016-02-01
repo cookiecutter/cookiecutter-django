@@ -2,11 +2,16 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2016-1-30]
+## [2016-02-01]
+### Changed
+- Update version of Django and django-floppyforms (@luzfcb)
+- Update version of Hitch tests dependencies: hitchpython and selenium (@luzfcb)
+
+## [2016-01-30]
 ### Changed
 - Update flake8 to 2.5.2 (@luzfcb)
 
-## [2016-1-29]
+## [2016-01-29]
 ### Changed
 - Update AngularJS version to 1.4.9 (@luzfcb)
 - Update jQuery version to 2.2.0 (@luzfcb)
@@ -15,7 +20,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Update version of Hitch tests dependencies: colorama, decorator, hitchpostgres, hitchpython, hitchredis, hitchselenium, hitchserve, hitchsystem, hitchtest, ipython, patool, pickleshare, psutil, python-build, requests, selenium, tblib, traitlets (@luzfcb)
 
 
-## [2016-1-26]
+## [2016-01-26]
 ### Changed
 - Fixed NEW_RELIC_APP_NAME environment variable (@jayfk)
 
@@ -27,24 +32,24 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Removed the $-sign from allowed chars to generate the secret key (@jayfk)
 
-## [2016-1-17]
+## [2016-01-17]
 ### Added
 - Adding a section on third party articles referencing `cookiecutter-django` (@mjheo)
 
 ### Changed
 - Add celerybeat db to gitignore (@originell)
 
-## [2016-1-16]
+## [2016-01-16]
 ### Added
 - Adding an explanation for having `django.contrib.sites`. (@pydanny)
 
 
-## [2016-1-13]
+## [2016-01-13]
 ### Changed
 - Update setup.py version to 1.9.1 to match Django version. (@Collederas)
 - Require Wheel 0.26.0. Needed to install certain packages on CPython 3.5+ like Pillow and psycopg2 (@audreyr)
 
-## [2016-1-9]
+## [2016-01-09]
 ### Changed
 - Upgraded django-extensions to 1.6.1 as it fixes a [JSONField bug](https://github.com/django-extensions/django-extensions/blob/master/CHANGELOG.md#161) (@burhan)
 - Upgraded Pillow to version 3.1.0 ([upstream changelog](https://github.com/python-pillow/Pillow/blob/master/CHANGES.rst#310-2016-01-04)) (@burhan)
@@ -52,19 +57,19 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Upgraded django-crispy-forms to 1.6 for [BS4 and django 1.9 compatibility fixes](https://github.com/maraujop/django-crispy-forms/blob/dev/CHANGELOG.md#160-201617) (@burhan)
 - Upgraded django-model-utils to 2.4, to enable [support for django 1.9](https://github.com/carljm/django-model-utils/blob/master/CHANGES.rst#24-2015-12-03) (@burhan)
 
-## [2016-1-8]
+## [2016-01-08]
 ### Changed
 - Fixed redis url on docker (@jayfk)
 - Fixed docker on windows (@burhan)
 
-## [2016-1-6]
+## [2016-01-06]
 ### Added
 - You can now enable or disable user registration using the ACCOUNT_ALLOW_REGISTRATION setting. (@ddiazpinto)
 
 ### Changed
 - Use Postgres 9.5 on docker (@jayfk)
 
-## [2016-1-4]
+## [2016-01-04]
 ### Added
 - Add Tether.js because [is needed](http://v4-alpha.getbootstrap.com/components/tooltips/#overview) for proper positioning of Bootstrap tooltips (@EricZaporzan)
 

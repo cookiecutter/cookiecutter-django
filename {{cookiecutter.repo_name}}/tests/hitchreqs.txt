@@ -5,7 +5,7 @@ docopt==0.6.2
 faketime==0.9.6.3
 hitchcron==0.2
 hitchpostgres==0.7.0
-hitchpython==0.5.2
+hitchpython==0.5.3
 hitchredis==0.4.6
 hitchselenium==0.5.0
 hitchserve==0.4.8
@@ -29,7 +29,7 @@ python-dateutil==2.4.2
 pyuv==1.2.0
 PyYAML==3.11
 requests==2.9.1
-selenium==2.50.0
+selenium==2.50.1
 simplegeneric==0.8.1
 six==1.10.0
 tblib==1.2.0
