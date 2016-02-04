@@ -286,5 +286,12 @@ LOGGING = {
 {% endif %}
 # Custom Admin URL, use {% raw %}{% url 'admin:index' %}{% endraw %}
 ADMIN_URL = env('DJANGO_ADMIN_URL')
+{% if cookiecutter.use_channels == 'y' -%}
+########## CHANNELS
+# the redis channel is broken on channels==0.8. Use the default DB backend in prod for now
+# CHANNEL_BACKENDS["default"]["BACKEND"] = "channels.backends.redis_py.RedisChannelBackend"
+# CHANNEL_BACKENDS["default"]["HOSTS"] = [("redis-channel", 6379)],
+########## END CHANNELS
+{% endif %}
 
 # Your production stuff: Below this line define 3rd party library settings

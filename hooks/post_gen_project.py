@@ -100,6 +100,20 @@ def remove_task_app(project_directory):
     )
     shutil.rmtree(task_app_location)
 
+
+def remove_channels_files(project_directory):
+    """Removes channels files if it isn't going to be used"""
+    routing_file = os.path.join(
+        PROJECT_DIRECTORY,
+        "config/routing.py"
+    )
+    os.remove(routing_file)
+    channels_app_location = os.path.join(
+        PROJECT_DIRECTORY,
+        '{{ cookiecutter.repo_name }}/channelsapp'
+    )
+    shutil.rmtree(channels_app_location)
+
 # IN PROGRESS
 # def copy_doc_files(project_directory):
 #     cookiecutters_dir = DEFAULT_CONFIG['cookiecutters_dir']
@@ -124,6 +138,10 @@ make_secret_key(PROJECT_DIRECTORY)
 # 2. Removes the taskapp if celery isn't going to be used
 if '{{ cookiecutter.use_celery }}'.lower() == 'n':
     remove_task_app(PROJECT_DIRECTORY)
+
+# 2. Removes the taskapp if celery isn't going to be used
+if '{{ cookiecutter.use_channels }}'.lower() == 'n':
+    remove_channels_files(PROJECT_DIRECTORY)
 
 # 3. Copy files from /docs/ to {{ cookiecutter.repo_name }}/docs/
 # copy_doc_files(PROJECT_DIRECTORY)

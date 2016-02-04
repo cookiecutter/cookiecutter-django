@@ -46,6 +46,7 @@ Optional Integrations
 * Integration with Sentry_ for error logging
 * Integration with NewRelic_ for performance monitoring
 * Integration with Opbeat_ for performance monitoring
+* Experimental Channels_ support
 
 .. _alpha: http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/
 .. _Hitch: https://github.com/hitchtest/hitchtest
@@ -64,7 +65,7 @@ Optional Integrations
 .. _NewRelic: https://newrelic.com
 .. _docker-compose: https://www.github.com/docker/compose
 .. _Opbeat: https://opbeat.com/
-
+.. _Channels: https://github.com/andrewgodwin/channels
 
 Constraints
 -----------

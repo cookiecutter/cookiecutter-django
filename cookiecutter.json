@@ -16,5 +16,6 @@
     "use_newrelic": "n",
     "use_opbeat": "n",
     "windows": "n",
-    "use_python2": "n"
+    "use_python2": "n",
+    "use_channels": "n"
 }

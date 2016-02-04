@@ -41,3 +41,25 @@ celerybeat:
     - redis
   command: celery -A {{cookiecutter.repo_name}}.taskapp beat -l INFO
 {% endif %}
+
+{% if cookiecutter.use_channels == 'y' -%}
+channelworker:
+  build: .
+  user: django
+  env_file: .env
+  command: python /app/manage.py runworker
+  links:
+    - postgres
+    - redis
+
+channelserver:
+  build: .
+  user: django
+  env_file: .env
+  command: python /app/manage.py runwsserver
+  ports:
+    - "0.0.0.0:9000:9000"
+  links:
+    - postgres
+    - redis
+{% endif %}
