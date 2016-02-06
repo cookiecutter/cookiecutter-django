@@ -35,5 +35,5 @@ six==1.10.0
 tblib==1.2.0
 tornado==4.3
 traitlets==4.1.0
-unixpackage==0.4.0
+unixpackage==0.4.1
 xeger==0.3
