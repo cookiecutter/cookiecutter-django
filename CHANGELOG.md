@@ -2,6 +2,14 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2016-02-07]
+### Changed
+- In `users` app, use Django 1.9 `LoginRequiredMixin` instead of django-braces implementation (@yunti)
+- Update native OS libraries of Hitch Test, because [unixpackage](https://github.com/unixpackage/unixpackage) now supports multiple versions of same Linux distribution (@crdoconnor)
+- Update AngularJS version to 1.5.0 (@luzfcb)
+- Update version of wheel, Pillow, django_coverage_plugin (@luzfcb)
+- Update version of Hitch tests dependencies: decorator, hitchselenium, ipython, ptyprocess, selenium (@luzfcb)
+
 ## [2016-02-01]
 ### Changed
 - Update version of Django and django-floppyforms (@luzfcb)
