@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Update AngularJS version to 1.5.0 (@luzfcb)
 - Update version of wheel, Pillow, django_coverage_plugin (@luzfcb)
 - Update version of Hitch tests dependencies: decorator, hitchselenium, ipython, ptyprocess, selenium (@luzfcb)
+- Provided options for FOSS license choices, or for private efforts, no written license (@pydanny)
 
 ## [2016-02-01]
 ### Changed
