@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2016-02-12]
+### Changed
+- Fixed typo (@yunti)
+
 ## [2016-02-07]
 ### Changed
 - In `users` app, use Django 1.9 `LoginRequiredMixin` instead of django-braces implementation (@yunti)
