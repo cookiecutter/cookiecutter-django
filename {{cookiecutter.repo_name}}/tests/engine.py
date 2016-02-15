@@ -118,6 +118,7 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
     def load_website(self):
         """Navigate to website in Firefox."""
         self.driver.get(self.services['Django'].url())
+        self.click("djHideToolBarButton")
 
     def fill_form(self, **kwargs):
         """Fill in a form with id=value."""
