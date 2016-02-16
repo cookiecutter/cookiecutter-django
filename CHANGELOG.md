@@ -2,6 +2,12 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2016-02-15]
+### Changed
+- In `users` app adapter, fix `is_open_for_signup` missing parameter (@oryx2)
+- Fixes and improvements in Hitch tests , see [#485](https://github.com/pydanny/cookiecutter-django/pull/485) (@crdoconnor)
+
+
 ## [2016-02-12]
 ### Changed
 - Fixed typo (@yunti)

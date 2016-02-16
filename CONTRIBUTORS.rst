@@ -12,7 +12,7 @@ Name                        Github        Twitter
 =========================== ============= ===========
 Daniel Roy Greenfeld        `@pydanny`_   @pydanny
 Audrey Roy Greenfeld*       `@audreyr`_   @audreyr
-Fábio C. Barrionuevo da Luz `@luzfcb`_
+Fábio C. Barrionuevo da Luz `@luzfcb`_    @luzfcb
 Saurabh Kumar               `@theskumar`_ @_theskumar
 Jannis Gebauer              `@jayfk`_
 Burhan Khalid               `@burhan`_    @burhan
