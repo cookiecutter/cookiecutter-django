@@ -13,7 +13,7 @@ environment_variables:
   DJANGO_EMAIL_BACKEND: django.core.mail.backends.smtp.EmailBackend
 window_size:
   width: 1024
-  height: 768
+  height: 600
 python_version: {% if cookiecutter.use_python2 == 'n' %}3.5.0{% else %}2.7.10{% endif %}
 environment:
   - approved_platforms:

@@ -1,6 +1,7 @@
+backports-abc==0.4
 click==6.2
 colorama==0.3.6
-decorator==4.0.7
+decorator==4.0.9
 docopt==0.6.2
 faketime==0.9.6.3
 hitchcron==0.2
@@ -16,6 +17,8 @@ humanize==0.5.1
 ipython==4.1.1
 ipython-genutils==0.1.0
 Jinja2==2.8
+jupyter-client==4.1.1
+jupyter-core==4.0.6
 MarkupSafe==0.23
 path.py==8.1.2
 patool==1.12
@@ -24,12 +27,13 @@ pickleshare==0.6
 psutil==3.4.2
 ptyprocess==0.5.1
 pykwalify==1.5.0
-python-build==0.2.12
+python-build==0.2.13
 python-dateutil==2.4.2
 pyuv==1.2.0
 PyYAML==3.11
+pyzmq==15.2.0
 requests==2.9.1
-selenium==2.51.1
+selenium==2.52.0
 simplegeneric==0.8.1
 six==1.10.0
 tblib==1.2.0

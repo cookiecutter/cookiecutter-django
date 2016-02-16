@@ -102,7 +102,7 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
         self.click_and_dont_wait_for_page_load = self.webapp.click_and_dont_wait_for_page_load
 
         # Configure selenium driver
-        self.driver.set_window_size(self.settings['window_size']['height'], self.settings['window_size']['width'])
+        self.driver.set_window_size(self.settings['window_size']['width'], self.settings['window_size']['height'])
         self.driver.set_window_position(0, 0)
         self.driver.implicitly_wait(2.0)
         self.driver.accept_next_alert = True
@@ -118,6 +118,7 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
     def load_website(self):
         """Navigate to website in Firefox."""
         self.driver.get(self.services['Django'].url())
+        self.click("djHideToolBarButton")
 
     def fill_form(self, **kwargs):
         """Fill in a form with id=value."""

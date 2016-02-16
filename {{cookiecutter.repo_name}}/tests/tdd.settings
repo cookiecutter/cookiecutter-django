@@ -6,3 +6,4 @@
 
 failfast: true
 pause_on_failure: true
+pause_on_success: true
