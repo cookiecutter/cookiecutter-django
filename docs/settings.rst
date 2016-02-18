@@ -27,7 +27,7 @@ DJANGO_EMAIL_SUBJECT_PREFIX             EMAIL_SUBJECT_PREFIX        n/a         
 DJANGO_ALLOWED_HOSTS                    ALLOWED_HOSTS               ['*']                                          ['your_domain_name']
 ======================================= =========================== ============================================== ======================================================================
 
-The following table lists settings and their defaults for third-party applications, which may or may be part of your project:
+The following table lists settings and their defaults for third-party applications, which may or may not be part of your project:
 
 ======================================= =========================== ============================================== ======================================================================
 Environment Variable                    Django Setting              Development Default                            Production Default
@@ -47,9 +47,9 @@ DJANGO_OPBEAT_SECRET_TOKEN              OPBEAT['SECRET_TOKEN']      n/a         
 DJANGO_OPBEAT_ORGANIZATION_ID           OPBEAT['ORGANIZATION_ID']   n/a                                            raises error
 ======================================= =========================== ============================================== ======================================================================
 
---------------
-Other Settings
---------------
+--------------------------
+Other Environment Settings
+--------------------------
 
-ACCOUNT_ALLOW_REGISTRATION (=True)
-    Allow enable or disable user registration through `django-allauth` without disabling other characteristics like authentication and account management.
+DJANGO_ACCOUNT_ALLOW_REGISTRATION (=True)
+    Allow enable or disable user registration through `django-allauth` without disabling other characteristics like authentication and account management. (Django Setting: ACCOUNT_ALLOW_REGISTRATION)
