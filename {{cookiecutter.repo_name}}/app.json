@@ -22,6 +22,7 @@
     "DJANGO_MAILGUN_SERVER_NAME": "",
     {% if cookiecutter.use_newrelic == "y" -%}
     "NEW_RELIC_LICENSE_KEY": "",
+    "NEW_RELIC_APP_NAME": "",
     {%- endif %}
     "DJANGO_MAILGUN_API_KEY": ""{% if cookiecutter.use_sentry == "y" -%},
     "DJANGO_SENTRY_DSN": ""{%- endif %} 
