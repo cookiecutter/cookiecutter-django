@@ -2,10 +2,14 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2016-02-24]
+### Added
+- Beginning support for `py.test` (@pydanny)
+
 ## [2016-02-18]
 ### Changed
 - The status of the registration (open or closed) is now read from the project environment instead of hardcoded in the common settings file. (@Eraldo)
-- Renamed the adapter.py file to adapters.py to match the django naming convention. (@Eraldo) 
+- Renamed the adapter.py file to adapters.py to match the django naming convention. (@Eraldo)
 
 
 

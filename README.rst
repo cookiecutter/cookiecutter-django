@@ -21,7 +21,7 @@ Features
 ---------
 
 * For Django 1.9
-* Renders Django projects with 100% test coverage
+* Renders Django projects with 100% starting test coverage
 * Twitter Bootstrap_ v4.0.0 - alpha_
 * End-to-end via Hitch_
 * AngularJS_
@@ -34,6 +34,9 @@ Features
 * Media storage using Amazon S3
 * Docker support using docker-compose_ for development and production
 * Procfile_ for deploying to Heroku
+* Works with Python 2.7.x or 3.5.x!
+* Run tests with unittest or py.test!
+
 
 Optional Integrations
 ---------------------
