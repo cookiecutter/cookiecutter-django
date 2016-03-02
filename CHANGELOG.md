@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [2016-03-01]
 ### Changed
 - Update version of Django, flake8, pyflakes, pytest, factory_boy, ipdb, Werkzeug, gevent (@luzfcb)
-- Update version of Hitch tests dependencies: click, hitchserve, hitchtest, ipython, psutil, python-dateutil(@luzfcb)
+- Update version of Hitch tests dependencies: click, hitchserve, hitchsystem, hitchtest, ipython, psutil, python-dateutil(@luzfcb)
 - Update Tether (JS) version to 1.2.0 (@luzfcb)
 
 ## [2016-02-24]
