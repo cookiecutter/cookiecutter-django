@@ -119,7 +119,11 @@ AWS_HEADERS = {
 
 # URL that handles the media served from MEDIA_ROOT, used for managing
 # stored files.
+{% if cookiecutter.use_whitenoise == 'y' -%}
 MEDIA_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+{% else %}
+MEDIA_URL = 'https://s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
+{%- endif %}
 
 # Static Assets
 # ------------------------
@@ -127,7 +131,7 @@ MEDIA_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 {% else %}
 STATICFILES_STORAGE = DEFAULT_FILE_STORAGE
-STATIC_URL = MEDIA_URL
+STATIC_URL = 'https://s3.amazonaws.com/%s/static/' % AWS_STORAGE_BUCKET_NAME
 
 # See: https://github.com/antonagestam/collectfast
 # For Django 1.7+, 'collectfast' should come before
