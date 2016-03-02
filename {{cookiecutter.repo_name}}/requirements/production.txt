@@ -15,7 +15,7 @@ psycopg2==2.6.1
 gevent==1.0.2
 {% else %}
 # there's no python 3 support in stable, have to use the latest release candidate for gevent
-gevent==1.1rc3
+gevent==1.1rc5
 {% endif %}
 gunicorn==19.4.5
 

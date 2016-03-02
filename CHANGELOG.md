@@ -2,9 +2,18 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2016-03-01]
+### Changed
+- Update version of Django, flake8, pyflakes, pytest, factory_boy, ipdb, Werkzeug, gevent (@luzfcb)
+- Update version of Hitch tests dependencies: click, hitchserve, hitchtest, ipython, psutil, python-dateutil(@luzfcb)
+- Update Tether (JS) version to 1.2.0 (@luzfcb)
+
 ## [2016-02-24]
 ### Added
 - Beginning support for `py.test` (@pydanny)
+
+### Changed
+- Fixed missing div closing tag for "container" on user_list.html (@Eraldo)
 
 ## [2016-02-18]
 ### Changed
