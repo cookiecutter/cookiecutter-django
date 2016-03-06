@@ -114,7 +114,7 @@ It prompts you for questions. Answer them::
     domain_name [example.com]: myreddit.com
     version [0.1.0]: 0.0.1
     timezone [UTC]:
-    now [2015/11/22]: 2015/11/22
+    now [2016/03/01]: 2016/03/05
     year [2015]:
     use_whitenoise [y]: n
     use_celery [n]: y
@@ -124,7 +124,11 @@ It prompts you for questions. Answer them::
     use_opbeat [n]: y
     windows [n]: n
     use_python2 [n]: y
-
+    Select open_source_license:
+    1 - MIT
+    2 - BSD
+    3 - Not open source
+    Choose from 1, 2, 3 [1]: 1
 
 Enter the project and take a look around::
 

@@ -5,7 +5,7 @@ django_coverage_plugin==1.2.2
 Sphinx
 django-extensions==1.6.1
 Werkzeug==0.11.4
-django-test-plus==1.0.11
+django-test-plus==1.0.12
 factory_boy==2.6.1
 
 # django-debug-toolbar that works with Django 1.5+

@@ -2,6 +2,13 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2016-03-05]
+### Changed
+- Update version of Django, celery, django-test-plus (@luzfcb)
+- Update version of Hitch tests dependencies: jupyter_client (@luzfcb)
+- Update 'now' date in cookiecutter.json (@luzfcb)
+- Update the usage example in README (@luzfcb)
+
 ## [2016-03-01]
 ### Changed
 - Update version of Django, flake8, pyflakes, pytest, factory_boy, ipdb, Werkzeug, gevent (@luzfcb)

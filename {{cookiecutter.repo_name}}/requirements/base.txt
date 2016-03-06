@@ -7,7 +7,7 @@ wheel==0.29.0
 {%- endif %}
 
 # Bleeding edge Django
-django==1.9.3
+django==1.9.4
 
 # Configuration
 django-environ==0.4.0
@@ -52,7 +52,7 @@ django-redis==4.3.0
 redis>=2.10.0
 
 {% if cookiecutter.use_celery == "y" %}
-celery==3.1.20
+celery==3.1.21
 {% endif %}
 
 # Your custom requirements go here

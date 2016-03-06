@@ -17,7 +17,7 @@ humanize==0.5.1
 ipython==4.1.2
 ipython-genutils==0.1.0
 Jinja2==2.8
-jupyter-client==4.1.1
+jupyter-client==4.2.0
 jupyter-core==4.0.6
 MarkupSafe==0.23
 path.py==8.1.2
