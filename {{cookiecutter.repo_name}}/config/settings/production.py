@@ -97,7 +97,6 @@ INSTALLED_APPS += ("gunicorn", )
 INSTALLED_APPS += (
     'storages',
 )
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 AWS_ACCESS_KEY_ID = env('DJANGO_AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('DJANGO_AWS_SECRET_ACCESS_KEY')
@@ -119,15 +118,25 @@ AWS_HEADERS = {
 
 # URL that handles the media served from MEDIA_ROOT, used for managing
 # stored files.
+{% if cookiecutter.use_whitenoise == 'y' -%}
 MEDIA_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+{% else %}
+#  See:http://stackoverflow.com/questions/10390244/
+from storages.backends.s3boto import S3BotoStorage
+StaticRootS3BotoStorage = lambda: S3BotoStorage(location='static')
+MediaRootS3BotoStorage = lambda: S3BotoStorage(location='media')
+DEFAULT_FILE_STORAGE = 'config.settings.production.MediaRootS3BotoStorage'
+
+MEDIA_URL = 'https://s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
+{%- endif %}
 
 # Static Assets
 # ------------------------
 {% if cookiecutter.use_whitenoise == 'y' -%}
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 {% else %}
-STATICFILES_STORAGE = DEFAULT_FILE_STORAGE
-STATIC_URL = MEDIA_URL
+STATIC_URL = 'https://s3.amazonaws.com/%s/static/' % AWS_STORAGE_BUCKET_NAME
+STATICFILES_STORAGE = 'config.settings.production.StaticRootS3BotoStorage'
 
 # See: https://github.com/antonagestam/collectfast
 # For Django 1.7+, 'collectfast' should come before
