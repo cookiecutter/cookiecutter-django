@@ -1,7 +1,7 @@
 version: '2'
 services:
   postgres:
-    image: postgres:9.5
+    build: ./compose/postgres
     volumes:
       - /data/{{cookiecutter.repo_name}}/postgres:/var/lib/postgresql/data
       - /data/{{cookiecutter.repo_name}}/postgres-backups:/backups
