@@ -2,6 +2,17 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2016-03-08]
+### Changed
+- Docker configuration now uses docker-compose format v2 (@aeikenberry)
+- Make sure that STATIC_URL != MEDIA_URL (@cdvv7788)
+- fix minor typos in project README (@menzenski)
+- Updated docker docs (@jayfk)
+
+### Added
+- Added database controls for docker (@jayfk)
+
+
 ## [2016-03-05]
 ### Changed
 - Update version of Django, celery, django-test-plus (@luzfcb)
