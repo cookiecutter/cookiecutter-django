@@ -91,6 +91,29 @@ Production Mode
 
 Instead of using `dev.yml`, you would use `docker-compose.yml`.
 
+Database Backups
+~~~~~~~~~~~~~~~~
+
+The database has to be running to create/restore a backup.
+
+First, run the app with `docker-compose -f dev.yml up`.
+
+To create a backup, run::
+
+    docker-compose -f dev.yml run postgres backup
+
+
+To list backups, run::
+
+    docker-compose -f dev.yml run postgres list-backups
+
+
+To restore a backup, run::
+
+    docker-compose -f dev.yml run postgres restore filename.sql
+
+
+
 Other Useful Tips
 -----------------
 
