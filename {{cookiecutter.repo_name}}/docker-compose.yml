@@ -10,7 +10,7 @@ services:
     build:
       context: .
     user: django
-    links:
+    depends_on:
       - postgres
       - redis
     command: /gunicorn.sh
@@ -21,7 +21,7 @@ services:
 
   nginx:
     build: ./compose/nginx
-    links:
+    depends_on:
       - django
     ports:
       - "0.0.0.0:80:80"
@@ -34,7 +34,7 @@ services:
       context: .
     user: django
     env_file: .env
-    links:
+    depends_on:
      - postgres
      - redis
     command: celery -A {{cookiecutter.repo_name}}.taskapp worker -l INFO
@@ -47,7 +47,7 @@ services:
       context: .
     user: django
     env_file: .env
-    links:
+    depends_on:
       - postgres
       - redis
     command: celery -A {{cookiecutter.repo_name}}.taskapp beat -l INFO
