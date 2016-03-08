@@ -36,6 +36,7 @@ Listed in alphabetical order.
   Name                     Github                        Twitter
 ========================== ============================ ==============
   a7p                      `@a7p`_
+  Aaron Eikenberry         `@aeikenberry`
   Adam Bogdał              `@bogdal`_
   Adam Dobrawy             `@ad-m`_
   Agam Dua
@@ -85,6 +86,7 @@ Listed in alphabetical order.
   Mathijs Hoogland         `@MathijsHoogland`_
   Matt Linares
   Matt Warren              `@mfwarren`_
+  Matt Menzenski           `@menzenski`
   mozillazg                `@mozillazg`_
   Pablo                    `@oubiga`_
   Raphael Pierzina         `@hackebrot`_
