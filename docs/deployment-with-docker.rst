@@ -16,8 +16,8 @@ to run docker (with compose) on production.
 
 Prerequisites:
 
-* docker (tested with 1.8)
-* docker-compose (tested with 0.4)
+* docker (at least 1.10)
+* docker-compose (at least 1.6)
 
 Before you start, check out the `docker-compose.yml` file in the root of this project. This is where each component
 of this application gets its configuration from. It consists of a `postgres` service that runs the database, `redis`
@@ -67,7 +67,7 @@ To create a superuser, run::
 
 If you need a shell, run::
 
-   docker-compose run django python manage.py shell_plus
+   docker-compose run django python manage.py shell
 
 To get an output of all running containers.
 

@@ -7,24 +7,24 @@ The steps below will get you up and running with a local development environment
 All of these commands assume you are in the root of your generated project.
 
 Prerequisites
---------------
+-------------
 
-If you don't already have these installed, get them all by installing `Docker Toolbox`_.
+You'll need at least docker 1.10.
 
-* docker
-* docker-machine
-* docker-compose
-* virtualbox
+If you don't already have it installed, follow the instructions for your OS:
 
+ - On Mac OS X/Windows, you'll need `Docker Toolbox`_
+ - On Linux, you'll need `docker-engine`_
 .. _`Docker Toolbox`: https://github.com/docker/toolbox/releases
+.. _`docker-engine`: https://docs.docker.com/engine/installation/
 
 Create the Machine (Optional)
--------------------------------
+-----------------------------
 
-On Ubuntu you have native Docker, so you don't need to create a VM with 
+On Linux you have native Docker, so you don't need to create a VM with
 docker-machine to use it.
 
-However, on Mac/Windows/other systems without native Docker, you'll want to 
+However, on Mac/Windows/other systems without native Docker, you'll want to
 start by creating a VM with docker-machine::
 
     $ docker-machine create --driver virtualbox dev1
@@ -34,7 +34,7 @@ name them accordingly. Instead of 'dev1' you might have 'dev2', 'myproject',
 'djangopackages', et al.
 
 Get the IP Address
---------------------
+------------------
 
 Once your machine is up and running, run this::
 
@@ -43,26 +43,6 @@ Once your machine is up and running, run this::
 
 This is also the IP address where the Django project will be served from.
 
-Saving changes
---------------
-
-If you are using OS X or Windows, you need to create a /data partition inside the
-virtual machine that runs the docker deamon in order make all changes persistent.
-If you don't do that your /data directory will get wiped out on every reboot.
-
-To create a persistent folder, log into the virtual machine by running::
-
-    $ docker-machine ssh dev1
-    $ sudo su
-    $ mkdir /data
-    $ echo 'ln -sfn /mnt/sda1/data /data' >> /var/lib/boot2docker/bootlocal.sh
-
-In case you are wondering why you can't use a host volume to keep the files on
-your mac: As of `boot2docker` 1.7 you'll run into permission problems with mounted
-host volumes if the container creates his own user and chown's the directories
-on the volume. Postgres is doing that, so we need this quick fix to ensure that
-all development data persists.
-
 Build the Stack
 ---------------
 
@@ -70,15 +50,15 @@ This can take a while, especially the first time you run this particular command
 on your development system::
 
     $ docker-compose -f dev.yml build
-    
-If you want to build the production environment you don't have to pass an argument -f, it will automatically use docker-compose.yml. 
+
+If you want to build the production environment you don't have to pass an argument -f, it will automatically use docker-compose.yml.
 
 Boot the System
 ---------------
 
-This brings up both Django and PostgreSQL. 
+This brings up both Django and PostgreSQL.
 
-The first time it is run it might take a while to get started, but subsequent 
+The first time it is run it might take a while to get started, but subsequent
 runs will occur quickly.
 
 Open a terminal at the project root and run the following for local development::
@@ -92,12 +72,12 @@ You can also set the environment variable ``COMPOSE_FILE`` pointing to ``dev.yml
 And then run::
 
     $ docker-compose up
-    
-Running management commands
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-As with any shell command that we wish to run in our container, this is done 
-using the ``docker-compose run`` command. 
+Running management commands
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As with any shell command that we wish to run in our container, this is done
+using the ``docker-compose run`` command.
 
 To migrate your app and to create a superuser, run::
 
@@ -107,17 +87,17 @@ To migrate your app and to create a superuser, run::
 Here we specify the ``django`` container as the location to run our management commands.
 
 Production Mode
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
 
 Instead of using `dev.yml`, you would use `docker-compose.yml`.
 
 Other Useful Tips
-------------------
+-----------------
 
 Make a machine the active unit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This tells our computer that all future commands are specifically for the dev1 machine. 
+This tells our computer that all future commands are specifically for the dev1 machine.
 Using the ``eval`` command we can switch machines as needed.
 
 ::
