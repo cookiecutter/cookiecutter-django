@@ -54,6 +54,7 @@ Listed in alphabetical order.
   Benjamin Abel
   Bouke Haarsma
   Burhan Khalid            `@burhan`_                   @burhan
+  Catherine Devlin         `@catherinedevlin`
   Chris Curvey             `@ccurvey`_
   Chris Franklin
   Chris Franklin           `@hairychris`_
@@ -118,6 +119,7 @@ Listed in alphabetical order.
 .. _@burhan: https://github.com/burhan
 .. _@ccurvey: https://github.com/ccurvey
 .. _@hairychris: https://github.com/hairychris
+.. _@catherinedevlin: https://github.com/catherinedevlin
 .. _@ChrisPappalardo: https://github.com/ChrisPappalardo
 .. _@cdvv7788: https://github.com/cdvv7788
 .. _@c-rhodes: https://github.com/c-rhodes

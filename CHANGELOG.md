@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2016-03-14]
+### Changed
+- Enforce `repo_name` as proper python module (@ChrisPappalardo)
+
 ## [2016-03-08]
 ### Changed
 - Docker configuration now uses docker-compose format v2 (@aeikenberry)
