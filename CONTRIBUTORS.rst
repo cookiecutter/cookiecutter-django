@@ -36,7 +36,7 @@ Listed in alphabetical order.
   Name                     Github                        Twitter
 ========================== ============================ ==============
   a7p                      `@a7p`_
-  Aaron Eikenberry         `@aeikenberry`
+  Aaron Eikenberry         `@aeikenberry`_
   Adam Bogdał              `@bogdal`_
   Adam Dobrawy             `@ad-m`_
   Agam Dua
@@ -54,12 +54,12 @@ Listed in alphabetical order.
   Benjamin Abel
   Bouke Haarsma
   Burhan Khalid            `@burhan`_                   @burhan
-  Catherine Devlin         `@catherinedevlin`
+  Catherine Devlin         `@catherinedevlin`_
   Chris Curvey             `@ccurvey`_
   Chris Franklin
   Chris Franklin           `@hairychris`_
   Chris Pappalardo         `@ChrisPappalardo`_
-  Collederas               `@Collederas`
+  Collederas               `@Collederas`_
   Cristian Vargas          `@cdvv7788`_
   Cullen Rhodes            `@c-rhodes`_
   Daniele Tricoli          `@eriol`_
@@ -86,8 +86,8 @@ Listed in alphabetical order.
   Martin Blech
   Mathijs Hoogland         `@MathijsHoogland`_
   Matt Linares
+  Matt Menzenski           `@menzenski`_
   Matt Warren              `@mfwarren`_
-  Matt Menzenski           `@menzenski`
   mozillazg                `@mozillazg`_
   Pablo                    `@oubiga`_
   Raphael Pierzina         `@hackebrot`_
@@ -104,53 +104,55 @@ Listed in alphabetical order.
   Yaroslav Halchenko
 ========================== ============================ ==============
 
-.. _@areski: https://github.com/areski
 .. _@a7p: https://github.com/a7p
-.. _@bogdal: https://github.com/bogdal
 .. _@ad-m: https://github.com/ad-m
+.. _@aeikenberry: https://github.com/aeikenberry
 .. _@alb3rto: https://github.com/alb3rto
-.. _@caffodian: https://github.com/caffodian
-.. _@eraldo: https://github.com/eraldo
-.. _@andor-pierdelacabeza: https://github.com/andor-pierdelacabeza
 .. _@amjith: https://github.com/amjith
-.. _@zcho: https://github.com/zcho
-.. _@jazztpt: https://github.com/jazztpt
-.. _@yunti: https://github.com/yunti
+.. _@andor-pierdelacabeza: https://github.com/andor-pierdelacabeza
+.. _@areski: https://github.com/areski
+.. _@arruda: https://github.com/arruda
+.. _@bogdal: https://github.com/bogdal
 .. _@burhan: https://github.com/burhan
-.. _@ccurvey: https://github.com/ccurvey
-.. _@hairychris: https://github.com/hairychris
-.. _@catherinedevlin: https://github.com/catherinedevlin
-.. _@ChrisPappalardo: https://github.com/ChrisPappalardo
-.. _@cdvv7788: https://github.com/cdvv7788
 .. _@c-rhodes: https://github.com/c-rhodes
+.. _@caffodian: https://github.com/caffodian
+.. _@catherinedevlin: https://github.com/catherinedevlin
+.. _@ccurvey: https://github.com/ccurvey
+.. _@cdvv7788: https://github.com/cdvv7788
+.. _@ChrisPappalardo: https://github.com/ChrisPappalardo
+.. _@Collederas: https://github.com/Collederas
+.. _@ddiazpinto: https://github.com/ddiazpinto
+.. _@eraldo: https://github.com/eraldo
 .. _@eriol: https://github.com/eriol
 .. _@eyadsibai: https://github.com/eyadsibai
-.. _@arruda: https://github.com/arruda
 .. _@garry-cairns: https://github.com/garry-cairns
 .. _@garrypolley: https://github.com/garrypolley
+.. _@hackebrot: https://github.com/hackebrot
+.. _@hairychris: https://github.com/hairychris
 .. _@hjwp: https://github.com/hjwp
-.. _@ikkebr: https://github.com/ikkebr
 .. _@IanLee1521: https://github.com/IanLee1521
-.. _@juliocc: https://github.com/juliocc
-.. _@kaidokert: https://github.com/kaidokert
-.. _@ka7eh: https://github.com/ka7eh
-.. _@kevgathuku: https://github.com/kevgathuku
+.. _@ikkebr: https://github.com/ikkebr
 .. _@iynaix: https://github.com/iynaix
+.. _@jazztpt: https://github.com/jazztpt
+.. _@juliocc: https://github.com/juliocc
+.. _@jvanbrug: https://github.com/jvanbrug
+.. _@ka7eh: https://github.com/ka7eh
+.. _@kaidokert: https://github.com/kaidokert
+.. _@kevgathuku: https://github.com/kevgathuku
+.. _@knitatoms: https://github.com/knitatoms
 .. _@MathijsHoogland: https://github.com/MathijsHoogland
+.. _@menzenski: https://github.com/menzenski
 .. _@mfwarren: https://github.com/mfwarren
 .. _@mozillazg: https://github.com/mozillazg
-.. _@oubiga: https://github.com/oubiga
-.. _@hackebrot: https://github.com/hackebrot
-.. _@siauPatrick: https://github.com/siauPatrick
-.. _@stepmr: https://github.com/stepmr
-.. _@slafs: https://github.com/slafs
-.. _@show0k: https://github.com/show0k
-.. _@knitatoms: https://github.com/knitatoms
-.. _@Travistock: https://github.com/Tavistock
-.. _@jvanbrug: https://github.com/jvanbrug
-.. _@ddiazpinto: https://github.com/ddiazpinto
-.. _@Collederas: https://github.com/Collederas
 .. _@originell: https://github.com/originell
+.. _@oubiga: https://github.com/oubiga
+.. _@show0k: https://github.com/show0k
+.. _@siauPatrick: https://github.com/siauPatrick
+.. _@slafs: https://github.com/slafs
+.. _@stepmr: https://github.com/stepmr
+.. _@Travistock: https://github.com/Tavistock
+.. _@yunti: https://github.com/yunti
+.. _@zcho: https://github.com/zcho
 
 Special Thanks
 ~~~~~~~~~~~~~~
