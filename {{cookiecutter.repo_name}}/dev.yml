@@ -17,6 +17,8 @@ services:
     command: python /app/manage.py runserver_plus 0.0.0.0:8000
     depends_on:
       - postgres
+    environment:
+      - POSTGRES_USER={{cookiecutter.repo_name}}
     volumes:
       - .:/app
     ports:
