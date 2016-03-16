@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+### [2016-03-16]
+### Changed
+- Set the correct postgres username in dev.yml (@calculuscowboy)
+
 ## [2016-03-14]
 ### Changed
 - Enforce `repo_name` as proper python module (@catherinedevlin)
