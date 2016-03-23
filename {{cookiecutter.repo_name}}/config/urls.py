@@ -6,13 +6,14 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
+from django.views import defaults as default_views
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name="home"),
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name="about"),
 
-    # Django Admin
-    url(r'^admin/', include(admin.site.urls)),
+    # Django Admin, use {% raw %}{% url 'admin:index' %}{% endraw %}
+    url(settings.ADMIN_URL, include(admin.site.urls)),
 
     # User management
     url(r'^users/', include("{{ cookiecutter.repo_name }}.users.urls", namespace="users")),
@@ -27,8 +28,8 @@ if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit
     # these url in browser to see how these error pages look like.
     urlpatterns += [
-        url(r'^400/$', 'django.views.defaults.bad_request'),
-        url(r'^403/$', 'django.views.defaults.permission_denied'),
-        url(r'^404/$', 'django.views.defaults.page_not_found'),
-        url(r'^500/$', 'django.views.defaults.server_error'),
+        url(r'^400/$', default_views.bad_request, kwargs={'exception': Exception("Bad Request!")}),
+        url(r'^403/$', default_views.permission_denied, kwargs={'exception': Exception("Permission Denied")}),
+        url(r'^404/$', default_views.page_not_found, kwargs={'exception': Exception("Page not Found")}),
+        url(r'^500/$', default_views.server_error),
     ]

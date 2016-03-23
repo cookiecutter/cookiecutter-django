@@ -1,18 +1,22 @@
 {
     "project_name": "project_name",
-    "repo_name": "{{ cookiecutter.project_name|replace(' ', '_') }}",
+    "repo_name": "{{ cookiecutter.project_name|replace(' ', '_')|replace('-', '_') }}",
     "author_name": "Your Name",
     "email": "Your email",
     "description": "A short description of the project.",
     "domain_name": "example.com",
     "version": "0.1.0",
     "timezone": "UTC",
-    "now": "2015/01/13",
+    "now": "2016/03/05",
     "year": "{{ cookiecutter.now[:4] }}",
     "use_whitenoise": "y",
     "use_celery": "n",
-    "use_maildump": "n",
+    "use_mailhog": "n",
     "use_sentry": "n",
+    "use_newrelic": "n",
+    "use_opbeat": "n",
     "use_pycharm": "n",
-    "windows": "n"
+    "windows": "n",
+    "use_python2": "n",
+    "open_source_license": ["MIT", "BSD", "Not open source"]
 }

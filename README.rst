@@ -13,33 +13,44 @@ cookiecutter-django
    :target: https://gitter.im/pydanny/cookiecutter-django?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
 
-A cookiecutter_ template for Django.
+A Cookiecutter_ template for Django.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
 Features
 ---------
 
-* For Django 1.8
-* Renders Django projects with 100% test coverage
-* Twitter Bootstrap_ 3
+* For Django 1.9
+* Renders Django projects with 100% starting test coverage
+* Twitter Bootstrap_ v4.0.0 - alpha_
 * End-to-end via Hitch_
 * AngularJS_
 * 12-Factor_ based settings via django-environ_
 * Optimized development and production settings
 * Registration via django-allauth_
-* Procfile_ for deploying to Heroku
-* Works great with Dokku
+* Comes with custom user model ready to go.
 * Grunt build for compass and livereload
 * Basic e-mail configurations for sending emails via Mailgun_
 * Media storage using Amazon S3
-* Serve static files from Amazon S3 or Whitenoise_ (optional)
-* Pre configured Celery_ (optional)
-* Integration with Maildump_ for local email testing (optional)
-* Integration with Sentry_ for error logging (optional)
-* Docker support using docker-compose_ for dev (with debug) and prod (optional)
-* PyCharm "Run/Debug Configurations" for django, grunt and docker (optional)
+* Docker support using docker-compose_ for development and production
+* Procfile_ for deploying to Heroku
+* Works with Python 2.7.x or 3.5.x!
+* Run tests with unittest or py.test!
 
+
+Optional Integrations
+---------------------
+
+*These features can be enabled during initial project setup.*
+
+* Serve static files from Amazon S3 or Whitenoise_
+* Configuration for Celery_
+* Integration with MailHog_ for local email testing
+* Integration with Sentry_ for error logging
+* Integration with NewRelic_ for performance monitoring
+* Integration with Opbeat_ for performance monitoring
+
+.. _alpha: http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/
 .. _Hitch: https://github.com/hitchtest/hitchtest
 .. _Bootstrap: https://github.com/twbs/bootstrap
 .. _AngularJS: https://github.com/angular/angular.js
@@ -51,9 +62,11 @@ Features
 .. _Mailgun: https://mailgun.com/
 .. _Whitenoise: https://whitenoise.readthedocs.org/
 .. _Celery: http://www.celeryproject.org/
-.. _Maildump: https://github.com/ThiefMaster/maildump
+.. _MailHog: https://github.com/mailhog/MailHog
 .. _Sentry: https://getsentry.com
+.. _NewRelic: https://newrelic.com
 .. _docker-compose: https://www.github.com/docker/compose
+.. _Opbeat: https://opbeat.com/
 
 
 Constraints
@@ -83,6 +96,8 @@ You'll be prompted for some questions, answer them, then it will create a Django
 
 **Warning**: After this point, change 'Daniel Greenfeld', 'pydanny', etc to your own information.
 
+**Warning**: repo_name must be a valid Python module name or you will have issues on imports.
+
 It prompts you for questions. Answer them::
 
     Cloning into 'cookiecutter-django'...
@@ -91,22 +106,33 @@ It prompts you for questions. Answer them::
     remote: Total 550 (delta 283), reused 479 (delta 222)
     Receiving objects: 100% (550/550), 127.66 KiB | 58 KiB/s, done.
     Resolving deltas: 100% (283/283), done.
-    project_name (default is "project_name")? Reddit Clone
-    repo_name (default is "Reddit_Clone")? reddit
-    author_name (default is "Your Name")? Daniel Greenfeld
-    email (default is "Your email")? pydanny@gmail.com
-    description (default is "A short description of the project.")? A reddit clone.
-    domain_name (default is "example.com")? myreddit.com
-    version (default is "0.1.0")? 0.0.1
-    timezone (default is "UTC")?
-    now (default is "2015/01/13")? 2015/01/16
-    year (default is "2015")?
-    use_whitenoise (default is "y")?
-
+    project_name [project_name]: Reddit Clone
+    repo_name [Reddit_Clone]: reddit
+    author_name [Your Name]: Daniel Greenfeld
+    email [Your email]: pydanny@gmail.com
+    description [A short description of the project.]: A reddit clone.
+    domain_name [example.com]: myreddit.com
+    version [0.1.0]: 0.0.1
+    timezone [UTC]:
+    now [2016/03/01]: 2016/03/05
+    year [2015]:
+    use_whitenoise [y]: n
+    use_celery [n]: y
+    use_mailhog [n]: n
+    use_sentry [n]: y
+    use_newrelic [n]: y
+    use_opbeat [n]: y
+    windows [n]: n
+    use_python2 [n]: y
+    Select open_source_license:
+    1 - MIT
+    2 - BSD
+    3 - Not open source
+    Choose from 1, 2, 3 [1]: 1
 
 Enter the project and take a look around::
 
-    $ cd redditclone/
+    $ cd reddit/
     $ ls
 
 Create a GitHub repo and push it there::
@@ -119,107 +145,33 @@ Create a GitHub repo and push it there::
 
 Now take a look at your repo. Don't forget to carefully look at the generated README. Awesome, right?
 
-Getting up and running
-----------------------
+For development, see the following for local development:
 
-The steps below will get you up and running with a local development environment. We assume you have the following installed:
+* `Developing locally`_
+* `Developing locally using docker`_
 
-* pip
-* virtualenv
-* PostgreSQL
+.. _`Developing locally`: http://cookiecutter-django.readthedocs.org/en/latest/developing-locally.html
+.. _`Developing locally using docker`: http://cookiecutter-django.readthedocs.org/en/latest/developing-locally-docker.html
 
-First make sure to create and activate a virtualenv_, then open a terminal at the project root and install the requirements for local development::
+Articles
+---------
 
-    $ pip install -r requirements/local.txt
+* `Development and Deployment of Cookiecutter-Django via Docker`_
+* `Development and Deployment of Cookiecutter-Django on Fedora`_
 
-.. _virtualenv: http://docs.python-guide.org/en/latest/dev/virtualenvs/
+.. _`Development and Deployment of Cookiecutter-Django via Docker`: https://realpython.com/blog/python/development-and-deployment-of-cookiecutter-django-via-docker
+.. _`Development and Deployment of Cookiecutter-Django on Fedora`: https://realpython.com/blog/python/development-and-deployment-of-cookiecutter-django-on-fedora/
 
-Then, create a PostgreSQL database and add the database configuration using the  ``dj-database-url`` app pattern: ``postgres://db_owner:password@dbserver_ip:port/db_name`` either:
+Support This Project
+---------------------------
 
-* in the ``config.settings.common.py`` setting file,
-* or in the environment variable ``DATABASE_URL``
+This project is maintained by volunteers. Support their efforts by spreading the word about:
 
-
-You can now run the usual Django ``migrate`` and ``runserver`` command::
-
-    $ python manage.py migrate
-
-    $ python manage.py runserver
-
-
-**Live reloading and Sass CSS compilation**
-
-If you'd like to take advantage of live reloading and Sass / Compass CSS compilation you can do so with the included Grunt task.
-
-Make sure that nodejs_ is installed. Then in the project root run::
-
-    $ npm install
-
-.. _nodejs: http://nodejs.org/download/
-
-Now you just need::
-
-    $ grunt serve
-
-The base app will now run as it would with the usual ``manage.py runserver`` but with live reloading and Sass compilation enabled.
-
-To get live reloading to work you'll probably need to install an `appropriate browser extension`_
-
-.. _appropriate browser extension: http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-
-
-It's time to write the code!!!
-
-Getting up and running using docker
-----------------------------------
-
-The steps below will get you up and running with a local development environment. We assume you have the following installed:
-
-* docker
-* docker-compose
-
-Open a terminal at the project root and run the following for local development::
-
-    $ docker-compose -f dev.yml up
-
-You can also set the environment variable ``COMPOSE_FILE`` pointing to ``dev.yml`` like this::
-
-    $ export COMPOSE_FILE=dev.yml
-
-And then run::
-
-    $ docker-compose up
-
-
-If you want to connect to python interpreter inside docker container with remote debbuger, you have to run different
-container with debug.yml (dev.yml has to be build first)::
-
-    $ docker-compose -f dev.yml build; docker-compose -f debug.yml up
-
-
-See `docker remote debugging instructions <{{cookiecutter.repo_name}}/docs/docker_remote_debugging.rst>`_ for particular IDE (PyCharm, etc).
-
-To migrate your app and to create a superuser, run::
-
-    $ docker-compose run django python manage.py migrate
-
-    $ docker-compose run django python manage.py createsuperuser
-
-
-If you are using `boot2docker` to develop on OS X or Windows, you need to create a `/data` partition inside your boot2docker
-vm to make all changes persistent. If you don't do that your `/data` directory will get wiped out on every reboot.
-
-To create a persistent folder, log into the `boot2docker` vm by running::
-
-    $ bootdocker ssh
-
-And then::
-
-    $ sudo su
-    $ echo 'ln -sfn /mnt/sda1/data /data' >> /var/lib/boot2docker/bootlocal.sh
-
-In case you are wondering why you can't use a host volume to keep the files on your mac: As of `boot2docker` 1.7 you'll
-run into permission problems with mounted host volumes if the container creates his own user and `chown`s the directories
-on the volume. Postgres is doing that, so we need this quick fix to ensure that all development data persists.
+.. image:: https://s3.amazonaws.com/tsacademy/images/tsa-logo-250x60-transparent-01.png
+   :name: Two Scoops Academy
+   :align: center
+   :alt: Two Scoops Academy
+   :target: http://www.twoscoops.academy/
 
 For Readers of Two Scoops of Django 1.8
 --------------------------------------------

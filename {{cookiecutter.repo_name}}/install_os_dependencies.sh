@@ -24,7 +24,7 @@ function usage_message()
 
 # Read the requirements.apt file, and remove comments and blank lines
 function list_packages(){
-     cat ${OS_REQUIREMENTS_FILENAME} | grep -v "#" | grep -v "^$";
+     grep -v "#" ${OS_REQUIREMENTS_FILENAME} | grep -v "^$";
 }
 
 function install()

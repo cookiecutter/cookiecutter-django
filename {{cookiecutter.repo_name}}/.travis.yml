@@ -1,3 +1,4 @@
+sudo: true
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq build-essential gettext python-dev zlib1g-dev libpq-dev xvfb
@@ -7,7 +8,11 @@ before_install:
   - sudo apt-get install -qq libsqlite3-dev libxml2 libxml2-dev libssl-dev libbz2-dev wget curl llvm
 language: python
 python:
-  - "3.4"
+{% if cookiecutter.use_python2 == 'n' -%}
+  - "3.5"
+{% else %}
+  - "2.7"
+{%- endif %}
 install:
   - "pip install hitch"
   - "cd tests"

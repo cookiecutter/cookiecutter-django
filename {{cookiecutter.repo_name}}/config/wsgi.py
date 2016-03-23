@@ -15,12 +15,18 @@ framework.
 """
 import os
 
+{% if cookiecutter.use_newrelic == "y" -%}
+if os.environ.get("DJANGO_SETTINGS_MODULE") == "config.settings.production":
+    import newrelic.agent
+    newrelic.agent.initialize()
+{%- endif %}
 from django.core.wsgi import get_wsgi_application
 {% if cookiecutter.use_whitenoise == 'y' -%}
 from whitenoise.django import DjangoWhiteNoise
 {%- endif %}
 {% if cookiecutter.use_sentry == "y" -%}
-from raven.contrib.django.raven_compat.middleware.wsgi import Sentry
+if os.environ.get("DJANGO_SETTINGS_MODULE") == "config.settings.production":
+    from raven.contrib.django.raven_compat.middleware.wsgi import Sentry
 {%- endif %}
 
 # We defer to a DJANGO_SETTINGS_MODULE already in the environment. This breaks
@@ -40,9 +46,13 @@ application = get_wsgi_application()
 application = DjangoWhiteNoise(application)
 {%- endif %}
 {% if cookiecutter.use_sentry == "y" -%}
-application = Sentry(application)
+if os.environ.get("DJANGO_SETTINGS_MODULE") == "config.settings.production":
+    application = Sentry(application)
 {%- endif %}
-
+{% if cookiecutter.use_newrelic == "y" -%}
+if os.environ.get("DJANGO_SETTINGS_MODULE") == "config.settings.production":
+    application = newrelic.agent.WSGIApplicationWrapper(application)
+{%- endif %}
 # Apply WSGI middleware here.
 # from helloworld.wsgi import HelloWorldApplication
 # application = HelloWorldApplication(application)

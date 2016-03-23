@@ -1,45 +1,58 @@
-postgres:
-  image: postgres:9.4
-  volumes:
-    - /data/{{cookiecutter.repo_name}}/postgres:/var/lib/postgresql/data
-  env_file: .env
+version: '2'
+services:
+  postgres:
+    build: ./compose/postgres
+    volumes:
+      - /data/{{cookiecutter.repo_name}}/postgres:/var/lib/postgresql/data
+      - /data/{{cookiecutter.repo_name}}/postgres-backups:/backups
+    env_file: .env
 
-django:
-  build: .
-  user: django
-  links:
-    - postgres
-    - redis
-  command: /app/compose/django/gunicorn.sh
-  env_file: .env
+  django:
+    build:
+      context: .
+    user: django
+    depends_on:
+      - postgres
+      - redis
+    command: /gunicorn.sh
+    env_file: .env
+    depends_on:
+      - postgres
+      - redis
 
-nginx:
-  build: ./compose/nginx
-  links:
-    - django
-  ports:
-    - "0.0.0.0:80:80"
+  nginx:
+    build: ./compose/nginx
+    depends_on:
+      - django
+    ports:
+      - "0.0.0.0:80:80"
 
-redis:
-  image: redis:3.0
+  redis:
+    image: redis:3.0
+  {% if cookiecutter.use_celery == 'y' %}
+  celeryworker:
+    build:
+      context: .
+    user: django
+    env_file: .env
+    depends_on:
+     - postgres
+     - redis
+    command: celery -A {{cookiecutter.repo_name}}.taskapp worker -l INFO
+    depends_on:
+      - postgres
+      - redis
 
-{% if cookiecutter.use_celery == 'y' %}
-celeryworker:
-  build: .
-  user: django
-  env_file: .env
-  links:
-   - postgres
-   - redis
-  command: celery -A {{cookiecutter.repo_name}}.taskapp worker -l INFO
-
-celerybeat:
-  build: .
-  user: django
-  env_file: .env
-  links:
-    - postgres
-    - redis
-  command: celery -A {{cookiecutter.repo_name}}.taskapp beat -l INFO
-{% endif %}
-
+  celerybeat:
+    build:
+      context: .
+    user: django
+    env_file: .env
+    depends_on:
+      - postgres
+      - redis
+    command: celery -A {{cookiecutter.repo_name}}.taskapp beat -l INFO
+    depends_on:
+      - postgres
+      - redis
+  {% endif %}

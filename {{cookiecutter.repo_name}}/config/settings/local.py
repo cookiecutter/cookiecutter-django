@@ -25,7 +25,7 @@ SECRET_KEY = env("DJANGO_SECRET_KEY", default='CHANGEME!!!')
 # ------------------------------------------------------------------------------
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
-{%if cookiecutter.use_maildump == "n" -%}
+{%if cookiecutter.use_mailhog == "n" -%}
 EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND',
                     default='django.core.mail.backends.console.EmailBackend')
 {%- endif %}
@@ -60,7 +60,7 @@ INSTALLED_APPS += ('django_extensions', )
 # TESTING
 # ------------------------------------------------------------------------------
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
-{% if cookiecutter.celery_support == "y" %}
+{% if cookiecutter.use_celery == "y" %}
 ########## CELERY
 # In development, all tasks will be executed locally by blocking until the task returns
 CELERY_ALWAYS_EAGER = True
