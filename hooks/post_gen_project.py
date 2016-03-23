@@ -127,3 +127,7 @@ if '{{ cookiecutter.use_celery }}'.lower() == 'n':
 
 # 3. Copy files from /docs/ to {{ cookiecutter.repo_name }}/docs/
 # copy_doc_files(PROJECT_DIRECTORY)
+
+if '{{cookiecutter.use_pycharm}}' != 'y':
+    shutil.rmtree(os.path.join(PROJECT_DIRECTORY, '.idea/'))
+

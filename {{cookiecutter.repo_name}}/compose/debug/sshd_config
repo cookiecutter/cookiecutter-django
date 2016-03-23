@@ -1,0 +1,83 @@
+# What ports, IPs and protocols we listen for
+Port 22
+
+# The option AllowUsers specifies and controls which users can access ssh
+# services. Multiple users can be specified, separated by spaces.
+#AllowUsers SystemUsername/
+
+Protocol 2
+
+# The option ListenAddress specifies the IP address of the interface network
+# on which the ssh daemon server socket is bind. The default is 0.0.0.0; to
+# improve security you may specify only the required ones to limit possible
+# addresses.
+ListenAddress 0.0.0.0
+
+# The option HostKey specifies the location containing the private host key.
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_dsa_key
+
+# The option SyslogFacility specifies the facility code used when logging
+# messages from sshd. The facility specifies the subsystem that produced the
+# message--in our case, AUTH.
+SyslogFacility AUTH
+
+# The option LogLevel specifies the level that is used when logging messages
+# from sshd.INFO is a good choice. See the man page for sshd for more
+# information on other possibilities.
+LogLevel INFO
+
+UsePrivilegeSeparation yes
+
+# The option LoginGraceTime specifies how long in seconds after a connection
+# request the server will wait before disconnecting if the user has not
+# successfully logged in.
+LoginGraceTime 120
+
+# The option PermitRootLogin specifies whether root can log in using ssh.
+# Never say yes to this option.
+PermitRootLogin no
+
+# The option StrictModes specifies whether ssh should check user's permissions
+# in their home directory and rhosts files before accepting login. This option
+# must always be set to yes because sometimes users may accidentally leave
+# their directory or files world-writable.
+StrictModes yes
+
+PubkeyAuthentication yes
+PasswordAuthentication yes
+RSAAuthentication no
+HostbasedAuthentication no
+
+# The option IgnoreRhosts specifies whether rhosts or shosts files should not
+# be used in authentication. For security reasons it is recommended to no use
+# rhosts or shosts files for authentication.
+IgnoreRhosts yes
+
+# The option RhostsRSAAuthentication specifies whether to try rhosts
+# authentication in concert with RSA host authentication.
+RhostsRSAAuthentication no
+
+# The option PermitEmptyPasswords specifies whether the server allows logging
+# in to accounts with a null password. If you intend to use the scp utility
+# to make automatic backups over the network, you must set this option to yes
+PermitEmptyPasswords no
+
+# Specifies the maximum number of concurrent unauthenticated connections to
+# the SSH daemon. Additional connections will be dropped until authentication
+# succeeds or the LoginGraceTime expires for a connection.
+MaxStartups 10:30:60
+
+#Subsystem   sftp    /usr/lib/openssh/sftp-server
+Subsystem sftp internal-sftp
+
+# The option PrintMotd specifies whether the ssh daemon should print the
+# contents of the /etc/motd file when a user logs in interactively. The
+# /etc/motd file is also known as the message of the day.
+PrintMotd no
+
+KeepAlive yes
+PrintLastLog yes
+UsePAM yes
+
+PermitUserEnvironment yes

@@ -4,6 +4,7 @@
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.5",
+    "grunt-cli": "^0.1.13",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-bg-shell": "~2.3.1",
     "connect-livereload": "~0.3.2",
