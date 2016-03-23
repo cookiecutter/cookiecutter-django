@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### [2016-03-23]
 ### Changed
 - Fixed issue on LICENSE file generation (@romanosipenko)
+- In install_python_dependencies.sh file, Fixed wrong reference to python3 if use_python2 was set to y (@luzfcb @noisy)
 
 ### [2016-03-16]
 ### Changed
