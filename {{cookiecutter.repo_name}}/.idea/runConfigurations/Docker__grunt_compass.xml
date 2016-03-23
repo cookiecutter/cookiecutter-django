@@ -5,7 +5,7 @@
     <envs>
       <env name="PYTHONUNBUFFERED" value="1" />
     </envs>
-    <option name="SDK_HOME" value="sftp://docker_{{ cookiecutter.repo_name }}@localhost:2222/usr/local/bin/python" />
+    <option name="SDK_HOME" value="docker-compose://$PROJECT_DIR$/dev.yml:django/python" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     <option name="IS_MODULE_SDK" value="false" />
     <option name="ADD_CONTENT_ROOTS" value="true" />

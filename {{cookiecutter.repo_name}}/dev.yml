@@ -25,3 +25,16 @@ services:
       - "8000:8000"
     links:
       - postgres
+
+  pycharm:
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+    depends_on:
+      - postgres
+    environment:
+      - POSTGRES_USER={{cookiecutter.repo_name}}
+    volumes:
+      - .:/app
+    links:
+      - postgres
