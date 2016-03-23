@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+### [2016-03-23]
+### Changed
+- Fixed issue on LICENSE file generation (@romanosipenko)
+
 ### [2016-03-16]
 ### Changed
 - Set the correct postgres username in dev.yml (@calculuscowboy)

@@ -92,6 +92,7 @@ Listed in alphabetical order.
   Pablo                    `@oubiga`_
   Raphael Pierzina         `@hackebrot`_
   Roman Afanaskin          `@siauPatrick`_
+  Roman Osipenko           `@romanosipenko`_
   Russell Davies
   stepmr                   `@stepmr`_
   Sławek Ehlert            `@slafs`_
@@ -146,6 +147,7 @@ Listed in alphabetical order.
 .. _@mozillazg: https://github.com/mozillazg
 .. _@originell: https://github.com/originell
 .. _@oubiga: https://github.com/oubiga
+.. _@romanosipenko: https://github.com/romanosipenko
 .. _@show0k: https://github.com/show0k
 .. _@siauPatrick: https://github.com/siauPatrick
 .. _@slafs: https://github.com/slafs
