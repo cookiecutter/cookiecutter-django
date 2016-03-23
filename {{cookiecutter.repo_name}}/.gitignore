@@ -37,8 +37,10 @@ htmlcov
 *.mo
 *.pot
 
+{% if cookiecutter.use_pycharm == 'y' %}
 # Pycharm
 .idea
+{% endif %}
 
 # Vim
 
