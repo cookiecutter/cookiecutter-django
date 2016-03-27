@@ -103,10 +103,15 @@ def remove_task_app(project_directory):
 
 
 def remove_pycharm_dir(project_directory):
-    """Removes the .idea directory if PyCharm isn't going to be used"""
+    """
+    Removes directories related to PyCharm
+    if it isn't going to be used
+    """
     idea_dir_location = os.path.join(PROJECT_DIRECTORY, '.idea/')
     shutil.rmtree(idea_dir_location)
 
+    docs_dir_location = os.path.join(PROJECT_DIRECTORY, 'docs/pycharm/')
+    shutil.rmtree(docs_dir_location)
 
 # IN PROGRESS
 # def copy_doc_files(project_directory):
