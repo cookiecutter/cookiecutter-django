@@ -25,3 +25,17 @@ services:
       - "8000:8000"
     links:
       - postgres
+{% if cookiecutter.use_pycharm == 'y' %}
+  pycharm:
+    build:
+      context: .
+      dockerfile: ./compose/django/Dockerfile-dev
+    depends_on:
+      - postgres
+    environment:
+      - POSTGRES_USER={{cookiecutter.repo_name}}
+    volumes:
+      - .:/app
+    links:
+      - postgres
+{% endif %}
