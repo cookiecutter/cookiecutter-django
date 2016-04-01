@@ -4,7 +4,9 @@
 {{cookiecutter.description}}
 
 
-LICENSE: BSD
+{% if cookiecutter.open_source_license != "Not open source" %}
+LICENSE: {{cookiecutter.open_source_license}}
+{% endif %}
 
 Settings
 ------------

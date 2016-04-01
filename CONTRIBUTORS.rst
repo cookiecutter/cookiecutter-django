@@ -64,7 +64,8 @@ Listed in alphabetical order.
   Cullen Rhodes            `@c-rhodes`_
   Daniele Tricoli          `@eriol`_
   David Díaz               `@ddiazpinto`_                @DavidDiazPinto
-  Davur Clementsen         `@dsclementsen`_             @davur
+  Davur Clementsen         `@dsclementsen`_              @davur
+  Dónal Adams              `@epileptic-fish`_
   Eraldo Energy            `@eraldo`_
   Eyad Al Sibai            `@eyadsibai`_
   Felipe Arruda            `@arruda`_
@@ -123,6 +124,8 @@ Listed in alphabetical order.
 .. _@ChrisPappalardo: https://github.com/ChrisPappalardo
 .. _@Collederas: https://github.com/Collederas
 .. _@ddiazpinto: https://github.com/ddiazpinto
+.. _@dsclementsen: https://github.com/dsclementsen
+.. _@epileptic-fish: https://gihub.com/epileptic-fish
 .. _@eraldo: https://github.com/eraldo
 .. _@eriol: https://github.com/eriol
 .. _@eyadsibai: https://github.com/eyadsibai
