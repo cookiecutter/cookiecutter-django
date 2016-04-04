@@ -1,7 +1,12 @@
 #!/bin/bash
 
-OS_REQUIREMENTS_FILENAME="requirements.apt"
+VER=$(lsb_release -sr)
 
+if [ "$VER" == "16.04" ]; then
+  OS_REQUIREMENTS_FILENAME="requirements.apt.xenial"
+else
+  OS_REQUIREMENTS_FILENAME="requirements.apt"
+fi
 # Handle call with wrong command
 function wrong_command()
 {
