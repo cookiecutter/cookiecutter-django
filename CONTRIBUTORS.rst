@@ -79,6 +79,7 @@ Listed in alphabetical order.
   Kaveh                    `@ka7eh`_
   Kevin A. Stone
   Kevin Ndung'u            `@kevgathuku`_
+  Krzysztof Szumny         `@noisy`_
   Lin Xianyi               `@iynaix`_
   Luis Nell                `@originell`_
   Lukas Klein
@@ -155,7 +156,7 @@ Listed in alphabetical order.
 .. _@Travistock: https://github.com/Tavistock
 .. _@yunti: https://github.com/yunti
 .. _@zcho: https://github.com/zcho
-
+.. _@noisy: https://github.com/noisy
 Special Thanks
 ~~~~~~~~~~~~~~
 
