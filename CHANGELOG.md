@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### [2016-04-07]
 ### Changed
 - Pycharm Support (including debugging in Docker) @noisy
+- Set the correct License @epileptic-fish 
 
 ### [2016-03-23]
 ### Changed
