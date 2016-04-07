@@ -122,6 +122,7 @@ It prompts you for questions. Answer them::
     use_sentry [n]: y
     use_newrelic [n]: y
     use_opbeat [n]: y
+    use_pycharm [n]: y
     windows [n]: n
     use_python2 [n]: y
     Select open_source_license:

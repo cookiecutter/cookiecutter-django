@@ -15,6 +15,7 @@
     "use_sentry": "n",
     "use_newrelic": "n",
     "use_opbeat": "n",
+    "use_pycharm": "n",
     "windows": "n",
     "use_python2": "n",
     "open_source_license": ["MIT", "BSD", "Not open source"]

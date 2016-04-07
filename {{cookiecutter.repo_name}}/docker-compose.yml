@@ -10,6 +10,7 @@ services:
   django:
     build:
       context: .
+      dockerfile: ./compose/django/Dockerfile
     user: django
     depends_on:
       - postgres

@@ -38,7 +38,17 @@ htmlcov
 *.pot
 
 # Pycharm
-.idea
+.idea/*
+{% if cookiecutter.use_pycharm == 'y' %}
+# Provided default Pycharm Run/Debug Configurations should be tracked by git
+# In case of local modifications made by Pycharm, use update-index command
+# for each changed file, like this:
+# git update-index --assume-unchanged .idea/{{cookiecutter.repo_name}}.iml
+!.idea/runConfigurations/
+!.idea/{{cookiecutter.repo_name}}.iml
+!.idea/vcs.xml
+!.idea/webResources.xml
+{% endif %}
 
 # Vim
 

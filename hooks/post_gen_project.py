@@ -3,7 +3,8 @@ Does the following:
 
 1. Generates and saves random secret key
 2. Removes the taskapp if celery isn't going to be used
-3. Copy files from /docs/ to {{ cookiecutter.repo_name }}/docs/
+3. Removes the .idea directory if PyCharm isn't going to be used
+4. Copy files from /docs/ to {{ cookiecutter.repo_name }}/docs/
 
     TODO: this might have to be moved to a pre_gen_hook
 
@@ -100,6 +101,18 @@ def remove_task_app(project_directory):
     )
     shutil.rmtree(task_app_location)
 
+
+def remove_pycharm_dir(project_directory):
+    """
+    Removes directories related to PyCharm
+    if it isn't going to be used
+    """
+    idea_dir_location = os.path.join(PROJECT_DIRECTORY, '.idea/')
+    shutil.rmtree(idea_dir_location)
+
+    docs_dir_location = os.path.join(PROJECT_DIRECTORY, 'docs/pycharm/')
+    shutil.rmtree(docs_dir_location)
+
 # IN PROGRESS
 # def copy_doc_files(project_directory):
 #     cookiecutters_dir = DEFAULT_CONFIG['cookiecutters_dir']
@@ -125,5 +138,9 @@ make_secret_key(PROJECT_DIRECTORY)
 if '{{ cookiecutter.use_celery }}'.lower() == 'n':
     remove_task_app(PROJECT_DIRECTORY)
 
-# 3. Copy files from /docs/ to {{ cookiecutter.repo_name }}/docs/
+# 3. Removes the .idea directory if PyCharm isn't going to be used
+if '{{ cookiecutter.use_pycharm }}'.lower() != 'y':
+    remove_pycharm_dir(PROJECT_DIRECTORY)
+
+# 4. Copy files from /docs/ to {{ cookiecutter.repo_name }}/docs/
 # copy_doc_files(PROJECT_DIRECTORY)
