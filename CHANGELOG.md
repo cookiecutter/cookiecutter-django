@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+### [2016-04-08]
+### Changed
+- Move to named docker volumes (@jayfk)
+
 ### [2016-04-07]
 ### Changed
 - Pycharm Support (including debugging in Docker) @noisy

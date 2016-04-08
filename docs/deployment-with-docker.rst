@@ -41,7 +41,7 @@ This pass all incoming requests on `nginx-proxy`_ to the nginx service your appl
 
 .. _nginx-proxy: https://github.com/jwilder/nginx-proxy
 
-Postgres is saving its database files to `/data/{{cookiecutter.repo_name}}/postgres` by default. Change that if you wan't
+Postgres is saving its database files to the `postgres_data` volume by default. Change that if you wan't
 something else and make sure to make backups since this is not done automatically.
 
 To get started, pull your code from source control (don't forget the `.env` file) and change to your projects root
