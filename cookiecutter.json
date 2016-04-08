@@ -18,5 +18,9 @@
     "use_pycharm": "n",
     "windows": "n",
     "use_python2": "n",
+    "use_docker": "y",
+    "use_heroku": "n",
+    "use_grunt": "n",
+    "use_angular": "n",
     "open_source_license": ["MIT", "BSD", "Not open source"]
 }
