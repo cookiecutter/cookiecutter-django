@@ -28,6 +28,10 @@ services:
       - "8000:8000"
     links:
       - postgres
+{% if cookiecutter.use_mailhog == 'y' %}
+      - mailhog
+{% endif %}
+
 {% if cookiecutter.use_pycharm == 'y' %}
   pycharm:
     build:

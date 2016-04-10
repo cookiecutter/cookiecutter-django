@@ -11,6 +11,7 @@ environment_variables:
   SECRET_KEY: cj5^uos4tfCdfghjkf5hq$9$(@-79^e9&x$3vyf#igvsfm4d=+
   CELERY_BROKER_URL: redis://localhost:16379
   DJANGO_EMAIL_BACKEND: django.core.mail.backends.smtp.EmailBackend
+  EMAIL_HOST: localhost
 window_size:
   width: 1024
   height: 600
