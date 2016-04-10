@@ -112,16 +112,10 @@ module.exports = function (grunt) {
       runDjango: {
         cmd: 'python <%= paths.manageScript %> runserver'
       },
-      {% if cookiecutter.use_mailhog == "y" -%}runMailHog: {
-        cmd: './mailhog'
-      },{%- endif %}
     }
   });
 
   grunt.registerTask('serve', [
-    {% if cookiecutter.use_mailhog == "y" -%}
-    'bgShell:runMailHog',
-    {%- endif %}
     'bgShell:runDjango',
     'watch'
   ]);
