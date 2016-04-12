@@ -39,6 +39,7 @@ services:
   celeryworker:
     build:
       context: .
+      dockerfile: ./compose/django/Dockerfile
     user: django
     env_file: .env
     depends_on:
@@ -52,6 +53,7 @@ services:
   celerybeat:
     build:
       context: .
+      dockerfile: ./compose/django/Dockerfile
     user: django
     env_file: .env
     depends_on:
