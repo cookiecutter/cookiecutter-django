@@ -71,7 +71,7 @@ MIGRATION_MODULES = {
 # DEBUG
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
-DEBUG = env.bool("DJANGO_DEBUG", False)
+DEBUG = env.bool('DJANGO_DEBUG', False)
 
 # FIXTURE CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -99,7 +99,7 @@ MANAGERS = ADMINS
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
-    'default': env.db("DATABASE_URL", default="postgres://{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.repo_name}}"),
+    'default': env.db('DATABASE_URL', default='postgres://{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.repo_name}}'),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
@@ -212,7 +212,7 @@ ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
-ACCOUNT_ALLOW_REGISTRATION = env.bool("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)
+ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
 ACCOUNT_ADAPTER = '{{cookiecutter.repo_name}}.users.adapters.AccountAdapter'
 SOCIALACCOUNT_ADAPTER = '{{cookiecutter.repo_name}}.users.adapters.SocialAccountAdapter'
 
@@ -224,12 +224,12 @@ LOGIN_URL = 'account_login'
 
 # SLUGLIFIER
 AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
-{% if cookiecutter.use_celery == "y" %}
+{% if cookiecutter.use_celery == 'y' %}
 ########## CELERY
 INSTALLED_APPS += ('{{cookiecutter.repo_name}}.taskapp.celery.CeleryConfig',)
 # if you are not using the django database broker (e.g. rabbitmq, redis, memcached), you can remove the next line.
 INSTALLED_APPS += ('kombu.transport.django',)
-BROKER_URL = env("CELERY_BROKER_URL", default='django://')
+BROKER_URL = env('CELERY_BROKER_URL', default='django://')
 ########## END CELERY
 {% endif %}
 

@@ -24,8 +24,8 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
         python_package.build()
 
         call([
-            python_package.pip, "install", "-r",
-            path.join(PROJECT_DIRECTORY, "requirements/local.txt")
+            python_package.pip, 'install', '-r',
+            path.join(PROJECT_DIRECTORY, 'requirements/local.txt')
         ])
 
         postgres_package = hitchpostgres.PostgresPackage()
@@ -36,16 +36,16 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
 
         self.services = hitchserve.ServiceBundle(
             project_directory=PROJECT_DIRECTORY,
-            startup_timeout=float(self.settings["startup_timeout"]),
-            shutdown_timeout=float(self.settings["shutdown_timeout"]),
+            startup_timeout=float(self.settings['startup_timeout']),
+            shutdown_timeout=float(self.settings['shutdown_timeout']),
         )
 
-        postgres_user = hitchpostgres.PostgresUser("{{cookiecutter.repo_name}}", "password")
+        postgres_user = hitchpostgres.PostgresUser('{{cookiecutter.repo_name}}', 'password')
 
         self.services['Postgres'] = hitchpostgres.PostgresService(
             postgres_package=postgres_package,
             users=[postgres_user, ],
-            databases=[hitchpostgres.PostgresDatabase("{{cookiecutter.repo_name}}", postgres_user), ]
+            databases=[hitchpostgres.PostgresDatabase('{{cookiecutter.repo_name}}', postgres_user), ]
         )
 
         self.services['HitchSMTP'] = hitchsmtp.HitchSMTPService(port=1025)
@@ -53,7 +53,7 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
         self.services['Django'] = hitchpython.DjangoService(
             python=python_package.python,
             port=8000,
-            settings="config.settings.local",
+            settings='config.settings.local',
             needs=[self.services['Postgres'], ],
             env_vars=self.settings['environment_variables'],
         )
@@ -62,10 +62,10 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
             redis_package=redis_package,
             port=16379,
         )
-{% if cookiecutter.use_celery == "y" %}
+{% if cookiecutter.use_celery == 'y' %}
         self.services['Celery'] = hitchpython.CeleryService(
             python=python_package.python,
-            app="{{cookiecutter.repo_name}}.taskapp", loglevel="INFO",
+            app='{{cookiecutter.repo_name}}.taskapp', loglevel='INFO',
             needs=[
                 self.services['Redis'], self.services['Django'],
             ],
@@ -73,7 +73,7 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
         )
 {% endif %}
         self.services['Firefox'] = hitchselenium.SeleniumService(
-            xvfb=self.settings.get("xvfb", False),
+            xvfb=self.settings.get('xvfb', False),
             no_libfaketime=True,
         )
 
@@ -118,7 +118,7 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
     def load_website(self):
         """Navigate to website in Firefox."""
         self.driver.get(self.services['Django'].url())
-        self.click("djHideToolBarButton")
+        self.click('djHideToolBarButton')
 
     def fill_form(self, **kwargs):
         """Fill in a form with id=value."""
@@ -150,13 +150,13 @@ class ExecutionEngine(hitchtest.ExecutionEngine):
     def on_failure(self):
         """Stop and IPython."""
         if not self.settings['quiet']:
-            if self.settings.get("pause_on_failure", False):
+            if self.settings.get('pause_on_failure', False):
                 self.pause(message=self.stacktrace.to_template())
 
     def on_success(self):
         """Pause on success if enabled."""
-        if self.settings.get("pause_on_success", False):
-            self.pause(message="SUCCESS")
+        if self.settings.get('pause_on_success', False):
+            self.pause(message='SUCCESS')
 
     def tear_down(self):
         """Shut down services required to run your test."""

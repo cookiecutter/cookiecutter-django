@@ -1,23 +1,23 @@
 # -*- coding: utf-8 -*-
-'''
+"""
 Production Configurations
 
 - Use djangosecure
 - Use Amazon's S3 for storing static files and uploaded media
 - Use mailgun to send emails
 - Use Redis on Heroku
-{% if cookiecutter.use_sentry == "y" %}
+{% if cookiecutter.use_sentry == 'y' %}
 - Use sentry for error logging
 {% endif %}
-{% if cookiecutter.use_opbeat == "y" %}
+{% if cookiecutter.use_opbeat == 'y' %}
 - Use opbeat for error reporting
 {% endif %}
-'''
+"""
 from __future__ import absolute_import, unicode_literals
 
 from boto.s3.connection import OrdinaryCallingFormat
 from django.utils import six
-{% if cookiecutter.use_sentry == "y" %}
+{% if cookiecutter.use_sentry == 'y' %}
 import logging
 {% endif %}
 
@@ -27,7 +27,7 @@ from .common import *  # noqa
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Raises ImproperlyConfigured exception if DJANGO_SECRET_KEY not in os.environ
-SECRET_KEY = env("DJANGO_SECRET_KEY")
+SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 # This ensures that Django will be able to detect a secure connection
 # properly on Heroku.
@@ -35,8 +35,8 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # django-secure
 # ------------------------------------------------------------------------------
-INSTALLED_APPS += ("djangosecure", )
-{% if cookiecutter.use_sentry == "y" -%}
+INSTALLED_APPS += ('djangosecure', )
+{% if cookiecutter.use_sentry == 'y' -%}
 # raven sentry client
 # See https://docs.getsentry.com/hosted/clients/python/integrations/django/
 INSTALLED_APPS += ('raven.contrib.django.raven_compat', )
@@ -44,7 +44,7 @@ INSTALLED_APPS += ('raven.contrib.django.raven_compat', )
 SECURITY_MIDDLEWARE = (
     'djangosecure.middleware.SecurityMiddleware',
 )
-{% if cookiecutter.use_sentry == "y" -%}
+{% if cookiecutter.use_sentry == 'y' -%}
 RAVEN_MIDDLEWARE = ('raven.contrib.django.raven_compat.middleware.Sentry404CatchMiddleware',
                     'raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware',)
 MIDDLEWARE_CLASSES = SECURITY_MIDDLEWARE + \
@@ -55,7 +55,7 @@ MIDDLEWARE_CLASSES = SECURITY_MIDDLEWARE + \
 MIDDLEWARE_CLASSES = SECURITY_MIDDLEWARE + MIDDLEWARE_CLASSES
 
 {%- endif %}
-{% if cookiecutter.use_opbeat == "y" -%}
+{% if cookiecutter.use_opbeat == 'y' -%}
 # opbeat integration
 # See https://opbeat.com/languages/django/
 INSTALLED_APPS += ('opbeat.contrib.django',)
@@ -71,14 +71,14 @@ MIDDLEWARE_CLASSES = (
 # set this to 60 seconds and then to 518400 when you can prove it works
 SECURE_HSTS_SECONDS = 60
 SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool(
-    "DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True)
-SECURE_FRAME_DENY = env.bool("DJANGO_SECURE_FRAME_DENY", default=True)
+    'DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS', default=True)
+SECURE_FRAME_DENY = env.bool('DJANGO_SECURE_FRAME_DENY', default=True)
 SECURE_CONTENT_TYPE_NOSNIFF = env.bool(
-    "DJANGO_SECURE_CONTENT_TYPE_NOSNIFF", default=True)
+    'DJANGO_SECURE_CONTENT_TYPE_NOSNIFF', default=True)
 SECURE_BROWSER_XSS_FILTER = True
 SESSION_COOKIE_SECURE = False
 SESSION_COOKIE_HTTPONLY = True
-SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)
+SECURE_SSL_REDIRECT = env.bool('DJANGO_SECURE_SSL_REDIRECT', default=True)
 
 # SITE CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -87,7 +87,7 @@ SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['{{cookiecutter.domain_name}}'])
 # END SITE CONFIGURATION
 
-INSTALLED_APPS += ("gunicorn", )
+INSTALLED_APPS += ('gunicorn', )
 
 # STORAGE CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -152,7 +152,7 @@ DEFAULT_FROM_EMAIL = env('DJANGO_DEFAULT_FROM_EMAIL',
 EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
 MAILGUN_ACCESS_KEY = env('DJANGO_MAILGUN_API_KEY')
 MAILGUN_SERVER_NAME = env('DJANGO_MAILGUN_SERVER_NAME')
-EMAIL_SUBJECT_PREFIX = env("DJANGO_EMAIL_SUBJECT_PREFIX", default='[{{cookiecutter.project_name}}] ')
+EMAIL_SUBJECT_PREFIX = env('DJANGO_EMAIL_SUBJECT_PREFIX', default='[{{cookiecutter.project_name}}] ')
 SERVER_EMAIL = env('DJANGO_SERVER_EMAIL', default=DEFAULT_FROM_EMAIL)
 {% if cookiecutter.use_newrelic == 'y'-%}
 NEW_RELIC_LICENSE_KEY = env('NEW_RELIC_LICENSE_KEY')
@@ -171,24 +171,24 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [
 # DATABASE CONFIGURATION
 # ------------------------------------------------------------------------------
 # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
-DATABASES['default'] = env.db("DATABASE_URL")
+DATABASES['default'] = env.db('DATABASE_URL')
 
 # CACHING
 # ------------------------------------------------------------------------------
 # Heroku URL does not pass the DB number, so we parse it in
 CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "{0}/{1}".format(env('REDIS_URL', default="redis://127.0.0.1:6379"), 0),
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            "IGNORE_EXCEPTIONS": True,  # mimics memcache behavior.
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': '{0}/{1}'.format(env('REDIS_URL', default='redis://127.0.0.1:6379'), 0),
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            'IGNORE_EXCEPTIONS': True,  # mimics memcache behavior.
                                         # http://niwinz.github.io/django-redis/latest/#_memcached_exceptions_behavior
         }
     }
 }
 
-{% if cookiecutter.use_sentry == "y" %}
+{% if cookiecutter.use_sentry == 'y' %}
 # Sentry Configuration
 SENTRY_DSN = env('DJANGO_SENTRY_DSN')
 SENTRY_CLIENT = env('DJANGO_SENTRY_CLIENT', default='raven.contrib.django.raven_compat.DjangoClient')
@@ -244,7 +244,7 @@ RAVEN_CONFIG = {
     'CELERY_LOGLEVEL': env.int('DJANGO_SENTRY_LOG_LEVEL', logging.INFO),
     'DSN': SENTRY_DSN
 }
-{% elif cookiecutter.use_sentry == "n" %}
+{% elif cookiecutter.use_sentry == 'n' %}
 # LOGGING CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#logging

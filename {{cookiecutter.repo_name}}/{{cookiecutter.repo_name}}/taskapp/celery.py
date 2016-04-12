@@ -1,4 +1,4 @@
-{% if cookiecutter.use_celery == "y" %}
+{% if cookiecutter.use_celery == 'y' %}
 from __future__ import absolute_import
 import os
 from celery import Celery
@@ -8,7 +8,7 @@ from django.conf import settings
 
 if not settings.configured:
     # set the default Django settings module for the 'celery' program.
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")  # pragma: no cover
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.local')  # pragma: no cover
 
 
 app = Celery('{{cookiecutter.repo_name}}')
@@ -24,7 +24,7 @@ class CeleryConfig(AppConfig):
         app.config_from_object('django.conf:settings')
         app.autodiscover_tasks(lambda: settings.INSTALLED_APPS, force=True)
 
-        {% if cookiecutter.use_sentry == "y" -%}
+        {% if cookiecutter.use_sentry == 'y' -%}
         if hasattr(settings, 'RAVEN_CONFIG'):
             # Celery signal registration
             from raven import Client as RavenClient
@@ -36,7 +36,7 @@ class CeleryConfig(AppConfig):
             raven_register_signal(raven_client)
         {%- endif %}
 
-        {% if cookiecutter.use_opbeat == "y" -%}
+        {% if cookiecutter.use_opbeat == 'y' -%}
         if hasattr(settings, 'OPBEAT'):
             from opbeat.contrib.django.models import client as opbeat_client
             from opbeat.contrib.django.models import logger as opbeat_logger
