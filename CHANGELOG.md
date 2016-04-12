@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+### [2016-04-12]
+### Changed
+- celeryworker and celerybeat missing the correct dockerfile (@jayfk)
+
 ### [2016-04-08]
 ### Changed
 - Move to named docker volumes (@jayfk)
