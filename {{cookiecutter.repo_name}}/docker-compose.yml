@@ -22,9 +22,6 @@ services:
       - redis
     command: /gunicorn.sh
     env_file: .env
-    depends_on:
-      - postgres
-      - redis
 
   nginx:
     build: ./compose/nginx
@@ -46,9 +43,6 @@ services:
      - postgres
      - redis
     command: celery -A {{cookiecutter.repo_name}}.taskapp worker -l INFO
-    depends_on:
-      - postgres
-      - redis
 
   celerybeat:
     build:
@@ -60,7 +54,4 @@ services:
       - postgres
       - redis
     command: celery -A {{cookiecutter.repo_name}}.taskapp beat -l INFO
-    depends_on:
-      - postgres
-      - redis
   {% endif %}
