@@ -3,6 +3,9 @@ All enhancements and patches to cookiecutter-django will be documented in this f
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### [2016-04-14]
+### Added
+- Added typecheck in .pylintrc to fix pylint-django gets "no-member" error (@solvire)
+
 ### Changed
 - Downgrading python-dateutil to version 2.4.2 because pykwalify==1.5.0 (required by HitchTest) use a [pinned version of python-dateutil](https://github.com/Grokzen/pykwalify/blob/1.5.0/setup.py#L31) (@noisy)
 - Update Pillow version to 3.2.0 (security fix) (@luzfcb)
