@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### [2016-04-14]
 ### Changed
 - Downgrading python-dateutil to version 2.4.2 because pykwalify==1.5.0 (required by HitchTest) use a [pinned version of python-dateutil](https://github.com/Grokzen/pykwalify/blob/1.5.0/setup.py#L31) (@noisy)
+- Update Pillow version to 3.2.0 (security fix) (@luzfcb)
 
 ### [2016-04-12]
 ### Changed
