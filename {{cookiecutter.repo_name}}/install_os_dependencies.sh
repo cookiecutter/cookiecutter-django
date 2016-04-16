@@ -1,6 +1,14 @@
 #!/bin/bash
 
-OS_REQUIREMENTS_FILENAME="requirements.apt"
+## Verify that we are running this script on Centos or Ubuntu
+command -v lsb_release >/dev/null 2>&1 || { echo >&2 "This setup script only currently works on Centos and Ubuntu. Aborting."; exit 1; }
+
+## Get the Distribution type from lsb_release
+OS=$(lsb_release -si)
+case "$OS" in
+    CentOS) OS_REQUIREMENTS_FILENAME="requirements.yum";;
+    Ubuntu) OS_REQUIREMENTS_FILENAME="requirements.apt";;
+esac
 
 # Handle call with wrong command
 function wrong_command()
@@ -29,12 +37,18 @@ function list_packages(){
 
 function install()
 {
-    list_packages | xargs apt-get --no-upgrade install -y;
+    case "$OS" in 
+        CentOS) list_packages | xargs yum install -y;;
+        Ubuntu) list_packages | xargs apt-get --no-upgrade install -y;;
+    esac
 }
 
 function upgrade()
 {
-    list_packages | xargs apt-get install -y;
+    case "$OS" in 
+        CentOS) list_packages | xargs yum install -y;;
+        Ubuntu) list_packages | xargs apt-get install -y;;
+    esac
 }
 
 
@@ -51,8 +65,10 @@ function install_or_upgrade()
 
         exit 1
     else
-
-        apt-get update
+        case "$OS" in
+            CentOS) yum update;;
+            Ubuntu) apt-get clean;;
+        esac
 
         # Install the basic compilation dependencies and other required libraries of this project
         if [ "$PARAN" == "install" ]; then
@@ -62,14 +78,15 @@ function install_or_upgrade()
         fi
 
         # cleaning downloaded packages from apt-get cache
-        apt-get clean
-
+        case "$OS" in
+            CentOS) yum clean all;;
+            Ubuntu) apt-get clean;;
+        esac
         exit 0
     fi
 
 
 }
-
 
 # Handle command argument
 case "$1" in
@@ -79,4 +96,3 @@ case "$1" in
     help) usage_message;;
     *) wrong_command $1;;
 esac
-
