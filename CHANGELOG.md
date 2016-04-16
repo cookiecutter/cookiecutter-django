@@ -3,6 +3,9 @@ All enhancements and patches to cookiecutter-django will be documented in this f
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### [2016-04-15]
+### Changed
+- Major Project Generation Cleanup (@jayfk)
+- 
 ### Removed
 - Deleting unnecessary .idea dir from MAIN directory (@noisy)
 
