@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+### [2016-04-15]
+### Removed
+- Deleting unnecessary .idea dir from MAIN directory (@noisy)
+
 ### [2016-04-14]
 ### Added
 - Added typecheck in .pylintrc to fix pylint-django gets "no-member" error (@solvire)
