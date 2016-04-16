@@ -34,8 +34,8 @@ Features
 * Media storage using Amazon S3
 * Docker support using docker-compose_ for development and production
 * Procfile_ for deploying to Heroku
-* Works with Python 2.7.x or 3.5.x!
-* Run tests with unittest or py.test!
+* Works with Python 2.7.x or 3.5.x
+* Run tests with unittest or py.test
 
 
 Optional Integrations
@@ -154,26 +154,6 @@ For development, see the following for local development:
 .. _`Developing locally`: http://cookiecutter-django.readthedocs.org/en/latest/developing-locally.html
 .. _`Developing locally using docker`: http://cookiecutter-django.readthedocs.org/en/latest/developing-locally-docker.html
 
-Articles
----------
-
-* `Development and Deployment of Cookiecutter-Django via Docker`_
-* `Development and Deployment of Cookiecutter-Django on Fedora`_
-
-.. _`Development and Deployment of Cookiecutter-Django via Docker`: https://realpython.com/blog/python/development-and-deployment-of-cookiecutter-django-via-docker
-.. _`Development and Deployment of Cookiecutter-Django on Fedora`: https://realpython.com/blog/python/development-and-deployment-of-cookiecutter-django-on-fedora/
-
-Support This Project
----------------------------
-
-This project is maintained by volunteers. Support their efforts by spreading the word about:
-
-.. image:: https://s3.amazonaws.com/tsacademy/images/tsa-logo-250x60-transparent-01.png
-   :name: Two Scoops Academy
-   :align: center
-   :alt: Two Scoops Academy
-   :target: http://www.twoscoops.academy/
-
 For Readers of Two Scoops of Django 1.8
 --------------------------------------------
 
@@ -213,5 +193,29 @@ If you do rename your fork, I encourage you to submit it to the following places
 Or Submit a Pull Request
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-I also accept pull requests on this, if they're small, atomic, and if they make my own project development
+We also accept pull requests on this, if they're small, atomic, and if they make our own project development
 experience better.
+
+Articles
+---------
+
+* `Development and Deployment of Cookiecutter-Django on Fedora`_ - Jan. 18, 2016
+* `Development and Deployment of Cookiecutter-Django via Docker`_ - Dec. 29, 2015
+* `How to create a Django Application using Cookiecutter and Django 1.8`_ - Sept. 12, 2015
+
+Got a blog or online publication? Write about your cookiecutter-django tips and tricks, then send us a pull request with the link.
+
+.. _`Development and Deployment of Cookiecutter-Django via Docker`: https://realpython.com/blog/python/development-and-deployment-of-cookiecutter-django-via-docker
+.. _`Development and Deployment of Cookiecutter-Django on Fedora`: https://realpython.com/blog/python/development-and-deployment-of-cookiecutter-django-on-fedora/
+.. _`How to create a Django Application using Cookiecutter and Django 1.8`: http://blog.swapps.co/how-to-create-a-django-application-using-cookiecutter-and-django-1-8/#.VxKfBpMrKRs
+
+Support This Project
+---------------------------
+
+This project is maintained by volunteers. Support their efforts by spreading the word about:
+
+.. image:: https://s3.amazonaws.com/tsacademy/images/tsa-logo-250x60-transparent-01.png
+   :name: Two Scoops Academy
+   :align: center
+   :alt: Two Scoops Academy
+   :target: http://www.twoscoops.academy/
