@@ -1,5 +1,5 @@
 {% raw %}{% load staticfiles i18n %}<!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" {% endraw %}{% if cookiecutter.use_angular == "y" %}ng-app{% endif %}{% raw %}>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -23,9 +23,9 @@
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
     {% endblock %}
 
-    {% block angular %}
+    {% endraw %}{% if cookiecutter.use_angular == "y" %}{% raw %}{% block angular %}
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-    {% endblock %}
+    {% endblock %}{% endraw %}{% endif %}{% raw %}
 
   </head>
 
