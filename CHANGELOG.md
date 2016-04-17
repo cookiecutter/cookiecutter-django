@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+### [2016-04-17]
+### Added
+- Add "Built with Cookiecutter Django" badge to generated project README (@audreyr)
+
 ### [2016-04-15]
 ### Changed
 - Major project generation cleanup (@jayfk)
