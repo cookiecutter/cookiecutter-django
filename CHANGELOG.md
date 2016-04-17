@@ -4,7 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### [2016-04-17]
 ### Added
-- Add "Built with Cookiecutter Django" badge to generated project README (@audreyr)
+- "Built with Cookiecutter Django" badge to generated project README (@audreyr)
+- New introductory article (@krzysztofzuraw)
+- Quote consistency (@blopker)
 
 ### [2016-04-15]
 ### Changed
