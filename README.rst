@@ -1,4 +1,4 @@
-cookiecutter-django
+Cookiecutter Django
 =======================
 
 .. image:: https://requires.io/github/pydanny/cookiecutter-django/requirements.svg?branch=master
