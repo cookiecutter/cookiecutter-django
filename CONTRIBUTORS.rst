@@ -52,6 +52,7 @@ Listed in alphabetical order.
   Barclay Gauld            `@yunti`_
   Ben Lopatin
   Benjamin Abel
+  Bo Lopker                `@blopker`_
   Bouke Haarsma
   Burhan Khalid            `@burhan`_                   @burhan
   Catherine Devlin         `@catherinedevlin`_
@@ -81,6 +82,7 @@ Listed in alphabetical order.
   Kevin A. Stone
   Kevin Ndung'u            `@kevgathuku`_
   Krzysztof Szumny         `@noisy`_
+  Krzysztof Żuraw          `@krzysztofzuraw`_
   Lin Xianyi               `@iynaix`_
   Luis Nell                `@originell`_
   Lukas Klein
