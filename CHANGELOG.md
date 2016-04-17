@@ -6,7 +6,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - "Built with Cookiecutter Django" badge to generated project README (@audreyr)
 - New introductory article (@krzysztofzuraw)
-- Quote consistency (@blopker)
+
+### Changed
+- Quote consistency, single quotes everywhere! (@blopker)
 
 ### [2016-04-15]
 ### Changed
