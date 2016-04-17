@@ -202,12 +202,14 @@ Articles
 * `Development and Deployment of Cookiecutter-Django on Fedora`_ - Jan. 18, 2016
 * `Development and Deployment of Cookiecutter-Django via Docker`_ - Dec. 29, 2015
 * `How to create a Django Application using Cookiecutter and Django 1.8`_ - Sept. 12, 2015
+* `Introduction to Cookiecutter-Django`_ - Feb. 19, 2016
 
 Got a blog or online publication? Write about your cookiecutter-django tips and tricks, then send us a pull request with the link.
 
 .. _`Development and Deployment of Cookiecutter-Django via Docker`: https://realpython.com/blog/python/development-and-deployment-of-cookiecutter-django-via-docker
 .. _`Development and Deployment of Cookiecutter-Django on Fedora`: https://realpython.com/blog/python/development-and-deployment-of-cookiecutter-django-on-fedora/
 .. _`How to create a Django Application using Cookiecutter and Django 1.8`: http://blog.swapps.co/how-to-create-a-django-application-using-cookiecutter-and-django-1-8/#.VxKfBpMrKRs
+.. _`Introduction to Cookiecutter-Django`: http://krzysztofzuraw.com/blog/2016/django-cookiecutter.html
 
 Support This Project
 ---------------------------
