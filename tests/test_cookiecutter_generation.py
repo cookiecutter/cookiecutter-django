@@ -7,23 +7,23 @@ import sh
 import pytest
 from binaryornot.check import is_binary
 
-PATTERN = "{{(\s?cookiecutter)[.](.*?)}}"
+PATTERN = '{{(\s?cookiecutter)[.](.*?)}}'
 RE_OBJ = re.compile(PATTERN)
 
 
 @pytest.fixture
 def context():
     return {
-        "project_name": "My Test Project",
-        "repo_name": "my_test_project",
-        "author_name": "Test Author",
-        "email": "test@example.com",
-        "description": "A short description of the project.",
-        "domain_name": "example.com",
-        "version": "0.1.0",
-        "timezone": "UTC",
-        "now": "2015/01/13",
-        "year": "2015"
+        'project_name': 'My Test Project',
+        'repo_name': 'my_test_project',
+        'author_name': 'Test Author',
+        'email': 'test@example.com',
+        'description': 'A short description of the project.',
+        'domain_name': 'example.com',
+        'version': '0.1.0',
+        'timezone': 'UTC',
+        'now': '2015/01/13',
+        'year': '2015'
     }
 
 
@@ -46,7 +46,7 @@ def check_paths(paths):
             continue
         for line in open(path, 'r'):
             match = RE_OBJ.search(line)
-            msg = "cookiecutter variable not replaced in {}"
+            msg = 'cookiecutter variable not replaced in {}'
             assert match is None, msg.format(path)
 
 
