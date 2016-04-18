@@ -2,6 +2,10 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+### [2016-04-18]
+### Added
+- removing duplication of depends_on in docker-compose.yml (@noisy)
+
 ### [2016-04-17]
 ### Added
 - "Built with Cookiecutter Django" badge to generated project README (@audreyr)
