@@ -77,7 +77,7 @@ Please note: For Celery's import magic to work, it is important *where* the cele
 
 Email Server
 ^^^^^^^^^^^^
-
+{% if cookiecutter.use_docker == 'y' %}
 In development, it is often nice to be able to see emails that are being sent from your application. For that reason local SMTP server `MailHog`_ with a web interface is available as docker container.
 
 .. _mailhog: https://github.com/mailhog/MailHog
@@ -86,7 +86,22 @@ Container mailhog will start automatically when you will run all docker containe
 Please check `cookiecutter-django Docker documentation`_ for more details how to start all containers.
 
 With MailHog running, to view messages that are sent by your application, open your browser and go to ``http://127.0.0.1:8025``
+{% else %}
+In development, it is often nice to be able to see emails that are being sent from your application. If you choose to use `MailHog`_ when generating the project a local SMTP server with a web interface will be available.
 
+.. _mailhog: https://github.com/mailhog/MailHog
+
+To start the service, make sure you have nodejs installed, and then type the following::
+
+    $ npm install
+    $ grunt serve
+
+(After the first run you only need to type ``grunt serve``) This will start an email server that listens on ``127.0.0.1:1025`` in addition to starting your Django project and a watch task for live reload.
+
+To view messages that are sent by your application, open your browser and go to ``http://127.0.0.1:8025``
+
+The email server will exit when you exit the Grunt task on the CLI with Ctrl+C.
+{% endif %}
 {% endif %}
 
 {% if cookiecutter.use_sentry == "y" %}

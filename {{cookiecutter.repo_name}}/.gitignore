@@ -70,3 +70,7 @@ node_modules/
 
 # Hitch directory
 tests/.hitch
+{% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n'%}
+# MailHog binary
+mailhog
+{% endif %}
