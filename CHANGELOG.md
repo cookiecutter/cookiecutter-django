@@ -1,5 +1,5 @@
 # Change Log
-All enhancements and patches to cookiecutter-django will be documented in this file.
+All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### [2016-04-18]
@@ -40,7 +40,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### [2016-04-07]
 ### Changed
 - Pycharm Support (including debugging in Docker) @noisy
-- Set the correct License @epileptic-fish 
+- Set the correct License @epileptic-fish
 
 ### [2016-03-23]
 ### Changed

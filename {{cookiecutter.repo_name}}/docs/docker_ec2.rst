@@ -14,7 +14,7 @@ Docker encourages running one container for each process. This might mean one co
 
 .. _Redis: http://redis.io/
 
-The Docker compose tool (previously known as `fig`_) makes linking these containers easy. An example set up for your cookiecutter-django project might look like this:
+The Docker compose tool (previously known as `fig`_) makes linking these containers easy. An example set up for your Cookiecutter Django project might look like this:
 
 .. _fig: http://www.fig.sh/
 
