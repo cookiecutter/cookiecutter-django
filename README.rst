@@ -157,6 +157,19 @@ For development, see the following for local development:
 .. _`Developing locally`: http://cookiecutter-django.readthedocs.org/en/latest/developing-locally.html
 .. _`Developing locally using docker`: http://cookiecutter-django.readthedocs.org/en/latest/developing-locally-docker.html
 
+Got Questions?
+--------------
+
+* Search and/or Ask on `Stack Overflow`_
+* Chat with us on `Gitter`_
+
+.. _`Stack Overflow`: http://stackoverflow.com/questions/tagged/cookiecutter-django
+.. _`Gitter`: https://gitter.im/pydanny/cookiecutter-django?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+
+If you think found a bug or want to request a feature, please open an issue_.
+
+.. _`issue`: https://github.com/pydanny/cookiecutter-django/issues
+
 For Readers of Two Scoops of Django 1.8
 --------------------------------------------
 

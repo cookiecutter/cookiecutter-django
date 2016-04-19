@@ -2,6 +2,13 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+### [2016-04-19]
+### Added
+- "Got Questions?" section in our README.rst. Yes, there is now a cookiecutter-django tag on Stack Overflow! (@pydanny)
+
+### Changed
+- Update usage instructions with new prompts, minor cleanup (@audreyr)
+
 ### [2016-04-18]
 ### Added
 - removing duplication of depends_on in docker-compose.yml (@noisy)
