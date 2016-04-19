@@ -82,22 +82,21 @@ Usage
 Let's pretend you want to create a Django project called "redditclone". Rather than using `startproject`
 and then editing the results to include your name, email, and various configuration issues that always get forgotten until the worst possible moment, get cookiecutter_ to do all the work.
 
-First, get cookiecutter. Trust me, it's awesome::
+First, get Cookiecutter. Trust me, it's awesome::
 
     $ pip install cookiecutter
 
 Now run it against this repo::
 
-    $ cookiecutter https://github.com/pydanny/cookiecutter-django.git
+    $ cookiecutter https://github.com/pydanny/cookiecutter-django
 
-You'll be prompted for some questions, answer them, then it will create a Django project for you.
-
+You'll be prompted for some values. Provide them, then a Django project will be created for you.
 
 **Warning**: After this point, change 'Daniel Greenfeld', 'pydanny', etc to your own information.
 
 **Warning**: repo_name must be a valid Python module name or you will have issues on imports.
 
-It prompts you for questions. Answer them::
+Answer the prompts with your own desired options_. For example::
 
     Cloning into 'cookiecutter-django'...
     remote: Counting objects: 550, done.
@@ -107,14 +106,14 @@ It prompts you for questions. Answer them::
     Resolving deltas: 100% (283/283), done.
     project_name [project_name]: Reddit Clone
     repo_name [Reddit_Clone]: reddit
-    author_name [Your Name]: Daniel Greenfeld
+    author_name [Your Name]: Daniel Roy Greenfeld
     email [Your email]: pydanny@gmail.com
     description [A short description of the project.]: A reddit clone.
     domain_name [example.com]: myreddit.com
     version [0.1.0]: 0.0.1
-    timezone [UTC]:
+    timezone [UTC]: America/Los_Angeles
     now [2016/03/01]: 2016/03/05
-    year [2015]:
+    year [2016]:
     use_whitenoise [y]: n
     use_celery [n]: y
     use_mailhog [n]: n
@@ -123,7 +122,11 @@ It prompts you for questions. Answer them::
     use_opbeat [n]: y
     use_pycharm [n]: y
     windows [n]: n
-    use_python2 [n]: y
+    use_python2 [n]: n
+    use_docker [y]: y
+    use_heroku [n]: n
+    use_grunt [n]: y
+    use_angular [n]: n
     Select open_source_license:
     1 - MIT
     2 - BSD
@@ -135,7 +138,7 @@ Enter the project and take a look around::
     $ cd reddit/
     $ ls
 
-Create a GitHub repo and push it there::
+Create a git repo and push it there::
 
     $ git init
     $ git add .
@@ -150,6 +153,7 @@ For development, see the following for local development:
 * `Developing locally`_
 * `Developing locally using docker`_
 
+.. _options: http://cookiecutter-django.readthedocs.org/en/latest/project-generation-options.html
 .. _`Developing locally`: http://cookiecutter-django.readthedocs.org/en/latest/developing-locally.html
 .. _`Developing locally using docker`: http://cookiecutter-django.readthedocs.org/en/latest/developing-locally-docker.html
 
