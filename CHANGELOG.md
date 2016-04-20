@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### [2016-04-20]
 ### Changed
+- Default to today's date in cookiecutter.json. (@audreyr)
 - Change repo_name to project_slug for clarity. (@audreyr)
 - Transform project name to lowercase for slug. (@audreyr)
 
