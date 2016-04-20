@@ -4,7 +4,7 @@ Project Generation Options
 project_name [project_name]:
     Your human-readable project name, including any capitalization or spaces.
 
-repo_name [project_name]:
+project_slug [project_name]:
     The slug of your project, without dashes or spaces. Used to name your repo
     and in other places where a Python-importable version of your project name
     is needed.
