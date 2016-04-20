@@ -1,0 +1,44 @@
+version: '2'
+
+volumes:
+  postgres_data_dev: {}
+  postgres_backup_dev: {}
+
+services:
+  postgres:
+    build: ./compose/postgres
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data
+      - postgres_backup_dev:/backups
+    environment:
+      - POSTGRES_USER={{cookiecutter.project_slug}}
+
+  django:
+    build:
+      context: .
+      dockerfile: ./compose/django/Dockerfile-dev
+    command: python /app/manage.py runserver_plus 0.0.0.0:8000
+    depends_on:
+      - postgres
+    environment:
+      - POSTGRES_USER={{cookiecutter.project_slug}}
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    links:
+      - postgres
+{% if cookiecutter.use_pycharm == 'y' %}
+  pycharm:
+    build:
+      context: .
+      dockerfile: ./compose/django/Dockerfile-dev
+    depends_on:
+      - postgres
+    environment:
+      - POSTGRES_USER={{cookiecutter.project_slug}}
+    volumes:
+      - .:/app
+    links:
+      - postgres
+{% endif %}

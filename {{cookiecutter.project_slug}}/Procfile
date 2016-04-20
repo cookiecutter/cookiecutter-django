@@ -1,0 +1,4 @@
+web: gunicorn config.wsgi:application
+{% if cookiecutter.use_celery == "y" -%}
+worker: {% if cookiecutter.use_newrelic == "y" %}newrelic-admin run-program {% endif %}celery worker --app={{cookiecutter.project_slug}}.taskapp --loglevel=info
+{%- endif %}

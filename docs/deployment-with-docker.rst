@@ -89,19 +89,19 @@ it needs to do is to run `docker-compose up` in your projects root directory.
 
 If you are using `supervisor`, you can use this file as a starting point::
 
-    [program:{{cookiecutter.repo_name}}]
+    [program:{{cookiecutter.project_slug}}]
     command=docker-compose up
-    directory=/path/to/{{cookiecutter.repo_name}}
+    directory=/path/to/{{cookiecutter.project_slug}}
     redirect_stderr=true
     autostart=true
     autorestart=true
     priority=10
 
 
-Place it in `/etc/supervisor/conf.d/{{cookiecutter.repo_name}}.conf` and run::
+Place it in `/etc/supervisor/conf.d/{{cookiecutter.project_slug}}.conf` and run::
 
     supervisorctl reread
-    supervisorctl start {{cookiecutter.repo_name}}
+    supervisorctl start {{cookiecutter.project_slug}}
 
 To get the status, run::
 
