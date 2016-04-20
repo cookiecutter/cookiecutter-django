@@ -15,7 +15,7 @@ RE_OBJ = re.compile(PATTERN)
 def context():
     return {
         'project_name': 'My Test Project',
-        'repo_name': 'my_test_project',
+        'project_slug': 'my_test_project',
         'author_name': 'Test Author',
         'email': 'test@example.com',
         'description': 'A short description of the project.',
