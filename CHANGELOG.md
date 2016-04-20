@@ -2,6 +2,11 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+### [2016-04-20]
+### Changed
+- Change repo_name to project_slug for clarity. (@audreyr)
+- Transform project name to lowercase for slug. (@audreyr)
+
 ### [2016-04-19]
 ### Added
 - "Got Questions?" section in our README.rst. Yes, there is now a cookiecutter-django tag on Stack Overflow! (@pydanny)
