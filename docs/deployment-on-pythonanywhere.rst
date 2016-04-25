@@ -57,7 +57,7 @@ Set environment variables via the virtualenv "postactivate" script (this will se
 
     vi $VIRTUAL_ENV/bin/postactivate
 
-**TIP:** *If you don't like vi, you can also edit this file via the PythonAnywhere* Files *menu; look in the ".virtualenvs" folder.
+**TIP:** *If you don't like vi, you can also edit this file via the PythonAnywhere "Files" menu; look in the ".virtualenvs" folder*.
 
 Add these exports
 
