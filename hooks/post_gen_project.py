@@ -98,10 +98,12 @@ def remove_pycharm_dir(project_directory):
     if it isn't going to be used
     """
     idea_dir_location = os.path.join(PROJECT_DIRECTORY, '.idea/')
-    shutil.rmtree(idea_dir_location)
+    if os.path.exists(idea_dir_location):
+        shutil.rmtree(idea_dir_location)
 
     docs_dir_location = os.path.join(PROJECT_DIRECTORY, 'docs/pycharm/')
-    shutil.rmtree(docs_dir_location)
+    if os.path.exists(docs_dir_location):
+        shutil.rmtree(docs_dir_location)
 
 
 def remove_heroku_files():
