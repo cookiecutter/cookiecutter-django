@@ -22,7 +22,7 @@ Full instructions follow, but here's a high-level view.
 5. Set your config variables in the PythonAnywhere *WSGI config file*
 
 
-Once you've been through this one-off config, future deployments are just `git pull` and then hit the "Reload" button :)
+Once you've been through this one-off config, future deployments are much simpler: just ``git pull`` and then hit the "Reload" button :)
 
 
 
@@ -57,7 +57,7 @@ Set environment variables via the virtualenv "postactivate" script (this will se
 
     vi $VIRTUAL_ENV/bin/postactivate
 
-**TIP:** *If you don't like vi, you can also edit this file via the PythonAnywhere **Files** menu; look in the ".virtualenvs" folder.*
+**TIP:** *If you don't like vi, you can also edit this file via the PythonAnywhere* **Files** *menu; look in the ".virtualenvs" folder.
 
 Add these exports
 
@@ -152,14 +152,14 @@ Back on the Web tab, hit **Reload**, and your app should be live!
 
 
 **NOTE:** *you may see security warnings until you set up your SSL certificates. If you
-want to supress them temporarily, set ``DJANGO_SECURE_SSL_REDIRECT`` to blank.  Follow
-the instructions here to get SSL set up: https://www.pythonanywhere.com/wiki/SSLOwnDomains*
+want to supress them temporarily, set DJANGO_SECURE_SSL_REDIRECT to blank.  Follow
+the instructions here to get SSL set up: https://help.pythonanywhere.com/pages/SSLOwnDomains/*
 
 
 Optional: static files
 ----------------------
 
-If you want to use the PythonAnywhere static files service instead of using whitenoise or S3, you'll find its configuration section on the Web tab.  Essentially you'll need an entry to match your ``STATIC_URL`` and ``STATIC_ROOT`` settings.  There's more info here: https://www.pythonanywhere.com/wiki/DjangoStaticFiles 
+If you want to use the PythonAnywhere static files service instead of using whitenoise or S3, you'll find its configuration section on the Web tab.  Essentially you'll need an entry to match your ``STATIC_URL`` and ``STATIC_ROOT`` settings.  There's more info here: https://help.pythonanywhere.com/pages/DjangoStaticFiles
 
 
 Future deployments
@@ -176,5 +176,7 @@ For subsequent deployments, the procedure is much simpler.  In a Bash console:
     python manage.py collectstatic
 
 And then go to the Web tab and hit **Reload**
+
+**TIP:** *if you're really keen, you can set up git-push based deployments:  https://blog.pythonanywhere.com/87/*
 
 
