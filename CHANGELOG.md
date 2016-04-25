@@ -2,6 +2,10 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+### [2016-04-25]
+### Added
+- Check to confirm that the user has a modern version of Cookiecutter. (@pydanny)
+
 ### [2016-04-20]
 ### Changed
 - Default to today's date in cookiecutter.json. (@audreyr)
