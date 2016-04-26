@@ -1,5 +1,5 @@
-# Pro-tip: Try not to put anything here. There should be no dependency in
-#	production that isn't in development.
+# Pro-tip: Try not to put anything here. Avoid dependencies in
+#	production that aren't in development.
 -r base.txt
 
 {% if cookiecutter.windows == 'y' -%}
@@ -11,12 +11,7 @@ psycopg2==2.6.1
 
 # WSGI Handler
 # ------------------------------------------------
-{% if cookiecutter.use_python2 == 'y' -%}
-gevent==1.0.2
-{% else %}
-# there's no python 3 support in stable, have to use the latest release candidate for gevent
-gevent==1.1rc5
-{% endif %}
+gevent==1.1.1
 gunicorn==19.4.5
 
 # Static and Media Storage
