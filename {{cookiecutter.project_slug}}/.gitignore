@@ -68,8 +68,5 @@ node_modules/
 # User-uploaded media
 {{ cookiecutter.project_slug }}/media/
 
-# Hitch directory
-tests/.hitch
-
 # MailHog binary
 mailhog

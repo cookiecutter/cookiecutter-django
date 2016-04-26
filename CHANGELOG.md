@@ -6,6 +6,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Check to confirm that the user has a modern version of Cookiecutter. (@pydanny)
 
+### Removed
+- Removed hitch per #529 (@pydanny)
+
 ### [2016-04-20]
 ### Changed
 - Default to today's date in cookiecutter.json. (@audreyr)

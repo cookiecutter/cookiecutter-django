@@ -110,30 +110,6 @@ You must set the DSN url in production.
 It's time to write the code!!!
 
 
-Running end to end integration tests
-------------------------------------
-
-N.B. The integration tests will not run on Windows.
-
-To install the test runner::
-
-  $ pip install hitch
-
-To run the tests, enter the {{cookiecutter.project_slug}}/tests directory and run the following commands::
-
-  $ hitch init
-
-Then run the stub test::
-
-  $ hitch test stub.test
-
-This will download and compile python, postgres and redis and install all python requirements so the first time it runs it may take a while.
-
-Subsequent test runs will be much quicker.
-
-The testing framework runs Django, Celery (if enabled), Postgres, HitchSMTP (a mock SMTP server), Firefox/Selenium and Redis.
-
-
 Deployment
 ----------
 

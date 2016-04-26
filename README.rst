@@ -22,7 +22,6 @@ Features
 * For Django 1.9
 * Renders Django projects with 100% starting test coverage
 * Twitter Bootstrap_ v4.0.0 - alpha_
-* End-to-end via Hitch_
 * AngularJS_
 * 12-Factor_ based settings via django-environ_
 * Optimized development and production settings
@@ -50,7 +49,6 @@ Optional Integrations
 * Integration with Opbeat_ for performance monitoring
 
 .. _alpha: http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/
-.. _Hitch: https://github.com/hitchtest/hitchtest
 .. _Bootstrap: https://github.com/twbs/bootstrap
 .. _AngularJS: https://github.com/angular/angular.js
 .. _django-environ: https://github.com/joke2k/django-environ

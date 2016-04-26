@@ -13,9 +13,3 @@ python:
 {% else %}
   - "2.7"
 {%- endif %}
-install:
-  - "pip install hitch"
-  - "cd tests"
-  - "hitch init"
-script:
-  - "hitch test . --extra '{\"xvfb\":true, \"pause_on_failure\":false}'"
