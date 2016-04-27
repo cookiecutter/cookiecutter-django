@@ -24,9 +24,9 @@ Basic Commands
 Setting Up Your Users
 ^^^^^^^^^^^^^^^^^^^^^
 
-To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
+* To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
 
-To create an **superuser account**, use this command::
+* To create an **superuser account**, use this command::
 
     $ python manage.py createsuperuser
 
@@ -107,13 +107,11 @@ You must set the DSN url in production.
 
 {% endif %}
 
-It's time to write the code!!!
-
 
 Deployment
 ----------
 
-We provide tools and instructions for deploying using Docker and Heroku.
+{% if cookiecutter.use_heroku == "y" %}
 
 Heroku
 ^^^^^^
@@ -125,9 +123,15 @@ See detailed `cookiecutter-django Heroku documentation`_.
 
 .. _`cookiecutter-django Heroku documentation`: http://cookiecutter-django.readthedocs.org/en/latest/deployment-on-heroku.html
 
+{% endif %}
+
+{% if cookiecutter.use_docker == "y" %}
+
 Docker
 ^^^^^^
 
 See detailed `cookiecutter-django Docker documentation`_.
 
 .. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.org/en/latest/deployment-with-docker.html
+
+{% endif %}
