@@ -2,6 +2,10 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+### [2016-04-26]
+### Added
+- Instructions on how to install PythonAnywhere. (@hjwp)
+
 ### [2016-04-25]
 ### Added
 - Check to confirm that the user has a modern version of Cookiecutter. (@pydanny)

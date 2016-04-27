@@ -32,6 +32,7 @@ Features
 * Media storage using Amazon S3
 * Docker support using docker-compose_ for development and production
 * Procfile_ for deploying to Heroku
+* Instructions for deploying to PythonAnywhere_
 * Works with Python 2.7.x or 3.5.x
 * Run tests with unittest or py.test
 
@@ -64,6 +65,7 @@ Optional Integrations
 .. _NewRelic: https://newrelic.com
 .. _docker-compose: https://www.github.com/docker/compose
 .. _Opbeat: https://opbeat.com/
+.. _PythonAnywhere: https://www.pythonanywhere.com/
 
 
 Constraints
