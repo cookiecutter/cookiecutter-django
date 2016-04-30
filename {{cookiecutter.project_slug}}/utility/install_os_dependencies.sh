@@ -1,6 +1,7 @@
 #!/bin/bash
 
-OS_REQUIREMENTS_FILENAME="requirements.apt"
+WORK_DIR="$(dirname "$0")"
+OS_REQUIREMENTS_FILENAME="$WORK_DIR/requirements.apt"
 
 # Handle call with wrong command
 function wrong_command()
