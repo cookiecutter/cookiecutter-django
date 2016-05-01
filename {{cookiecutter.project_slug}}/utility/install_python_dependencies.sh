@@ -1,5 +1,8 @@
 #!/bin/bash
 
+WORK_DIR="$(dirname "$0")"
+PROJECT_DIR="$(dirname "$WORK_DIR")"
+
 pip --version >/dev/null 2>&1 || {
     echo >&2 -e "\npip is required but it's not installed."
     echo >&2 -e "You can install it by running the following command:\n"
@@ -43,8 +46,10 @@ if [ -z "$VIRTUAL_ENV" ]; then
     exit 1;
 else
 
-    pip install -r requirements/local.txt
-    pip install -r requirements/test.txt
-    pip install -r requirements.txt
+    pip install -r $PROJECT_DIR/requirements/local.txt
+    pip install -r $PROJECT_DIR/requirements/test.txt
+    {% if cookiecutter.use_heroku == "y" -%}
+    pip install -r $PROJECT_DIR/requirements.txt
+    {%- endif %}
 fi
 
