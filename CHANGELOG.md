@@ -2,6 +2,10 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+### [2016-05-01]
+### Changed
+- Restored the Pycharm project configuration files, that was accidentally removed in [15f350f](https://github.com/pydanny/cookiecutter-django/commit/15f350f05e2b49b4bdff0bdaa2b2ff260606e0f6) (@luzfcb @Newton715)
+
 ### [2016-04-30]
 ### Changed
 - Small fixes to utility scripts (@scast)
