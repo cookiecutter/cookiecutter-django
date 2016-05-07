@@ -3,6 +3,12 @@
 WORK_DIR="$(dirname "$0")"
 OS_REQUIREMENTS_FILENAME="$WORK_DIR/requirements.apt"
 
+VER=$(lsb_release -sr)
+if [ "$VER" == "16.04" ]; then
+  OS_REQUIREMENTS_FILENAME="requirements.apt.xenial"
+else
+  OS_REQUIREMENTS_FILENAME="requirements.apt"
+fi
 # Handle call with wrong command
 function wrong_command()
 {
@@ -80,4 +86,3 @@ case "$1" in
     help) usage_message;;
     *) wrong_command $1;;
 esac
-
