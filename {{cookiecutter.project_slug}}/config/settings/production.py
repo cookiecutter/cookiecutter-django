@@ -44,17 +44,23 @@ INSTALLED_APPS += ('raven.contrib.django.raven_compat', )
 SECURITY_MIDDLEWARE = (
     'djangosecure.middleware.SecurityMiddleware',
 )
+{% if cookiecutter.use_whitenoise == 'y' -%}
+# Use Whitenoise to serve static files
+# See: https://whitenoise.readthedocs.org/
+WHITENOISE_MIDDLEWARE = (
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+)
+MIDDLEWARE_CLASSES = WHITENOISE_MIDDLEWARE + MIDDLEWARE_CLASSES
+{%- endif %}
 {% if cookiecutter.use_sentry == 'y' -%}
 RAVEN_MIDDLEWARE = ('raven.contrib.django.raven_compat.middleware.Sentry404CatchMiddleware',
                     'raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware',)
-MIDDLEWARE_CLASSES = SECURITY_MIDDLEWARE + \
-    RAVEN_MIDDLEWARE + MIDDLEWARE_CLASSES
-{% else %}
+MIDDLEWARE_CLASSES = RAVEN_MIDDLEWARE + MIDDLEWARE_CLASSES
+{%- endif %}
 
 # Make sure djangosecure.middleware.SecurityMiddleware is listed first
 MIDDLEWARE_CLASSES = SECURITY_MIDDLEWARE + MIDDLEWARE_CLASSES
 
-{%- endif %}
 {% if cookiecutter.use_opbeat == 'y' -%}
 # opbeat integration
 # See https://opbeat.com/languages/django/
@@ -132,7 +138,7 @@ MEDIA_URL = 'https://s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
 # Static Assets
 # ------------------------
 {% if cookiecutter.use_whitenoise == 'y' -%}
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 {% else %}
 STATIC_URL = 'https://s3.amazonaws.com/%s/static/' % AWS_STORAGE_BUCKET_NAME
 STATICFILES_STORAGE = 'config.settings.production.StaticRootS3BotoStorage'
