@@ -2,6 +2,25 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2016-05-09]
+### Changed
+- Improved mailhog usage documentation on `developing-locally.rst`  (@shireenrao)
+
+## [2016-05-08]
+### Changed
+- Updated whitenoise configuration to match changes in version 3.0 (@trungdong)
+
+## [2016-05-07]
+### Added
+- Added Ubuntu 16.04 dependencies on a new dependency file `requirements.apt.xenial` (@raonyguimaraes)
+
+### Changed
+- Small improvements in ``install_os_dependencies.sh`` support new dependency file (@raonyguimaraes)
+
+## [2016-05-06]
+### Changed
+- Update version of pyflakes (@pydanny)
+
 ## [2016-05-03]
 ### Changed
 - Update version of Django, django-extensions, django-mailgun (@luzfcb)

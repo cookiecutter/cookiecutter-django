@@ -67,6 +67,7 @@ Listed in alphabetical order.
   David Díaz               `@ddiazpinto`_                @DavidDiazPinto
   Davur Clementsen         `@dsclementsen`_              @davur
   Dónal Adams              `@epileptic-fish`_
+  Dong Huynh               `@trungdong`_
   Eraldo Energy            `@eraldo`_
   Eyad Al Sibai            `@eyadsibai`_
   Felipe Arruda            `@arruda`_
@@ -95,11 +96,13 @@ Listed in alphabetical order.
   mozillazg                `@mozillazg`_
   Pablo                    `@oubiga`_
   Raphael Pierzina         `@hackebrot`_
+  Raony Guimarães Corrêa   `@raonyguimaraes`_
   Roman Afanaskin          `@siauPatrick`_
   Roman Osipenko           `@romanosipenko`_
   Russell Davies
   stepmr                   `@stepmr`_
   Sławek Ehlert            `@slafs`_
+  Srinivas Nyayapati       `@shireenrao`_
   Taylor Baldwin
   Théo Segonds             `@show0k`_
   Tom Atkins               `@knitatoms`_
@@ -154,11 +157,14 @@ Listed in alphabetical order.
 .. _@originell: https://github.com/originell
 .. _@oubiga: https://github.com/oubiga
 .. _@romanosipenko: https://github.com/romanosipenko
+.. _@raonyguimaraes: https://github.com/raonyguimaraes
 .. _@show0k: https://github.com/show0k
 .. _@siauPatrick: https://github.com/siauPatrick
+.. _@shireenrao: https://github.com/shireenrao
 .. _@slafs: https://github.com/slafs
 .. _@stepmr: https://github.com/stepmr
 .. _@Travistock: https://github.com/Tavistock
+.. _@trungdong: https://github.com/trungdong
 .. _@yunti: https://github.com/yunti
 .. _@zcho: https://github.com/zcho
 .. _@noisy: https://github.com/noisy
