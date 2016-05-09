@@ -47,6 +47,8 @@ In development you can (optionally) use MailHog_ for email testing. MailHog is b
 1. `Download the latest release`_ for your operating system
 2. Rename the executable to ``mailhog`` and copy it to the root of your project directory
 3. Make sure it is executable (e.g. ``chmod +x mailhog``)
+4. Execute mailhog from the root of your project in a new terminal window (e.g. ``./mailhog``)
+5. All emails generated from your django app can be seen on http://127.0.0.1:8025/
 
 .. _Mailhog: https://github.com/mailhog/MailHog/
 .. _Download the latest release: https://github.com/mailhog/MailHog/releases
