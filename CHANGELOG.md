@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Improved mailhog usage documentation on `developing-locally.rst`  (@shireenrao)
 - Replaced all `readthedocs.org` referencies to point to the new domain `readthedocs.io` (@luzfcb)
+- Update version of pyflakes (@luzfcb)
 
 ## [2016-05-08]
 ### Changed
