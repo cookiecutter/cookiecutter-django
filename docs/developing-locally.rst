@@ -29,7 +29,7 @@ Then, create a PostgreSQL database with the following command, where `[project_s
 
     $ export DATABASE_URL="postgres://*<pg_user_name>*:*<pg_user_password>*\ @127.0.0.1:\ *<pg_port>*/*<pg_database_name>*"
 
-.. _django-environ: http://django-environ.readthedocs.org
+.. _django-environ: http://django-environ.readthedocs.io
 
 You can now run the usual Django ``migrate`` and ``runserver`` commands::
 

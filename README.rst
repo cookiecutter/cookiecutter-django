@@ -58,7 +58,7 @@ Optional Integrations
 .. _django-avatar: https://github.com/jezdez/django-avatar/
 .. _Procfile: https://devcenter.heroku.com/articles/procfile
 .. _Mailgun: https://mailgun.com/
-.. _Whitenoise: https://whitenoise.readthedocs.org/
+.. _Whitenoise: https://whitenoise.readthedocs.io/
 .. _Celery: http://www.celeryproject.org/
 .. _MailHog: https://github.com/mailhog/MailHog
 .. _Sentry: https://getsentry.com
@@ -153,9 +153,9 @@ For development, see the following for local development:
 * `Developing locally`_
 * `Developing locally using docker`_
 
-.. _options: http://cookiecutter-django.readthedocs.org/en/latest/project-generation-options.html
-.. _`Developing locally`: http://cookiecutter-django.readthedocs.org/en/latest/developing-locally.html
-.. _`Developing locally using docker`: http://cookiecutter-django.readthedocs.org/en/latest/developing-locally-docker.html
+.. _options: http://cookiecutter-django.readthedocs.io/en/latest/project-generation-options.html
+.. _`Developing locally`: http://cookiecutter-django.readthedocs.io/en/latest/developing-locally.html
+.. _`Developing locally using docker`: http://cookiecutter-django.readthedocs.io/en/latest/developing-locally-docker.html
 
 Community
 -----------

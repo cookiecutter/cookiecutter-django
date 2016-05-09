@@ -46,7 +46,7 @@ SECURITY_MIDDLEWARE = (
 )
 {% if cookiecutter.use_whitenoise == 'y' -%}
 # Use Whitenoise to serve static files
-# See: https://whitenoise.readthedocs.org/
+# See: https://whitenoise.readthedocs.io/
 WHITENOISE_MIDDLEWARE = (
     'whitenoise.middleware.WhiteNoiseMiddleware',
 )
@@ -98,7 +98,7 @@ INSTALLED_APPS += ('gunicorn', )
 # ------------------------------------------------------------------------------
 # Uploaded Media Files
 # ------------------------
-# See: http://django-storages.readthedocs.org/en/latest/index.html
+# See: http://django-storages.readthedocs.io/en/latest/index.html
 INSTALLED_APPS += (
     'storages',
 )
