@@ -1,6 +1,6 @@
 .. cookiecutter-django documentation master file.
 
-Welcome to cookiecutter-django's documentation!
+Welcome to Cookiecutter Django's documentation!
 ====================================================================
 
 A Cookiecutter_ template for Django.
