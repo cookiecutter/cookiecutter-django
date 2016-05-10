@@ -45,7 +45,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'cookiecutter-django'
+project = 'Cookiecutter Django'
 copyright = '2013-{}, Daniel Roy Greenfeld'.format(now.year)
 
 # The version info for the project you're documenting, acts as replacement for
@@ -220,7 +220,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'cookiecutter-django', 'cookiecutter-django documentation',
+    ('index', 'Cookiecutter Django', 'Cookiecutter Django documentation',
      ['Daniel Roy Greenfeld'], 1)
 ]
 
@@ -234,8 +234,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    ('index', 'cookiecutter-django', 'cookiecutter-django documentation',
-     'Daniel Roy Greenfeld', 'cookiecutter-django',
+    ('index', 'Cookiecutter Django', 'Cookiecutter Django documentation',
+     'Daniel Roy Greenfeld', 'Cookiecutter Django',
      'A Cookiecutter template for creating production-ready Django projects quickly.', 'Miscellaneous'),
 ]
 

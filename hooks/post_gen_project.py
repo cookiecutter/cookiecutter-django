@@ -39,7 +39,7 @@ def get_random_string(
     if using_sysrandom:
         return ''.join(random.choice(allowed_chars) for i in range(length))
     print(
-        "cookiecutter-django couldn't find a secure pseudo-random number generator on your system."
+        "Cookiecutter Django couldn't find a secure pseudo-random number generator on your system."
         " Please change change your SECRET_KEY variables in conf/settings/local.py and env.example"
         " manually."
     )
