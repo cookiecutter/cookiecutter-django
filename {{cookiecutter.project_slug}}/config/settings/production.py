@@ -53,8 +53,9 @@ WHITENOISE_MIDDLEWARE = (
 MIDDLEWARE_CLASSES = WHITENOISE_MIDDLEWARE + MIDDLEWARE_CLASSES
 {%- endif %}
 {% if cookiecutter.use_sentry == 'y' -%}
-RAVEN_MIDDLEWARE = ('raven.contrib.django.raven_compat.middleware.Sentry404CatchMiddleware',
-                    'raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware',)
+RAVEN_MIDDLEWARE = (
+    'raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware',
+)
 MIDDLEWARE_CLASSES = RAVEN_MIDDLEWARE + MIDDLEWARE_CLASSES
 {%- endif %}
 
