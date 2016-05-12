@@ -24,11 +24,11 @@ SECRET_KEY = env('DJANGO_SECRET_KEY', default='CHANGEME!!!')
 # Mail settings
 # ------------------------------------------------------------------------------
 EMAIL_PORT = 1025
-{% if cookiecutter.use_docker == 'y' and cookiecutter.use_mailhog == 'y' %}
+{% if cookiecutter.use_docker == 'y' and cookiecutter.use_mailhog == 'y' -%}
 EMAIL_HOST = 'mailhog'
 {% else %}
 EMAIL_HOST = 'localhost'
-{% endif %}
+{%- endif %}
 {%if cookiecutter.use_mailhog == 'n' -%}
 EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND',
                     default='django.core.mail.backends.console.EmailBackend')
