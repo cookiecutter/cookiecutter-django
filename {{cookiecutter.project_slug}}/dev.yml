@@ -35,7 +35,7 @@ services:
       - "8000:8000"
     links:
       - postgres
-      {%+ if cookiecutter.use_docker == 'y' %}- mailhog{% endif %}
+      {% if cookiecutter.use_docker == 'y' %}- mailhog{% endif %}
 
 {% if cookiecutter.use_pycharm == 'y' %}
   pycharm:
