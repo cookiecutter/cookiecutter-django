@@ -2,6 +2,14 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2016-05-13]
+### Changed
+- Update version of pyflakes to 1.2.3, django-extensions to 1.6.7 and gunicorn to 19.5.0 (@luzfcb)
+- Update version of AngularJS to 1.5.5 (@luzfcb)
+
+### Removed
+- Remove Raven 404 catch middleware. Fix #367 (@pydanny)
+
 ## [2016-05-09]
 ### Changed
 - Improved mailhog usage documentation on `developing-locally.rst`  (@shireenrao)
