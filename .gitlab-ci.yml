@@ -1,0 +1,22 @@
+# This is a configuration file to run GitLab's CI integration
+# You can find more info on how to set it up in these URLS
+# 
+# http://dezoito.github.io/2016/05/11/django-gitlab-continuous-integration-phantomjs.html
+# http://docs.gitlab.com/ce/ci/yaml/README.html
+# 
+# You'll need to manually provide info on how to setup and connect to your database, 
+# unless it's SQLite, so please, consider this as a starting point and not an end to end 
+# solution
+
+
+# Select image from https://hub.docker.com/
+image: python:3.5
+
+all_tests:
+  script:
+   - sh {{cookiecutter.project_slug}}/utility/install_os_dependencies.sh
+   - sh {{cookiecutter.project_slug}}/utility/install_python_dependencies.sh
+   - python manage.py test -k
+  when: on_success
+  only:
+    - dev
