@@ -217,6 +217,7 @@ Articles
 * `Development and Deployment of Cookiecutter-Django via Docker`_ - Dec. 29, 2015
 * `How to create a Django Application using Cookiecutter and Django 1.8`_ - Sept. 12, 2015
 * `Introduction to Cookiecutter-Django`_ - Feb. 19, 2016
+* `Django and GitLab - Running Continuous Integration and tests with your FREE account`_ - May. 11, 2016
 
 Got a blog or online publication? Write about your cookiecutter-django tips and tricks, then send us a pull request with the link.
 
@@ -224,6 +225,7 @@ Got a blog or online publication? Write about your cookiecutter-django tips and 
 .. _`Development and Deployment of Cookiecutter-Django on Fedora`: https://realpython.com/blog/python/development-and-deployment-of-cookiecutter-django-on-fedora/
 .. _`How to create a Django Application using Cookiecutter and Django 1.8`: http://blog.swapps.co/how-to-create-a-django-application-using-cookiecutter-and-django-1-8/#.VxKfBpMrKRs
 .. _`Introduction to Cookiecutter-Django`: http://krzysztofzuraw.com/blog/2016/django-cookiecutter.html
+.. _`Django and GitLab - Running Continuous Integration and tests with your FREE account`: http://dezoito.github.io/2016/05/11/django-gitlab-continuous-integration-phantomjs.html
 
 Support This Project
 ---------------------------
