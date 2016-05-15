@@ -35,6 +35,7 @@ Listed in alphabetical order.
 ========================== ============================ ==============
   Name                     Github                        Twitter
 ========================== ============================ ==============
+  18                       `@dezoito`_
   a7p                      `@a7p`_
   Aaron Eikenberry         `@aeikenberry`_
   Adam Bogdał              `@bogdal`_
@@ -112,6 +113,7 @@ Listed in alphabetical order.
   Yaroslav Halchenko
 ========================== ============================ ==============
 
+.. _@dezoito: https://github.com/dezoito
 .. _@a7p: https://github.com/a7p
 .. _@ad-m: https://github.com/ad-m
 .. _@aeikenberry: https://github.com/aeikenberry
