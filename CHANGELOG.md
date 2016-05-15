@@ -2,6 +2,10 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+##[2016-05-15]
+### Added
+- Added GitLabl continuous integration article to README.rst (@dezoito)
+
 ## [2016-05-13]
 ### Changed
 - Update version of pyflakes to 1.2.3, django-extensions to 1.6.7 and gunicorn to 19.5.0 (@luzfcb)
