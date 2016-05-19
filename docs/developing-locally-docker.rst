@@ -114,9 +114,9 @@ To restore a backup, run::
 
 To copy the files from the running Postgres container to the host system::
 
-    docker <postgres containerId>:/backups /host/path/target
+    docker <containerId>:/backups /host/path/target
 
-To get your Postgres container ID, run::
+Where <containerId> is the ID of the Postgres container. To get it, run::
 
     docker ps
 
