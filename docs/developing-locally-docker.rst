@@ -112,7 +112,13 @@ To restore a backup, run::
 
     docker-compose -f dev.yml run postgres restore filename.sql
 
+To copy the files from the running Postgres container to the host system::
 
+    docker <containerId>:/backups /host/path/target
+
+Where <containerId> is the ID of the Postgres container. To get it, run::
+
+    docker ps
 
 Other Useful Tips
 -----------------
