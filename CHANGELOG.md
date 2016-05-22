@@ -2,9 +2,14 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+##[2016-05-22]
+### Added
+- Added instructions for copying backups from docker to host (@phiberjenz)
+- Added mailhog docker container (@noisy)
+
 ##[2016-05-15]
 ### Added
-- Added GitLabl continuous integration article to README.rst (@dezoito)
+- Added GitLab continuous integration article to README.rst (@dezoito)
 
 ## [2016-05-13]
 ### Changed
