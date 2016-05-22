@@ -68,5 +68,12 @@ node_modules/
 # User-uploaded media
 {{ cookiecutter.project_slug }}/media/
 
+=======
+{{ cookiecutter.repo_name }}/media/
+
+# Hitch directory
+tests/.hitch
+{% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n'%}
 # MailHog binary
 mailhog
+{% endif %}
