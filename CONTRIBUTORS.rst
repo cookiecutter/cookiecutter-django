@@ -78,6 +78,7 @@ Listed in alphabetical order.
   Henrique G. G. Pereira   `@ikkebr`_
   Ian Lee                  `@IanLee1521`_
   Jan Van Bruggen          `@jvanbrug`_
+  Jens Nilsson             `@phiberjenz`
   Julio Castillo           `@juliocc`_
   Kaido Kert               `@kaidokert`_
   Kaveh                    `@ka7eh`_
