@@ -3,7 +3,11 @@
 build-essential
 #required to translate
 gettext
+{% if cookiecutter.use_python2 == 'n' -%}
+python3-dev
+{% else %}
 python-dev
+{%- endif %}
 
 ##shared dependencies of:
 ##Pillow, pylibmc

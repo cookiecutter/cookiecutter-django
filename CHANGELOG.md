@@ -2,6 +2,44 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+##[2016-05-22]
+### Added
+- Added instructions for copying backups from docker to host (@phiberjenz)
+- Added mailhog docker container (@noisy)
+
+##[2016-05-15]
+### Added
+- Added GitLab continuous integration article to README.rst (@dezoito)
+
+## [2016-05-13]
+### Changed
+- Update version of pyflakes to 1.2.3, django-extensions to 1.6.7 and gunicorn to 19.5.0 (@luzfcb)
+- Update version of AngularJS to 1.5.5 (@luzfcb)
+
+### Removed
+- Remove Raven 404 catch middleware. Fix #367 (@pydanny)
+
+## [2016-05-09]
+### Changed
+- Improved mailhog usage documentation on `developing-locally.rst`  (@shireenrao)
+- Replaced all `readthedocs.org` referencies to point to the new domain `readthedocs.io` (@luzfcb)
+- Update version of pyflakes (@luzfcb)
+
+## [2016-05-08]
+### Changed
+- Updated whitenoise configuration to match changes in version 3.0 (@trungdong)
+
+## [2016-05-07]
+### Added
+- Added Ubuntu 16.04 dependencies on a new dependency file `requirements.apt.xenial` (@raonyguimaraes)
+
+### Changed
+- Small improvements in ``install_os_dependencies.sh`` support new dependency file (@raonyguimaraes)
+
+## [2016-05-06]
+### Changed
+- Update version of pyflakes (@pydanny)
+
 ## [2016-05-03]
 ### Changed
 - Update version of Django, django-extensions, django-mailgun (@luzfcb)
@@ -518,7 +556,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Styles that already exist in Bootstrap 4 (or 3) (@audreyr)
 
 ### Changed
-- Fix issue #296 - change login.html to use [get_providers](https://github.com/pennersr/django-allauth/blob/master/allauth/socialaccount/templatetags/socialaccount.py#L84-L93) templatetag because ``allauth.socialaccount`` context processor now is [deprecated](http://django-allauth.readthedocs.org/en/latest/changelog.html#from-0-21-0) (@luzfcb)
+- Fix issue #296 - change login.html to use [get_providers](https://github.com/pennersr/django-allauth/blob/master/allauth/socialaccount/templatetags/socialaccount.py#L84-L93) templatetag because ``allauth.socialaccount`` context processor now is [deprecated](http://django-allauth.readthedocs.io/en/latest/changelog.html#from-0-21-0) (@luzfcb)
 
 ## [2015-09-09]
 ### Added

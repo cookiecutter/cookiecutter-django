@@ -23,13 +23,13 @@ Then, create a PostgreSQL database with the following command, where `[project_s
 
     $ createdb [project_slug]
 
-`cookiecutter-django` uses the excellent `django-environ`_ package with its ``DATABASE_URL`` environment variable to simplify database configuration in your Django settings. Now all you have to do is compose a definition for ``DATABASE_URL``:
+`Cookiecutter Django` uses the excellent `django-environ`_ package with its ``DATABASE_URL`` environment variable to simplify database configuration in your Django settings. Now all you have to do is compose a definition for ``DATABASE_URL``:
 
 .. parsed-literal::
 
     $ export DATABASE_URL="postgres://*<pg_user_name>*:*<pg_user_password>*\ @127.0.0.1:\ *<pg_port>*/*<pg_database_name>*"
 
-.. _django-environ: http://django-environ.readthedocs.org
+.. _django-environ: http://django-environ.readthedocs.io
 
 You can now run the usual Django ``migrate`` and ``runserver`` commands::
 
@@ -41,16 +41,25 @@ You can now run the usual Django ``migrate`` and ``runserver`` commands::
 django-allauth sends an email to verify users (and superusers) after signup and login (if they are still not verified). To send email you need to `configure your email backend`_
 
 .. _configure your email backend: http://docs.djangoproject.com/en/1.9/topics/email/#smtp-backend
+{% if cookiecutter.use_docker == 'y' %}
+In development you can (optionally) use MailHog_ for email testing. MailHog is added as docker-container. To use MailHog::
 
+1. Make sure, that ``mailhog`` docker container is up and running
+2. Open your browser and go to ``http://127.0.0.1:8025``
+
+.. _Mailhog: https://github.com/mailhog/MailHog/
+{% else %}
 In development you can (optionally) use MailHog_ for email testing. MailHog is built with Go so there are no dependencies. To use MailHog::
 
 1. `Download the latest release`_ for your operating system
 2. Rename the executable to ``mailhog`` and copy it to the root of your project directory
 3. Make sure it is executable (e.g. ``chmod +x mailhog``)
+4. Execute mailhog from the root of your project in a new terminal window (e.g. ``./mailhog``)
+5. All emails generated from your django app can be seen on http://127.0.0.1:8025/
 
 .. _Mailhog: https://github.com/mailhog/MailHog/
 .. _Download the latest release: https://github.com/mailhog/MailHog/releases
-
+{% endif %}
 Alternatively simply output emails to the console via: ``EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'``
 
 In production basic email configuration is setup to send emails with Mailgun_

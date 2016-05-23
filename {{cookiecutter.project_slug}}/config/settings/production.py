@@ -46,15 +46,16 @@ SECURITY_MIDDLEWARE = (
 )
 {% if cookiecutter.use_whitenoise == 'y' -%}
 # Use Whitenoise to serve static files
-# See: https://whitenoise.readthedocs.org/
+# See: https://whitenoise.readthedocs.io/
 WHITENOISE_MIDDLEWARE = (
     'whitenoise.middleware.WhiteNoiseMiddleware',
 )
 MIDDLEWARE_CLASSES = WHITENOISE_MIDDLEWARE + MIDDLEWARE_CLASSES
 {%- endif %}
 {% if cookiecutter.use_sentry == 'y' -%}
-RAVEN_MIDDLEWARE = ('raven.contrib.django.raven_compat.middleware.Sentry404CatchMiddleware',
-                    'raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware',)
+RAVEN_MIDDLEWARE = (
+    'raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware',
+)
 MIDDLEWARE_CLASSES = RAVEN_MIDDLEWARE + MIDDLEWARE_CLASSES
 {%- endif %}
 
@@ -98,7 +99,7 @@ INSTALLED_APPS += ('gunicorn', )
 # ------------------------------------------------------------------------------
 # Uploaded Media Files
 # ------------------------
-# See: http://django-storages.readthedocs.org/en/latest/index.html
+# See: http://django-storages.readthedocs.io/en/latest/index.html
 INSTALLED_APPS += (
     'storages',
 )

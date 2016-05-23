@@ -35,6 +35,7 @@ Listed in alphabetical order.
 ========================== ============================ ==============
   Name                     Github                        Twitter
 ========================== ============================ ==============
+  18                       `@dezoito`_
   a7p                      `@a7p`_
   Aaron Eikenberry         `@aeikenberry`_
   Adam Bogdał              `@bogdal`_
@@ -67,6 +68,8 @@ Listed in alphabetical order.
   David Díaz               `@ddiazpinto`_                @DavidDiazPinto
   Davur Clementsen         `@dsclementsen`_              @davur
   Dónal Adams              `@epileptic-fish`_
+  Dong Huynh               `@trungdong`_
+  Emanuel Calso            `@bloodpet`_                  @bloodpet
   Eraldo Energy            `@eraldo`_
   Eyad Al Sibai            `@eyadsibai`_
   Felipe Arruda            `@arruda`_
@@ -76,6 +79,7 @@ Listed in alphabetical order.
   Henrique G. G. Pereira   `@ikkebr`_
   Ian Lee                  `@IanLee1521`_
   Jan Van Bruggen          `@jvanbrug`_
+  Jens Nilsson             `@phiberjenz`
   Julio Castillo           `@juliocc`_
   Kaido Kert               `@kaidokert`_
   Kaveh                    `@ka7eh`_
@@ -95,11 +99,13 @@ Listed in alphabetical order.
   mozillazg                `@mozillazg`_
   Pablo                    `@oubiga`_
   Raphael Pierzina         `@hackebrot`_
+  Raony Guimarães Corrêa   `@raonyguimaraes`_
   Roman Afanaskin          `@siauPatrick`_
   Roman Osipenko           `@romanosipenko`_
   Russell Davies
   stepmr                   `@stepmr`_
   Sławek Ehlert            `@slafs`_
+  Srinivas Nyayapati       `@shireenrao`_
   Taylor Baldwin
   Théo Segonds             `@show0k`_
   Tom Atkins               `@knitatoms`_
@@ -109,6 +115,7 @@ Listed in alphabetical order.
   Yaroslav Halchenko
 ========================== ============================ ==============
 
+.. _@dezoito: https://github.com/dezoito
 .. _@a7p: https://github.com/a7p
 .. _@ad-m: https://github.com/ad-m
 .. _@aeikenberry: https://github.com/aeikenberry
@@ -117,6 +124,7 @@ Listed in alphabetical order.
 .. _@andor-pierdelacabeza: https://github.com/andor-pierdelacabeza
 .. _@areski: https://github.com/areski
 .. _@arruda: https://github.com/arruda
+.. _@bloodpet: https://github.com/bloodpet
 .. _@bogdal: https://github.com/bogdal
 .. _@burhan: https://github.com/burhan
 .. _@c-rhodes: https://github.com/c-rhodes
@@ -154,11 +162,14 @@ Listed in alphabetical order.
 .. _@originell: https://github.com/originell
 .. _@oubiga: https://github.com/oubiga
 .. _@romanosipenko: https://github.com/romanosipenko
+.. _@raonyguimaraes: https://github.com/raonyguimaraes
 .. _@show0k: https://github.com/show0k
 .. _@siauPatrick: https://github.com/siauPatrick
+.. _@shireenrao: https://github.com/shireenrao
 .. _@slafs: https://github.com/slafs
 .. _@stepmr: https://github.com/stepmr
 .. _@Travistock: https://github.com/Tavistock
+.. _@trungdong: https://github.com/trungdong
 .. _@yunti: https://github.com/yunti
 .. _@zcho: https://github.com/zcho
 .. _@noisy: https://github.com/noisy
