@@ -69,6 +69,7 @@ Listed in alphabetical order.
   Davur Clementsen         `@dsclementsen`_              @davur
   Dónal Adams              `@epileptic-fish`_
   Dong Huynh               `@trungdong`_
+  Emanuel Calso            `@bloodpet`_                  @bloodpet
   Eraldo Energy            `@eraldo`_
   Eyad Al Sibai            `@eyadsibai`_
   Felipe Arruda            `@arruda`_
@@ -123,6 +124,7 @@ Listed in alphabetical order.
 .. _@andor-pierdelacabeza: https://github.com/andor-pierdelacabeza
 .. _@areski: https://github.com/areski
 .. _@arruda: https://github.com/arruda
+.. _@bloodpet: https://github.com/bloodpet
 .. _@bogdal: https://github.com/bogdal
 .. _@burhan: https://github.com/burhan
 .. _@c-rhodes: https://github.com/c-rhodes
