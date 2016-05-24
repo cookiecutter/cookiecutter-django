@@ -190,14 +190,5 @@ if '{{ cookiecutter.use_grunt }}'.lower() == 'y' and '{{ cookiecutter.use_docker
         " grunt service to your docker configuration manually."
     )
 
-# 7. Display a warning if use_docker and use_mailhog are selected. Mailhog isn't supported by our
-# docker config atm.
-if '{{ cookiecutter.use_mailhog }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() == 'y':
-    print(
-        "You selected to use docker and mailhog. This is NOT supported out of the box for now. You"
-        " can continue to use the project like you normally would, but you will need to add a "
-        " mailhog service to your docker configuration manually."
-    )
-
 # 4. Copy files from /docs/ to {{ cookiecutter.project_slug }}/docs/
 # copy_doc_files(PROJECT_DIRECTORY)
