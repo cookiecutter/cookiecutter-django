@@ -90,6 +90,7 @@ Setup your email backend
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 django-allauth sends an email to verify users (and superusers) after signup and login (if they are still not verified). To send email you need to `configure your email backend`_
+
 .. _configure your email backend: http://docs.djangoproject.com/en/1.9/topics/email/#smtp-backend
 
 In development you can (optionally) use MailHog_ for email testing. MailHog is added as docker-container. To use MailHog::
