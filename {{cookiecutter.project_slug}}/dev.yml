@@ -12,7 +12,7 @@ services:
       - postgres_backup_dev:/backups
     environment:
       - POSTGRES_USER={{cookiecutter.project_slug}}
-{% if cookiecutter.use_docker == 'y' and cookiecutter.use_mailhog == 'y' %}      
+{% if cookiecutter.use_mailhog == 'y' %}      
   mailhog:
     image: mailhog/mailhog
     ports:
@@ -33,7 +33,7 @@ services:
       - "8000:8000"
     links:
       - postgres
-      {% if cookiecutter.use_docker == 'y' and cookiecutter.use_mailhog == 'y' %}- mailhog{% endif %}
+      {% if cookiecutter.use_mailhog == 'y' %}- mailhog{% endif %}
 {% if cookiecutter.use_pycharm == 'y' %}
   pycharm:
     build:
