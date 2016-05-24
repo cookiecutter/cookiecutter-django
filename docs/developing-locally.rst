@@ -23,7 +23,7 @@ Then, create a PostgreSQL database with the following command, where `[project_s
 
     $ createdb [project_slug]
 
-`Cookiecutter Django` uses the excellent `django-environ`_ package with its ``DATABASE_URL`` environment variable to simplify database configuration in your Django settings. Now all you have to do is compose a definition for ``DATABASE_URL``:
+`Cookiecutter Django` uses the excellent `django-environ`_ package with its ``DATABASE_URL`` environment variable to simplify database configuration in your Django settings. Now all you have to do is rename env.example to .env and then compose a definition for ``DATABASE_URL`` as shown below and add it to the .env file:
 
 .. parsed-literal::
 
