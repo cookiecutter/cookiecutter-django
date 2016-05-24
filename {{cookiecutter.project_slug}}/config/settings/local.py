@@ -27,6 +27,8 @@ SECRET_KEY = env('DJANGO_SECRET_KEY', default='CHANGEME!!!')
 EMAIL_PORT = 1025
 {% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'y' %}
 EMAIL_HOST = env("EMAIL_HOST", default='mailhog')
+{% elif cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' %}
+EMAIL_HOST = 'localhost'
 {% else %}
 EMAIL_HOST = 'localhost'
 EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND',
