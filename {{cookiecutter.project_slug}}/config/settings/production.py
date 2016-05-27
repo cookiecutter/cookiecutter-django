@@ -155,12 +155,20 @@ INSTALLED_APPS = ('collectfast', ) + INSTALLED_APPS
 # ------------------------------------------------------------------------------
 DEFAULT_FROM_EMAIL = env('DJANGO_DEFAULT_FROM_EMAIL',
                          default='{{cookiecutter.project_name}} <noreply@{{cookiecutter.domain_name}}>')
-EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
-MAILGUN_ACCESS_KEY = env('DJANGO_MAILGUN_API_KEY')
-MAILGUN_SERVER_NAME = env('DJANGO_MAILGUN_SERVER_NAME')
 EMAIL_SUBJECT_PREFIX = env('DJANGO_EMAIL_SUBJECT_PREFIX', default='[{{cookiecutter.project_name}}] ')
 SERVER_EMAIL = env('DJANGO_SERVER_EMAIL', default=DEFAULT_FROM_EMAIL)
+
+# Anymail with Mailgun
+INSTALLED_APPS += ("anymail", )
+ANYMAIL = {
+    "MAILGUN_API_KEY": env('DJANGO_MAILGUN_API_KEY'),
+}
+EMAIL_BACKEND = "anymail.backends.mailgun.MailgunBackend"
+
 {% if cookiecutter.use_newrelic == 'y'-%}
+
+# NEW RELIC
+# ------------------------------------------------------------------------------
 NEW_RELIC_LICENSE_KEY = env('NEW_RELIC_LICENSE_KEY')
 NEW_RELIC_APP_NAME = env('NEW_RELIC_APP_NAME')
 {%- endif %}

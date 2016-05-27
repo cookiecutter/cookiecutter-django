@@ -22,9 +22,9 @@ django-storages-redux==1.3.2
 Collectfast==0.2.3
 {%- endif %}
 
-# Mailgun Support
-# ---------------
-django-mailgun==0.9.1
+# Email backends for Mailgun, Postmark, SendGrid and more
+# -------------------------------------------------------
+django-anymail==0.3.1
 
 {% if cookiecutter.use_sentry == "y" -%}
 # Raven is the Sentry client

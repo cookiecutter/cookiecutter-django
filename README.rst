@@ -32,7 +32,7 @@ Features
 * Registration via django-allauth_
 * Comes with custom user model ready to go.
 * Grunt build for compass and livereload
-* Basic e-mail configurations for sending emails via Mailgun_
+* Send emails via Anymail_ (using Mailgun_ by default, but switchable)
 * Media storage using Amazon S3
 * Docker support using docker-compose_ for development and production
 * Procfile_ for deploying to Heroku
@@ -64,6 +64,7 @@ Optional Integrations
 .. _Mailgun: https://mailgun.com/
 .. _Whitenoise: https://whitenoise.readthedocs.io/
 .. _Celery: http://www.celeryproject.org/
+.. _Anymail: https://github.com/anymail/django-anymail
 .. _MailHog: https://github.com/mailhog/MailHog
 .. _Sentry: https://getsentry.com
 .. _NewRelic: https://newrelic.com
