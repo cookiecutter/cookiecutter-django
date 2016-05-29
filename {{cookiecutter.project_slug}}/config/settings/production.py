@@ -166,7 +166,6 @@ ANYMAIL = {
 EMAIL_BACKEND = "anymail.backends.mailgun.MailgunBackend"
 
 {% if cookiecutter.use_newrelic == 'y'-%}
-
 # NEW RELIC
 # ------------------------------------------------------------------------------
 NEW_RELIC_LICENSE_KEY = env('NEW_RELIC_LICENSE_KEY')
