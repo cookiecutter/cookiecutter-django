@@ -165,13 +165,11 @@ ANYMAIL = {
 }
 EMAIL_BACKEND = "anymail.backends.mailgun.MailgunBackend"
 
-{% if cookiecutter.use_newrelic == 'y'-%}
-# NEW RELIC
+{% if cookiecutter.use_newrelic == 'y'-%}# NEW RELIC
 # ------------------------------------------------------------------------------
 NEW_RELIC_LICENSE_KEY = env('NEW_RELIC_LICENSE_KEY')
 NEW_RELIC_APP_NAME = env('NEW_RELIC_APP_NAME')
 {%- endif %}
-
 # TEMPLATE CONFIGURATION
 # ------------------------------------------------------------------------------
 # See:
