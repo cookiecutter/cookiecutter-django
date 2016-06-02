@@ -164,7 +164,6 @@ ANYMAIL = {
     "MAILGUN_API_KEY": env('DJANGO_MAILGUN_API_KEY'),
 }
 EMAIL_BACKEND = "anymail.backends.mailgun.MailgunBackend"
-
 {% if cookiecutter.use_newrelic == 'y'-%}# NEW RELIC
 # ------------------------------------------------------------------------------
 NEW_RELIC_LICENSE_KEY = env('NEW_RELIC_LICENSE_KEY')
