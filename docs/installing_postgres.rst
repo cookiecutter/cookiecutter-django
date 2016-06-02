@@ -11,7 +11,7 @@ On Mac
 
 Install PostgreSQLapp_ from the browser and move PostGresSQL into your applications folder. Then install PostgreSQL from HomeBrew_.
 
-	$ brew install postgressql
+	$ brew install postgres
 
 .. _PostgreSQLapp: http://postgresapp.com/
 .. _HomeBrew: http://brew.sh/
