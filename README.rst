@@ -132,6 +132,7 @@ Answer the prompts with your own desired options_. For example::
     use_heroku [n]: n
     use_grunt [n]: y
     use_angular [n]: n
+    use_precommit_hooks [n]: n
     Select open_source_license:
     1 - MIT
     2 - BSD
@@ -161,6 +162,10 @@ For development, see the following for local development:
 .. _options: http://cookiecutter-django.readthedocs.io/en/latest/project-generation-options.html
 .. _`Developing locally`: http://cookiecutter-django.readthedocs.io/en/latest/developing-locally.html
 .. _`Developing locally using docker`: http://cookiecutter-django.readthedocs.io/en/latest/developing-locally-docker.html
+
+If you chose to install pre-commit hooks, make sure to also run this after git init::
+
+    $ pre-commit install
 
 Community
 -----------

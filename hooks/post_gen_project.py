@@ -106,6 +106,13 @@ def remove_pycharm_dir(project_directory):
         shutil.rmtree(docs_dir_location)
 
 
+def remove_pre_commit_file():
+    """
+    Removes pre-commit hook yaml file
+    """
+    os.remove(os.path.join(PROJECT_DIRECTORY, '.pre-commit-config.yaml'))
+
+
 def remove_heroku_files():
     """
     Removes files needed for heroku if it isn't going to be used
@@ -180,7 +187,6 @@ if '{{ cookiecutter.use_docker }}'.lower() != 'y':
 if '{{ cookiecutter.use_grunt }}'.lower() != 'y':
     remove_grunt_files()
 
-
 # 7. Display a warning if use_docker and use_grunt are selected. Grunt isn't supported by our
 # docker config atm.
 if '{{ cookiecutter.use_grunt }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() == 'y':
@@ -198,6 +204,10 @@ if '{{ cookiecutter.use_mailhog }}'.lower() == 'y' and '{{ cookiecutter.use_dock
         " can continue to use the project like you normally would, but you will need to add a "
         " mailhog service to your docker configuration manually."
     )
+
+# 8. If pre-commit hooks aren't used, remove pre-commit yaml file
+if '{{ cookiecutter.use_precommit_hooks }}'.lower() != 'y':
+    remove_pre_commit_file()
 
 # 4. Copy files from /docs/ to {{ cookiecutter.project_slug }}/docs/
 # copy_doc_files(PROJECT_DIRECTORY)
