@@ -185,6 +185,8 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
+# 'compressor.finders.CompressorFinder',
+
 # MEDIA CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
@@ -232,6 +234,16 @@ INSTALLED_APPS += ('kombu.transport.django',)
 BROKER_URL = env('CELERY_BROKER_URL', default='django://')
 ########## END CELERY
 {% endif %}
+
+# django-compressor
+# ------------------------------------------------------------------------------
+{% if cookiecutter.use_compressor == 'y'-%}
+INSTALLED_APPS += ("compressor", )
+
+STATICFILES_FINDERS += ("compressor.finders.CompressorFinder", )
+
+{%- endif %}
+
 
 # Location of root django.contrib.admin URL, use {% raw %}{% url 'admin:index' %}{% endraw %}
 ADMIN_URL = r'^admin/'

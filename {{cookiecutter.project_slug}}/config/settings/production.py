@@ -171,12 +171,6 @@ NEW_RELIC_LICENSE_KEY = env('NEW_RELIC_LICENSE_KEY')
 NEW_RELIC_APP_NAME = env('NEW_RELIC_APP_NAME')
 {%- endif %}
 
-# django-compressor
-# ------------------------------------------------------------------------------
-{% if cookiecutter.use_compressor == 'y'-%}
-INSTALLED_APPS += ("compressor", )
-{%- endif %}
-
 # TEMPLATE CONFIGURATION
 # ------------------------------------------------------------------------------
 # See:
