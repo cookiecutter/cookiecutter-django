@@ -1,4 +1,4 @@
-{% raw %}{% load staticfiles i18n %}<!DOCTYPE html>
+{% raw %}{% load staticfiles i18n {% endraw %}{% if cookiecutter.use_compressor == "y" %}compressor{% endif %}{% raw %}%}<!DOCTYPE html>
 <html lang="en" {% endraw %}{% if cookiecutter.use_angular == "y" %}ng-app{% endif %}{% raw %}>
   <head>
     <meta charset="utf-8">
@@ -18,9 +18,15 @@
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
 
     <!-- Your stuff: Third-party css libraries go here -->
-
+    {% endraw%}{% if cookiecutter.use_compressor == "y" %}
+    {% compress css %}
+    {% endif %}{% raw %}
     <!-- This file store project specific CSS -->
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
+    {% endraw%}{% if cookiecutter.use_compressor == "y" %}
+    {% endcompress %}
+    {% endif %}{% raw %}
+
     {% endblock %}
 
     {% endraw %}{% if cookiecutter.use_angular == "y" %}{% raw %}{% block angular %}
@@ -104,7 +110,13 @@
       <!-- Your stuff: Third-party javascript libraries go here -->
 
       <!-- place project specific Javascript in this file -->
+    {% endraw%}{% if cookiecutter.use_compressor == "y" %}
+    {% compress js %}
+    {% endif %}{% raw %}
       <script src="{% static 'js/project.js' %}"></script>
+    {% endraw%}{% if cookiecutter.use_compressor == "y" %}
+    {% endcompress %}
+    {% endif %}{% raw %}
     {% endblock javascript %}
   </body>
 </html>
