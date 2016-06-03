@@ -21,5 +21,6 @@
     "use_docker": "y",
     "use_heroku": "n",
     "use_grunt": "n",
-    "open_source_license": ["MIT", "BSD", "Apache Software License 2.0", "Not open source"]
+    "open_source_license": ["MIT", "BSD", "Apache Software License 2.0", "Not open source"],
+    "_cookiecutter_version": "Minimum cookiecutter version"
 }
