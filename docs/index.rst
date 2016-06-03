@@ -25,6 +25,7 @@ Contents:
    deployment-on-heroku
    deployment-with-docker
    faq
+   troubleshooting
 
 Indices and tables
 ==================
