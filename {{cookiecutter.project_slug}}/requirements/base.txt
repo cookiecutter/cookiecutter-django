@@ -11,7 +11,6 @@ django==1.9.6
 
 # Configuration
 django-environ==0.4.0
-django-secure==1.0.1
 {% if cookiecutter.use_whitenoise == 'y' -%}
 whitenoise==3.0
 {%- endif %}
