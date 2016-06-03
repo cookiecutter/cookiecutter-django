@@ -14,7 +14,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-
+   my-favorite-cookie
    project-generation-options
    developing-locally
    developing-locally-docker
