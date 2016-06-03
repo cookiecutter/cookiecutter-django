@@ -97,6 +97,7 @@ Listed in alphabetical order.
   Matt Menzenski           `@menzenski`_
   Matt Warren              `@mfwarren`_
   Meghan Heintz            `@dot2dotseurat`_
+  mjsisley                 `@mjsisley`_
   mozillazg                `@mozillazg`_
   Pablo                    `@oubiga`_
   Raphael Pierzina         `@hackebrot`_
@@ -160,6 +161,7 @@ Listed in alphabetical order.
 .. _@MathijsHoogland: https://github.com/MathijsHoogland
 .. _@menzenski: https://github.com/menzenski
 .. _@mfwarren: https://github.com/mfwarren
+.. _@mjsisley: https://github.com/mjsisley
 .. _@mozillazg: https://github.com/mozillazg
 .. _@originell: https://github.com/originell
 .. _@oubiga: https://github.com/oubiga
