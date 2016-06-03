@@ -131,7 +131,6 @@ Answer the prompts with your own desired options_. For example::
     use_docker [y]: y
     use_heroku [n]: n
     use_grunt [n]: y
-    use_angular [n]: n
     Select open_source_license:
     1 - MIT
     2 - BSD
