@@ -141,3 +141,45 @@ If you want to run the stack in detached mode (in the background), use the ``-d`
 ::
 
     $ docker-compose -f dev.yml up -d
+
+Debugging
+~~~~~~~~~~~~~
+
+ipdb
+"""""
+
+If you are using the following within your code to debug:
+
+::
+
+    import ipdb; ipdb.set_trace()
+
+Then you may need to run the following for it to work as desired:
+
+::
+
+    $ docker-compose run --service-ports django
+
+django-debug-toolbar
+""""""""""""""""""""
+
+In order for django-debug-toolbar to work with docker you need to add your docker-machine ip address (the output of `Get the IP ADDRESS`_) to INTERNAL_IPS in local.py
+
+
+.. May be a better place to put this, as it is not Docker specific.
+
+You may need to add the following to your css in order for the django-debug-toolbar to be visible (this applies whether Docker is being used or not):
+
+.. code-block:: css
+
+    /* Override Bootstrap 4 styling on Django Debug Toolbar */
+    #djDebug[hidden], #djDebug [hidden] {
+        display: block !important;
+    }
+
+    #djDebug [hidden][style='display: none;'] {
+        display: none !important;
+    }
+
+
+
