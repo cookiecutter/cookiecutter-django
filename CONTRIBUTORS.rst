@@ -87,6 +87,7 @@ Listed in alphabetical order.
   Kevin Ndung'u            `@kevgathuku`_
   Krzysztof Szumny         `@noisy`_
   Krzysztof Żuraw          `@krzysztofzuraw`_
+  Leonardo Jimenez         `@xpostudio4`_
   Lin Xianyi               `@iynaix`_
   Luis Nell                `@originell`_
   Lukas Klein
@@ -152,6 +153,7 @@ Listed in alphabetical order.
 .. _@ikkebr: https://github.com/ikkebr
 .. _@iynaix: https://github.com/iynaix
 .. _@jazztpt: https://github.com/jazztpt
+.. _@xpostudio4: https://github.com/xpostudio4
 .. _@juliocc: https://github.com/juliocc
 .. _@jvanbrug: https://github.com/jvanbrug
 .. _@ka7eh: https://github.com/ka7eh

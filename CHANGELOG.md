@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Deleted
 - AngularJS (@pydanny)
+- django-secure (@xpostudio4)
 
 ##[2016-06-02]
 ### Added
