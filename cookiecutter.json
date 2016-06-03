@@ -22,5 +22,5 @@
     "use_heroku": "n",
     "use_grunt": "n",
     "use_angular": "n",
-    "open_source_license": ["MIT", "BSD", "Not open source"]
+    "open_source_license": ["MIT", "BSD", "Apache Software License 2.0", "Not open source"]
 }
