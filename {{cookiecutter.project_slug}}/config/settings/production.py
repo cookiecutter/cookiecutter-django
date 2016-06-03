@@ -41,9 +41,7 @@ INSTALLED_APPS += ('djangosecure', )
 # See https://docs.getsentry.com/hosted/clients/python/integrations/django/
 INSTALLED_APPS += ('raven.contrib.django.raven_compat', )
 {%- endif %}
-SECURITY_MIDDLEWARE = (
-    'djangosecure.middleware.SecurityMiddleware',
-)
+
 {% if cookiecutter.use_whitenoise == 'y' -%}
 # Use Whitenoise to serve static files
 # See: https://whitenoise.readthedocs.io/
@@ -59,8 +57,6 @@ RAVEN_MIDDLEWARE = (
 MIDDLEWARE_CLASSES = RAVEN_MIDDLEWARE + MIDDLEWARE_CLASSES
 {%- endif %}
 
-# Make sure djangosecure.middleware.SecurityMiddleware is listed first
-MIDDLEWARE_CLASSES = SECURITY_MIDDLEWARE + MIDDLEWARE_CLASSES
 
 {% if cookiecutter.use_opbeat == 'y' -%}
 # opbeat integration
