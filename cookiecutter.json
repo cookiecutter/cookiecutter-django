@@ -22,5 +22,6 @@
     "use_heroku": "n",
     "use_grunt": "n",
     "use_angular": "n",
+    "use_certbot": "n",
     "open_source_license": ["MIT", "BSD", "Not open source"]
 }

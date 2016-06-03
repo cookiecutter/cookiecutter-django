@@ -139,6 +139,16 @@ def remove_grunt_files():
             PROJECT_DIRECTORY, filename
         ))
 
+def remove_certbot_files():
+    """
+    Removes files needed for certbot if it isn't going to be used
+    """
+    nginx_dir_location = os.path.join(PROJECT_DIRECTORY, 'compose/nginx')
+    for filename in ["nginx-secure.conf", "start.sh", "dhparams.example.pem"]:
+        os.remove(os.path.join(
+            nginx_dir_location, filename
+        ))
+
 # IN PROGRESS
 # def copy_doc_files(project_directory):
 #     cookiecutters_dir = DEFAULT_CONFIG['cookiecutters_dir']
@@ -180,8 +190,11 @@ if '{{ cookiecutter.use_docker }}'.lower() != 'y':
 if '{{ cookiecutter.use_grunt }}'.lower() != 'y':
     remove_grunt_files()
 
+# 7. Removes all certbot/letsencrypt files if it isn't going to be used
+if '{{ cookiecutter.use_certbot }}'.lower() != 'y':
+    remove_certbot_files()
 
-# 7. Display a warning if use_docker and use_grunt are selected. Grunt isn't supported by our
+# 8. Display a warning if use_docker and use_grunt are selected. Grunt isn't supported by our
 # docker config atm.
 if '{{ cookiecutter.use_grunt }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() == 'y':
     print(
@@ -190,13 +203,19 @@ if '{{ cookiecutter.use_grunt }}'.lower() == 'y' and '{{ cookiecutter.use_docker
         " grunt service to your docker configuration manually."
     )
 
-# 7. Display a warning if use_docker and use_mailhog are selected. Mailhog isn't supported by our
-# docker config atm.
-if '{{ cookiecutter.use_mailhog }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() == 'y':
+# 9. Removes the certbot/letsencrypt files and display a warning if use_certbot is selected and use_docker isn't.
+if '{{ cookiecutter.use_certbot }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() != 'y':
+    remove_certbot_files()
     print(
-        "You selected to use docker and mailhog. This is NOT supported out of the box for now. You"
-        " can continue to use the project like you normally would, but you will need to add a "
-        " mailhog service to your docker configuration manually."
+        "You selected to use certbot(letsencrypt) and didn't select to use docker. This is NOT supported out of the box for now. You "
+        "can continue to use the project like you normally would, but you will no certbot files have been included"
+    )
+
+# 10. Directs the user to the documentation if certbot and docker are selected.
+if '{{ cookiecutter.use_certbot }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() == 'y':
+    print(
+        "You selected to use certbot(letsencrypt), please see the documentation for instructions on how to use this in production. "
+        "You must generate a dhparams.pem file before running docker-compose in a production environment."
     )
 
 # 4. Copy files from /docs/ to {{ cookiecutter.project_slug }}/docs/

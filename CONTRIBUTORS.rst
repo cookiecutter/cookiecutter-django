@@ -96,6 +96,7 @@ Listed in alphabetical order.
   Matt Linares
   Matt Menzenski           `@menzenski`_
   Matt Warren              `@mfwarren`_
+  Matthew Sisley           `@mjsisley`_
   Meghan Heintz            `@dot2dotseurat`_
   mozillazg                `@mozillazg`_
   Pablo                    `@oubiga`_
@@ -175,6 +176,7 @@ Listed in alphabetical order.
 .. _@yunti: https://github.com/yunti
 .. _@zcho: https://github.com/zcho
 .. _@noisy: https://github.com/noisy
+.. _@mjsisley: https://github.com/mjsisley
 Special Thanks
 ~~~~~~~~~~~~~~
 
