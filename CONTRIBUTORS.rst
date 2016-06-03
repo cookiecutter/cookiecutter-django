@@ -109,6 +109,7 @@ Listed in alphabetical order.
   stepmr                   `@stepmr`_
   Sławek Ehlert            `@slafs`_
   Srinivas Nyayapati       `@shireenrao`_
+  Sule Marshall            `@suledev`_
   Taylor Baldwin
   Théo Segonds             `@show0k`_
   Tom Atkins               `@knitatoms`_
@@ -174,6 +175,7 @@ Listed in alphabetical order.
 .. _@shireenrao: https://github.com/shireenrao
 .. _@slafs: https://github.com/slafs
 .. _@stepmr: https://github.com/stepmr
+.. _@suledev: https://github.com/suledev
 .. _@Travistock: https://github.com/Tavistock
 .. _@trungdong: https://github.com/trungdong
 .. _@yunti: https://github.com/yunti

@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Documentation for debugging with Docker (@mjsisley)
 - Apache 2 License option in `cookiecutter.json` (@dot2dotseurat)
+- Removed unnecessary version check from `pre_gen_project.py` (@suledev)
 
 ### Deleted
 - AngularJS (@pydanny)
