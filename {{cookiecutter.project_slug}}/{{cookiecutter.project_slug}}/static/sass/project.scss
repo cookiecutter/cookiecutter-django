@@ -39,6 +39,10 @@ $red: #b94a48;
 
 // This is a fix for the bootstrap4 alpha release
 
+.navbar {
+  border-radius: 0px;
+}
+
 @media (max-width: 47.9em) {
   .navbar-nav .nav-item {
     display: inline-block;
