@@ -150,6 +150,15 @@ STATICFILES_STORAGE = 'config.settings.production.StaticRootS3BotoStorage'
 AWS_PRELOAD_METADATA = True
 INSTALLED_APPS = ('collectfast', ) + INSTALLED_APPS
 {%- endif %}
+{% if cookiecutter.use_compressor == 'y'-%}
+
+# COMPRESSOR
+# ------------------------------------------------------------------------------
+COMPRESS_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+COMPRESS_URL = STATIC_URL
+COMPRESS_ENABLED = env.bool('COMPRESS_ENABLED', default=True)
+{%- endif %}
+
 
 # EMAIL
 # ------------------------------------------------------------------------------
