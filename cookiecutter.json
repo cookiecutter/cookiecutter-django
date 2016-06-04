@@ -21,5 +21,6 @@
     "use_docker": "y",
     "use_heroku": "n",
     "js_task_runner": ["Gulp", "Grunt", "None"],
+    "use_certbot": "n",
     "open_source_license": ["MIT", "BSD", "Apache Software License 2.0", "Not open source"]
 }
