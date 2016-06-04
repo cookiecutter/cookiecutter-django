@@ -20,6 +20,7 @@
     "use_python2": "n",
     "use_docker": "y",
     "use_heroku": "n",
+    "use_angular": "n",
     "js_task_runner": ["Gulp", "Grunt", "None"],
     "open_source_license": ["MIT", "BSD", "Apache Software License 2.0", "Not open source"]
 }
