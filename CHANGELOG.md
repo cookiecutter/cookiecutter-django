@@ -2,6 +2,17 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+##[2016-06-03]
+### Added
+- Documentation for debugging with Docker (@mjsisley)
+- Apache 2 License option in `cookiecutter.json` (@dot2dotseurat)
+- Removed unnecessary version check from `pre_gen_project.py` (@suledev)
+- Add gulp alternative as a js task runner and fix navbar style issue (@viviangb and @xpostudio4)
+
+### Deleted
+- AngularJS (@pydanny)
+- django-secure (@xpostudio4)
+
 ##[2016-06-02]
 ### Added
 - Added better instructions for installing postgres on Mac OS X (@dot2dotseurat )

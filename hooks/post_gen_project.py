@@ -134,7 +134,25 @@ def remove_grunt_files():
     """
     Removes files needed for grunt if it isn't going to be used
     """
-    for filename in ["Gruntfile.js", "package.json"]:
+    for filename in ["Gruntfile.js"]:
+        os.remove(os.path.join(
+            PROJECT_DIRECTORY, filename
+        ))
+
+def remove_gulp_files():
+    """
+    Removes files needed for grunt if it isn't going to be used
+    """
+    for filename in ["gulpfile.js"]:
+        os.remove(os.path.join(
+            PROJECT_DIRECTORY, filename
+        ))
+
+def remove_packageJSON_file():
+    """
+    Removes files needed for grunt if it isn't going to be used
+    """
+    for filename in ["package.json"]:
         os.remove(os.path.join(
             PROJECT_DIRECTORY, filename
         ))
@@ -176,18 +194,24 @@ if '{{ cookiecutter.use_heroku }}'.lower() != 'y':
 if '{{ cookiecutter.use_docker }}'.lower() != 'y':
     remove_docker_files()
 
-# 6. Removes all grunt files if it isn't going to be used
-if '{{ cookiecutter.use_grunt }}'.lower() != 'y':
+# 6. Removes all JS task manager files if it isn't going to be used
+if '{{ cookiecutter.js_task_runner}}'.lower() == 'gulp':
     remove_grunt_files()
+elif '{{ cookiecutter.js_task_runner}}'.lower() == 'grunt':
+    remove_gulp_files()
+else:
+    remove_gulp_files()
+    remove_grunt_files()
+    remove_packageJSON_file()
 
 
-# 7. Display a warning if use_docker and use_grunt are selected. Grunt isn't supported by our
+# 7. Display a warning if use_docker and js task runner are selected. Grunt isn't supported by our
 # docker config atm.
-if '{{ cookiecutter.use_grunt }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() == 'y':
+if '{{ cookiecutter.js_task_runner }}'.lower() in ['grunt', 'gulp'] and '{{ cookiecutter.use_docker }}'.lower() == 'y':
     print(
-        "You selected to use docker and grunt. This is NOT supported out of the box for now. You "
+        "You selected to use docker and a JS task runner. This is NOT supported out of the box for now. You "
         "can continue to use the project like you normally would, but you will need to add a "
-        " grunt service to your docker configuration manually."
+        "js task runner service to your docker configuration manually."
     )
 
 # 7. Display a warning if use_docker and use_mailhog are selected. Mailhog isn't supported by our

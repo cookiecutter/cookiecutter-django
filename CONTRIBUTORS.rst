@@ -87,6 +87,7 @@ Listed in alphabetical order.
   Kevin Ndung'u            `@kevgathuku`_
   Krzysztof Szumny         `@noisy`_
   Krzysztof Żuraw          `@krzysztofzuraw`_
+  Leonardo Jimenez         `@xpostudio4`_
   Lin Xianyi               `@iynaix`_
   Luis Nell                `@originell`_
   Lukas Klein
@@ -97,6 +98,7 @@ Listed in alphabetical order.
   Matt Menzenski           `@menzenski`_
   Matt Warren              `@mfwarren`_
   Meghan Heintz            `@dot2dotseurat`_
+  mjsisley                 `@mjsisley`_
   mozillazg                `@mozillazg`_
   Pablo                    `@oubiga`_
   Raphael Pierzina         `@hackebrot`_
@@ -107,12 +109,14 @@ Listed in alphabetical order.
   stepmr                   `@stepmr`_
   Sławek Ehlert            `@slafs`_
   Srinivas Nyayapati       `@shireenrao`_
+  Sule Marshall            `@suledev`_
   Taylor Baldwin
   Théo Segonds             `@show0k`_
   Tom Atkins               `@knitatoms`_
   Tom Offermann
-  Travis McNeill            `@Travistock`_              @tavistock_esq
+  Travis McNeill           `@Travistock`_              @tavistock_esq
   Vitaly Babiy
+  Vivian Guillen           `@viviangb`_
   Yaroslav Halchenko
 ========================== ============================ ==============
 
@@ -151,6 +155,7 @@ Listed in alphabetical order.
 .. _@ikkebr: https://github.com/ikkebr
 .. _@iynaix: https://github.com/iynaix
 .. _@jazztpt: https://github.com/jazztpt
+.. _@xpostudio4: https://github.com/xpostudio4
 .. _@juliocc: https://github.com/juliocc
 .. _@jvanbrug: https://github.com/jvanbrug
 .. _@ka7eh: https://github.com/ka7eh
@@ -160,6 +165,7 @@ Listed in alphabetical order.
 .. _@MathijsHoogland: https://github.com/MathijsHoogland
 .. _@menzenski: https://github.com/menzenski
 .. _@mfwarren: https://github.com/mfwarren
+.. _@mjsisley: https://github.com/mjsisley
 .. _@mozillazg: https://github.com/mozillazg
 .. _@originell: https://github.com/originell
 .. _@oubiga: https://github.com/oubiga
@@ -170,8 +176,10 @@ Listed in alphabetical order.
 .. _@shireenrao: https://github.com/shireenrao
 .. _@slafs: https://github.com/slafs
 .. _@stepmr: https://github.com/stepmr
+.. _@suledev: https://github.com/suledev
 .. _@Travistock: https://github.com/Tavistock
 .. _@trungdong: https://github.com/trungdong
+.. _@viviangb: httpsL//github.com/viviangb
 .. _@yunti: https://github.com/yunti
 .. _@zcho: https://github.com/zcho
 .. _@noisy: https://github.com/noisy
