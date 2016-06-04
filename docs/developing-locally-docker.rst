@@ -158,7 +158,8 @@ Then you may need to run the following for it to work as desired:
 
 ::
 
-    $ docker-compose run --service-ports django
+    $ docker-compose run -f dev.yml --service-ports django
+
 
 django-debug-toolbar
 """"""""""""""""""""
