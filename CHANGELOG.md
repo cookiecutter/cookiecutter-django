@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Documentation for debugging with Docker (@mjsisley)
 - Apache 2 License option in `cookiecutter.json` (@dot2dotseurat)
 - Removed unnecessary version check from `pre_gen_project.py` (@suledev)
+- Add gulp alternative as a js task runner and fix navbar style issue (@viviangb and @xpostudio4)
 
 ### Deleted
 - AngularJS (@pydanny)

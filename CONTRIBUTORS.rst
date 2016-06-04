@@ -114,8 +114,9 @@ Listed in alphabetical order.
   Théo Segonds             `@show0k`_
   Tom Atkins               `@knitatoms`_
   Tom Offermann
-  Travis McNeill            `@Travistock`_              @tavistock_esq
+  Travis McNeill           `@Travistock`_              @tavistock_esq
   Vitaly Babiy
+  Vivian Guillen           `@viviangb`_
   Yaroslav Halchenko
 ========================== ============================ ==============
 
@@ -178,6 +179,7 @@ Listed in alphabetical order.
 .. _@suledev: https://github.com/suledev
 .. _@Travistock: https://github.com/Tavistock
 .. _@trungdong: https://github.com/trungdong
+.. _@viviangb: httpsL//github.com/viviangb
 .. _@yunti: https://github.com/yunti
 .. _@zcho: https://github.com/zcho
 .. _@noisy: https://github.com/noisy
