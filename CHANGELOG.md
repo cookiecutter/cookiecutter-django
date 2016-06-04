@@ -2,6 +2,10 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+##[2016-06-04]
+### Added
+- Let's Encrypt automation and instruction (@mjsisley and @chrisdev)
+
 ##[2016-06-03]
 ### Added
 - Documentation for debugging with Docker (@mjsisley)

@@ -61,6 +61,7 @@ Listed in alphabetical order.
   Chris Franklin
   Chris Franklin           `@hairychris`_
   Chris Pappalardo         `@ChrisPappalardo`_
+  Christopher Clarke       `@chrisdev`_
   Collederas               `@Collederas`_
   Cristian Vargas          `@cdvv7788`_
   Cullen Rhodes            `@c-rhodes`_
@@ -99,7 +100,6 @@ Listed in alphabetical order.
   Matt Warren              `@mfwarren`_
   Matthew Sisley           `@mjsisley`_
   Meghan Heintz            `@dot2dotseurat`_
-  mjsisley                 `@mjsisley`_
   mozillazg                `@mozillazg`_
   Pablo                    `@oubiga`_
   Raphael Pierzina         `@hackebrot`_
@@ -138,6 +138,7 @@ Listed in alphabetical order.
 .. _@catherinedevlin: https://github.com/catherinedevlin
 .. _@ccurvey: https://github.com/ccurvey
 .. _@cdvv7788: https://github.com/cdvv7788
+.. _@chrisdev: https://github.com/chrisdev
 .. _@ChrisPappalardo: https://github.com/ChrisPappalardo
 .. _@Collederas: https://github.com/Collederas
 .. _@ddiazpinto: https://github.com/ddiazpinto
@@ -184,7 +185,7 @@ Listed in alphabetical order.
 .. _@yunti: https://github.com/yunti
 .. _@zcho: https://github.com/zcho
 .. _@noisy: https://github.com/noisy
-.. _@mjsisley: https://github.com/mjsisley
+
 Special Thanks
 ~~~~~~~~~~~~~~
 
