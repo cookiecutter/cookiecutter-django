@@ -110,3 +110,47 @@ To get the status, run::
 If you have errors, you can always check your stack with `docker-compose`. Switch to your projects root directory and run::
 
     docker-compose ps
+
+If you are using certbot for https, you must do the following before running anything with docker-compose:
+
+Replace dhparam.pem.example with a generated dhparams.pem file before running anything with docker-compose. You can generate this on ubuntu or OS X by running the following in the project root:
+
+::
+
+    $ openssl dhparam -out /path/to/project/compose/nginx/dhparams.pem 2048
+
+If you would like to add additional subdomains to your certificate, you must add additional parameters to the certbot command in the `docker-compose.yml` file:
+
+Replace:
+
+::
+
+    command: bash -c "sleep 6 && certbot certonly -n --standalone -d {{ cookiecutter.domain_name }} --text --agree-tos --email mjsisley@relawgo.com --server https://acme-v01.api.letsencrypt.org/directory --rsa-key-size 4096 --verbose --keep-until-expiring --standalone-supported-challenges http-01"
+
+With:
+
+::
+
+    command: bash -c "sleep 6 && certbot certonly -n --standalone -d {{ cookiecutter.domain_name }} -d www.{{ cookiecutter.domain_name }} -d etc.{{ cookiecutter.domain_name }} --text --agree-tos --email {{ cookiecutter.email }} --server https://acme-v01.api.letsencrypt.org/directory --rsa-key-size 4096 --verbose --keep-until-expiring --standalone-supported-challenges http-01"
+
+Please be cognizant of Certbot/Letsencrypt certificate requests limits when getting this set up. The provide a test server that does not count against the limit while you are getting set up.
+
+The certbot certificates expire after 3 months.
+If you would like to set up autorenewal of your certificates, the following commands can be put into a bash script:
+
+::
+
+    #!/bin/bash
+    cd <project directory>
+    docker-compose run certbot bash -c "sleep 6 && certbot certonly --standalone -d {{ cookiecutter.domain_name }} --text --agree-tos --email {{ cookiecutter.email }} --server https://acme-v01.api.letsencrypt.org/directory --rsa-key-size 4096 --verbose --keep-until-expiring --standalone-supported-challenges http-01"
+    docker exec pearl_nginx_1 nginx -s reload
+
+And then set a cronjob by running `crontab -e` and placing in it (period can be adjusted as desired):
+
+0 4 * * 1 /path/to/bashscript/renew_certbot.sh
+
+
+
+
+
+
