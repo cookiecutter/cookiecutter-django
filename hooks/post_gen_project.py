@@ -82,6 +82,11 @@ def make_secret_key(project_directory):
     set_secret_key(env_file)
 
 
+def remove_file(file_name):
+    if os.path.exists(file_name):
+        os.remove(file_name)
+
+
 def remove_task_app(project_directory):
     """Removes the taskapp if celery isn't going to be used"""
     # Determine the local_setting_file_location
@@ -111,9 +116,8 @@ def remove_heroku_files():
     Removes files needed for heroku if it isn't going to be used
     """
     for filename in ["app.json", "Procfile", "requirements.txt", "runtime.txt"]:
-        os.remove(os.path.join(
-            PROJECT_DIRECTORY, filename
-        ))
+        file_name = os.path.join(PROJECT_DIRECTORY, filename)
+        remove_file(file_name)
 
 
 def remove_docker_files():
@@ -163,9 +167,8 @@ def remove_certbot_files():
     """
     nginx_dir_location = os.path.join(PROJECT_DIRECTORY, 'compose/nginx')
     for filename in ["nginx-secure.conf", "start.sh", "dhparams.example.pem"]:
-        os.remove(os.path.join(
-            nginx_dir_location, filename
-        ))
+        file_name = os.path.join(nginx_dir_location, filename)
+        remove_file(file_name)
 
 # IN PROGRESS
 # def copy_doc_files(project_directory):
