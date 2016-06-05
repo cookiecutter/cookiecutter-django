@@ -6,7 +6,7 @@ Production Configurations
 - Use Amazon's S3 for storing static files and uploaded media
 - Use mailgun to send emails
 - Use Redis on Heroku
-{% if cookiecutter.use_sentry == 'y' %}
+{% if cookiecutter.use_sentry_for_error_reporting == 'y' %}
 - Use sentry for error logging
 {% endif %}
 {% if cookiecutter.use_opbeat == 'y' %}
@@ -17,7 +17,7 @@ from __future__ import absolute_import, unicode_literals
 
 from boto.s3.connection import OrdinaryCallingFormat
 from django.utils import six
-{% if cookiecutter.use_sentry == 'y' %}
+{% if cookiecutter.use_sentry_for_error_reporting == 'y' %}
 import logging
 {% endif %}
 
@@ -33,7 +33,8 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 # This ensures that Django will be able to detect a secure connection
 # properly on Heroku.
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-{%- if cookiecutter.use_sentry == 'y'-%}
+
+{%- if cookiecutter.use_sentry_for_error_reporting == 'y'-%}
 # raven sentry client
 # See https://docs.getsentry.com/hosted/clients/python/integrations/django/
 INSTALLED_APPS += ('raven.contrib.django.raven_compat', )
@@ -44,7 +45,7 @@ INSTALLED_APPS += ('raven.contrib.django.raven_compat', )
 WHITENOISE_MIDDLEWARE = ('whitenoise.middleware.WhiteNoiseMiddleware', )
 MIDDLEWARE_CLASSES = WHITENOISE_MIDDLEWARE + MIDDLEWARE_CLASSES
 {% endif %}
-{%- if cookiecutter.use_sentry == 'y' -%}
+{%- if cookiecutter.use_sentry_for_error_reporting == 'y' -%}
 RAVEN_MIDDLEWARE = ('raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware', )
 MIDDLEWARE_CLASSES = RAVEN_MIDDLEWARE + MIDDLEWARE_CLASSES
 {% endif %}
@@ -161,11 +162,6 @@ ANYMAIL = {
 }
 EMAIL_BACKEND = "anymail.backends.mailgun.MailgunBackend"
 
-{% if cookiecutter.use_newrelic == 'y'-%}# NEW RELIC
-# ------------------------------------------------------------------------------
-NEW_RELIC_LICENSE_KEY = env('NEW_RELIC_LICENSE_KEY')
-NEW_RELIC_APP_NAME = env('NEW_RELIC_APP_NAME')
-{%- endif %}
 # TEMPLATE CONFIGURATION
 # ------------------------------------------------------------------------------
 # See:
@@ -195,7 +191,7 @@ CACHES = {
     }
 }
 
-{% if cookiecutter.use_sentry == 'y' %}
+{% if cookiecutter.use_sentry_for_error_reporting == 'y' %}
 # Sentry Configuration
 SENTRY_DSN = env('DJANGO_SENTRY_DSN')
 SENTRY_CLIENT = env('DJANGO_SENTRY_CLIENT', default='raven.contrib.django.raven_compat.DjangoClient')
@@ -251,7 +247,7 @@ RAVEN_CONFIG = {
     'CELERY_LOGLEVEL': env.int('DJANGO_SENTRY_LOG_LEVEL', logging.INFO),
     'DSN': SENTRY_DSN
 }
-{% elif cookiecutter.use_sentry == 'n' %}
+{% elif cookiecutter.use_sentry_for_error_reporting == 'n' %}
 # LOGGING CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#logging

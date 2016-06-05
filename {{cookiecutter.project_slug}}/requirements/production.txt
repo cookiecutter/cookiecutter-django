@@ -26,16 +26,10 @@ Collectfast==0.2.3
 # -------------------------------------------------------
 django-anymail==0.3.1
 
-{% if cookiecutter.use_sentry == "y" -%}
+{% if cookiecutter.use_sentry_for_error_reporting == "y" -%}
 # Raven is the Sentry client
 # --------------------------
 raven
-{%- endif %}
-
-{% if cookiecutter.use_newrelic == "y" -%}
-# Newrelic agent for performance monitoring
-# -----------------------------------------
-newrelic
 {%- endif %}
 
 {% if cookiecutter.use_opbeat == "y" -%}
