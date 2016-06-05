@@ -115,8 +115,6 @@ Answer the prompts with your own desired options_. For example::
     domain_name [example.com]: myreddit.com
     version [0.1.0]: 0.0.1
     timezone [UTC]: America/Los_Angeles
-    now [2016/03/01]: 2016/03/05
-    year [2016]:
     use_whitenoise [y]: n
     use_celery [n]: y
     use_mailhog [n]: n
