@@ -2,6 +2,10 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+##[2016-06-05]
+### Added
+- Configurable admin for users (@pydanny, @jayfk, @dezoito)
+
 ##[2016-06-04]
 ### Added
 - Let's Encrypt automation and instruction (@mjsisley and @chrisdev)
