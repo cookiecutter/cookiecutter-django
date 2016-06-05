@@ -27,12 +27,12 @@ services:
     build: ./compose/nginx
     depends_on:
       - django
-{% if cookiecutter.use_certbot == 'y' %}
+{% if cookiecutter.use_lets_encrypt == 'y' %}
       - certbot
 {% endif %}
     ports:
       - "0.0.0.0:80:80"
-{% if cookiecutter.use_certbot == 'y' %}
+{% if cookiecutter.use_lets_encrypt == 'y' %}
     environment:
       - MY_DOMAIN_NAME={{ cookiecutter.domain_name }}
     ports:

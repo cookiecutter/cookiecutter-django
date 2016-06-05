@@ -215,7 +215,7 @@ else:
     remove_packageJSON_file()
 
 # 7. Removes all certbot/letsencrypt files if it isn't going to be used
-if '{{ cookiecutter.use_certbot }}'.lower() != 'y':
+if '{{ cookiecutter.use_lets_encrypt }}'.lower() != 'y':
     remove_certbot_files()
 
 # 8. Display a warning if use_docker and use_grunt are selected. Grunt isn't
@@ -227,8 +227,8 @@ if '{{ cookiecutter.js_task_runner }}'.lower() in ['grunt', 'gulp'] and '{{ cook
         "js task runner service to your docker configuration manually."
     )
 
-# 9. Removes the certbot/letsencrypt files and display a warning if use_certbot is selected and use_docker isn't.
-if '{{ cookiecutter.use_certbot }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() != 'y':
+# 9. Removes the certbot/letsencrypt files and display a warning if use_lets_encrypt is selected and use_docker isn't.
+if '{{ cookiecutter.use_lets_encrypt }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() != 'y':
     remove_certbot_files()
     print(
         "You selected to use certbot(letsencrypt) and didn't select to use docker. This is NOT supported out of the box for now. You "
@@ -236,7 +236,7 @@ if '{{ cookiecutter.use_certbot }}'.lower() == 'y' and '{{ cookiecutter.use_dock
     )
 
 # 10. Directs the user to the documentation if certbot and docker are selected.
-if '{{ cookiecutter.use_certbot }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() == 'y':
+if '{{ cookiecutter.use_lets_encrypt }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() == 'y':
     print(
         "You selected to use certbot(letsencrypt), please see the documentation for instructions on how to use this in production. "
         "You must generate a dhparams.pem file before running docker-compose in a production environment."
