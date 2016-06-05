@@ -7,17 +7,17 @@ wheel==0.29.0
 {%- endif %}
 
 # Bleeding edge Django
-django==1.9.6
+django==1.9.7
 
 # Configuration
 django-environ==0.4.0
 {% if cookiecutter.use_whitenoise == 'y' -%}
-whitenoise==3.0
+whitenoise==3.2
 {%- endif %}
 
 
 # Forms
-django-braces==1.8.1
+django-braces==1.9.0
 django-crispy-forms==1.6.0
 django-floppyforms==1.6.2
 
@@ -47,7 +47,7 @@ django-autoslug==1.9.3
 pytz==2016.4
 
 # Redis support
-django-redis==4.4.2
+django-redis==4.4.3
 redis>=2.10.0
 
 {% if cookiecutter.use_celery == "y" %}
