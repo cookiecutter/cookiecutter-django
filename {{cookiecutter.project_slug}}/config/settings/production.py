@@ -34,7 +34,7 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 # properly on Heroku.
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-{%- if cookiecutter.use_sentry_for_error_reporting == 'y'-%}
+{%- if cookiecutter.use_sentry_for_error_reporting == 'y' %}
 # raven sentry client
 # See https://docs.getsentry.com/hosted/clients/python/integrations/django/
 INSTALLED_APPS += ('raven.contrib.django.raven_compat', )
