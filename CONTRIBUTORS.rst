@@ -116,7 +116,7 @@ Listed in alphabetical order.
   Théo Segonds             `@show0k`_
   Tom Atkins               `@knitatoms`_
   Tom Offermann
-  Travis McNeill           `@Travistock`_              @tavistock_esq
+  Travis McNeill           `@Travistock`_               @tavistock_esq
   Vitaly Babiy
   Vivian Guillen           `@viviangb`_
   Yaroslav Halchenko
