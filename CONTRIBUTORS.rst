@@ -187,6 +187,8 @@ Listed in alphabetical order.
 .. _@yunti: https://github.com/yunti
 .. _@zcho: https://github.com/zcho
 .. _@noisy: https://github.com/noisy
+.. _@krzysztofzuraw: https://github.com/krzysztofzuraw
+.. _@blopker: https://github.com/blopker
 
 Special Thanks
 ~~~~~~~~~~~~~~
