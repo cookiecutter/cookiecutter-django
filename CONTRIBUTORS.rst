@@ -83,6 +83,7 @@ Listed in alphabetical order.
   Jens Nilsson             `@phiberjenz`
   Julio Castillo           `@juliocc`_
   Kaido Kert               `@kaidokert`_
+  kappataumu               `@kappataumu`_                @kappataumu
   Kaveh                    `@ka7eh`_
   Kevin A. Stone
   Kevin Ndung'u            `@kevgathuku`_
@@ -162,6 +163,7 @@ Listed in alphabetical order.
 .. _@jvanbrug: https://github.com/jvanbrug
 .. _@ka7eh: https://github.com/ka7eh
 .. _@kaidokert: https://github.com/kaidokert
+.. _@kappataumu: https://github.com/kappataumu
 .. _@kevgathuku: https://github.com/kevgathuku
 .. _@knitatoms: https://github.com/knitatoms
 .. _@MathijsHoogland: https://github.com/MathijsHoogland
