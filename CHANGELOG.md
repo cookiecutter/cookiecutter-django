@@ -2,6 +2,10 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+##[2016-06-06]
+### Changed
+- Pin Bootstrap CSS and JS to v4.0.0-alpha.2, use minified versions
+
 ##[2016-06-05]
 ### Added
 - Configurable admin for users (@pydanny, @jayfk, @dezoito)
