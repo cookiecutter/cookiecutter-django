@@ -9,6 +9,8 @@ Local settings
 """
 
 from .common import *  # noqa
+import socket
+
 
 # DEBUG
 # ------------------------------------------------------------------------------
@@ -49,7 +51,6 @@ INSTALLED_APPS += ('debug_toolbar', )
 
 INTERNAL_IPS = ('127.0.0.1', '10.0.2.2',)
 # tricks to have debug toolbar when developing with docker
-import socket
 ip = socket.gethostbyname(socket.gethostname())
 INTERNAL_IPS += [ip, ip[:-1]+"1"]
 
