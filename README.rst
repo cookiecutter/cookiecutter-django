@@ -14,7 +14,8 @@ Cookiecutter Django
 
 Powered by Cookiecutter_, Cookiecutter Django is a framework for jumpstarting production-ready Django projects quickly.
 
-See Troubleshooting_ for common errors and obstacles.
+* Documentation: https://cookiecutter-django.readthedocs.io
+* See Troubleshooting_ for common errors and obstacles
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
