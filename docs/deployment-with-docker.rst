@@ -1,9 +1,10 @@
 Deployment with Docker
-=================================================
+=======================
 
 .. index:: Docker, deployment
 
-Prerequisites:
+Prerequisites
+-------------
 
 * Docker (at least 1.10)
 * Docker Compose (at least 1.6)
@@ -91,9 +92,9 @@ If you would like to set up autorenewal of your certificates, the following comm
     docker-compose run certbot bash -c "sleep 6 && certbot certonly --standalone -d {{ cookiecutter.domain_name }} --text --agree-tos --email {{ cookiecutter.email }} --server https://acme-v01.api.letsencrypt.org/directory --rsa-key-size 4096 --verbose --keep-until-expiring --standalone-supported-challenges http-01"
     docker exec pearl_nginx_1 nginx -s reload
 
-And then set a cronjob by running `crontab -e` and placing in it (period can be adjusted as desired):
+And then set a cronjob by running `crontab -e` and placing in it (period can be adjusted as desired)::
 
-0 4 * * 1 /path/to/bashscript/renew_certbot.sh
+    0 4 * * 1 /path/to/bashscript/renew_certbot.sh
 
 Run your app with docker-compose
 --------------------------------
@@ -155,7 +156,6 @@ If you are using `supervisor`, you can use this file as a starting point::
     autostart=true
     autorestart=true
     priority=10
-
 
 Place it in `/etc/supervisor/conf.d/{{cookiecutter.project_slug}}.conf` and run::
 
