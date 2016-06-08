@@ -24,7 +24,7 @@ class CeleryConfig(AppConfig):
         app.config_from_object('django.conf:settings')
         app.autodiscover_tasks(lambda: settings.INSTALLED_APPS, force=True)
 
-        {% if cookiecutter.use_sentry == 'y' -%}
+        {% if cookiecutter.use_sentry_for_error_reporting == 'y' -%}
         if hasattr(settings, 'RAVEN_CONFIG'):
             # Celery signal registration
             from raven import Client as RavenClient

@@ -14,9 +14,12 @@ Cookiecutter Django
 
 Powered by Cookiecutter_, Cookiecutter Django is a framework for jumpstarting production-ready Django projects quickly.
 
+* Documentation: https://cookiecutter-django.readthedocs.io
+* See Troubleshooting_ for common errors and obstacles
+
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
-**Warning**: if you get the error "jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'now'." , please upgrade your cookiecutter version to >= 1.4 (see issue # 528_ )
+.. _Troubleshooting: https://cookiecutter-django.readthedocs.io/en/latest/troubleshooting.html
 
 .. _528: https://github.com/pydanny/cookiecutter-django/issues/528#issuecomment-212650373
 
@@ -26,7 +29,6 @@ Features
 * For Django 1.9
 * Renders Django projects with 100% starting test coverage
 * Twitter Bootstrap_ v4.0.0 - alpha_
-* AngularJS_
 * 12-Factor_ based settings via django-environ_
 * Optimized development and production settings
 * Registration via django-allauth_
@@ -55,7 +57,6 @@ Optional Integrations
 
 .. _alpha: http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/
 .. _Bootstrap: https://github.com/twbs/bootstrap
-.. _AngularJS: https://github.com/angular/angular.js
 .. _django-environ: https://github.com/joke2k/django-environ
 .. _12-Factor: http://12factor.net/
 .. _django-allauth: https://github.com/pennersr/django-allauth
@@ -99,8 +100,6 @@ You'll be prompted for some values. Provide them, then a Django project will be 
 
 **Warning**: After this point, change 'Daniel Greenfeld', 'pydanny', etc to your own information.
 
-**Warning**: project_slug must be a valid Python module name or you will have issues on imports.
-
 Answer the prompts with your own desired options_. For example::
 
     Cloning into 'cookiecutter-django'...
@@ -117,13 +116,10 @@ Answer the prompts with your own desired options_. For example::
     domain_name [example.com]: myreddit.com
     version [0.1.0]: 0.0.1
     timezone [UTC]: America/Los_Angeles
-    now [2016/03/01]: 2016/03/05
-    year [2016]:
     use_whitenoise [y]: n
     use_celery [n]: y
     use_mailhog [n]: n
-    use_sentry [n]: y
-    use_newrelic [n]: y
+    use_sentry_for_error_reporting [y]: y
     use_opbeat [n]: y
     use_pycharm [n]: y
     windows [n]: n
@@ -131,8 +127,8 @@ Answer the prompts with your own desired options_. For example::
     use_docker [y]: y
     use_heroku [n]: n
     use_grunt [n]: y
-    use_angular [n]: n
     use_precommit_hooks [n]: n
+    
     Select open_source_license:
     1 - MIT
     2 - BSD

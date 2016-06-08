@@ -14,7 +14,6 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-
    project-generation-options
    developing-locally
    developing-locally-docker
@@ -25,6 +24,8 @@ Contents:
    deployment-on-heroku
    deployment-with-docker
    faq
+   troubleshooting
+   my-favorite-cookie
 
 Indices and tables
 ==================

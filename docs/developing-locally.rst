@@ -9,20 +9,32 @@ The steps below will get you up and running with a local development environment
 * virtualenv
 * PostgreSQL
 
-First make sure to create and activate a virtualenv_, then open a terminal at the project root and install the os dependencies::
+First make sure to create and activate a virtualenv_.
 
-    $ sudo ./install_os_dependencies.sh install
+.. _virtualenv: http://docs.python-guide.org/en/latest/dev/virtualenvs/
 
 Then install the requirements for your local development::
 
     $ pip install -r requirements/local.txt
 
-.. _virtualenv: http://docs.python-guide.org/en/latest/dev/virtualenvs/
-
 Then, create a PostgreSQL database with the following command, where `[project_slug]` is what value you entered for your project's `project_slug`::
 
     $ createdb [project_slug]
 
+You can now run the usual Django ``migrate`` and ``runserver`` commands::
+
+    $ python manage.py migrate
+    $ python manage.py runserver
+
+At this point you can take a break from setup and start getting to know the files in the project. 
+
+But if you want to go further with setup, read on. 
+
+(Note: the following sections still need to be revised)
+
+Setting Up Env Vars for Production
+-----------------------------------
+    
 `Cookiecutter Django` uses the excellent `django-environ`_ package with its ``DATABASE_URL`` environment variable to simplify database configuration in your Django settings. Now all you have to do is rename env.example to .env and then compose a definition for ``DATABASE_URL`` as shown below and add it to the .env file:
 
 .. parsed-literal::
@@ -31,12 +43,8 @@ Then, create a PostgreSQL database with the following command, where `[project_s
 
 .. _django-environ: http://django-environ.readthedocs.io
 
-You can now run the usual Django ``migrate`` and ``runserver`` commands::
-
-    $ python manage.py migrate
-    $ python manage.py runserver
-
-**Setup your email backend**
+Setup your email backend
+-------------------------
 
 django-allauth sends an email to verify users (and superusers) after signup and login (if they are still not verified). To send email you need to `configure your email backend`_
 
@@ -85,5 +93,3 @@ The base app will now run as it would with the usual ``manage.py runserver`` but
 To get live reloading to work you'll probably need to install an `appropriate browser extension`_
 
 .. _appropriate browser extension: http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-
-
-It's time to write the code!!!
