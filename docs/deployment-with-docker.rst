@@ -3,12 +3,6 @@ Deployment with Docker
 
 .. index:: Docker, deployment
 
-.. warning:: Docker is evolving extremely fast, but it has still some rough edges here and there.
-Compose is currently (as of version 1.4)
-not considered production ready. That means you won't be able to scale to multiple servers and you won't be able to run
-zero downtime deployments out of the box. Consider all this as experimental until you understand all the  implications
-to run docker (with compose) on production.
-
 Prerequisites:
 
 * Docker (at least 1.10)
@@ -97,37 +91,10 @@ If you want to scale your application, run::
    docker-compose scale django=4
    docker-compose scale celeryworker=2
 
+.. warning:: Don't run the scale command on postgres, celerybeat, certbot.
 
-Don't run the scale command on postgres or celerybeat
-------------------------------------------------------
-
-Once you are ready with your initial setup, you wan't to make sure that your application is run by a process manager to
-survive reboots and auto restarts in case of an error. You can use the process manager you are most familiar with. All
-it needs to do is to run `docker-compose up` in your projects root directory.
-
-If you are using `supervisor`, you can use this file as a starting point::
-
-    [program:{{cookiecutter.project_slug}}]
-    command=docker-compose up
-    directory=/path/to/{{cookiecutter.project_slug}}
-    redirect_stderr=true
-    autostart=true
-    autorestart=true
-    priority=10
-
-
-Place it in `/etc/supervisor/conf.d/{{cookiecutter.project_slug}}.conf` and run::
-
-    supervisorctl reread
-    supervisorctl start {{cookiecutter.project_slug}}
-
-To get the status, run::
-
-    supervisorctl status
-
-If you have errors, you can always check your stack with `docker-compose`. Switch to your projects root directory and run::
-
-    docker-compose ps
+Certbot and Let's Encrypt Setup
+-------------------------------
 
 If you are using certbot for https, you must do the following before running anything with docker-compose:
 
@@ -167,8 +134,33 @@ And then set a cronjob by running `crontab -e` and placing in it (period can be 
 
 0 4 * * 1 /path/to/bashscript/renew_certbot.sh
 
+Supervisor Example
+-------------------
+
+Once you are ready with your initial setup, you wan't to make sure that your application is run by a process manager to
+survive reboots and auto restarts in case of an error. You can use the process manager you are most familiar with. All
+it needs to do is to run `docker-compose up` in your projects root directory.
+
+If you are using `supervisor`, you can use this file as a starting point::
+
+    [program:{{cookiecutter.project_slug}}]
+    command=docker-compose up
+    directory=/path/to/{{cookiecutter.project_slug}}
+    redirect_stderr=true
+    autostart=true
+    autorestart=true
+    priority=10
 
 
+Place it in `/etc/supervisor/conf.d/{{cookiecutter.project_slug}}.conf` and run::
 
+    supervisorctl reread
+    supervisorctl start {{cookiecutter.project_slug}}
 
+To get the status, run::
 
+    supervisorctl status
+
+If you have errors, you can always check your stack with `docker-compose`. Switch to your projects root directory and run::
+
+    docker-compose ps
