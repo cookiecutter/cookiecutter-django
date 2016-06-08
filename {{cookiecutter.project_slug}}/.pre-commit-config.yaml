@@ -4,15 +4,11 @@
     # keep ids alphabetical! see http://pre-commit.com/hooks.html
     -   id: debug-statements
         files: \.py$
-    -   id: end-of-file-fixer
-        files: \.(py|sh)$
     -   id: flake8
         files: \.(py|sh)$
     -   id: name-tests-test
         files: tests/.+\.py$
         args: ['--django']  # Use args: ['--django'] to match test*.py instead.
-    -   id: trailing-whitespace
-        files: \.(py|sh|yaml|txt)$
 -   repo: git://github.com/FalconSocial/pre-commit-python-sorter
     sha: 1.0.4
     hooks:
