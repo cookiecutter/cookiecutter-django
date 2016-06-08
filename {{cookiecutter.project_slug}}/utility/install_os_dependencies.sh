@@ -37,12 +37,12 @@ function list_packages(){
      grep -v "#" "${OS_REQUIREMENTS_FILENAME}" | grep -v "^$";
 }
 
-function install()
+function install_packages()
 {
     list_packages | xargs apt-get --no-upgrade install -y;
 }
 
-function upgrade()
+function upgrade_packages()
 {
     list_packages | xargs apt-get install -y;
 }
@@ -66,9 +66,9 @@ function install_or_upgrade()
 
         # Install the basic compilation dependencies and other required libraries of this project
         if [ "$PARAN" == "install" ]; then
-            install;
+            install_packages;
         else
-            upgrade;
+            upgrade_packages;
         fi
 
         # cleaning downloaded packages from apt-get cache
