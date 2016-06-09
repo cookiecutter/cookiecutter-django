@@ -1,14 +1,17 @@
 #!/bin/bash
 
 WORK_DIR="$(dirname "$0")"
-OS_REQUIREMENTS_FILENAME="$WORK_DIR/requirements.apt"
+DISTRO_NAME=$(lsb_release -sc)
 
-VER=$(lsb_release -sr)
-if [ "$VER" == "16.04" ]; then
-  OS_REQUIREMENTS_FILENAME="requirements.apt.xenial"
-else
-  OS_REQUIREMENTS_FILENAME="requirements.apt"
+OS_REQUIREMENTS_FILENAME="$WORK_DIR/requirements-$DISTRO_NAME.apt"
+
+
+if [ "$DISTRO_NAME" != "xenial" ] && [ "$DISTRO_NAME" != "trusty" ]; then
+  echo "Only the Ubuntu 14.04 (Trusty) and 16.04 (Xenial) is supported by this script";
+  echo "You can see requirements-trusty.apt or requirements-xenial.apt file to help search the equivalent package in your system";
+  exit 1;
 fi
+
 # Handle call with wrong command
 function wrong_command()
 {
@@ -31,15 +34,15 @@ function usage_message()
 
 # Read the requirements.apt file, and remove comments and blank lines
 function list_packages(){
-     grep -v "#" ${OS_REQUIREMENTS_FILENAME} | grep -v "^$";
+     grep -v "#" "${OS_REQUIREMENTS_FILENAME}" | grep -v "^$";
 }
 
-function install()
+function install_packages()
 {
     list_packages | xargs apt-get --no-upgrade install -y;
 }
 
-function upgrade()
+function upgrade_packages()
 {
     list_packages | xargs apt-get install -y;
 }
@@ -53,7 +56,7 @@ function install_or_upgrade()
     if [[ $EUID -ne 0 ]]; then
         echo -e "\nYou must run this with root privilege" 2>&1
         echo -e "Please do:\n" 2>&1
-        echo "sudo ./${0##*/} $PARAN" 2>&1
+        echo "sudo ./$WORK_DIR/${0##*/} $PARAN" 2>&1
         echo -e "\n" 2>&1
 
         exit 1
@@ -63,9 +66,9 @@ function install_or_upgrade()
 
         # Install the basic compilation dependencies and other required libraries of this project
         if [ "$PARAN" == "install" ]; then
-            install;
+            install_packages;
         else
-            upgrade;
+            upgrade_packages;
         fi
 
         # cleaning downloaded packages from apt-get cache
@@ -84,5 +87,5 @@ case "$1" in
     upgrade) install_or_upgrade "upgrade";;
     list) list_packages;;
     help) usage_message;;
-    *) wrong_command $1;;
+    *) wrong_command "$1";;
 esac
