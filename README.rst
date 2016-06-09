@@ -1,10 +1,6 @@
 Cookiecutter Django
 =======================
 
-.. image:: https://requires.io/github/pydanny/cookiecutter-django/requirements.svg?branch=master
-     :target: https://requires.io/github/pydanny/cookiecutter-django/requirements/?branch=master
-     :alt: Requirements Status
-
 .. image:: https://travis-ci.org/pydanny/cookiecutter-django.svg?branch=master
      :target: https://travis-ci.org/pydanny/cookiecutter-django?branch=master
      :alt: Build Status
