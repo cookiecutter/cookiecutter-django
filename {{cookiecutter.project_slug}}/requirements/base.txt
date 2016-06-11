@@ -58,4 +58,9 @@ celery==3.1.23
 django_compressor==2.0
 {% endif %}
 
+{% if cookiecutter.js_task_runner == 'Webpack' -%}
+# Webpack
+django-webpack-loader==0.3.0
+{%- endif %}
+
 # Your custom requirements go here

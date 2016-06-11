@@ -1,4 +1,5 @@
-{% raw %}{% load staticfiles i18n {% endraw %}{% if cookiecutter.use_compressor == "y" %}compress{% endif %}{% raw %}%}<!DOCTYPE html>
+{% raw %}{% load staticfiles i18n {% endraw %}{% if cookiecutter.use_compressor == "y" %}compress {% endif %}{% raw %}%}
+{% endraw %}{% if cookiecutter.js_task_runner == 'Webpack' -%}{% raw %}{% load render_bundle from webpack_loader %}{% endraw %}{%- endif %}{% raw %}<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -76,7 +77,9 @@
               <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
           {% endfor %}
       {% endif %}
-
+{% endraw %}{% if cookiecutter.js_task_runner == 'Webpack' %}{% raw %}
+      <div id="main"></div>
+{% endraw %}{% endif %}{% raw %}
       {% block content %}
         <p>Use this document as a way to quick start any new project.</p>
       {% endblock content %}
@@ -99,12 +102,17 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
 
       <!-- Your stuff: Third-party javascript libraries go here -->
-
+{% endraw %}{% if cookiecutter.js_task_runner == 'Webpack' %}{% raw %}
+      <!-- Webpack bundles -->
+      {% render_bundle 'vendor' %}
+      {% render_bundle 'common' %}
+      {% render_bundle 'main' %}
+{% endraw %}{% else %}{% raw %}
       <!-- place project specific Javascript in this file -->
       {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% compress js %}{% endraw %}{% endif %}{% raw %}
       <script src="{% static 'js/project.js' %}"></script>
       {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% endcompress %}{% endraw %}{% endif %}{% raw %}
-
+{% endraw %}{% endif %}{% raw %}
     {% endblock javascript %}
   </body>
 </html>

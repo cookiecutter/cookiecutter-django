@@ -47,6 +47,16 @@ Running tests with py.test
 ::
 
   $ py.test
+{% if cookiecutter.js_task_runner == 'Webpack' %}
+
+Running javascript tests with karma
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+  $ npm test
+{% endif %}
+
 
 Live reloading and Sass CSS compilation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
