@@ -48,6 +48,7 @@ Listed in alphabetical order.
   Andrew Mikhnevich        `@zcho`_
   Andy Rose
   Anna Callahan            `@jazztpt`_
+  Antonia Blair            `@antoniablair`_             @antoniablairart
   Areski Belaid            `@areski`_
   Ashley Camba
   Barclay Gauld            `@yunti`_
@@ -128,6 +129,7 @@ Listed in alphabetical order.
 .. _@alb3rto: https://github.com/alb3rto
 .. _@amjith: https://github.com/amjith
 .. _@andor-pierdelacabeza: https://github.com/andor-pierdelacabeza
+.. _@antoniablair: https://github.com/antoniablair
 .. _@areski: https://github.com/areski
 .. _@arruda: https://github.com/arruda
 .. _@bloodpet: https://github.com/bloodpet
