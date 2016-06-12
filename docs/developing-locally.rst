@@ -26,20 +26,22 @@ You can now run the usual Django ``migrate`` and ``runserver`` commands::
     $ python manage.py migrate
     $ python manage.py runserver
 
-At this point you can take a break from setup and start getting to know the files in the project. 
+At this point you can take a break from setup and start getting to know the files in the project.
 
-But if you want to go further with setup, read on. 
+But if you want to go further with setup, read on.
 
 (Note: the following sections still need to be revised)
 
 Setting Up Env Vars for Production
 -----------------------------------
-    
-`Cookiecutter Django` uses the excellent `django-environ`_ package with its ``DATABASE_URL`` environment variable to simplify database configuration in your Django settings. Now all you have to do is rename env.example to .env and then compose a definition for ``DATABASE_URL`` as shown below and add it to the .env file:
+
+`Cookiecutter Django` uses the excellent `django-environ`_ package, which includes a ``DATABASE_URL`` environment variable to simplify database configuration in your Django settings.
+
+Rename env.example to .env to begin updating the file with your own environment variables. To add your database, define ``DATABASE_URL`` and add it to the .env file, as shown below:
 
 .. parsed-literal::
 
-    $ export DATABASE_URL="postgres://*<pg_user_name>*:*<pg_user_password>*\ @127.0.0.1:\ *<pg_port>*/*<pg_database_name>*"
+    DATABASE_URL="postgres://*<pg_user_name>*:*<pg_user_password>*\ @127.0.0.1:\ *<pg_port>*/*<pg_database_name>*"
 
 .. _django-environ: http://django-environ.readthedocs.io
 
