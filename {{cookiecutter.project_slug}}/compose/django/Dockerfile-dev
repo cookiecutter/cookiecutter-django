@@ -1,7 +1,11 @@
+FROM alpine
+RUN  apk update
 {% if cookiecutter.use_python2 == 'n' -%}
-FROM python:3.5
-{% else %}
-FROM python:2.7
+RUN  apk add bash python3 libpq && ln -s /usr/bin/python3 /usr/bin/python
+RUN  pip3 install -U pip
+{%- else %}
+RUN  apk add bash python libpq curl
+RUN  curl https://bootstrap.pypa.io/get-pip.py | python
 {%- endif %}
 ENV PYTHONUNBUFFERED 1
 

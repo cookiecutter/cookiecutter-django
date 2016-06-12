@@ -5,6 +5,12 @@
 # Python-PostgreSQL Database Adapter
 # If using Win for dev, this assumes Unix in test/prod
 psycopg2==2.6.1
+{%- elif cookiecutter.use_docker == 'y' %}
+  {%- if cookiecutter.use_python2 == 'y' %}
+https://github.com/mzdaniel/alpinewheels/releases/download/v1.0/psycopg2-2.6.1-cp27-cp27mu-linux_x86_64.whl
+  {%- else %}
+https://github.com/mzdaniel/alpinewheels/releases/download/v1.0/psycopg2-2.6.1-cp35-cp35m-linux_x86_64.whl
+  {%- endif %}
 {%- endif %}
 
 coverage==4.1
