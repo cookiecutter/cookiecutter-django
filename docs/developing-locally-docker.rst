@@ -183,4 +183,12 @@ You may need to add the following to your css in order for the django-debug-tool
     }
 
 
+Setup your email backend
+~~~~~~~~~~~~~~~~~~~~~~~~
 
+In development you can (optionally) use MailHog_ for email testing. MailHog is added as docker-container. To use MailHog:
+
+1. Make sure, that ``mailhog`` docker container is up and running
+2. Open your browser and go to ``http://127.0.0.1:8025``
+
+.. _Mailhog: https://github.com/mailhog/MailHog/
