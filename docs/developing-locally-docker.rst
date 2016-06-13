@@ -1,5 +1,5 @@
-Getting Up and Running with Docker
-==================================
+Getting Up and Running Locally With Docker
+==========================================
 
 .. index:: Docker
 
@@ -9,7 +9,7 @@ All of these commands assume you are in the root of your generated project.
 Prerequisites
 -------------
 
-You'll need at least docker 1.10.
+You'll need at least Docker 1.10.
 
 If you don't already have it installed, follow the instructions for your OS:
 
@@ -183,10 +183,10 @@ You may need to add the following to your css in order for the django-debug-tool
     }
 
 
-Setup your email backend
-~~~~~~~~~~~~~~~~~~~~~~~~
+Using the Mailhog Docker Container
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In development you can (optionally) use MailHog_ for email testing. MailHog is added as docker-container. To use MailHog:
+In development you can (optionally) use MailHog_ for email testing. If you selected `use_docker`, MailHog is added as a Docker container. To use MailHog:
 
 1. Make sure, that ``mailhog`` docker container is up and running
 2. Open your browser and go to ``http://127.0.0.1:8025``
