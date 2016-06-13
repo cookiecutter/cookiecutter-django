@@ -133,7 +133,7 @@ If you want to scale your application, run::
    docker-compose scale django=4
    docker-compose scale celeryworker=2
 
-.. warning:: Don't run the scale command on postgres, celerybeat, certbot.
+.. warning:: Don't run the scale command on postgres, celerybeat, certbot, or nginx.
 
 If you have errors, you can always check your stack with `docker-compose`. Switch to your projects root directory and run::
 
