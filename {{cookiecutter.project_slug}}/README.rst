@@ -73,6 +73,26 @@ Please note: For Celery's import magic to work, it is important *where* the cele
 
 {% endif %}
 
+{% if cookiecutter.use_precommit_hooks == "y" %}
+
+Pre-Commit Hooks
+^^^^^^^^^^^^^^^^
+
+To use pre-commit hooks when committing messages, after initial git commit, run
+.. code-block:: bash
+
+    pre-commit install
+
+Now on each commit message, this will run whatever commit plugins have been enabled. To skip a pre-commit hook, add a -n (no verify) parameter at the end of your commit message.
+
+.. code-block:: bash
+
+    git commit -m "i put a really bad pdb in here" -n
+
+
+{% endif %}
+
+
 {% if cookiecutter.use_mailhog == "y" %}
 
 Email Server

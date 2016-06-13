@@ -49,6 +49,9 @@ use_python2 [n]
     By default, the Python code generated will be for Python 3.x. But if you
     answer `y` here, it will be legacy Python 2.7 code.
 
+use_precommit_hooks [n]
+    If yes, include a basic configurations for git hooks that have to pass on each commit (or skipped).
+
 .. _WhiteNoise: https://github.com/evansd/whitenoise
 .. _Celery: https://github.com/celery/celery
 .. _MailHog: https://github.com/mailhog/MailHog

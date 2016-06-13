@@ -111,6 +111,13 @@ def remove_pycharm_dir(project_directory):
         shutil.rmtree(docs_dir_location)
 
 
+def remove_pre_commit_file():
+    """
+    Removes pre-commit hook yaml file
+    """
+    os.remove(os.path.join(PROJECT_DIRECTORY, '.pre-commit-config.yaml'))
+
+
 def remove_heroku_files():
     """
     Removes files needed for heroku if it isn't going to be used
@@ -244,6 +251,10 @@ if '{{ cookiecutter.use_lets_encrypt }}'.lower() == 'y' and '{{ cookiecutter.use
         "You selected to use Let's Encrypt, please see the documentation for instructions on how to use this in production. "
         "You must generate a dhparams.pem file before running docker-compose in a production environment."
     )
+
+# 11. If pre-commit hooks aren't used, remove pre-commit yaml file
+if '{{ cookiecutter.use_precommit_hooks }}'.lower() != 'y':
+    remove_pre_commit_file()
 
 # 4. Copy files from /docs/ to {{ cookiecutter.project_slug }}/docs/
 # copy_doc_files(PROJECT_DIRECTORY)

@@ -50,6 +50,7 @@ Optional Integrations
 
 * Serve static files from Amazon S3 or Whitenoise_
 * Configuration for Celery_
+* Configuration for Precommit-Hooks_
 * Integration with MailHog_ for local email testing
 * Integration with Sentry_ for error logging
 * Integration with NewRelic_ for performance monitoring
@@ -72,7 +73,7 @@ Optional Integrations
 .. _docker-compose: https://www.github.com/docker/compose
 .. _Opbeat: https://opbeat.com/
 .. _PythonAnywhere: https://www.pythonanywhere.com/
-
+.. _Precommit-Hooks_: http://pre-commit.com/
 
 Constraints
 -----------
@@ -127,6 +128,7 @@ Answer the prompts with your own desired options_. For example::
     use_docker [y]: y
     use_heroku [n]: n
     use_grunt [n]: y
+    use_precommit_hooks [n]: n
     Select open_source_license:
     1 - MIT
     2 - BSD
@@ -156,6 +158,10 @@ For development, see the following for local development:
 .. _options: http://cookiecutter-django.readthedocs.io/en/latest/project-generation-options.html
 .. _`Developing locally`: http://cookiecutter-django.readthedocs.io/en/latest/developing-locally.html
 .. _`Developing locally using docker`: http://cookiecutter-django.readthedocs.io/en/latest/developing-locally-docker.html
+
+If you chose to install pre-commit hooks, make sure to also run this after git init::
+
+    $ pre-commit install
 
 Community
 -----------
