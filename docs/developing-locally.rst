@@ -51,15 +51,17 @@ Setup your email backend
 django-allauth sends an email to verify users (and superusers) after signup and login (if they are still not verified). To send email you need to `configure your email backend`_
 
 .. _configure your email backend: http://docs.djangoproject.com/en/1.9/topics/email/#smtp-backend
+
 {% if cookiecutter.use_docker == 'y' %}
-In development you can (optionally) use MailHog_ for email testing. MailHog is added as docker-container. To use MailHog::
+In development you can (optionally) use MailHog_ for email testing. MailHog is added as docker-container. To use MailHog:
 
 1. Make sure, that ``mailhog`` docker container is up and running
 2. Open your browser and go to ``http://127.0.0.1:8025``
 
 .. _Mailhog: https://github.com/mailhog/MailHog/
+
 {% else %}
-In development you can (optionally) use MailHog_ for email testing. MailHog is built with Go so there are no dependencies. To use MailHog::
+In development you can (optionally) use MailHog_ for email testing. MailHog is built with Go so there are no dependencies. To use MailHog:
 
 1. `Download the latest release`_ for your operating system
 2. Rename the executable to ``mailhog`` and copy it to the root of your project directory
@@ -69,6 +71,7 @@ In development you can (optionally) use MailHog_ for email testing. MailHog is b
 
 .. _Mailhog: https://github.com/mailhog/MailHog/
 .. _Download the latest release: https://github.com/mailhog/MailHog/releases
+
 {% endif %}
 Alternatively simply output emails to the console via: ``EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'``
 
