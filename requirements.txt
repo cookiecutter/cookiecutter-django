@@ -1,5 +1,5 @@
 cookiecutter==1.4.0
-flake8==2.5.4
+flake8==2.5.5
 sh==1.11
 binaryornot==0.4.0
 
