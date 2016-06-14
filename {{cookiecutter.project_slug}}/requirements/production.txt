@@ -37,8 +37,3 @@ raven
 # -----------------------------------------
 opbeat
 {%- endif %}
-
-{% if cookiecutter.use_robots == "y" %}
-# django-robots
-django-robots==2.0
-{% endif %}

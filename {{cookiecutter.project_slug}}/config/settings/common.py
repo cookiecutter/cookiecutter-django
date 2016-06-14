@@ -39,6 +39,9 @@ THIRD_PARTY_APPS = (
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    {% if cookiecutter.use_robots == "y" -%}
+    'robots',  # robots.txt
+    {%- endif %}
 )
 
 # Apps specific for this project go here.
@@ -235,10 +238,8 @@ BROKER_URL = env('CELERY_BROKER_URL', default='django://')
 
 # Location of root django.contrib.admin URL, use {% raw %}{% url 'admin:index' %}{% endraw %}
 ADMIN_URL = r'^admin/'
-
-{% if cookiecutter.use_robots == "y" %}
+{% if cookiecutter.use_robots == "y" -%}
 # django-robots
 ROBOTS_CACHE_TIMEOUT = 60 * 60  # 1 hour
 {% endif %}
-
 # Your common stuff: Below this line define 3rd party library settings
