@@ -18,9 +18,7 @@ urlpatterns = [
     # User management
     url(r'^users/', include('{{ cookiecutter.project_slug }}.users.urls', namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
-    {% if cookiecutter.use_robots == "y" %}
-    url(r'^robots\.txt$', include('robots.urls')),
-    {% endif %}
+
     # Your stuff: custom urls includes go here
 
 
@@ -35,3 +33,7 @@ if settings.DEBUG:
         url(r'^404/$', default_views.page_not_found, kwargs={'exception': Exception('Page not Found')}),
         url(r'^500/$', default_views.server_error),
     ]
+
+{% if cookiecutter.use_robots == "y" %}
+urlpatterns += [url(r'^robots\.txt$', include('robots.urls'))]
+{% endif %}
