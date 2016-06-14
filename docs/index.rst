@@ -21,6 +21,7 @@ Contents:
    deployment-on-pythonanywhere
    deployment-on-heroku
    deployment-with-docker
+   docker-postgres-backups
    faq
    troubleshooting
    my-favorite-cookie
