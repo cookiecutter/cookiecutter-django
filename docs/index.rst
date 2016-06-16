@@ -7,13 +7,10 @@ A Cookiecutter_ template for Django.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
-.. note:: This is an in-progress documentation reorganization. Locations of files may change dramatically over the course of the next few days. See https://github.com/pydanny/cookiecutter-django/issues/335
-
 Contents:
 
 .. toctree::
    :maxdepth: 2
-
 
    project-generation-options
    developing-locally
@@ -24,8 +21,10 @@ Contents:
    deployment-on-pythonanywhere
    deployment-on-heroku
    deployment-with-docker
+   docker-postgres-backups
    faq
    troubleshooting
+   my-favorite-cookie
 
 Indices and tables
 ==================

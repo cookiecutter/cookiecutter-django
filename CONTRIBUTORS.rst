@@ -48,6 +48,7 @@ Listed in alphabetical order.
   Andrew Mikhnevich        `@zcho`_
   Andy Rose
   Anna Callahan            `@jazztpt`_
+  Antonia Blair            `@antoniablair`_             @antoniablairart
   Areski Belaid            `@areski`_
   Ashley Camba
   Barclay Gauld            `@yunti`_
@@ -61,6 +62,7 @@ Listed in alphabetical order.
   Chris Franklin
   Chris Franklin           `@hairychris`_
   Chris Pappalardo         `@ChrisPappalardo`_
+  Christopher Clarke       `@chrisdev`_
   Collederas               `@Collederas`_
   Cristian Vargas          `@cdvv7788`_
   Cullen Rhodes            `@c-rhodes`_
@@ -82,11 +84,13 @@ Listed in alphabetical order.
   Jens Nilsson             `@phiberjenz`
   Julio Castillo           `@juliocc`_
   Kaido Kert               `@kaidokert`_
+  kappataumu               `@kappataumu`_                @kappataumu
   Kaveh                    `@ka7eh`_
   Kevin A. Stone
   Kevin Ndung'u            `@kevgathuku`_
   Krzysztof Szumny         `@noisy`_
   Krzysztof Żuraw          `@krzysztofzuraw`_
+  Leonardo Jimenez         `@xpostudio4`_
   Lin Xianyi               `@iynaix`_
   Luis Nell                `@originell`_
   Lukas Klein
@@ -96,8 +100,8 @@ Listed in alphabetical order.
   Matt Linares
   Matt Menzenski           `@menzenski`_
   Matt Warren              `@mfwarren`_
+  Matthew Sisley           `@mjsisley`_
   Meghan Heintz            `@dot2dotseurat`_
-  mjsisley                 `@mjsisley`_
   mozillazg                `@mozillazg`_
   Pablo                    `@oubiga`_
   Raphael Pierzina         `@hackebrot`_
@@ -108,25 +112,28 @@ Listed in alphabetical order.
   stepmr                   `@stepmr`_
   Sławek Ehlert            `@slafs`_
   Srinivas Nyayapati       `@shireenrao`_
+  Sule Marshall            `@suledev`_
   Taylor Baldwin
   Théo Segonds             `@show0k`_
   Tom Atkins               `@knitatoms`_
   Tom Offermann
-  Travis McNeill            `@Travistock`_              @tavistock_esq
+  Travis McNeill           `@Travistock`_               @tavistock_esq
   Vitaly Babiy
+  Vivian Guillen           `@viviangb`_
   Yaroslav Halchenko
 ========================== ============================ ==============
 
-.. _@dezoito: https://github.com/dezoito
 .. _@a7p: https://github.com/a7p
 .. _@ad-m: https://github.com/ad-m
 .. _@aeikenberry: https://github.com/aeikenberry
 .. _@alb3rto: https://github.com/alb3rto
 .. _@amjith: https://github.com/amjith
 .. _@andor-pierdelacabeza: https://github.com/andor-pierdelacabeza
+.. _@antoniablair: https://github.com/antoniablair
 .. _@areski: https://github.com/areski
 .. _@arruda: https://github.com/arruda
 .. _@bloodpet: https://github.com/bloodpet
+.. _@blopker: https://github.com/blopker
 .. _@bogdal: https://github.com/bogdal
 .. _@burhan: https://github.com/burhan
 .. _@c-rhodes: https://github.com/c-rhodes
@@ -134,9 +141,11 @@ Listed in alphabetical order.
 .. _@catherinedevlin: https://github.com/catherinedevlin
 .. _@ccurvey: https://github.com/ccurvey
 .. _@cdvv7788: https://github.com/cdvv7788
+.. _@chrisdev: https://github.com/chrisdev
 .. _@ChrisPappalardo: https://github.com/ChrisPappalardo
 .. _@Collederas: https://github.com/Collederas
 .. _@ddiazpinto: https://github.com/ddiazpinto
+.. _@dezoito: https://github.com/dezoito
 .. _@dot2dotseurat: https://github.com/dot2dotseurat
 .. _@dsclementsen: https://github.com/dsclementsen
 .. _@epileptic-fish: https://gihub.com/epileptic-fish
@@ -156,27 +165,33 @@ Listed in alphabetical order.
 .. _@jvanbrug: https://github.com/jvanbrug
 .. _@ka7eh: https://github.com/ka7eh
 .. _@kaidokert: https://github.com/kaidokert
+.. _@kappataumu: https://github.com/kappataumu
 .. _@kevgathuku: https://github.com/kevgathuku
 .. _@knitatoms: https://github.com/knitatoms
+.. _@krzysztofzuraw: https://github.com/krzysztofzuraw
 .. _@MathijsHoogland: https://github.com/MathijsHoogland
 .. _@menzenski: https://github.com/menzenski
 .. _@mfwarren: https://github.com/mfwarren
 .. _@mjsisley: https://github.com/mjsisley
 .. _@mozillazg: https://github.com/mozillazg
+.. _@noisy: https://github.com/noisy
 .. _@originell: https://github.com/originell
 .. _@oubiga: https://github.com/oubiga
-.. _@romanosipenko: https://github.com/romanosipenko
 .. _@raonyguimaraes: https://github.com/raonyguimaraes
+.. _@romanosipenko: https://github.com/romanosipenko
+.. _@shireenrao: https://github.com/shireenrao
 .. _@show0k: https://github.com/show0k
 .. _@siauPatrick: https://github.com/siauPatrick
-.. _@shireenrao: https://github.com/shireenrao
 .. _@slafs: https://github.com/slafs
 .. _@stepmr: https://github.com/stepmr
+.. _@suledev: https://github.com/suledev
 .. _@Travistock: https://github.com/Tavistock
 .. _@trungdong: https://github.com/trungdong
+.. _@viviangb: httpsL//github.com/viviangb
+.. _@xpostudio4: https://github.com/xpostudio4
 .. _@yunti: https://github.com/yunti
 .. _@zcho: https://github.com/zcho
-.. _@noisy: https://github.com/noisy
+
 Special Thanks
 ~~~~~~~~~~~~~~
 

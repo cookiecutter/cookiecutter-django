@@ -2,13 +2,32 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+##[2016-06-11]
+### Changed
+- Enhancements to the developing locally docs (@antoniablair)
+
+##[2016-06-06]
+### Changed
+- Pin Bootstrap CSS and JS to v4.0.0-alpha.2, use minified versions
+
+##[2016-06-05]
+### Added
+- Configurable admin for users (@pydanny, @jayfk, @dezoito)
+
+##[2016-06-04]
+### Added
+- Let's Encrypt automation and instruction (@mjsisley and @chrisdev)
+
 ##[2016-06-03]
 ### Added
 - Documentation for debugging with Docker (@mjsisley)
 - Apache 2 License option in `cookiecutter.json` (@dot2dotseurat)
+- Removed unnecessary version check from `pre_gen_project.py` (@suledev)
+- Add gulp alternative as a js task runner and fix navbar style issue (@viviangb and @xpostudio4)
 
 ### Deleted
 - AngularJS (@pydanny)
+- django-secure (@xpostudio4)
 
 ##[2016-06-02]
 ### Added

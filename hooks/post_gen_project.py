@@ -82,6 +82,11 @@ def make_secret_key(project_directory):
     set_secret_key(env_file)
 
 
+def remove_file(file_name):
+    if os.path.exists(file_name):
+        os.remove(file_name)
+
+
 def remove_task_app(project_directory):
     """Removes the taskapp if celery isn't going to be used"""
     # Determine the local_setting_file_location
@@ -111,9 +116,8 @@ def remove_heroku_files():
     Removes files needed for heroku if it isn't going to be used
     """
     for filename in ["app.json", "Procfile", "requirements.txt", "runtime.txt"]:
-        os.remove(os.path.join(
-            PROJECT_DIRECTORY, filename
-        ))
+        file_name = os.path.join(PROJECT_DIRECTORY, filename)
+        remove_file(file_name)
 
 
 def remove_docker_files():
@@ -134,10 +138,37 @@ def remove_grunt_files():
     """
     Removes files needed for grunt if it isn't going to be used
     """
-    for filename in ["Gruntfile.js", "package.json"]:
+    for filename in ["Gruntfile.js"]:
         os.remove(os.path.join(
             PROJECT_DIRECTORY, filename
         ))
+
+def remove_gulp_files():
+    """
+    Removes files needed for grunt if it isn't going to be used
+    """
+    for filename in ["gulpfile.js"]:
+        os.remove(os.path.join(
+            PROJECT_DIRECTORY, filename
+        ))
+
+def remove_packageJSON_file():
+    """
+    Removes files needed for grunt if it isn't going to be used
+    """
+    for filename in ["package.json"]:
+        os.remove(os.path.join(
+            PROJECT_DIRECTORY, filename
+        ))
+
+def remove_certbot_files():
+    """
+    Removes files needed for certbot if it isn't going to be used
+    """
+    nginx_dir_location = os.path.join(PROJECT_DIRECTORY, 'compose/nginx')
+    for filename in ["nginx-secure.conf", "start.sh", "dhparams.example.pem"]:
+        file_name = os.path.join(nginx_dir_location, filename)
+        remove_file(file_name)
 
 # IN PROGRESS
 # def copy_doc_files(project_directory):
@@ -176,27 +207,42 @@ if '{{ cookiecutter.use_heroku }}'.lower() != 'y':
 if '{{ cookiecutter.use_docker }}'.lower() != 'y':
     remove_docker_files()
 
-# 6. Removes all grunt files if it isn't going to be used
-if '{{ cookiecutter.use_grunt }}'.lower() != 'y':
+# 6. Removes all JS task manager files if it isn't going to be used
+if '{{ cookiecutter.js_task_runner}}'.lower() == 'gulp':
     remove_grunt_files()
+elif '{{ cookiecutter.js_task_runner}}'.lower() == 'grunt':
+    remove_gulp_files()
+else:
+    remove_gulp_files()
+    remove_grunt_files()
+    remove_packageJSON_file()
 
+# 7. Removes all certbot/letsencrypt files if it isn't going to be used
+if '{{ cookiecutter.use_lets_encrypt }}'.lower() != 'y':
+    remove_certbot_files()
 
-# 7. Display a warning if use_docker and use_grunt are selected. Grunt isn't supported by our
-# docker config atm.
-if '{{ cookiecutter.use_grunt }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() == 'y':
+# 8. Display a warning if use_docker and use_grunt are selected. Grunt isn't
+#   supported by our docker config atm.
+if '{{ cookiecutter.js_task_runner }}'.lower() in ['grunt', 'gulp'] and '{{ cookiecutter.use_docker }}'.lower() == 'y':
     print(
-        "You selected to use docker and grunt. This is NOT supported out of the box for now. You "
+        "You selected to use docker and a JS task runner. This is NOT supported out of the box for now. You "
         "can continue to use the project like you normally would, but you will need to add a "
-        " grunt service to your docker configuration manually."
+        "js task runner service to your docker configuration manually."
     )
 
-# 7. Display a warning if use_docker and use_mailhog are selected. Mailhog isn't supported by our
-# docker config atm.
-if '{{ cookiecutter.use_mailhog }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() == 'y':
+# 9. Removes the certbot/letsencrypt files and display a warning if use_lets_encrypt is selected and use_docker isn't.
+if '{{ cookiecutter.use_lets_encrypt }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() != 'y':
+    remove_certbot_files()
     print(
-        "You selected to use docker and mailhog. This is NOT supported out of the box for now. You"
-        " can continue to use the project like you normally would, but you will need to add a "
-        " mailhog service to your docker configuration manually."
+        "You selected to use Let's Encrypt and didn't select to use docker. This is NOT supported out of the box for now. You "
+        "can continue to use the project like you normally would, but Let's Encrypt files have been included."
+    )
+
+# 10. Directs the user to the documentation if certbot and docker are selected.
+if '{{ cookiecutter.use_lets_encrypt }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() == 'y':
+    print(
+        "You selected to use Let's Encrypt, please see the documentation for instructions on how to use this in production. "
+        "You must generate a dhparams.pem file before running docker-compose in a production environment."
     )
 
 # 4. Copy files from /docs/ to {{ cookiecutter.project_slug }}/docs/

@@ -1,5 +1,5 @@
-Getting Up and Running with Docker
-==================================
+Getting Up and Running Locally With Docker
+==========================================
 
 .. index:: Docker
 
@@ -9,7 +9,7 @@ All of these commands assume you are in the root of your generated project.
 Prerequisites
 -------------
 
-You'll need at least docker 1.10.
+You'll need at least Docker 1.10.
 
 If you don't already have it installed, follow the instructions for your OS:
 
@@ -91,35 +91,6 @@ Production Mode
 
 Instead of using `dev.yml`, you would use `docker-compose.yml`.
 
-Database Backups
-~~~~~~~~~~~~~~~~
-
-The database has to be running to create/restore a backup.
-
-First, run the app with `docker-compose -f dev.yml up`.
-
-To create a backup, run::
-
-    docker-compose -f dev.yml run postgres backup
-
-
-To list backups, run::
-
-    docker-compose -f dev.yml run postgres list-backups
-
-
-To restore a backup, run::
-
-    docker-compose -f dev.yml run postgres restore filename.sql
-
-To copy the files from the running Postgres container to the host system::
-
-    docker cp <containerId>:/backups /host/path/target
-
-Where <containerId> is the ID of the Postgres container. To get it, run::
-
-    docker ps
-
 Other Useful Tips
 -----------------
 
@@ -160,6 +131,7 @@ Then you may need to run the following for it to work as desired:
 
     $ docker-compose run -f dev.yml --service-ports django
 
+
 django-debug-toolbar
 """"""""""""""""""""
 
@@ -182,4 +154,12 @@ You may need to add the following to your css in order for the django-debug-tool
     }
 
 
+Using the Mailhog Docker Container
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+In development you can (optionally) use MailHog_ for email testing. If you selected `use_docker`, MailHog is added as a Docker container. To use MailHog:
+
+1. Make sure, that ``mailhog`` docker container is up and running
+2. Open your browser and go to ``http://127.0.0.1:8025``
+
+.. _Mailhog: https://github.com/mailhog/MailHog/

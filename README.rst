@@ -1,9 +1,9 @@
 Cookiecutter Django
 =======================
 
-.. image:: https://requires.io/github/pydanny/cookiecutter-django/requirements.svg?branch=master
-     :target: https://requires.io/github/pydanny/cookiecutter-django/requirements/?branch=master
-     :alt: Requirements Status
+.. image:: https://pyup.io/repos/github/pydanny/cookiecutter-django/shield.svg
+     :target: https://pyup.io/repos/github/pydanny/cookiecutter-django/
+     :alt: Updates
 
 .. image:: https://travis-ci.org/pydanny/cookiecutter-django.svg?branch=master
      :target: https://travis-ci.org/pydanny/cookiecutter-django?branch=master
@@ -14,7 +14,8 @@ Cookiecutter Django
 
 Powered by Cookiecutter_, Cookiecutter Django is a framework for jumpstarting production-ready Django projects quickly.
 
-See Troubleshooting_ for common errors and obstacles.
+* Documentation: https://cookiecutter-django.readthedocs.io
+* See Troubleshooting_ for common errors and obstacles
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
@@ -115,13 +116,10 @@ Answer the prompts with your own desired options_. For example::
     domain_name [example.com]: myreddit.com
     version [0.1.0]: 0.0.1
     timezone [UTC]: America/Los_Angeles
-    now [2016/03/01]: 2016/03/05
-    year [2016]:
     use_whitenoise [y]: n
     use_celery [n]: y
     use_mailhog [n]: n
-    use_sentry [n]: y
-    use_newrelic [n]: y
+    use_sentry_for_error_reporting [y]: y
     use_opbeat [n]: y
     use_pycharm [n]: y
     windows [n]: n
@@ -229,6 +227,12 @@ Got a blog or online publication? Write about your cookiecutter-django tips and 
 .. _`Introduction to Cookiecutter-Django`: http://krzysztofzuraw.com/blog/2016/django-cookiecutter.html
 .. _`Django and GitLab - Running Continuous Integration and tests with your FREE account`: http://dezoito.github.io/2016/05/11/django-gitlab-continuous-integration-phantomjs.html
 
+Code of Conduct
+---------------
+
+Everyone interacting in the Cookiecutter project's codebases, issue trackers, chat
+rooms, and mailing lists is expected to follow the `PyPA Code of Conduct`_.
+
 Support This Project
 ---------------------------
 
@@ -239,3 +243,5 @@ This project is maintained by volunteers. Support their efforts by spreading the
    :align: center
    :alt: Two Scoops Academy
    :target: http://www.twoscoops.academy/
+
+.. _`PyPA Code of Conduct`: https://www.pypa.io/en/latest/code-of-conduct/

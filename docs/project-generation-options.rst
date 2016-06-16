@@ -39,7 +39,7 @@ use_mailhog [n]
     for development purposes. It runs a simple SMTP server which catches
     any message sent to it. Messages are displayed in a web interface which runs at ``http://localhost:8025/`` You need to download the MailHog executable for your operating system, see the 'Developing Locally' docs for instructions.
 
-use_sentry [n]
+use_sentry_for_error_reporting [n]
     Whether to use Sentry_ to log errors from your project.
 
 windows [n]
