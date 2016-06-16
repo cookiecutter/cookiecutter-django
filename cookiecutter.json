@@ -11,6 +11,7 @@
     "use_celery": "n",
     "use_mailhog": "n",
     "use_sentry_for_error_reporting": "y",
+    "use_robots": "y",
     "use_opbeat": "n",
     "use_pycharm": "n",
     "windows": "n",

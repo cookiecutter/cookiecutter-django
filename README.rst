@@ -72,6 +72,7 @@ Optional Integrations
 .. _docker-compose: https://www.github.com/docker/compose
 .. _Opbeat: https://opbeat.com/
 .. _PythonAnywhere: https://www.pythonanywhere.com/
+.. _django-robots: https://github.com/jazzband/django-robots/
 
 
 Constraints
