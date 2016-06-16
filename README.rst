@@ -227,6 +227,12 @@ Got a blog or online publication? Write about your cookiecutter-django tips and 
 .. _`Introduction to Cookiecutter-Django`: http://krzysztofzuraw.com/blog/2016/django-cookiecutter.html
 .. _`Django and GitLab - Running Continuous Integration and tests with your FREE account`: http://dezoito.github.io/2016/05/11/django-gitlab-continuous-integration-phantomjs.html
 
+Code of Conduct
+---------------
+
+Everyone interacting in the Cookiecutter project's codebases, issue trackers, chat
+rooms, and mailing lists is expected to follow the `PyPA Code of Conduct`_.
+
 Support This Project
 ---------------------------
 
@@ -237,3 +243,5 @@ This project is maintained by volunteers. Support their efforts by spreading the
    :align: center
    :alt: Two Scoops Academy
    :target: http://www.twoscoops.academy/
+
+.. _`PyPA Code of Conduct`: https://www.pypa.io/en/latest/code-of-conduct/
