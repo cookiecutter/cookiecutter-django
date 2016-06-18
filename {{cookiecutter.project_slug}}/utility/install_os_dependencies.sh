@@ -6,9 +6,9 @@ DISTRO_NAME=$(lsb_release -sc)
 OS_REQUIREMENTS_FILENAME="$WORK_DIR/requirements-$DISTRO_NAME.apt"
 
 
-if [ "$DISTRO_NAME" != "xenial" ] && [ "$DISTRO_NAME" != "trusty" ]; then
-  echo "Only the Ubuntu 14.04 (Trusty) and 16.04 (Xenial) is supported by this script";
-  echo "You can see requirements-trusty.apt or requirements-xenial.apt file to help search the equivalent package in your system";
+if [ "$DISTRO_NAME" != "xenial" ] && [ "$DISTRO_NAME" != "trusty" ] && [ "$DISTRO_NAME" != "jessie" ]; then
+  echo "Only the Ubuntu 14.04 (Trusty), 16.04 (Xenial) and Debian 8.x (Jessie) is supported by this script";
+  echo "You can see requirements-trusty.apt, requirements-xenial.apt or requirements-jessie.apt file to help search the equivalent package in your system";
   exit 1;
 fi
 
