@@ -17,6 +17,7 @@
     "use_python2": "n",
     "use_docker": "y",
     "use_heroku": "n",
+    "use_compressor": "n",
     "js_task_runner": ["Gulp", "Grunt", "None"],
     "use_lets_encrypt": "n",
     "open_source_license": ["MIT", "BSD", "Apache Software License 2.0", "Not open source"]

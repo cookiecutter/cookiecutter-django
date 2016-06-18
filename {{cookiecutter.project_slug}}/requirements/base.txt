@@ -54,4 +54,8 @@ redis>=2.10.0
 celery==3.1.23
 {% endif %}
 
+{% if cookiecutter.use_compressor == "y" %}
+django_compressor==2.0
+{% endif %}
+
 # Your custom requirements go here

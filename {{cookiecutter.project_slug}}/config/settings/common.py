@@ -233,6 +233,13 @@ BROKER_URL = env('CELERY_BROKER_URL', default='django://')
 ########## END CELERY
 {% endif %}
 
+# django-compressor
+# ------------------------------------------------------------------------------
+{% if cookiecutter.use_compressor == 'y'-%}
+INSTALLED_APPS += ("compressor", )
+STATICFILES_FINDERS += ("compressor.finders.CompressorFinder", )
+{%- endif %}
+
 # Location of root django.contrib.admin URL, use {% raw %}{% url 'admin:index' %}{% endraw %}
 ADMIN_URL = r'^admin/'
 
