@@ -45,6 +45,7 @@ Listed in alphabetical order.
   Alex Tsai                `@caffodian`_
   Alvaro [Andor]           `@andor-pierdelacabeza`_
   Amjith Ramanujam         `@amjith`_
+  Andres Gonzalez          `@andresgz`_
   Andrew Mikhnevich        `@zcho`_
   Andy Rose
   Anna Callahan            `@jazztpt`_
@@ -81,7 +82,8 @@ Listed in alphabetical order.
   Henrique G. G. Pereira   `@ikkebr`_
   Ian Lee                  `@IanLee1521`_
   Jan Van Bruggen          `@jvanbrug`_
-  Jens Nilsson             `@phiberjenz`
+  Jens Nilsson             `@phiberjenz`_
+  Julien Almarcha          `@sladinji`_
   Julio Castillo           `@juliocc`_
   Kaido Kert               `@kaidokert`_
   kappataumu               `@kappataumu`_                @kappataumu
@@ -191,6 +193,9 @@ Listed in alphabetical order.
 .. _@xpostudio4: https://github.com/xpostudio4
 .. _@yunti: https://github.com/yunti
 .. _@zcho: https://github.com/zcho
+.. _@phiberjenz: https://github.com/phiberjenz
+.. _@sladinji: https://github.com/sladinji
+.. _@andresgz: https://github.com/andresgz
 
 Special Thanks
 ~~~~~~~~~~~~~~

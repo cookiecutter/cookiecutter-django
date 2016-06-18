@@ -2,6 +2,24 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+##[2016-06-17]
+## Added
+- django-compressor support (@andresgz)
+- Debian Jessie OS Requirements (@ddiazpinto)
+
+##[2016-06-14]
+### Changed
+- Move Docker backups to their own section (@pydanny)
+
+##[2016-06-13]
+### Changed
+- Use latest redis image in Docker (@pydanny)
+- Documentation cleanup and corrections (@audreyr)
+
+##[2016-06-12]
+### Changed
+- Documentation cleanup and corrections (@kappataumu)
+
 ##[2016-06-11]
 ### Changed
 - Enhancements to the developing locally docs (@antoniablair)
