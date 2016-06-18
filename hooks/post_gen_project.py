@@ -170,6 +170,20 @@ def remove_certbot_files():
         file_name = os.path.join(nginx_dir_location, filename)
         remove_file(file_name)
 
+def remove_gitlab_ci_files():
+    """
+    Removes files needed for GitLab CI if it isn't going to be used
+    """
+    for filename in [".gitlab-ci.yml, test.yml"]:
+        os.remove(os.path.join(
+            PROJECT_DIRECTORY, filename
+        ))
+
+    django_dir_location = os.path.join(PROJECT_DIRECTORY, 'compose/django')
+    for filename in ["Dockerfile-test"]:
+        file_name = os.path.join(django_dir_location, filename)
+        remove_file(file_name)
+
 # IN PROGRESS
 # def copy_doc_files(project_directory):
 #     cookiecutters_dir = DEFAULT_CONFIG['cookiecutters_dir']
@@ -245,5 +259,23 @@ if '{{ cookiecutter.use_lets_encrypt }}'.lower() == 'y' and '{{ cookiecutter.use
         "You must generate a dhparams.pem file before running docker-compose in a production environment."
     )
 
-# 4. Copy files from /docs/ to {{ cookiecutter.project_slug }}/docs/
+# 11. Removes all GitLab CI files if it isn't going to be used
+if '{{ cookiecutter.use_gitlab_ci }}'.lower() != 'y':
+    remove_gitlab_ci_files()
+
+# 12. Removes the GitLab CI files and display a warning if use_gitlab_ci is selected and use_docker isn't.
+if '{{ cookiecutter.use_gitlab_ci }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() != 'y':
+    remove_gitlab_ci_files()
+    print(
+        "You selected to use GitLab CI and didn't select to use docker. This is NOT supported out of the box for now. You "
+        "can continue to use the project like you normally would, but GitLab CI files have not been included."
+    )
+
+# 13. Directs the user to the documentation if certbot and docker are selected.
+if '{{ cookiecutter.use_gitlab_ci }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() == 'y':
+    print(
+        "You selected to use GitLab CI.  Please see the documentation for instructions on how to set up the GitLab CI environment"
+    )
+
+# 14. Copy files from /docs/ to {{ cookiecutter.project_slug }}/docs/
 # copy_doc_files(PROJECT_DIRECTORY)

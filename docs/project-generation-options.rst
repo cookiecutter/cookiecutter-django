@@ -49,6 +49,20 @@ use_python2 [n]
     By default, the Python code generated will be for Python 3.x. But if you
     answer `y` here, it will be legacy Python 2.7 code.
 
+use_gitlab_ci [n]
+   Whether to use GitLab CI for testing.
+
+staging_branch []
+   If using GitLab for continuous deployment, the git branch to deploy in the
+   staging environment.
+
+staging_domain_name [beta.domain_name]
+   If deploying to a staging environment, the domain name of the staging site.
+
+production_branch []
+   If using GitLab for continuous deployment, the git branch to deploy in the
+   production environment.
+
 .. _WhiteNoise: https://github.com/evansd/whitenoise
 .. _Celery: https://github.com/celery/celery
 .. _MailHog: https://github.com/mailhog/MailHog
