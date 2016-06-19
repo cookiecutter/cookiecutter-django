@@ -152,10 +152,12 @@ For development, see the following for local development:
 
 * `Developing locally`_
 * `Developing locally using docker`_
+* `Developing locally using webpack`_
 
 .. _options: http://cookiecutter-django.readthedocs.io/en/latest/project-generation-options.html
 .. _`Developing locally`: http://cookiecutter-django.readthedocs.io/en/latest/developing-locally.html
 .. _`Developing locally using docker`: http://cookiecutter-django.readthedocs.io/en/latest/developing-locally-docker.html
+.. _`Developing locally using webpack`: http://cookiecutter-django.readthedocs.io/en/latest/developing-locally-webpack.html
 
 Community
 -----------

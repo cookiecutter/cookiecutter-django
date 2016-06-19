@@ -55,8 +55,30 @@ Running javascript tests with karma
 ::
 
   $ npm test
-{% endif %}
 
+
+Hot reloading with React and Webpack
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Install npm depenencies::
+
+  $ npm install
+
+Start the development server::
+
+  $ npm start
+
+
+A more detailed explanation for `Developing locally with webpack`_
+
+
+The `static project readme`_ contains a lot of information about React / Redux and Webpack for this project.
+
+.. _`static project readme`: {{ cookiecutter.project_slug }}/static/{{ cookiecutter.project_slug }}/README.md
+.. _`Developing locally with webpack`: http://cookiecutter-django.readthedocs.io/en/latest/developing-locally-webpack.html
+
+
+{% else %}
 
 Live reloading and Sass CSS compilation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -65,6 +87,7 @@ Moved to `Live reloading and SASS compilation`_.
 
 .. _`Live reloading and SASS compilation`: http://cookiecutter-django.readthedocs.io/en/latest/live-reloading-and-sass-compilation.html
 
+{% endif %}
 {% if cookiecutter.use_celery == "y" %}
 
 Celery
