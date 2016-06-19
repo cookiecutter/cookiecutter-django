@@ -122,6 +122,7 @@ Listed in alphabetical order.
   Travis McNeill           `@Travistock`_               @tavistock_esq
   Vitaly Babiy
   Vivian Guillen           `@viviangb`_
+  Will Farley              `@goldhand`_                 @g01dhand
   Yaroslav Halchenko
 ========================== ============================ ==============
 
@@ -156,6 +157,7 @@ Listed in alphabetical order.
 .. _@eyadsibai: https://github.com/eyadsibai
 .. _@garry-cairns: https://github.com/garry-cairns
 .. _@garrypolley: https://github.com/garrypolley
+.. _@goldhand: https://github.com/goldhand
 .. _@hackebrot: https://github.com/hackebrot
 .. _@hairychris: https://github.com/hairychris
 .. _@hjwp: https://github.com/hjwp
