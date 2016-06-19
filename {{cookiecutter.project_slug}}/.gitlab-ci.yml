@@ -1,6 +1,8 @@
 stages:
   - test
+{% if cookiecutter.use_gitlab_ci == 'Test and Deploy' %}
   - deploy
+{% endif %}
 
 test:
   script:
@@ -8,22 +10,7 @@ test:
     - docker-compose -f test.yml run --rm django bash -c "flake8"
     - docker-compose -f test.yml run --rm django bash -c "coverage run --branch manage.py test && coverage report -m"
 
-{% if cookiecutter.staging_branch != '' %}
-staging:
-  type: deploy
-  script:
-    - eval "$(docker-machine env {{cookiecutter.staging_domain_name}})"
-    - docker-compose build
-    - docker-compose run --rm django python manage.py migrate
-    - docker-compose up -d
-    - docker rm -v `docker ps -a -q -f status=exited` || true
-    - docker rmi `docker images -f "dangling=true" -q` || true
-    - docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes
-  only:
-    - {{cookiecutter.staging_branch}}
-{% endif %}
-
-{% if cookiecutter.production_branch != '' %}
+{% if cookiecutter.use_gitlab_ci == 'Test and Deploy' %}
 production:
   type: deploy
   script:
@@ -35,5 +22,6 @@ production:
     - docker rmi `docker images -f "dangling=true" -q` || true
     - docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes
   only:
-    - {{cookiecutter.production_branch}}
+    - master
 {% endif %}
+

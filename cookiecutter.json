@@ -20,9 +20,6 @@
     "use_compressor": "n",
     "js_task_runner": ["Gulp", "Grunt", "None"],
     "use_lets_encrypt": "n",
-    "use_gitlab_ci": "n",
-    "staging_branch": "",
-    "staging_domain_name": "beta.{{ cookiecutter.domain_name }}",
-    "production_branch": "",
+    "use_gitlab_ci": ["No", "Test Only", "Test and Deploy"],
     "open_source_license": ["MIT", "BSD", "Apache Software License 2.0", "Not open source"]
 }

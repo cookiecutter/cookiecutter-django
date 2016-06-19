@@ -48,22 +48,15 @@ set up continuous deployment.
 Configuring GitLab CI for Continuous Deployment
 -----------------------------------------------
 
-1) Set up Ubuntu machines with Docker for the staging (if desired) and production
-sites.  Digital Ocean has a droplet configuration that makes this very convenient
-but any machines will do.
+1) Set up an Ubuntu machine with Docker for the production site.  Digital Ocean
+has a droplet configuration that makes this very convenient but any machine will do.
 
 2) On the test runner, create an ssh key.  Add it as an authorized key on the
-staging and production machines and as a deploy key in the GitLab project:
+production machine and as a deploy key in the GitLab project:
 
 ::
 
     sudo -u gitlab-runner -H ssh-keygen -t rsa -C "gitlab-runner@DOMAIN"
-
-3) On the test runner, create a docker machine for the staging site:
-
-::
-
-    sudo -u gitlab-runner -H docker-machine create -d generic --generic-ip-address <IP address of staging site> {{cookiecutter.staging_domain_name}}
 
 4) On the test runner, create a docker machine for the production site:
 
@@ -76,5 +69,5 @@ All Done
 
 Congratulations!  You now have a GitLab CI environment to run the tests for
 every commit (all branches including feature branches) and automatically deploy
-staging and production environments.
+the master branch to the production site.
 
