@@ -3,8 +3,6 @@
 Test settings
 
 - Used to run tests fast on the continuous integration server and locally
-- Use console backend for emails
-- Add django-extensions as app
 '''
 
 from .common import *  # noqa
