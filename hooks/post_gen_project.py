@@ -195,6 +195,15 @@ def remove_certbot_files():
         file_name = os.path.join(nginx_dir_location, filename)
         remove_file(file_name)
 
+def remove_copying_files():
+    """
+    Removes files needed for the GPLv3 licence if it isn't going to be used
+    """
+    for filename in ["COPYING"]:
+        os.remove(os.path.join(
+            PROJECT_DIRECTORY, filename
+        ))
+
 # IN PROGRESS
 # def copy_doc_files(project_directory):
 #     cookiecutters_dir = DEFAULT_CONFIG['cookiecutters_dir']
@@ -274,6 +283,10 @@ if '{{ cookiecutter.use_lets_encrypt }}'.lower() == 'y' and '{{ cookiecutter.use
         "You selected to use Let's Encrypt, please see the documentation for instructions on how to use this in production. "
         "You must generate a dhparams.pem file before running docker-compose in a production environment."
     )
+
+# 11. Removes files needed for the GPLv3 licence if it isn't going to be used.
+if '{{ cookiecutter.open_source_license}}' != 'GPLv3':
+    remove_copying_files()
 
 # 4. Copy files from /docs/ to {{ cookiecutter.project_slug }}/docs/
 # copy_doc_files(PROJECT_DIRECTORY)
