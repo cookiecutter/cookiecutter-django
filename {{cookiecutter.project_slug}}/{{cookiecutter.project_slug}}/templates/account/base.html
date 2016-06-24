@@ -1,3 +1,11 @@
 {% raw %}{% extends "base.html" %}
 {% block title %}{% block head_title %}{% endblock head_title %}{% endblock title %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    {% block inner %}{% endblock %}
+  </div>
+</div>
+{% endblock %}
 {% endraw %}
