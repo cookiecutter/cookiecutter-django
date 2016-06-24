@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ##[2016-06-24]
 ## Added
 - Settings file for running tests faster (@audreyr)
+- Add GPLv3 licence support (@cgaspoz)
+
+## Changed
+- Makes the database backups compressed. restores compressed backups (@jangeador)
+- Review and edit django-allauth templates (@kappataumu)
 
 ##[2016-06-19]
 ## Added
