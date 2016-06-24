@@ -59,6 +59,7 @@ Listed in alphabetical order.
   Bouke Haarsma
   Burhan Khalid            `@burhan`_                   @burhan
   Catherine Devlin         `@catherinedevlin`_
+  Cédric Gaspoz            `@cgaspoz`_
   Chris Curvey             `@ccurvey`_
   Chris Franklin
   Chris Franklin           `@hairychris`_
@@ -144,6 +145,7 @@ Listed in alphabetical order.
 .. _@catherinedevlin: https://github.com/catherinedevlin
 .. _@ccurvey: https://github.com/ccurvey
 .. _@cdvv7788: https://github.com/cdvv7788
+.. _@cgaspoz: https://github.com/cgaspoz
 .. _@chrisdev: https://github.com/chrisdev
 .. _@ChrisPappalardo: https://github.com/ChrisPappalardo
 .. _@Collederas: https://github.com/Collederas
