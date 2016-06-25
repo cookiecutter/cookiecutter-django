@@ -168,7 +168,7 @@ def add_webpack():
     Adds webpack configuration using cookiecutter to install hzdg/cookiecutter-webpack
     """
     cookiecutter(
-        'git@github.com:hzdg/cookiecutter-webpack.git',
+        'https://github.com/hzdg/cookiecutter-webpack.git',
         replay=False, overwrite_if_exists=True, output_dir='../',
         checkout='pydanny-django', no_input=True, extra_context={
             'project_name': '{{ cookiecutter.project_name }}',
