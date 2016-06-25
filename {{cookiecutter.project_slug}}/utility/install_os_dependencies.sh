@@ -11,7 +11,7 @@ if [ ! -r "$OS_REQUIREMENTS_FILENAME" ]; then
     cat <<-EOF >&2
 		There is no requirements file for your distribution.
 		You can see one of the files listed below to help search the equivalent package in your system:
-		`find ./ -name "requirements-*.apt" -printf "  - %f\n"`
+		$(find ./ -name "requirements-*.apt" -printf "  - %f\n")
 	EOF
     exit 1;
 fi
