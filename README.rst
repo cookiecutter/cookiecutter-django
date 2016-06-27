@@ -211,7 +211,7 @@ If you do rename your fork, I encourage you to submit it to the following places
 Or Submit a Pull Request
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We also accept pull requests on this, if they're small, atomic, and if they make our own project development
+We also accept pull requests if they're small, atomic, and make our own project development
 experience better.
 
 Articles
