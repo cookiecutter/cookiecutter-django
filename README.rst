@@ -32,7 +32,7 @@ Features
 * 12-Factor_ based settings via django-environ_
 * Optimized development and production settings
 * Registration via django-allauth_
-* Comes with custom user model ready to go.
+* Comes with custom user model ready to go
 * Grunt build for compass and livereload
 * Send emails via Anymail_ (using Mailgun_ by default, but switchable)
 * Media storage using Amazon S3
@@ -78,7 +78,7 @@ Constraints
 -----------
 
 * Only maintained 3rd party libraries are used.
-* PostgreSQL everywhere (9.0+)
+* Uses PostgreSQL everywhere (9.0+)
 * Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
 
@@ -150,7 +150,7 @@ Create a git repo and push it there::
 
 Now take a look at your repo. Don't forget to carefully look at the generated README. Awesome, right?
 
-For development, see the following for local development:
+For local development, see the following:
 
 * `Developing locally`_
 * `Developing locally using docker`_
@@ -164,7 +164,7 @@ For development, see the following for local development:
 Community
 -----------
 
-* Got questions? **Before you ask questions anywhere else**, please post your question on `Stack Overflow`_ under the *cookiecutter-django* tag. We check there periodically for questions.
+* Have questions? **Before you ask questions anywhere else**, please post your question on `Stack Overflow`_ under the *cookiecutter-django* tag. We check there periodically for questions.
 * If you think you found a bug or want to request a feature, please open an issue_.
 * For anything else, you can chat with us on `Gitter`_.
 
@@ -185,7 +185,7 @@ Scattered throughout the Python and HTML of this project are places marked with 
 Releases
 --------
 
-Want a stable release? You can find them at https://github.com/pydanny/cookiecutter-django/releases
+Need a stable release? You can find them at https://github.com/pydanny/cookiecutter-django/releases
 
 
 Not Exactly What You Want?
@@ -208,8 +208,8 @@ If you do rename your fork, I encourage you to submit it to the following places
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 .. _grid: https://www.djangopackages.com/grids/g/cookiecutters/
 
-Or Submit a Pull Request
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Submit a Pull Request
+~~~~~~~~~~~~~~~~~~~~~~
 
 We also accept pull requests if they're small, atomic, and make our own project development
 experience better.
@@ -223,7 +223,7 @@ Articles
 * `Introduction to Cookiecutter-Django`_ - Feb. 19, 2016
 * `Django and GitLab - Running Continuous Integration and tests with your FREE account`_ - May. 11, 2016
 
-Got a blog or online publication? Write about your cookiecutter-django tips and tricks, then send us a pull request with the link.
+Have a blog or online publication? Write about your cookiecutter-django tips and tricks, then send us a pull request with the link.
 
 .. _`Development and Deployment of Cookiecutter-Django via Docker`: https://realpython.com/blog/python/development-and-deployment-of-cookiecutter-django-via-docker
 .. _`Development and Deployment of Cookiecutter-Django on Fedora`: https://realpython.com/blog/python/development-and-deployment-of-cookiecutter-django-on-fedora/
