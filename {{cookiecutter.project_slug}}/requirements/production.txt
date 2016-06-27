@@ -35,5 +35,5 @@ raven==5.21.0
 {% if cookiecutter.use_opbeat == "y" -%}
 # Opbeat agent for performance monitoring
 # -----------------------------------------
-opbeat==3.3.3
+opbeat==3.3.4
 {%- endif %}
