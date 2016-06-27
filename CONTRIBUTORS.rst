@@ -71,6 +71,7 @@ Listed in alphabetical order.
   Daniele Tricoli          `@eriol`_
   David Díaz               `@ddiazpinto`_                @DavidDiazPinto
   Davur Clementsen         `@dsclementsen`_              @davur
+  Delio Castillo           `@jangeador`_                 @jangeador
   Dónal Adams              `@epileptic-fish`_
   Dong Huynh               `@trungdong`_
   Emanuel Calso            `@bloodpet`_                  @bloodpet
@@ -200,6 +201,7 @@ Listed in alphabetical order.
 .. _@phiberjenz: https://github.com/phiberjenz
 .. _@sladinji: https://github.com/sladinji
 .. _@andresgz: https://github.com/andresgz
+.. _@jangeador: https://github.com/jangeador
 
 Special Thanks
 ~~~~~~~~~~~~~~
