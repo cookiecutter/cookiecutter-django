@@ -52,7 +52,6 @@ Optional Integrations
 * Configuration for Celery_
 * Integration with MailHog_ for local email testing
 * Integration with Sentry_ for error logging
-* Integration with NewRelic_ for performance monitoring
 * Integration with Opbeat_ for performance monitoring
 
 .. _alpha: http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/
@@ -68,7 +67,6 @@ Optional Integrations
 .. _Anymail: https://github.com/anymail/django-anymail
 .. _MailHog: https://github.com/mailhog/MailHog
 .. _Sentry: https://getsentry.com
-.. _NewRelic: https://newrelic.com
 .. _docker-compose: https://www.github.com/docker/compose
 .. _Opbeat: https://opbeat.com/
 .. _PythonAnywhere: https://www.pythonanywhere.com/
