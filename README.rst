@@ -107,7 +107,7 @@ Answer the prompts with your own desired options_. For example::
     Receiving objects: 100% (550/550), 127.66 KiB | 58 KiB/s, done.
     Resolving deltas: 100% (283/283), done.
     project_name [project_name]: Reddit Clone
-    project_slug [Reddit_Clone]: reddit
+    project_slug [reddit_clone]: reddit
     author_name [Your Name]: Daniel Roy Greenfeld
     email [Your email]: pydanny@gmail.com
     description [A short description of the project.]: A reddit clone.
@@ -122,9 +122,16 @@ Answer the prompts with your own desired options_. For example::
     use_pycharm [n]: y
     windows [n]: n
     use_python2 [n]: n
-    use_docker [y]: y
-    use_heroku [n]: n
-    use_grunt [n]: y
+    use_docker [y]: n
+    use_heroku [n]: y
+    use_compressor [n]: y
+    Select js_task_runner:
+    1 - Gulp
+    2 - Grunt
+    3 - Webpack
+    4 - None
+    Choose from 1, 2, 3, 4 [1]: 1
+    use_lets_encrypt [n]: n
     Select open_source_license:
     1 - MIT
     2 - BSD
