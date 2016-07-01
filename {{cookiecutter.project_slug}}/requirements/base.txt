@@ -15,12 +15,6 @@ django-environ==0.4.0
 whitenoise==3.2
 {%- endif %}
 
-
-# Forms
-django-braces==1.9.0
-django-crispy-forms==1.6.0
-django-floppyforms==1.6.2
-
 # Models
 django-model-utils==2.5
 
@@ -53,14 +47,5 @@ redis>=2.10.0
 {% if cookiecutter.use_celery == "y" %}
 celery==3.1.23
 {% endif %}
-
-{% if cookiecutter.use_compressor == "y" %}
-django_compressor==2.0
-{% endif %}
-
-{% if cookiecutter.js_task_runner == 'Webpack' -%}
-# Webpack
-django-webpack-loader==0.3.0
-{%- endif %}
 
 # Your custom requirements go here
