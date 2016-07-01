@@ -4,7 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ##[2016-07-02]
 ## Removed
-- `JS Task Runner`, `Gulp`, `Grunt`, `Webpack`
+- `JS Task Runner`
+- `Gulp`
+- `Grunt`
+- `Webpack`
+- `django-compressor`
 
 ##[2016-06-25]
 ## Changed
