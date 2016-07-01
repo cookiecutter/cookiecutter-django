@@ -85,6 +85,7 @@ Listed in alphabetical order.
   Ian Lee                  `@IanLee1521`_
   Jan Van Bruggen          `@jvanbrug`_
   Jens Nilsson             `@phiberjenz`_
+  Jiun Wei Chia            `@jiunwei`_                   @jiunwei
   Julien Almarcha          `@sladinji`_
   Julio Castillo           `@juliocc`_
   Kaido Kert               `@kaidokert`_
