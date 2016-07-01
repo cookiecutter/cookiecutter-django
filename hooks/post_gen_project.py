@@ -134,58 +134,6 @@ def remove_docker_files():
         PROJECT_DIRECTORY, "compose"
     ))
 
-
-def remove_grunt_files():
-    """
-    Removes files needed for grunt if it isn't going to be used
-    """
-    for filename in ["Gruntfile.js"]:
-        os.remove(os.path.join(
-            PROJECT_DIRECTORY, filename
-        ))
-
-def remove_gulp_files():
-    """
-    Removes files needed for grunt if it isn't going to be used
-    """
-    for filename in ["gulpfile.js"]:
-        os.remove(os.path.join(
-            PROJECT_DIRECTORY, filename
-        ))
-
-def remove_packageJSON_file():
-    """
-    Removes files needed for grunt if it isn't going to be used
-    """
-    for filename in ["package.json"]:
-        os.remove(os.path.join(
-            PROJECT_DIRECTORY, filename
-        ))
-
-
-def add_webpack():
-    """
-    Adds webpack configuration using cookiecutter to install hzdg/cookiecutter-webpack
-    """
-    cookiecutter(
-        'https://github.com/hzdg/cookiecutter-webpack.git',
-        replay=False, overwrite_if_exists=True, output_dir='../',
-        checkout='pydanny-django', no_input=True, extra_context={
-            'project_name': '{{ cookiecutter.project_name }}',
-            'repo_name': '{{ cookiecutter.project_slug }}',
-            'repo_owner': '',
-            'project_dir': '{{ cookiecutter.project_slug }}',
-            'static_root': '{{ cookiecutter.project_slug }}/static/{{ cookiecutter.project_slug }}',
-            'production_output_path': '{{ cookiecutter.project_slug }}/static/{{ cookiecutter.project_slug }}/dist/',
-            'author_name': '{{ cookiecutter.author_name }}',
-            'description': '{{ cookiecutter.description }}',
-            'version': '{{ cookiecutter.version }}',
-            'existing_project': 'y',
-            'css_extension': 'sass',
-            'use_ejs': 'n',
-            'open_source_license': '{{ cookiecutter.open_source_license }}'
-        })
-
 def remove_certbot_files():
     """
     Removes files needed for certbot if it isn't going to be used
@@ -241,35 +189,11 @@ if '{{ cookiecutter.use_heroku }}'.lower() != 'y':
 if '{{ cookiecutter.use_docker }}'.lower() != 'y':
     remove_docker_files()
 
-# 6. Removes all JS task manager files if it isn't going to be used
-if '{{ cookiecutter.js_task_runner}}'.lower() == 'gulp':
-    remove_grunt_files()
-elif '{{ cookiecutter.js_task_runner}}'.lower() == 'grunt':
-    remove_gulp_files()
-elif '{{ cookiecutter.js_task_runner }}'.lower() == 'webpack':
-    remove_gulp_files()
-    remove_grunt_files()
-    remove_packageJSON_file()
-    add_webpack()
-else:
-    remove_gulp_files()
-    remove_grunt_files()
-    remove_packageJSON_file()
-
 # 7. Removes all certbot/letsencrypt files if it isn't going to be used
 if '{{ cookiecutter.use_lets_encrypt }}'.lower() != 'y':
     remove_certbot_files()
 
-# 8. Display a warning if use_docker and use_grunt are selected. Grunt isn't
-#   supported by our docker config atm.
-if '{{ cookiecutter.js_task_runner }}'.lower() in ['grunt', 'gulp'] and '{{ cookiecutter.use_docker }}'.lower() == 'y':
-    print(
-        "You selected to use docker and a JS task runner. This is NOT supported out of the box for now. You "
-        "can continue to use the project like you normally would, but you will need to add a "
-        "js task runner service to your docker configuration manually."
-    )
-
-# 9. Removes the certbot/letsencrypt files and display a warning if use_lets_encrypt is selected and use_docker isn't.
+# 8. Removes the certbot/letsencrypt files and display a warning if use_lets_encrypt is selected and use_docker isn't.
 if '{{ cookiecutter.use_lets_encrypt }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() != 'y':
     remove_certbot_files()
     print(
@@ -277,14 +201,14 @@ if '{{ cookiecutter.use_lets_encrypt }}'.lower() == 'y' and '{{ cookiecutter.use
         "can continue to use the project like you normally would, but Let's Encrypt files have been included."
     )
 
-# 10. Directs the user to the documentation if certbot and docker are selected.
+# 9. Directs the user to the documentation if certbot and docker are selected.
 if '{{ cookiecutter.use_lets_encrypt }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() == 'y':
     print(
         "You selected to use Let's Encrypt, please see the documentation for instructions on how to use this in production. "
         "You must generate a dhparams.pem file before running docker-compose in a production environment."
     )
 
-# 11. Removes files needed for the GPLv3 licence if it isn't going to be used.
+# 10. Removes files needed for the GPLv3 licence if it isn't going to be used.
 if '{{ cookiecutter.open_source_license}}' != 'GPLv3':
     remove_copying_files()
 

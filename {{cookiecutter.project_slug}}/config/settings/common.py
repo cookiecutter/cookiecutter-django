@@ -35,7 +35,6 @@ DJANGO_APPS = (
     'django.contrib.admin',
 )
 THIRD_PARTY_APPS = (
-    'crispy_forms',  # Form layouts
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
@@ -164,9 +163,6 @@ TEMPLATES = [
     },
 ]
 
-# See: http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
-
 # STATIC FILE CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
@@ -234,27 +230,7 @@ BROKER_URL = env('CELERY_BROKER_URL', default='django://')
 ########## END CELERY
 {% endif %}
 
-# django-compressor
-# ------------------------------------------------------------------------------
-{% if cookiecutter.use_compressor == 'y'-%}
-INSTALLED_APPS += ("compressor", )
-STATICFILES_FINDERS += ("compressor.finders.CompressorFinder", )
-{%- endif %}
-
 # Location of root django.contrib.admin URL, use {% raw %}{% url 'admin:index' %}{% endraw %}
 ADMIN_URL = r'^admin/'
-{% if cookiecutter.js_task_runner == 'Webpack' %}
-# WEBPACK
-# ------------------------------------------------------------------------------
-INSTALLED_APPS += ('webpack_loader',)
-# Webpack Local Stats file
-STATS_FILE = ROOT_DIR('webpack-stats.json')
-# Webpack config
-WEBPACK_LOADER = {
-    'DEFAULT': {
-        'STATS_FILE': STATS_FILE
-    }
-}
-{% endif %}
 
 # Your common stuff: Below this line define 3rd party library settings
