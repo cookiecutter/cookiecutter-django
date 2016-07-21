@@ -63,7 +63,4 @@ django_compressor==2.0
 django-webpack-loader==0.3.0
 {%- endif %}
 
-# sqlparse 0.2 is incompatible with django_debug_toolbar
-sqlparse==0.1.19 # pyup: < 0.2
-
 # Your custom requirements go here
