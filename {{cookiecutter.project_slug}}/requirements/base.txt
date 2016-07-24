@@ -60,7 +60,7 @@ django_compressor==2.0
 
 {% if cookiecutter.js_task_runner == 'Webpack' -%}
 # Webpack
-django-webpack-loader==0.3.0
+django-webpack-loader==0.3.3
 {%- endif %}
 
 # Your custom requirements go here
