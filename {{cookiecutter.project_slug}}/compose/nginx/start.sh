@@ -49,8 +49,14 @@ echo replacing ___my.example.com___/$MY_DOMAIN_NAME
 # Put your domain name into the nginx reverse proxy config.
 sed -i "s/___my.example.com___/$MY_DOMAIN_NAME/g" /etc/nginx/nginx-secure.conf
 
+# Add the system's nameserver (the docker network dns) so we can resolve container names in nginx
+NAMESERVER=`cat /etc/resolv.conf | grep "nameserver" | awk '{print $2}' | tr '\n' ' '`
+echo replacing ___NAMESERVER___/$NAMESERVER
+sed -i "s/___NAMESERVER___/$NAMESERVER/g" /etc/nginx/nginx-secure.conf
+
+
 #go!
-kill $(ps aux | grep 'nginx' | awk '{print $2}')
+kill $(ps aux | grep 'nginx' | grep -v 'grep' | awk '{print $2}')
 cp /etc/nginx/nginx-secure.conf /etc/nginx/nginx.conf
 
 nginx -g 'daemon off;'
