@@ -2,6 +2,10 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+##[2016-08-03]
+## Changed
+- Upgrade to Bootstrap 4 Alpha 3 and its dependencies, including jQuery (@audreyr)
+
 ##[2016-06-25]
 ## Changed
 - use `https` instead `ssh` to clone [cookiecutter-webpack](https://github.com/hzdg/cookiecutter-webpack) if `Webpack` is selected as `JS Task Runner` - fix issue #647 (@luzfcb and @resakse)
