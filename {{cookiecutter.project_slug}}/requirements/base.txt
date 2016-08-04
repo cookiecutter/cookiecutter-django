@@ -13,7 +13,7 @@ django==1.9.8
 django-environ==0.4.0
 {% if cookiecutter.use_whitenoise == 'y' -%}
 whitenoise==3.2
-{%- endif %}
+{%- endif -%}
 
 # Forms
 django-braces==1.9.0
