@@ -11,10 +11,9 @@ django==1.9.8
 
 # Configuration
 django-environ==0.4.0
-{% if cookiecutter.use_whitenoise == 'y' -%}
+{%- if cookiecutter.use_whitenoise == 'y' -%}
 whitenoise==3.2
-{%- endif %}
-
+{%- endif -%}
 
 # Forms
 django-braces==1.9.0
@@ -31,7 +30,7 @@ Pillow==3.3.0
 # Well-built with regular release cycles!
 django-allauth==0.26.1
 
-{% if cookiecutter.windows == 'y' -%}
+{%- if cookiecutter.windows == 'y' -%}
 # On Windows, you must download/install psycopg2 manually
 # from http://www.lfd.uci.edu/~gohlke/pythonlibs/#psycopg
 {% else %}
