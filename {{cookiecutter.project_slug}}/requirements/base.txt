@@ -11,7 +11,7 @@ django==1.9.8
 
 # Configuration
 django-environ==0.4.0
-{%- if cookiecutter.use_whitenoise == 'y' -%}
+{% if cookiecutter.use_whitenoise == 'y' -%}
 whitenoise==3.2
 {%- endif %}
 
@@ -49,15 +49,15 @@ pytz==2016.6.1
 django-redis==4.4.4
 redis>=2.10.0
 
-{%- if cookiecutter.use_celery == "y" -%}
+{%- if cookiecutter.use_celery == "y" %}
 celery==3.1.23
 {%- endif %}
 
-{%- if cookiecutter.use_compressor == "y" -%}
+{%- if cookiecutter.use_compressor == "y" %}
 django_compressor==2.0
 {%- endif %}
 
-{%- if cookiecutter.js_task_runner == 'Webpack' -%}
+{%- if cookiecutter.js_task_runner == 'Webpack' %}
 # Webpack
 django-webpack-loader==0.3.3
 {%- endif %}
