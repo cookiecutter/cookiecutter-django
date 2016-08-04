@@ -4,7 +4,7 @@
 # See http://bitly.com/wheel-building-fails-CPython-35
 # Verified bug on Python 3.5.1
 wheel==0.29.0
-{%- endif %}
+{%- endif -%}
 
 # Bleeding edge Django
 django==1.9.8
@@ -14,7 +14,6 @@ django-environ==0.4.0
 {% if cookiecutter.use_whitenoise == 'y' -%}
 whitenoise==3.2
 {%- endif %}
-
 
 # Forms
 django-braces==1.9.0
@@ -34,7 +33,7 @@ django-allauth==0.26.1
 {% if cookiecutter.windows == 'y' -%}
 # On Windows, you must download/install psycopg2 manually
 # from http://www.lfd.uci.edu/~gohlke/pythonlibs/#psycopg
-{% else %}
+{% else -%}
 # Python-PostgreSQL Database Adapter
 psycopg2==2.6.2
 {%- endif %}
@@ -50,15 +49,16 @@ pytz==2016.6.1
 django-redis==4.4.4
 redis>=2.10.0
 
-{% if cookiecutter.use_celery == "y" %}
+{%- if cookiecutter.use_celery == "y" %}
 celery==3.1.23
-{% endif %}
+{%- endif %}
 
-{% if cookiecutter.use_compressor == "y" %}
+{%- if cookiecutter.use_compressor == "y" %}
 django_compressor==2.0
-{% endif %}
+{%- endif %}
 
-{% if cookiecutter.js_task_runner == 'Webpack' -%}
+{%- if cookiecutter.js_task_runner == 'Webpack' %}
+
 # Webpack
 django-webpack-loader==0.3.3
 {%- endif %}
