@@ -41,6 +41,7 @@ Features
 * Instructions for deploying to PythonAnywhere_
 * Works with Python 2.7.x or 3.5.x
 * Run tests with unittest or py.test
+* Customizable PostgreSQL version
 
 
 Optional Integrations
@@ -76,7 +77,7 @@ Constraints
 -----------
 
 * Only maintained 3rd party libraries are used.
-* Uses PostgreSQL everywhere (9.0+)
+* Uses PostgreSQL everywhere (9.2+)
 * Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
 
@@ -125,6 +126,12 @@ Answer the prompts with your own desired options_. For example::
     use_docker [y]: n
     use_heroku [n]: y
     use_compressor [n]: y
+    Select postgresql_version:
+    1 - 9.2
+    2 - 9.3
+    3 - 9.4
+    4 - 9.5
+    Choose from 1, 2, 3, 4 [1]: 1
     Select js_task_runner:
     1 - Gulp
     2 - Grunt
