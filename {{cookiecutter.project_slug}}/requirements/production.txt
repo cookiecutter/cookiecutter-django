@@ -29,7 +29,7 @@ django-anymail==0.4.2
 {% if cookiecutter.use_sentry_for_error_reporting == "y" -%}
 # Raven is the Sentry client
 # --------------------------
-raven==5.24.2
+raven==5.24.3
 {%- endif %}
 
 {% if cookiecutter.use_opbeat == "y" -%}
