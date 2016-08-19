@@ -5,7 +5,7 @@ Developing Locally with Webpack
 
 The steps below will get you up and running with a super speedy local development environment with Webpack, React, Redux and Hot module Replacement.
 
-Before you begin, make sure you've created a python virtual environment, installed local python dependencies and created a postres database::
+Before you begin, make sure you've created a python virtual environment, installed local python dependencies and created a postgres database::
 
     $ virtualenv env
     $ source env/bin/activate
