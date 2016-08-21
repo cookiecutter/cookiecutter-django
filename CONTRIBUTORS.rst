@@ -45,6 +45,7 @@ Listed in alphabetical order.
   Alex Tsai                `@caffodian`_
   Alvaro [Andor]           `@andor-pierdelacabeza`_
   Amjith Ramanujam         `@amjith`_
+  Andreas Meistad          `@ameistad`_
   Andres Gonzalez          `@andresgz`_
   Andrew Mikhnevich        `@zcho`_
   Andy Rose

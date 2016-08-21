@@ -54,9 +54,9 @@ use_pycharm [n]
 windows [n]
     Whether you'll be developing on Windows.
 
-use_python2 [n]
+use_python3 [y]
     By default, the Python code generated will be for Python 3.x. But if you
-    answer `y` here, it will be legacy Python 2.7 code.
+    answer `n` here, it will be legacy Python 2.7 code.
 
 use_docker [y]
     Whether to use Docker_, separating the app and database into separate

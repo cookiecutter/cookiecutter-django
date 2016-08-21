@@ -1,1 +1,1 @@
-{% if cookiecutter.use_python2 == 'n' -%}python-3.5.1{% else %}python-2.7.10{%- endif %}
+{% if cookiecutter.use_python3 == 'y' -%}python-3.5.1{% else %}python-2.7.10{%- endif %}
