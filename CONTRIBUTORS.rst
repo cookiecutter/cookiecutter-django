@@ -134,6 +134,7 @@ Listed in alphabetical order.
 .. _@ad-m: https://github.com/ad-m
 .. _@aeikenberry: https://github.com/aeikenberry
 .. _@alb3rto: https://github.com/alb3rto
+.. _@ameistad: https://github.com/ameistad
 .. _@amjith: https://github.com/amjith
 .. _@andor-pierdelacabeza: https://github.com/andor-pierdelacabeza
 .. _@antoniablair: https://github.com/antoniablair
@@ -190,6 +191,7 @@ Listed in alphabetical order.
 .. _@romanosipenko: https://github.com/romanosipenko
 .. _@shireenrao: https://github.com/shireenrao
 .. _@show0k: https://github.com/show0k
+.. _@shultz: https://github.com/shultz
 .. _@siauPatrick: https://github.com/siauPatrick
 .. _@slafs: https://github.com/slafs
 .. _@stepmr: https://github.com/stepmr
