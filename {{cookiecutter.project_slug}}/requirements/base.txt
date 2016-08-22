@@ -55,7 +55,7 @@ celery==3.1.23
 {% endif %}
 
 {% if cookiecutter.use_compressor == "y" %}
-rcssmin==1.0.6 --install-option="--without-c-extensions"
+rcssmin==1.0.6 {% if cookiecutter.windows %}--install-option="--without-c-extensions"{% endif %}
 django-compressor==2.1
 {% endif %}
 
