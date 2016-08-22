@@ -14,7 +14,7 @@
     "use_opbeat": "n",
     "use_pycharm": "n",
     "windows": "n",
-    "use_python2": "n",
+    "use_python3": "y",
     "use_docker": "y",
     "use_heroku": "n",
     "use_compressor": "n",

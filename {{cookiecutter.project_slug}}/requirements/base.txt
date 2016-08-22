@@ -1,4 +1,4 @@
-{% if cookiecutter.use_python2 == 'n' -%}
+{% if cookiecutter.use_python3 == 'y' -%}
 # Wheel 0.25+ needed to install certain packages on CPython 3.5+
 # like Pillow and psycopg2
 # See http://bitly.com/wheel-building-fails-CPython-35
