@@ -70,6 +70,7 @@ Listed in alphabetical order.
   Cristian Vargas          `@cdvv7788`_
   Cullen Rhodes            `@c-rhodes`_
   Dan Shultz               `@shultz`_
+  Daniel Hepper            `@dhepper`_                   @danielhepper
   Daniele Tricoli          `@eriol`_
   David Díaz               `@ddiazpinto`_                @DavidDiazPinto
   Davur Clementsen         `@dsclementsen`_              @davur
@@ -155,6 +156,7 @@ Listed in alphabetical order.
 .. _@Collederas: https://github.com/Collederas
 .. _@ddiazpinto: https://github.com/ddiazpinto
 .. _@dezoito: https://github.com/dezoito
+.. _@dhepper: https://github.com/dhepper
 .. _@dot2dotseurat: https://github.com/dot2dotseurat
 .. _@dsclementsen: https://github.com/dsclementsen
 .. _@epileptic-fish: https://gihub.com/epileptic-fish
