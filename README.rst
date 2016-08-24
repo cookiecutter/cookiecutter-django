@@ -107,7 +107,7 @@ Answer the prompts with your own desired options_. For example::
     remote: Total 550 (delta 283), reused 479 (delta 222)
     Receiving objects: 100% (550/550), 127.66 KiB | 58 KiB/s, done.
     Resolving deltas: 100% (283/283), done.
-    project_name [project_name]: Reddit Clone
+    project_name [The name of your project]: Reddit Clone
     project_slug [reddit_clone]: reddit
     author_name [Your Name]: Daniel Roy Greenfeld
     email [Your email]: pydanny@gmail.com
