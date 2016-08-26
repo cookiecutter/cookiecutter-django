@@ -110,6 +110,7 @@ Listed in alphabetical order.
   Meghan Heintz            `@dot2dotseurat`_
   mozillazg                `@mozillazg`_
   Pablo                    `@oubiga`_
+  Parbhat Puri             `@parbhat`_
   Raphael Pierzina         `@hackebrot`_
   Raony Guimarães Corrêa   `@raonyguimaraes`_
   Roman Afanaskin          `@siauPatrick`_
@@ -187,6 +188,7 @@ Listed in alphabetical order.
 .. _@noisy: https://github.com/noisy
 .. _@originell: https://github.com/originell
 .. _@oubiga: https://github.com/oubiga
+.. _@parbhat: https://github.com/parbhat
 .. _@raonyguimaraes: https://github.com/raonyguimaraes
 .. _@romanosipenko: https://github.com/romanosipenko
 .. _@shireenrao: https://github.com/shireenrao
