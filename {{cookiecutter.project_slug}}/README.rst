@@ -153,6 +153,8 @@ You must set the DSN url in production.
 Deployment
 ----------
 
+The following details how to deploy this application.
+
 {% if cookiecutter.use_heroku == "y" %}
 
 Heroku
