@@ -171,7 +171,7 @@ def add_webpack():
         'https://github.com/hzdg/cookiecutter-webpack.git',
         replay=False, overwrite_if_exists=True, output_dir='../',
         checkout='pydanny-django', no_input=True, extra_context={
-            'project_name': '{{ cookiecutter.project_name }}',
+            'project_name': '{{ cookiecutter.project_slug }}',
             'repo_name': '{{ cookiecutter.project_slug }}',
             'repo_owner': '',
             'project_dir': '{{ cookiecutter.project_slug }}',
