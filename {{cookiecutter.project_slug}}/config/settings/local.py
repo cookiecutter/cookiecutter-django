@@ -76,3 +76,4 @@ CELERY_ALWAYS_EAGER = True
 ########## END CELERY
 {% endif %}
 # Your local stuff: Below this line define 3rd party library settings
+# ------------------------------------------------------------------------------
