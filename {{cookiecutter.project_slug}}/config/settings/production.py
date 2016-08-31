@@ -2,10 +2,9 @@
 """
 Production Configurations
 
-- Use djangosecure
 - Use Amazon's S3 for storing static files and uploaded media
 - Use mailgun to send emails
-- Use Redis on Heroku
+- Use Redis for cache
 {% if cookiecutter.use_sentry_for_error_reporting == 'y' %}
 - Use sentry for error logging
 {% endif %}
