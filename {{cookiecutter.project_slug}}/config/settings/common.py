@@ -238,9 +238,9 @@ else:
 ########## END CELERY
 {% endif %}
 
+{%- if cookiecutter.use_compressor == 'y'-%}
 # django-compressor
 # ------------------------------------------------------------------------------
-{% if cookiecutter.use_compressor == 'y'-%}
 INSTALLED_APPS += ("compressor", )
 STATICFILES_FINDERS += ("compressor.finders.CompressorFinder", )
 {%- endif %}
