@@ -262,3 +262,4 @@ WEBPACK_LOADER = {
 {% endif %}
 
 # Your common stuff: Below this line define 3rd party library settings
+# ------------------------------------------------------------------------------
