@@ -2,7 +2,7 @@ Contributors
 ============
 
 Core Developers
-----------------
+---------------
 
 These contributors have commit flags for the repository,
 and are able to accept and merge pull requests.
@@ -28,7 +28,7 @@ Daniel are on the Cookiecutter core team.*
 .. _@jayfk: https://github.com/jayfk
 
 Other Contributors
--------------------
+------------------
 
 Listed in alphabetical order.
 
@@ -111,6 +111,7 @@ Listed in alphabetical order.
   mozillazg                `@mozillazg`_
   Pablo                    `@oubiga`_
   Parbhat Puri             `@parbhat`_
+  Peter Bittner            `@bittner`_
   Raphael Pierzina         `@hackebrot`_
   Raony Guimarães Corrêa   `@raonyguimaraes`_
   Roman Afanaskin          `@siauPatrick`_
@@ -141,6 +142,7 @@ Listed in alphabetical order.
 .. _@antoniablair: https://github.com/antoniablair
 .. _@areski: https://github.com/areski
 .. _@arruda: https://github.com/arruda
+.. _@bittner: https://github.com/bittner
 .. _@bloodpet: https://github.com/bloodpet
 .. _@blopker: https://github.com/blopker
 .. _@bogdal: https://github.com/bogdal
