@@ -1,18 +1,18 @@
 {{cookiecutter.project_name}}
-==============================
+{{ '=' * cookiecutter.project_name|length }}
 
 {{cookiecutter.description}}
 
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
      :target: https://github.com/pydanny/cookiecutter-django/
      :alt: Built with Cookiecutter Django
-
 {% if cookiecutter.open_source_license != "Not open source" %}
-LICENSE: {{cookiecutter.open_source_license}}
+
+:License: {{cookiecutter.open_source_license}}
 {% endif %}
 
 Settings
-------------
+--------
 
 Moved to settings_.
 
@@ -42,7 +42,7 @@ To run the tests, check your test coverage, and generate an HTML coverage report
     $ open htmlcov/index.html
 
 Running tests with py.test
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -56,7 +56,6 @@ Running javascript tests with karma
 
   $ npm test
 
-
 Hot reloading with React and Webpack
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -68,15 +67,12 @@ Start the development server::
 
   $ npm start
 
-
 A more detailed explanation for `Developing locally with webpack`_
-
 
 The `static project readme`_ contains a lot of information about React / Redux and Webpack for this project.
 
 .. _`static project readme`: {{ cookiecutter.project_slug }}/static/{{ cookiecutter.project_slug }}/README.md
 .. _`Developing locally with webpack`: http://cookiecutter-django.readthedocs.io/en/latest/developing-locally-webpack.html
-
 
 {% else %}
 
@@ -105,7 +101,6 @@ To run a celery worker:
 Please note: For Celery's import magic to work, it is important *where* the celery commands are run. If you are in the same folder with *manage.py*, you should be right.
 
 {% endif %}
-
 {% if cookiecutter.use_mailhog == "y" %}
 
 Email Server
@@ -136,7 +131,6 @@ To view messages that are sent by your application, open your browser and go to 
 The email server will exit when you exit the Grunt task on the CLI with Ctrl+C.
 {% endif %}
 {% endif %}
-
 {% if cookiecutter.use_sentry_for_error_reporting == "y" %}
 
 Sentry
@@ -146,15 +140,12 @@ Sentry is an error logging aggregator service. You can sign up for a free accoun
 The system is setup with reasonable defaults, including 404 logging and integration with the WSGI application.
 
 You must set the DSN url in production.
-
 {% endif %}
-
 
 Deployment
 ----------
 
 The following details how to deploy this application.
-
 {% if cookiecutter.use_heroku == "y" %}
 
 Heroku
@@ -166,9 +157,7 @@ Heroku
 See detailed `cookiecutter-django Heroku documentation`_.
 
 .. _`cookiecutter-django Heroku documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-on-heroku.html
-
 {% endif %}
-
 {% if cookiecutter.use_docker == "y" %}
 
 Docker
@@ -177,5 +166,4 @@ Docker
 See detailed `cookiecutter-django Docker documentation`_.
 
 .. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html
-
 {% endif %}
