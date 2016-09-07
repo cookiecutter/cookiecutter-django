@@ -41,19 +41,3 @@ The config for pep8 is located in setup.cfg. It specifies:
 
 * Set max line length to 120 chars
 * Exclude .tox,.git,*/migrations/*,*/static/CACHE/*,docs,node_modules
-
-
-eslint
-------
-
-If you are using webpack, an ``.eslint`` file will be generated in your project base.
-
-Running the karma tests will also run the linter.
-
-    $ npm test
-
-You can manually run the eslint from your project root too:
-
-    $ eslint <javascript files that you wish to lint>
-
-Using the flag ``--fix`` will atomatically fix any errors.
