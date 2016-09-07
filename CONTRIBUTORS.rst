@@ -120,6 +120,7 @@ Listed in alphabetical order.
   stepmr                   `@stepmr`_
   Sławek Ehlert            `@slafs`_
   Srinivas Nyayapati       `@shireenrao`_
+  Steve Steiner            `@ssteinerX`_
   Sule Marshall            `@suledev`_
   Taylor Baldwin
   Théo Segonds             `@show0k`_
@@ -128,6 +129,7 @@ Listed in alphabetical order.
   Travis McNeill           `@Travistock`_               @tavistock_esq
   Vitaly Babiy
   Vivian Guillen           `@viviangb`_
+  Will Farley              `@goldhand`_                 @g01dhand
   Yaroslav Halchenko
 ========================== ============================ ==============
 
@@ -165,6 +167,7 @@ Listed in alphabetical order.
 .. _@eyadsibai: https://github.com/eyadsibai
 .. _@garry-cairns: https://github.com/garry-cairns
 .. _@garrypolley: https://github.com/garrypolley
+.. _@goldhand: https://github.com/goldhand
 .. _@hackebrot: https://github.com/hackebrot
 .. _@hairychris: https://github.com/hairychris
 .. _@hjwp: https://github.com/hjwp
@@ -196,6 +199,7 @@ Listed in alphabetical order.
 .. _@shultz: https://github.com/shultz
 .. _@siauPatrick: https://github.com/siauPatrick
 .. _@slafs: https://github.com/slafs
+.. _@ssteinerX: https://github.com/ssteinerx
 .. _@stepmr: https://github.com/stepmr
 .. _@suledev: https://github.com/suledev
 .. _@Travistock: https://github.com/Tavistock
