@@ -247,19 +247,6 @@ STATICFILES_FINDERS += ("compressor.finders.CompressorFinder", )
 
 # Location of root django.contrib.admin URL, use {% raw %}{% url 'admin:index' %}{% endraw %}
 ADMIN_URL = r'^admin/'
-{% if cookiecutter.js_task_runner == 'Webpack' %}
-# WEBPACK
-# ------------------------------------------------------------------------------
-INSTALLED_APPS += ('webpack_loader',)
-# Webpack Local Stats file
-STATS_FILE = ROOT_DIR('webpack-stats.json')
-# Webpack config
-WEBPACK_LOADER = {
-    'DEFAULT': {
-        'STATS_FILE': STATS_FILE
-    }
-}
-{% endif %}
 
 # Your common stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
