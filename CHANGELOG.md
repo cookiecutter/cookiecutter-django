@@ -2,6 +2,10 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+##[2016-09-08]
+### Removed
+- Webpack support (see #774)
+
 ##[2016-08-10]
 ## Added
 - PostgreSQL versions are now selectable, instead of defaulting to 9.5; the minimum version is 9.2, which is supported by [Heroku](https://devcenter.heroku.com/articles/heroku-postgresql#version-support-and-legacy-infrastructure) and Django (@burhan)
