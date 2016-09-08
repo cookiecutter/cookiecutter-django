@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ##[2016-09-08]
 ### Removed
-- Webpack support (see #774)
+- Webpack support, see #774 (@ssteinerx)
 
 ##[2016-08-10]
 ## Added
