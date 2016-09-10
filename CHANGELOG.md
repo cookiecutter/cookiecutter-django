@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Use app registry instead of INSTALLED_APPS to discover celery tasks (@dhepper)
 - PEP8 imports fix (@aleprovencio)
+
 ### Removed
 - Removed django-floppyforms (@pydanny)
 
