@@ -2,6 +2,13 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+##[2016-09-10]
+### Changed
+- Use app registry instead of INSTALLED_APPS to discover celery tasks (@dhepper)
+- PEP8 imports fix (@aleprovencio)
+### Removed
+- Removed django-floppyforms (@pydanny)
+
 ##[2016-09-08]
 ### Removed
 - Webpack support, see #774 (@ssteinerx)
