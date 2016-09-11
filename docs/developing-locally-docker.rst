@@ -13,35 +13,12 @@ You'll need at least Docker 1.10.
 
 If you don't already have it installed, follow the instructions for your OS:
 
- - On Mac OS X/Windows, you'll need `Docker Toolbox`_
+ - On Mac OS X, you'll need `Docker for Mac`_
+ - On Windows, you'll need `Docker for Windows`_
  - On Linux, you'll need `docker-engine`_
-.. _`Docker Toolbox`: https://github.com/docker/toolbox/releases
+.. _`Docker for Mac`: https://docs.docker.com/engine/installation/mac/
+.. _`Docker for Windows`: https://docs.docker.com/engine/installation/windows/
 .. _`docker-engine`: https://docs.docker.com/engine/installation/
-
-Create the Machine (Optional)
------------------------------
-
-On Linux you have native Docker, so you don't need to create a VM with
-docker-machine to use it.
-
-However, on Mac/Windows/other systems without native Docker, you'll want to
-start by creating a VM with docker-machine::
-
-    $ docker-machine create --driver virtualbox dev1
-
-**Note:** If you want to have more than one docker development environment, then
-name them accordingly. Instead of 'dev1' you might have 'dev2', 'myproject',
-'djangopackages', et al.
-
-Get the IP Address
-------------------
-
-Once your machine is up and running, run this::
-
-    $ docker-machine ip dev1
-    123.456.789.012
-
-This is also the IP address where the Django project will be served from.
 
 Build the Stack
 ---------------
