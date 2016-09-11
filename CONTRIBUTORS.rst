@@ -121,6 +121,7 @@ Listed in alphabetical order.
   stepmr                   `@stepmr`_
   Sławek Ehlert            `@slafs`_
   Srinivas Nyayapati       `@shireenrao`_
+  Steve Steiner            `@ssteinerX`_
   Sule Marshall            `@suledev`_
   Taylor Baldwin
   Théo Segonds             `@show0k`_
@@ -200,6 +201,7 @@ Listed in alphabetical order.
 .. _@shultz: https://github.com/shultz
 .. _@siauPatrick: https://github.com/siauPatrick
 .. _@slafs: https://github.com/slafs
+.. _@ssteinerX: https://github.com/ssteinerx
 .. _@stepmr: https://github.com/stepmr
 .. _@suledev: https://github.com/suledev
 .. _@Travistock: https://github.com/Tavistock

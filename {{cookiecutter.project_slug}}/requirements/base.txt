@@ -58,9 +58,4 @@ rcssmin==1.0.6 {% if cookiecutter.windows == 'y' %}--install-option="--without-c
 django-compressor==2.1
 {% endif %}
 
-{% if cookiecutter.js_task_runner == 'Webpack' -%}
-# Webpack
-django-webpack-loader==0.3.3
-{%- endif %}
-
 # Your custom requirements go here

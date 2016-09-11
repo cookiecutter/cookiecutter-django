@@ -16,7 +16,6 @@ from __future__ import print_function
 import os
 import random
 import shutil
-from cookiecutter.main import cookiecutter
 
 # Get the root project directory
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
@@ -162,30 +161,6 @@ def remove_packageJSON_file():
             PROJECT_DIRECTORY, filename
         ))
 
-
-def add_webpack():
-    """
-    Adds webpack configuration using cookiecutter to install hzdg/cookiecutter-webpack
-    """
-    cookiecutter(
-        'https://github.com/hzdg/cookiecutter-webpack.git',
-        replay=False, overwrite_if_exists=True, output_dir='../',
-        checkout='pydanny-django', no_input=True, extra_context={
-            'project_name': '{{ cookiecutter.project_name }}',
-            'repo_name': '{{ cookiecutter.project_slug }}',
-            'repo_owner': '',
-            'project_dir': '{{ cookiecutter.project_slug }}',
-            'static_root': '{{ cookiecutter.project_slug }}/static/{{ cookiecutter.project_slug }}',
-            'production_output_path': '{{ cookiecutter.project_slug }}/static/{{ cookiecutter.project_slug }}/dist/',
-            'author_name': '{{ cookiecutter.author_name | escape }}',
-            'description': '{{ cookiecutter.description | escape }}',
-            'version': '{{ cookiecutter.version }}',
-            'existing_project': 'y',
-            'css_extension': 'sass',
-            'use_ejs': 'n',
-            'open_source_license': '{{ cookiecutter.open_source_license }}'
-        })
-
 def remove_certbot_files():
     """
     Removes files needed for certbot if it isn't going to be used
@@ -246,11 +221,6 @@ if '{{ cookiecutter.js_task_runner}}'.lower() == 'gulp':
     remove_grunt_files()
 elif '{{ cookiecutter.js_task_runner}}'.lower() == 'grunt':
     remove_gulp_files()
-elif '{{ cookiecutter.js_task_runner }}'.lower() == 'webpack':
-    remove_gulp_files()
-    remove_grunt_files()
-    remove_packageJSON_file()
-    add_webpack()
 else:
     remove_gulp_files()
     remove_grunt_files()

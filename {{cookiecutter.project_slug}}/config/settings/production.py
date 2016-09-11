@@ -302,20 +302,6 @@ LOGGING = {
 {% endif %}
 # Custom Admin URL, use {% raw %}{% url 'admin:index' %}{% endraw %}
 ADMIN_URL = env('DJANGO_ADMIN_URL')
-{% if cookiecutter.js_task_runner == 'Webpack' %}
-
-# WEBPACK
-# ------------------------------------------------------------------------------
-# Webpack Production Stats file
-STATS_FILE = ROOT_DIR('webpack-stats-production.json')
-# Webpack config
-WEBPACK_LOADER = {
-    'DEFAULT': {
-        'BUNDLE_DIR_NAME': '{{ cookiecutter.project_slug }}/static/{{ cookiecutter.project_slug }}/dist/',
-        'STATS_FILE': STATS_FILE
-    }
-}
-{% endif %}
 
 # Your production stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------

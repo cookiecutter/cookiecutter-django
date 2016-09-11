@@ -15,7 +15,6 @@ Contents:
    project-generation-options
    developing-locally
    developing-locally-docker
-   developing-locally-webpack
    settings
    linters
    live-reloading-and-sass-compilation
