@@ -1,4 +1,4 @@
-{% if cookiecutter.use_python2 == 'n' -%}
+{% if cookiecutter.use_python3 == 'y' -%}
 FROM python:3.5
 {% else %}
 FROM python:2.7
