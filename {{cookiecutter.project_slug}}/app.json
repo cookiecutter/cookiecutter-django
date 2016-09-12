@@ -27,7 +27,12 @@
     "postdeploy": "python manage.py migrate"
   },
   "addons": [
-    "heroku-postgresql:hobby-dev",
+    {
+      "plan": "heroku-postgresql:hobby-dev",
+      "options": {
+         "version": "{{ cookiecutter.postgresql_version }}"
+      }
+    },
     "heroku-redis:hobby-dev",
     "mailgun"
   ]

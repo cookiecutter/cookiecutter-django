@@ -2,6 +2,44 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+##[2016-09-10]
+### Changed
+- Use app registry instead of INSTALLED_APPS to discover celery tasks (@dhepper)
+- PEP8 imports fix (@aleprovencio)
+
+### Removed
+- Removed django-floppyforms (@pydanny)
+
+##[2016-09-08]
+### Removed
+- Webpack support, see #774 (@ssteinerx)
+
+##[2016-08-10]
+## Added
+- PostgreSQL versions are now selectable, instead of defaulting to 9.5; the minimum version is 9.2, which is supported by [Heroku](https://devcenter.heroku.com/articles/heroku-postgresql#version-support-and-legacy-infrastructure) and Django (@burhan)
+- Fixed minor issue in the README.rst (@burhan)
+
+##[2016-08-03]
+## Changed
+- Upgrade to Bootstrap 4 Alpha 3 and its dependencies, including jQuery (@audreyr)
+
+##[2016-06-25]
+## Changed
+- use `https` instead `ssh` to clone [cookiecutter-webpack](https://github.com/hzdg/cookiecutter-webpack) if `Webpack` is selected as `JS Task Runner` - fix issue #647 (@luzfcb and @resakse)
+
+##[2016-06-24]
+## Added
+- Settings file for running tests faster (@audreyr)
+- Add GPLv3 licence support (@cgaspoz)
+
+## Changed
+- Makes the database backups compressed. restores compressed backups (@jangeador)
+- Review and edit django-allauth templates (@kappataumu)
+
+##[2016-06-19]
+## Added
+- Webpack as an option (@goldhand)
+
 ##[2016-06-17]
 ## Added
 - django-compressor support (@andresgz)

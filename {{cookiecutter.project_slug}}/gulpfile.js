@@ -16,9 +16,10 @@ var gulp = require('gulp'),
       pixrem = require('gulp-pixrem'),
       uglify = require('gulp-uglify'),
       imagemin = require('gulp-imagemin'),
-      exec = require('gulp-exec'),
+      exec = require('child_process').exec,
       runSequence = require('run-sequence'),
-      browserSync = require('browser-sync');
+      browserSync = require('browser-sync').create(),
+      reload = browserSync.reload;
 
 
 // Relative paths function
@@ -100,8 +101,8 @@ gulp.task('default', function() {
 gulp.task('watch', ['default'], function() {
 
   gulp.watch(paths.sass + '/*.scss', ['styles']);
-  gulp.watch(paths.js + '/*.js', ['scripts']);
+  gulp.watch(paths.js + '/*.js', ['scripts']).on("change", reload);
   gulp.watch(paths.images + '/*', ['imgCompression']);
-  gulp.watch('templates/*.html');
+  gulp.watch(paths.templates + '/**/*.html').on("change", reload);
 
 });

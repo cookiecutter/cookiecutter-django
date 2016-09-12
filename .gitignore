@@ -25,6 +25,7 @@ sftp-config.json
 *.pyc
 .idea
 _build
+*.egg-info/
 
 # Project Specific Stuff
 local_settings.py
