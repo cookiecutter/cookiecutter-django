@@ -184,6 +184,15 @@ def remove_gitlab_ci_files():
         file_name = os.path.join(django_dir_location, filename)
         remove_file(file_name)
 
+def remove_copying_files():
+    """
+    Removes files needed for the GPLv3 licence if it isn't going to be used
+    """
+    for filename in ["COPYING"]:
+        os.remove(os.path.join(
+            PROJECT_DIRECTORY, filename
+        ))
+
 # IN PROGRESS
 # def copy_doc_files(project_directory):
 #     cookiecutters_dir = DEFAULT_CONFIG['cookiecutters_dir']
@@ -277,5 +286,9 @@ if '{{ cookiecutter.use_gitlab_ci }}'.lower() != 'no' and '{{ cookiecutter.use_d
         "You selected to use GitLab CI.  Please see the documentation for instructions on how to set up the GitLab CI environment"
     )
 
-# 14. Copy files from /docs/ to {{ cookiecutter.project_slug }}/docs/
+# 14. Removes files needed for the GPLv3 licence if it isn't going to be used.
+if '{{ cookiecutter.open_source_license}}' != 'GPLv3':
+    remove_copying_files()
+
+# 15. Copy files from /docs/ to {{ cookiecutter.project_slug }}/docs/
 # copy_doc_files(PROJECT_DIRECTORY)

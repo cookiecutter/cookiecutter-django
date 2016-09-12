@@ -3,7 +3,7 @@
 build-essential
 #required to translate
 gettext
-{% if cookiecutter.use_python2 == 'n' -%}
+{% if cookiecutter.use_python3 == 'y' -%}
 python3-dev
 {% else %}
 python-dev

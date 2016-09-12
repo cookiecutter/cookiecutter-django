@@ -8,7 +8,7 @@ before_install:
   - sudo apt-get install -qq libsqlite3-dev libxml2 libxml2-dev libssl-dev libbz2-dev wget curl llvm
 language: python
 python:
-{% if cookiecutter.use_python2 == 'n' -%}
+{% if cookiecutter.use_python3 == 'y' -%}
   - "3.5"
 {% else %}
   - "2.7"
