@@ -1,9 +1,9 @@
-##basic build dependencies of various Django apps for Ubuntu 14.04
+##basic build dependencies of various Django apps for Ubuntu Xenial 16.04
 #build-essential metapackage install: make, gcc, g++,
 build-essential
 #required to translate
 gettext
-{% if cookiecutter.use_python2 == 'n' -%}
+{% if cookiecutter.use_python3 == 'y' -%}
 python3-dev
 {% else %}
 python-dev
@@ -17,11 +17,12 @@ zlib1g-dev
 libpq-dev
 
 ##Pillow dependencies
-libtiff4-dev
+libtiff5-dev
 libjpeg8-dev
 libfreetype6-dev
-liblcms1-dev
+liblcms2-dev
 libwebp-dev
 
 ##django-extensions
 graphviz-dev
+

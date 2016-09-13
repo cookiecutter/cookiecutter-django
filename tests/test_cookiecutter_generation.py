@@ -22,8 +22,6 @@ def context():
         'domain_name': 'example.com',
         'version': '0.1.0',
         'timezone': 'UTC',
-        'now': '2015/01/13',
-        'year': '2015'
     }
 
 

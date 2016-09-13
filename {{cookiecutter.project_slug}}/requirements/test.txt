@@ -4,13 +4,12 @@
 {% if cookiecutter.windows == 'y' -%}
 # Python-PostgreSQL Database Adapter
 # If using Win for dev, this assumes Unix in test/prod
-psycopg2==2.6.1
+psycopg2==2.6.2
 {%- endif %}
 
-coverage==4.0.3
-django_coverage_plugin==1.3
-flake8==2.5.4
-django-test-plus==1.0.12
+coverage==4.2
+flake8==3.0.4 # pyup: != 2.6.0
+django-test-plus==1.0.15
 factory_boy==2.7.0
 
 # pytest

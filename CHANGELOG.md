@@ -2,6 +2,93 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+##[2016-09-10]
+### Changed
+- Use app registry instead of INSTALLED_APPS to discover celery tasks (@dhepper)
+- PEP8 imports fix (@aleprovencio)
+
+### Removed
+- Removed django-floppyforms (@pydanny)
+
+##[2016-09-08]
+### Removed
+- Webpack support, see #774 (@ssteinerx)
+
+##[2016-08-10]
+## Added
+- PostgreSQL versions are now selectable, instead of defaulting to 9.5; the minimum version is 9.2, which is supported by [Heroku](https://devcenter.heroku.com/articles/heroku-postgresql#version-support-and-legacy-infrastructure) and Django (@burhan)
+- Fixed minor issue in the README.rst (@burhan)
+
+##[2016-08-03]
+## Changed
+- Upgrade to Bootstrap 4 Alpha 3 and its dependencies, including jQuery (@audreyr)
+
+##[2016-06-25]
+## Changed
+- use `https` instead `ssh` to clone [cookiecutter-webpack](https://github.com/hzdg/cookiecutter-webpack) if `Webpack` is selected as `JS Task Runner` - fix issue #647 (@luzfcb and @resakse)
+
+##[2016-06-24]
+## Added
+- Settings file for running tests faster (@audreyr)
+- Add GPLv3 licence support (@cgaspoz)
+
+## Changed
+- Makes the database backups compressed. restores compressed backups (@jangeador)
+- Review and edit django-allauth templates (@kappataumu)
+
+##[2016-06-19]
+## Added
+- Webpack as an option (@goldhand)
+
+##[2016-06-17]
+## Added
+- django-compressor support (@andresgz)
+- Debian Jessie OS Requirements (@ddiazpinto)
+
+##[2016-06-14]
+### Changed
+- Move Docker backups to their own section (@pydanny)
+
+##[2016-06-13]
+### Changed
+- Use latest redis image in Docker (@pydanny)
+- Documentation cleanup and corrections (@audreyr)
+
+##[2016-06-12]
+### Changed
+- Documentation cleanup and corrections (@kappataumu)
+
+##[2016-06-11]
+### Changed
+- Enhancements to the developing locally docs (@antoniablair)
+
+##[2016-06-06]
+### Changed
+- Pin Bootstrap CSS and JS to v4.0.0-alpha.2, use minified versions
+
+##[2016-06-05]
+### Added
+- Configurable admin for users (@pydanny, @jayfk, @dezoito)
+
+##[2016-06-04]
+### Added
+- Let's Encrypt automation and instruction (@mjsisley and @chrisdev)
+
+##[2016-06-03]
+### Added
+- Documentation for debugging with Docker (@mjsisley)
+- Apache 2 License option in `cookiecutter.json` (@dot2dotseurat)
+- Removed unnecessary version check from `pre_gen_project.py` (@suledev)
+- Add gulp alternative as a js task runner and fix navbar style issue (@viviangb and @xpostudio4)
+
+### Deleted
+- AngularJS (@pydanny)
+- django-secure (@xpostudio4)
+
+##[2016-06-02]
+### Added
+- Added better instructions for installing postgres on Mac OS X (@dot2dotseurat )
+
 ##[2016-05-22]
 ### Added
 - Added instructions for copying backups from docker to host (@phiberjenz)

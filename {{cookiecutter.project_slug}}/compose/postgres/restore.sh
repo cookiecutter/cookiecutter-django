@@ -53,4 +53,4 @@ createdb -h postgres -U $POSTGRES_USER $POSTGRES_USER -O $POSTGRES_USER
 
 # restore the database
 echo "restoring database $POSTGRES_USER"
-psql -h postgres -U $POSTGRES_USER < $BACKUPFILE
+gunzip -c $BACKUPFILE | psql -h postgres -U $POSTGRES_USER

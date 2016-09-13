@@ -1,4 +1,4 @@
-{% if cookiecutter.use_python2 == 'n' -%}
+{% if cookiecutter.use_python3 == 'y' -%}
 # Wheel 0.25+ needed to install certain packages on CPython 3.5+
 # like Pillow and psycopg2
 # See http://bitly.com/wheel-building-fails-CPython-35
@@ -7,52 +7,55 @@ wheel==0.29.0
 {%- endif %}
 
 # Bleeding edge Django
-django==1.9.6
+django==1.9.9
 
 # Configuration
 django-environ==0.4.0
-django-secure==1.0.1
 {% if cookiecutter.use_whitenoise == 'y' -%}
-whitenoise==3.0
+whitenoise==3.2.1
 {%- endif %}
 
 
 # Forms
-django-braces==1.8.1
+django-braces==1.9.0
 django-crispy-forms==1.6.0
-django-floppyforms==1.6.2
 
 # Models
-django-model-utils==2.5
+django-model-utils==2.5.2
 
 # Images
-Pillow==3.2.0
+Pillow==3.3.1
 
 # For user registration, either via email or social
 # Well-built with regular release cycles!
-django-allauth==0.25.2
+django-allauth==0.27.0
 
 {% if cookiecutter.windows == 'y' -%}
 # On Windows, you must download/install psycopg2 manually
 # from http://www.lfd.uci.edu/~gohlke/pythonlibs/#psycopg
 {% else %}
 # Python-PostgreSQL Database Adapter
-psycopg2==2.6.1
+psycopg2==2.6.2
 {%- endif %}
 
 # Unicode slugification
-unicode-slugify==0.1.3
+awesome-slugify==1.6.5
 django-autoslug==1.9.3
 
 # Time zones support
-pytz==2016.4
+pytz==2016.6.1
 
 # Redis support
-django-redis==4.4.2
+django-redis==4.4.4
 redis>=2.10.0
 
 {% if cookiecutter.use_celery == "y" %}
 celery==3.1.23
+{% endif %}
+
+{% if cookiecutter.use_compressor == "y" %}
+rcssmin==1.0.6 {% if cookiecutter.windows == 'y' %}--install-option="--without-c-extensions"{% endif %}
+django-compressor==2.1
 {% endif %}
 
 # Your custom requirements go here
