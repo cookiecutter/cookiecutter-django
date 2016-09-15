@@ -6,14 +6,14 @@ from ..admin import MyUserCreationForm
 class TestMyUserCreationForm(TestCase):
 
     def setUp(self):
-        self.user = self.make_user()
+        self.user = self.make_user('notalamode', 'notalamodespassword')
 
     def test_clean_username_success(self):
         # Instantiate the form with a new username
         form = MyUserCreationForm({
             'username': 'alamode',
-            'password1': '123456',
-            'password2': '123456',
+            'password1': '7jefB#f@Cc7YJB]2v',
+            'password2': '7jefB#f@Cc7YJB]2v',
         })
         # Run is_valid() to trigger the validation
         valid = form.is_valid()
@@ -27,8 +27,8 @@ class TestMyUserCreationForm(TestCase):
         # Instantiate the form with the same username as self.user
         form = MyUserCreationForm({
             'username': self.user.username,
-            'password1': '123456',
-            'password2': '123456',
+            'password1': 'notalamodespassword',
+            'password2': 'notalamodespassword',
         })
         # Run is_valid() to trigger the validation, which is going to fail
         # because the username is already taken
