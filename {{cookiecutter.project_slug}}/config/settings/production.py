@@ -42,11 +42,11 @@ INSTALLED_APPS += ('raven.contrib.django.raven_compat', )
 # Use Whitenoise to serve static files
 # See: https://whitenoise.readthedocs.io/
 WHITENOISE_MIDDLEWARE = ('whitenoise.middleware.WhiteNoiseMiddleware', )
-MIDDLEWARE_CLASSES = WHITENOISE_MIDDLEWARE + MIDDLEWARE_CLASSES
+MIDDLEWARE = WHITENOISE_MIDDLEWARE + MIDDLEWARE
 {% endif %}
 {%- if cookiecutter.use_sentry_for_error_reporting == 'y' -%}
 RAVEN_MIDDLEWARE = ('raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware', )
-MIDDLEWARE_CLASSES = RAVEN_MIDDLEWARE + MIDDLEWARE_CLASSES
+MIDDLEWARE = RAVEN_MIDDLEWARE + MIDDLEWARE
 {% endif %}
 {%- if cookiecutter.use_opbeat == 'y' -%}
 # opbeat integration
@@ -57,9 +57,9 @@ OPBEAT = {
     'APP_ID': env('DJANGO_OPBEAT_APP_ID'),
     'SECRET_TOKEN': env('DJANGO_OPBEAT_SECRET_TOKEN')
 }
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
-) + MIDDLEWARE_CLASSES
+) + MIDDLEWARE
 {% endif %}
 
 # SECURITY CONFIGURATION
