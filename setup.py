@@ -10,7 +10,7 @@ except ImportError:
 
 # Our version ALWAYS matches the version of Django we support
 # If Django has a new release, we branch, tag, then update this setting after the tag.
-version = '1.9.9-03'
+version = '1.9.9-04'
 
 if sys.argv[-1] == 'tag':
     os.system('git tag -a %s -m "version %s"' % (version, version))
