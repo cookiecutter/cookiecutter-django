@@ -69,6 +69,7 @@ Add these exports
     export DJANGO_ADMIN_URL='<not admin/>'
     export DJANGO_MAILGUN_API_KEY='<mailgun key>'
     export DJANGO_MAILGUN_SERVER_NAME='<mailgun server name>'
+    export MAILGUN_SENDER_DOMAIN='<mailgun sender domain (e.g. mg.yourdomain.com)>'
     export DJANGO_AWS_ACCESS_KEY_ID=
     export DJANGO_AWS_SECRET_ACCESS_KEY=
     export DJANGO_AWS_STORAGE_BUCKET_NAME=
@@ -84,7 +85,7 @@ Go to the PythonAnywhere **Databases tab** and configure your database.
 
 * For Postgres, setup your superuser password, then open a Postgres console and run a `CREATE DATABASE my-db-name`.  You should probably also set up a specific role and permissions for your app, rather than using the superuser credentials.  Make a note of the address and port of your postgres server.
 
-* For MySQL, set the password and create a database. More info here: https://help.pythonanywhere.com/pages/UsingMySQL 
+* For MySQL, set the password and create a database. More info here: https://help.pythonanywhere.com/pages/UsingMySQL
 
 * You can also use sqlite if you like!  Not recommended for anything beyond toy projects though.
 

@@ -27,9 +27,10 @@ You can either push the 'deploy' button in your generated README.rst or run thes
 
     heroku config:set DJANGO_MAILGUN_SERVER_NAME=YOUR_MALGUN_SERVER
     heroku config:set DJANGO_MAILGUN_API_KEY=YOUR_MAILGUN_API_KEY
+    heroku config:set MAILGUN_SENDER_DOMAIN=YOUR_MAILGUN_SENDER_DOMAIN
 
     heroku config:set PYTHONHASHSEED=random
-    heroku config:set DJANGO_ADMIN_URL=\^somelocation/ 
+    heroku config:set DJANGO_ADMIN_URL=\^somelocation/
 
     git push heroku master
     heroku run python manage.py migrate

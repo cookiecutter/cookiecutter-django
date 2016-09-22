@@ -2,6 +2,10 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+##[2016-09-22]
+### Added
+- New setting MAILGUN_SENDER_DOMAIN to allow sending mail from any domain other than those registered with mailgun (@jangeador)
+
 ##[2016-09-10]
 ### Changed
 - Use app registry instead of INSTALLED_APPS to discover celery tasks (@dhepper)
