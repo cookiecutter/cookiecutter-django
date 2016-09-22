@@ -92,6 +92,9 @@ open_source_license [1]
 **NOTE:** *If you choose to use Docker, selecting a JavaScript task runner is
 not supported out of the box.*
 
+use_gitlab_ci ["No"]
+   Whether to use GitLab CI for testing and continuous deployment.
+
 .. _WhiteNoise: https://github.com/evansd/whitenoise
 .. _Celery: https://github.com/celery/celery
 .. _MailHog: https://github.com/mailhog/MailHog
