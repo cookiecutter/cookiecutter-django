@@ -177,16 +177,39 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [
 
 # DATABASE CONFIGURATION
 # ------------------------------------------------------------------------------
+{% if cookiecutter.use_elasticbeanstalk_experimental -%}
+# Uses Amazon RDS for database hosting, which doesn't follow the Heroku-style spec
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env('RDS_DB_NAME'),
+        'USER': env('RDS_USERNAME'),
+        'PASSWORD': env('RDS_PASSWORD'),
+        'HOST': env('RDS_HOSTNAME'),
+        'PORT': env('RDS_PORT'),
+    }
+}
+{% else %}
+# Use the Heroku-style specification
 # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
 DATABASES['default'] = env.db('DATABASE_URL')
+{%- endif %}
 
 # CACHING
 # ------------------------------------------------------------------------------
+{% if cookiecutter.use_elasticbeanstalk_experimental -%}
+REDIS_LOCATION = "redis://{}:{}/0".format(
+    env('REDIS_ENDPOINT_ADDRESS'),
+    env('REDIS_PORT')
+)
+{% else %}
+REDIS_LOCATION = '{0}/{1}'.format(env('REDIS_URL', default='redis://127.0.0.1:6379'), 0)
+{%- endif %}
 # Heroku URL does not pass the DB number, so we parse it in
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': '{0}/{1}'.format(env('REDIS_URL', default='redis://127.0.0.1:6379'), 0),
+        'LOCATION': REDIS_LOCATION,
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
             'IGNORE_EXCEPTIONS': True,  # mimics memcache behavior.

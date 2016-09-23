@@ -21,5 +21,6 @@
     "postgresql_version": ["9.5", "9.4", "9.3", "9.2"],
     "js_task_runner": ["Gulp", "Grunt", "None"],
     "use_lets_encrypt": "n",
-    "open_source_license": ["MIT", "BSD", "GPLv3", "Apache Software License 2.0", "Not open source"]
+    "open_source_license": ["MIT", "BSD", "GPLv3", "Apache Software License 2.0", "Not open source"],
+    "use_elasticbeanstalk_experimental": "n"
 }
