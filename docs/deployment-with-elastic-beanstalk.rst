@@ -51,4 +51,4 @@ FAQ
 Why Not Use Docker on Elastic Beanstalk?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Because I didn't want to add an abstraction (Docker) on top of an abstraction (Elastic Beanstalk). 
+Because I didn't want to add an abstraction (Docker) on top of an abstraction (Elastic Beanstalk) on top of an abstraction (Cookiecutter Django). 
