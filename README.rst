@@ -42,7 +42,7 @@ Features
 * Works with Python 2.7.x or 3.5.x
 * Run tests with unittest or py.test
 * Customizable PostgreSQL version
-* Experimental support Amazon Elastic Beanstalk
+* Experimental support for Amazon Elastic Beanstalk
 
 
 Optional Integrations
