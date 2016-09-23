@@ -13,6 +13,8 @@ def main():
     command = ['eb', 'setenv']
     failures = []
     for key, value in dotenv.Dotenv('.env').items():
+        if key.startswith('POSTGRES'):
+            continue
         if value:
             command.append("{}={}".format(key, value))
         else:

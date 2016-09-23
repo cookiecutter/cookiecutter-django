@@ -138,3 +138,36 @@ See detailed `cookiecutter-django Docker documentation`_.
 
 .. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html
 {% endif %}
+{% if cookiecutter.use_elasticbeanstalk %}
+
+Elastic Beanstalk
+~~~~~~~~~~~~~~~~~~
+
+
+```
+# creates the directory of environments (servers)
+eb init -p python3.4 {{ cookiecutter.project_slug }}
+
+# Creates the environment (server) where the app will run
+eb create {{ cookiecutter.project_slug }}
+# Note: This will fail on a postgres error, because postgres doesn't exist yet
+
+# Make sure you are in the right environment
+eb list
+
+# If you are not in the right environment
+eb use {{ cookiecutter.project_slug }}
+
+# Set the environment variables
+python ebsetenv.py
+
+# Go to EB AWS config. Create new RDS database (postgres, 9.4.9, db.t2.micro)
+# Get some coffee, this is going to take a while
+
+# Deploy again
+eb deploy
+
+# Take a look
+eb open
+```
+{% endif %}
