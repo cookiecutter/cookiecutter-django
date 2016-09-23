@@ -1,2 +1,4 @@
 # These requirements prevented an upgrade to Django 1.10.
 django-coverage-plugin==1.3.1
+django-autoslug==1.9.3
+
