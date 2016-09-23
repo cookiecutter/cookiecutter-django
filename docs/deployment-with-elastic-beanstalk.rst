@@ -18,32 +18,32 @@ Prerequisites
 Instructions
 -------------
 
-```
-# creates the directory of environments (servers)
-eb init -p python3.4 {{ cookiecutter.project_slug }}
+::
 
-# Creates the environment (server) where the app will run
-eb create {{ cookiecutter.project_slug }}
-# Note: This will fail on a postgres error, because postgres doesn't exist yet
+  # creates the directory of environments (servers)
+  eb init -p python3.4 {{ cookiecutter.project_slug }}
 
-# Make sure you are in the right environment
-eb list
+  # Creates the environment (server) where the app will run
+  eb create {{ cookiecutter.project_slug }}
+  # Note: This will fail on a postgres error, because postgres doesn't exist yet
 
-# If you are not in the right environment
-eb use {{ cookiecutter.project_slug }}
+  # Make sure you are in the right environment
+  eb list
 
-# Set the environment variables
-python ebsetenv.py
+  # If you are not in the right environment
+  eb use {{ cookiecutter.project_slug }}
 
-# Go to EB AWS config. Create new RDS database (postgres, 9.4.9, db.t2.micro)
-# Get some coffee, this is going to take a while
+  # Set the environment variables
+  python ebsetenv.py
 
-# Deploy again
-eb deploy
+  # Go to EB AWS config. Create new RDS database (postgres, 9.4.9, db.t2.micro)
+  # Get some coffee, this is going to take a while
 
-# Take a look
-eb open
-```
+  # Deploy again
+  eb deploy
+
+  # Take a look
+  eb open
 
 FAQ
 -----
@@ -51,4 +51,4 @@ FAQ
 Why Not Use Docker on Elastic Beanstalk?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Because I didn't want to add an abstraction (Docker) on top of an abstraction (Elastic Beanstalk) on top of an abstraction (Cookiecutter Django). 
+Because I didn't want to add an abstraction (Docker) on top of an abstraction (Elastic Beanstalk) on top of an abstraction (Cookiecutter Django).
