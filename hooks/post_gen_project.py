@@ -115,7 +115,10 @@ def remove_heroku_files():
     """
     Removes files needed for heroku if it isn't going to be used
     """
-    for filename in ["app.json", "Procfile", "requirements.txt", "runtime.txt"]:
+    filenames = ["app.json", "Procfile", "runtime.txt"]
+    if '{{ cookiecutter.use_elasticbeanstalk_experimental }}'.lower() != 'y':
+        filenames.append("requirements.txt")
+    for filename in ["app.json", "Procfile", "runtime.txt"]:
         file_name = os.path.join(PROJECT_DIRECTORY, filename)
         remove_file(file_name)
 
@@ -175,6 +178,22 @@ def remove_copying_files():
     Removes files needed for the GPLv3 licence if it isn't going to be used
     """
     for filename in ["COPYING"]:
+        os.remove(os.path.join(
+            PROJECT_DIRECTORY, filename
+        ))
+
+def remove_elasticbeanstalk():
+    """
+    Removes elastic beanstalk components
+    """
+    docs_dir_location = os.path.join(PROJECT_DIRECTORY, '.ebextensions')
+    if os.path.exists(docs_dir_location):
+        shutil.rmtree(docs_dir_location)
+
+    filenames = ["ebsetenv.py", ]
+    if '{{ cookiecutter.use_heroku }}'.lower() != 'y':
+        filenames.append("requirements.txt")
+    for filename in filenames:
         os.remove(os.path.join(
             PROJECT_DIRECTORY, filename
         ))
@@ -258,5 +277,6 @@ if '{{ cookiecutter.use_lets_encrypt }}'.lower() == 'y' and '{{ cookiecutter.use
 if '{{ cookiecutter.open_source_license}}' != 'GPLv3':
     remove_copying_files()
 
-# 4. Copy files from /docs/ to {{ cookiecutter.project_slug }}/docs/
-# copy_doc_files(PROJECT_DIRECTORY)
+# 12. Remove Elastic Beanstalk files
+if '{{ cookiecutter.use_elasticbeanstalk_experimental }}'.lower() != 'y':
+    remove_elasticbeanstalk()
