@@ -18,17 +18,27 @@ Prerequisites
 Instructions
 -------------
 
+If you haven't done so, create a directory of environments.
+
 ::
 
-  # creates the directory of environments (servers)
   eb init -p python3.4 {{ cookiecutter.project_slug }}
 
-  # Creates the environment (server) where the app will run
-  eb create {{ cookiecutter.project_slug }}
-  # Note: This will fail on a postgres error, because postgres doesn't exist yet
 
-  # Make sure you are in the right environment
+Once that is done, create the environment (server) where the app will run
+
+::
+
+  eb create {{ cookiecutter.project_slug }}
+  # Note: This will eventually fail on a postgres error, because postgres doesn't exist yet
+
+Now make sure you are in the right environment
+
+::
+
   eb list
+
+TODO: Finsh it::
 
   # If you are not in the right environment
   eb use {{ cookiecutter.project_slug }}
