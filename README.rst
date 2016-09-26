@@ -90,7 +90,7 @@ and then editing the results to include your name, email, and various configurat
 
 First, get Cookiecutter. Trust me, it's awesome::
 
-    $ pip install cookiecutter
+    $ pip install "cookiecutter>=1.4.0"
 
 Now run it against this repo::
 
