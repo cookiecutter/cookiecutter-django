@@ -178,7 +178,7 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [
 
 # DATABASE CONFIGURATION
 # ------------------------------------------------------------------------------
-{% if cookiecutter.use_elasticbeanstalk_experimental -%}
+{% if cookiecutter.use_elasticbeanstalk_experimental.lower() == 'y' -%}
 # Uses Amazon RDS for database hosting, which doesn't follow the Heroku-style spec
 DATABASES = {
     'default': {
@@ -198,7 +198,7 @@ DATABASES['default'] = env.db('DATABASE_URL')
 
 # CACHING
 # ------------------------------------------------------------------------------
-{% if cookiecutter.use_elasticbeanstalk_experimental -%}
+{% if cookiecutter.use_elasticbeanstalk_experimental.lower() == 'y' -%}
 REDIS_LOCATION = "redis://{}:{}/0".format(
     env('REDIS_ENDPOINT_ADDRESS'),
     env('REDIS_PORT')
