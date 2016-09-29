@@ -20,7 +20,8 @@
     "DJANGO_AWS_SECRET_ACCESS_KEY": "",
     "DJANGO_AWS_STORAGE_BUCKET_NAME": "",
     "DJANGO_MAILGUN_SERVER_NAME": "",
-    "DJANGO_MAILGUN_API_KEY": ""{% if cookiecutter.use_sentry_for_error_reporting == "y" -%},
+    "DJANGO_MAILGUN_API_KEY": ""
+    "MAILGUN_SENDER_DOMAIN": ""{% if cookiecutter.use_sentry_for_error_reporting == "y" -%},
     "DJANGO_SENTRY_DSN": ""{%- endif %}
   },
   "scripts": {
