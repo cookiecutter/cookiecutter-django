@@ -26,9 +26,9 @@ Powered by Cookiecutter_, Cookiecutter Django is a framework for jumpstarting pr
 Features
 ---------
 
-* For Django 1.9
+* For Django 1.10
 * Renders Django projects with 100% starting test coverage
-* Twitter Bootstrap_ v4.0.0 - `alpha 3`_
+* Twitter Bootstrap_ v4.0.0 - `alpha 4`_
 * 12-Factor_ based settings via django-environ_
 * Optimized development and production settings
 * Registration via django-allauth_
@@ -56,7 +56,7 @@ Optional Integrations
 * Integration with Sentry_ for error logging
 * Integration with Opbeat_ for performance monitoring
 
-.. _`alpha 3`: http://blog.getbootstrap.com/2016/07/27/bootstrap-4-alpha-3/
+.. _`alpha 4`: http://blog.getbootstrap.com/2016/09/05/bootstrap-4-alpha-4/
 .. _Bootstrap: https://github.com/twbs/bootstrap
 .. _django-environ: https://github.com/joke2k/django-environ
 .. _12-Factor: http://12factor.net/
