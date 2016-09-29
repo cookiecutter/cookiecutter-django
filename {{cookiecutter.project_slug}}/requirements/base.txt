@@ -12,7 +12,7 @@ django==1.10.1
 # Configuration
 django-environ==0.4.0
 {% if cookiecutter.use_whitenoise == 'y' -%}
-whitenoise==3.2.1
+whitenoise==3.2.2
 {%- endif %}
 
 
@@ -45,8 +45,8 @@ awesome-slugify==1.6.5
 pytz==2016.6.1
 
 # Redis support
-django-redis==4.4.4
-redis>=2.10.0
+django-redis==4.5.0
+redis>=2.10.5
 
 {% if cookiecutter.use_celery == "y" %}
 celery==3.1.23
