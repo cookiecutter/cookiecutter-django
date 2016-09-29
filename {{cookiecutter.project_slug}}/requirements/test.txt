@@ -13,5 +13,5 @@ django-test-plus==1.0.15
 factory_boy==2.7.0
 
 # pytest
-pytest-django==2.9.1
+pytest-django==3.0.0
 pytest-sugar==0.7.1
