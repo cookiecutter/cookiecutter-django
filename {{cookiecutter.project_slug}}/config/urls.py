@@ -13,7 +13,7 @@ urlpatterns = [
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
 
     # Django Admin, use {% raw %}{% url 'admin:index' %}{% endraw %}
-    url(settings.ADMIN_URL, include(admin.site.urls)),
+    url(settings.ADMIN_URL, admin.site.urls),
 
     # User management
     url(r'^users/', include('{{ cookiecutter.project_slug }}.users.urls', namespace='users')),
