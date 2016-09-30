@@ -95,6 +95,7 @@ Listed in alphabetical order.
   Kaveh                    `@ka7eh`_
   Kevin A. Stone
   Kevin Ndung'u            `@kevgathuku`_
+  Keith Webber             `@townie`_
   Krzysztof Szumny         `@noisy`_
   Krzysztof Żuraw          `@krzysztofzuraw`_
   Leonardo Jimenez         `@xpostudio4`_
@@ -214,6 +215,7 @@ Listed in alphabetical order.
 .. _@sladinji: https://github.com/sladinji
 .. _@andresgz: https://github.com/andresgz
 .. _@jangeador: https://github.com/jangeador
+.. _@townie: https://github.com/townie
 
 Special Thanks
 ~~~~~~~~~~~~~~
