@@ -115,10 +115,10 @@ def remove_heroku_files():
     """
     Removes files needed for heroku if it isn't going to be used
     """
-    filenames = ["app.json", "Procfile", "runtime.txt"]
+    filenames = ["Procfile", "runtime.txt"]
     if '{{ cookiecutter.use_elasticbeanstalk_experimental }}'.lower() != 'y':
         filenames.append("requirements.txt")
-    for filename in ["app.json", "Procfile", "runtime.txt"]:
+    for filename in ["Procfile", "runtime.txt"]:
         file_name = os.path.join(PROJECT_DIRECTORY, filename)
         remove_file(file_name)
 
