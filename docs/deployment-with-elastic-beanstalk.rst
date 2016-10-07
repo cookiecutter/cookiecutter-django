@@ -37,18 +37,25 @@ If you are not in the right environment, then put yourself in the correct one::
 
   eb use MY_PROJECT_SLUG
 
-TODO: Finish it::
+Set the environment variables. Notes:  You will be prompted if the `.env` file is missing. The script will ignore any PostgreSQL values, as RDS uses it's own system::
 
   # Set the environment variables
   python ebsetenv.py
 
-  # Go to EB AWS config. Create new RDS database (postgres, 9.4.9, db.t2.micro)
-  # Get some coffee, this is going to take a while
+Speaking of PostgreSQL, go to the Elasting Beanstalk configuration panel for RDS. Create new RDS database, with these attributes:
 
-  # Deploy again
+* PostgreSQL
+* Version 9.4.9
+* Size db.t2.micro (You can upgrade later)
+
+(Get some coffee, this is going to take a while)
+
+Once you have a database specified, deploy again so your instance can pick up the new PostgreSQL values::
+
   eb deploy
 
-  # Take a look
+Take a look::
+
   eb open
 
 FAQ
