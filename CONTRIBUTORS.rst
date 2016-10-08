@@ -119,6 +119,7 @@ Listed in alphabetical order.
   Roman Afanaskin          `@siauPatrick`_
   Roman Osipenko           `@romanosipenko`_
   Russell Davies
+  Sam Collins              `@MightySCollins`_
   stepmr                   `@stepmr`_
   Sławek Ehlert            `@slafs`_
   Srinivas Nyayapati       `@shireenrao`_
@@ -216,6 +217,7 @@ Listed in alphabetical order.
 .. _@andresgz: https://github.com/andresgz
 .. _@jangeador: https://github.com/jangeador
 .. _@townie: https://github.com/townie
+.. _@MightySCollins: https://github.com/MightySCollins
 
 Special Thanks
 ~~~~~~~~~~~~~~

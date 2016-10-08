@@ -2,6 +2,10 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-10-08]
+### Changed
+- Elastic Beanstalk: Added --noinput to migrate command (@MightySCollins )
+
 ## [2015-10-07]
 ### Added
 - Finished first pass at Elastic Beanstalk docs (@pydanny & @audreyr)
