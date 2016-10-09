@@ -8,10 +8,7 @@ Werkzeug==0.11.11
 django-test-plus==1.0.15
 factory_boy==2.7.0
 
-# Temporary workaround to fix issue https://github.com/pydanny/cookiecutter-django/issues/827
-# It will be removed when django-debug-toolbar publish the new version on pypi
--e git+https://github.com/jazzband/django-debug-toolbar.git@637b0b73bc684f6ea600dca5ca1bb1f090fcee93#egg=django-debug-toolbar
-#django-debug-toolbar==1.5
+django-debug-toolbar==1.6
 
 # improved REPL
 ipdb==0.10.1
