@@ -116,6 +116,7 @@ Listed in alphabetical order.
   Peter Bittner            `@bittner`_
   Raphael Pierzina         `@hackebrot`_
   Raony Guimarães Corrêa   `@raonyguimaraes`_
+  René Muhl                `@rm--`_
   Roman Afanaskin          `@siauPatrick`_
   Roman Osipenko           `@romanosipenko`_
   Russell Davies
@@ -197,6 +198,7 @@ Listed in alphabetical order.
 .. _@oubiga: https://github.com/oubiga
 .. _@parbhat: https://github.com/parbhat
 .. _@raonyguimaraes: https://github.com/raonyguimaraes
+.. _@rm--: https://github.com/rm--
 .. _@romanosipenko: https://github.com/romanosipenko
 .. _@shireenrao: https://github.com/shireenrao
 .. _@show0k: https://github.com/show0k
