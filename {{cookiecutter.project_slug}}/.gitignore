@@ -75,6 +75,4 @@ node_modules/
 mailhog
 {% endif %}
 
-{% if cookiecutter.use_compressor == 'y' %}
 staticfiles/
-{% endif %}
