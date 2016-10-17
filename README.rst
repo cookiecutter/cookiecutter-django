@@ -26,9 +26,9 @@ Powered by Cookiecutter_, Cookiecutter Django is a framework for jumpstarting pr
 Features
 ---------
 
-* For Django 1.9
+* For Django 1.10
 * Renders Django projects with 100% starting test coverage
-* Twitter Bootstrap_ v4.0.0 - `alpha 3`_
+* Twitter Bootstrap_ v4.0.0 - `alpha 4`_
 * 12-Factor_ based settings via django-environ_
 * Optimized development and production settings
 * Registration via django-allauth_
@@ -42,6 +42,7 @@ Features
 * Works with Python 2.7.x or 3.5.x
 * Run tests with unittest or py.test
 * Customizable PostgreSQL version
+* Experimental support for Amazon Elastic Beanstalk
 
 
 Optional Integrations
@@ -55,7 +56,7 @@ Optional Integrations
 * Integration with Sentry_ for error logging
 * Integration with Opbeat_ for performance monitoring
 
-.. _`alpha 3`: http://blog.getbootstrap.com/2016/07/27/bootstrap-4-alpha-3/
+.. _`alpha 4`: http://blog.getbootstrap.com/2016/09/05/bootstrap-4-alpha-4/
 .. _Bootstrap: https://github.com/twbs/bootstrap
 .. _django-environ: https://github.com/joke2k/django-environ
 .. _12-Factor: http://12factor.net/
@@ -89,7 +90,7 @@ and then editing the results to include your name, email, and various configurat
 
 First, get Cookiecutter. Trust me, it's awesome::
 
-    $ pip install cookiecutter
+    $ pip install "cookiecutter>=1.4.0"
 
 Now run it against this repo::
 
@@ -146,6 +147,7 @@ Answer the prompts with your own desired options_. For example::
     4 - Apache Software License 2.0
     5 - Not open source
     Choose from 1, 2, 3, 4, 5 [1]: 1
+    use_elasticbeanstalk_experimental: n
 
 Enter the project and take a look around::
 

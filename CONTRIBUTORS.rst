@@ -95,6 +95,7 @@ Listed in alphabetical order.
   Kaveh                    `@ka7eh`_
   Kevin A. Stone
   Kevin Ndung'u            `@kevgathuku`_
+  Keith Webber             `@townie`_
   Krzysztof Szumny         `@noisy`_
   Krzysztof Żuraw          `@krzysztofzuraw`_
   Leonardo Jimenez         `@xpostudio4`_
@@ -115,9 +116,11 @@ Listed in alphabetical order.
   Peter Bittner            `@bittner`_
   Raphael Pierzina         `@hackebrot`_
   Raony Guimarães Corrêa   `@raonyguimaraes`_
+  René Muhl                `@rm--`_
   Roman Afanaskin          `@siauPatrick`_
   Roman Osipenko           `@romanosipenko`_
   Russell Davies
+  Sam Collins              `@MightySCollins`_
   stepmr                   `@stepmr`_
   Sławek Ehlert            `@slafs`_
   Srinivas Nyayapati       `@shireenrao`_
@@ -195,6 +198,7 @@ Listed in alphabetical order.
 .. _@oubiga: https://github.com/oubiga
 .. _@parbhat: https://github.com/parbhat
 .. _@raonyguimaraes: https://github.com/raonyguimaraes
+.. _@rm--: https://github.com/rm--
 .. _@romanosipenko: https://github.com/romanosipenko
 .. _@shireenrao: https://github.com/shireenrao
 .. _@show0k: https://github.com/show0k
@@ -214,6 +218,8 @@ Listed in alphabetical order.
 .. _@sladinji: https://github.com/sladinji
 .. _@andresgz: https://github.com/andresgz
 .. _@jangeador: https://github.com/jangeador
+.. _@townie: https://github.com/townie
+.. _@MightySCollins: https://github.com/MightySCollins
 
 Special Thanks
 ~~~~~~~~~~~~~~
