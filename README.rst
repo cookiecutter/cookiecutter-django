@@ -28,7 +28,7 @@ Features
 
 * For Django 1.10
 * Renders Django projects with 100% starting test coverage
-* Twitter Bootstrap_ v4.0.0 - `alpha 4`_
+* Twitter Bootstrap_ v4.0.0 - `alpha 4`_ (`maintained Foundation fork`_ also available)
 * 12-Factor_ based settings via django-environ_
 * Optimized development and production settings
 * Registration via django-allauth_
@@ -43,6 +43,8 @@ Features
 * Run tests with unittest or py.test
 * Customizable PostgreSQL version
 * Experimental support for Amazon Elastic Beanstalk
+
+.. _`maintained Foundation fork`: https://github.com/Parbhat/cookiecutter-django-foundation
 
 
 Optional Integrations
