@@ -4,7 +4,7 @@ Project Generation Options
 project_name [project_name]:
     Your human-readable project name, including any capitalization or spaces.
 
-repo_name [project_name]:
+project_slug [project_name]:
     The slug of your project, without dashes or spaces. Used to name your repo
     and in other places where a Python-importable version of your project name
     is needed.
@@ -37,19 +37,75 @@ use_celery [n]
 use_mailhog [n]
     Whether to use MailHog_. MailHog is a tool that simulates email receiving
     for development purposes. It runs a simple SMTP server which catches
-    any message sent to it. Messages are displayed in a web interface which runs at ``http://localhost:8025/`` You need to download the MailHog executable for your operating system, see the 'Developing Locally' docs for instructions.
+    any message sent to it. Messages are displayed in a web interface which
+    runs at ``http://localhost:8025/`` You need to download the MailHog
+    executable for your operating system, see the 'Developing Locally' docs
+    for instructions.
 
-use_sentry [n]
+use_sentry_for_error_reporting [n]
     Whether to use Sentry_ to log errors from your project.
+
+use_opbeat [n]
+    Whether to use Opbeat_ for preformance monitoring and code optimization.
+
+use_pycharm [n]
+    Adds support for developing in PyCharm_ with a preconfigured .idea directory.
 
 windows [n]
     Whether you'll be developing on Windows.
 
-use_python2 [n]
+use_python3 [y]
     By default, the Python code generated will be for Python 3.x. But if you
-    answer `y` here, it will be legacy Python 2.7 code.
+    answer `n` here, it will be legacy Python 2.7 code.
+
+use_docker [y]
+    Whether to use Docker_, separating the app and database into separate
+    containers.
+
+use_heroku [n]
+    Add configuration to deploy the application to a Heroku_ instance.
+
+use_compressor [n]
+    Use `Django Compressor`_ to minify and combine rendered JavaScript and CSS
+    into cachable static resources.
+
+js_task_runner [1]
+    Select a JavaScript task runner. The choices are:
+
+    1. Gulp_
+    2. Grunt_
+    3. Webpack_
+    4. None
+
+use_lets_encrypt [n]
+    Use `Let's Encrypt`_ as the certificate authority for this project.
+
+open_source_license [1]
+    Select a software license for the project. The choices are:
+
+    1. MIT_
+    2. BSD_
+    3. GPLv3_
+    4. `Apache Software License 2.0`_
+    5. Not open source
+
+**NOTE:** *If you choose to use Docker, selecting a JavaScript task runner is
+not supported out of the box.*
 
 .. _WhiteNoise: https://github.com/evansd/whitenoise
 .. _Celery: https://github.com/celery/celery
 .. _MailHog: https://github.com/mailhog/MailHog
 .. _Sentry: https://github.com/getsentry/sentry
+.. _Opbeat: https://github.com/opbeat/opbeat_python
+.. _PyCharm: https://www.jetbrains.com/pycharm/
+.. _Docker: https://github.com/docker/docker
+.. _Heroku: https://github.com/heroku/heroku-buildpack-python
+.. _Django Compressor: https://github.com/django-compressor/django-compressor
+.. _Gulp: https://github.com/gulpjs/gulp
+.. _Grunt: https://github.com/gruntjs/grunt
+.. _Webpack: https://github.com/webpack/webpack
+.. _Let's Encrypt: https://github.com/certbot/certbot
+.. _MIT: https://opensource.org/licenses/MIT
+.. _BSD: https://opensource.org/licenses/BSD-3-Clause
+.. _GPLv3: https://www.gnu.org/licenses/gpl.html
+.. _Apache Software License 2.0: http://www.apache.org/licenses/LICENSE-2.0

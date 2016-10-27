@@ -1,0 +1,1 @@
+{{ cookiecutter.author_name }}

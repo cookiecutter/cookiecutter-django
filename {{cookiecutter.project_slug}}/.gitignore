@@ -1,0 +1,78 @@
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+### SublimeText ###
+# cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# workspace files are user-specific
+*.sublime-workspace
+
+# project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using SublimeText
+# *.sublime-project
+
+# sftp configuration file
+sftp-config.json
+
+# Basics
+*.py[cod]
+__pycache__
+
+# Logs
+logs
+*.log
+pip-log.txt
+npm-debug.log*
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+htmlcov
+
+# Translations
+*.mo
+*.pot
+
+# Pycharm
+.idea/*
+{% if cookiecutter.use_pycharm == 'y' %}
+# Provided default Pycharm Run/Debug Configurations should be tracked by git
+# In case of local modifications made by Pycharm, use update-index command
+# for each changed file, like this:
+# git update-index --assume-unchanged .idea/{{cookiecutter.project_slug}}.iml
+!.idea/runConfigurations/
+!.idea/{{cookiecutter.project_slug}}.iml
+!.idea/vcs.xml
+!.idea/webResources.xml
+{% endif %}
+
+# Vim
+
+*~
+*.swp
+*.swo
+
+# npm
+node_modules/
+
+# Compass
+.sass-cache
+
+# virtual environments
+.env
+
+# User-uploaded media
+{{ cookiecutter.project_slug }}/media/
+
+{% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' %}
+# MailHog binary
+mailhog
+{% endif %}
+
+staticfiles/

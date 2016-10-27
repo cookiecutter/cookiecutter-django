@@ -1,0 +1,27 @@
+##basic build dependencies of various Django apps for Debian Jessie 8.x
+#build-essential metapackage install: make, gcc, g++,
+build-essential
+#required to translate
+gettext
+{% if cookiecutter.use_python3 == 'y' -%}
+python3-dev
+{% else %}
+python-dev
+{%- endif %}
+
+##shared dependencies of:
+##Pillow, pylibmc
+zlib1g-dev
+
+##Postgresql and psycopg2 dependencies
+libpq-dev
+
+##Pillow dependencies
+libtiff5-dev
+libjpeg62-turbo-dev
+libfreetype6-dev
+liblcms2-dev
+libwebp-dev
+
+##django-extensions
+graphviz-dev

@@ -49,7 +49,7 @@ To run a particular test with tox for against your current Python version::
     $ tox -e py -- -k test_default_configuration
 
 .. _`pytest usage docs`: https://pytest.org/latest/usage.html#specifying-tests-selecting-tests
-.. _`tox`: https://tox.readthedocs.org/en/latest/
+.. _`tox`: https://tox.readthedocs.io/en/latest/
 .. _`pip`: https://pypi.python.org/pypi/pip/
 .. _`pytest-cookies`: https://pypi.python.org/pypi/pytest-cookies/
 .. _`flake8`: https://pypi.python.org/pypi/flake8/
