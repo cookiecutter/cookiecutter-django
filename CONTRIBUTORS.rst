@@ -58,6 +58,7 @@ Listed in alphabetical order.
   Benjamin Abel
   Bo Lopker                `@blopker`_
   Bouke Haarsma
+  Brent Payne              `@brentpayne`_               @brentpayne
   Burhan Khalid            `@burhan`_                   @burhan
   Catherine Devlin         `@catherinedevlin`_
   Cédric Gaspoz            `@cgaspoz`_
