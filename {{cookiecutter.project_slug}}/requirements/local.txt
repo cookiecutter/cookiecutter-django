@@ -2,7 +2,7 @@
 -r base.txt
 coverage==4.2
 django-coverage-plugin==1.3.1
-Sphinx==1.4.8
+Sphinx==1.4.9
 django-extensions==1.7.4
 Werkzeug==0.11.11
 django-test-plus==1.0.16
