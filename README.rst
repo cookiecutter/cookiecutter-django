@@ -70,7 +70,7 @@ Optional Integrations
 .. _Celery: http://www.celeryproject.org/
 .. _Anymail: https://github.com/anymail/django-anymail
 .. _MailHog: https://github.com/mailhog/MailHog
-.. _Sentry: https://getsentry.com/welcome/
+.. _Sentry: https://sentry.io/welcome/
 .. _docker-compose: https://github.com/docker/compose
 .. _Opbeat: https://opbeat.com/
 .. _PythonAnywhere: https://www.pythonanywhere.com/

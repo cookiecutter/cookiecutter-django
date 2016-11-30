@@ -130,6 +130,7 @@ Listed in alphabetical order.
   Sule Marshall            `@suledev`_
   Taylor Baldwin
   Théo Segonds             `@show0k`_
+  Tim Freund               `@timfreund`_
   Tom Atkins               `@knitatoms`_
   Tom Offermann
   Travis McNeill           `@Travistock`_               @tavistock_esq
@@ -211,6 +212,7 @@ Listed in alphabetical order.
 .. _@ssteinerX: https://github.com/ssteinerx
 .. _@stepmr: https://github.com/stepmr
 .. _@suledev: https://github.com/suledev
+.. _@timfreund: https://github.com/timfreund
 .. _@Travistock: https://github.com/Tavistock
 .. _@trungdong: https://github.com/trungdong
 .. _@viviangb: httpsL//github.com/viviangb
