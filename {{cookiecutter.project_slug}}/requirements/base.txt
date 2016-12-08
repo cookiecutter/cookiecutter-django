@@ -7,7 +7,7 @@ wheel==0.29.0
 {%- endif %}
 
 # Bleeding edge Django
-django==1.10.3
+django==1.10.4
 
 # Configuration
 django-environ==0.4.1
@@ -42,7 +42,7 @@ psycopg2==2.6.2
 awesome-slugify==1.6.5
 
 # Time zones support
-pytz==2016.7
+pytz==2016.10
 
 # Redis support
 django-redis==4.6.0
