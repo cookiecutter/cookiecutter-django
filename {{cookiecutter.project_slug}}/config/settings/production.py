@@ -36,30 +36,28 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 {%- if cookiecutter.use_sentry_for_error_reporting == 'y' %}
 # raven sentry client
 # See https://docs.sentry.io/clients/python/integrations/django/
-INSTALLED_APPS += ('raven.contrib.django.raven_compat', )
+INSTALLED_APPS += ['raven.contrib.django.raven_compat']
 {% endif %}
 {%- if cookiecutter.use_whitenoise == 'y' %}
 # Use Whitenoise to serve static files
 # See: https://whitenoise.readthedocs.io/
-WHITENOISE_MIDDLEWARE = ('whitenoise.middleware.WhiteNoiseMiddleware', )
+WHITENOISE_MIDDLEWARE = ['whitenoise.middleware.WhiteNoiseMiddleware']
 MIDDLEWARE = WHITENOISE_MIDDLEWARE + MIDDLEWARE
 {% endif %}
 {%- if cookiecutter.use_sentry_for_error_reporting == 'y' -%}
-RAVEN_MIDDLEWARE = ('raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware', )
+RAVEN_MIDDLEWARE = ['raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware']
 MIDDLEWARE = RAVEN_MIDDLEWARE + MIDDLEWARE
 {% endif %}
 {%- if cookiecutter.use_opbeat == 'y' -%}
 # opbeat integration
 # See https://opbeat.com/languages/django/
-INSTALLED_APPS += ('opbeat.contrib.django',)
+INSTALLED_APPS += ['opbeat.contrib.django']
 OPBEAT = {
     'ORGANIZATION_ID': env('DJANGO_OPBEAT_ORGANIZATION_ID'),
     'APP_ID': env('DJANGO_OPBEAT_APP_ID'),
     'SECRET_TOKEN': env('DJANGO_OPBEAT_SECRET_TOKEN')
 }
-MIDDLEWARE = (
-    'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
-) + MIDDLEWARE
+MIDDLEWARE = ['opbeat.contrib.django.middleware.OpbeatAPMMiddleware'] + MIDDLEWARE
 {% endif %}
 
 # SECURITY CONFIGURATION
@@ -88,7 +86,7 @@ X_FRAME_OPTIONS = 'DENY'
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['{{cookiecutter.domain_name}}'])
 # END SITE CONFIGURATION
 
-INSTALLED_APPS += ('gunicorn', )
+INSTALLED_APPS += ['gunicorn']
 
 
 # STORAGE CONFIGURATION
@@ -96,9 +94,7 @@ INSTALLED_APPS += ('gunicorn', )
 # Uploaded Media Files
 # ------------------------
 # See: http://django-storages.readthedocs.io/en/latest/index.html
-INSTALLED_APPS += (
-    'storages',
-)
+INSTALLED_APPS += ['storages']
 
 AWS_ACCESS_KEY_ID = env('DJANGO_AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('DJANGO_AWS_SECRET_ACCESS_KEY')
@@ -143,7 +139,7 @@ STATICFILES_STORAGE = 'config.settings.production.StaticRootS3BotoStorage'
 # For Django 1.7+, 'collectfast' should come before
 # 'django.contrib.staticfiles'
 AWS_PRELOAD_METADATA = True
-INSTALLED_APPS = ('collectfast', ) + INSTALLED_APPS
+INSTALLED_APPS = ['collectfast'] + INSTALLED_APPS
 {%- endif %}
 {% if cookiecutter.use_compressor == 'y'-%}
 # COMPRESSOR
@@ -160,12 +156,12 @@ EMAIL_SUBJECT_PREFIX = env('DJANGO_EMAIL_SUBJECT_PREFIX', default='[{{cookiecutt
 SERVER_EMAIL = env('DJANGO_SERVER_EMAIL', default=DEFAULT_FROM_EMAIL)
 
 # Anymail with Mailgun
-INSTALLED_APPS += ("anymail", )
+INSTALLED_APPS += ['anymail']
 ANYMAIL = {
-    "MAILGUN_API_KEY": env('DJANGO_MAILGUN_API_KEY'),
-    "MAILGUN_SENDER_DOMAIN": env('MAILGUN_SENDER_DOMAIN')
+    'MAILGUN_API_KEY': env('DJANGO_MAILGUN_API_KEY'),
+    'MAILGUN_SENDER_DOMAIN': env('MAILGUN_SENDER_DOMAIN')
 }
-EMAIL_BACKEND = "anymail.backends.mailgun.MailgunBackend"
+EMAIL_BACKEND = 'anymail.backends.mailgun.MailgunBackend'
 
 # TEMPLATE CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -199,7 +195,7 @@ DATABASES['default'] = env.db('DATABASE_URL')
 # CACHING
 # ------------------------------------------------------------------------------
 {% if cookiecutter.use_elasticbeanstalk_experimental.lower() == 'y' -%}
-REDIS_LOCATION = "redis://{}:{}/0".format(
+REDIS_LOCATION = 'redis://{}:{}/0'.format(
     env('REDIS_ENDPOINT_ADDRESS'),
     env('REDIS_PORT')
 )

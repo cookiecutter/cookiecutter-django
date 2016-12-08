@@ -20,7 +20,7 @@ env.read_env()
 
 # APP CONFIGURATION
 # ------------------------------------------------------------------------------
-DJANGO_APPS = (
+DJANGO_APPS = [
     # Default Django apps:
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -34,27 +34,27 @@ DJANGO_APPS = (
 
     # Admin
     'django.contrib.admin',
-)
-THIRD_PARTY_APPS = (
+]
+THIRD_PARTY_APPS = [
     'crispy_forms',  # Form layouts
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
-)
+]
 
 # Apps specific for this project go here.
-LOCAL_APPS = (
+LOCAL_APPS = [
     # custom users app
     '{{ cookiecutter.project_slug }}.users.apps.UsersConfig',
     # Your stuff: custom apps go here
-)
+]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 # MIDDLEWARE CONFIGURATION
 # ------------------------------------------------------------------------------
-MIDDLEWARE = (
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -62,7 +62,7 @@ MIDDLEWARE = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-)
+]
 
 # MIGRATIONS CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -89,9 +89,9 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.s
 # MANAGER CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
-ADMINS = (
+ADMINS = [
     ("""{{cookiecutter.author_name}}""", '{{cookiecutter.email}}'),
-)
+]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
@@ -176,15 +176,15 @@ STATIC_ROOT = str(ROOT_DIR('staticfiles'))
 STATIC_URL = '/static/'
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
-STATICFILES_DIRS = (
+STATICFILES_DIRS = [
     str(APPS_DIR.path('static')),
-)
+]
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
-STATICFILES_FINDERS = (
+STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-)
+]
 
 # MEDIA CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -223,10 +223,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # AUTHENTICATION CONFIGURATION
 # ------------------------------------------------------------------------------
-AUTHENTICATION_BACKENDS = (
+AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
-)
+]
 
 # Some really nice defaults
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
@@ -247,9 +247,9 @@ LOGIN_URL = 'account_login'
 AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
 {% if cookiecutter.use_celery == 'y' %}
 ########## CELERY
-INSTALLED_APPS += ('{{cookiecutter.project_slug}}.taskapp.celery.CeleryConfig',)
+INSTALLED_APPS += ['{{cookiecutter.project_slug}}.taskapp.celery.CeleryConfig']
 # if you are not using the django database broker (e.g. rabbitmq, redis, memcached), you can remove the next line.
-INSTALLED_APPS += ('kombu.transport.django',)
+INSTALLED_APPS += ['kombu.transport.django']
 BROKER_URL = env('CELERY_BROKER_URL', default='django://')
 if BROKER_URL == 'django://':
     CELERY_RESULT_BACKEND = 'redis://'
@@ -261,8 +261,8 @@ else:
 {%- if cookiecutter.use_compressor == 'y'-%}
 # django-compressor
 # ------------------------------------------------------------------------------
-INSTALLED_APPS += ("compressor", )
-STATICFILES_FINDERS += ("compressor.finders.CompressorFinder", )
+INSTALLED_APPS += ['compressor']
+STATICFILES_FINDERS += ['compressor.finders.CompressorFinder']
 {%- endif %}
 
 # Location of root django.contrib.admin URL, use {% raw %}{% url 'admin:index' %}{% endraw %}
