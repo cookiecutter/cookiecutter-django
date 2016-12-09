@@ -290,39 +290,97 @@ LOGGING = {
     'filters': {
         'require_debug_false': {
             '()': 'django.utils.log.RequireDebugFalse'
-        }
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
     },
     'formatters': {
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
         'verbose': {
             'format': '%(levelname)s %(asctime)s %(module)s '
                       '%(process)d %(thread)d %(message)s'
         },
     },
     'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
+        'null': {
+            'class': 'logging.NullHandler',
         },
         'console': {
             'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+            'formatter': 'simple',
             'class': 'logging.StreamHandler',
-            'formatter': 'verbose',
         },
+        'debug': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_false'],
+            'formatter': 'verbose',
+            'class': 'logging.NullHandler',
+            'filename': '/var/log/netdoktor/nd/django_debug.log',
+            'when': 'midnight',
+            'interval': 1,
+            'backupCount': 7,
+        },
+        'error': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'formatter': 'verbose',
+            'class': 'logging.NullHandler',
+            'filename': '/var/log/netdoktor/nd/django_error.log',
+            'when': 'midnight',
+            'interval': 1,
+            'backupCount': 31,
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'formatter': 'verbose',
+            'class': 'django.utils.log.AdminEmailHandler',
+        }
     },
     'loggers': {
         'django.request': {
-            'handlers': ['mail_admins'],
+            'handlers': ['console', 'mail_admins'],
             'level': 'ERROR',
             'propagate': True
         },
-        'django.security.DisallowedHost': {
-            'level': 'ERROR',
+        'django.security': {
+            'level': 'WARNINGS',
             'handlers': ['console', 'mail_admins'],
             'propagate': True
         }
+        '': {
+            'handlers': ['console', 'debug', 'error'],
+            'propagate': True,
+        },
     }
 }
+
+# Log debug statements into DJANGO_DEBUG_LOG_FILE
+# with daily rotation at midnight and backup of 1 week
+if env('DJANGO_DEBUG_LOG_FILE'):    
+    LOGGING['handlers']['debug'].update({
+        'class': 'logging.handlers.TimedRotatingFileHandler',
+        'filename': env('DJANGO_DEBUG_LOG_FILE'),
+        'when': 'midnight',
+        'interval': 1,
+        'backupCount': 7,
+    })
+
+# Log error statements into DJANGO_ERROR_LOG_FILE
+# with daily rotation at midnight and backup of 31 days / 1 month
+if env('DJANGO_ERROR_LOG_FILE'):    
+    LOGGING['handlers']['error'].update({
+        'class': 'logging.handlers.TimedRotatingFileHandler',
+        'filename': env('DJANGO_ERROR_LOG_FILE'),
+        'when': 'midnight',
+        'interval': 1,
+        'backupCount': 31,
+    })
+
 {% endif %}
 # Custom Admin URL, use {% raw %}{% url 'admin:index' %}{% endraw %}
 ADMIN_URL = env('DJANGO_ADMIN_URL')
