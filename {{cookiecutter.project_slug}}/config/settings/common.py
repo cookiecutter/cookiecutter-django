@@ -90,7 +90,7 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.s
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = [
-    ('{{cookiecutter.author_name}}', '{{cookiecutter.email}}'),
+    ("""{{cookiecutter.author_name}}""", '{{cookiecutter.email}}'),
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
