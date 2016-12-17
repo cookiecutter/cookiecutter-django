@@ -16,6 +16,8 @@ ROOT_DIR = environ.Path(__file__) - 3  # ({{ cookiecutter.project_slug }}/config
 APPS_DIR = ROOT_DIR.path('{{ cookiecutter.project_slug }}')
 
 env = environ.Env()
+# Assumes .env exists one folder above where manage.py exists
+env.read_env(str((ROOT_DIR - 1).path('.env')))  # reads the environment file
 
 # APP CONFIGURATION
 # ------------------------------------------------------------------------------
