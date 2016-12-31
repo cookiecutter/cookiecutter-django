@@ -26,4 +26,6 @@ RUN sed -i 's/\r//' /entrypoint.sh \
 
 WORKDIR /app
 
+USER django
+
 ENTRYPOINT ["/entrypoint.sh"]
