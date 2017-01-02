@@ -24,7 +24,7 @@ django-crispy-forms==1.6.1
 django-model-utils==2.6
 
 # Images
-Pillow==3.4.2
+Pillow==4.0.0
 
 # For user registration, either via email or social
 # Well-built with regular release cycles!
