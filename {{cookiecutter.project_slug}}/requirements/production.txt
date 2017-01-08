@@ -11,20 +11,20 @@ psycopg2==2.6.2
 
 # WSGI Handler
 # ------------------------------------------------
-gevent==1.2a1
+gevent==1.2.0
 gunicorn==19.6.0
 
 # Static and Media Storage
 # ------------------------------------------------
-boto==2.44.0
+boto==2.45.0
 django-storages-redux==1.3.2
 {% if cookiecutter.use_whitenoise != 'y' -%}
-Collectfast==0.3.1
+Collectfast==0.4.1
 {%- endif %}
 
 # Email backends for Mailgun, Postmark, SendGrid and more
 # -------------------------------------------------------
-django-anymail==0.6.1
+django-anymail==0.7
 
 {% if cookiecutter.use_sentry_for_error_reporting == "y" -%}
 # Raven is the Sentry client
@@ -35,5 +35,5 @@ raven==5.32.0
 {% if cookiecutter.use_opbeat == "y" -%}
 # Opbeat agent for performance monitoring
 # -----------------------------------------
-opbeat==3.5.1
+opbeat==3.5.2
 {%- endif %}

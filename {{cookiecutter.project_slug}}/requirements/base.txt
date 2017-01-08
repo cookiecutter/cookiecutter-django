@@ -7,12 +7,12 @@ wheel==0.29.0
 {%- endif %}
 
 # Bleeding edge Django
-django==1.10.4
+django==1.10.5
 
 # Configuration
 django-environ==0.4.1
 {% if cookiecutter.use_whitenoise == 'y' -%}
-whitenoise==3.2.2
+whitenoise==3.2.3
 {%- endif %}
 
 
@@ -24,11 +24,11 @@ django-crispy-forms==1.6.1
 django-model-utils==2.6
 
 # Images
-Pillow==3.4.2
+Pillow==4.0.0
 
 # For user registration, either via email or social
 # Well-built with regular release cycles!
-django-allauth==0.29.0
+django-allauth==0.30.0
 
 {% if cookiecutter.windows == 'y' -%}
 # On Windows, you must download/install psycopg2 manually
@@ -45,7 +45,7 @@ awesome-slugify==1.6.5
 pytz==2016.10
 
 # Redis support
-django-redis==4.6.0
+django-redis==4.7.0
 redis>=2.10.5
 
 {% if cookiecutter.use_celery == "y" %}
