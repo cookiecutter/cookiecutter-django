@@ -12,7 +12,7 @@ django==1.10.5
 # Configuration
 django-environ==0.4.1
 {% if cookiecutter.use_whitenoise == 'y' -%}
-whitenoise==3.2.3
+whitenoise==3.3.0
 {%- endif %}
 
 
