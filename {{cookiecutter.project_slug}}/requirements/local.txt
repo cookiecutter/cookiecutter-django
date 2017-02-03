@@ -2,18 +2,18 @@
 -r base.txt
 
 coverage==4.3.4
-django-coverage-plugin==1.4
+django-coverage-plugin==1.4.1
 
-Sphinx==1.5.1
-django-extensions==1.7.5
+Sphinx==1.5.2
+django-extensions==1.7.6
 Werkzeug==0.11.15
-django-test-plus==1.0.16
+django-test-plus==1.0.17
 factory-boy==2.8.1
 
 django-debug-toolbar==1.6
 
 # improved REPL
-ipdb==0.10.1
+ipdb==0.10.2
 
 pytest-django==3.1.2
 pytest-sugar==0.8.0
