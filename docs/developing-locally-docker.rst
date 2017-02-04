@@ -73,6 +73,20 @@ To migrate your app and to create a superuser, run::
 
 Here we specify the ``django`` container as the location to run our management commands.
 
+Setup your email backend
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+django-allauth sends an email to verify users (and superusers) after signup and login (if they are still not verified). To send email you need to `configure your email backend`_
+
+.. _configure your email backend: http://docs.djangoproject.com/en/1.9/topics/email/#smtp-backend
+
+In development you can (optionally) use MailHog_ for email testing. MailHog is added as docker-container. To use MailHog::
+
+1. Make sure, that ``mailhog`` docker container is up and running
+2. Open your browser and go to the IP address for your docker machine on port 8025 ( e.g. ``http://123.456.789.012:8025`` )
+
+.. _Mailhog: https://github.com/mailhog/MailHog/
+
 Production Mode
 ~~~~~~~~~~~~~~~
 
