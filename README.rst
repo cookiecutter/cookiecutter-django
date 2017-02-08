@@ -32,6 +32,7 @@ Features
 * Renders Django projects with 100% starting test coverage
 * Twitter Bootstrap_ v4.0.0 - `alpha 4`_ (`maintained Foundation fork`_ also available)
 * 12-Factor_ based settings via django-environ_
+* Secure by default. We believe in SSL.
 * Optimized development and production settings
 * Registration via django-allauth_
 * Comes with custom user model ready to go
