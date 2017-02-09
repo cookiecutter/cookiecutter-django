@@ -3,7 +3,14 @@ Settings
 
 This project relies extensively on environment settings which **will not work with Apache/mod_wsgi setups**. It has been deployed successfully with both Gunicorn/Nginx and even uWSGI/Nginx.
 
-For configuration purposes, the following table maps environment variables to their Django setting:
+For configuration purposes, the following table maps environment variables to their Django setting and project settings:
+
+
+======================================= =========================== ============================================== ======================================================================
+Environment Variable                    Django Setting              Development Default                            Production Default
+======================================= =========================== ============================================== ======================================================================
+DJANGO_READ_DOT_ENV_FILE                READ_DOT_ENV_FILE           False                                          False
+======================================= =========================== ============================================== ======================================================================
 
 
 ======================================= =========================== ============================================== ======================================================================
