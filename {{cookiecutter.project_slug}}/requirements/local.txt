@@ -2,7 +2,7 @@
 -r base.txt
 
 coverage==4.3.4
-django-coverage-plugin==1.4.1
+django-coverage-plugin==1.4.2
 
 Sphinx==1.5.2
 django-extensions==1.7.6
