@@ -37,6 +37,19 @@ root directory of this project as a starting point. Add your own variables to th
 file won't be tracked by git by default so you'll have to make sure to use some other mechanism to copy your secret if
 you are relying solely on git.
 
+HTTPS is on by default
+----------------------
+
+SSL (Secure Sockets Layer) is a standard security technology for establishing an encrypted link between a server and a client, typically in this case, a web server (website) and a browser. Not having HTTPS means that malicious network users can sniff authentication credentials between your website and end users' browser.
+
+It is always better to deploy a site behind HTTPS and will become crucial as the web services extend to the IoT (Internet of Things). For this reason, we have set up a number of security defaults to help make your website secure:
+
+* In the `.env.example`, we have made it simpler for you to change the default `Django Admin` into a custom name through an environmental variable. This should make it harder to guess the access to the admin panel.
+
+* If you are not using a subdomain of the domain name set in the project, then remember to put the your staging/production IP address in the  ``ALLOWED_HOSTS``_ environment variable before you deploy your website. Failure to do this will mean you will not have access to your website through the HTTP protocol.
+
+* Access to the Django admin is set up by default to require HTTPS in production or once *live*. We recommend that you look into setting up the *Certbot and Let's Encrypt Setup* mentioned below or another HTTPS certification service.
+
 Optional: nginx-proxy Setup
 ---------------------------
 
@@ -52,8 +65,7 @@ This pass all incoming requests on `nginx-proxy`_ to the nginx service your appl
 Optional: Postgres Data Volume Modifications
 ---------------------------------------------
 
-Postgres is saving its database files to the `postgres_data` volume by default. Change that if you wan't
-something else and make sure to make backups since this is not done automatically.
+Postgres is saving its database files to the `postgres_data` volume by default. Change that if you want something else and make sure to make backups since this is not done automatically.
 
 Optional: Certbot and Let's Encrypt Setup
 ------------------------------------------
