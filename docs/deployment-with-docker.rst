@@ -143,7 +143,7 @@ If you have errors, you can always check your stack with `docker-compose`. Switc
 Supervisor Example
 -------------------
 
-Once you are ready with your initial setup, you wan't to make sure that your application is run by a process manager to
+Once you are ready with your initial setup, you want to make sure that your application is run by a process manager to
 survive reboots and auto restarts in case of an error. You can use the process manager you are most familiar with. All
 it needs to do is to run `docker-compose up` in your projects root directory.
 
