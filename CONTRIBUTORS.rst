@@ -125,9 +125,10 @@ Listed in alphabetical order.
   Roman Osipenko           `@romanosipenko`_
   Russell Davies
   Sam Collins              `@MightySCollins`_
-  stepmr                   `@stepmr`_
+  Shupeyko Nikita          `@webyneter`_
   Sławek Ehlert            `@slafs`_
   Srinivas Nyayapati       `@shireenrao`_
+  stepmr                   `@stepmr`_
   Steve Steiner            `@ssteinerX`_
   Sule Marshall            `@suledev`_
   Taylor Baldwin
@@ -208,6 +209,7 @@ Listed in alphabetical order.
 .. _@rm--: https://github.com/rm--
 .. _@romanosipenko: https://github.com/romanosipenko
 .. _@shireenrao: https://github.com/shireenrao
+.. _@webyneter: https://github.com/webyneter
 .. _@show0k: https://github.com/show0k
 .. _@shultz: https://github.com/shultz
 .. _@siauPatrick: https://github.com/siauPatrick
