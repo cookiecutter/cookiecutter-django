@@ -107,6 +107,7 @@ Listed in alphabetical order.
   Lyla Fischer
   Martin Blech
   Mathijs Hoogland         `@MathijsHoogland`_
+  Matt Braymer-Hayes       `@mattayes`_                  @mattayes
   Matt Linares
   Matt Menzenski           `@menzenski`_
   Matt Warren              `@mfwarren`_
@@ -193,6 +194,7 @@ Listed in alphabetical order.
 .. _@knitatoms: https://github.com/knitatoms
 .. _@krzysztofzuraw: https://github.com/krzysztofzuraw
 .. _@MathijsHoogland: https://github.com/MathijsHoogland
+.. _@mattayes: https://github.com/mattayes
 .. _@menzenski: https://github.com/menzenski
 .. _@mfwarren: https://github.com/mfwarren
 .. _@mimischi: https://github.com/mimischi
