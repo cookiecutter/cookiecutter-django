@@ -14,7 +14,7 @@ Local settings
 
 import socket
 import os
-from .common import *  # noqa
+from .base import *  # noqa
 
 # DEBUG
 # ------------------------------------------------------------------------------
