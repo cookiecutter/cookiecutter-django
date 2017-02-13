@@ -16,6 +16,7 @@ from __future__ import print_function
 import os
 import random
 import shutil
+import string
 
 # Get the root project directory
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
