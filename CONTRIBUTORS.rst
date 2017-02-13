@@ -107,6 +107,7 @@ Listed in alphabetical order.
   Lyla Fischer
   Martin Blech
   Mathijs Hoogland         `@MathijsHoogland`_
+  Matt Braymer-Hayes       `@mattayes`_                  @mattayes
   Matt Linares
   Matt Menzenski           `@menzenski`_
   Matt Warren              `@mfwarren`_
@@ -124,9 +125,10 @@ Listed in alphabetical order.
   Roman Osipenko           `@romanosipenko`_
   Russell Davies
   Sam Collins              `@MightySCollins`_
-  stepmr                   `@stepmr`_
+  Shupeyko Nikita          `@webyneter`_
   Sławek Ehlert            `@slafs`_
   Srinivas Nyayapati       `@shireenrao`_
+  stepmr                   `@stepmr`_
   Steve Steiner            `@ssteinerX`_
   Sule Marshall            `@suledev`_
   Taylor Baldwin
@@ -193,6 +195,7 @@ Listed in alphabetical order.
 .. _@knitatoms: https://github.com/knitatoms
 .. _@krzysztofzuraw: https://github.com/krzysztofzuraw
 .. _@MathijsHoogland: https://github.com/MathijsHoogland
+.. _@mattayes: https://github.com/mattayes
 .. _@menzenski: https://github.com/menzenski
 .. _@mfwarren: https://github.com/mfwarren
 .. _@mimischi: https://github.com/mimischi
@@ -206,6 +209,7 @@ Listed in alphabetical order.
 .. _@rm--: https://github.com/rm--
 .. _@romanosipenko: https://github.com/romanosipenko
 .. _@shireenrao: https://github.com/shireenrao
+.. _@webyneter: https://github.com/webyneter
 .. _@show0k: https://github.com/show0k
 .. _@shultz: https://github.com/shultz
 .. _@siauPatrick: https://github.com/siauPatrick
