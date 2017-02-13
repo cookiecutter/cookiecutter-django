@@ -3,7 +3,7 @@ Deployment on Heroku
 
 .. index:: Heroku
 
-You can either push the 'deploy' button in your generated README.rst or run these commands to deploy the project to Heroku:
+Run these commands to deploy the project to Heroku:
 
 .. code-block:: bash
 
