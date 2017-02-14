@@ -36,6 +36,7 @@ def get_random_string(length=50):
     a 71-bit value. log_2((26+26+10)^12) =~ 71 bits
     """
     punctuation = string.punctuation.replace('"', '').replace("'", '')
+    punctuation = punctuation.replace('\\', '')
     if using_sysrandom:
         return ''.join(random.choice(
             string.digits + string.ascii_letters + punctuation
