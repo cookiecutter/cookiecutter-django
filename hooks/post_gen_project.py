@@ -35,11 +35,12 @@ def get_random_string(length=50):
     The default length of 12 with the a-z, A-Z, 0-9 character set returns
     a 71-bit value. log_2((26+26+10)^12) =~ 71 bits
     """
+    punctuation = string.punctuation.replace('"', '').replace("'", '')
     if using_sysrandom:
         return ''.join(random.choice(
-            string.digits + string.ascii_letters + string.punctuation
+            string.digits + string.ascii_letters + punctuation
         ) for i in range(length))
-    
+
     print(
         "Cookiecutter Django couldn't find a secure pseudo-random number generator on your system."
         " Please change change your SECRET_KEY variables in conf/settings/local.py and env.example"
