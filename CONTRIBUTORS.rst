@@ -113,6 +113,7 @@ Listed in alphabetical order.
   Matt Warren              `@mfwarren`_
   Matthew Sisley           `@mjsisley`_
   Meghan Heintz            `@dot2dotseurat`_
+  Mesut Yılmaz             `@myilmaz`_
   Michael Gecht            `@mimischi`_                  @_mischi
   mozillazg                `@mozillazg`_
   Pablo                    `@oubiga`_
@@ -200,6 +201,7 @@ Listed in alphabetical order.
 .. _@mfwarren: https://github.com/mfwarren
 .. _@mimischi: https://github.com/mimischi
 .. _@mjsisley: https://github.com/mjsisley
+.. _@myilmaz: https://github.com/myilmaz
 .. _@mozillazg: https://github.com/mozillazg
 .. _@noisy: https://github.com/noisy
 .. _@originell: https://github.com/originell
