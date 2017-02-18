@@ -48,7 +48,7 @@ After few seconds, all *Run/Debug Configurations* should be ready to use.
 * run and debug tests
 .. image:: images/f2.png
 .. image:: images/f3.png
-* run and debug migrations or different django managment commands
+* run and debug migrations or different django management commands
 .. image:: images/f4.png
 * and many others..
 
