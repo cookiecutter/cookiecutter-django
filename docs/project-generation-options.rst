@@ -25,7 +25,7 @@ version [0.1.0]
     The starting version number for your project.
 
 timezone [UTC]
-    Used in the common settings file for the `TIME_ZONE` value.
+    Used in the base settings file for the `TIME_ZONE` value.
 
 use_whitenoise [y]
     Whether to use WhiteNoise_ for static file serving.

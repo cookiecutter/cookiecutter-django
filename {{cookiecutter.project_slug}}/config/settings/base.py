@@ -12,7 +12,7 @@ from __future__ import absolute_import, unicode_literals
 
 import environ
 
-ROOT_DIR = environ.Path(__file__) - 3  # ({{ cookiecutter.project_slug }}/config/settings/common.py - 3 = {{ cookiecutter.project_slug }}/)
+ROOT_DIR = environ.Path(__file__) - 3  # ({{ cookiecutter.project_slug }}/config/settings/base.py - 3 = {{ cookiecutter.project_slug }}/)
 APPS_DIR = ROOT_DIR.path('{{ cookiecutter.project_slug }}')
 
 # Load operating system environment variables and then prepare to use them
@@ -28,7 +28,7 @@ if READ_DOT_ENV_FILE:
     env_file = str(ROOT_DIR.path('.env'))
     print('Loading : {}'.format(env_file))
     env.read_env(env_file)
-    print('The .env file has been loaded. See common.py for more information')
+    print('The .env file has been loaded. See base.py for more information')
 
 # APP CONFIGURATION
 # ------------------------------------------------------------------------------
