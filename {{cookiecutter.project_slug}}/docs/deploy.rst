@@ -1,4 +1,10 @@
 Deploy
-========
+======
 
-This is where you describe how the project is deployed in production.
+*describe how to deploy this project*
+
+This project was generated with Cookiecutter Django, take a look at the `official docs`_ for more
+info.
+
+
+.. _official docs: http://aws.amazon.com/
