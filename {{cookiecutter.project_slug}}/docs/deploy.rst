@@ -7,4 +7,4 @@ This project was generated with Cookiecutter Django, take a look at the `officia
 info.
 
 
-.. _official docs: http://aws.amazon.com/
+.. _official docs: https://cookiecutter-django.readthedocs.io/en/latest/
