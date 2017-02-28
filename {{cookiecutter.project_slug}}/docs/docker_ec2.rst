@@ -31,7 +31,7 @@ The Docker compose tool (previously known as `fig`_) makes linking these contain
         ...
     docker-compose.yml
 
-Each component of your application would get its own `Dockerfile`_. The rest of this example assumes you are using the `base postgres image`_ for your database. Your database settings in `config/common.py` might then look something like:
+Each component of your application would get its own `Dockerfile`_. The rest of this example assumes you are using the `base postgres image`_ for your database. Your database settings in `config/base.py` might then look something like:
 
 .. _Dockerfile: https://docs.docker.com/reference/builder/
 .. _base postgres image: https://registry.hub.docker.com/_/postgres/

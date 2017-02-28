@@ -16,12 +16,14 @@ Powered by Cookiecutter_, Cookiecutter Django is a framework for jumpstarting pr
 
 * Documentation: https://cookiecutter-django.readthedocs.io/en/latest/
 * See Troubleshooting_ for common errors and obstacles
+* If you have problems with Cookiecutter Django, please open issues_ before sending emails to the maintainers. You will get a much, MUCH faster response.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
 .. _Troubleshooting: https://cookiecutter-django.readthedocs.io/en/latest/troubleshooting.html
 
 .. _528: https://github.com/pydanny/cookiecutter-django/issues/528#issuecomment-212650373
+.. _issues: https://github.com/pydanny/cookiecutter-django/issues/new
 
 Features
 ---------
@@ -30,6 +32,7 @@ Features
 * Renders Django projects with 100% starting test coverage
 * Twitter Bootstrap_ v4.0.0 - `alpha 4`_ (`maintained Foundation fork`_ also available)
 * 12-Factor_ based settings via django-environ_
+* Secure by default. We believe in SSL.
 * Optimized development and production settings
 * Registration via django-allauth_
 * Comes with custom user model ready to go
@@ -70,7 +73,7 @@ Optional Integrations
 .. _Celery: http://www.celeryproject.org/
 .. _Anymail: https://github.com/anymail/django-anymail
 .. _MailHog: https://github.com/mailhog/MailHog
-.. _Sentry: https://getsentry.com/welcome/
+.. _Sentry: https://sentry.io/welcome/
 .. _docker-compose: https://github.com/docker/compose
 .. _Opbeat: https://opbeat.com/
 .. _PythonAnywhere: https://www.pythonanywhere.com/
@@ -190,6 +193,13 @@ For Readers of Two Scoops of Django 1.8
 --------------------------------------------
 
 You may notice that some elements of this project do not exactly match what we describe in chapter 3. The reason for that is this project, amongst other things, serves as a test bed for trying out new ideas and concepts. Sometimes they work, sometimes they don't, but the end result is that it won't necessarily match precisely what is described in the book I co-authored.
+
+For pyup.io Users
+-----------------
+
+If you are using `pyup.io`_ to keep your dependencies updated and secure, use the code *cookiecutter* during checkout to get 15% off every month.
+
+.. _`pyup.io`: https://pyup.io
 
 "Your Stuff"
 -------------

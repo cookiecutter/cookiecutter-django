@@ -16,6 +16,7 @@ from __future__ import print_function
 import os
 import random
 import shutil
+import string
 
 # Get the root project directory
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
@@ -28,16 +29,19 @@ except NotImplementedError:
     using_sysrandom = False
 
 
-def get_random_string(
-        length=50,
-        allowed_chars='abcdefghijklmnopqrstuvwxyz0123456789!@#%^&*(-_=+)'):
+def get_random_string(length=50):
     """
     Returns a securely generated random string.
     The default length of 12 with the a-z, A-Z, 0-9 character set returns
     a 71-bit value. log_2((26+26+10)^12) =~ 71 bits
     """
+    punctuation = string.punctuation.replace('"', '').replace("'", '')
+    punctuation = punctuation.replace('\\', '')
     if using_sysrandom:
-        return ''.join(random.choice(allowed_chars) for i in range(length))
+        return ''.join(random.choice(
+            string.digits + string.ascii_letters + punctuation
+        ) for i in range(length))
+
     print(
         "Cookiecutter Django couldn't find a secure pseudo-random number generator on your system."
         " Please change change your SECRET_KEY variables in conf/settings/local.py and env.example"

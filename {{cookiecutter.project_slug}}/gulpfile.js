@@ -88,21 +88,17 @@ gulp.task('browserSync', function() {
     });
 });
 
-// Default task
-gulp.task('default', function() {
-    runSequence(['styles', 'scripts', 'imgCompression'], 'runServer', 'browserSync');
-});
-
-////////////////////////////////
-		//Watch//
-////////////////////////////////
-
 // Watch
-gulp.task('watch', ['default'], function() {
+gulp.task('watch', function() {
 
   gulp.watch(paths.sass + '/*.scss', ['styles']);
   gulp.watch(paths.js + '/*.js', ['scripts']).on("change", reload);
   gulp.watch(paths.images + '/*', ['imgCompression']);
   gulp.watch(paths.templates + '/**/*.html').on("change", reload);
 
+});
+
+// Default task
+gulp.task('default', function() {
+    runSequence(['styles', 'scripts', 'imgCompression'], 'runServer', 'browserSync', 'watch');
 });

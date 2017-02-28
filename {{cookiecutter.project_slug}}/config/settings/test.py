@@ -5,7 +5,7 @@ Test settings
 - Used to run tests fast on the continuous integration server and locally
 '''
 
-from .common import *  # noqa
+from .base import *  # noqa
 
 
 # DEBUG
@@ -47,16 +47,16 @@ TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 # PASSWORD HASHING
 # ------------------------------------------------------------------------------
 # Use fast password hasher so tests run faster
-PASSWORD_HASHERS = (
+PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.MD5PasswordHasher',
-)
+]
 
 # TEMPLATE LOADERS
 # ------------------------------------------------------------------------------
 # Keep templates in memory so tests run faster
 TEMPLATES[0]['OPTIONS']['loaders'] = [
-    ('django.template.loaders.cached.Loader', [
+    ['django.template.loaders.cached.Loader', [
         'django.template.loaders.filesystem.Loader',
         'django.template.loaders.app_directories.Loader',
-    ]),
+    ], ],
 ]

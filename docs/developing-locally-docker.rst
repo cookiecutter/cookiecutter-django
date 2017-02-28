@@ -20,6 +20,16 @@ If you don't already have it installed, follow the instructions for your OS:
 .. _`Docker for Windows`: https://docs.docker.com/engine/installation/windows/
 .. _`docker-engine`: https://docs.docker.com/engine/installation/
 
+Attention Windows users
+-------------
+
+Currently PostgreSQL (``psycopg2`` python package) is not installed inside Docker containers for Windows users, while it is required by the generated Django project. To fix this, add ``psycopg2`` to the list of requirements inside ``requirements/base.txt``::
+
+    # Python-PostgreSQL Database Adapter
+    psycopg2==2.6.2
+
+Doing this will prevent the project from being installed in an Windows-only environment (thus without usage of Docker). If you want to use this project without Docker, make sure to remove ``psycopg2`` from the requirements again.
+
 Build the Stack
 ---------------
 
@@ -62,6 +72,11 @@ To migrate your app and to create a superuser, run::
     $ docker-compose -f dev.yml run django python manage.py createsuperuser
 
 Here we specify the ``django`` container as the location to run our management commands.
+
+Add your Docker development server IP
+------------------------------------
+
+When ``DEBUG`` is set to `True`, the host is validated against ``['localhost', '127.0.0.1', '[::1]']``. This is adequate when running a ``virtualenv``. For Docker, in the ``config.settings.local``, add your host development server IP to ``INTERNAL_IPS`` or ``ALLOWED_HOSTS`` if the variable exists.
 
 Production Mode
 ~~~~~~~~~~~~~~~

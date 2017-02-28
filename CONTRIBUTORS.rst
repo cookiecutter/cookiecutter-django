@@ -89,6 +89,7 @@ Listed in alphabetical order.
   Ian Lee                  `@IanLee1521`_
   Jan Van Bruggen          `@jvanbrug`_
   Jens Nilsson             `@phiberjenz`_
+  Jimmy Gitonga            `@afrowave`_                  @afrowave
   Julien Almarcha          `@sladinji`_
   Julio Castillo           `@juliocc`_
   Kaido Kert               `@kaidokert`_
@@ -106,11 +107,14 @@ Listed in alphabetical order.
   Lyla Fischer
   Martin Blech
   Mathijs Hoogland         `@MathijsHoogland`_
+  Matt Braymer-Hayes       `@mattayes`_                  @mattayes
   Matt Linares
   Matt Menzenski           `@menzenski`_
   Matt Warren              `@mfwarren`_
   Matthew Sisley           `@mjsisley`_
   Meghan Heintz            `@dot2dotseurat`_
+  Mesut Yılmaz             `@myilmaz`_
+  Michael Gecht            `@mimischi`_                  @_mischi
   mozillazg                `@mozillazg`_
   Pablo                    `@oubiga`_
   Parbhat Puri             `@parbhat`_
@@ -122,13 +126,15 @@ Listed in alphabetical order.
   Roman Osipenko           `@romanosipenko`_
   Russell Davies
   Sam Collins              `@MightySCollins`_
-  stepmr                   `@stepmr`_
+  Shupeyko Nikita          `@webyneter`_
   Sławek Ehlert            `@slafs`_
   Srinivas Nyayapati       `@shireenrao`_
+  stepmr                   `@stepmr`_
   Steve Steiner            `@ssteinerX`_
   Sule Marshall            `@suledev`_
   Taylor Baldwin
   Théo Segonds             `@show0k`_
+  Tim Freund               `@timfreund`_
   Tom Atkins               `@knitatoms`_
   Tom Offermann
   Travis McNeill           `@Travistock`_               @tavistock_esq
@@ -190,9 +196,12 @@ Listed in alphabetical order.
 .. _@knitatoms: https://github.com/knitatoms
 .. _@krzysztofzuraw: https://github.com/krzysztofzuraw
 .. _@MathijsHoogland: https://github.com/MathijsHoogland
+.. _@mattayes: https://github.com/mattayes
 .. _@menzenski: https://github.com/menzenski
 .. _@mfwarren: https://github.com/mfwarren
+.. _@mimischi: https://github.com/mimischi
 .. _@mjsisley: https://github.com/mjsisley
+.. _@myilmaz: https://github.com/myilmaz
 .. _@mozillazg: https://github.com/mozillazg
 .. _@noisy: https://github.com/noisy
 .. _@originell: https://github.com/originell
@@ -202,6 +211,7 @@ Listed in alphabetical order.
 .. _@rm--: https://github.com/rm--
 .. _@romanosipenko: https://github.com/romanosipenko
 .. _@shireenrao: https://github.com/shireenrao
+.. _@webyneter: https://github.com/webyneter
 .. _@show0k: https://github.com/show0k
 .. _@shultz: https://github.com/shultz
 .. _@siauPatrick: https://github.com/siauPatrick
@@ -209,6 +219,7 @@ Listed in alphabetical order.
 .. _@ssteinerX: https://github.com/ssteinerx
 .. _@stepmr: https://github.com/stepmr
 .. _@suledev: https://github.com/suledev
+.. _@timfreund: https://github.com/timfreund
 .. _@Travistock: https://github.com/Tavistock
 .. _@trungdong: https://github.com/trungdong
 .. _@viviangb: httpsL//github.com/viviangb
