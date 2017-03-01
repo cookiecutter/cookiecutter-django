@@ -17,3 +17,6 @@ ipdb==0.10.2
 
 pytest-django==3.1.2
 pytest-sugar==0.8.0
+{% if cookiecutter.use_bumpversion == 'y' -%}
+bumpversion==0.5.3
+{%- endif %}

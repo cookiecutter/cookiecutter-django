@@ -6,6 +6,7 @@
     "description": "A short description of the project.",
     "domain_name": "example.com",
     "version": "0.1.0",
+    "use_bumpversion": "y",
     "timezone": "UTC",
     "use_whitenoise": "y",
     "use_celery": "n",
