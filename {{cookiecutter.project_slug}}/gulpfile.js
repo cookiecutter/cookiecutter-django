@@ -81,7 +81,6 @@ gulp.task('runServer', function(cb) {
   });
 });
 
-
 // Browser sync server for live reload
 gulp.task('browserSync', function() {
     browserSync.init(
