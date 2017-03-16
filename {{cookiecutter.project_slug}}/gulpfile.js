@@ -48,7 +48,7 @@ gulp.task('styles', function() {
   return gulp.src(paths.sass + '/project.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(plumber()) // Checks for errors
-    .pipe(autoprefixer({browsers: ['last 2 version']})) // Adds vendor prefixes
+    .pipe(autoprefixer({browsers: ['last 2 versions']})) // Adds vendor prefixes
     .pipe(pixrem())  // add fallbacks for rem units
     .pipe(gulp.dest(paths.css))
     .pipe(rename({ suffix: '.min' }))
