@@ -140,6 +140,7 @@ Click through to the **WSGI configuration file** link (near the top) and edit th
     os.environ['DJANGO_ADMIN_URL'] = '<as above>'
     os.environ['DJANGO_MAILGUN_API_KEY'] = '<as above>'
     os.environ['DJANGO_MAILGUN_SERVER_NAME'] = '<as above>'
+    os.environ['MAILGUN_SENDER_DOMAIN'] = '<as above>'
     os.environ['DJANGO_AWS_ACCESS_KEY_ID'] = ''
     os.environ['DJANGO_AWS_SECRET_ACCESS_KEY'] = ''
     os.environ['DJANGO_AWS_STORAGE_BUCKET_NAME'] = ''

@@ -74,8 +74,7 @@ js_task_runner [1]
 
     1. Gulp_
     2. Grunt_
-    3. Webpack_
-    4. None
+    3. None
 
 use_lets_encrypt [n]
     Use `Let's Encrypt`_ as the certificate authority for this project.
