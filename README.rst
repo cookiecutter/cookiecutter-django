@@ -141,8 +141,7 @@ Answer the prompts with your own desired options_. For example::
     Select js_task_runner:
     1 - Gulp
     2 - Grunt
-    3 - Webpack
-    4 - None
+    3 - None
     Choose from 1, 2, 3, 4 [1]: 1
     use_lets_encrypt [n]: n
     Select open_source_license:
