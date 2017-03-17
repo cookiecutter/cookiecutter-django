@@ -141,6 +141,7 @@ Listed in alphabetical order.
   Vitaly Babiy
   Vivian Guillen           `@viviangb`_
   Will Farley              `@goldhand`_                 @g01dhand
+  William Archinal         `@archinal`_
   Yaroslav Halchenko
 ========================== ============================ ==============
 
@@ -152,6 +153,7 @@ Listed in alphabetical order.
 .. _@amjith: https://github.com/amjith
 .. _@andor-pierdelacabeza: https://github.com/andor-pierdelacabeza
 .. _@antoniablair: https://github.com/antoniablair
+.. _@archinal: https://github.com/archinal
 .. _@areski: https://github.com/areski
 .. _@arruda: https://github.com/arruda
 .. _@bittner: https://github.com/bittner
