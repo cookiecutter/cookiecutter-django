@@ -9,6 +9,7 @@
     "timezone": "UTC",
     "use_whitenoise": "y",
     "use_celery": "n",
+    "use_domain_driven_design": "n",
     "use_mailhog": "n",
     "use_sentry_for_error_reporting": "y",
     "use_opbeat": "n",

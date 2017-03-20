@@ -57,7 +57,8 @@ THIRD_PARTY_APPS = [
 # Apps specific for this project go here.
 LOCAL_APPS = [
     # custom users app
-    '{{ cookiecutter.project_slug }}.users.apps.UsersConfig',
+    '{{ cookiecutter.project_slug }}.users.apps.UsersConfig',{% if cookiecutter.use_domain_driven_design == 'y' %}
+    '{{ cookiecutter.project_slug }}.domain.apps.DomainConfig',{% endif %}
     # Your stuff: custom apps go here
 ]
 

@@ -202,6 +202,15 @@ def remove_elasticbeanstalk():
             PROJECT_DIRECTORY, filename
         ))
 
+def remove_domain_app(project_directory):
+    """Removes the domain app if Domain-Driven Design (DDD) isn't going to be used."""
+    # Determine the local_setting_file_location
+    domain_app_location = os.path.join(
+        PROJECT_DIRECTORY,
+        '{{ cookiecutter.project_slug }}/domain'
+    )
+    shutil.rmtree(domain_app_location)
+
 # IN PROGRESS
 # def copy_doc_files(project_directory):
 #     cookiecutters_dir = DEFAULT_CONFIG['cookiecutters_dir']
@@ -284,3 +293,7 @@ if '{{ cookiecutter.open_source_license}}' != 'GPLv3':
 # 12. Remove Elastic Beanstalk files
 if '{{ cookiecutter.use_elasticbeanstalk_experimental }}'.lower() != 'y':
     remove_elasticbeanstalk()
+
+# 13. Removes the domain app if Domain-Driven Design (DDD) isn't going to be used.
+if '{{ cookiecutter.use_domain_driven_design }}'.lower() == 'n':
+    remove_domain_app(PROJECT_DIRECTORY)
