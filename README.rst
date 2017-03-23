@@ -268,23 +268,23 @@ This project is maintained by volunteers. Support their efforts by spreading the
 Two Scoops Press
 ~~~~~~~~~~~~~~~~~~
 
-Bringing you the best dairy-themed Django references in the universe
-
 .. image:: https://cdn.shopify.com/s/files/1/0304/6901/t/2/assets/logo.png?11985289740589874793
    :name: Two Scoops Press
    :align: center
    :alt: Two Scoops Press
    :target: https://twoscoopspress.com
    
+Two Scoops Press brings you the best dairy-themed Django references in the universe   
+   
 pyup
 ~~~~~~~~~~~~~~~~~~   
-
-Bringing you automated security and dependency updates
    
 .. image:: https://pyup.io/static/images/logo.png
    :name: pyup
    :align: center
    :alt: pyup
    :target: https://pyup.io/
+   
+Pyup brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
 
 .. _`PyPA Code of Conduct`: https://www.pypa.io/en/latest/code-of-conduct/
