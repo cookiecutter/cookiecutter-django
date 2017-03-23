@@ -270,5 +270,11 @@ This project is maintained by volunteers. Support their efforts by spreading the
    :align: center
    :alt: Two Scoops Press
    :target: https://twoscoopspress.com
+   
+ .. image:: https://pyup.io/static/images/logo.png
+   :name: pyup
+   :align: center
+   :alt: pyup
+   :target: https://pyup.io/
 
 .. _`PyPA Code of Conduct`: https://www.pypa.io/en/latest/code-of-conduct/
