@@ -25,7 +25,7 @@ version [0.1.0]
     The starting version number for your project.
 
 timezone [UTC]
-    Used in the common settings file for the `TIME_ZONE` value.
+    Used in the base settings file for the `TIME_ZONE` value.
 
 use_whitenoise [y]
     Whether to use WhiteNoise_ for static file serving.
@@ -74,8 +74,7 @@ js_task_runner [1]
 
     1. Gulp_
     2. Grunt_
-    3. Webpack_
-    4. None
+    3. None
 
 use_lets_encrypt [n]
     Use `Let's Encrypt`_ as the certificate authority for this project.

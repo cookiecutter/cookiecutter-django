@@ -1,11 +1,11 @@
-cookiecutter==1.5.0
-flake8==3.2.1 # pyup: != 2.6.0
-sh==1.12.9
+cookiecutter==1.5.1
+flake8==3.3.0 # pyup: != 2.6.0
+sh==1.12.13
 binaryornot==0.4.0
 
 # Testing
-pytest==3.0.6
+pytest==3.0.7
 pep8==1.7.0
 pyflakes==1.5.0
-tox==2.5.0
+tox==2.6.0
 pytest-cookies==0.2.0

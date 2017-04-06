@@ -32,6 +32,7 @@ Features
 * Renders Django projects with 100% starting test coverage
 * Twitter Bootstrap_ v4.0.0 - `alpha 4`_ (`maintained Foundation fork`_ also available)
 * 12-Factor_ based settings via django-environ_
+* Secure by default. We believe in SSL.
 * Optimized development and production settings
 * Registration via django-allauth_
 * Comes with custom user model ready to go
@@ -140,8 +141,7 @@ Answer the prompts with your own desired options_. For example::
     Select js_task_runner:
     1 - Gulp
     2 - Grunt
-    3 - Webpack
-    4 - None
+    3 - None
     Choose from 1, 2, 3, 4 [1]: 1
     use_lets_encrypt [n]: n
     Select open_source_license:
@@ -192,6 +192,13 @@ For Readers of Two Scoops of Django 1.8
 --------------------------------------------
 
 You may notice that some elements of this project do not exactly match what we describe in chapter 3. The reason for that is this project, amongst other things, serves as a test bed for trying out new ideas and concepts. Sometimes they work, sometimes they don't, but the end result is that it won't necessarily match precisely what is described in the book I co-authored.
+
+For pyup.io Users
+-----------------
+
+If you are using `pyup.io`_ to keep your dependencies updated and secure, use the code *cookiecutter* during checkout to get 15% off every month.
+
+.. _`pyup.io`: https://pyup.io
 
 "Your Stuff"
 -------------
@@ -258,10 +265,26 @@ Support This Project
 
 This project is maintained by volunteers. Support their efforts by spreading the word about:
 
-.. image:: https://s3.amazonaws.com/tsacademy/images/tsa-logo-250x60-transparent-01.png
-   :name: Two Scoops Academy
+Two Scoops Press
+~~~~~~~~~~~~~~~~~~
+
+.. image:: https://cdn.shopify.com/s/files/1/0304/6901/t/2/assets/logo.png?11985289740589874793
+   :name: Two Scoops Press
    :align: center
-   :alt: Two Scoops Academy
-   :target: https://twoscoops.academy/
+   :alt: Two Scoops Press
+   :target: https://twoscoopspress.com
+   
+Two Scoops Press brings you the best dairy-themed Django references in the universe   
+   
+pyup
+~~~~~~~~~~~~~~~~~~   
+   
+.. image:: https://pyup.io/static/images/logo.png
+   :name: pyup
+   :align: center
+   :alt: pyup
+   :target: https://pyup.io/
+   
+Pyup brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
 
 .. _`PyPA Code of Conduct`: https://www.pypa.io/en/latest/code-of-conduct/

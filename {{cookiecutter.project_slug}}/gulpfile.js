@@ -48,7 +48,7 @@ gulp.task('styles', function() {
   return gulp.src(paths.sass + '/project.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(plumber()) // Checks for errors
-    .pipe(autoprefixer({browsers: ['last 2 version']})) // Adds vendor prefixes
+    .pipe(autoprefixer({browsers: ['last 2 versions']})) // Adds vendor prefixes
     .pipe(pixrem())  // add fallbacks for rem units
     .pipe(gulp.dest(paths.css))
     .pipe(rename({ suffix: '.min' }))
@@ -88,21 +88,17 @@ gulp.task('browserSync', function() {
     });
 });
 
-// Default task
-gulp.task('default', function() {
-    runSequence(['styles', 'scripts', 'imgCompression'], 'runServer', 'browserSync');
-});
-
-////////////////////////////////
-		//Watch//
-////////////////////////////////
-
 // Watch
-gulp.task('watch', ['default'], function() {
+gulp.task('watch', function() {
 
   gulp.watch(paths.sass + '/*.scss', ['styles']);
   gulp.watch(paths.js + '/*.js', ['scripts']).on("change", reload);
   gulp.watch(paths.images + '/*', ['imgCompression']);
   gulp.watch(paths.templates + '/**/*.html').on("change", reload);
 
+});
+
+// Default task
+gulp.task('default', function() {
+    runSequence(['styles', 'scripts', 'imgCompression'], 'runServer', 'browserSync', 'watch');
 });

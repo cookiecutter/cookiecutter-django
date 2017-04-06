@@ -73,6 +73,11 @@ To migrate your app and to create a superuser, run::
 
 Here we specify the ``django`` container as the location to run our management commands.
 
+Add your Docker development server IP
+------------------------------------
+
+When ``DEBUG`` is set to `True`, the host is validated against ``['localhost', '127.0.0.1', '[::1]']``. This is adequate when running a ``virtualenv``. For Docker, in the ``config.settings.local``, add your host development server IP to ``INTERNAL_IPS`` or ``ALLOWED_HOSTS`` if the variable exists.
+
 Production Mode
 ~~~~~~~~~~~~~~~
 
