@@ -19,8 +19,10 @@ services:
       dockerfile: ./compose/django/Dockerfile-dev
     command: /start-dev.sh
     depends_on:
-      - postgres{% if cookiecutter.use_mailhog == 'y' %}
-      - mailhog{% endif %}
+      - postgres
+{% if cookiecutter.use_mailhog == 'y' -%}
+      - mailhog
+{%- endif %}
     env_file:
       - dev.env
     environment:
