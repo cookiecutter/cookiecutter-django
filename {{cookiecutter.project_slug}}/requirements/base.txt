@@ -7,7 +7,7 @@ wheel==0.29.0
 {%- endif %}
 
 # Bleeding edge Django
-django==1.10.6
+django==1.10.7 # pyup: >=1.10,<1.11
 
 # Configuration
 django-environ==0.4.1
@@ -38,14 +38,14 @@ django-allauth==0.31.0
 # from http://www.lfd.uci.edu/~gohlke/pythonlibs/#psycopg
 {% else %}
 # Python-PostgreSQL Database Adapter
-psycopg2==2.7
+psycopg2==2.7.1
 {%- endif %}
 
 # Unicode slugification
 awesome-slugify==1.6.5
 
 # Time zones support
-pytz==2016.10
+pytz==2017.2
 
 # Redis support
 django-redis==4.7.0
