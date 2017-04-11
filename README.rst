@@ -265,10 +265,26 @@ Support This Project
 
 This project is maintained by volunteers. Support their efforts by spreading the word about:
 
-.. image:: https://s3.amazonaws.com/tsacademy/images/tsa-logo-250x60-transparent-01.png
-   :name: Two Scoops Academy
+Two Scoops Press
+~~~~~~~~~~~~~~~~~~
+
+.. image:: https://cdn.shopify.com/s/files/1/0304/6901/t/2/assets/logo.png?11985289740589874793
+   :name: Two Scoops Press
    :align: center
-   :alt: Two Scoops Academy
-   :target: https://twoscoops.academy/
+   :alt: Two Scoops Press
+   :target: https://twoscoopspress.com
+   
+Two Scoops Press brings you the best dairy-themed Django references in the universe   
+   
+pyup
+~~~~~~~~~~~~~~~~~~   
+   
+.. image:: https://pyup.io/static/images/logo.png
+   :name: pyup
+   :align: center
+   :alt: pyup
+   :target: https://pyup.io/
+   
+Pyup brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
 
 .. _`PyPA Code of Conduct`: https://www.pypa.io/en/latest/code-of-conduct/
