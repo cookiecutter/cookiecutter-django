@@ -1,7 +1,7 @@
 cookiecutter==1.5.1
 flake8==3.3.0 # pyup: != 2.6.0
 sh==1.12.13
-binaryornot==0.4.2
+binaryornot==0.4.3
 
 # Testing
 pytest==3.0.7
