@@ -13,7 +13,12 @@ middleware here, or combine a Django application with an application of another
 framework.
 
 """
-import os
+import os, sys
+
+# This allows easy placement of apps within the interior
+# {{ cookiecutter.project_slug }} directory.
+app_path = os.path.dirname(os.path.abspath(__file__)).replace('/config', '')
+sys.path.append(os.path.join(app_path, '{{ cookiecutter.project_slug }}'))
 
 from django.core.wsgi import get_wsgi_application
 {% if cookiecutter.use_sentry_for_error_reporting == 'y' -%}
