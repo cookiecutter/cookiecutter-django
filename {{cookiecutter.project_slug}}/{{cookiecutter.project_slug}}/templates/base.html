@@ -20,7 +20,7 @@
     <!-- Your stuff: Third-party CSS libraries go here -->
     {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% compress css %}{% endraw %}{% endif %}{% raw %}
     <!-- This file stores project-specific CSS -->
-    <link href="{% static 'css/project.css' %}" rel="stylesheet">
+    <link href="{% static 'build/styles.min.css' %}" rel="stylesheet"/>
     {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% endcompress %}{% endraw %}{% endif %}{% raw %}
     {% endblock %}
 
@@ -97,7 +97,7 @@
 
       <!-- place project specific Javascript in this file -->
       {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% compress js %}{% endraw %}{% endif %}{% raw %}
-      <script src="{% static 'js/project.js' %}"></script>
+      <script src="{% static 'build/scripts.min.js' %}"></script>
       {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% endcompress %}{% endraw %}{% endif %}{% raw %}
 
     {% endblock javascript %}

@@ -1,0 +1,26 @@
+.alert-debug {
+  background-color: #fff;
+  border-color: #d6e9c6;
+  color: #000; }
+
+.alert-error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48; }
+
+.navbar {
+  border-radius: 0px; }
+
+@media (max-width: 47.9em) {
+  .navbar-nav .nav-item {
+    display: inline-block;
+    float: none;
+    width: 100%; }
+  .navbar-nav .nav-item + .nav-item {
+    margin-left: 0; }
+  .nav.navbar-nav.pull-xs-right {
+    float: none !important; } }
+
+[hidden][style="display: block;"] {
+  display: block !important; }
+
