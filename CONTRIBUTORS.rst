@@ -16,6 +16,7 @@ Fábio C. Barrionuevo da Luz `@luzfcb`_    @luzfcb
 Saurabh Kumar               `@theskumar`_ @_theskumar
 Jannis Gebauer              `@jayfk`_
 Burhan Khalid               `@burhan`_    @burhan
+Shupeyko Nikita             _`@webyneter` @webyneter
 =========================== ============= ===========
 
 *Audrey is also the creator of Cookiecutter. Audrey and
@@ -26,6 +27,7 @@ Daniel are on the Cookiecutter core team.*
 .. _@theskumar: https://github.com/theskumar
 .. _@audreyr: https://github.com/audreyr
 .. _@jayfk: https://github.com/jayfk
+.. _@webyneter: https://github.com/webyneter
 
 Other Contributors
 ------------------
