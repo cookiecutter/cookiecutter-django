@@ -16,7 +16,7 @@ Fábio C. Barrionuevo da Luz `@luzfcb`_    @luzfcb
 Saurabh Kumar               `@theskumar`_ @_theskumar
 Jannis Gebauer              `@jayfk`_
 Burhan Khalid               `@burhan`_    @burhan
-Shupeyko Nikita             _`@webyneter` @webyneter
+Shupeyko Nikita             `@webyneter`_ @webyneter
 =========================== ============= ===========
 
 *Audrey is also the creator of Cookiecutter. Audrey and
