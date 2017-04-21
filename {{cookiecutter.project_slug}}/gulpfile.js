@@ -13,8 +13,6 @@ const clean = require('gulp-clean')
 const spawn = require('child_process').spawn
 const runSequence = require('run-sequence')
 const browserSync = require('browser-sync').create()
-const reload = browserSync.reload
-
 const pathsConfig = function (appName) {
   this.paths = {}
 
@@ -33,18 +31,20 @@ const pathsConfig = function (appName) {
 
   this.paths['build_scriptsFileName'] = 'scripts.js'
   this.paths['scripts'] = this.paths['static'] + '/scripts'
+  this.paths['scripts_files'] = this.paths['scripts'] + '/**/*'
   this.paths['scriptsJs'] = this.paths['scripts'] + '/js'
   this.paths['scriptsJs_files'] = this.paths['scriptsJs'] + '/*.js'
 
   this.paths['build_stylesFileName'] = 'styles.css'
   this.paths['styles'] = this.paths['static'] + '/styles'
+  this.paths['styles_files'] = this.paths['styles'] + '/**/*'
   this.paths['stylesSass'] = this.paths['styles'] + '/sass'
   this.paths['stylesSass_files'] = this.paths['stylesSass'] + '/*.scss'
   this.paths['stylesCss'] = this.paths['styles'] + '/css'
   this.paths['stylesCss_files'] = this.paths['stylesCss'] + '/*.css'
 
   this.paths['templates'] = this.paths['app'] + '/templates'
-  this.paths['templates_files'] = this.paths['templates'] + '/*.html'
+  this.paths['templates_files'] = this.paths['templates'] + '/**/*.html'
 
   return this.paths
 }
@@ -110,30 +110,15 @@ gulp.task('styles', function () {
 // endregion
 
 // region manage.py
-gulp.task('migrate', function (cb) {
+gulp.task('migrate', function () {
   const cmd = spawn('python', ['manage.py', 'migrate'], {stdio: 'inherit'})
-  cmd.on(close, function (code) {
-    console.log('runServerPlus exited with code ' + code)
-    cb(code)
-  })
-})
-
-gulp.task('runServerPlus', function (cb) {
-  const cmd = spawn('python', ['manage.py', 'runserver_plus'], {stdio: 'inherit'})
-  cmd.on(close, function (code) {
-    console.log('runServerPlus exited with code ' + code)
-    cb(code)
+  cmd.on('close', function (code) {
+    console.log('migrate exited with code ' + code)
   })
 })
 // endregion
 
-gulp.task('browserSync', function () {
-  browserSync.init(
-    [paths.images_files, paths.scriptsJs_files, paths.stylesCss_files, paths.templates_files], {
-      proxy: 'localhost:8000'
-    })
-})
-
+// region build
 gulp.task('build', function () {
   runSequence(['images', 'scripts', 'styles'])
 })
@@ -143,19 +128,21 @@ gulp.task('clean-build', function (cb) {
       clean()],
     cb)
 })
+// endregion
+
+gulp.task('init-browserSync', function () {
+  browserSync.init({
+    host: 'localhost:8000'
+  })
+})
+
+gulp.task('watch', function () {
+  gulp.watch(paths.images_files, ['images']).on('change', browserSync.reload)
+  gulp.watch(paths.scripts_files, ['scripts']).on('change', browserSync.reload)
+  gulp.watch(paths.styles_files, ['styles']).on('change', browserSync.reload)
+  gulp.watch(paths.templates_files).on('change', browserSync.reload)
+})
 
 gulp.task('default', function () {
-  runSequence('build', 'runServerPlus', 'browserSync')
-})
-
-gulp.task('default-migrate', function () {
-  runSequence('build', 'migrate', 'runServerPlus', 'browserSync')
-})
-
-gulp.task('watch', ['default'], function () {
-  gulp.watch(paths.images_files, ['images'])
-  gulp.watch(paths.scriptsJs_files, ['js-scripts']).on('change', reload)
-  gulp.watch(paths.stylesSass_files, ['sass-styles'])
-  gulp.watch(paths.stylesCss_files, ['css-styles'])
-  gulp.watch(paths.templates_files).on('change', reload)
+  runSequence('build', 'init-browserSync', 'watch')
 })
