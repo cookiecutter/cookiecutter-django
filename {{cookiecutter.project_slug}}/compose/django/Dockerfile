@@ -1,8 +1,4 @@
-{% if cookiecutter.use_python3 == 'y' -%}
 FROM python:3.5
-{% else %}
-FROM python:2.7
-{%- endif %}
 ENV PYTHONUNBUFFERED 1
 
 # Requirements have to be pulled and installed here, otherwise caching won't work
