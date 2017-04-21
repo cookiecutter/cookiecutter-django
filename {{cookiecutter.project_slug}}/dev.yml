@@ -21,6 +21,7 @@ services:
     depends_on:
       - postgres{% if cookiecutter.use_mailhog == 'y' %}
       - mailhog{% endif %}
+      - node
     environment:
       - POSTGRES_USER={{cookiecutter.project_slug}}
       - USE_DOCKER=yes
@@ -48,3 +49,19 @@ services:
     ports:
       - "8025:8025"
 {% endif %}
+
+  node:
+    build:
+      context: .
+      dockerfile: ./compose/node/Dockerfile-dev
+    volumes:
+      - .:/app
+      # http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html
+      - /app/node_modules
+    command: "gulp"
+    ports:
+      # BrowserSync port.
+      - "3000:3000"
+      # BrowserSync UI port.
+      - "3001:3001"
+
