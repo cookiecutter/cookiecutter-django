@@ -1,5 +1,4 @@
 {% if cookiecutter.use_celery == 'y' %}
-from __future__ import absolute_import
 import os
 from celery import Celery
 from django.apps import apps, AppConfig
@@ -31,7 +30,7 @@ class CeleryConfig(AppConfig):
 {% if cookiecutter.use_pycharm == 'y' -%}
 	    # Since raven is required in production only,
             # imports might (most surely will) be wiped out
-            # during PyCharm code clean up started	
+            # during PyCharm code clean up started
             # in other environments.
             # @formatter:off
 {%- endif %}

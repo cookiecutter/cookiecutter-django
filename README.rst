@@ -29,8 +29,9 @@ Features
 ---------
 
 * For Django 1.10
+* Works with Python 3.4.x or 3.5.x. Python 3.6 is experimenta
 * Renders Django projects with 100% starting test coverage
-* Twitter Bootstrap_ v4.0.0 - `alpha 4`_ (`maintained Foundation fork`_ also available)
+* Twitter Bootstrap_ v4.0.0 - alpha 6 (`maintained Foundation fork`_ also available)
 * 12-Factor_ based settings via django-environ_
 * Secure by default. We believe in SSL.
 * Optimized development and production settings
@@ -42,7 +43,6 @@ Features
 * Docker support using docker-compose_ for development and production
 * Procfile_ for deploying to Heroku
 * Instructions for deploying to PythonAnywhere_
-* Works with Python 2.7.x or 3.5.x
 * Run tests with unittest or py.test
 * Customizable PostgreSQL version
 * Experimental support for Amazon Elastic Beanstalk
@@ -61,7 +61,6 @@ Optional Integrations
 * Integration with Sentry_ for error logging
 * Integration with Opbeat_ for performance monitoring
 
-.. _`alpha 4`: http://blog.getbootstrap.com/2016/09/05/bootstrap-4-alpha-4/
 .. _Bootstrap: https://github.com/twbs/bootstrap
 .. _django-environ: https://github.com/joke2k/django-environ
 .. _12-Factor: http://12factor.net/
@@ -128,7 +127,6 @@ Answer the prompts with your own desired options_. For example::
     use_opbeat [n]: y
     use_pycharm [n]: y
     windows [n]: n
-    use_python3 [y]: y
     use_docker [y]: n
     use_heroku [n]: y
     use_compressor [n]: y
