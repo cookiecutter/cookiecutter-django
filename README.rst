@@ -84,7 +84,7 @@ Constraints
 
 * Only maintained 3rd party libraries are used.
 * Uses PostgreSQL everywhere (9.2+)
-* Environment variables for configuration (This won't work with Apache/mod_wsgi).
+* Environment variables for configuration (This won't work with Apache/mod_wsgi except on AWS ELB).
 
 
 Usage
@@ -273,18 +273,18 @@ Two Scoops Press
    :align: center
    :alt: Two Scoops Press
    :target: https://twoscoopspress.com
-   
-Two Scoops Press brings you the best dairy-themed Django references in the universe   
-   
+
+Two Scoops Press brings you the best dairy-themed Django references in the universe
+
 pyup
-~~~~~~~~~~~~~~~~~~   
-   
+~~~~~~~~~~~~~~~~~~
+
 .. image:: https://pyup.io/static/images/logo.png
    :name: pyup
    :align: center
    :alt: pyup
    :target: https://pyup.io/
-   
+
 Pyup brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
 
 .. _`PyPA Code of Conduct`: https://www.pypa.io/en/latest/code-of-conduct/
