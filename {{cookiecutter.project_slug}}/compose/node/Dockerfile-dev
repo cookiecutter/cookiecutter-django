@@ -2,9 +2,9 @@ FROM node:7-slim
 
 RUN mkdir -p /app
 
-COPY package.json /app/package.json
-
 WORKDIR /app
+
+COPY package.json /app/package.json
 
 RUN npm install && npm cache clean
 
