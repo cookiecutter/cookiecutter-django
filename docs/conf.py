@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-#
 # cookiecutter-django documentation build configuration file.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -9,8 +7,6 @@
 #
 # All configuration values have a default; values that are commented out
 # serve to show the default.
-
-from __future__ import unicode_literals
 
 from datetime import datetime
 import os

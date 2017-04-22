@@ -12,7 +12,6 @@ A portion of this code was adopted from Django's standard crypto functions and
 utilities, specifically:
     https://github.com/django/django/blob/master/django/utils/crypto.py
 """
-from __future__ import print_function
 import os
 import random
 import shutil
