@@ -1,16 +1,15 @@
-{% if cookiecutter.use_python3 == 'y' -%}
 # Wheel 0.25+ needed to install certain packages on CPython 3.5+
 # like Pillow and psycopg2
 # See http://bitly.com/wheel-building-fails-CPython-35
 # Verified bug on Python 3.5.1
 wheel==0.29.0
-{%- endif %}
+
 
 # Bleeding edge Django
 django==1.10.7 # pyup: >=1.10,<1.11
 
 # Configuration
-django-environ==0.4.1
+django-environ==0.4.3
 {% if cookiecutter.use_whitenoise == 'y' -%}
 whitenoise==3.3.0
 {%- endif %}
@@ -21,10 +20,10 @@ django-braces==1.11.0
 django-crispy-forms==1.6.1
 
 # Models
-django-model-utils==2.6.1
+django-model-utils==3.0.0
 
 # Images
-Pillow==4.0.0
+Pillow==4.1.0
 
 # Password storage
 argon2-cffi==16.3.0

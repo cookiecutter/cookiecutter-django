@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-#
 # {{ cookiecutter.project_name }} documentation build configuration file, created by
 # sphinx-quickstart.
 #
@@ -10,8 +8,6 @@
 #
 # All configuration values have a default; values that are commented out
 # serve to show the default.
-
-from __future__ import unicode_literals
 
 import os
 import sys
