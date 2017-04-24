@@ -51,7 +51,7 @@ django-redis==4.7.0
 redis>=2.10.5
 
 {% if cookiecutter.use_celery == "y" %}
-celery==4.0.2
+celery==3.1.24
 {% endif %}
 
 {% if cookiecutter.use_compressor == "y" %}
