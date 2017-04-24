@@ -201,6 +201,16 @@ def remove_elasticbeanstalk():
             PROJECT_DIRECTORY, filename
         ))
 
+def remove_open_source_files():
+    """
+    Removes files conventional to opensource projects only.
+    """
+    for filename in ["CONTRIBUTORS.txt"]:
+        os.remove(os.path.join(
+            PROJECT_DIRECTORY, filename
+        ))
+
+
 # IN PROGRESS
 # def copy_doc_files(project_directory):
 #     cookiecutters_dir = DEFAULT_CONFIG['cookiecutters_dir']
@@ -283,3 +293,7 @@ if '{{ cookiecutter.open_source_license}}' != 'GPLv3':
 # 12. Remove Elastic Beanstalk files
 if '{{ cookiecutter.use_elasticbeanstalk_experimental }}'.lower() != 'y':
     remove_elasticbeanstalk()
+
+# 13. Remove files conventional to opensource projects only.
+if '{{ cookiecutter.open_source_license }}' == 'Not open source':
+    remove_open_source_files()
