@@ -29,7 +29,7 @@ Features
 ---------
 
 * For Django 1.10
-* Works with Python 3.4.x or 3.5.x. Python 3.6 is experimenta
+* Works with Python 3.4.x or 3.5.x. Python 3.6 is experimental
 * Renders Django projects with 100% starting test coverage
 * Twitter Bootstrap_ v4.0.0 - alpha 6 (`maintained Foundation fork`_ also available)
 * 12-Factor_ based settings via django-environ_
