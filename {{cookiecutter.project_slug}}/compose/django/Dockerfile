@@ -10,6 +10,7 @@ RUN pip install -r /requirements/production.txt \
 
 COPY . /app
 RUN chown -R django /app
+USER django
 
 COPY ./compose/django/gunicorn.sh /gunicorn.sh
 COPY ./compose/django/entrypoint.sh /entrypoint.sh
