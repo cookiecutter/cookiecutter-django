@@ -14,7 +14,6 @@
     "use_opbeat": "n",
     "use_pycharm": "n",
     "windows": "n",
-    "use_python3": "y",
     "use_docker": "n",
     "use_heroku": "n",
     "use_elasticbeanstalk_experimental": "n",
