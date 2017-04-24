@@ -11,7 +11,7 @@ services:
       - postgres_data_dev:/var/lib/postgresql/data
       - postgres_backup_dev:/backups
     env_file:
-      - dev.env
+      - local.env
 
   django:
     build:
@@ -24,7 +24,7 @@ services:
       - mailhog
 {%- endif %}
     env_file:
-      - dev.env
+      - local.env
     environment:
       - USE_DOCKER=yes
     volumes:
@@ -40,7 +40,7 @@ services:
     depends_on:
       - postgres
     env_file:
-      - dev.env
+      - local.env
     volumes:
       - .:/app
 {% endif %}
