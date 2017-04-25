@@ -272,7 +272,7 @@ Two Scoops of Django 1.11
    :alt: Two Scoops of Django
    :target: http://twoscoopspress.org/products/two-scoops-of-django-1-11
 
-Two Scoops Press brings you the best dairy-themed Django references in the universe
+Two Scoops of Django is the best dairy-themed Django references in the universe
 
 pyup
 ~~~~~~~~~~~~~~~~~~
