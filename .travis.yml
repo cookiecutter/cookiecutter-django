@@ -12,10 +12,8 @@ python: 3.5
 env:
   - TOX_ENV=py34
   - TOX_ENV=py35
-  # https://www.ubuntuupdates.org/?type=dists&vals=ubuntu-precise
-  - DOCKER_ENGINE_VERSION=17.04.0~ce-0~ubuntu-precise
-  # https://github.com/docker/compose/releases/
-  - DOCKER_COMPOSE_VERSION=1.12.0
+  - DOCKER_ENGINE_VERSION=17.04.0~ce-0~ubuntu-precise # https://www.ubuntuupdates.org/?type=dists&vals=ubuntu-precise
+  - DOCKER_COMPOSE_VERSION=1.12.0 # https://github.com/docker/compose/releases/
 
 before_install:
   - sudo sh -c 'echo "deb https://apt.dockerproject.org/repo ubuntu-precise main" > /etc/apt/sources.list.d/docker.list'
