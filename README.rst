@@ -29,7 +29,7 @@ Features
 ---------
 
 * For Django 1.10
-* Works with Python 3.4.x or 3.5.x. Python 3.6 is experimenta
+* Works with Python 3.4.x or 3.5.x. Python 3.6 is experimental
 * Renders Django projects with 100% starting test coverage
 * Twitter Bootstrap_ v4.0.0 - alpha 6 (`maintained Foundation fork`_ also available)
 * 12-Factor_ based settings via django-environ_
@@ -263,16 +263,16 @@ Support This Project
 
 This project is maintained by volunteers. Support their efforts by spreading the word about:
 
-Two Scoops Press
-~~~~~~~~~~~~~~~~~~
+Two Scoops of Django 1.11
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: https://cdn.shopify.com/s/files/1/0304/6901/t/2/assets/logo.png?11985289740589874793
-   :name: Two Scoops Press
+.. image:: https://cdn.shopify.com/s/files/1/0304/6901/files/tsd-111-alpha-470x235.jpg?2934688328290951771
+   :name: Two Scoops of Django 1.11 Cover
    :align: center
-   :alt: Two Scoops Press
-   :target: https://twoscoopspress.com
+   :alt: Two Scoops of Django
+   :target: http://twoscoopspress.org/products/two-scoops-of-django-1-11
 
-Two Scoops Press brings you the best dairy-themed Django references in the universe
+Two Scoops of Django is the best dairy-themed Django reference in the universe
 
 pyup
 ~~~~~~~~~~~~~~~~~~

@@ -13,7 +13,7 @@ factory-boy==2.8.1
 django-debug-toolbar==1.7
 
 # improved REPL
-ipdb==0.10.2
+ipdb==0.10.3
 
 pytest-django==3.1.2
 pytest-sugar==0.8.0

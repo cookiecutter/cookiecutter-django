@@ -16,7 +16,6 @@ services:
     build:
       context: .
       dockerfile: ./compose/django/Dockerfile
-    user: django
     depends_on:
       - postgres
       - redis
@@ -63,7 +62,6 @@ services:
     build:
       context: .
       dockerfile: ./compose/django/Dockerfile
-    user: django
     env_file: .env
     depends_on:
      - postgres
@@ -74,7 +72,6 @@ services:
     build:
       context: .
       dockerfile: ./compose/django/Dockerfile
-    user: django
     env_file: .env
     depends_on:
       - postgres

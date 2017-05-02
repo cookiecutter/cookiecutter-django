@@ -37,6 +37,13 @@ root directory of this project as a starting point. Add your own variables to th
 file won't be tracked by git by default so you'll have to make sure to use some other mechanism to copy your secret if
 you are relying solely on git.
 
+To obtain logs and information about crashes in a production setup, make sure that you have access to an external Sentry instance (e.g. by creating an account with `sentry.io`_), and set the `DJANGO_SENTRY_DSN` variable. This should be enough to report crashes to Sentry.
+
+You will probably also need to setup the Mail backend, for example by adding a `Mailgun`_ API key and a `Mailgun`_ sender domain, otherwise, the account creation view will crash and result in a 500 error when the backend attempts to send an email to the account owner.
+
+.. _sentry.io: https://sentry.io/welcome
+.. _Mailgun: https://mailgun.com
+
 HTTPS is on by default
 ----------------------
 
@@ -102,7 +109,7 @@ If you would like to set up autorenewal of your certificates, the following comm
     #!/bin/bash
     cd <project directory>
     docker-compose run --rm --name certbot certbot bash -c "sleep 6 && certbot certonly --standalone -d {{ cookiecutter.domain_name }} --text --agree-tos --email {{ cookiecutter.email }} --server https://acme-v01.api.letsencrypt.org/directory --rsa-key-size 4096 --verbose --keep-until-expiring --standalone-supported-challenges http-01"
-    docker exec pearl_nginx_1 nginx -s reload
+    docker exec {{ cookiecutter.project_name }}_nginx_1 nginx -s reload
 
 And then set a cronjob by running `crontab -e` and placing in it (period can be adjusted as desired)::
 
