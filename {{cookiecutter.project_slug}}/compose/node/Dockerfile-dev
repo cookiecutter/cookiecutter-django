@@ -1,7 +1,7 @@
 FROM node:7.9-slim
 
 RUN mkdir -p /app
-
+RUN pwd
 COPY ./package.json /app
 
 WORKDIR /app
