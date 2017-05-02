@@ -1,4 +1,4 @@
-FROM node:7.9
+FROM node:7.9-slim
 
 RUN mkdir -p /app
 
