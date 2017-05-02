@@ -2,4 +2,4 @@
 !.coveragerc
 !.env
 !.pylintrc
-!.package.json
+!package.json
