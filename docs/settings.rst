@@ -3,7 +3,14 @@ Settings
 
 This project relies extensively on environment settings which **will not work with Apache/mod_wsgi setups**. It has been deployed successfully with both Gunicorn/Nginx and even uWSGI/Nginx.
 
-For configuration purposes, the following table maps environment variables to their Django setting:
+For configuration purposes, the following table maps environment variables to their Django setting and project settings:
+
+
+======================================= =========================== ============================================== ======================================================================
+Environment Variable                    Django Setting              Development Default                            Production Default
+======================================= =========================== ============================================== ======================================================================
+DJANGO_READ_DOT_ENV_FILE                READ_DOT_ENV_FILE           False                                          False
+======================================= =========================== ============================================== ======================================================================
 
 
 ======================================= =========================== ============================================== ======================================================================
@@ -40,6 +47,7 @@ DJANGO_SENTRY_CLIENT                    SENTRY_CLIENT               n/a         
 DJANGO_SENTRY_LOG_LEVEL                 SENTRY_LOG_LEVEL            n/a                                            logging.INFO
 DJANGO_MAILGUN_API_KEY                  MAILGUN_ACCESS_KEY          n/a                                            raises error
 DJANGO_MAILGUN_SERVER_NAME              MAILGUN_SERVER_NAME         n/a                                            raises error
+MAILGUN_SENDER_DOMAIN                   MAILGUN_SENDER_DOMAIN       n/a                                            raises error
 NEW_RELIC_APP_NAME                      NEW_RELIC_APP_NAME          n/a                                            raises error
 NEW_RELIC_LICENSE_KEY                   NEW_RELIC_LICENSE_KEY       n/a                                            raises error
 DJANGO_OPBEAT_APP_ID                    OPBEAT['APP_ID']            n/a                                            raises error

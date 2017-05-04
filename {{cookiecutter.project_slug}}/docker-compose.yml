@@ -16,7 +16,6 @@ services:
     build:
       context: .
       dockerfile: ./compose/django/Dockerfile
-    user: django
     depends_on:
       - postgres
       - redis
@@ -57,13 +56,12 @@ services:
 {% endif %}
 
   redis:
-    image: redis:latest
+    image: redis:3.0
 {% if cookiecutter.use_celery == 'y' %}
   celeryworker:
     build:
       context: .
       dockerfile: ./compose/django/Dockerfile
-    user: django
     env_file: .env
     depends_on:
      - postgres
@@ -74,7 +72,6 @@ services:
     build:
       context: .
       dockerfile: ./compose/django/Dockerfile
-    user: django
     env_file: .env
     depends_on:
       - postgres

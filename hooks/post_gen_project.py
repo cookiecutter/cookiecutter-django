@@ -12,10 +12,10 @@ A portion of this code was adopted from Django's standard crypto functions and
 utilities, specifically:
     https://github.com/django/django/blob/master/django/utils/crypto.py
 """
-from __future__ import print_function
 import os
 import random
 import shutil
+import string
 
 # Get the root project directory
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
@@ -28,16 +28,19 @@ except NotImplementedError:
     using_sysrandom = False
 
 
-def get_random_string(
-        length=50,
-        allowed_chars='abcdefghijklmnopqrstuvwxyz0123456789!@#%^&*(-_=+)'):
+def get_random_string(length=50):
     """
     Returns a securely generated random string.
     The default length of 12 with the a-z, A-Z, 0-9 character set returns
     a 71-bit value. log_2((26+26+10)^12) =~ 71 bits
     """
+    punctuation = string.punctuation.replace('"', '').replace("'", '')
+    punctuation = punctuation.replace('\\', '')
     if using_sysrandom:
-        return ''.join(random.choice(allowed_chars) for i in range(length))
+        return ''.join(random.choice(
+            string.digits + string.ascii_letters + punctuation
+        ) for i in range(length))
+
     print(
         "Cookiecutter Django couldn't find a secure pseudo-random number generator on your system."
         " Please change change your SECRET_KEY variables in conf/settings/local.py and env.example"
@@ -115,7 +118,10 @@ def remove_heroku_files():
     """
     Removes files needed for heroku if it isn't going to be used
     """
-    for filename in ["app.json", "Procfile", "requirements.txt", "runtime.txt"]:
+    filenames = ["Procfile", "runtime.txt"]
+    if '{{ cookiecutter.use_elasticbeanstalk_experimental }}'.lower() != 'y':
+        filenames.append("requirements.txt")
+    for filename in ["Procfile", "runtime.txt"]:
         file_name = os.path.join(PROJECT_DIRECTORY, filename)
         remove_file(file_name)
 
@@ -178,6 +184,32 @@ def remove_copying_files():
         os.remove(os.path.join(
             PROJECT_DIRECTORY, filename
         ))
+
+def remove_elasticbeanstalk():
+    """
+    Removes elastic beanstalk components
+    """
+    docs_dir_location = os.path.join(PROJECT_DIRECTORY, '.ebextensions')
+    if os.path.exists(docs_dir_location):
+        shutil.rmtree(docs_dir_location)
+
+    filenames = ["ebsetenv.py", ]
+    if '{{ cookiecutter.use_heroku }}'.lower() != 'y':
+        filenames.append("requirements.txt")
+    for filename in filenames:
+        os.remove(os.path.join(
+            PROJECT_DIRECTORY, filename
+        ))
+
+def remove_open_source_files():
+    """
+    Removes files conventional to opensource projects only.
+    """
+    for filename in ["CONTRIBUTORS.txt"]:
+        os.remove(os.path.join(
+            PROJECT_DIRECTORY, filename
+        ))
+
 
 # IN PROGRESS
 # def copy_doc_files(project_directory):
@@ -258,5 +290,10 @@ if '{{ cookiecutter.use_lets_encrypt }}'.lower() == 'y' and '{{ cookiecutter.use
 if '{{ cookiecutter.open_source_license}}' != 'GPLv3':
     remove_copying_files()
 
-# 4. Copy files from /docs/ to {{ cookiecutter.project_slug }}/docs/
-# copy_doc_files(PROJECT_DIRECTORY)
+# 12. Remove Elastic Beanstalk files
+if '{{ cookiecutter.use_elasticbeanstalk_experimental }}'.lower() != 'y':
+    remove_elasticbeanstalk()
+
+# 13. Remove files conventional to opensource projects only.
+if '{{ cookiecutter.open_source_license }}' == 'Not open source':
+    remove_open_source_files()
