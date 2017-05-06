@@ -10,7 +10,7 @@ Werkzeug==0.12.1
 django-test-plus==1.0.17
 factory-boy==2.8.1
 
-django-debug-toolbar==1.7
+django-debug-toolbar==1.8
 
 # improved REPL
 ipdb==0.10.3
