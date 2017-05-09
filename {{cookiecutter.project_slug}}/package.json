@@ -30,7 +30,6 @@
     "pump": "^1.0.2",
     "run-sequence": "^1.2.2",
     "standard": "^9.0.2",
-    "npm-check": "^5.4.0"
     {% endif %}
   },
   "engines": {
