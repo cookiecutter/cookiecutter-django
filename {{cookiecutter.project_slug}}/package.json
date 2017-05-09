@@ -27,7 +27,6 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^2.1.2",
-    "npm-check-updates": "^2.10.3",
     "pump": "^1.0.2",
     "run-sequence": "^1.2.2",
     "standard": "^9.0.2",
