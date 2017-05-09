@@ -256,7 +256,6 @@ elif '{{ cookiecutter.js_task_runner}}'.lower() == 'grunt':
 else:
     remove_gulp_files()
     remove_grunt_files()
-    remove_packageJSON_file()
 
 # 7. Removes all certbot/letsencrypt files if it isn't going to be used
 if '{{ cookiecutter.use_lets_encrypt }}'.lower() != 'y':
