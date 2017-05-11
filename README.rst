@@ -85,6 +85,36 @@ Constraints
 * Uses PostgreSQL everywhere (9.2+)
 * Environment variables for configuration (This won't work with Apache/mod_wsgi except on AWS ELB).
 
+Support this Project!
+----------------------
+
+This project is run by volunteers. Please support them in their efforts to maintain and improve Cookiecutter Django:
+
+* https://www.patreon.com/danielroygreenfeld: Project lead. Expertise in AWS ELB and Django.
+
+Organizations that support the maintainers:
+
+Two Scoops of Django 1.11
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: https://cdn.shopify.com/s/files/1/0304/6901/files/tsd-111-alpha-470x235.jpg?2934688328290951771
+   :name: Two Scoops of Django 1.11 Cover
+   :align: center
+   :alt: Two Scoops of Django
+   :target: http://twoscoopspress.org/products/two-scoops-of-django-1-11
+
+Two Scoops of Django is the best dairy-themed Django reference in the universe
+
+pyup
+~~~~~~~~~~~~~~~~~~
+
+.. image:: https://pyup.io/static/images/logo.png
+   :name: pyup
+   :align: center
+   :alt: pyup
+   :target: https://pyup.io/
+
+Pyup brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
 
 Usage
 ------
@@ -258,31 +288,5 @@ Code of Conduct
 Everyone interacting in the Cookiecutter project's codebases, issue trackers, chat
 rooms, and mailing lists is expected to follow the `PyPA Code of Conduct`_.
 
-Support This Project
----------------------------
-
-This project is maintained by volunteers. Support their efforts by spreading the word about:
-
-Two Scoops of Django 1.11
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. image:: https://cdn.shopify.com/s/files/1/0304/6901/files/tsd-111-alpha-470x235.jpg?2934688328290951771
-   :name: Two Scoops of Django 1.11 Cover
-   :align: center
-   :alt: Two Scoops of Django
-   :target: http://twoscoopspress.org/products/two-scoops-of-django-1-11
-
-Two Scoops of Django is the best dairy-themed Django reference in the universe
-
-pyup
-~~~~~~~~~~~~~~~~~~
-
-.. image:: https://pyup.io/static/images/logo.png
-   :name: pyup
-   :align: center
-   :alt: pyup
-   :target: https://pyup.io/
-
-Pyup brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
 
 .. _`PyPA Code of Conduct`: https://www.pypa.io/en/latest/code-of-conduct/
