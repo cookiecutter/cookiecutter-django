@@ -92,7 +92,7 @@ This project is run by volunteers. Please support them in their efforts to maint
 
 * https://www.patreon.com/danielroygreenfeld: Project lead. Expertise in AWS ELB and Django.
 
-Organizations that support the maintainers:
+Projects that provide financial support to the maintainers:
 
 Two Scoops of Django 1.11
 ~~~~~~~~~~~~~~~~~~~~~~~~~
