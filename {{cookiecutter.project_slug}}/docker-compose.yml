@@ -28,14 +28,12 @@ services:
       - django
 {% if cookiecutter.use_lets_encrypt == 'y' %}
       - certbot
+    environment:
+      - MY_DOMAIN_NAME={{ cookiecutter.domain_name }}
 {% endif %}
     ports:
       - "0.0.0.0:80:80"
 {% if cookiecutter.use_lets_encrypt == 'y' %}
-    environment:
-      - MY_DOMAIN_NAME={{ cookiecutter.domain_name }}
-    ports:
-      - "0.0.0.0:80:80"
       - "0.0.0.0:443:443"
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
