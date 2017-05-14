@@ -109,15 +109,6 @@ gulp.task('styles', function () {
 })
 // endregion
 
-// region manage.py
-gulp.task('migrate', function () {
-  const cmd = spawn('python', ['manage.py', 'migrate'], {stdio: 'inherit'})
-  cmd.on('close', function (code) {
-    console.log('migrate exited with code ' + code)
-  })
-})
-// endregion
-
 // region build
 gulp.task('build', function () {
   runSequence(['images', 'scripts', 'styles'])
