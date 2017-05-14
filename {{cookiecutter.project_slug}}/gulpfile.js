@@ -50,7 +50,7 @@ const pathsConfig = function (appName) {
 }
 const paths = pathsConfig()
 
-// region scripts
+// region images
 gulp.task('favicons-images', function (cb) {
   pump([gulp.src(paths.imagesFavicons_files),
       gulp.dest(paths.buildImagesFavicons)],
