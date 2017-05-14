@@ -7,8 +7,10 @@ Node.js with Docker
 
 .. _`Node.js`: https://nodejs.org/en/
 
-*Note, all paths given are relative to the generated project's root.*
+*All paths are relative to the generated project's root.*
 
+
+.. _nodewithdocker-prereq:
 
 Prerequisites
 -------------
@@ -17,10 +19,12 @@ Prerequisites
 - These :ref:`devlocdocker-prereq` are met as well.
 
 
+.. _nodewithdocker-overview:
+
 Overview
 --------
 
-Essential aspects of integration are
+Essential aspects of Node.js integration are
 
 - node docker-compose service (:code:`node`) definition in :code:`./dev.yml`;
 - :code:`./compose/node/Dockerfile-dev` defining the :code:`node` image;
@@ -30,7 +34,7 @@ Essential aspects of integration are
 Workflow
 --------
 
-#. :ref:`devlocdocker-build-the-stack`:
+#. [*skip if done*] :ref:`devlocdocker-build-the-stack`:
     - when building :code:`node` image from scratch, dependencies from :code:`package.json` are installed.
 #. :ref:`devlocdocker-boot-the-system`.
 
