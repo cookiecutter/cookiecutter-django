@@ -6,6 +6,8 @@ Getting Up and Running Locally With Docker
 The steps below will get you up and running with a local development environment.
 All of these commands assume you are in the root of your generated project.
 
+.. _devlocdocker-prereq:
+
 Prerequisites
 -------------
 
@@ -30,6 +32,9 @@ Currently PostgreSQL (``psycopg2`` python package) is not installed inside Docke
 
 Doing this will prevent the project from being installed in an Windows-only environment (thus without usage of Docker). If you want to use this project without Docker, make sure to remove ``psycopg2`` from the requirements again.
 
+
+.. _devlocdocker-build-the-stack:
+
 Build the Stack
 ---------------
 
@@ -39,6 +44,9 @@ on your development system::
     $ docker-compose -f dev.yml build
 
 If you want to build the production environment you don't have to pass an argument -f, it will automatically use docker-compose.yml.
+
+
+.. _devlocdocker-boot-the-system:
 
 Boot the System
 ---------------
