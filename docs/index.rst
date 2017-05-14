@@ -17,6 +17,7 @@ Contents:
    developing-locally-docker
    settings
    linters
+   nodejs-with-docker
    live-reloading-and-sass-compilation
    deployment-on-pythonanywhere
    deployment-on-heroku
