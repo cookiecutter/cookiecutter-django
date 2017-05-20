@@ -26,4 +26,6 @@ USER django
 
 WORKDIR /app
 
+USER django
+
 ENTRYPOINT ["/entrypoint.sh"]
