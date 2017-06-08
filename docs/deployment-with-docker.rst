@@ -37,6 +37,8 @@ root directory of this project as a starting point. Add your own variables to th
 file won't be tracked by git by default so you'll have to make sure to use some other mechanism to copy your secret if
 you are relying solely on git.
 
+It is **highly recommended** that before you build your production application, you set your POSTGRES_USER value here. This will create a non-default user for the postgres image. If you do not set this user before building the application, the default user 'postgres' will be created, and this user will not be able to create or restore backups.
+
 To obtain logs and information about crashes in a production setup, make sure that you have access to an external Sentry instance (e.g. by creating an account with `sentry.io`_), and set the `DJANGO_SENTRY_DSN` variable. This should be enough to report crashes to Sentry.
 
 You will probably also need to setup the Mail backend, for example by adding a `Mailgun`_ API key and a `Mailgun`_ sender domain, otherwise, the account creation view will crash and result in a 500 error when the backend attempts to send an email to the account owner.
