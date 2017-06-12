@@ -56,6 +56,7 @@ Listed in alphabetical order.
   Areski Belaid            `@areski`_
   Ashley Camba
   Barclay Gauld            `@yunti`_
+  Ben Warren               `@bwarren2`
   Ben Lopatin
   Benjamin Abel
   Bo Lopker                `@blopker`_
