@@ -1,4 +1,4 @@
-version: '2'
+on: '2'
 
 volumes:
   postgres_data_dev: {}
@@ -12,19 +12,15 @@ services:
       - postgres_backup_dev:/backups
     environment:
       - POSTGRES_USER={{cookiecutter.project_slug}}
-{% if cookiecutter.use_mailhog == 'y' %}      
-  mailhog:
-    image: mailhog/mailhog
-    ports:
-      - "8025:8025"
-{% endif %}
+
   django:
     build:
       context: .
       dockerfile: ./compose/django/Dockerfile-dev
     command: /start-dev.sh
     depends_on:
-      - postgres
+      - postgres{% if cookiecutter.use_mailhog == 'y' %}
+      - mailhog{% endif %}
     environment:
       - POSTGRES_USER={{cookiecutter.project_slug}}
       - USE_DOCKER=yes
@@ -32,9 +28,7 @@ services:
       - .:/app
     ports:
       - "8000:8000"
-    links:
-      - postgres
-      {% if cookiecutter.use_mailhog == 'y' %}- mailhog{% endif %}
+
 {% if cookiecutter.use_pycharm == 'y' %}
   pycharm:
     build:
@@ -46,6 +40,11 @@ services:
       - POSTGRES_USER={{cookiecutter.project_slug}}
     volumes:
       - .:/app
-    links:
-      - postgres
+{% endif %}
+
+{% if cookiecutter.use_mailhog == 'y' %}
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
 {% endif %}
