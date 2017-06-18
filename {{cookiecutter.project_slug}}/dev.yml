@@ -1,4 +1,4 @@
-on: '2'
+version: '2'
 
 volumes:
   postgres_data_dev: {}
