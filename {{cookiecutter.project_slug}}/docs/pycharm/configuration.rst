@@ -14,7 +14,7 @@ This repository comes with already prepared "Run/Debug Configurations" for docke
 
 .. image:: images/2.png
 
-But as you can see, at the beggining there is something wrong with them. They have red X on django icon, and they cannot be used, withot configuring remote python interpteter. To do that, you have to go to *Settings > Build, Execution, Deployment* first.
+But as you can see, at the beggining there is something wrong with them. They have red X on django icon, and they cannot be used, without configuring remote python interpteter. To do that, you have to go to *Settings > Build, Execution, Deployment* first.
 
 
 Next, you have to add new remote python interpreter, based on already tested deployment settings. Go to *Settings > Project > Project Interpreter*. Click on the cog icon, and click *Add Remote*.
@@ -48,7 +48,7 @@ After few seconds, all *Run/Debug Configurations* should be ready to use.
 * run and debug tests
 .. image:: images/f2.png
 .. image:: images/f3.png
-* run and debug migrations or different django managment commands
+* run and debug migrations or different django management commands
 .. image:: images/f4.png
 * and many others..
 

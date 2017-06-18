@@ -107,7 +107,7 @@ The email server will exit when you exit the Grunt task on the CLI with Ctrl+C.
 Sentry
 ^^^^^^
 
-Sentry is an error logging aggregator service. You can sign up for a free account at  https://getsentry.com/signup/?code=cookiecutter  or download and host it yourself.
+Sentry is an error logging aggregator service. You can sign up for a free account at  https://sentry.io/signup/?code=cookiecutter  or download and host it yourself.
 The system is setup with reasonable defaults, including 404 logging and integration with the WSGI application.
 
 You must set the DSN url in production.
@@ -143,5 +143,14 @@ Elastic Beanstalk
 See detailed `cookiecutter-django Elastic Beanstalk documentation`_.
 
 .. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-elastic-beanstalk.html
+
+{% endif %}
+{% if cookiecutter.custom_bootstrap_compilation == "y" %}
+Custom Bootstrap Compilation
+^^^^^^
+
+To get automatic Bootstrap recompilation with variables of your choice, install bootstrap sass (`bower install bootstrap-sass`) and tweak your variables in `static/sass/custom_bootstrap_vars`.
+
+(You can find a list of available variables [in the bootstrap-sass source](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss), or get explanations on them in the [Bootstrap docs](https://getbootstrap.com/customize/).)
 
 {% endif %}

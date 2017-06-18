@@ -12,10 +12,10 @@ A portion of this code was adopted from Django's standard crypto functions and
 utilities, specifically:
     https://github.com/django/django/blob/master/django/utils/crypto.py
 """
-from __future__ import print_function
 import os
 import random
 import shutil
+import string
 
 # Get the root project directory
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
@@ -28,16 +28,19 @@ except NotImplementedError:
     using_sysrandom = False
 
 
-def get_random_string(
-        length=50,
-        allowed_chars='abcdefghijklmnopqrstuvwxyz0123456789!@#%^&*(-_=+)'):
+def get_random_string(length=50):
     """
     Returns a securely generated random string.
     The default length of 12 with the a-z, A-Z, 0-9 character set returns
     a 71-bit value. log_2((26+26+10)^12) =~ 71 bits
     """
+    punctuation = string.punctuation.replace('"', '').replace("'", '')
+    punctuation = punctuation.replace('\\', '')
     if using_sysrandom:
-        return ''.join(random.choice(allowed_chars) for i in range(length))
+        return ''.join(random.choice(
+            string.digits + string.ascii_letters + punctuation
+        ) for i in range(length))
+
     print(
         "Cookiecutter Django couldn't find a secure pseudo-random number generator on your system."
         " Please change change your SECRET_KEY variables in conf/settings/local.py and env.example"
@@ -198,6 +201,16 @@ def remove_elasticbeanstalk():
             PROJECT_DIRECTORY, filename
         ))
 
+def remove_open_source_files():
+    """
+    Removes files conventional to opensource projects only.
+    """
+    for filename in ["CONTRIBUTORS.txt"]:
+        os.remove(os.path.join(
+            PROJECT_DIRECTORY, filename
+        ))
+
+
 # IN PROGRESS
 # def copy_doc_files(project_directory):
 #     cookiecutters_dir = DEFAULT_CONFIG['cookiecutters_dir']
@@ -280,3 +293,7 @@ if '{{ cookiecutter.open_source_license}}' != 'GPLv3':
 # 12. Remove Elastic Beanstalk files
 if '{{ cookiecutter.use_elasticbeanstalk_experimental }}'.lower() != 'y':
     remove_elasticbeanstalk()
+
+# 13. Remove files conventional to opensource projects only.
+if '{{ cookiecutter.open_source_license }}' == 'Not open source':
+    remove_open_source_files()

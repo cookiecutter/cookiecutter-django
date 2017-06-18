@@ -35,7 +35,7 @@ Make sure your project is fully commited and pushed up to Bitbucket or Github or
 
     git clone <my-repo-url>  # you can also use hg
     cd my-project-name
-    mkvirtualenv --python=/usr/bin/python3.5 my-project-name # or python2.7, etc
+    mkvirtualenv --python=/usr/bin/python3.5 my-project-name 
     pip install -r requirements/production.txt  # may take a few minutes
 
 
@@ -47,7 +47,7 @@ Generate a secret key for yourself, eg like this:
 
 .. code-block:: bash
 
-    python -c 'import random; print("".join(random.SystemRandom().choice("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)") for _ in range(50)))'
+    python -c 'import random;import string; print("".join(random.SystemRandom().choice(string.digits + string.ascii_letters + string.punctuation) for _ in range(50)))'
 
 Make a note of it, since we'll need it here in the console and later on in the web app config tab.
 
@@ -140,6 +140,7 @@ Click through to the **WSGI configuration file** link (near the top) and edit th
     os.environ['DJANGO_ADMIN_URL'] = '<as above>'
     os.environ['DJANGO_MAILGUN_API_KEY'] = '<as above>'
     os.environ['DJANGO_MAILGUN_SERVER_NAME'] = '<as above>'
+    os.environ['MAILGUN_SENDER_DOMAIN'] = '<as above>'
     os.environ['DJANGO_AWS_ACCESS_KEY_ID'] = ''
     os.environ['DJANGO_AWS_SECRET_ACCESS_KEY'] = ''
     os.environ['DJANGO_AWS_STORAGE_BUCKET_NAME'] = ''
@@ -179,5 +180,3 @@ For subsequent deployments, the procedure is much simpler.  In a Bash console:
 And then go to the Web tab and hit **Reload**
 
 **TIP:** *if you're really keen, you can set up git-push based deployments:  https://blog.pythonanywhere.com/87/*
-
-

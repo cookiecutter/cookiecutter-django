@@ -14,8 +14,15 @@ framework.
 
 """
 import os
+import sys
 
 from django.core.wsgi import get_wsgi_application
+
+# This allows easy placement of apps within the interior
+# {{ cookiecutter.project_slug }} directory.
+app_path = os.path.dirname(os.path.abspath(__file__)).replace('/config', '')
+sys.path.append(os.path.join(app_path, '{{ cookiecutter.project_slug }}'))
+
 {% if cookiecutter.use_sentry_for_error_reporting == 'y' -%}
 if os.environ.get('DJANGO_SETTINGS_MODULE') == 'config.settings.production':
     from raven.contrib.django.raven_compat.middleware.wsgi import Sentry

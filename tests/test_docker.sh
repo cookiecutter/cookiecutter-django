@@ -11,7 +11,7 @@ mkdir -p .cache/docker
 cd .cache/docker
 
 # create the project using the default settings in cookiecutter.json
-cookiecutter ../../ --no-input --overwrite-if-exists
+cookiecutter ../../ --no-input --overwrite-if-exists use_docker=y js_task_runner=None
 cd project_name
 
 # run the project's tests
