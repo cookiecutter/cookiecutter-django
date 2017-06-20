@@ -16,18 +16,18 @@
     "pixrem": "~1.3.1",
     "time-grunt": "~1.2.1"
     {% elif cookiecutter.js_task_runner == 'Gulp' %}
-    "browser-sync": "^2.14.0",
-    "del": "^2.2.2",
+    "browser-sync": "^2.18.8",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
-    "gulp-cssnano": "^2.1.2",
-    "gulp-imagemin": "^3.0.3",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.1.1",
     "gulp-pixrem": "^1.0.0",
-    "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
-    "gulp-uglify": "^2.0.0",
-    "gulp-util": "^3.0.7",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.2",
+    "pump": "^1.0.2",
     "run-sequence": "^1.2.2"
     {% endif %}
   },
