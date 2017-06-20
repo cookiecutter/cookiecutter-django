@@ -18,12 +18,13 @@ If you don't already have it installed, follow the instructions for your OS:
  - On Mac OS X, you'll need `Docker for Mac`_
  - On Windows, you'll need `Docker for Windows`_
  - On Linux, you'll need `docker-engine`_
+
 .. _`Docker for Mac`: https://docs.docker.com/engine/installation/mac/
 .. _`Docker for Windows`: https://docs.docker.com/engine/installation/windows/
 .. _`docker-engine`: https://docs.docker.com/engine/installation/
 
 Attention Windows users
--------------
+-----------------------
 
 Currently PostgreSQL (``psycopg2`` python package) is not installed inside Docker containers for Windows users, while it is required by the generated Django project. To fix this, add ``psycopg2`` to the list of requirements inside ``requirements/base.txt``::
 
@@ -82,7 +83,7 @@ To migrate your app and to create a superuser, run::
 Here we specify the ``django`` container as the location to run our management commands.
 
 Add your Docker development server IP
-------------------------------------
+-------------------------------------
 
 When ``DEBUG`` is set to `True`, the host is validated against ``['localhost', '127.0.0.1', '[::1]']``. This is adequate when running a ``virtualenv``. For Docker, in the ``config.settings.local``, add your host development server IP to ``INTERNAL_IPS`` or ``ALLOWED_HOSTS`` if the variable exists.
 
@@ -135,7 +136,7 @@ Then you may need to run the following for it to work as desired:
 django-debug-toolbar
 """"""""""""""""""""
 
-In order for django-debug-toolbar to work with docker you need to add your docker-machine ip address (the output of `Get the IP ADDRESS`_) to INTERNAL_IPS in local.py
+In order for django-debug-toolbar to work with docker you need to add your docker-machine ip address to ``INTERNAL_IPS`` in ``local.py``
 
 
 .. May be a better place to put this, as it is not Docker specific.
