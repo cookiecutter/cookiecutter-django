@@ -45,7 +45,7 @@ services:
 
 {% if cookiecutter.use_mailhog == 'y' %}
   mailhog:
-    image: mailhog/mailhog
+    image: mailhog/mailhog:v1.0.0
     ports:
       - "8025:8025"
 {% endif %}
