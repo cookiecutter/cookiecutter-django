@@ -263,11 +263,10 @@ if '{{ cookiecutter.use_lets_encrypt }}'.lower() != 'y':
 
 # 8. Display a warning if use_docker and use_grunt are selected. Grunt isn't
 #   supported by our docker config atm.
-if '{{ cookiecutter.js_task_runner }}'.lower() in ['grunt', 'gulp'] and '{{ cookiecutter.use_docker }}'.lower() == 'y':
+if '{{ cookiecutter.js_task_runner }}'.lower() in ['grunt'] and '{{ cookiecutter.use_docker }}'.lower() == 'y':
     print(
-        "You selected to use docker and a JS task runner. This is NOT supported out of the box for now. You "
-        "can continue to use the project like you normally would, but you will need to add a "
-        "js task runner service to your docker configuration manually."
+        "You selected to use Docker and Grunt task runner. This is NOT supported out of the box for now. You "
+        "can continue to use the project like you normally would, but you will need to setup Grunt manually."
     )
 
 # 9. Removes the certbot/letsencrypt files and display a warning if use_lets_encrypt is selected and use_docker isn't.
