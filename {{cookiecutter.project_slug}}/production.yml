@@ -82,4 +82,4 @@ services:
     extends:
       service: node
       file: ./dev.yml
-    ports: []
+    ports: {}
