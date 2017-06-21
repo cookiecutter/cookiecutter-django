@@ -1,139 +1,105 @@
-const gulp = require('gulp')
-const pump = require('pump')
-const sass = require('gulp-sass')
-const pjson = require('./package.json')
-const autoprefixer = require('gulp-autoprefixer')
-const cleanCSS = require('gulp-clean-css')
-const rename = require('gulp-rename')
-const pixrem = require('gulp-pixrem')
-const concat = require('gulp-concat')
-const uglify = require('gulp-uglify')
-const imagemin = require('gulp-imagemin')
-const clean = require('gulp-clean')
-const spawn = require('child_process').spawn
-const runSequence = require('run-sequence')
-const browserSync = require('browser-sync').create()
-const pathsConfig = function (appName) {
-  this.paths = {}
 
-  this.paths['app'] = './' + (appName || pjson.name)
+////////////////////////////////
+		//Setup//
+////////////////////////////////
 
-  this.paths['static'] = this.paths['app'] + '/static'
+// Plugins
+var gulp = require('gulp'),
+      pjson = require('./package.json'),
+      gutil = require('gulp-util'),
+      sass = require('gulp-sass'),
+      autoprefixer = require('gulp-autoprefixer'),
+      cssnano = require('gulp-cssnano'),
+      rename = require('gulp-rename'),
+      del = require('del'),
+      plumber = require('gulp-plumber'),
+      pixrem = require('gulp-pixrem'),
+      uglify = require('gulp-uglify'),
+      imagemin = require('gulp-imagemin'),
+      spawn = require('child_process').spawn,
+      runSequence = require('run-sequence'),
+      browserSync = require('browser-sync').create(),
+      reload = browserSync.reload;
 
-  this.paths['build'] = this.paths['static'] + '/build'
 
-  this.paths['buildImages'] = this.paths['build'] + '/images'
-  this.paths['images'] = this.paths['static'] + '/images'
-  this.paths['images_files'] = this.paths['images'] + '/*'
-  this.paths['buildImagesFavicons'] = this.paths['buildImages'] + '/favicons'
-  this.paths['imagesFavicons'] = this.paths['images'] + '/favicons'
-  this.paths['imagesFavicons_files'] = this.paths['imagesFavicons'] + '/*'
+// Relative paths function
+var pathsConfig = function (appName) {
+  this.app = "./" + (appName || pjson.name);
 
-  this.paths['build_scriptsFileName'] = 'scripts.js'
-  this.paths['scripts'] = this.paths['static'] + '/scripts'
-  this.paths['scripts_files'] = this.paths['scripts'] + '/**/*'
-  this.paths['scriptsJs'] = this.paths['scripts'] + '/js'
-  this.paths['scriptsJs_files'] = this.paths['scriptsJs'] + '/*.js'
+  return {
+    app: this.app,
+    templates: this.app + '/templates',
+    css: this.app + '/static/css',
+    sass: this.app + '/static/sass',
+    fonts: this.app + '/static/fonts',
+    images: this.app + '/static/images',
+    js: this.app + '/static/js',
+  }
+};
 
-  this.paths['build_stylesFileName'] = 'styles.css'
-  this.paths['styles'] = this.paths['static'] + '/styles'
-  this.paths['styles_files'] = this.paths['styles'] + '/**/*'
-  this.paths['stylesSass'] = this.paths['styles'] + '/sass'
-  this.paths['stylesSass_files'] = this.paths['stylesSass'] + '/*.scss'
-  this.paths['stylesCss'] = this.paths['styles'] + '/css'
-  this.paths['stylesCss_files'] = this.paths['stylesCss'] + '/*.css'
+var paths = pathsConfig();
 
-  this.paths['templates'] = this.paths['app'] + '/templates'
-  this.paths['templates_files'] = this.paths['templates'] + '/**/*.html'
+////////////////////////////////
+		//Tasks//
+////////////////////////////////
 
-  return this.paths
-}
-const paths = pathsConfig()
+// Styles autoprefixing and minification
+gulp.task('styles', function() {
+  return gulp.src(paths.sass + '/project.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(plumber()) // Checks for errors
+    .pipe(autoprefixer({browsers: ['last 2 versions']})) // Adds vendor prefixes
+    .pipe(pixrem())  // add fallbacks for rem units
+    .pipe(gulp.dest(paths.css))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(cssnano()) // Minifies the result
+    .pipe(gulp.dest(paths.css));
+});
 
-// region images
-gulp.task('favicons-images', function (cb) {
-  pump([gulp.src(paths.imagesFavicons_files),
-      gulp.dest(paths.buildImagesFavicons)],
-    cb)
-})
+// Javascript minification
+gulp.task('scripts', function() {
+  return gulp.src(paths.js + '/project.js')
+    .pipe(plumber()) // Checks for errors
+    .pipe(uglify()) // Minifies the js
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest(paths.js));
+});
 
-gulp.task('nonfavicons-images', function (cb) {
-  pump([gulp.src(paths.images_files),
-      imagemin(),
-      gulp.dest(paths.buildImages)],
-    cb)
-})
+// Image compression
+gulp.task('imgCompression', function(){
+  return gulp.src(paths.images + '/*')
+    .pipe(imagemin()) // Compresses PNG, JPEG, GIF and SVG images
+    .pipe(gulp.dest(paths.images))
+});
 
-gulp.task('images', function () {
-  runSequence(['favicons-images', 'nonfavicons-images'])
-})
-// endregion
+// Run django server
+gulp.task('runServer', function(cb) {
+  var cmd = spawn('python', ['manage.py', 'runserver'], {stdio: 'inherit'});
+  cmd.on('close', function(code) {
+    console.log('runServer exited with code ' + code);
+    cb(code);
+  });
+});
 
-// region scripts
-gulp.task('js-scripts', function (cb) {
-  pump([gulp.src(paths.scriptsJs_files),
-      concat(paths.build_scriptsFileName),
-      uglify(),
-      rename({suffix: '.min'}),
-      gulp.dest(paths.build)],
-    cb)
-})
+// Browser sync server for live reload
+gulp.task('browserSync', function() {
+    browserSync.init(
+      [paths.css + "/*.css", paths.js + "*.js", paths.templates + '*.html'], {
+        proxy:  "localhost:8000"
+    });
+});
 
-gulp.task('scripts', function () {
-  runSequence('js-scripts')
-})
-// endregion
+// Watch
+gulp.task('watch', function() {
 
-// region styles
-gulp.task('sass-styles', function (cb) {
-  pump([gulp.src(paths.stylesSass_files),
-      sass(),
-      gulp.dest(paths.stylesCss)],
-    cb
-  )
-})
+  gulp.watch(paths.sass + '/*.scss', ['styles']);
+  gulp.watch(paths.js + '/*.js', ['scripts']).on("change", reload);
+  gulp.watch(paths.images + '/*', ['imgCompression']);
+  gulp.watch(paths.templates + '/**/*.html').on("change", reload);
 
-gulp.task('css-styles', function (cb) {
-  pump([gulp.src(paths.stylesCss_files),
-      concat(paths.build_stylesFileName),
-      autoprefixer({browsers: ['last 2 versions']}),
-      pixrem(),
-      cleanCSS({rebaseTo: '../../'}),
-      rename({suffix: '.min'}),
-      gulp.dest(paths.build)],
-    cb)
-})
+});
 
-gulp.task('styles', function () {
-  runSequence('sass-styles', 'css-styles')
-})
-// endregion
-
-// region build
-gulp.task('build', function () {
-  runSequence(['images', 'scripts', 'styles'])
-})
-
-gulp.task('clean-build', function (cb) {
-  pump([gulp.src(paths.build),
-      clean()],
-    cb)
-})
-// endregion
-
-gulp.task('init-browserSync', function () {
-  browserSync.init({
-    host: 'localhost:8000'
-  })
-})
-
-gulp.task('watch', function () {
-  gulp.watch(paths.images_files, ['images']).on('change', browserSync.reload)
-  gulp.watch(paths.scripts_files, ['scripts']).on('change', browserSync.reload)
-  gulp.watch(paths.styles_files, ['styles']).on('change', browserSync.reload)
-  gulp.watch(paths.templates_files).on('change', browserSync.reload)
-})
-
-gulp.task('default', function () {
-  runSequence('build', 'init-browserSync', 'watch')
-})
+// Default task
+gulp.task('default', function() {
+    runSequence(['styles', 'scripts', 'imgCompression'], 'runServer', 'browserSync', 'watch');
+});
