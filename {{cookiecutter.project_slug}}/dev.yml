@@ -21,7 +21,6 @@ services:
     depends_on:
       - postgres{% if cookiecutter.use_mailhog == 'y' %}
       - mailhog{% endif %}
-      - node
     environment:
       - POSTGRES_USER={{cookiecutter.project_slug}}
       - USE_DOCKER=yes
@@ -64,4 +63,3 @@ services:
       - "3000:3000"
       # BrowserSync UI port.
       - "3001:3001"
-
