@@ -20,7 +20,7 @@
     <!-- Your stuff: Third-party CSS libraries go here -->
     {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% compress css %}{% endraw %}{% endif %}{% raw %}
     <!-- This file stores project-specific CSS -->
-    <link href="{% static 'css/project.css' %}" rel="stylesheet">
+    <link href="{% static 'build/styles.min.css' %}" rel="stylesheet"/>
     {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% endcompress %}{% endraw %}{% endif %}{% raw %}
     {% endblock %}
 
@@ -88,6 +88,13 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     {% block javascript %}
+    <!-- BrowserSync debug-only support -->
+    {% if debug %}
+        <script id="__bs_script__">//<![CDATA[
+        document.write('<script async src=\'http://HOST:3000/browser-sync/browser-sync-client.js?v=2.18.8\'><\/script>'.replace('HOST', location.hostname))
+        //]]></script>
+    {% endif %}
+
       <!-- Required by Bootstrap v4 Alpha 4 -->
       <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
@@ -97,7 +104,7 @@
 
       <!-- place project specific Javascript in this file -->
       {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% compress js %}{% endraw %}{% endif %}{% raw %}
-      <script src="{% static 'js/project.js' %}"></script>
+      <script src="{% static 'build/scripts.min.js' %}"></script>
       {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% endcompress %}{% endraw %}{% endif %}{% raw %}
 
     {% endblock javascript %}

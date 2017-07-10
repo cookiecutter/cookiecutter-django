@@ -79,3 +79,4 @@ staticfiles/
 
 .cache/
 
+{{ cookiecutter.project_slug }}/static/build/

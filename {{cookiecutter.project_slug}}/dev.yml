@@ -21,6 +21,7 @@ services:
     depends_on:
       - postgres{% if cookiecutter.use_mailhog == 'y' %}
       - mailhog{% endif %}
+      - node
     environment:
       - POSTGRES_USER={{cookiecutter.project_slug}}
       - USE_DOCKER=yes
