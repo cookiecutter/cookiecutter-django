@@ -46,8 +46,6 @@ const pathsConfig = function (appName) {
   this.paths['templates'] = this.paths['app'] + '/templates'
   this.paths['templates_files'] = this.paths['templates'] + '/**/*.html'
 
-// Styles autoprefixing and minification
-    .pipe(sass().on('error', sass.logError))
   return this.paths
 }
 const paths = pathsConfig()
