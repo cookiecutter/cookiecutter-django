@@ -21,11 +21,11 @@ Next, you have to add new remote python interpreter, based on already tested dep
 
 .. image:: images/3.png
 
-Switch to *Docker Compose* and select `dev.yml` file from directory of your project, next set *Service name* to `django`
+Switch to *Docker Compose* and select `local.yml` file from directory of your project, next set *Service name* to `django`
 
 .. image:: images/4.png
 
-Because Pycharm restarts container every time you use Configuration Run, to not have server restarted during running tests, we defined second service in `dev.yml` file called pycharm. To use it, you have to add interpreter of second service as well.
+Because Pycharm restarts container every time you use Configuration Run, to not have server restarted during running tests, we defined second service in `local.yml` file called pycharm. To use it, you have to add interpreter of second service as well.
 
 .. image:: images/5.png
 

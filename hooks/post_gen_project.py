@@ -130,7 +130,7 @@ def remove_docker_files():
     """
     Removes files needed for docker if it isn't going to be used
     """
-    for filename in ["dev.yml", "docker-compose.yml", ".dockerignore"]:
+    for filename in ["local.yml", "docker-compose.yml", ".dockerignore"]:
         os.remove(os.path.join(
             PROJECT_DIRECTORY, filename
         ))
