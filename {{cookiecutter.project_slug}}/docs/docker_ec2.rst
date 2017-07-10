@@ -29,7 +29,7 @@ The Docker compose tool (previously known as `fig`_) makes linking these contain
     webserver/
         Dockerfile
         ...
-    docker-compose.yml
+    production.yml
 
 Each component of your application would get its own `Dockerfile`_. The rest of this example assumes you are using the `base postgres image`_ for your database. Your database settings in `config/base.py` might then look something like:
 
@@ -48,7 +48,7 @@ Each component of your application would get its own `Dockerfile`_. The rest of 
             }
         }
 
-The `Docker compose documentation`_ explains in detail what you can accomplish in the `docker-compose.yml` file, but an example configuration might look like this:
+The `Docker compose documentation`_ explains in detail what you can accomplish in the `production.yml` file, but an example configuration might look like this:
 
 .. _Docker compose documentation: https://docs.docker.com/compose/#compose-documentation
 
@@ -107,9 +107,9 @@ We'll ignore the webserver for now (you'll want to comment that part out while w
     # uncomment the line below to use container as a non-root user
     USER python:python
 
-Running `sudo docker-compose build` will follow the instructions in your `docker-compose.yml` file and build the database container, then your webapp, before mounting your cookiecutter project files as a volume in the webapp container and linking to the database. Our example yaml file runs in development mode but changing it to production mode is as simple as commenting out the line using `runserver` and uncommenting the line using `gunicorn`.
+Running `sudo docker-compose -f production.yml build` will follow the instructions in your `production.yml` file and build the database container, then your webapp, before mounting your cookiecutter project files as a volume in the webapp container and linking to the database. Our example yaml file runs in development mode but changing it to production mode is as simple as commenting out the line using `runserver` and uncommenting the line using `gunicorn`.
 
-Both are set to run on port `0.0.0.0:8000`, which is where the Docker daemon will discover it. You can now run `sudo docker-compose up` and browse to `localhost:8000` to see your application running.
+Both are set to run on port `0.0.0.0:8000`, which is where the Docker daemon will discover it. You can now run `sudo docker-compose -f production.yml up` and browse to `localhost:8000` to see your application running.
 
 Deployment
 ^^^^^^^^^^
@@ -155,7 +155,7 @@ That Dockerfile assumes you have an Nginx conf file named `site.conf` in the sam
         }
     }
 
-Running `sudo docker-compose build webserver` will build your server container. Running `sudo docker-compose up` will now expose your application directly on `localhost` (no need to specify the port number).
+Running `sudo docker-compose -f production.yml build webserver` will build your server container. Running `sudo docker-compose -f production.yml up` will now expose your application directly on `localhost` (no need to specify the port number).
 
 Building and running your app on EC2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -166,9 +166,9 @@ All you now need to do to run your app in production is:
 
 * Install your preferred source control solution, Docker and Docker compose on the news instance.
 
-* Pull in your code from source control. The root directory should be the one with your `docker-compose.yml` file in it.
+* Pull in your code from source control. The root directory should be the one with your `production.yml` file in it.
 
-* Run `sudo docker-compose build` and `sudo docker-compose up`.
+* Run `sudo docker-compose -f production.yml build` and `sudo docker-compose -f production.yml up`.
 
 * Assign an `Elastic IP address`_ to your new machine.
 

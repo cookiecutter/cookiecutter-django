@@ -39,7 +39,7 @@ on your development system::
 
     $ docker-compose -f local.yml build
 
-If you want to build the production environment you don't have to pass an argument -f, it will automatically use docker-compose.yml.
+If you want to build the production environment you don't have to pass an argument -f, it will automatically use production.yml.
 
 Boot the System
 ---------------
@@ -59,13 +59,13 @@ You can also set the environment variable ``COMPOSE_FILE`` pointing to ``local.y
 
 And then run::
 
-    $ docker-compose up
+    $ docker-compose -f production.yml up
 
 Running management commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As with any shell command that we wish to run in our container, this is done
-using the ``docker-compose run`` command.
+using the ``docker-compose -f production.yml run`` command.
 
 To migrate your app and to create a superuser, run::
 
@@ -82,7 +82,7 @@ When ``DEBUG`` is set to `True`, the host is validated against ``['localhost', '
 Production Mode
 ~~~~~~~~~~~~~~~
 
-Instead of using `local.yml`, you would use `docker-compose.yml`.
+Instead of using `local.yml`, you would use `production.yml`.
 
 Other Useful Tips
 -----------------
