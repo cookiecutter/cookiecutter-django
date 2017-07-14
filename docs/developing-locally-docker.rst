@@ -37,9 +37,9 @@ Build the Stack
 This can take a while, especially the first time you run this particular command
 on your development system::
 
-    $ docker-compose -f dev.yml build
+    $ docker-compose -f local.yml build
 
-If you want to build the production environment you don't have to pass an argument -f, it will automatically use docker-compose.yml.
+If you want to build the production environment you don't have to pass an argument -f, it will automatically use production.yml.
 
 Boot the System
 ---------------
@@ -51,26 +51,26 @@ runs will occur quickly.
 
 Open a terminal at the project root and run the following for local development::
 
-    $ docker-compose -f dev.yml up
+    $ docker-compose -f local.yml up
 
-You can also set the environment variable ``COMPOSE_FILE`` pointing to ``dev.yml`` like this::
+You can also set the environment variable ``COMPOSE_FILE`` pointing to ``local.yml`` like this::
 
-    $ export COMPOSE_FILE=dev.yml
+    $ export COMPOSE_FILE=local.yml
 
 And then run::
 
-    $ docker-compose up
+    $ docker-compose -f production.yml up
 
 Running management commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As with any shell command that we wish to run in our container, this is done
-using the ``docker-compose run`` command.
+using the ``docker-compose -f production.yml run`` command.
 
 To migrate your app and to create a superuser, run::
 
-    $ docker-compose -f dev.yml run django python manage.py migrate
-    $ docker-compose -f dev.yml run django python manage.py createsuperuser
+    $ docker-compose -f local.yml run django python manage.py migrate
+    $ docker-compose -f local.yml run django python manage.py createsuperuser
 
 Here we specify the ``django`` container as the location to run our management commands.
 
@@ -82,7 +82,7 @@ When ``DEBUG`` is set to `True`, the host is validated against ``['localhost', '
 Production Mode
 ~~~~~~~~~~~~~~~
 
-Instead of using `dev.yml`, you would use `docker-compose.yml`.
+Instead of using `local.yml`, you would use `production.yml`.
 
 Other Useful Tips
 -----------------
@@ -104,7 +104,7 @@ If you want to run the stack in detached mode (in the background), use the ``-d`
 
 ::
 
-    $ docker-compose -f dev.yml up -d
+    $ docker-compose -f local.yml up -d
 
 Debugging
 ~~~~~~~~~~~~~
@@ -122,7 +122,7 @@ Then you may need to run the following for it to work as desired:
 
 ::
 
-    $ docker-compose -f dev.yml run --service-ports django
+    $ docker-compose -f local.yml run --service-ports django
 
 
 django-debug-toolbar
