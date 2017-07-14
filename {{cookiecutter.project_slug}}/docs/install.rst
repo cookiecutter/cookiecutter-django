@@ -1,4 +1,10 @@
 Install
-=========
+=======
 
-This is where you write how to get a new laptop to run this project.
+*describe how to install this project*
+
+This project was generated with Cookiecutter Django, take a look at the `official docs`_ for more
+info.
+
+
+.. _official docs: https://cookiecutter-django.readthedocs.io/en/latest/
