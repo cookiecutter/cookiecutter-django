@@ -97,7 +97,7 @@ Projects that provide financial support to the maintainers:
 Two Scoops of Django 1.11
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: https://cdn.shopify.com/s/files/1/0304/6901/files/tsd-111-alpha-470x235.jpg?2934688328290951771
+.. image:: https://cdn.shopify.com/s/files/1/0304/6901/products/tsd-111-alpha_medium.jpg?v=1499531513
    :name: Two Scoops of Django 1.11 Cover
    :align: center
    :alt: Two Scoops of Django
