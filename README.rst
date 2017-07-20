@@ -29,7 +29,7 @@ Features
 ---------
 
 * For Django 1.10
-* Works with Python 3.4.x or 3.5.x. Python 3.6 is experimenta
+* Works with Python 3.4.x or 3.5.x. Python 3.6 is experimental
 * Renders Django projects with 100% starting test coverage
 * Twitter Bootstrap_ v4.0.0 - alpha 6 (`maintained Foundation fork`_ also available)
 * 12-Factor_ based settings via django-environ_
@@ -85,6 +85,36 @@ Constraints
 * Uses PostgreSQL everywhere (9.2+)
 * Environment variables for configuration (This won't work with Apache/mod_wsgi except on AWS ELB).
 
+Support this Project!
+----------------------
+
+This project is run by volunteers. Please support them in their efforts to maintain and improve Cookiecutter Django:
+
+* https://www.patreon.com/danielroygreenfeld: Project lead. Expertise in AWS ELB and Django.
+
+Projects that provide financial support to the maintainers:
+
+Two Scoops of Django 1.11
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: https://cdn.shopify.com/s/files/1/0304/6901/products/tsd-111-alpha_medium.jpg?v=1499531513
+   :name: Two Scoops of Django 1.11 Cover
+   :align: center
+   :alt: Two Scoops of Django
+   :target: http://twoscoopspress.org/products/two-scoops-of-django-1-11
+
+Two Scoops of Django is the best dairy-themed Django reference in the universe
+
+pyup
+~~~~~~~~~~~~~~~~~~
+
+.. image:: https://pyup.io/static/images/logo.png
+   :name: pyup
+   :align: center
+   :alt: pyup
+   :target: https://pyup.io/
+
+Pyup brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
 
 Usage
 ------
@@ -258,31 +288,5 @@ Code of Conduct
 Everyone interacting in the Cookiecutter project's codebases, issue trackers, chat
 rooms, and mailing lists is expected to follow the `PyPA Code of Conduct`_.
 
-Support This Project
----------------------------
-
-This project is maintained by volunteers. Support their efforts by spreading the word about:
-
-Two Scoops Press
-~~~~~~~~~~~~~~~~~~
-
-.. image:: https://cdn.shopify.com/s/files/1/0304/6901/t/2/assets/logo.png?11985289740589874793
-   :name: Two Scoops Press
-   :align: center
-   :alt: Two Scoops Press
-   :target: https://twoscoopspress.com
-
-Two Scoops Press brings you the best dairy-themed Django references in the universe
-
-pyup
-~~~~~~~~~~~~~~~~~~
-
-.. image:: https://pyup.io/static/images/logo.png
-   :name: pyup
-   :align: center
-   :alt: pyup
-   :target: https://pyup.io/
-
-Pyup brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
 
 .. _`PyPA Code of Conduct`: https://www.pypa.io/en/latest/code-of-conduct/

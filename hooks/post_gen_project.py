@@ -130,7 +130,7 @@ def remove_docker_files():
     """
     Removes files needed for docker if it isn't going to be used
     """
-    for filename in ["dev.yml", "docker-compose.yml", ".dockerignore"]:
+    for filename in ["local.yml", "production.yml", ".dockerignore"]:
         os.remove(os.path.join(
             PROJECT_DIRECTORY, filename
         ))
@@ -200,6 +200,16 @@ def remove_elasticbeanstalk():
         os.remove(os.path.join(
             PROJECT_DIRECTORY, filename
         ))
+
+def remove_open_source_files():
+    """
+    Removes files conventional to opensource projects only.
+    """
+    for filename in ["CONTRIBUTORS.txt"]:
+        os.remove(os.path.join(
+            PROJECT_DIRECTORY, filename
+        ))
+
 
 # IN PROGRESS
 # def copy_doc_files(project_directory):
@@ -283,3 +293,7 @@ if '{{ cookiecutter.open_source_license}}' != 'GPLv3':
 # 12. Remove Elastic Beanstalk files
 if '{{ cookiecutter.use_elasticbeanstalk_experimental }}'.lower() != 'y':
     remove_elasticbeanstalk()
+
+# 13. Remove files conventional to opensource projects only.
+if '{{ cookiecutter.open_source_license }}' == 'Not open source':
+    remove_open_source_files()
