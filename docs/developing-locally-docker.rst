@@ -39,7 +39,7 @@ on your development system::
 
     $ docker-compose -f local.yml build
 
-If you want to build the production environment you don't have to pass an argument -f, it will automatically use production.yml.
+If you want to build the production environment you use ``production.yml`` as -f argument (``docker-compose.yml`` or ``docker-compose.yaml`` are the defaults).
 
 Boot the System
 ---------------
