@@ -37,7 +37,7 @@ django-allauth==0.32.0
 # from http://www.lfd.uci.edu/~gohlke/pythonlibs/#psycopg
 {% else %}
 # Python-PostgreSQL Database Adapter
-psycopg2==2.7.1
+psycopg2==2.7.2
 {%- endif %}
 
 # Unicode slugification
