@@ -28,13 +28,13 @@ def pingpost():
 
     """
     try:
-		if os.environ['POSTGRES_USER']:
+        if os.environ['POSTGRES_USER']:
             pg_user = os.environ['POSTGRES_USER']
         else:
             os.environ['POSTGRES_USER'] = pg_user = 'postgres'
         pg_pass = os.environ['POSTGRES_PASSWORD']
 
-		DATABASE_URL='postgres://{username}:{password}@postgres:5432/{username}'
+        DATABASE_URL='postgres://{username}:{password}@postgres:5432/{username}'
         DATABASE_URL = DATABASE_URL.format(username=pg_user, password=pg_pass),
         os.environ['DATABASE_URL'] = DATABASE_URL
 
