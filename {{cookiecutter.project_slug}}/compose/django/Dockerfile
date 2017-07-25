@@ -10,11 +10,11 @@ COPY ./requirements /requirements
 RUN pip install --no-cache-dir -r /requirements/production.txt \
     && rm -rf /requirements
 
-COPY ./compose/django/gunicorn.sh ./compose/django/entrypoint.sh /
-RUN sed -i 's/\r//' /entrypoint.sh \
+COPY ./compose/django/gunicorn.sh ./compose/django/entrypoint.py /
+RUN sed -i 's/\r//' /entrypoint.py \
     && sed -i 's/\r//' /gunicorn.sh \
-    && chmod +x /entrypoint.sh \
-    && chown django /entrypoint.sh \
+    && chmod +x /entrypoint.py \
+    && chown django /entrypoint.py \
     && chmod +x /gunicorn.sh \
     && chown django /gunicorn.sh
 
@@ -26,4 +26,4 @@ USER django
 
 WORKDIR /app
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.py"]
