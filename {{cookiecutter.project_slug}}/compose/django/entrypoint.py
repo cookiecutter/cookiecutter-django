@@ -39,7 +39,7 @@ def pingpost():
             pg_pass = ''
 
         DATABASE_URL='postgres://{username}:{password}@postgres:5432/{username}'
-        DATABASE_URL = DATABASE_URL.format(username=pg_user, password=pg_pass),
+        DATABASE_URL = DATABASE_URL.format(username=pg_user, password=pg_pass)
         os.environ['DATABASE_URL'] = DATABASE_URL
 
         conn = psycopg2.connect(DATABASE_URL, connect_timeout=3)
