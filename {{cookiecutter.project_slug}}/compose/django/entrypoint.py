@@ -32,7 +32,11 @@ def pingpost():
             pg_user = os.environ['POSTGRES_USER']
         else:
             os.environ['POSTGRES_USER'] = pg_user = 'postgres'
-        pg_pass = os.environ['POSTGRES_PASSWORD']
+
+        try:
+            pg_pass = os.environ['POSTGRES_PASSWORD']
+        except Exception as e:
+            pg_pass = ''
 
         DATABASE_URL='postgres://{username}:{password}@postgres:5432/{username}'
         DATABASE_URL = DATABASE_URL.format(username=pg_user, password=pg_pass),
