@@ -26,6 +26,7 @@ class TestEntrypoint(unittest.TestCase):
             'POSTGRES_USER': 'newvalue',
             'POSTGRES_PASSWORD': 'test'}, clear=True):
             entrypoint.main(('dir',))
+            self.assertTrue(entrypoint.os.environ['DATABASE_URL'])
         self.assertTrue(mockConn.called)
 
 
