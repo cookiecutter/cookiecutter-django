@@ -14,7 +14,7 @@ import psycopg2
 import time
 
 
-def exports(list=None):
+def exports(**kwargs):
     """Useful environment variables
     :list: TODO
     """
@@ -25,7 +25,6 @@ def pingpost():
     """
     This is the function that actually trys to connect
     to postgres
-
     """
     try:
         if os.environ['POSTGRES_USER']:
