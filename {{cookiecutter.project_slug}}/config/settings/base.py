@@ -114,7 +114,7 @@ DATABASES = {
         'NAME': '{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.project_slug}}',
         'USER': env.db('DATABASE_USER', default=''),
         'PASSWORD': env.db('DATABASE_PASSWORD', default=''),
-        'HOST': '127.0.0.1',
+        'HOST': 'localhost',
         'PORT': '',
         'CONN_MAX_AGE': 0
     }
