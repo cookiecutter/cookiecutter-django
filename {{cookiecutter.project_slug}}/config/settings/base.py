@@ -112,8 +112,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': '{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.project_slug}}',
-        'USER': env.db('DATABASE_USER', default=''),
-        'PASSWORD': env.db('DATABASE_PASSWORD', default=''),
+        'USER': env.db('POSTGRES_USER', default=''),
+        'PASSWORD': env.db('POSTGRES_PASSWORD', default=''),
         'HOST': 'localhost',
         'PORT': '',
         'CONN_MAX_AGE': 0
