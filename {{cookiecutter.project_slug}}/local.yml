@@ -57,6 +57,7 @@ services:
       - redis
       - postgres{% if cookiecutter.use_mailhog == 'y' %}
       - mailhog{% endif %}
+    ports: []
     command: /start-celeryworker-dev.sh
 
   celerybeat:
@@ -66,5 +67,6 @@ services:
       - redis
       - postgres{% if cookiecutter.use_mailhog == 'y' %}
       - mailhog{% endif %}
+    ports: []
     command: /start-celerybeat-dev.sh
 {% endif %}
