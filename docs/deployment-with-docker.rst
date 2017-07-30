@@ -55,7 +55,7 @@ It is always better to deploy a site behind HTTPS and will become crucial as the
 
 * In the `.env.example`, we have made it simpler for you to change the default `Django Admin` into a custom name through an environmental variable. This should make it harder to guess the access to the admin panel.
 
-* If you are not using a subdomain of the domain name set in the project, then remember to put the your staging/production IP address in the  ``ALLOWED_HOSTS``_ environment variable before you deploy your website. Failure to do this will mean you will not have access to your website through the HTTP protocol.
+* If you are not using a subdomain of the domain name set in the project, then remember to put the your staging/production IP address in the :code:`DJANGO_ALLOWED_HOSTS` environment variable (see :ref:`settings`) before you deploy your website. Failure to do this will mean you will not have access to your website through the HTTP protocol.
 
 * Access to the Django admin is set up by default to require HTTPS in production or once *live*. We recommend that you look into setting up the *Certbot and Let's Encrypt Setup* mentioned below or another HTTPS certification service.
 
