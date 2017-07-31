@@ -59,7 +59,7 @@ You can also set the environment variable ``COMPOSE_FILE`` pointing to ``local.y
 
 And then run::
 
-    $ docker-compose -f production.yml up
+    $ docker-compose up
 
 Running management commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
