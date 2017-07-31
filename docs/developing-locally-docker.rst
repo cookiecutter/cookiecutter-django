@@ -65,7 +65,7 @@ Running management commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As with any shell command that we wish to run in our container, this is done
-using the ``docker-compose -f production.yml run`` command.
+using the ``docker-compose -f local.yml run`` command.
 
 To migrate your app and to create a superuser, run::
 
