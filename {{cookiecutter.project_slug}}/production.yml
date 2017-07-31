@@ -77,9 +77,3 @@ services:
       - redis
     command: celery -A {{cookiecutter.project_slug}}.taskapp beat -l INFO
 {% endif %}
-
-  node:
-    extends:
-      service: node
-      file: ./dev.yml
-    ports: []
