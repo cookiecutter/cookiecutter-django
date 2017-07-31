@@ -59,6 +59,7 @@ Listed in alphabetical order.
   Ben Warren               `@bwarren2`
   Ben Lopatin
   Benjamin Abel
+  Bert de Miranda          `@bertdemiranda`_
   Bo Lopker                `@blopker`_
   Bouke Haarsma
   Brent Payne              `@brentpayne`_               @brentpayne
