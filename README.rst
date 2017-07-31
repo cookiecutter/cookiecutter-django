@@ -1,13 +1,17 @@
 Cookiecutter Django
 =======================
 
+.. image:: https://badge.fury.io/py/cookiecutter-django.svg
+    :target: https://badge.fury.io/py/cookiecutter-django
+    :alt: PyPI Package
+
+.. image:: https://travis-ci.org/pydanny/cookiecutter-django.svg?branch=master
+    :target: https://travis-ci.org/pydanny/cookiecutter-django?branch=master
+     :alt: Build Status
+
 .. image:: https://pyup.io/repos/github/pydanny/cookiecutter-django/shield.svg
      :target: https://pyup.io/repos/github/pydanny/cookiecutter-django/
      :alt: Updates
-
-.. image:: https://travis-ci.org/pydanny/cookiecutter-django.svg?branch=master
-     :target: https://travis-ci.org/pydanny/cookiecutter-django?branch=master
-     :alt: Build Status
 
 .. image:: https://badges.gitter.im/Join Chat.svg
    :target: https://gitter.im/pydanny/cookiecutter-django?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
