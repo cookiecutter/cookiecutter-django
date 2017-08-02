@@ -1,7 +1,9 @@
 """
 Production Configurations
 
-- Use Amazon's S3 for storing static files and uploaded media
+{% if cookiecutter.use_whitenoise == 'y' -%}
+- Use WhiteNoise for serving static files{% endif %}
+- Use Amazon's S3 for {% if cookiecutter.use_whitenoise == 'n' -%}storing static files {% endif %}and uploaded media
 - Use mailgun to send emails
 - Use Redis for cache
 {% if cookiecutter.use_sentry_for_error_reporting == 'y' %}
@@ -113,6 +115,7 @@ AWS_HEADERS = {
 # stored files.
 {% if cookiecutter.use_whitenoise == 'y' -%}
 MEDIA_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 {% else %}
 #  See:http://stackoverflow.com/questions/10390244/
 from storages.backends.s3boto3 import S3Boto3Storage
