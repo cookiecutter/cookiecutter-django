@@ -21,4 +21,4 @@ The base app will now run as it would with the usual ``manage.py runserver`` but
 
 To get live reloading to work you'll probably need to install an `appropriate browser extension`_
 
-.. _appropriate browser extension: http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-
+.. _appropriate browser extension: http://livereload.com/extensions/
