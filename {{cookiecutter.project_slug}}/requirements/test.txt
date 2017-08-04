@@ -10,7 +10,7 @@ psycopg2==2.7.3
 coverage==4.4.1
 flake8==3.4.1 # pyup: != 2.6.0
 django-test-plus==1.0.18
-factory-boy==2.9.1
+factory-boy==2.9.2
 
 # pytest
 pytest-django==3.1.2
