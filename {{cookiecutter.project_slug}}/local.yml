@@ -10,8 +10,8 @@ services:
     volumes:
       - postgres_data_dev:/var/lib/postgresql/data
       - postgres_backup_dev:/backups
-    environment:
-      - POSTGRES_USER={{cookiecutter.project_slug}}
+    env_file:
+      - local.env
 
   django:
     build:
@@ -19,10 +19,13 @@ services:
       dockerfile: ./compose/django/Dockerfile-dev
     command: /start-dev.sh
     depends_on:
-      - postgres{% if cookiecutter.use_mailhog == 'y' %}
-      - mailhog{% endif %}
+      - postgres
+{% if cookiecutter.use_mailhog == 'y' -%}
+      - mailhog
+{%- endif %}
+    env_file:
+      - local.env
     environment:
-      - POSTGRES_USER={{cookiecutter.project_slug}}
       - USE_DOCKER=yes
     volumes:
       - .:/app
@@ -36,8 +39,8 @@ services:
       dockerfile: ./compose/django/Dockerfile-dev
     depends_on:
       - postgres
-    environment:
-      - POSTGRES_USER={{cookiecutter.project_slug}}
+    env_file:
+      - local.env
     volumes:
       - .:/app
 {% endif %}
