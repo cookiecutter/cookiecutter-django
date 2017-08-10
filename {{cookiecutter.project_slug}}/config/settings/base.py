@@ -109,7 +109,15 @@ MANAGERS = ADMINS
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres://{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.project_slug}}'),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': '{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.project_slug}}',
+        'USER': env.db('POSTGRES_USER', default=''),
+        'PASSWORD': env.db('POSTGRES_PASSWORD', default=''),
+        'HOST': 'localhost',
+        'PORT': '',
+        'CONN_MAX_AGE': 0
+    }
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
