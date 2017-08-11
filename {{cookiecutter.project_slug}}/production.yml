@@ -5,13 +5,6 @@ volumes:
   postgres_backup: {}
 
 services:
-  postgres:
-    build: ./compose/postgres
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - postgres_backup:/backups
-    env_file: .env
-
   django:
     build:
       context: .
@@ -20,6 +13,13 @@ services:
       - postgres
       - redis
     command: /gunicorn.sh
+    env_file: .env
+
+  postgres:
+    build: ./compose/postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - postgres_backup:/backups
     env_file: .env
 
   nginx:
