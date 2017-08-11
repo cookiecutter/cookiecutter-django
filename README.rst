@@ -16,7 +16,9 @@ Powered by Cookiecutter_, Cookiecutter Django is a framework for jumpstarting pr
 
 * Documentation: https://cookiecutter-django.readthedocs.io/en/latest/
 * See Troubleshooting_ for common errors and obstacles
-* If you have problems with Cookiecutter Django, please open issues_ before sending emails to the maintainers. You will get a much, MUCH faster response.
+* If you have problems with Cookiecutter Django, please open issues_ don't send emails to the maintainers.
+* Need quick professional paid support? Contact `support@cookiecutter.io`_. This includes configuring your servers,
+fixing bugs, reviewing your code and everything in between.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
@@ -24,6 +26,7 @@ Powered by Cookiecutter_, Cookiecutter Django is a framework for jumpstarting pr
 
 .. _528: https://github.com/pydanny/cookiecutter-django/issues/528#issuecomment-212650373
 .. _issues: https://github.com/pydanny/cookiecutter-django/issues/new
+.. _support@cookiecutter.io: support@cookiecutter.io
 
 Features
 ---------
