@@ -40,7 +40,7 @@ Features
 * Grunt build for compass and livereload
 * Send emails via Anymail_ (using Mailgun_ by default, but switchable)
 * Media storage using Amazon S3
-* Docker support using docker-compose_ for development and production
+* Docker support using docker-compose_ for development and production (using _Caddy with LetsEncrypt support)
 * Procfile_ for deploying to Heroku
 * Instructions for deploying to PythonAnywhere_
 * Run tests with unittest or py.test
@@ -76,7 +76,7 @@ Optional Integrations
 .. _docker-compose: https://github.com/docker/compose
 .. _Opbeat: https://opbeat.com/
 .. _PythonAnywhere: https://www.pythonanywhere.com/
-
+.. _Caddy: https://caddyserver.com/
 
 Constraints
 -----------
