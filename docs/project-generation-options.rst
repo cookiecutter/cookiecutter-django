@@ -72,9 +72,6 @@ js_task_runner [1]
     2. Grunt_
     3. None
 
-use_lets_encrypt [n]
-    Use `Let's Encrypt`_ as the certificate authority for this project.
-
 custom_bootstrap_compilation [n]
     If you use Grunt, scaffold out recompiling Bootstrap as as task.  (Useful for letting you change Bootstrap variables in real time.)  Consult project README for more details.
 
