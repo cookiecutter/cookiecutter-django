@@ -9,7 +9,7 @@ wheel==0.29.0
 django==1.10.7 # pyup: >=1.10,<1.11
 
 # Configuration
-django-environ==0.4.3
+django-environ==0.4.4
 {% if cookiecutter.use_whitenoise == 'y' -%}
 whitenoise==3.3.0
 {%- endif %}
