@@ -12,6 +12,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   support-matrix
    project-generation-options
    developing-locally
    developing-locally-docker
@@ -25,7 +26,7 @@ Contents:
    faq
    troubleshooting
    my-favorite-cookie
-   deployment-with-elastic-beanstalk   
+   deployment-with-elastic-beanstalk
 
 Indices and tables
 ==================
