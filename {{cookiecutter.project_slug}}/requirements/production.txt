@@ -16,8 +16,8 @@ gunicorn==19.7.1
 
 # Static and Media Storage
 # ------------------------------------------------
-boto==2.48.0
-django-storages-redux==1.3.3
+boto3==1.4.5
+django-storages==1.6.5
 {% if cookiecutter.use_whitenoise != 'y' -%}
 Collectfast==0.5.2
 {%- endif %}

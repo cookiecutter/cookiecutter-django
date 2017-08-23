@@ -1,7 +1,9 @@
 """
 Production Configurations
 
-- Use Amazon's S3 for storing static files and uploaded media
+{% if cookiecutter.use_whitenoise == 'y' -%}
+- Use WhiteNoise for serving static files{% endif %}
+- Use Amazon's S3 for {% if cookiecutter.use_whitenoise == 'n' -%}storing static files {% endif %}and uploaded media
 - Use mailgun to send emails
 - Use Redis for cache
 {% if cookiecutter.use_sentry_for_error_reporting == 'y' %}
@@ -12,7 +14,6 @@ Production Configurations
 {% endif %}
 """
 
-from boto.s3.connection import OrdinaryCallingFormat
 {% if cookiecutter.use_sentry_for_error_reporting == 'y' %}
 import logging
 {% endif %}
@@ -98,7 +99,6 @@ AWS_SECRET_ACCESS_KEY = env('DJANGO_AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = env('DJANGO_AWS_STORAGE_BUCKET_NAME')
 AWS_AUTO_CREATE_BUCKET = True
 AWS_QUERYSTRING_AUTH = False
-AWS_S3_CALLING_FORMAT = OrdinaryCallingFormat()
 
 # AWS cache settings, don't change unless you know what you're doing:
 AWS_EXPIRY = 60 * 60 * 24 * 7
@@ -115,11 +115,12 @@ AWS_HEADERS = {
 # stored files.
 {% if cookiecutter.use_whitenoise == 'y' -%}
 MEDIA_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 {% else %}
 #  See:http://stackoverflow.com/questions/10390244/
-from storages.backends.s3boto import S3BotoStorage
-StaticRootS3BotoStorage = lambda: S3BotoStorage(location='static')
-MediaRootS3BotoStorage = lambda: S3BotoStorage(location='media')
+from storages.backends.s3boto3 import S3Boto3Storage
+StaticRootS3BotoStorage = lambda: S3Boto3Storage(location='static')
+MediaRootS3BotoStorage = lambda: S3Boto3Storage(location='media')
 DEFAULT_FILE_STORAGE = 'config.settings.production.MediaRootS3BotoStorage'
 
 MEDIA_URL = 'https://s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
@@ -141,7 +142,7 @@ INSTALLED_APPS = ['collectfast', ] + INSTALLED_APPS
 {% if cookiecutter.use_compressor == 'y'-%}
 # COMPRESSOR
 # ------------------------------------------------------------------------------
-COMPRESS_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+COMPRESS_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 COMPRESS_URL = STATIC_URL
 COMPRESS_ENABLED = env.bool('COMPRESS_ENABLED', default=True)
 {%- endif %}

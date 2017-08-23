@@ -63,7 +63,8 @@ Listed in alphabetical order.
   Bo Lopker                `@blopker`_
   Bouke Haarsma
   Brent Payne              `@brentpayne`_               @brentpayne
-  Burhan Khalid            `@burhan`_                   @burhan
+  Bruno Alla               `@browniebroke`_             @_BrunoAlla
+  Burhan Khalid            `@burhan`_                   @burhan
   Catherine Devlin         `@catherinedevlin`_
   Cédric Gaspoz            `@cgaspoz`_
   Chris Curvey             `@ccurvey`_
@@ -165,6 +166,7 @@ Listed in alphabetical order.
 .. _@bloodpet: https://github.com/bloodpet
 .. _@blopker: https://github.com/blopker
 .. _@bogdal: https://github.com/bogdal
+.. _@browniebroke: https://github.com/browniebroke
 .. _@burhan: https://github.com/burhan
 .. _@c-rhodes: https://github.com/c-rhodes
 .. _@caffodian: https://github.com/caffodian
