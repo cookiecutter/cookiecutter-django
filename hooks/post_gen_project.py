@@ -211,6 +211,7 @@ def append_to_gitignore(path):
     gitignore_file_path = os.path.join(PROJECT_DIRECTORY, '.gitignore')
     with open(gitignore_file_path, 'a') as gitignore_file:
         gitignore_file.write(path)
+        gitignore_file.write(os.linesep)
 
 # IN PROGRESS
 # def copy_doc_files(project_directory):
