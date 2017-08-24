@@ -14,9 +14,9 @@ services:
       - mailhog{% endif %}
     volumes:
       - .:/app
-    environment:
-      - POSTGRES_USER={{cookiecutter.project_slug}}
-      - USE_DOCKER=yes
+    env_file:
+      - ./.envs/.local/.django
+      - ./.envs/.local/.postgres
     ports:
       - "8000:8000"
     command: /start-dev.sh
@@ -26,8 +26,8 @@ services:
     volumes:
       - postgres_data_dev:/var/lib/postgresql/data
       - postgres_backup_dev:/backups
-    environment:
-      - POSTGRES_USER={{cookiecutter.project_slug}}
+    env_file:
+      - ./.envs/.local/.postgres
 {% if cookiecutter.use_pycharm == 'y' %}
   pycharm:
     build:
@@ -35,10 +35,11 @@ services:
       dockerfile: ./compose/django/Dockerfile-dev
     depends_on:
       - postgres
-    environment:
-      - POSTGRES_USER={{cookiecutter.project_slug}}
     volumes:
       - .:/app
+    env_file:
+      - ./.env/.local/.django
+      - ./.env/.local/.postgres
 {% endif %}
 {% if cookiecutter.use_mailhog == 'y' %}
   mailhog:
