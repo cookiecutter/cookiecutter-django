@@ -283,7 +283,7 @@ if '{{ cookiecutter.open_source_license }}' == 'Not open source':
     remove_open_source_files()
 
 # Append `.env/` to the generated project's `.gitignore`.
-dotenv_dir_path = '.env/'
+dotenv_dir_path = '.envs/'
 append_to_gitignore(dotenv_dir_path)
 
 # Append `.env` to the generated project's `.gitignore`.

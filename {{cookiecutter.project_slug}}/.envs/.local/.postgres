@@ -1,0 +1,2 @@
+POSTGRES_USER={{cookiecutter.project_slug}}
+POSTGRES_PASSWORD=postgrespassword
