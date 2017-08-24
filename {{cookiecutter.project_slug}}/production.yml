@@ -13,26 +13,30 @@ services:
     depends_on:
       - postgres
       - redis
+    env_file:
+      - ./.envs/.production/.django
+      - ./.envs/.production/.postgres
     command: /gunicorn.sh
-    env_file: .env
 
   postgres:
     build: ./compose/postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - postgres_backup:/backups
-    env_file: .env
+    env_file:
+      - ./.envs/.production/.postgres
 
   caddy:
     build: ./compose/caddy
     depends_on:
       - django
+    volumes:
+      - caddy:/root/.caddy
+    env_file:
+      - ./.envs/.production/.caddy
     ports:
       - "0.0.0.0:80:80"
       - "0.0.0.0:443:443"
-    volumes:
-      - caddy:/root/.caddy
-    env_file: .env
 
   redis:
     image: redis:3.0
@@ -41,19 +45,23 @@ services:
     build:
       context: .
       dockerfile: ./compose/django/Dockerfile
-    env_file: .env
     depends_on:
      - postgres
      - redis
+    env_file:
+      - ./.envs/.production/.django
+      - ./.envs/.production/.postgres
     command: celery -A {{cookiecutter.project_slug}}.taskapp worker -l INFO
 
   celerybeat:
     build:
       context: .
       dockerfile: ./compose/django/Dockerfile
-    env_file: .env
     depends_on:
       - postgres
       - redis
+    env_file:
+      - ./.envs/.production/.django
+      - ./.envs/.production/.postgres
     command: celery -A {{cookiecutter.project_slug}}.taskapp beat -l INFO
 {% endif %}
