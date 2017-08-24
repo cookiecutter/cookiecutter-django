@@ -202,6 +202,15 @@ def remove_open_source_files():
             PROJECT_DIRECTORY, filename
         ))
 
+def append_to_gitignore(path):
+    """
+    Append path to `.gitignore`.
+
+    :param path: File/dir path to append.
+    """
+    gitignore_file_path = os.path.join(PROJECT_DIRECTORY, '.gitignore')
+    with open(gitignore_file_path, 'a') as gitignore_file:
+        gitignore_file.write(path)
 
 # IN PROGRESS
 # def copy_doc_files(project_directory):
@@ -271,3 +280,11 @@ if '{{ cookiecutter.use_elasticbeanstalk_experimental }}'.lower() != 'y':
 # Remove files conventional to opensource projects only.
 if '{{ cookiecutter.open_source_license }}' == 'Not open source':
     remove_open_source_files()
+
+# Append `.env/` to the generated project's `.gitignore`.
+dotenv_dir_path = '.env/'
+append_to_gitignore(dotenv_dir_path)
+
+# Append `.env` to the generated project's `.gitignore`.
+dotenv_dir_path = '.env'
+append_to_gitignore(dotenv_dir_path)
