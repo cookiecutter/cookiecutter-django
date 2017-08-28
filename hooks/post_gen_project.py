@@ -204,6 +204,8 @@ def main():
     set_secret_key(os.path.join(PROJECT_DIR_PATH, 'config', 'settings', 'local.py'))
     set_secret_key(os.path.join(PROJECT_DIR_PATH, 'config', 'settings', 'test.py'))
     set_secret_key(os.path.join(PROJECT_DIR_PATH, '.envs', '.production', '.django'))
+    set_secret_key(os.path.join(PROJECT_DIR_PATH, '.envs', '.local', '.postgres'))
+    set_secret_key(os.path.join(PROJECT_DIR_PATH, '.envs', '.production', '.postgres'))
 
 
 if __name__ == '__main__':
