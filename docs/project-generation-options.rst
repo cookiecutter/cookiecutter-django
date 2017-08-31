@@ -54,10 +54,6 @@ use_pycharm [n]
 windows [n]
     Whether you'll be developing on Windows.
 
-use_python3 [y]
-    By default, the Python code generated will be for Python 3.x. But if you
-    answer `n` here, it will be legacy Python 2.7 code.
-
 use_docker [y]
     Whether to use Docker_, separating the app and database into separate
     containers.
@@ -76,8 +72,8 @@ js_task_runner [1]
     2. Grunt_
     3. None
 
-use_lets_encrypt [n]
-    Use `Let's Encrypt`_ as the certificate authority for this project.
+custom_bootstrap_compilation [n]
+    If you use Grunt, scaffold out recompiling Bootstrap as as task.  (Useful for letting you change Bootstrap variables in real time.)  Consult project README for more details.
 
 open_source_license [1]
     Select a software license for the project. The choices are:

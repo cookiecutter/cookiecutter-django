@@ -1,8 +1,4 @@
-{% if cookiecutter.use_python3 == 'y' -%}
 FROM python:3.5
-{% else %}
-FROM python:2.7
-{%- endif %}
 ENV PYTHONUNBUFFERED 1
 
 # Requirements have to be pulled and installed here, otherwise caching won't work
@@ -16,6 +12,14 @@ RUN chmod +x /entrypoint.sh
 COPY ./compose/django/start-dev.sh /start-dev.sh
 RUN sed -i 's/\r//' /start-dev.sh
 RUN chmod +x /start-dev.sh
+
+COPY ./compose/django/celery/worker/start-dev.sh /start-celeryworker-dev.sh
+RUN sed -i 's/\r//' /start-celeryworker-dev.sh
+RUN chmod +x /start-celeryworker-dev.sh
+
+COPY ./compose/django/celery/beat/start-dev.sh /start-celerybeat-dev.sh
+RUN sed -i 's/\r//' /start-celerybeat-dev.sh
+RUN chmod +x /start-celerybeat-dev.sh
 
 WORKDIR /app
 

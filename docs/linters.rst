@@ -14,7 +14,7 @@ To run flake8:
 The config for flake8 is located in setup.cfg. It specifies:
 
 * Set max line length to 120 chars
-* Exclude .tox,.git,*/migrations/*,*/static/CACHE/*,docs,node_modules
+* Exclude ``.tox,.git,*/migrations/*,*/static/CACHE/*,docs,node_modules``
 
 pylint
 ------
@@ -40,4 +40,4 @@ This is included in flake8's checks, but you can also run it separately to see a
 The config for pep8 is located in setup.cfg. It specifies:
 
 * Set max line length to 120 chars
-* Exclude .tox,.git,*/migrations/*,*/static/CACHE/*,docs,node_modules
+* Exclude ``.tox,.git,*/migrations/*,*/static/CACHE/*,docs,node_modules``

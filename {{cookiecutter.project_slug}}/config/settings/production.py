@@ -1,8 +1,9 @@
-# -*- coding: utf-8 -*-
 """
 Production Configurations
 
-- Use Amazon's S3 for storing static files and uploaded media
+{% if cookiecutter.use_whitenoise == 'y' -%}
+- Use WhiteNoise for serving static files{% endif %}
+- Use Amazon's S3 for storing {% if cookiecutter.use_whitenoise == 'n' -%}static files and {% endif %}uploaded media
 - Use mailgun to send emails
 - Use Redis for cache
 {% if cookiecutter.use_sentry_for_error_reporting == 'y' %}
@@ -12,10 +13,7 @@ Production Configurations
 - Use opbeat for error reporting
 {% endif %}
 """
-from __future__ import absolute_import, unicode_literals
 
-from boto.s3.connection import OrdinaryCallingFormat
-from django.utils import six
 {% if cookiecutter.use_sentry_for_error_reporting == 'y' %}
 import logging
 {% endif %}
@@ -101,7 +99,6 @@ AWS_SECRET_ACCESS_KEY = env('DJANGO_AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = env('DJANGO_AWS_STORAGE_BUCKET_NAME')
 AWS_AUTO_CREATE_BUCKET = True
 AWS_QUERYSTRING_AUTH = False
-AWS_S3_CALLING_FORMAT = OrdinaryCallingFormat()
 
 # AWS cache settings, don't change unless you know what you're doing:
 AWS_EXPIRY = 60 * 60 * 24 * 7
@@ -109,20 +106,21 @@ AWS_EXPIRY = 60 * 60 * 24 * 7
 # TODO See: https://github.com/jschneier/django-storages/issues/47
 # Revert the following and use str after the above-mentioned bug is fixed in
 # either django-storage-redux or boto
+control = 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIRY, AWS_EXPIRY)
 AWS_HEADERS = {
-    'Cache-Control': six.b('max-age=%d, s-maxage=%d, must-revalidate' % (
-        AWS_EXPIRY, AWS_EXPIRY))
+    'Cache-Control': bytes(control, encoding='latin-1')
 }
 
 # URL that handles the media served from MEDIA_ROOT, used for managing
 # stored files.
 {% if cookiecutter.use_whitenoise == 'y' -%}
 MEDIA_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 {% else %}
 #  See:http://stackoverflow.com/questions/10390244/
-from storages.backends.s3boto import S3BotoStorage
-StaticRootS3BotoStorage = lambda: S3BotoStorage(location='static')
-MediaRootS3BotoStorage = lambda: S3BotoStorage(location='media')
+from storages.backends.s3boto3 import S3Boto3Storage
+StaticRootS3BotoStorage = lambda: S3Boto3Storage(location='static')
+MediaRootS3BotoStorage = lambda: S3Boto3Storage(location='media')
 DEFAULT_FILE_STORAGE = 'config.settings.production.MediaRootS3BotoStorage'
 
 MEDIA_URL = 'https://s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
@@ -144,7 +142,7 @@ INSTALLED_APPS = ['collectfast', ] + INSTALLED_APPS
 {% if cookiecutter.use_compressor == 'y'-%}
 # COMPRESSOR
 # ------------------------------------------------------------------------------
-COMPRESS_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+COMPRESS_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 COMPRESS_URL = STATIC_URL
 COMPRESS_ENABLED = env.bool('COMPRESS_ENABLED', default=True)
 {%- endif %}

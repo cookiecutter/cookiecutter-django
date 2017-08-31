@@ -1,22 +1,24 @@
 Cookiecutter Django
 =======================
 
-.. image:: https://pyup.io/repos/github/pydanny/cookiecutter-django/shield.svg
-     :target: https://pyup.io/repos/github/pydanny/cookiecutter-django/
-     :alt: Updates
-
 .. image:: https://travis-ci.org/pydanny/cookiecutter-django.svg?branch=master
-     :target: https://travis-ci.org/pydanny/cookiecutter-django?branch=master
-     :alt: Build Status
+    :target: https://travis-ci.org/pydanny/cookiecutter-django?branch=master
+    :alt: Build Status
+
+.. image:: https://pyup.io/repos/github/pydanny/cookiecutter-django/shield.svg
+    :target: https://pyup.io/repos/github/pydanny/cookiecutter-django/
+    :alt: Updates
 
 .. image:: https://badges.gitter.im/Join Chat.svg
-   :target: https://gitter.im/pydanny/cookiecutter-django?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+    :target: https://gitter.im/pydanny/cookiecutter-django?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
 Powered by Cookiecutter_, Cookiecutter Django is a framework for jumpstarting production-ready Django projects quickly.
 
 * Documentation: https://cookiecutter-django.readthedocs.io/en/latest/
 * See Troubleshooting_ for common errors and obstacles
-* If you have problems with Cookiecutter Django, please open issues_ before sending emails to the maintainers. You will get a much, MUCH faster response.
+* If you have problems with Cookiecutter Django, please open issues_ don't send emails to the maintainers.
+* Need quick professional paid support? Contact `support@cookiecutter.io`_. This includes configuring your servers,
+fixing bugs, reviewing your code and everything in between.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
@@ -24,13 +26,15 @@ Powered by Cookiecutter_, Cookiecutter Django is a framework for jumpstarting pr
 
 .. _528: https://github.com/pydanny/cookiecutter-django/issues/528#issuecomment-212650373
 .. _issues: https://github.com/pydanny/cookiecutter-django/issues/new
+.. _support@cookiecutter.io: support@cookiecutter.io
 
 Features
 ---------
 
 * For Django 1.10
+* Works with Python 3.4.x or 3.5.x. Python 3.6 is experimental
 * Renders Django projects with 100% starting test coverage
-* Twitter Bootstrap_ v4.0.0 - `alpha 4`_ (`maintained Foundation fork`_ also available)
+* Twitter Bootstrap_ v4.0.0 - alpha 6 (`maintained Foundation fork`_ also available)
 * 12-Factor_ based settings via django-environ_
 * Secure by default. We believe in SSL.
 * Optimized development and production settings
@@ -39,10 +43,9 @@ Features
 * Grunt build for compass and livereload
 * Send emails via Anymail_ (using Mailgun_ by default, but switchable)
 * Media storage using Amazon S3
-* Docker support using docker-compose_ for development and production
+* Docker support using docker-compose_ for development and production (using Caddy_ with LetsEncrypt_ support)
 * Procfile_ for deploying to Heroku
 * Instructions for deploying to PythonAnywhere_
-* Works with Python 2.7.x or 3.5.x
 * Run tests with unittest or py.test
 * Customizable PostgreSQL version
 * Experimental support for Amazon Elastic Beanstalk
@@ -61,7 +64,6 @@ Optional Integrations
 * Integration with Sentry_ for error logging
 * Integration with Opbeat_ for performance monitoring
 
-.. _`alpha 4`: http://blog.getbootstrap.com/2016/09/05/bootstrap-4-alpha-4/
 .. _Bootstrap: https://github.com/twbs/bootstrap
 .. _django-environ: https://github.com/joke2k/django-environ
 .. _12-Factor: http://12factor.net/
@@ -77,15 +79,46 @@ Optional Integrations
 .. _docker-compose: https://github.com/docker/compose
 .. _Opbeat: https://opbeat.com/
 .. _PythonAnywhere: https://www.pythonanywhere.com/
-
+.. _Caddy: https://caddyserver.com/
+.. _LetsEncrypt: https://letsencrypt.org/
 
 Constraints
 -----------
 
 * Only maintained 3rd party libraries are used.
 * Uses PostgreSQL everywhere (9.2+)
-* Environment variables for configuration (This won't work with Apache/mod_wsgi).
+* Environment variables for configuration (This won't work with Apache/mod_wsgi except on AWS ELB).
 
+Support this Project!
+----------------------
+
+This project is run by volunteers. Please support them in their efforts to maintain and improve Cookiecutter Django:
+
+* https://www.patreon.com/danielroygreenfeld: Project lead. Expertise in AWS ELB and Django.
+
+Projects that provide financial support to the maintainers:
+
+Two Scoops of Django 1.11
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: https://cdn.shopify.com/s/files/1/0304/6901/products/tsd-111-alpha_medium.jpg?v=1499531513
+   :name: Two Scoops of Django 1.11 Cover
+   :align: center
+   :alt: Two Scoops of Django
+   :target: http://twoscoopspress.org/products/two-scoops-of-django-1-11
+
+Two Scoops of Django is the best dairy-themed Django reference in the universe
+
+pyup
+~~~~~~~~~~~~~~~~~~
+
+.. image:: https://pyup.io/static/images/logo.png
+   :name: pyup
+   :align: center
+   :alt: pyup
+   :target: https://pyup.io/
+
+Pyup brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
 
 Usage
 ------
@@ -128,7 +161,6 @@ Answer the prompts with your own desired options_. For example::
     use_opbeat [n]: y
     use_pycharm [n]: y
     windows [n]: n
-    use_python3 [y]: y
     use_docker [y]: n
     use_heroku [n]: y
     use_compressor [n]: y
@@ -143,7 +175,6 @@ Answer the prompts with your own desired options_. For example::
     2 - Grunt
     3 - None
     Choose from 1, 2, 3, 4 [1]: 1
-    use_lets_encrypt [n]: n
     Select open_source_license:
     1 - MIT
     2 - BSD
@@ -260,31 +291,5 @@ Code of Conduct
 Everyone interacting in the Cookiecutter project's codebases, issue trackers, chat
 rooms, and mailing lists is expected to follow the `PyPA Code of Conduct`_.
 
-Support This Project
----------------------------
-
-This project is maintained by volunteers. Support their efforts by spreading the word about:
-
-Two Scoops Press
-~~~~~~~~~~~~~~~~~~
-
-.. image:: https://cdn.shopify.com/s/files/1/0304/6901/t/2/assets/logo.png?11985289740589874793
-   :name: Two Scoops Press
-   :align: center
-   :alt: Two Scoops Press
-   :target: https://twoscoopspress.com
-   
-Two Scoops Press brings you the best dairy-themed Django references in the universe   
-   
-pyup
-~~~~~~~~~~~~~~~~~~   
-   
-.. image:: https://pyup.io/static/images/logo.png
-   :name: pyup
-   :align: center
-   :alt: pyup
-   :target: https://pyup.io/
-   
-Pyup brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
 
 .. _`PyPA Code of Conduct`: https://www.pypa.io/en/latest/code-of-conduct/

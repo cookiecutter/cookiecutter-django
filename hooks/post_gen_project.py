@@ -12,7 +12,6 @@ A portion of this code was adopted from Django's standard crypto functions and
 utilities, specifically:
     https://github.com/django/django/blob/master/django/utils/crypto.py
 """
-from __future__ import print_function
 import os
 import random
 import shutil
@@ -131,7 +130,7 @@ def remove_docker_files():
     """
     Removes files needed for docker if it isn't going to be used
     """
-    for filename in ["dev.yml", "docker-compose.yml", ".dockerignore"]:
+    for filename in ["local.yml", "production.yml", ".dockerignore"]:
         os.remove(os.path.join(
             PROJECT_DIRECTORY, filename
         ))
@@ -168,14 +167,6 @@ def remove_packageJSON_file():
             PROJECT_DIRECTORY, filename
         ))
 
-def remove_certbot_files():
-    """
-    Removes files needed for certbot if it isn't going to be used
-    """
-    nginx_dir_location = os.path.join(PROJECT_DIRECTORY, 'compose/nginx')
-    for filename in ["nginx-secure.conf", "start.sh", "dhparams.example.pem"]:
-        file_name = os.path.join(nginx_dir_location, filename)
-        remove_file(file_name)
 
 def remove_copying_files():
     """
@@ -202,6 +193,16 @@ def remove_elasticbeanstalk():
             PROJECT_DIRECTORY, filename
         ))
 
+def remove_open_source_files():
+    """
+    Removes files conventional to opensource projects only.
+    """
+    for filename in ["CONTRIBUTORS.txt"]:
+        os.remove(os.path.join(
+            PROJECT_DIRECTORY, filename
+        ))
+
+
 # IN PROGRESS
 # def copy_doc_files(project_directory):
 #     cookiecutters_dir = DEFAULT_CONFIG['cookiecutters_dir']
@@ -220,26 +221,26 @@ def remove_elasticbeanstalk():
 #             dst = os.path.join(target_dir, name)
 #             shutil.copyfile(src, dst)
 
-# 1. Generates and saves random secret key
+# Generates and saves random secret key
 make_secret_key(PROJECT_DIRECTORY)
 
-# 2. Removes the taskapp if celery isn't going to be used
+# Removes the taskapp if celery isn't going to be used
 if '{{ cookiecutter.use_celery }}'.lower() == 'n':
     remove_task_app(PROJECT_DIRECTORY)
 
-# 3. Removes the .idea directory if PyCharm isn't going to be used
+# Removes the .idea directory if PyCharm isn't going to be used
 if '{{ cookiecutter.use_pycharm }}'.lower() != 'y':
     remove_pycharm_dir(PROJECT_DIRECTORY)
 
-# 4. Removes all heroku files if it isn't going to be used
+# Removes all heroku files if it isn't going to be used
 if '{{ cookiecutter.use_heroku }}'.lower() != 'y':
     remove_heroku_files()
 
-# 5. Removes all docker files if it isn't going to be used
+# Removes all docker files if it isn't going to be used
 if '{{ cookiecutter.use_docker }}'.lower() != 'y':
     remove_docker_files()
 
-# 6. Removes all JS task manager files if it isn't going to be used
+# Removes all JS task manager files if it isn't going to be used
 if '{{ cookiecutter.js_task_runner}}'.lower() == 'gulp':
     remove_grunt_files()
 elif '{{ cookiecutter.js_task_runner}}'.lower() == 'grunt':
@@ -249,11 +250,7 @@ else:
     remove_grunt_files()
     remove_packageJSON_file()
 
-# 7. Removes all certbot/letsencrypt files if it isn't going to be used
-if '{{ cookiecutter.use_lets_encrypt }}'.lower() != 'y':
-    remove_certbot_files()
-
-# 8. Display a warning if use_docker and use_grunt are selected. Grunt isn't
+# Display a warning if use_docker and use_grunt are selected. Grunt isn't
 #   supported by our docker config atm.
 if '{{ cookiecutter.js_task_runner }}'.lower() in ['grunt', 'gulp'] and '{{ cookiecutter.use_docker }}'.lower() == 'y':
     print(
@@ -262,25 +259,15 @@ if '{{ cookiecutter.js_task_runner }}'.lower() in ['grunt', 'gulp'] and '{{ cook
         "js task runner service to your docker configuration manually."
     )
 
-# 9. Removes the certbot/letsencrypt files and display a warning if use_lets_encrypt is selected and use_docker isn't.
-if '{{ cookiecutter.use_lets_encrypt }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() != 'y':
-    remove_certbot_files()
-    print(
-        "You selected to use Let's Encrypt and didn't select to use docker. This is NOT supported out of the box for now. You "
-        "can continue to use the project like you normally would, but Let's Encrypt files have been included."
-    )
 
-# 10. Directs the user to the documentation if certbot and docker are selected.
-if '{{ cookiecutter.use_lets_encrypt }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() == 'y':
-    print(
-        "You selected to use Let's Encrypt, please see the documentation for instructions on how to use this in production. "
-        "You must generate a dhparams.pem file before running docker-compose in a production environment."
-    )
-
-# 11. Removes files needed for the GPLv3 licence if it isn't going to be used.
+# Removes files needed for the GPLv3 licence if it isn't going to be used.
 if '{{ cookiecutter.open_source_license}}' != 'GPLv3':
     remove_copying_files()
 
-# 12. Remove Elastic Beanstalk files
+# Remove Elastic Beanstalk files
 if '{{ cookiecutter.use_elasticbeanstalk_experimental }}'.lower() != 'y':
     remove_elasticbeanstalk()
+
+# Remove files conventional to opensource projects only.
+if '{{ cookiecutter.open_source_license }}' == 'Not open source':
+    remove_open_source_files()
