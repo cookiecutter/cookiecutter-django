@@ -28,18 +28,6 @@ services:
       - postgres_backup_dev:/backups
     environment:
       - POSTGRES_USER={{cookiecutter.project_slug}}
-{% if cookiecutter.use_pycharm == 'y' %}
-  pycharm:
-    build:
-      context: .
-      dockerfile: ./compose/django/Dockerfile-local
-    depends_on:
-      - postgres
-    environment:
-      - POSTGRES_USER={{cookiecutter.project_slug}}
-    volumes:
-      - .:/app
-{% endif %}
 {% if cookiecutter.use_mailhog == 'y' %}
   mailhog:
     image: mailhog/mailhog:v1.0.0
