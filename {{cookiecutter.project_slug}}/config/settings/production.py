@@ -3,7 +3,7 @@ Production Configurations
 
 {% if cookiecutter.use_whitenoise == 'y' -%}
 - Use WhiteNoise for serving static files{% endif %}
-- Use Amazon's S3 for {% if cookiecutter.use_whitenoise == 'n' -%}storing static files {% endif %}and uploaded media
+- Use Amazon's S3 for storing {% if cookiecutter.use_whitenoise == 'n' -%}static files and {% endif %}uploaded media
 - Use mailgun to send emails
 - Use Redis for cache
 {% if cookiecutter.use_sentry_for_error_reporting == 'y' %}

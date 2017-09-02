@@ -8,7 +8,7 @@ services:
   django: &django
     build:
       context: .
-      dockerfile: ./compose/django/Dockerfile-dev
+      dockerfile: ./compose/django/Dockerfile-local
     depends_on:
       - postgres{% if cookiecutter.use_mailhog == 'y' %}
       - mailhog{% endif %}
@@ -28,19 +28,6 @@ services:
       - postgres_backup_dev:/backups
     env_file:
       - ./.envs/.local/.postgres
-{% if cookiecutter.use_pycharm == 'y' %}
-  pycharm:
-    build:
-      context: .
-      dockerfile: ./compose/django/Dockerfile-dev
-    depends_on:
-      - postgres
-    volumes:
-      - .:/app
-    env_file:
-      - ./.env/.local/.django
-      - ./.env/.local/.postgres
-{% endif %}
 {% if cookiecutter.use_mailhog == 'y' %}
   mailhog:
     image: mailhog/mailhog:v1.0.0
