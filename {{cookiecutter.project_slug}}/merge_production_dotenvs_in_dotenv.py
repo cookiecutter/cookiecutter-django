@@ -1,7 +1,10 @@
 import os
+from typing import Sequence
+
 import pytest
 
 PROJECT_DIR_PATH = os.path.dirname(os.path.realpath(__file__))
+
 PRODUCTION_DOTENV_DIR_PATH = os.path.join(PROJECT_DIR_PATH, '.envs', '.production')
 PRODUCTION_DOTENV_FILE_PATHS = [
     os.path.join(PRODUCTION_DOTENV_DIR_PATH, '.django'),
@@ -11,8 +14,10 @@ PRODUCTION_DOTENV_FILE_PATHS = [
 DOTENV_FILE_PATH = os.path.join(PROJECT_DIR_PATH, '.env')
 
 
-def merge(output_file_path, merged_file_paths, append_linesep=True):
-    with open(output_file_path, 'w+') as output_file:
+def merge(output_file_path: str,
+          merged_file_paths: Sequence[str],
+          append_linesep: bool = True) -> None:
+    with open(output_file_path, 'w') as output_file:
         for merged_file_path in merged_file_paths:
             with open(merged_file_path, 'r') as merged_file:
                 merged_file_content = merged_file.read()

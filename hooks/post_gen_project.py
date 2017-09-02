@@ -13,12 +13,12 @@ except NotImplementedError:
 PROJECT_DIR_PATH = os.path.realpath(os.path.curdir)
 
 
-def remove_file(file_path):
+def remove_file(file_path: str) -> None:
     if os.path.exists(file_path):
         os.remove(file_path)
 
 
-def remove_open_source_project_only_files():
+def remove_open_source_project_only_files() -> None:
     filenames = [
         'CONTRIBUTORS.txt'
     ]
@@ -26,7 +26,7 @@ def remove_open_source_project_only_files():
         os.remove(os.path.join(PROJECT_DIR_PATH, filename))
 
 
-def remove_gplv3_files():
+def remove_gplv3_files() -> None:
     filenames = [
         'COPYING'
     ]
@@ -34,7 +34,7 @@ def remove_gplv3_files():
         os.remove(os.path.join(PROJECT_DIR_PATH, filename))
 
 
-def remove_pycharm_files():
+def remove_pycharm_files() -> None:
     idea_dir_path = os.path.join(PROJECT_DIR_PATH, '.idea')
     if os.path.exists(idea_dir_path):
         shutil.rmtree(idea_dir_path)
@@ -44,7 +44,7 @@ def remove_pycharm_files():
         shutil.rmtree(docs_dir_path)
 
 
-def remove_docker_files():
+def remove_docker_files() -> None:
     shutil.rmtree(os.path.join(PROJECT_DIR_PATH, 'compose'))
 
     filenames = [
@@ -56,7 +56,7 @@ def remove_docker_files():
         os.remove(os.path.join(PROJECT_DIR_PATH, filename))
 
 
-def remove_heroku_files():
+def remove_heroku_files() -> None:
     filenames = [
         'Procfile',
         'runtime.txt'
@@ -65,7 +65,7 @@ def remove_heroku_files():
         remove_file(os.path.join(PROJECT_DIR_PATH, filename))
 
 
-def remove_elasticbeanstalk_files():
+def remove_elasticbeanstalk_files() -> None:
     ebextensions_dir_path = os.path.join(PROJECT_DIR_PATH, '.ebextensions')
     if os.path.exists(ebextensions_dir_path):
         shutil.rmtree(ebextensions_dir_path)
@@ -77,7 +77,7 @@ def remove_elasticbeanstalk_files():
         os.remove(os.path.join(PROJECT_DIR_PATH, filename))
 
 
-def try_remove_paas_files():
+def try_remove_paas_files() -> None:
     none_paas_files_left = True
 
     if '{{ cookiecutter.use_heroku }}'.lower() != 'y':
@@ -96,7 +96,7 @@ def try_remove_paas_files():
         remove_file(os.path.join(PROJECT_DIR_PATH, 'requirements.txt'))
 
 
-def remove_grunt_files():
+def remove_grunt_files() -> None:
     filenames = [
         'Gruntfile.js'
     ]
@@ -104,7 +104,7 @@ def remove_grunt_files():
         os.remove(os.path.join(PROJECT_DIR_PATH, filename))
 
 
-def remove_gulp_files():
+def remove_gulp_files() -> None:
     filenames = [
         'gulpfile.js'
     ]
@@ -112,7 +112,7 @@ def remove_gulp_files():
         os.remove(os.path.join(PROJECT_DIR_PATH, filename))
 
 
-def remove_packagejson_file():
+def remove_packagejson_file() -> None:
     filenames = [
         'package.json'
     ]
@@ -120,45 +120,79 @@ def remove_packagejson_file():
         os.remove(os.path.join(PROJECT_DIR_PATH, filename))
 
 
-def remove_celery_app():
+def remove_celery_app() -> None:
     task_app_path = os.path.join(PROJECT_DIR_PATH, '{{ cookiecutter.project_slug }}', 'taskapp')
     shutil.rmtree(task_app_path)
 
 
-def append_to_gitignore(path):
+def append_to_gitignore(path) -> None:
     gitignore_file_path = os.path.join(PROJECT_DIR_PATH, '.gitignore')
     with open(gitignore_file_path, 'a') as gitignore_file:
         gitignore_file.write(path)
         gitignore_file.write(os.linesep)
 
 
-def generate_random_string(length=50):
+def generate_random_string(length: int,
+                           using_digits: bool = False,
+                           using_ascii_letters: bool = False,
+                           using_punctuation: bool = False) -> str:
     """
     Returns a securely generated random string.
-    The default length of 12 with the a-z, A-Z, 0-9 character set returns
-    a 71-bit value. log_2((26+26+10)^12) =~ 71 bits
+    For instance, opting out for 50 symbol-long, [a-z][A-Z][0-9] string
+    would yield log_2((26+26+50)^50) ~= 334 bit strength.
     """
-    punctuation = string.punctuation.replace('"', '').replace("'", '')
-    punctuation = punctuation.replace('\\', '')
-    if using_sysrandom:
-        symbols = [random.choice(string.digits + string.ascii_letters + punctuation)
-                   for i in range(length)]
-        return ''.join(symbols)
+    if not using_sysrandom:
+        return None
 
-    print(
-        "Cookiecutter Django couldn't find a secure pseudo-random number generator on your system. "
-        "Please set your SECRET_KEY variables manually."
-    )
-    return "CHANGEME!!!"
+    symbols = []
+    if using_digits:
+        symbols += string.digits
+    if using_ascii_letters:
+        symbols += string.ascii_letters
+    if using_punctuation:
+        symbols += string.punctuation \
+            .replace('"', '') \
+            .replace("'", '') \
+            .replace('\\', '')
+    return ''.join([random.choice(symbols) for i in range(length)])
 
 
-def set_secret_key(file_path):
-    with open(file_path) as file:
-        file_contents = file.read()
-    SECRET_KEY = generate_random_string()
-    file_contents = file_contents.replace('CHANGEME!!!', SECRET_KEY, 1)
-    with open(file_path, 'w') as file:
+def replace_flag_with_random_string(file_path: str,
+                                    flag: str,
+                                    *args,
+                                    **kwargs) -> None:
+    random_string = generate_random_string(*args, **kwargs)
+    if random_string is None:
+        print("We couldn't find a secure pseudo-random number generator on your system. "
+              "Please, {} manually.".format(flag))
+        random_string = flag
+
+    with open(file_path, 'r+') as file:
+        file_contents = file.read().replace(flag, random_string)
+        file.seek(0)
         file.write(file_contents)
+        file.truncate()
+
+
+def set_django_secret_key(file_path: str) -> None:
+    replace_flag_with_random_string(file_path, '!!!SET DJANGO_SECRET_KEY!!!',
+                                    length=50,
+                                    using_digits=True,
+                                    using_ascii_letters=True,
+                                    using_punctuation=True)
+
+
+def set_postgres_user(file_path: str) -> None:
+    replace_flag_with_random_string(file_path, '!!!SET POSTGRES_USER!!!',
+                                    length=8,
+                                    using_ascii_letters=True)
+
+
+def set_postgres_password(file_path: str) -> None:
+    replace_flag_with_random_string(file_path, '!!!SET POSTGRES_PASSWORD!!!',
+                                    length=30,
+                                    using_digits=True,
+                                    using_ascii_letters=True)
 
 
 def main():
@@ -201,11 +235,17 @@ def main():
     append_to_gitignore('.envs/')
     append_to_gitignore('.env')
 
-    set_secret_key(os.path.join(PROJECT_DIR_PATH, 'config', 'settings', 'local.py'))
-    set_secret_key(os.path.join(PROJECT_DIR_PATH, 'config', 'settings', 'test.py'))
-    set_secret_key(os.path.join(PROJECT_DIR_PATH, '.envs', '.production', '.django'))
-    set_secret_key(os.path.join(PROJECT_DIR_PATH, '.envs', '.local', '.postgres'))
-    set_secret_key(os.path.join(PROJECT_DIR_PATH, '.envs', '.production', '.postgres'))
+    set_django_secret_key(os.path.join(PROJECT_DIR_PATH, 'config', 'settings', 'local.py'))
+    set_django_secret_key(os.path.join(PROJECT_DIR_PATH, 'config', 'settings', 'test.py'))
+    set_django_secret_key(os.path.join(PROJECT_DIR_PATH, '.envs', '.production', '.django'))
+
+    envs_local_postgres = os.path.join(PROJECT_DIR_PATH, '.envs', '.local', '.postgres')
+    set_postgres_user(envs_local_postgres)
+    set_postgres_password(envs_local_postgres)
+
+    envs_production_postgres = os.path.join(PROJECT_DIR_PATH, '.envs', '.production', '.postgres')
+    set_postgres_user(envs_production_postgres)
+    set_postgres_password(envs_production_postgres)
 
 
 if __name__ == '__main__':
