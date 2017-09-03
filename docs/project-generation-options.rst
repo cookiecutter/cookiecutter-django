@@ -42,7 +42,7 @@ use_mailhog [n]
     executable for your operating system, see the 'Developing Locally' docs
     for instructions.
 
-use_sentry_for_error_reporting [n]
+use_sentry [n]
     Whether to use Sentry_ to log errors from your project.
 
 use_opbeat [n]

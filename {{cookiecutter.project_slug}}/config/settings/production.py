@@ -6,7 +6,7 @@ Production Configurations
 - Use Amazon's S3 for storing {% if cookiecutter.use_whitenoise == 'n' -%}static files and {% endif %}uploaded media
 - Use mailgun to send emails
 - Use Redis for cache
-{% if cookiecutter.use_sentry_for_error_reporting == 'y' %}
+{% if cookiecutter.use_sentry == 'y' %}
 - Use sentry for error logging
 {% endif %}
 {% if cookiecutter.use_opbeat == 'y' %}
@@ -14,7 +14,7 @@ Production Configurations
 {% endif %}
 """
 
-{% if cookiecutter.use_sentry_for_error_reporting == 'y' %}
+{% if cookiecutter.use_sentry == 'y' %}
 import logging
 {% endif %}
 
@@ -31,7 +31,7 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 # properly on Heroku.
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-{%- if cookiecutter.use_sentry_for_error_reporting == 'y' %}
+{%- if cookiecutter.use_sentry == 'y' %}
 # raven sentry client
 # See https://docs.sentry.io/clients/python/integrations/django/
 INSTALLED_APPS += ['raven.contrib.django.raven_compat', ]
@@ -42,7 +42,7 @@ INSTALLED_APPS += ['raven.contrib.django.raven_compat', ]
 WHITENOISE_MIDDLEWARE = ['whitenoise.middleware.WhiteNoiseMiddleware', ]
 MIDDLEWARE = WHITENOISE_MIDDLEWARE + MIDDLEWARE
 {% endif %}
-{%- if cookiecutter.use_sentry_for_error_reporting == 'y' -%}
+{%- if cookiecutter.use_sentry == 'y' -%}
 RAVEN_MIDDLEWARE = ['raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware']
 MIDDLEWARE = RAVEN_MIDDLEWARE + MIDDLEWARE
 {% endif %}
@@ -213,7 +213,7 @@ CACHES = {
     }
 }
 
-{% if cookiecutter.use_sentry_for_error_reporting == 'y' %}
+{% if cookiecutter.use_sentry == 'y' %}
 # Sentry Configuration
 SENTRY_DSN = env('DJANGO_SENTRY_DSN')
 SENTRY_CLIENT = env('DJANGO_SENTRY_CLIENT', default='raven.contrib.django.raven_compat.DjangoClient')
@@ -269,7 +269,7 @@ RAVEN_CONFIG = {
     'CELERY_LOGLEVEL': env.int('DJANGO_SENTRY_LOG_LEVEL', logging.INFO),
     'DSN': SENTRY_DSN
 }
-{% elif cookiecutter.use_sentry_for_error_reporting == 'n' %}
+{% elif cookiecutter.use_sentry == 'n' %}
 # LOGGING CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#logging

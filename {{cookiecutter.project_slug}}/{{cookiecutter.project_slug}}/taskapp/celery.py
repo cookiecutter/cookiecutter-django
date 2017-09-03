@@ -24,7 +24,7 @@ class CeleryConfig(AppConfig):
         installed_apps = [app_config.name for app_config in apps.get_app_configs()]
         app.autodiscover_tasks(lambda: installed_apps, force=True)
 
-        {% if cookiecutter.use_sentry_for_error_reporting == 'y' -%}
+        {% if cookiecutter.use_sentry == 'y' -%}
         if hasattr(settings, 'RAVEN_CONFIG'):
             # Celery signal registration
 {% if cookiecutter.use_pycharm == 'y' -%}

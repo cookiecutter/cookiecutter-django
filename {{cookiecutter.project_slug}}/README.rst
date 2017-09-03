@@ -102,7 +102,7 @@ To view messages that are sent by your application, open your browser and go to 
 The email server will exit when you exit the Grunt task on the CLI with Ctrl+C.
 {% endif %}
 {% endif %}
-{% if cookiecutter.use_sentry_for_error_reporting == "y" %}
+{% if cookiecutter.use_sentry == "y" %}
 
 Sentry
 ^^^^^^
