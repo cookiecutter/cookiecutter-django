@@ -1,6 +1,6 @@
 #!/bin/sh
 
-pip install -r requirements/production.txt
+pip install -r requirements.txt
 
 mkdir -p .cache/docker
 cd .cache/docker
