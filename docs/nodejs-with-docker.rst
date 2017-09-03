@@ -27,7 +27,7 @@ Overview
 Essential aspects of Node.js integration are
 
 - node docker-compose service (:code:`node`) definition in :code:`./dev.yml`;
-- :code:`./compose/node/Dockerfile-dev` defining the :code:`node` image;
+- :code:`./compose/node/Dockerfile-local` defining the :code:`node` image;
 - :code:`./node_modules/` 'overlayed' with :code:`/app/node_modules/`, its counterpart from the running instance of :code:`node`.
 
 
