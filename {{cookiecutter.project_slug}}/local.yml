@@ -57,7 +57,6 @@ services:
     ports: []
     command: /start-celerybeat-dev.sh
 {% endif %}
-
   node:
     build:
       context: .
@@ -68,7 +67,5 @@ services:
       - /app/node_modules
     command: "gulp"
     ports:
-      # BrowserSync port.
       - "3000:3000"
-      # BrowserSync UI port.
       - "3001:3001"
