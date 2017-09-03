@@ -63,7 +63,8 @@ Listed in alphabetical order.
   Bo Lopker                `@blopker`_
   Bouke Haarsma
   Brent Payne              `@brentpayne`_               @brentpayne
-  Burhan Khalid            `@burhan`_                   @burhan
+  Bruno Alla               `@browniebroke`_             @_BrunoAlla
+  Burhan Khalid            `@burhan`_                   @burhan
   Catherine Devlin         `@catherinedevlin`_
   Cédric Gaspoz            `@cgaspoz`_
   Chris Curvey             `@ccurvey`_
@@ -145,6 +146,7 @@ Listed in alphabetical order.
   Travis McNeill           `@Travistock`_               @tavistock_esq
   Vitaly Babiy
   Vivian Guillen           `@viviangb`_
+  Wan Liuyang              `@sfdye`_                    @sfdye
   Will Farley              `@goldhand`_                 @g01dhand
   William Archinal         `@archinal`_
   Yaroslav Halchenko
@@ -165,6 +167,7 @@ Listed in alphabetical order.
 .. _@bloodpet: https://github.com/bloodpet
 .. _@blopker: https://github.com/blopker
 .. _@bogdal: https://github.com/bogdal
+.. _@browniebroke: https://github.com/browniebroke
 .. _@burhan: https://github.com/burhan
 .. _@c-rhodes: https://github.com/c-rhodes
 .. _@caffodian: https://github.com/caffodian
@@ -221,6 +224,7 @@ Listed in alphabetical order.
 .. _@shireenrao: https://github.com/shireenrao
 .. _@webyneter: https://github.com/webyneter
 .. _@show0k: https://github.com/show0k
+.. _@sfdye: https://github.com/sfdye
 .. _@shultz: https://github.com/shultz
 .. _@siauPatrick: https://github.com/siauPatrick
 .. _@slafs: https://github.com/slafs
