@@ -1,5 +1,12 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+
+# todo: turn on after #1295
+# set -o nounset
+
+
 cmd="$@"
 
 # This entrypoint is used to play nicely with the current cookiecutter configuration.
