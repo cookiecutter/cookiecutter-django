@@ -361,3 +361,9 @@ mailhog
 {% endif %}
 
 {{ cookiecutter.project_slug }}/media/
+
+{% if cookiecutter.use_docker == 'y' -%}
+# Added to maintain local compose files which are ignored by something above.
+# See issue https://github.com/pydanny/cookiecutter-django/issues/1321
+!/compose/local/
+{% endif %}
