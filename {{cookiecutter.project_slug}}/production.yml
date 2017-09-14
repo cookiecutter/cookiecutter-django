@@ -6,10 +6,10 @@ volumes:
   caddy: {}
 
 services:
-  django:
+  django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
     build:
       context: .
-      dockerfile: ./compose/django/Dockerfile
+      dockerfile: ./compose/production/django/Dockerfile
     depends_on:
       - postgres
       - redis
@@ -19,7 +19,9 @@ services:
     command: /gunicorn.sh
 
   postgres:
-    build: ./compose/postgres
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - postgres_backup:/backups
@@ -27,7 +29,9 @@ services:
       - ./.envs/.production/.postgres
 
   caddy:
-    build: ./compose/caddy
+    build:
+      context: .
+      dockerfile: ./compose/production/caddy/Dockerfile
     depends_on:
       - django
     volumes:
@@ -42,26 +46,22 @@ services:
     image: redis:3.0
 {% if cookiecutter.use_celery == 'y' %}
   celeryworker:
-    build:
-      context: .
-      dockerfile: ./compose/django/Dockerfile
+    <<: *django
     depends_on:
      - postgres
      - redis
     env_file:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
-    command: celery -A {{cookiecutter.project_slug}}.taskapp worker -l INFO
+    command: /start-celeryworker.sh
 
   celerybeat:
-    build:
-      context: .
-      dockerfile: ./compose/django/Dockerfile
+    <<: *django
     depends_on:
       - postgres
       - redis
     env_file:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
-    command: celery -A {{cookiecutter.project_slug}}.taskapp beat -l INFO
+    command: /start-celerybeat.sh
 {% endif %}

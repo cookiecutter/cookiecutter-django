@@ -53,6 +53,7 @@ Listed in alphabetical order.
   Andy Rose
   Anna Callahan            `@jazztpt`_
   Antonia Blair            `@antoniablair`_             @antoniablairart
+  Arcuri Davide            `@dadokkio`_
   Areski Belaid            `@areski`_
   Ashley Camba
   Barclay Gauld            `@yunti`_

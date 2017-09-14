@@ -1,6 +1,9 @@
-#!/bin/bash
-# stop on errors
-set -e
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
 
 # we might run into trouble when using the default `postgres` user, e.g. when dropping the postgres
 # database in restore.sh. Check that something else is used here
