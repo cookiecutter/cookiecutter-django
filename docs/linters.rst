@@ -30,14 +30,14 @@ The config for pylint is located in .pylintrc. It specifies:
 * Disable linting messages for missing docstring and invalid name
 * max-parents=13
 
-pep8
+pycodestyle
 -----
 
 This is included in flake8's checks, but you can also run it separately to see a more detailed report:
 
-    $ pep8 <python files that you wish to lint>
+    $ pycodestyle <python files that you wish to lint>
 
-The config for pep8 is located in setup.cfg. It specifies:
+The config for pycodestyle is located in setup.cfg. It specifies:
 
 * Set max line length to 120 chars
 * Exclude ``.tox,.git,*/migrations/*,*/static/CACHE/*,docs,node_modules``
