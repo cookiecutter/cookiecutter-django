@@ -12,13 +12,16 @@ Cookiecutter Django
 .. image:: https://badges.gitter.im/Join Chat.svg
     :target: https://gitter.im/pydanny/cookiecutter-django?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
-Powered by Cookiecutter_, Cookiecutter Django is a framework for jumpstarting production-ready Django projects quickly.
+Powered by Cookiecutter_, Cookiecutter Django is a framework for jumpstarting
+production-ready Django projects quickly.
 
 * Documentation: https://cookiecutter-django.readthedocs.io/en/latest/
 * See Troubleshooting_ for common errors and obstacles
-* If you have problems with Cookiecutter Django, please open issues_ don't send emails to the maintainers.
-* Need quick professional paid support? Contact `support@cookiecutter.io`_. This includes configuring your servers,
-fixing bugs, reviewing your code and everything in between.
+* If you have problems with Cookiecutter Django, please open issues_ don't send
+  emails to the maintainers.
+* Need quick professional paid support? Contact `support@cookiecutter.io`_.
+  This includes configuring your servers, fixing bugs, reviewing your code and
+  everything in between.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
