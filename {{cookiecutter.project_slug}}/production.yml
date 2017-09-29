@@ -1,0 +1,57 @@
+version: '2'
+
+volumes:
+  postgres_data: {}
+  postgres_backup: {}
+  caddy: {}
+
+services:
+  django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
+    build:
+      context: .
+      dockerfile: ./compose/production/django/Dockerfile
+    depends_on:
+      - postgres
+      - redis
+    env_file: .env
+    command: /gunicorn.sh
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - postgres_backup:/backups
+    env_file: .env
+
+  caddy:
+    build:
+      context: .
+      dockerfile: ./compose/production/caddy/Dockerfile
+    depends_on:
+      - django
+    volumes:
+      - caddy:/root/.caddy
+    env_file: .env
+    ports:
+      - "0.0.0.0:80:80"
+      - "0.0.0.0:443:443"
+
+  redis:
+    image: redis:3.0
+{% if cookiecutter.use_celery == 'y' %}
+  celeryworker:
+    <<: *django
+    depends_on:
+     - postgres
+     - redis
+    command: /start-celeryworker.sh
+
+  celerybeat:
+    <<: *django
+    depends_on:
+      - postgres
+      - redis
+    command: /start-celerybeat.sh
+{% endif %}

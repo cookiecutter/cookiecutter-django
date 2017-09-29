@@ -1,0 +1,62 @@
+version: '2'
+
+volumes:
+  postgres_data_local: {}
+  postgres_backup_local: {}
+
+services:
+  django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
+    build:
+      context: .
+      dockerfile: ./compose/local/django/Dockerfile
+    depends_on:
+      - postgres{% if cookiecutter.use_mailhog == 'y' %}
+      - mailhog{% endif %}
+    volumes:
+      - .:/app
+    environment:
+      - POSTGRES_USER={{cookiecutter.project_slug}}
+      - USE_DOCKER=yes
+    ports:
+      - "8000:8000"
+    command: /start.sh
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    volumes:
+      - postgres_data_local:/var/lib/postgresql/data
+      - postgres_backup_local:/backups
+    environment:
+      - POSTGRES_USER={{cookiecutter.project_slug}}
+{% if cookiecutter.use_mailhog == 'y' %}
+  mailhog:
+    image: mailhog/mailhog:v1.0.0
+    ports:
+      - "8025:8025"
+{% endif %}
+{% if cookiecutter.use_celery == 'y' %}
+  redis:
+    image: redis:3.0
+
+  celeryworker:
+    # https://github.com/docker/compose/issues/3220
+    <<: *django
+    depends_on:
+      - redis
+      - postgres{% if cookiecutter.use_mailhog == 'y' %}
+      - mailhog{% endif %}
+    ports: []
+    command: /start-celeryworker.sh
+
+  celerybeat:
+    # https://github.com/docker/compose/issues/3220
+    <<: *django
+    depends_on:
+      - redis
+      - postgres{% if cookiecutter.use_mailhog == 'y' %}
+      - mailhog{% endif %}
+    ports: []
+    command: /start-celerybeat.sh
+{% endif %}

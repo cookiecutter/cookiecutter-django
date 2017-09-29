@@ -16,12 +16,13 @@ If you don't already have it installed, follow the instructions for your OS:
  - On Mac OS X, you'll need `Docker for Mac`_
  - On Windows, you'll need `Docker for Windows`_
  - On Linux, you'll need `docker-engine`_
+
 .. _`Docker for Mac`: https://docs.docker.com/engine/installation/mac/
 .. _`Docker for Windows`: https://docs.docker.com/engine/installation/windows/
 .. _`docker-engine`: https://docs.docker.com/engine/installation/
 
 Attention Windows users
--------------
+-----------------------
 
 Currently PostgreSQL (``psycopg2`` python package) is not installed inside Docker containers for Windows users, while it is required by the generated Django project. To fix this, add ``psycopg2`` to the list of requirements inside ``requirements/base.txt``::
 
@@ -36,9 +37,9 @@ Build the Stack
 This can take a while, especially the first time you run this particular command
 on your development system::
 
-    $ docker-compose -f dev.yml build
+    $ docker-compose -f local.yml build
 
-If you want to build the production environment you don't have to pass an argument -f, it will automatically use docker-compose.yml.
+If you want to build the production environment you use ``production.yml`` as -f argument (``docker-compose.yml`` or ``docker-compose.yaml`` are the defaults).
 
 Boot the System
 ---------------
@@ -50,11 +51,11 @@ runs will occur quickly.
 
 Open a terminal at the project root and run the following for local development::
 
-    $ docker-compose -f dev.yml up
+    $ docker-compose -f local.yml up
 
-You can also set the environment variable ``COMPOSE_FILE`` pointing to ``dev.yml`` like this::
+You can also set the environment variable ``COMPOSE_FILE`` pointing to ``local.yml`` like this::
 
-    $ export COMPOSE_FILE=dev.yml
+    $ export COMPOSE_FILE=local.yml
 
 And then run::
 
@@ -64,24 +65,24 @@ Running management commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As with any shell command that we wish to run in our container, this is done
-using the ``docker-compose run`` command.
+using the ``docker-compose -f local.yml run`` command.
 
 To migrate your app and to create a superuser, run::
 
-    $ docker-compose -f dev.yml run django python manage.py migrate
-    $ docker-compose -f dev.yml run django python manage.py createsuperuser
+    $ docker-compose -f local.yml run django python manage.py migrate
+    $ docker-compose -f local.yml run django python manage.py createsuperuser
 
 Here we specify the ``django`` container as the location to run our management commands.
 
 Add your Docker development server IP
-------------------------------------
+-------------------------------------
 
 When ``DEBUG`` is set to `True`, the host is validated against ``['localhost', '127.0.0.1', '[::1]']``. This is adequate when running a ``virtualenv``. For Docker, in the ``config.settings.local``, add your host development server IP to ``INTERNAL_IPS`` or ``ALLOWED_HOSTS`` if the variable exists.
 
 Production Mode
 ~~~~~~~~~~~~~~~
 
-Instead of using `dev.yml`, you would use `docker-compose.yml`.
+Instead of using `local.yml`, you would use `production.yml`.
 
 Other Useful Tips
 -----------------
@@ -103,7 +104,7 @@ If you want to run the stack in detached mode (in the background), use the ``-d`
 
 ::
 
-    $ docker-compose -f dev.yml up -d
+    $ docker-compose -f local.yml up -d
 
 Debugging
 ~~~~~~~~~~~~~
@@ -121,13 +122,13 @@ Then you may need to run the following for it to work as desired:
 
 ::
 
-    $ docker-compose run -f dev.yml --service-ports django
+    $ docker-compose -f local.yml run --service-ports django
 
 
 django-debug-toolbar
 """"""""""""""""""""
 
-In order for django-debug-toolbar to work with docker you need to add your docker-machine ip address (the output of `Get the IP ADDRESS`_) to INTERNAL_IPS in local.py
+In order for django-debug-toolbar to work with docker you need to add your docker-machine ip address to ``INTERNAL_IPS`` in ``local.py``
 
 
 .. May be a better place to put this, as it is not Docker specific.
