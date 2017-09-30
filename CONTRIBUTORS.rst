@@ -68,6 +68,7 @@ Listed in alphabetical order.
   Burhan Khalid            `@burhan`_                   @burhan
   Catherine Devlin         `@catherinedevlin`_
   Cédric Gaspoz            `@cgaspoz`_
+  Charlie Smith            `@chuckus`_
   Chris Curvey             `@ccurvey`_
   Chris Franklin
   Chris Franklin           `@hairychris`_
@@ -179,6 +180,7 @@ Listed in alphabetical order.
 .. _@cgaspoz: https://github.com/cgaspoz
 .. _@chrisdev: https://github.com/chrisdev
 .. _@ChrisPappalardo: https://github.com/ChrisPappalardo
+.. _@chuckus: https://github.com/chuckus
 .. _@Collederas: https://github.com/Collederas
 .. _@ddiazpinto: https://github.com/ddiazpinto
 .. _@dezoito: https://github.com/dezoito
