@@ -193,6 +193,27 @@ def remove_elasticbeanstalk():
             PROJECT_DIRECTORY, filename
         ))
 
+def remove_elasticbeanstalk_config():
+    """
+    Removes elastic beanstalk configuration components,
+    but keeps the envvars config.
+    """
+    eb_config_dir_location = os.path.join(PROJECT_DIRECTORY, '.ebextensions')
+    if os.path.exists(eb_config_dir_location):
+        for filename in os.listdir(eb_config_dir_location):
+            if filename != '01_envvars.config.example':
+                os.remove(os.path.join(
+                    eb_config_dir_location, filename
+                ))
+
+def remove_nginx():
+    """
+    Removes NGINX components
+    """
+    nginx_dir_location = os.path.join(PROJECT_DIRECTORY, 'compose/production/nginx')
+    if os.path.exists(nginx_dir_location):
+        shutil.rmtree(nginx_dir_location)
+
 def remove_open_source_files():
     """
     Removes files conventional to opensource projects only.
@@ -267,6 +288,14 @@ if '{{ cookiecutter.open_source_license}}' != 'GPLv3':
 # Remove Elastic Beanstalk files
 if '{{ cookiecutter.use_elasticbeanstalk_experimental }}'.lower() != 'y':
     remove_elasticbeanstalk()
+
+# Remove Elastic Beanstalk files, except envvars
+if '{{ cookiecutter.use_elasticbeanstalk_experimental }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() == 'y':
+    remove_elasticbeanstalk_config()
+
+# Remove NGINX files
+if '{{ cookiecutter.use_elasticbeanstalk_experimental }}'.lower() != 'y' and '{{ cookiecutter.use_docker }}'.lower() != 'y':
+    remove_nginx()
 
 # Remove files conventional to opensource projects only.
 if '{{ cookiecutter.open_source_license }}' == 'Not open source':

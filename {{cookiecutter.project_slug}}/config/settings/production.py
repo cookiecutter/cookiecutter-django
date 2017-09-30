@@ -81,7 +81,13 @@ X_FRAME_OPTIONS = 'DENY'
 # ------------------------------------------------------------------------------
 # Hosts/domain names that are valid for this site
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
+{%- if cookiecutter.use_elasticbeanstalk_experimental == 'y' and cookiecutter.use_docker == 'y' -%}
+ALLOWED_HOSTS = [env('DJANGO_ALLOWED_HOSTS', default='{{cookiecutter.domain_name}}')]
+{% else %}
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['{{cookiecutter.domain_name}}', ])
+{% endif %}
+
+
 # END SITE CONFIGURATION
 
 INSTALLED_APPS += ['gunicorn', ]

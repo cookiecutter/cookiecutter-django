@@ -367,3 +367,7 @@ mailhog
 # See issue https://github.com/pydanny/cookiecutter-django/issues/1321
 !/compose/local/
 {% endif %}
+
+{% if cookiecutter.use_elasticbeanstalk_experimental == 'y' and cookiecutter.use_docker == 'y' -%}
+01_envvars.config
+{% endif %}
