@@ -47,6 +47,8 @@ You can also host your containers on a private container hub, e.g. (free tier op
 - https://cloud.google.com/container-engine/
 - https://arukas.io/en/
 
+Docs at http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker.container.console.html
+You can upload a .cfg file in the S3 bucket that the Beanstalk deploy created, that way you won't have any trouble with permissions.
 
 Update Dockerrun file
 ---------------------
@@ -70,7 +72,6 @@ Environment variables can be set in multiple ways:
 - Through the CLI http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-configuration-methods-after.html#configuration-options-after-ebcli-ebsetenv
 - Through the console http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-configuration-methods-after.html#configuration-options-after-console-configpage
 - Through .ebextensions http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-configuration-methods-after.html#configuration-options-after-console-ebextensions
-Note: EBS does not support list vars (as far as the author knows... if it does, please open a ticket)
 
 
 Local run
@@ -88,7 +89,9 @@ RDS
 You can setup RDS for your production and development usage.
 
 * Production
-Create an RDS instance through your EBS console http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.db.html
+It is possible to create an RDS instance through your EBS console. http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.db.html
+However, it is recommended to create a RDS DB instance seperately and then link this to you EBS setup. This way both lifecycles are seperate and you can delete your EBS without losing your RDS.
+http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.RDS.html
 
 * Development
 It is adviced to create a seperate development RDS instance for your local development.
@@ -125,6 +128,11 @@ Launch a Redis instance in ElastiCache and copy the Port and Endpoint to your en
 IAM
 -----
 Using your root account for all AWS is a bad idea. Follow the recommendations in your "Security Status" section in the IAM dashboard.
+
+You need following Policies attached to your user/group:
+- AWSElasticBeanstalkReadOnlyAccess
+- AWSElasticBeanstalkFullAccess
+- AWSElasticBeanstalkService
 
 S3
 -----
@@ -175,8 +183,14 @@ http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_ecs.h
 TODO
 ----
 
-- Celery
-- Do we need something like Supervisor?
+* Celery
+Should Celery have it's own container? How does Celery behave when EBS boots up multiple containers, each with running Celery workers?
+
+CELERY
+https://github.com/Maxbey/socialaggregator/blob/232690ef14ffbd7735297262ab6c26717bd53f05/aws/Dockerrun.aws.json
+https://github.com/pogorelov-ss/django-elastic-beanstalk-docker-stack/blob/fb1e717ec3be0b7fef99497d4e27626386da100f/Dockerrun.aws.json
+
+* Do we need something like Supervisor on EBS?
 
 Troubleshooting
 ---------------
@@ -190,11 +204,3 @@ For awsebcli to function, you need to install docker-py outside your virtual env
 
 * SECURE_SSL_REDIRECT
 The author didn't get it to run on production without setting up HTTPS certificates correctly, even with SECURE_SSL_REDIRECT set to False.
-
-Blocking sniffers
-https://stackoverflow.com/questions/15238506/djangos-suspiciousoperation-invalid-http-host-header/17477436#17477436
-
-
-CELERY
-https://github.com/Maxbey/socialaggregator/blob/232690ef14ffbd7735297262ab6c26717bd53f05/aws/Dockerrun.aws.json
-https://github.com/pogorelov-ss/django-elastic-beanstalk-docker-stack/blob/fb1e717ec3be0b7fef99497d4e27626386da100f/Dockerrun.aws.json

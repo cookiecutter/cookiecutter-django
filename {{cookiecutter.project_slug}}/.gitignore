@@ -369,5 +369,6 @@ mailhog
 {% endif %}
 
 {% if cookiecutter.use_elasticbeanstalk_experimental == 'y' and cookiecutter.use_docker == 'y' -%}
+# Environment variables for your Beanstalk deployment
 01_envvars.config
 {% endif %}

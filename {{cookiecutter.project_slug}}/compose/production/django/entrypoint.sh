@@ -9,11 +9,11 @@ set -o pipefail
 
 cmd="$@"
 
+{% if cookiecutter.use_docker != 'y' or cookiecutter.use_elasticbeanstalk_experimental != 'y' %}
 # This entrypoint is used to play nicely with the current cookiecutter configuration.
 # Since docker-compose relies heavily on environment variables itself for configuration, we'd have to define multiple
 # environment variables just to support cookiecutter out of the box. That makes no sense, so this little entrypoint
 # does all this for us.
-{% if cookiecutter.use_docker == 'y' and cookiecutter.use_elasticbeanstalk_experimental == 'y' %}
 export REDIS_URL=redis://redis:6379
 
 # the official postgres image uses 'postgres' as default user if not set explictly.
