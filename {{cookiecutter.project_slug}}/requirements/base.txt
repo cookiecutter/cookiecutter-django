@@ -2,16 +2,16 @@
 # like Pillow and psycopg2
 # See http://bitly.com/wheel-building-fails-CPython-35
 # Verified bug on Python 3.5.1
-wheel==0.29.0
+wheel==0.30.0
 
 
 # Bleeding edge Django
-django==1.10.7 # pyup: >=1.10,<1.11
+django==1.10.8 # pyup: >=1.10,<1.11
 
 # Configuration
 django-environ==0.4.4
 {% if cookiecutter.use_whitenoise == 'y' -%}
-whitenoise==3.3.0
+whitenoise==3.3.1
 {%- endif %}
 
 

@@ -53,6 +53,7 @@ Listed in alphabetical order.
   Andy Rose
   Anna Callahan            `@jazztpt`_
   Antonia Blair            `@antoniablair`_             @antoniablairart
+  Arcuri Davide            `@dadokkio`_
   Areski Belaid            `@areski`_
   Ashley Camba
   Barclay Gauld            `@yunti`_
@@ -67,6 +68,7 @@ Listed in alphabetical order.
   Burhan Khalid            `@burhan`_                   @burhan
   Catherine Devlin         `@catherinedevlin`_
   Cédric Gaspoz            `@cgaspoz`_
+  Charlie Smith            `@chuckus`_
   Chris Curvey             `@ccurvey`_
   Chris Franklin
   Chris Franklin           `@hairychris`_
@@ -127,6 +129,7 @@ Listed in alphabetical order.
   Peter Bittner            `@bittner`_
   Raphael Pierzina         `@hackebrot`_
   Raony Guimarães Corrêa   `@raonyguimaraes`_
+  Reggie Riser             `@reggieriser`_
   René Muhl                `@rm--`_
   Roman Afanaskin          `@siauPatrick`_
   Roman Osipenko           `@romanosipenko`_
@@ -177,6 +180,7 @@ Listed in alphabetical order.
 .. _@cgaspoz: https://github.com/cgaspoz
 .. _@chrisdev: https://github.com/chrisdev
 .. _@ChrisPappalardo: https://github.com/ChrisPappalardo
+.. _@chuckus: https://github.com/chuckus
 .. _@Collederas: https://github.com/Collederas
 .. _@ddiazpinto: https://github.com/ddiazpinto
 .. _@dezoito: https://github.com/dezoito
@@ -219,6 +223,7 @@ Listed in alphabetical order.
 .. _@oubiga: https://github.com/oubiga
 .. _@parbhat: https://github.com/parbhat
 .. _@raonyguimaraes: https://github.com/raonyguimaraes
+.. _@reggieriser: https://github.com/reggieriser
 .. _@rm--: https://github.com/rm--
 .. _@romanosipenko: https://github.com/romanosipenko
 .. _@shireenrao: https://github.com/shireenrao

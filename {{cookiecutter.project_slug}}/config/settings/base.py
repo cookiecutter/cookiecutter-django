@@ -108,6 +108,8 @@ MANAGERS = ADMINS
 # DATABASE CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
+# Uses django-environ to accept uri format
+# See: https://django-environ.readthedocs.io/en/latest/#supported-types
 DATABASES = {
     'default': env.db('DATABASE_URL', default='postgres://{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.project_slug}}'),
 }

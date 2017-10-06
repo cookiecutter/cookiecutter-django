@@ -4,8 +4,8 @@
 
 {% if cookiecutter.windows == 'y' -%}
 # Python-PostgreSQL Database Adapter
-# If using Win for dev, this assumes Unix in prod
-# ------------------------------------------------
+# Assuming Windows is used locally, and *nix -- in production.
+# ------------------------------------------------------------
 psycopg2==2.7.3.1
 {%- endif %}
 
@@ -24,12 +24,12 @@ Collectfast==0.5.2
 
 # Email backends for Mailgun, Postmark, SendGrid and more
 # -------------------------------------------------------
-django-anymail==0.11.1
+django-anymail==1.0
 
 {% if cookiecutter.use_sentry_for_error_reporting == "y" -%}
 # Raven is the Sentry client
 # --------------------------
-raven==6.1.0
+raven==6.2.1
 {%- endif %}
 
 {% if cookiecutter.use_opbeat == "y" -%}

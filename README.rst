@@ -12,13 +12,16 @@ Cookiecutter Django
 .. image:: https://badges.gitter.im/Join Chat.svg
     :target: https://gitter.im/pydanny/cookiecutter-django?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
-Powered by Cookiecutter_, Cookiecutter Django is a framework for jumpstarting production-ready Django projects quickly.
+Powered by Cookiecutter_, Cookiecutter Django is a framework for jumpstarting
+production-ready Django projects quickly.
 
 * Documentation: https://cookiecutter-django.readthedocs.io/en/latest/
 * See Troubleshooting_ for common errors and obstacles
-* If you have problems with Cookiecutter Django, please open issues_ don't send emails to the maintainers.
-* Need quick professional paid support? Contact `support@cookiecutter.io`_. This includes configuring your servers,
-fixing bugs, reviewing your code and everything in between.
+* If you have problems with Cookiecutter Django, please open issues_ don't send
+  emails to the maintainers.
+* Need quick professional paid support? Contact `support@cookiecutter.io`_.
+  This includes configuring your servers, fixing bugs, reviewing your code and
+  everything in between.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
@@ -34,7 +37,7 @@ Features
 * For Django 1.10
 * Works with Python 3.4.x or 3.5.x. Python 3.6 is experimental
 * Renders Django projects with 100% starting test coverage
-* Twitter Bootstrap_ v4.0.0 - alpha 6 (`maintained Foundation fork`_ also available)
+* Twitter Bootstrap_ v4.0.0 - beta 1 (`maintained Foundation fork`_ also available)
 * 12-Factor_ based settings via django-environ_
 * Secure by default. We believe in SSL.
 * Optimized development and production settings
