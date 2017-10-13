@@ -147,6 +147,7 @@ Listed in alphabetical order.
   Tom Atkins               `@knitatoms`_
   Tom Offermann
   Travis McNeill           `@Travistock`_               @tavistock_esq
+  Uyen Do                  `@minhuyen`_ 
   Vitaly Babiy
   Vivian Guillen           `@viviangb`_
   Wan Liuyang              `@sfdye`_                    @sfdye
