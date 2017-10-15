@@ -1,4 +1,4 @@
-cookiecutter==1.5.1
+cookiecutter==1.6.0
 flake8==3.4.1 # pyup: != 2.6.0
 sh==1.12.14
 binaryornot==0.4.4
