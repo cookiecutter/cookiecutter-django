@@ -126,8 +126,8 @@ Listed in alphabetical order.
   mozillazg                `@mozillazg`_
   Pablo                    `@oubiga`_
   Parbhat Puri             `@parbhat`_
-  Pierre Chiquet           `@pchiquet`_
   Peter Bittner            `@bittner`_
+  Pierre Chiquet           `@pchiquet`_
   Raphael Pierzina         `@hackebrot`_
   Raony Guimarães Corrêa   `@raonyguimaraes`_
   Reggie Riser             `@reggieriser`_
