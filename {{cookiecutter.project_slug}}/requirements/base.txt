@@ -6,7 +6,7 @@ wheel==0.30.0
 
 
 # Bleeding edge Django
-django==1.10.8 # pyup: >=1.10,<1.11
+django==1.11.6 # pyup: <=1.11.6
 
 # Configuration
 django-environ==0.4.4
