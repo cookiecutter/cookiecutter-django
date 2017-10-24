@@ -4,7 +4,7 @@
 {% if cookiecutter.windows == 'y' -%}
 # Python-PostgreSQL Database Adapter
 # If using Win for dev, this assumes Unix in test/prod
-psycopg2==2.7.3.1
+psycopg2==2.7.3.2
 {%- endif %}
 
 coverage==4.4.1
