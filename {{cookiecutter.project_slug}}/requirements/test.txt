@@ -9,7 +9,7 @@ psycopg2==2.7.3.2
 
 coverage==4.4.1
 flake8==3.5.0 # pyup: != 2.6.0
-django-test-plus==1.0.19
+django-test-plus==1.0.20
 factory-boy==2.9.2
 django-coverage-plugin==1.5.0
 
