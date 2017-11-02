@@ -94,4 +94,4 @@ def test_connection_max_age(cookies):
 
     expected = "DATABASES['default']['CONN_MAX_AGE'] = env.int('CONN_MAX_AGE', default=60)"
 
-    assert expected in prod_config_lines, prod_config_lines
+    assert expected in prod_config_lines
