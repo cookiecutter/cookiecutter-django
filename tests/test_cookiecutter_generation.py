@@ -84,3 +84,14 @@ def test_flake8_compliance(cookies):
         sh.flake8(str(result.project))
     except sh.ErrorReturnCode as e:
         pytest.fail(e)
+
+
+def test_connection_max_age(cookies):
+    result = cookies.bake()
+
+    prod_config_file = result.project.join('config', 'settings', 'production.py')
+    prod_config_lines = prod_config_file.read()
+
+    expected = "DATABASES['default']['CONN_MAX_AGE'] = env.int('CONN_MAX_AGE', default=60)"
+
+    assert expected in prod_config_lines, prod_config_lines
