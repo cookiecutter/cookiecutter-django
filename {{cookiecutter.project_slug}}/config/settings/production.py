@@ -182,14 +182,14 @@ DATABASES = {
         'PASSWORD': env('RDS_PASSWORD'),
         'HOST': env('RDS_HOSTNAME'),
         'PORT': env('RDS_PORT'),
-        'CONN_MAX_AGE': 60,
+        'CONN_MAX_AGE': env.int('CONN_MAX_AGE', default=60),
     }
 }
 {% else %}
 # Use the Heroku-style specification
 # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
 DATABASES['default'] = env.db('DATABASE_URL')
-DATABASES['default']['CONN_MAX_AGE'] = 60
+DATABASES['default']['CONN_MAX_AGE'] = env.int('CONN_MAX_AGE', default=60)
 {%- endif %}
 
 # CACHING
