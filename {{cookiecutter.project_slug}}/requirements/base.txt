@@ -16,34 +16,34 @@ whitenoise==3.3.1
 
 
 # Forms
-django-crispy-forms==1.6.1
+django-crispy-forms==1.7.0
 
 # Models
 django-model-utils==3.0.0
 
 # Images
-Pillow==4.2.1
+Pillow==4.3.0
 
 # Password storage
 argon2-cffi==16.3.0
 
 # For user registration, either via email or social
 # Well-built with regular release cycles!
-django-allauth==0.33.0
+django-allauth==0.34.0
 
 {% if cookiecutter.windows == 'y' -%}
 # On Windows, you must download/install psycopg2 manually
 # from http://www.lfd.uci.edu/~gohlke/pythonlibs/#psycopg
 {% else %}
 # Python-PostgreSQL Database Adapter
-psycopg2==2.7.3.1
+psycopg2==2.7.3.2
 {%- endif %}
 
 # Unicode slugification
 awesome-slugify==1.6.5
 
 # Time zones support
-pytz==2017.2
+pytz==2017.3
 
 # Redis support
 django-redis==4.8.0

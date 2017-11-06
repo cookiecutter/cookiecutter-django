@@ -1,8 +1,8 @@
-'''
-Test settings
+"""
+Test settings for {{cookiecutter.project_name}} project.
 
 - Used to run tests fast on the continuous integration server and locally
-'''
+"""
 
 from .base import *  # noqa
 
