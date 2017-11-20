@@ -1,9 +1,9 @@
 """
-Local settings
+Local settings for {{cookiecutter.project_name}} project.
 
 - Run in Debug mode
 {% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'y' %}
-- Use mailhog for emails
+- Use mailhog for emails via Docker
 {% elif cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' %}
 - Use mailhog for emails
 {% else %}

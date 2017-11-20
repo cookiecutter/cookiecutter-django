@@ -1,5 +1,5 @@
 """
-Production Configurations
+Production settings for {{cookiecutter.project_name}} project.
 
 {% if cookiecutter.use_whitenoise == 'y' -%}
 - Use WhiteNoise for serving static files{% endif %}
@@ -119,8 +119,8 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 {% else %}
 #  See:http://stackoverflow.com/questions/10390244/
 from storages.backends.s3boto3 import S3Boto3Storage
-StaticRootS3BotoStorage = lambda: S3Boto3Storage(location='static')
-MediaRootS3BotoStorage = lambda: S3Boto3Storage(location='media')
+StaticRootS3BotoStorage = lambda: S3Boto3Storage(location='static')  # noqa
+MediaRootS3BotoStorage = lambda: S3Boto3Storage(location='media')  # noqa
 DEFAULT_FILE_STORAGE = 'config.settings.production.MediaRootS3BotoStorage'
 
 MEDIA_URL = 'https://s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
@@ -159,7 +159,7 @@ ANYMAIL = {
     'MAILGUN_API_KEY': env('DJANGO_MAILGUN_API_KEY'),
     'MAILGUN_SENDER_DOMAIN': env('MAILGUN_SENDER_DOMAIN')
 }
-EMAIL_BACKEND = 'anymail.backends.mailgun.MailgunBackend'
+EMAIL_BACKEND = 'anymail.backends.mailgun.EmailBackend'
 
 # TEMPLATE CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -169,7 +169,7 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [
     ('django.template.loaders.cached.Loader', [
         'django.template.loaders.filesystem.Loader', 'django.template.loaders.app_directories.Loader', ]),
 ]
-
+{% set _DEFAULT_CONN_MAX_AGE=60 %}
 # DATABASE CONFIGURATION
 # ------------------------------------------------------------------------------
 {% if cookiecutter.use_elasticbeanstalk_experimental.lower() == 'y' -%}
@@ -182,12 +182,14 @@ DATABASES = {
         'PASSWORD': env('RDS_PASSWORD'),
         'HOST': env('RDS_HOSTNAME'),
         'PORT': env('RDS_PORT'),
+        'CONN_MAX_AGE': env.int('CONN_MAX_AGE', default={{ _DEFAULT_CONN_MAX_AGE }}),
     }
 }
 {% else %}
 # Use the Heroku-style specification
 # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
 DATABASES['default'] = env.db('DATABASE_URL')
+DATABASES['default']['CONN_MAX_AGE'] = env.int('CONN_MAX_AGE', default={{ _DEFAULT_CONN_MAX_AGE }})
 {%- endif %}
 
 # CACHING
