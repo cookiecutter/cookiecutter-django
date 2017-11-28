@@ -169,7 +169,7 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [
     ('django.template.loaders.cached.Loader', [
         'django.template.loaders.filesystem.Loader', 'django.template.loaders.app_directories.Loader', ]),
 ]
-
+{% set _DEFAULT_CONN_MAX_AGE=60 %}
 # DATABASE CONFIGURATION
 # ------------------------------------------------------------------------------
 {% if cookiecutter.use_elasticbeanstalk_experimental.lower() == 'y' -%}
@@ -182,12 +182,14 @@ DATABASES = {
         'PASSWORD': env('RDS_PASSWORD'),
         'HOST': env('RDS_HOSTNAME'),
         'PORT': env('RDS_PORT'),
+        'CONN_MAX_AGE': env.int('CONN_MAX_AGE', default={{ _DEFAULT_CONN_MAX_AGE }}),
     }
 }
 {% else %}
 # Use the Heroku-style specification
 # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
 DATABASES['default'] = env.db('DATABASE_URL')
+DATABASES['default']['CONN_MAX_AGE'] = env.int('CONN_MAX_AGE', default={{ _DEFAULT_CONN_MAX_AGE }})
 {%- endif %}
 
 # CACHING
