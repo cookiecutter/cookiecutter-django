@@ -19,7 +19,7 @@ gunicorn==19.7.1
 boto3==1.4.8
 django-storages==1.6.5
 {% if cookiecutter.use_whitenoise != 'y' -%}
-Collectfast==0.5.2
+Collectfast==0.6.0
 {%- endif %}
 
 # Email backends for Mailgun, Postmark, SendGrid and more
