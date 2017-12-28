@@ -10,8 +10,6 @@ language: python
 python: 3.6
 
 env:
-    - TOX_ENV=py34
-    - TOX_ENV=py35
     - TOX_ENV=py36
 
 before_install:
