@@ -39,9 +39,9 @@ To run all tests using various versions of python in virtualenvs defined in tox.
 It is possible to tests with some versions of python, to do this the command
 is::
 
-    $ tox -e py34,py35
+    $ tox -e py35,py36
 
-Will run py.test with the python3.4, and python3.5 interpreters, for
+Will run py.test with the python3.5, and python3.6 interpreters, for
 example.
 
 To run a particular test with tox for against your current Python version::

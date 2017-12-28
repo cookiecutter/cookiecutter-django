@@ -20,7 +20,7 @@ Instructions
 
 If you haven't done so, create a directory of environments::
 
-  eb init -p python3.4 MY_PROJECT_SLUG
+  eb init -p python3.6 MY_PROJECT_SLUG
 
 Replace `MY_PROJECT_SLUG` with the value you entered for `project_slug`.
 
