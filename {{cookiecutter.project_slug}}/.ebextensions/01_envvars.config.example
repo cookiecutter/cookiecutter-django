@@ -1,0 +1,27 @@
+# Elastic Beanstalk configuration
+
+option_settings:
+  "aws:elasticbeanstalk:application:environment":
+    "DJANGO_SETTINGS_MODULE": "config.settings.production"
+    "DJANGO_SECRET_KEY": ""
+    "DJANGO_MAILGUN_API_KEY": ""
+    "DJANGO_SERVER_EMAIL": ""
+    "MAILGUN_SENDER_DOMAIN": ""
+    "DJANGO_DEBUG": "false"
+    "DJANGO_ALLOWED_HOSTS": ".elasticbeanstalk.com"
+    "DJANGO_ADMIN_URL": ""
+    "DJANGO_SECURE_SSL_REDIRECT": "true"
+    "DJANGO_ACCOUNT_ALLOW_REGISTRATION": "true"
+    "DJANGO_SENTRY_DSN": ""
+    "DJANGO_OPBEAT_ORGANIZATION_ID": ""
+    "DJANGO_OPBEAT_APP_ID": ""
+    "DJANGO_OPBEAT_SECRET_TOKEN": ""
+    "RDS_PORT": "5432"
+    "DJANGO_AWS_STORAGE_BUCKET_NAME": ""
+    "RDS_DB_NAME": ""
+    "DJANGO_AWS_SECRET_ACCESS_KEY": ""
+    "RDS_PASSWORD": ""
+    "REDIS_URL": ""
+    "RDS_HOSTNAME": ""
+    "RDS_USERNAME": ""
+    "DJANGO_AWS_ACCESS_KEY_ID": ""

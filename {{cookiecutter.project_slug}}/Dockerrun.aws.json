@@ -1,0 +1,65 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "volumes": [
+      {
+          "name": "django",
+          "host": {
+              "sourcePath": "/var/app/current/app"
+          }
+      },
+      {
+        "name": "nginx-proxy-conf",
+        "host": {
+            "sourcePath": "/var/app/current/compose/production/nginx/nginx.conf"
+        }
+      }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "django",
+      "image": "",
+      "essential": true,
+      "memory": 256,
+      "command": ["/gunicorn.sh"],
+      "mountPoints": [
+        {
+          "sourceVolume": "django",
+          "containerPath": "/django",
+          "readOnly": false
+        }
+      ]
+    },
+    {
+      "name": "nginx-proxy",
+      "image": "nginx:latest",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "depends_on": ["django"],
+      "links": [
+        "django"
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "django",
+          "containerPath": "/django",
+          "readOnly": true
+        },
+        {
+          "sourceVolume": "awseb-logs-nginx-proxy",
+          "containerPath": "/var/log/nginx"
+        },
+        {
+          "sourceVolume": "nginx-proxy-conf",
+          "containerPath": "/etc/nginx/nginx.conf",
+          "readOnly": true
+        }
+      ]
+    }
+  ]
+}

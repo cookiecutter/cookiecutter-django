@@ -9,6 +9,7 @@ set -o pipefail
 
 cmd="$@"
 
+{% if cookiecutter.use_docker != 'y' or cookiecutter.use_elasticbeanstalk_experimental != 'y' %}
 # This entrypoint is used to play nicely with the current cookiecutter configuration.
 # Since docker-compose relies heavily on environment variables itself for configuration, we'd have to define multiple
 # environment variables just to support cookiecutter out of the box. That makes no sense, so this little entrypoint
@@ -43,4 +44,6 @@ until postgres_ready; do
 done
 
 >&2 echo "Postgres is up - continuing..."
+{% endif %}
+
 exec $cmd
