@@ -32,6 +32,9 @@
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
+    {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
+    "gulp-concat": "^2.6.1",
+    {% endif %}
     "gulp-cssnano": "^2.1.2",
     "gulp-imagemin": "^3.0.3",
     "gulp-pixrem": "^1.0.0",

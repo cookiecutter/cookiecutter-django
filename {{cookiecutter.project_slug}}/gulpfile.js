@@ -10,6 +10,7 @@ var gulp = require('gulp'),
       sass = require('gulp-sass'),
       autoprefixer = require('gulp-autoprefixer'),
       cssnano = require('gulp-cssnano'),
+      concat = require('gulp-concat'),
       rename = require('gulp-rename'),
       del = require('del'),
       plumber = require('gulp-plumber'),
@@ -25,8 +26,17 @@ var gulp = require('gulp'),
 // Relative paths function
 var pathsConfig = function (appName) {
   this.app = "./" + (appName || pjson.name);
+  var vendorsRoot = 'node_modules/';
 
   return {
+    {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
+    bootstrapSass: vendorsRoot + '/bootstrap/scss',
+    vendorsJs: [
+      vendorsRoot + 'jquery/dist/jquery.slim.js',
+      vendorsRoot + 'popper.js/dist/umd/popper.js',
+      vendorsRoot + 'bootstrap/dist/js/bootstrap.js'
+    ],
+    {% endif %}
     app: this.app,
     templates: this.app + '/templates',
     css: this.app + '/static/css',
@@ -49,7 +59,7 @@ gulp.task('styles', function() {
     .pipe(sass({
       includePaths: [
         {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
-        'node_modules/bootstrap/scss',
+        paths.bootstrapSass,
         {% endif %}
         paths.sass
       ]
@@ -66,6 +76,17 @@ gulp.task('styles', function() {
 // Javascript minification
 gulp.task('scripts', function() {
   return gulp.src(paths.js + '/project.js')
+    .pipe(plumber()) // Checks for errors
+    .pipe(uglify()) // Minifies the js
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest(paths.js));
+});
+
+// Vendor Javascript minification
+gulp.task('vendor-scripts', function() {
+  return gulp.src(paths.vendorsJs)
+    .pipe(concat('vendors.js'))
+    .pipe(gulp.dest(paths.js))
     .pipe(plumber()) // Checks for errors
     .pipe(uglify()) // Minifies the js
     .pipe(rename({ suffix: '.min' }))
@@ -108,5 +129,5 @@ gulp.task('watch', function() {
 
 // Default task
 gulp.task('default', function() {
-    runSequence(['styles', 'scripts', 'imgCompression'], ['runServer', 'browserSync', 'watch']);
+    runSequence(['styles', 'scripts', {% if cookiecutter.custom_bootstrap_compilation == 'y' %}'vendor-scripts', {% endif %}'imgCompression'], ['runServer', 'browserSync', 'watch']);
 });
