@@ -61,7 +61,7 @@ module.exports = function (grunt) {
           options: {
               outputStyle: 'nested',
 {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
-              includePaths: ['bower_components/bootstrap-sass/assets/stylesheets/bootstrap/'],
+              includePaths: ['node_modules/bootstrap/scss'],
 {% endif %}
               sourceMap: false,
               precision: 10
@@ -74,7 +74,7 @@ module.exports = function (grunt) {
           options: {
               outputStyle: 'compressed',
 {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
-              includePaths: ['bower_components/bootstrap-sass/assets/stylesheets/bootstrap/'],
+              includePaths: ['node_modules/bootstrap/scss'],
 {% endif %}
               sourceMap: false,
               precision: 10

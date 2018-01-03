@@ -14,13 +14,19 @@
     <![endif]-->
 
     {% block css %}
+    {% endraw %}{% if cookiecutter.custom_bootstrap_compilation == "n" %}{% raw %}
     <!-- Latest compiled and minified Bootstrap 4 beta CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    {% endraw %}{% endif %}{% raw %}
 
     <!-- Your stuff: Third-party CSS libraries go here -->
     {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% compress css %}{% endraw %}{% endif %}{% raw %}
     <!-- This file stores project-specific CSS -->
+    {% endraw %}{% if cookiecutter.js_task_runner == "Gulp" %}{% raw %}
+    <link href="{% static 'css/project.min.css' %}" rel="stylesheet">
+    {% endraw %}{% else %}{% raw %}
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
+    {% endraw %}{% endif %}{% raw %}
     {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% endcompress %}{% endraw %}{% endif %}{% raw %}
     {% endblock %}
 

@@ -33,7 +33,7 @@ var pathsConfig = function (appName) {
     sass: this.app + '/static/sass',
     fonts: this.app + '/static/fonts',
     images: this.app + '/static/images',
-    js: this.app + '/static/js',
+    js: this.app + '/static/js'
   }
 };
 
@@ -45,8 +45,15 @@ var paths = pathsConfig();
 
 // Styles autoprefixing and minification
 gulp.task('styles', function() {
-  return gulp.src(paths.sass + '/*.scss')
-    .pipe(sass().on('error', sass.logError))
+  return gulp.src(paths.sass + '/project.scss')
+    .pipe(sass({
+      includePaths: [
+        {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
+        'node_modules/bootstrap/scss',
+        {% endif %}
+        paths.sass
+      ]
+    }).on('error', sass.logError))
     .pipe(plumber()) // Checks for errors
     .pipe(autoprefixer({browsers: ['last 2 versions']})) // Adds vendor prefixes
     .pipe(pixrem())  // add fallbacks for rem units
