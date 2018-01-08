@@ -4,7 +4,7 @@
 coverage==4.4.2
 django-coverage-plugin==1.5.0
 
-Sphinx==1.6.5
+Sphinx==1.6.6
 django-extensions==1.9.8
 Werkzeug==0.14.1
 django-test-plus==1.0.21
