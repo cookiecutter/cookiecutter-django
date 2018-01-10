@@ -7,7 +7,7 @@ django-coverage-plugin==1.5.0
 Sphinx==1.6.6
 django-extensions==1.9.8
 Werkzeug==0.14.1
-django-test-plus==1.0.21
+django-test-plus==1.0.22
 factory-boy==2.9.2
 
 django-debug-toolbar==1.9.1
