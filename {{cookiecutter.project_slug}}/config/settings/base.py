@@ -274,7 +274,6 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
-
 {% if cookiecutter.js_task_runner != 'CreateReactApp' %}
 # Some really nice defaults
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
@@ -286,10 +285,10 @@ ACCOUNT_ADAPTER = '{{cookiecutter.project_slug}}.users.adapters.AccountAdapter'
 SOCIALACCOUNT_ADAPTER = '{{cookiecutter.project_slug}}.users.adapters.SocialAccountAdapter'
 {% endif %}
 
-# Custom user app defaults
 # Select the correct user model
 AUTH_USER_MODEL = 'users.User'
 {% if cookiecutter.js_task_runner != 'CreateReactApp' %}
+# Custom user app defaults
 LOGIN_REDIRECT_URL = 'users:redirect'
 LOGIN_URL = 'account_login'
 {% endif %}

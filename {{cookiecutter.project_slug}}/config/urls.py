@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
 
     {% endif %}{% if cookiecutter.js_task_runner == 'CreateReactApp' %}
+    url(settings.ADMIN_URL, admin.site.urls),
     url(r'^app/', TemplateView.as_view(template_name="index.html")),
 
     # REST framework
