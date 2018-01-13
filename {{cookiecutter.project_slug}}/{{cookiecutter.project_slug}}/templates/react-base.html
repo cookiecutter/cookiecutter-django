@@ -1,0 +1,47 @@
+{% raw %}{% load staticfiles %}
+<html class="{% block html_class %}{% endblock html_class %}" lang="en">
+  <head>
+    <!-- Allows you to inject head elements here -->
+    {% block head %}
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="NGS, Panel">
+
+    <title>{% block head_title %}{% endraw %}{{ cookiecutter.project_name }}{% raw %}{% endblock head_title %}</title>
+
+    <!-- Allows you to inject CCS here -->
+    {% block stylesheets %}
+
+    <!-- Project specific Stylesheets -->
+    {% endblock stylesheets %}
+
+    <!-- Title Icon -->
+    <!-- <link rel="shortcut icon" href=""> -->
+
+    {% endblock head %}
+
+  </head>
+  <body class="{% block body_class %}{% endblock body_class %}">
+
+    <!-- Allows you to inject body content here -->
+    {% block body %}
+    {% endblock body %}
+
+    <!-- Project specific JavaScript -->
+    <!-- Allows you to inject JavaScript here -->
+    {% block javascript %}
+    {% endblock javascript %}
+
+    <!-- Google Analytics goes here -->
+    {% block google_analytics %}
+    {% endblock google_analytics %}
+
+  </body>
+</html>
+{% endraw %}

@@ -1,0 +1,11 @@
+{% raw %}{% extends 'react-base.html' %}
+{% load staticfiles %}
+{% load render_bundle from webpack_loader %}
+
+{% block body %}
+<div id="root"></div>
+{% endblock body %}
+
+{% block javascript %}
+{% render_bundle 'main' %}
+{% endblock javascript %}{% endraw %}

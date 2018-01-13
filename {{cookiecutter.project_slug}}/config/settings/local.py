@@ -84,5 +84,17 @@ TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 CELERY_ALWAYS_EAGER = True
 ########## END CELERY
 {% endif %}
+
+{% if cookiecutter.js_task_runner == 'CreateReactApp' %}
+# Integrate React with Django
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': str(REACT_DIR.path('webpack-stats.dev.json')),
+    }
+}
+{% endif %}
+
+
 # Your local stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------

@@ -7,10 +7,15 @@ https://docs.djangoproject.com/en/dev/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
-import environ
+import environ{% if cookiecutter.js_task_runner == 'CreateReactApp' %}
+import datetime
+{% endif %}
 
 ROOT_DIR = environ.Path(__file__) - 3  # ({{ cookiecutter.project_slug }}/config/settings/base.py - 3 = {{ cookiecutter.project_slug }}/)
 APPS_DIR = ROOT_DIR.path('{{ cookiecutter.project_slug }}')
+{% if cookiecutter.js_task_runner == 'CreateReactApp' %}
+REACT_DIR = ROOT_DIR.path('frontend')
+{% endif %}
 
 # Load operating system environment variables and then prepare to use them
 env = environ.Env()
@@ -45,10 +50,31 @@ DJANGO_APPS = [
     'django.contrib.admin',
 ]
 THIRD_PARTY_APPS = [
+    {% if cookiecutter.js_task_runner != 'CreateReactApp' %}
     'crispy_forms',  # Form layouts
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    {% endif %}
+
+    {% if cookiecutter.js_task_runner == 'CreateReactApp' %}
+    # Django REST framework: http://www.django-rest-framework.org/#installation
+    'rest_framework',
+    'rest_framework.authtoken',
+
+    # Django REST Auth: https://github.com/Tivix/django-rest-auth
+    'rest_auth',
+    'rest_auth.registration',
+
+    # OAUTH2: https://github.com/evonove/django-oauth-toolkit/tree/master/oauth2_provider
+    'oauth2_provider',
+
+    # Django filters: https://github.com/carltongibson/django-filter
+    'django_filters',
+
+    # Integrate webpack with Django: https://github.com/ezhome/django-webpack-loader
+    'webpack_loader'
+    {% endif %}
 ]
 
 # Apps specific for this project go here.
@@ -249,6 +275,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+{% if cookiecutter.js_task_runner != 'CreateReactApp' %}
 # Some really nice defaults
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_REQUIRED = True
@@ -257,12 +284,15 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
 ACCOUNT_ADAPTER = '{{cookiecutter.project_slug}}.users.adapters.AccountAdapter'
 SOCIALACCOUNT_ADAPTER = '{{cookiecutter.project_slug}}.users.adapters.SocialAccountAdapter'
+{% endif %}
 
 # Custom user app defaults
 # Select the correct user model
 AUTH_USER_MODEL = 'users.User'
+{% if cookiecutter.js_task_runner != 'CreateReactApp' %}
 LOGIN_REDIRECT_URL = 'users:redirect'
 LOGIN_URL = 'account_login'
+{% endif %}
 
 # SLUGLIFIER
 AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
@@ -286,6 +316,71 @@ STATICFILES_FINDERS += ['compressor.finders.CompressorFinder']
 
 # Location of root django.contrib.admin URL, use {% raw %}{% url 'admin:index' %}{% endraw %}
 ADMIN_URL = r'^admin/'
+
+{% if cookiecutter.js_task_runner == 'CreateReactApp' %}
+# DJANGO REST FRAMEWORK
+# ------------------------------------------------------------------------------
+# http://www.django-rest-framework.org/
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.TokenAuthentication',
+
+        # For Django-oauth. See: https://django-oauth-toolkit.readthedocs.io/en/latest/rest-framework/getting_started.html#step-1-minimal-setup  # NOQA
+        'oauth2_provider.ext.rest_framework.OAuth2Authentication',
+
+        # For REST-JWT. See: http://getblimp.github.io/django-rest-framework-jwt/#usage
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    ),
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+        'rest_framework.renderers.AdminRenderer',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 100,
+    'COERCE_DECIMAL_TO_STRING': False,
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
+}
+
+# DJANGO REST-AUTH
+# ------------------------------------------------------------------------------
+# https://github.com/Tivix/django-rest-auth/
+
+REST_USE_JWT = True
+
+OLD_PASSWORD_FIELD_ENABLED = True
+
+LOGOUT_ON_PASSWORD_CHANGE = True
+
+# DJANGO REST FRAMEWORK JSON WEB TOKEN
+# ------------------------------------------------------------------------------
+# https://github.com/GetBlimp/django-rest-framework-jwt
+
+JWT_AUTH = {
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
+    'JWT_ALLOW_REFRESH': True,
+    'JWT_AUTH_COOKIE': 'jwt',
+}
+
+# OAUTH2 CONFIGURATION
+# ------------------------------------------------------------------------------
+# https://django-oauth-toolkit.readthedocs.io/en/latest/rest-framework/getting_started.html
+
+OAUTH2_PROVIDER = {
+    # this is the list of available scopes
+    'SCOPES': {
+        'read': 'Read scope',
+        'write': 'Write scope',
+    },
+    'ACCESS_TOKEN_EXPIRE_SECONDS': 31536000,  # Sets OAUTH access tokens good for a year
+}
+{%- endif %}
 
 # Your common stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------

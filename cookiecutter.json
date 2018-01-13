@@ -19,7 +19,7 @@
     "use_elasticbeanstalk_experimental": "n",
     "use_compressor": "n",
     "postgresql_version": ["10", "9.6", "9.5", "9.4", "9.3", "9.2"],
-    "js_task_runner": ["Gulp", "Grunt", "None"],
+    "js_task_runner": ["Gulp", "Grunt", "CreateReactApp", "None"],
     "custom_bootstrap_compilation": "n",
     "open_source_license": ["MIT", "BSD", "GPLv3", "Apache Software License 2.0", "Not open source"]
 }
