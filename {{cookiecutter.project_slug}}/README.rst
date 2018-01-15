@@ -132,16 +132,7 @@ See detailed `cookiecutter-django Docker documentation`_.
 
 .. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html
 {% endif %}
-{% if cookiecutter.use_elasticbeanstalk_experimental.lower() == 'y' %}
 
-Elastic Beanstalk
-~~~~~~~~~~~~~~~~~~
-
-See detailed `cookiecutter-django Elastic Beanstalk documentation`_.
-
-.. _`cookiecutter-django Elastic Beanstalk documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-elastic-beanstalk.html
-
-{% endif %}
 {% if cookiecutter.custom_bootstrap_compilation == "y" %}
 Custom Bootstrap Compilation
 ^^^^^^
