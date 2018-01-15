@@ -272,13 +272,20 @@ experience better.
 Articles
 ---------
 
+* `Deploying Cookiecutter-Django with Docker-Compose`_ - Oct. 19, 2017
+* `Using Cookiecutter to Jumpstart a Django Project on Windows with PyCharm`_ - May 19, 2017
+* `Exploring with Cookiecutter`_ - Dec. 3, 2016
+* `Introduction to Cookiecutter-Django`_ - Feb. 19, 2016
+* `Django and GitLab - Running Continuous Integration and tests with your FREE account`_ - May. 11, 2016
 * `Development and Deployment of Cookiecutter-Django on Fedora`_ - Jan. 18, 2016
 * `Development and Deployment of Cookiecutter-Django via Docker`_ - Dec. 29, 2015
 * `How to create a Django Application using Cookiecutter and Django 1.8`_ - Sept. 12, 2015
-* `Introduction to Cookiecutter-Django`_ - Feb. 19, 2016
-* `Django and GitLab - Running Continuous Integration and tests with your FREE account`_ - May. 11, 2016
 
 Have a blog or online publication? Write about your cookiecutter-django tips and tricks, then send us a pull request with the link.
+
+.. _`Deploying Cookiecutter-Django with Docker-Compose`: http://adamantine.me/2017/10/19/deploying-cookiecutter-django-with-docker-compose/
+.. _`Exploring with Cookiecutter`: http://www.snowboardingcoder.com/django/2016/12/03/exploring-with-cookiecutter/
+.. _`Using Cookiecutter to Jumpstart a Django Project on Windows with PyCharm`: https://joshuahunter.com/posts/using-cookiecutter-to-jumpstart-a-django-project-on-windows-with-pycharm/
 
 .. _`Development and Deployment of Cookiecutter-Django via Docker`: https://realpython.com/blog/python/development-and-deployment-of-cookiecutter-django-via-docker/
 .. _`Development and Deployment of Cookiecutter-Django on Fedora`: https://realpython.com/blog/python/development-and-deployment-of-cookiecutter-django-on-fedora/
