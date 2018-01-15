@@ -166,15 +166,6 @@ def remove_packageJSON_file():
             PROJECT_DIRECTORY, filename
         ))
 
-def remove_certbot_files():
-    """
-    Removes files needed for certbot if it isn't going to be used
-    """
-    nginx_dir_location = os.path.join(PROJECT_DIRECTORY, 'compose/nginx')
-    for filename in ["nginx-secure.conf", "start.sh", "dhparams.example.pem"]:
-        file_name = os.path.join(nginx_dir_location, filename)
-        remove_file(file_name)
-
 def remove_copying_files():
     """
     Removes files needed for the GPLv3 licence if it isn't going to be used
@@ -232,11 +223,8 @@ else:
     remove_grunt_files()
     remove_packageJSON_file()
 
-# 7. Removes all certbot/letsencrypt files if it isn't going to be used
-if '{{ cookiecutter.use_lets_encrypt }}'.lower() != 'y':
-    remove_certbot_files()
 
-# 8. Display a warning if use_docker and use_grunt are selected. Grunt isn't
+# 9. Display a warning if use_docker and use_grunt are selected. Grunt isn't
 #   supported by our docker config atm.
 if '{{ cookiecutter.js_task_runner }}'.lower() in ['grunt', 'gulp'] and '{{ cookiecutter.use_docker }}'.lower() == 'y':
     print(
@@ -245,21 +233,6 @@ if '{{ cookiecutter.js_task_runner }}'.lower() in ['grunt', 'gulp'] and '{{ cook
         "js task runner service to your docker configuration manually."
     )
 
-# 9. Removes the certbot/letsencrypt files and display a warning if use_lets_encrypt is selected and use_docker isn't.
-if '{{ cookiecutter.use_lets_encrypt }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() != 'y':
-    remove_certbot_files()
-    print(
-        "You selected to use Let's Encrypt and didn't select to use docker. This is NOT supported out of the box for now. You "
-        "can continue to use the project like you normally would, but Let's Encrypt files have been included."
-    )
-
-# 10. Directs the user to the documentation if certbot and docker are selected.
-if '{{ cookiecutter.use_lets_encrypt }}'.lower() == 'y' and '{{ cookiecutter.use_docker }}'.lower() == 'y':
-    print(
-        "You selected to use Let's Encrypt, please see the documentation for instructions on how to use this in production. "
-        "You must generate a dhparams.pem file before running docker-compose in a production environment."
-    )
-
-# 11. Removes files needed for the GPLv3 licence if it isn't going to be used.
+# 10. Removes files needed for the GPLv3 licence if it isn't going to be used.
 if '{{ cookiecutter.open_source_license}}' != 'GPLv3':
     remove_copying_files()
