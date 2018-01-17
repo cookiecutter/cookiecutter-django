@@ -130,9 +130,9 @@ def remove_docker_files():
     Removes files needed for docker if it isn't going to be used
     """
     for filename in ["dev.yml", "docker-compose.yml", ".dockerignore"]:
-        os.remove(os.path.join(
-            PROJECT_DIRECTORY, filename
-        ))
+        filename = os.path.join(PROJECT_DIRECTORY, filename)
+        if os.path.exists(filename):
+            os.remove(filename)
 
     shutil.rmtree(os.path.join(
         PROJECT_DIRECTORY, "compose"
