@@ -21,6 +21,9 @@ Instructions
 If you haven't done so, create a directory of environments::
 
   eb init -p python3.4 MY_PROJECT_SLUG
+  # Warning: If you use python3.6, you will run into problems later due to some incompatibility with
+  # mod_wgsi 3.5 (packaged in 64bit Amazon Linux 2017.09 v2.6.1 running Python 3.6). See:
+  # https://serverfault.com/questions/884469/mod-wsgi-call-to-site-addsitedir-failed-on-aws-elastic-beanstalk-python-3/885445
 
 Replace `MY_PROJECT_SLUG` with the value you entered for `project_slug`.
 
