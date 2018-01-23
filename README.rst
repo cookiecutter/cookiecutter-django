@@ -167,16 +167,19 @@ Answer the prompts with your own desired options_. For example::
     use_heroku [n]: y
     use_compressor [n]: y
     Select postgresql_version:
-    1 - 9.5
-    2 - 9.4
-    3 - 9.3
-    4 - 9.2
+    1 - 10
+    2 - 9.6
+    3 - 9.5
+    4 - 9.4
+    5 - 9.3
+    6 - 9.2
     Choose from 1, 2, 3, 4 [1]: 1
     Select js_task_runner:
     1 - Gulp
     2 - Grunt
     3 - None
     Choose from 1, 2, 3, 4 [1]: 1
+    custom_bootstrap_compilation [n]: n
     Select open_source_license:
     1 - MIT
     2 - BSD
