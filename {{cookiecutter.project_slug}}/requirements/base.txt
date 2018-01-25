@@ -6,7 +6,7 @@ wheel==0.30.0
 
 
 # Conservative Django
-django==2.0 # pyup: <2.0
+django==2.0
 
 # Configuration
 django-environ==0.4.4
