@@ -38,15 +38,3 @@ $red: #b94a48;
   border-color: $dark-pink;
   color: $red;
 }
-
-////////////////////////////////
-		//Django Toolbar//
-////////////////////////////////
-
-// Display django-debug-toolbar.
-// See https://github.com/django-debug-toolbar/django-debug-toolbar/issues/742
-// and https://github.com/pydanny/cookiecutter-django/issues/317
-
-[hidden][style="display: block;"] {
-  display: block !important;
-}
