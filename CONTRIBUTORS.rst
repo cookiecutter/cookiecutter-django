@@ -7,17 +7,18 @@ Core Developers
 These contributors have commit flags for the repository,
 and are able to accept and merge pull requests.
 
-=========================== ============= ===========
-Name                        Github        Twitter
-=========================== ============= ===========
-Daniel Roy Greenfeld        `@pydanny`_   @pydanny
-Audrey Roy Greenfeld*       `@audreyr`_   @audreyr
-Fábio C. Barrionuevo da Luz `@luzfcb`_    @luzfcb
-Saurabh Kumar               `@theskumar`_ @_theskumar
+=========================== ================ ===========
+Name                        Github           Twitter
+=========================== ================ ===========
+Daniel Roy Greenfeld        `@pydanny`_      @pydanny
+Audrey Roy Greenfeld*       `@audreyr`_      @audreyr
+Fábio C. Barrionuevo da Luz `@luzfcb`_       @luzfcb
+Saurabh Kumar               `@theskumar`_    @_theskumar
 Jannis Gebauer              `@jayfk`_
-Burhan Khalid               `@burhan`_    @burhan
-Shupeyko Nikita             `@webyneter`_ @webyneter
-=========================== ============= ===========
+Burhan Khalid               `@burhan`_       @burhan
+Shupeyko Nikita             `@webyneter`_    @webyneter
+Bruno Alla                  `@browniebroke`_ @_BrunoAlla
+=========================== ================ ===========
 
 *Audrey is also the creator of Cookiecutter. Audrey and
 Daniel are on the Cookiecutter core team.*
@@ -28,6 +29,7 @@ Daniel are on the Cookiecutter core team.*
 .. _@audreyr: https://github.com/audreyr
 .. _@jayfk: https://github.com/jayfk
 .. _@webyneter: https://github.com/webyneter
+.. _@browniebroke: https://github.com/browniebroke
 
 Other Contributors
 ------------------
@@ -64,7 +66,6 @@ Listed in alphabetical order.
   Bo Lopker                `@blopker`_
   Bouke Haarsma
   Brent Payne              `@brentpayne`_               @brentpayne
-  Bruno Alla               `@browniebroke`_             @_BrunoAlla
   Burhan Khalid            `@burhan`_                   @burhan
   Catherine Devlin         `@catherinedevlin`_
   Cédric Gaspoz            `@cgaspoz`_
@@ -171,7 +172,6 @@ Listed in alphabetical order.
 .. _@bloodpet: https://github.com/bloodpet
 .. _@blopker: https://github.com/blopker
 .. _@bogdal: https://github.com/bogdal
-.. _@browniebroke: https://github.com/browniebroke
 .. _@burhan: https://github.com/burhan
 .. _@c-rhodes: https://github.com/c-rhodes
 .. _@caffodian: https://github.com/caffodian
@@ -228,7 +228,6 @@ Listed in alphabetical order.
 .. _@rm--: https://github.com/rm--
 .. _@romanosipenko: https://github.com/romanosipenko
 .. _@shireenrao: https://github.com/shireenrao
-.. _@webyneter: https://github.com/webyneter
 .. _@show0k: https://github.com/show0k
 .. _@sfdye: https://github.com/sfdye
 .. _@shultz: https://github.com/shultz
