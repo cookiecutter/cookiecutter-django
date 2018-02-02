@@ -239,7 +239,7 @@ Listed in alphabetical order.
 .. _@timfreund: https://github.com/timfreund
 .. _@Travistock: https://github.com/Tavistock
 .. _@trungdong: https://github.com/trungdong
-.. _@viviangb: httpsL//github.com/viviangb
+.. _@viviangb: https://github.com/viviangb
 .. _@xpostudio4: https://github.com/xpostudio4
 .. _@yunti: https://github.com/yunti
 .. _@zcho: https://github.com/zcho
@@ -249,6 +249,12 @@ Listed in alphabetical order.
 .. _@jangeador: https://github.com/jangeador
 .. _@townie: https://github.com/townie
 .. _@MightySCollins: https://github.com/MightySCollins
+.. _@dadokkio: https://github.com/dadokkio
+.. _@bwarren2: https://github.com/bwarren2
+.. _@bertdemiranda: https://github.com/bertdemiranda
+.. _@brentpayne: https://github.com/brentpayne
+.. _@afrowave: https://github.com/afrowave
+.. _@pchiquet: https://github.com/pchiquet
 
 Special Thanks
 ~~~~~~~~~~~~~~
