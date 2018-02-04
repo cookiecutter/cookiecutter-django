@@ -7,7 +7,7 @@
 psycopg2==2.7.3.2
 {%- endif %}
 
-coverage==4.4.2
+coverage==4.5
 flake8==3.5.0 # pyup: != 2.6.0
 django-test-plus==1.0.22
 factory-boy==2.10.0
