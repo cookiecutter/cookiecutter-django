@@ -79,16 +79,12 @@ Email Server
 {% if cookiecutter.use_docker == 'y' %}
 In development, it is often nice to be able to see emails that are being sent from your application. For that reason local SMTP server `MailHog`_ with a web interface is available as docker container.
 
-.. _mailhog: https://github.com/mailhog/MailHog
-
 Container mailhog will start automatically when you will run all docker containers.
 Please check `cookiecutter-django Docker documentation`_ for more details how to start all containers.
 
 With MailHog running, to view messages that are sent by your application, open your browser and go to ``http://127.0.0.1:8025``
 {% else %}
 In development, it is often nice to be able to see emails that are being sent from your application. If you choose to use `MailHog`_ when generating the project a local SMTP server with a web interface will be available.
-
-.. _mailhog: https://github.com/mailhog/MailHog
 
 To start the service, make sure you have nodejs installed, and then type the following::
 
@@ -101,6 +97,7 @@ To view messages that are sent by your application, open your browser and go to 
 
 The email server will exit when you exit the Grunt task on the CLI with Ctrl+C.
 {% endif %}
+.. _mailhog: https://github.com/mailhog/MailHog
 {% endif %}
 {% if cookiecutter.use_sentry_for_error_reporting == "y" %}
 
@@ -135,22 +132,21 @@ See detailed `cookiecutter-django Docker documentation`_.
 
 .. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html
 {% endif %}
-{% if cookiecutter.use_elasticbeanstalk_experimental.lower() == 'y' %}
 
-Elastic Beanstalk
-~~~~~~~~~~~~~~~~~~
-
-See detailed `cookiecutter-django Elastic Beanstalk documentation`_.
-
-.. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-elastic-beanstalk.html
-
-{% endif %}
 {% if cookiecutter.custom_bootstrap_compilation == "y" %}
 Custom Bootstrap Compilation
 ^^^^^^
 
-To get automatic Bootstrap recompilation with variables of your choice, install bootstrap sass (`bower install bootstrap-sass`) and tweak your variables in `static/sass/custom_bootstrap_vars`.
+The generated CSS is set up with automatic Bootstrap recompilation with variables of your choice.
+Bootstrap v4 is installed using npm and customised by tweaking your variables in ``static/sass/custom_bootstrap_vars``.
 
-(You can find a list of available variables [in the bootstrap-sass source](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss), or get explanations on them in the [Bootstrap docs](https://getbootstrap.com/customize/).)
+You can find a list of available variables `in the bootstrap source`_, or get explanations on them in the `Bootstrap docs`_.
+
+{% if cookiecutter.js_task_runner == 'Gulp' %}
+Bootstrap's javascript as well as its dependencies is concatenated into a single file: ``static/js/vendors.js``.
+{% endif %}
+
+.. _in the bootstrap source: https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss
+.. _Bootstrap docs: https://getbootstrap.com/docs/4.0/getting-started/theming/
 
 {% endif %}

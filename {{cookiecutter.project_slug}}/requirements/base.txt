@@ -19,17 +19,17 @@ whitenoise==3.3.1
 django-crispy-forms==1.7.0
 
 # Models
-django-model-utils==3.0.0
+django-model-utils==3.1.1
 
 # Images
-Pillow==4.3.0
+Pillow==5.0.0
 
 # Password storage
-argon2-cffi==16.3.0
+argon2-cffi==18.1.0
 
 # For user registration, either via email or social
 # Well-built with regular release cycles!
-django-allauth==0.34.0
+django-allauth==0.35.0
 
 {% if cookiecutter.windows == 'y' -%}
 # On Windows, you must download/install psycopg2 manually

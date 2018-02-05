@@ -12,6 +12,7 @@ A portion of this code was adopted from Django's standard crypto functions and
 utilities, specifically:
     https://github.com/django/django/blob/master/django/utils/crypto.py
 """
+from __future__ import print_function
 import os
 import random
 import shutil
@@ -119,8 +120,6 @@ def remove_heroku_files():
     Removes files needed for heroku if it isn't going to be used
     """
     filenames = ["Procfile", "runtime.txt"]
-    if '{{ cookiecutter.use_elasticbeanstalk_experimental }}'.lower() != 'y':
-        filenames.append("requirements.txt")
     for filename in ["Procfile", "runtime.txt"]:
         file_name = os.path.join(PROJECT_DIRECTORY, filename)
         remove_file(file_name)
@@ -131,9 +130,9 @@ def remove_docker_files():
     Removes files needed for docker if it isn't going to be used
     """
     for filename in ["local.yml", "production.yml", ".dockerignore"]:
-        os.remove(os.path.join(
-            PROJECT_DIRECTORY, filename
-        ))
+        filename = os.path.join(PROJECT_DIRECTORY, filename)
+        if os.path.exists(filename):
+            os.remove(filename)
 
     shutil.rmtree(os.path.join(
         PROJECT_DIRECTORY, "compose"
@@ -167,37 +166,11 @@ def remove_packageJSON_file():
             PROJECT_DIRECTORY, filename
         ))
 
-
 def remove_copying_files():
     """
     Removes files needed for the GPLv3 licence if it isn't going to be used
     """
     for filename in ["COPYING"]:
-        os.remove(os.path.join(
-            PROJECT_DIRECTORY, filename
-        ))
-
-def remove_elasticbeanstalk():
-    """
-    Removes elastic beanstalk components
-    """
-    docs_dir_location = os.path.join(PROJECT_DIRECTORY, '.ebextensions')
-    if os.path.exists(docs_dir_location):
-        shutil.rmtree(docs_dir_location)
-
-    filenames = ["ebsetenv.py", ]
-    if '{{ cookiecutter.use_heroku }}'.lower() != 'y':
-        filenames.append("requirements.txt")
-    for filename in filenames:
-        os.remove(os.path.join(
-            PROJECT_DIRECTORY, filename
-        ))
-
-def remove_open_source_files():
-    """
-    Removes files conventional to opensource projects only.
-    """
-    for filename in ["CONTRIBUTORS.txt"]:
         os.remove(os.path.join(
             PROJECT_DIRECTORY, filename
         ))
@@ -221,26 +194,26 @@ def remove_open_source_files():
 #             dst = os.path.join(target_dir, name)
 #             shutil.copyfile(src, dst)
 
-# Generates and saves random secret key
+# 1. Generates and saves random secret key
 make_secret_key(PROJECT_DIRECTORY)
 
-# Removes the taskapp if celery isn't going to be used
+# 2. Removes the taskapp if celery isn't going to be used
 if '{{ cookiecutter.use_celery }}'.lower() == 'n':
     remove_task_app(PROJECT_DIRECTORY)
 
-# Removes the .idea directory if PyCharm isn't going to be used
+# 3. Removes the .idea directory if PyCharm isn't going to be used
 if '{{ cookiecutter.use_pycharm }}'.lower() != 'y':
     remove_pycharm_dir(PROJECT_DIRECTORY)
 
-# Removes all heroku files if it isn't going to be used
+# 4. Removes all heroku files if it isn't going to be used
 if '{{ cookiecutter.use_heroku }}'.lower() != 'y':
     remove_heroku_files()
 
-# Removes all docker files if it isn't going to be used
+# 5. Removes all docker files if it isn't going to be used
 if '{{ cookiecutter.use_docker }}'.lower() != 'y':
     remove_docker_files()
 
-# Removes all JS task manager files if it isn't going to be used
+# 6. Removes all JS task manager files if it isn't going to be used
 if '{{ cookiecutter.js_task_runner}}'.lower() == 'gulp':
     remove_grunt_files()
 elif '{{ cookiecutter.js_task_runner}}'.lower() == 'grunt':
@@ -250,7 +223,8 @@ else:
     remove_grunt_files()
     remove_packageJSON_file()
 
-# Display a warning if use_docker and use_grunt are selected. Grunt isn't
+
+# 9. Display a warning if use_docker and use_grunt are selected. Grunt isn't
 #   supported by our docker config atm.
 if '{{ cookiecutter.js_task_runner }}'.lower() in ['grunt', 'gulp'] and '{{ cookiecutter.use_docker }}'.lower() == 'y':
     print(
@@ -259,15 +233,6 @@ if '{{ cookiecutter.js_task_runner }}'.lower() in ['grunt', 'gulp'] and '{{ cook
         "js task runner service to your docker configuration manually."
     )
 
-
-# Removes files needed for the GPLv3 licence if it isn't going to be used.
+# 10. Removes files needed for the GPLv3 licence if it isn't going to be used.
 if '{{ cookiecutter.open_source_license}}' != 'GPLv3':
     remove_copying_files()
-
-# Remove Elastic Beanstalk files
-if '{{ cookiecutter.use_elasticbeanstalk_experimental }}'.lower() != 'y':
-    remove_elasticbeanstalk()
-
-# Remove files conventional to opensource projects only.
-if '{{ cookiecutter.open_source_license }}' == 'Not open source':
-    remove_open_source_files()
