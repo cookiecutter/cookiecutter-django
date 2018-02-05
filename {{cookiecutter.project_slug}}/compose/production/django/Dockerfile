@@ -11,8 +11,8 @@ RUN apk update \
   # CFFI dependencies
   && apk add libffi-dev openssl-dev py-cffi
 
-RUN groupadd -r django \
-    && useradd -r -g django django
+RUN addgroup -S django \
+    && adduser -S -G django django
 
 # Requirements have to be pulled and installed here, otherwise caching won't work
 COPY ./requirements /requirements
