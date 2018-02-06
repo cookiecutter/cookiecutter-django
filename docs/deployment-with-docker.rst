@@ -44,7 +44,7 @@ You will probably also need to setup the Mail backend, for example by adding a `
 
 Create AWS IAM Role for EC2 instance
 ------------------------------------
-As a security best practice, we don't store `AWS_ACCESS_KEY_ID` AND `AWS_SECRET_ACCESS_KEY` on the server. In stead, in order to authorize Django to access your S3 bucket, you need to create an `IAM role`_ and `attach`_ it to the existing EC2 instance or create a new EC2 instance with that role. This role should assume a minimum permission of `AmazonS3FullAccess`.
+As a security best practice, we don't store `AWS_ACCESS_KEY_ID` AND `AWS_SECRET_ACCESS_KEY` on the server. Instead, in order to authorize Django to access your S3 bucket, you need to create an `IAM role`_ and `attach`_ it to the existing EC2 instance or create a new EC2 instance with that role. This role should assume a minimum permission of `AmazonS3FullAccess`.
 
 .. _IAM role: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html
 .. _attach: https://aws.amazon.com/blogs/security/easily-replace-or-attach-an-iam-role-to-an-existing-ec2-instance-by-using-the-ec2-console/
