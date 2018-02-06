@@ -22,7 +22,7 @@ DJANGO_ADMIN_URL                        n/a                         r'^admin/'  
 DJANGO_CACHES                           CACHES (default)            locmem                                         redis
 DJANGO_DATABASES                        DATABASES (default)         See code                                       See code
 DJANGO_DEBUG                            DEBUG                       True                                           False
-DJANGO_SECRET_KEY                       SECRET_KEY                  CHANGEME!!!                                    raises error
+DJANGO_SECRET_KEY                       SECRET_KEY                  !!!SET DJANGO_SECRET_KEY!!!                    raises error
 DJANGO_SECURE_BROWSER_XSS_FILTER        SECURE_BROWSER_XSS_FILTER   n/a                                            True
 DJANGO_SECURE_SSL_REDIRECT              SECURE_SSL_REDIRECT         n/a                                            True
 DJANGO_SECURE_CONTENT_TYPE_NOSNIFF      SECURE_CONTENT_TYPE_NOSNIFF n/a                                            True
