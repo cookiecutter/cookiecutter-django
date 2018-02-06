@@ -32,7 +32,7 @@ if using_docker == 'n':
                     "Generation process stopped as requested." +
                     TERMINATOR
                 )
-                sys.exit(0)
+                sys.exit(1)
             else:
                 sys.stdout.write(
                     HINT +
