@@ -9,7 +9,9 @@ RUN apk update \
   # Pillow dependencies
   && apk add jpeg-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-dev tcl-dev \
   # CFFI dependencies
-  && apk add libffi-dev openssl-dev py-cffi
+  && apk add libffi-dev openssl-dev py-cffi \
+  # Translations dependencies
+  && apk add gettext
 
 # Requirements have to be pulled and installed here, otherwise caching won't work
 COPY ./requirements /requirements
