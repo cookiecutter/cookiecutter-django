@@ -22,7 +22,7 @@ try:
 except NotImplementedError:
     using_sysrandom = False
 
-_PROJECT_DIR_PATH = os.path.realpath(os.path.curdir)
+PROJECT_DIR_PATH = os.path.realpath(os.path.curdir)
 
 
 def remove_file(file_path):
@@ -35,7 +35,7 @@ def remove_open_source_project_only_files():
         'CONTRIBUTORS.txt',
     ]
     for file_name in file_names:
-        os.remove(os.path.join(_PROJECT_DIR_PATH, file_name))
+        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
 
 
 def remove_gplv3_files():
@@ -43,21 +43,21 @@ def remove_gplv3_files():
         'COPYING',
     ]
     for file_name in file_names:
-        os.remove(os.path.join(_PROJECT_DIR_PATH, file_name))
+        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
 
 
 def remove_pycharm_files():
-    idea_dir_path = os.path.join(_PROJECT_DIR_PATH, '.idea')
+    idea_dir_path = os.path.join(PROJECT_DIR_PATH, '.idea')
     if os.path.exists(idea_dir_path):
         shutil.rmtree(idea_dir_path)
 
-    docs_dir_path = os.path.join(_PROJECT_DIR_PATH, 'docs', 'pycharm')
+    docs_dir_path = os.path.join(PROJECT_DIR_PATH, 'docs', 'pycharm')
     if os.path.exists(docs_dir_path):
         shutil.rmtree(docs_dir_path)
 
 
 def remove_docker_files():
-    shutil.rmtree(os.path.join(_PROJECT_DIR_PATH, 'compose'))
+    shutil.rmtree(os.path.join(PROJECT_DIR_PATH, 'compose'))
 
     file_names = [
         'local.yml',
@@ -65,7 +65,7 @@ def remove_docker_files():
         '.dockerignore',
     ]
     for file_name in file_names:
-        os.remove(os.path.join(_PROJECT_DIR_PATH, file_name))
+        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
 
 
 def remove_heroku_files():
@@ -74,7 +74,7 @@ def remove_heroku_files():
         'runtime.txt',
     ]
     for file_name in file_names:
-        remove_file(os.path.join(_PROJECT_DIR_PATH, file_name))
+        remove_file(os.path.join(PROJECT_DIR_PATH, file_name))
 
 
 def remove_paas_files():
@@ -87,7 +87,7 @@ def remove_paas_files():
         none_paas_files_left &= False
 
     if none_paas_files_left:
-        remove_file(os.path.join(_PROJECT_DIR_PATH, 'requirements.txt'))
+        remove_file(os.path.join(PROJECT_DIR_PATH, 'requirements.txt'))
 
 
 def remove_grunt_files():
@@ -95,7 +95,7 @@ def remove_grunt_files():
         'Gruntfile.js',
     ]
     for file_name in file_names:
-        os.remove(os.path.join(_PROJECT_DIR_PATH, file_name))
+        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
 
 
 def remove_gulp_files():
@@ -103,7 +103,7 @@ def remove_gulp_files():
         'gulpfile.js',
     ]
     for file_name in file_names:
-        os.remove(os.path.join(_PROJECT_DIR_PATH, file_name))
+        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
 
 
 def remove_packagejson_file():
@@ -111,15 +111,15 @@ def remove_packagejson_file():
         'package.json',
     ]
     for file_name in file_names:
-        os.remove(os.path.join(_PROJECT_DIR_PATH, file_name))
+        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
 
 
 def remove_celery_app():
-    shutil.rmtree(os.path.join(_PROJECT_DIR_PATH, '{{ cookiecutter.project_slug }}', 'taskapp'))
+    shutil.rmtree(os.path.join(PROJECT_DIR_PATH, '{{ cookiecutter.project_slug }}', 'taskapp'))
 
 
-def append_to_gitignore(path):
-    gitignore_file_path = os.path.join(_PROJECT_DIR_PATH, '.gitignore')
+def append_to_project_gitignore(path):
+    gitignore_file_path = os.path.join(PROJECT_DIR_PATH, '.gitignore')
     with open(gitignore_file_path, 'a') as gitignore_file:
         gitignore_file.write(path)
         gitignore_file.write(os.linesep)
@@ -150,56 +150,95 @@ def generate_random_string(length,
     return ''.join([random.choice(symbols) for _ in range(length)])
 
 
-def replace_flag_with_random_string(file_path,
-                                    flag,
-                                    *args,
-                                    **kwargs):
-    random_string = generate_random_string(*args, **kwargs)
-    if random_string is None:
-        import sys
-        sys.stdout.write(
-            "We couldn't find a secure pseudo-random number generator on your system. "
-            "Please, {} manually.".format(flag)
-        )
-        random_string = flag
+def set_flag(file_path,
+             flag,
+             value=None,
+             *args,
+             **kwargs):
+    if value is None:
+        random_string = generate_random_string(*args, **kwargs)
+        if random_string is None:
+            import sys
+            sys.stdout.write(
+                "We couldn't find a secure pseudo-random number generator on your system. "
+                "Please, make sure to manually {} later.".format(flag)
+            )
+            random_string = flag
+        value = random_string
 
     with open(file_path, 'r+') as f:
-        file_contents = f.read().replace(flag, random_string)
+        file_contents = f.read().replace(flag, value)
         f.seek(0)
         f.write(file_contents)
         f.truncate()
 
+    return value
+
 
 def set_django_secret_key(file_path):
-    replace_flag_with_random_string(
+    django_secret_key = set_flag(
         file_path,
         '!!!SET DJANGO_SECRET_KEY!!!',
         length=50,
         using_digits=True,
         using_ascii_letters=True
     )
+    return django_secret_key
 
 
-def set_postgres_user(file_path):
-    replace_flag_with_random_string(
+def set_postgres_user(file_path,
+                      value=None):
+    postgres_user = set_flag(
         file_path,
         '!!!SET POSTGRES_USER!!!',
+        value=value,
         length=8,
         using_ascii_letters=True
     )
+    return postgres_user
 
 
 def set_postgres_password(file_path):
-    replace_flag_with_random_string(
+    postgres_password = set_flag(
         file_path,
         '!!!SET POSTGRES_PASSWORD!!!',
         length=42,
         using_digits=True,
         using_ascii_letters=True
     )
+    return postgres_password
+
+
+def initialize_dotenv(postgres_user):
+    # Initializing `env.example` first.
+    envexample_file_path = os.path.join(PROJECT_DIR_PATH, 'env.example')
+    set_django_secret_key(envexample_file_path)
+    set_postgres_user(envexample_file_path, value=postgres_user)
+    set_postgres_password(envexample_file_path)
+    # Renaming `env.example` to `.env`.
+    dotenv_file_path = os.path.join(PROJECT_DIR_PATH, '.env')
+    shutil.move(envexample_file_path, dotenv_file_path)
+
+
+def initialize_localyml(postgres_user):
+    set_postgres_user(os.path.join(PROJECT_DIR_PATH, 'local.yml'), value=postgres_user)
+
+
+def initialize_local_settings():
+    set_django_secret_key(os.path.join(PROJECT_DIR_PATH, 'config', 'settings', 'local.py'))
+
+
+def initialize_test_settings():
+    set_django_secret_key(os.path.join(PROJECT_DIR_PATH, 'config', 'settings', 'test.py'))
 
 
 def main():
+    postgres_user = generate_random_string(length=16, using_ascii_letters=True)
+    initialize_dotenv(postgres_user)
+    initialize_localyml(postgres_user)
+    initialize_local_settings()
+    initialize_test_settings()
+
     if '{{ cookiecutter.open_source_license }}' == 'Not open source':
         remove_open_source_project_only_files()
     elif '{{ cookiecutter.open_source_license}}' != 'GPLv3':
@@ -207,6 +246,7 @@ def main():
 
     if '{{ cookiecutter.use_pycharm }}'.lower() == 'n':
         remove_pycharm_files()
+
     if '{{ cookiecutter.use_docker }}'.lower() == 'n':
         remove_docker_files()
 
@@ -237,15 +277,6 @@ def main():
 
     if '{{ cookiecutter.use_celery }}'.lower() == 'n':
         remove_celery_app()
-
-    envexample_file_path = os.path.join(_PROJECT_DIR_PATH, 'env.example')
-
-    set_django_secret_key(os.path.join(_PROJECT_DIR_PATH, 'config', 'settings', 'local.py'))
-    set_django_secret_key(os.path.join(_PROJECT_DIR_PATH, 'config', 'settings', 'test.py'))
-    set_django_secret_key(envexample_file_path)
-
-    set_postgres_user(envexample_file_path)
-    set_postgres_password(envexample_file_path)
 
 
 if __name__ == '__main__':
