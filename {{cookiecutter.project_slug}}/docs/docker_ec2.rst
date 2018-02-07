@@ -58,7 +58,7 @@ The `Docker compose documentation`_ explains in detail what you can accomplish i
         build: database
     webapp:
         build: webapp:
-        command: /usr/bin/python3.4 manage.py runserver 0.0.0.0:8000 # dev setting
+        command: /usr/bin/python3.6 manage.py runserver 0.0.0.0:8000 # dev setting
         # command: gunicorn -b 0.0.0.0:8000 wsgi:application # production setting
         volumes:
             - webapp/your_project_name:/path/to/container/workdir/
