@@ -12,7 +12,7 @@ if docker == 'n':
 	python_major_version = sys.version_info[0]
 
 	if python_major_version == 2:
-		sys.stdout.write("WARNING: Cookiecutter Django does not support Python 2! Stability is guaranteed with Python 3.4+ only. Are you sure you want to proceed? (y/n)")
+		sys.stdout.write("WARNING: Cookiecutter Django does not support Python 2! Stability is guaranteed with Python 3.6+ only. Are you sure you want to proceed? (y/n)")
 
 		yes_options = set(['y'])
 		no_options = set(['n', ''])
