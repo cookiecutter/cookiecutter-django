@@ -5,6 +5,9 @@
   "devDependencies": {
     {% if cookiecutter.js_task_runner == 'Grunt' %}
     "autoprefixer-core": "~5.2.1",
+    {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
+    "bootstrap": "^4.0.0",
+    {% endif %}
     "connect-livereload": "~0.3.2",
     "cssnano": "~2.1.0",
     "grunt": "~0.4.5",
@@ -12,14 +15,26 @@
     "grunt-contrib-watch": "~0.6.1",
     "grunt-postcss": "~0.5.5",
     "grunt-sass": "~1.0.0",
+    {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
+    "jquery": "^3.2.1-slim",
+    {% endif %}
     "load-grunt-tasks": "~3.2.0",
     "pixrem": "~1.3.1",
+    {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
+    "popper.js": "^1.12.3",
+    {% endif %}
     "time-grunt": "~1.2.1"
     {% elif cookiecutter.js_task_runner == 'Gulp' %}
+    {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
+    "bootstrap": "^4.0.0",
+    {% endif %}
     "browser-sync": "^2.14.0",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
+    {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
+    "gulp-concat": "^2.6.1",
+    {% endif %}
     "gulp-cssnano": "^2.1.2",
     "gulp-imagemin": "^3.0.3",
     "gulp-pixrem": "^1.0.0",
@@ -28,6 +43,10 @@
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
+    {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
+    "jquery": "^3.2.1-slim",
+    "popper.js": "^1.12.3",
+    {% endif %}
     "run-sequence": "^1.2.2"
     {% endif %}
   },

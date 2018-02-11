@@ -15,7 +15,7 @@ services:
     volumes:
       - .:/app
     environment:
-      - POSTGRES_USER={{cookiecutter.project_slug}}
+      - POSTGRES_USER=!!!SET POSTGRES_USER!!!
       - USE_DOCKER=yes
     ports:
       - "8000:8000"
@@ -29,7 +29,7 @@ services:
       - postgres_data_local:/var/lib/postgresql/data
       - postgres_backup_local:/backups
     environment:
-      - POSTGRES_USER={{cookiecutter.project_slug}}
+      - POSTGRES_USER=!!!SET POSTGRES_USER!!!
 {% if cookiecutter.use_mailhog == 'y' %}
   mailhog:
     image: mailhog/mailhog:v1.0.0

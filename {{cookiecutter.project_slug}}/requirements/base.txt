@@ -6,7 +6,7 @@ wheel==0.30.0
 
 
 # Conservative Django
-django==1.11.9 # pyup: <2.0
+django==1.11.10 # pyup: <2.0
 
 # Configuration
 django-environ==0.4.4
@@ -29,14 +29,14 @@ argon2-cffi==18.1.0
 
 # For user registration, either via email or social
 # Well-built with regular release cycles!
-django-allauth==0.34.0
+django-allauth==0.35.0
 
 {% if cookiecutter.windows == 'y' -%}
 # On Windows, you must download/install psycopg2 manually
 # from http://www.lfd.uci.edu/~gohlke/pythonlibs/#psycopg
 {% else %}
 # Python-PostgreSQL Database Adapter
-psycopg2==2.7.3.2
+psycopg2==2.7.4
 {%- endif %}
 
 # Unicode slugification
