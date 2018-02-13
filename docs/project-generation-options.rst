@@ -73,7 +73,9 @@ js_task_runner [1]
     3. None
 
 custom_bootstrap_compilation [n]
-    If you use Grunt, scaffold out recompiling Bootstrap as as task.  (Useful for letting you change Bootstrap variables in real time.)  Consult project README for more details.
+    Scaffold out recompiling Bootstrap as as task, with Gulp_ or Grunt_.
+    Useful for letting you change Bootstrap variables in real time.
+    Consult project README for more details.
 
 open_source_license [1]
     Select a software license for the project. The choices are:

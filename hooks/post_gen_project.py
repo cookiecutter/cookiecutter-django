@@ -1,273 +1,283 @@
 """
-Does the following:
+NOTE:
+    the below code is to be maintained Python 2.x-compatible
+    as the whole Cookiecutter Django project initialization
+    can potentially be run in Python 2.x environment
+    (at least so we presume in `pre_gen_project.py`).
 
-1. Generates and saves random secret key
-2. Removes the taskapp if celery isn't going to be used
-3. Removes the .idea directory if PyCharm isn't going to be used
-4. Copy files from /docs/ to {{ cookiecutter.project_slug }}/docs/
-
-    TODO: this might have to be moved to a pre_gen_hook
-
-A portion of this code was adopted from Django's standard crypto functions and
-utilities, specifically:
-    https://github.com/django/django/blob/master/django/utils/crypto.py
+TODO: ? restrict Cookiecutter Django project initialization to Python 3.x environments only
 """
+
 import os
 import random
 import shutil
 import string
+import sys
 
-# Get the root project directory
-PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
-
-# Use the system PRNG if possible
 try:
+    # Inspired by
+    # https://github.com/django/django/blob/master/django/utils/crypto.py
     random = random.SystemRandom()
     using_sysrandom = True
 except NotImplementedError:
     using_sysrandom = False
 
-
-def get_random_string(length=50):
-    """
-    Returns a securely generated random string.
-    The default length of 12 with the a-z, A-Z, 0-9 character set returns
-    a 71-bit value. log_2((26+26+10)^12) =~ 71 bits
-    """
-    punctuation = string.punctuation.replace('"', '').replace("'", '')
-    punctuation = punctuation.replace('\\', '')
-    if using_sysrandom:
-        return ''.join(random.choice(
-            string.digits + string.ascii_letters + punctuation
-        ) for i in range(length))
-
-    print(
-        "Cookiecutter Django couldn't find a secure pseudo-random number generator on your system."
-        " Please change change your SECRET_KEY variables in conf/settings/local.py and env.example"
-        " manually."
-    )
-    return "CHANGEME!!"
+PROJECT_DIR_PATH = os.path.realpath(os.path.curdir)
 
 
-def set_secret_key(setting_file_location):
-    # Open locals.py
-    with open(setting_file_location) as f:
-        file_ = f.read()
-
-    # Generate a SECRET_KEY that matches the Django standard
-    SECRET_KEY = get_random_string()
-
-    # Replace "CHANGEME!!!" with SECRET_KEY
-    file_ = file_.replace('CHANGEME!!!', SECRET_KEY, 1)
-
-    # Write the results to the locals.py module
-    with open(setting_file_location, 'w') as f:
-        f.write(file_)
+def remove_file(file_path):
+    if os.path.exists(file_path):
+        os.remove(file_path)
 
 
-def make_secret_key(project_directory):
-    """Generates and saves random secret key"""
-    # Determine the local_setting_file_location
-    local_setting = os.path.join(
-        project_directory,
-        'config/settings/local.py'
-    )
-
-    # local.py settings file
-    set_secret_key(local_setting)
-
-    env_file = os.path.join(
-        project_directory,
-        'env.example'
-    )
-
-    # env.example file
-    set_secret_key(env_file)
+def remove_open_source_project_only_files():
+    file_names = [
+        'CONTRIBUTORS.txt',
+    ]
+    for file_name in file_names:
+        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
 
 
-def remove_file(file_name):
-    if os.path.exists(file_name):
-        os.remove(file_name)
+def remove_gplv3_files():
+    file_names = [
+        'COPYING',
+    ]
+    for file_name in file_names:
+        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
 
 
-def remove_task_app(project_directory):
-    """Removes the taskapp if celery isn't going to be used"""
-    # Determine the local_setting_file_location
-    task_app_location = os.path.join(
-        PROJECT_DIRECTORY,
-        '{{ cookiecutter.project_slug }}/taskapp'
-    )
-    shutil.rmtree(task_app_location)
+def remove_pycharm_files():
+    idea_dir_path = os.path.join(PROJECT_DIR_PATH, '.idea')
+    if os.path.exists(idea_dir_path):
+        shutil.rmtree(idea_dir_path)
 
-
-def remove_pycharm_dir(project_directory):
-    """
-    Removes directories related to PyCharm
-    if it isn't going to be used
-    """
-    idea_dir_location = os.path.join(PROJECT_DIRECTORY, '.idea/')
-    if os.path.exists(idea_dir_location):
-        shutil.rmtree(idea_dir_location)
-
-    docs_dir_location = os.path.join(PROJECT_DIRECTORY, 'docs/pycharm/')
-    if os.path.exists(docs_dir_location):
-        shutil.rmtree(docs_dir_location)
-
-
-def remove_heroku_files():
-    """
-    Removes files needed for heroku if it isn't going to be used
-    """
-    filenames = ["Procfile", "runtime.txt"]
-    if '{{ cookiecutter.use_elasticbeanstalk_experimental }}'.lower() != 'y':
-        filenames.append("requirements.txt")
-    for filename in ["Procfile", "runtime.txt"]:
-        file_name = os.path.join(PROJECT_DIRECTORY, filename)
-        remove_file(file_name)
+    docs_dir_path = os.path.join(PROJECT_DIR_PATH, 'docs', 'pycharm')
+    if os.path.exists(docs_dir_path):
+        shutil.rmtree(docs_dir_path)
 
 
 def remove_docker_files():
-    """
-    Removes files needed for docker if it isn't going to be used
-    """
-    for filename in ["local.yml", "production.yml", ".dockerignore"]:
-        os.remove(os.path.join(
-            PROJECT_DIRECTORY, filename
-        ))
+    shutil.rmtree(os.path.join(PROJECT_DIR_PATH, 'compose'))
 
-    shutil.rmtree(os.path.join(
-        PROJECT_DIRECTORY, "compose"
-    ))
+    file_names = [
+        'local.yml',
+        'production.yml',
+        '.dockerignore',
+    ]
+    for file_name in file_names:
+        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
+
+
+def remove_heroku_files():
+    file_names = [
+        'Procfile',
+        'runtime.txt',
+    ]
+    for file_name in file_names:
+        remove_file(os.path.join(PROJECT_DIR_PATH, file_name))
+
+
+def remove_paas_files():
+    none_paas_files_left = True
+
+    if '{{ cookiecutter.use_heroku }}'.lower() == 'n':
+        remove_heroku_files()
+        none_paas_files_left &= True
+    else:
+        none_paas_files_left &= False
+
+    if none_paas_files_left:
+        remove_file(os.path.join(PROJECT_DIR_PATH, 'requirements.txt'))
 
 
 def remove_grunt_files():
-    """
-    Removes files needed for grunt if it isn't going to be used
-    """
-    for filename in ["Gruntfile.js"]:
-        os.remove(os.path.join(
-            PROJECT_DIRECTORY, filename
-        ))
+    file_names = [
+        'Gruntfile.js',
+    ]
+    for file_name in file_names:
+        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
+
 
 def remove_gulp_files():
+    file_names = [
+        'gulpfile.js',
+    ]
+    for file_name in file_names:
+        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
+
+
+def remove_packagejson_file():
+    file_names = [
+        'package.json',
+    ]
+    for file_name in file_names:
+        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
+
+
+def remove_celery_app():
+    shutil.rmtree(os.path.join(PROJECT_DIR_PATH, '{{ cookiecutter.project_slug }}', 'taskapp'))
+
+
+def append_to_project_gitignore(path):
+    gitignore_file_path = os.path.join(PROJECT_DIR_PATH, '.gitignore')
+    with open(gitignore_file_path, 'a') as gitignore_file:
+        gitignore_file.write(path)
+        gitignore_file.write(os.linesep)
+
+
+def generate_random_string(length,
+                           using_digits=False,
+                           using_ascii_letters=False,
+                           using_punctuation=False):
     """
-    Removes files needed for grunt if it isn't going to be used
+    Example:
+        opting out for 50 symbol-long, [a-z][A-Z][0-9] string
+        would yield log_2((26+26+50)^50) ~= 334 bit strength.
     """
-    for filename in ["gulpfile.js"]:
-        os.remove(os.path.join(
-            PROJECT_DIRECTORY, filename
-        ))
+    if not using_sysrandom:
+        return None
 
-def remove_packageJSON_file():
-    """
-    Removes files needed for grunt if it isn't going to be used
-    """
-    for filename in ["package.json"]:
-        os.remove(os.path.join(
-            PROJECT_DIRECTORY, filename
-        ))
-
-
-def remove_copying_files():
-    """
-    Removes files needed for the GPLv3 licence if it isn't going to be used
-    """
-    for filename in ["COPYING"]:
-        os.remove(os.path.join(
-            PROJECT_DIRECTORY, filename
-        ))
-
-def remove_elasticbeanstalk():
-    """
-    Removes elastic beanstalk components
-    """
-    docs_dir_location = os.path.join(PROJECT_DIRECTORY, '.ebextensions')
-    if os.path.exists(docs_dir_location):
-        shutil.rmtree(docs_dir_location)
-
-    filenames = ["ebsetenv.py", ]
-    if '{{ cookiecutter.use_heroku }}'.lower() != 'y':
-        filenames.append("requirements.txt")
-    for filename in filenames:
-        os.remove(os.path.join(
-            PROJECT_DIRECTORY, filename
-        ))
-
-def remove_open_source_files():
-    """
-    Removes files conventional to opensource projects only.
-    """
-    for filename in ["CONTRIBUTORS.txt"]:
-        os.remove(os.path.join(
-            PROJECT_DIRECTORY, filename
-        ))
+    symbols = []
+    if using_digits:
+        symbols += string.digits
+    if using_ascii_letters:
+        symbols += string.ascii_letters
+    if using_punctuation:
+        symbols += string.punctuation \
+            .replace('"', '') \
+            .replace("'", '') \
+            .replace('\\', '')
+    return ''.join([random.choice(symbols) for _ in range(length)])
 
 
-# IN PROGRESS
-# def copy_doc_files(project_directory):
-#     cookiecutters_dir = DEFAULT_CONFIG['cookiecutters_dir']
-#     cookiecutter_django_dir = os.path.join(
-#         cookiecutters_dir,
-#         'cookiecutter-django',
-#         'docs'
-#     )
-#     target_dir = os.path.join(
-#         project_directory,
-#         'docs'
-#     )
-#     for name in os.listdir(cookiecutter_django_dir):
-#         if name.endswith('.rst') and not name.startswith('index'):
-#             src = os.path.join(cookiecutter_django_dir, name)
-#             dst = os.path.join(target_dir, name)
-#             shutil.copyfile(src, dst)
+def set_flag(file_path,
+             flag,
+             value=None,
+             *args,
+             **kwargs):
+    if value is None:
+        random_string = generate_random_string(*args, **kwargs)
+        if random_string is None:
+            import sys
+            sys.stdout.write(
+                "We couldn't find a secure pseudo-random number generator on your system. "
+                "Please, make sure to manually {} later.".format(flag)
+            )
+            random_string = flag
+        value = random_string
 
-# Generates and saves random secret key
-make_secret_key(PROJECT_DIRECTORY)
+    with open(file_path, 'r+') as f:
+        file_contents = f.read().replace(flag, value)
+        f.seek(0)
+        f.write(file_contents)
+        f.truncate()
 
-# Removes the taskapp if celery isn't going to be used
-if '{{ cookiecutter.use_celery }}'.lower() == 'n':
-    remove_task_app(PROJECT_DIRECTORY)
+    return value
 
-# Removes the .idea directory if PyCharm isn't going to be used
-if '{{ cookiecutter.use_pycharm }}'.lower() != 'y':
-    remove_pycharm_dir(PROJECT_DIRECTORY)
 
-# Removes all heroku files if it isn't going to be used
-if '{{ cookiecutter.use_heroku }}'.lower() != 'y':
-    remove_heroku_files()
-
-# Removes all docker files if it isn't going to be used
-if '{{ cookiecutter.use_docker }}'.lower() != 'y':
-    remove_docker_files()
-
-# Removes all JS task manager files if it isn't going to be used
-if '{{ cookiecutter.js_task_runner}}'.lower() == 'gulp':
-    remove_grunt_files()
-elif '{{ cookiecutter.js_task_runner}}'.lower() == 'grunt':
-    remove_gulp_files()
-else:
-    remove_gulp_files()
-    remove_grunt_files()
-    remove_packageJSON_file()
-
-# Display a warning if use_docker and use_grunt are selected. Grunt isn't
-#   supported by our docker config atm.
-if '{{ cookiecutter.js_task_runner }}'.lower() in ['grunt', 'gulp'] and '{{ cookiecutter.use_docker }}'.lower() == 'y':
-    print(
-        "You selected to use docker and a JS task runner. This is NOT supported out of the box for now. You "
-        "can continue to use the project like you normally would, but you will need to add a "
-        "js task runner service to your docker configuration manually."
+def set_django_secret_key(file_path):
+    django_secret_key = set_flag(
+        file_path,
+        '!!!SET DJANGO_SECRET_KEY!!!',
+        length=50,
+        using_digits=True,
+        using_ascii_letters=True
     )
+    return django_secret_key
 
 
-# Removes files needed for the GPLv3 licence if it isn't going to be used.
-if '{{ cookiecutter.open_source_license}}' != 'GPLv3':
-    remove_copying_files()
+def set_postgres_user(file_path,
+                      value=None):
+    postgres_user = set_flag(
+        file_path,
+        '!!!SET POSTGRES_USER!!!',
+        value=value,
+        length=8,
+        using_ascii_letters=True
+    )
+    return postgres_user
 
-# Remove Elastic Beanstalk files
-if '{{ cookiecutter.use_elasticbeanstalk_experimental }}'.lower() != 'y':
-    remove_elasticbeanstalk()
 
-# Remove files conventional to opensource projects only.
-if '{{ cookiecutter.open_source_license }}' == 'Not open source':
-    remove_open_source_files()
+def set_postgres_password(file_path):
+    postgres_password = set_flag(
+        file_path,
+        '!!!SET POSTGRES_PASSWORD!!!',
+        length=42,
+        using_digits=True,
+        using_ascii_letters=True
+    )
+    return postgres_password
+
+
+def initialize_dotenv(postgres_user):
+    # Initializing `env.example` first.
+    envexample_file_path = os.path.join(PROJECT_DIR_PATH, 'env.example')
+    set_django_secret_key(envexample_file_path)
+    set_postgres_user(envexample_file_path, value=postgres_user)
+    set_postgres_password(envexample_file_path)
+    # Renaming `env.example` to `.env`.
+    dotenv_file_path = os.path.join(PROJECT_DIR_PATH, '.env')
+    shutil.move(envexample_file_path, dotenv_file_path)
+
+
+def initialize_localyml(postgres_user):
+    set_postgres_user(os.path.join(PROJECT_DIR_PATH, 'local.yml'), value=postgres_user)
+
+
+def initialize_local_settings():
+    set_django_secret_key(os.path.join(PROJECT_DIR_PATH, 'config', 'settings', 'local.py'))
+
+
+def initialize_test_settings():
+    set_django_secret_key(os.path.join(PROJECT_DIR_PATH, 'config', 'settings', 'test.py'))
+
+
+def main():
+    postgres_user = generate_random_string(length=16, using_ascii_letters=True)
+    initialize_dotenv(postgres_user)
+    initialize_localyml(postgres_user)
+    initialize_local_settings()
+    initialize_test_settings()
+
+    if '{{ cookiecutter.open_source_license }}' == 'Not open source':
+        remove_open_source_project_only_files()
+    elif '{{ cookiecutter.open_source_license}}' != 'GPLv3':
+        remove_gplv3_files()
+
+    if '{{ cookiecutter.use_pycharm }}'.lower() == 'n':
+        remove_pycharm_files()
+
+    if '{{ cookiecutter.use_docker }}'.lower() == 'n':
+        remove_docker_files()
+
+    remove_paas_files()
+
+    if '{{ cookiecutter.js_task_runner}}'.lower() == 'gulp':
+        remove_grunt_files()
+    elif '{{ cookiecutter.js_task_runner}}'.lower() == 'grunt':
+        remove_gulp_files()
+    else:
+        remove_gulp_files()
+        remove_grunt_files()
+        remove_packagejson_file()
+
+    if '{{ cookiecutter.js_task_runner }}'.lower() in ['grunt', 'gulp'] \
+        and '{{ cookiecutter.use_docker }}'.lower() == 'y':
+        TERMINATOR = "\x1b[0m"
+        INFO = "\x1b[1;33m [INFO]: "
+        sys.stdout.write(
+            INFO +
+            "Docker and {} JS task runner ".format('{{ cookiecutter.js_task_runner }}'.lower().capitalize()) +
+            "working together not supported yet. "
+            "You can continue using the generated project like you normally would, "
+            "however you would need to add a JS task runner service "
+            "to your Docker Compose configuration manually." +
+            TERMINATOR
+        )
+
+    if '{{ cookiecutter.use_celery }}'.lower() == 'n':
+        remove_celery_app()
+
+
+if __name__ == '__main__':
+    main()
