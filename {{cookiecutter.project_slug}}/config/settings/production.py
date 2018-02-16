@@ -177,7 +177,7 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [
 # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
 DATABASES['default'] = env.db('DATABASE_URL')
 DATABASES['default']['CONN_MAX_AGE'] = env.int('CONN_MAX_AGE', default={{ _DEFAULT_CONN_MAX_AGE }})
-
+DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 # CACHING
 # ------------------------------------------------------------------------------
