@@ -107,8 +107,8 @@ AWS_EXPIRY = 60 * 60 * 24 * 7
 # Revert the following and use str after the above-mentioned bug is fixed in
 # either django-storage-redux or boto
 control = 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIRY, AWS_EXPIRY)
-AWS_HEADERS = {
-    'Cache-Control': bytes(control, encoding='latin-1')
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': bytes(control, encoding='latin-1'),
 }
 
 # URL that handles the media served from MEDIA_ROOT, used for managing
