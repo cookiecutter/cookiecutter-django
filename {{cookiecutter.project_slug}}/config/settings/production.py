@@ -104,13 +104,13 @@ AWS_QUERYSTRING_AUTH = False
 AWS_EXPIRY = 60 * 60 * 24 * 7
 
 AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIRY, AWS_EXPIRY),
+    'CacheControl': f'max-age={AWS_EXPIRY}, s-maxage={AWS_EXPIRY}, must-revalidate',
 }
 
 # URL that handles the media served from MEDIA_ROOT, used for managing
 # stored files.
 {% if cookiecutter.use_whitenoise == 'y' -%}
-MEDIA_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+MEDIA_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 {% else %}
 #  See:http://stackoverflow.com/questions/10390244/
@@ -119,7 +119,7 @@ StaticRootS3BotoStorage = lambda: S3Boto3Storage(location='static')  # noqa
 MediaRootS3BotoStorage = lambda: S3Boto3Storage(location='media', file_overwrite=False)  # noqa
 DEFAULT_FILE_STORAGE = 'config.settings.production.MediaRootS3BotoStorage'
 
-MEDIA_URL = 'https://s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
+MEDIA_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/media/'
 {%- endif %}
 
 # Static Assets
@@ -127,7 +127,7 @@ MEDIA_URL = 'https://s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
 {% if cookiecutter.use_whitenoise == 'y' -%}
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 {% else %}
-STATIC_URL = 'https://s3.amazonaws.com/%s/static/' % AWS_STORAGE_BUCKET_NAME
+STATIC_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/static/'
 STATICFILES_STORAGE = 'config.settings.production.StaticRootS3BotoStorage'
 # See: https://github.com/antonagestam/collectfast
 # For Django 1.7+, 'collectfast' should come before
@@ -177,7 +177,7 @@ DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 # CACHING
 # ------------------------------------------------------------------------------
-REDIS_LOCATION = '{0}/{1}'.format(env('REDIS_URL', default='redis://127.0.0.1:6379'), 0)
+REDIS_LOCATION = f'{env("REDIS_URL", default="redis://127.0.0.1:6379")}/{0}'
 
 # Heroku URL does not pass the DB number, so we parse it in
 CACHES = {

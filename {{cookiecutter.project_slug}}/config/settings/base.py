@@ -23,7 +23,7 @@ if READ_DOT_ENV_FILE:
     # that is to say variables from the .env files will only be used if not defined
     # as environment variables.
     env_file = str(ROOT_DIR.path('.env'))
-    print('Loading : {}'.format(env_file))
+    print(f'Loading : {env_file}')
     env.read_env(env_file)
     print('The .env file has been loaded. See base.py for more information')
 
