@@ -2,11 +2,9 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2018-02-06]
+## [2018-02-16]
 ### Changed
-- Switched to the Alpine Docker image (@browniebroke)
-- Upgraded image to Python 3.6 (@browniebroke)
-- Upgraded Heroku runtime to latest Python (@browniebroke)
+- Upgraded to Django 2.0 (@epicwhale)
 
 ## [2018-01-15]
 ### Changed

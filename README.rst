@@ -38,10 +38,10 @@ production-ready Django projects quickly.
 Features
 ---------
 
-* For Django 1.11
+* For Django 2.0
 * Works with Python 3.6
 * Renders Django projects with 100% starting test coverage
-* Twitter Bootstrap_ v4.0.0 - beta 1 (`maintained Foundation fork`_ also available)
+* Twitter Bootstrap_ v4.0.0 (`maintained Foundation fork`_ also available)
 * 12-Factor_ based settings via django-environ_
 * Secure by default. We believe in SSL.
 * Optimized development and production settings
@@ -111,7 +111,7 @@ Two Scoops of Django 1.11
    :name: Two Scoops of Django 1.11 Cover
    :align: center
    :alt: Two Scoops of Django
-   :target: http://twoscoopspress.org/products/two-scoops-of-django-1-11
+   :target: http://twoscoopspress.com/products/two-scoops-of-django-1-11
 
 Two Scoops of Django is the best dessert-themed Django reference in the universe
 
