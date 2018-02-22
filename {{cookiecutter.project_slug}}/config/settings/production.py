@@ -103,12 +103,8 @@ AWS_QUERYSTRING_AUTH = False
 # AWS cache settings, don't change unless you know what you're doing:
 AWS_EXPIRY = 60 * 60 * 24 * 7
 
-# TODO See: https://github.com/jschneier/django-storages/issues/47
-# Revert the following and use str after the above-mentioned bug is fixed in
-# either django-storage-redux or boto
-control = 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIRY, AWS_EXPIRY)
-AWS_HEADERS = {
-    'Cache-Control': bytes(control, encoding='latin-1')
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=%d, s-maxage=%d, must-revalidate' % (AWS_EXPIRY, AWS_EXPIRY),
 }
 
 # URL that handles the media served from MEDIA_ROOT, used for managing
@@ -177,7 +173,7 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [
 # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
 DATABASES['default'] = env.db('DATABASE_URL')
 DATABASES['default']['CONN_MAX_AGE'] = env.int('CONN_MAX_AGE', default={{ _DEFAULT_CONN_MAX_AGE }})
-
+DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 # CACHING
 # ------------------------------------------------------------------------------

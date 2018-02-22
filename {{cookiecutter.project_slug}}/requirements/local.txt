@@ -1,11 +1,11 @@
 # Local development dependencies go here
 -r base.txt
 
-coverage==4.5
+coverage==4.5.1
 django-coverage-plugin==1.5.0
 
-Sphinx==1.6.7
-django-extensions==1.9.9
+Sphinx==1.7.0
+django-extensions==2.0.0
 Werkzeug==0.14.1
 django-test-plus==1.0.22
 factory-boy==2.10.0
@@ -13,7 +13,7 @@ factory-boy==2.10.0
 django-debug-toolbar==1.9.1
 
 # improved REPL
-ipdb==0.10.3
+ipdb==0.11
 
 pytest-django==3.1.2
 pytest-sugar==0.9.1
