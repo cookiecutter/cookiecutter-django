@@ -6,7 +6,7 @@
 # Python-PostgreSQL Database Adapter
 # Assuming Windows is used locally, and *nix -- in production.
 # ------------------------------------------------------------
-psycopg2==2.7.3.2
+psycopg2==2.7.4 --no-binary psycopg2
 {%- endif %}
 
 # WSGI Handler
@@ -16,7 +16,7 @@ gunicorn==19.7.1
 
 # Static and Media Storage
 # ------------------------------------------------
-boto3==1.5.22
+boto3==1.5.36
 django-storages==1.6.5
 {% if cookiecutter.use_whitenoise != 'y' -%}
 Collectfast==0.6.0
@@ -24,7 +24,7 @@ Collectfast==0.6.0
 
 # Email backends for Mailgun, Postmark, SendGrid and more
 # -------------------------------------------------------
-django-anymail==1.3
+django-anymail==1.4
 
 {% if cookiecutter.use_sentry_for_error_reporting == "y" -%}
 # Raven is the Sentry client

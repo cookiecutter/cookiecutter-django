@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 set -o errexit
 set -o pipefail
@@ -25,7 +25,7 @@ export DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres:5432/$
 export CELERY_BROKER_URL=$REDIS_URL/0
 {% endif %}
 
-function postgres_ready(){
+postgres_ready() {
 python << END
 import sys
 import psycopg2
