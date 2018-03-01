@@ -46,7 +46,7 @@ awesome-slugify==1.6.5
 pytz==2018.3
 
 # Redis support
-django-redis==4.8.0
+django-redis==4.9.0
 redis>=2.10.5
 
 {% if cookiecutter.use_celery == "y" %}
