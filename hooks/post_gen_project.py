@@ -241,7 +241,7 @@ def main():
 
     if '{{ cookiecutter.open_source_license }}' == 'Not open source':
         remove_open_source_project_only_files()
-    elif '{{ cookiecutter.open_source_license}}' != 'GPLv3':
+    if '{{ cookiecutter.open_source_license}}' != 'GPLv3':
         remove_gplv3_files()
 
     if '{{ cookiecutter.use_pycharm }}'.lower() == 'n':
