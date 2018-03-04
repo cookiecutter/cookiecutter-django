@@ -35,6 +35,6 @@
     "use_mailhog": "n",
     "use_sentry_for_error_reporting": "n",
     "use_opbeat": "n",
-    "use_whitenoise": "y",
+    "use_whitenoise": "n",
     "use_heroku": "n"
 }
