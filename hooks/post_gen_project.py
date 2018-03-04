@@ -78,6 +78,8 @@ def remove_heroku_files():
         remove_file(os.path.join(PROJECT_DIR_PATH, file_name))
 
 
+def remove_dotenv_file():
+    remove_file(os.path.join(PROJECT_DIR_PATH, '.env'))    
 
 
 def remove_grunt_files():
@@ -242,6 +244,9 @@ def main():
 
     if '{{ cookiecutter.use_heroku }}'.lower() == 'n':
         remove_heroku_files()
+
+    if '{{ cookiecutter.use_docker }}'.lower() == 'n' and '{{ cookiecutter.use_heroku }}'.lower() == 'n':
+        remove_dotenv_file()
 
     if '{{ cookiecutter.js_task_runner}}'.lower() == 'gulp':
         remove_grunt_files()
