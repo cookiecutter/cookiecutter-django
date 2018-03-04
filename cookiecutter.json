@@ -33,7 +33,7 @@
     "use_compressor": "n",
     "use_celery": "n",
     "use_mailhog": "n",
-    "use_sentry_for_error_reporting": "y",
+    "use_sentry_for_error_reporting": "n",
     "use_opbeat": "n",
     "use_whitenoise": "y",
     "use_heroku": "n"
