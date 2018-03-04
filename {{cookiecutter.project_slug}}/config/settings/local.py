@@ -15,6 +15,13 @@ Local settings for {{cookiecutter.project_name}} project.
 
 from .base import *  # noqa
 
+# SITE CONFIGURATION
+# ------------------------------------------------------------------------------
+ALLOWED_HOSTS = [
+    "localhost",
+    "0.0.0.0",
+]
+
 # DEBUG
 # ------------------------------------------------------------------------------
 DEBUG = env.bool('DJANGO_DEBUG', default=True)
