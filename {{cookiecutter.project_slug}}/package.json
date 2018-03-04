@@ -14,7 +14,7 @@
     "grunt-bg-shell": "~2.3.1",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-postcss": "~0.5.5",
-    "grunt-sass": "~1.0.0",
+    "grunt-sass": "~2.1.0",
     {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
     "jquery": "^3.2.1-slim",
     {% endif %}
