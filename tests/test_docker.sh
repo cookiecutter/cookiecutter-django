@@ -12,7 +12,7 @@ cd .cache/docker
 
 # create the project using the default settings in cookiecutter.json
 cookiecutter ../../ --no-input --overwrite-if-exists use_docker=y js_task_runner=None
-cd project_name
+cd my_awesome_project
 
 # run the project's tests
 docker-compose -f local.yml run django python manage.py test
