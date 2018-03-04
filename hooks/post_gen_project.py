@@ -72,22 +72,12 @@ def remove_heroku_files():
     file_names = [
         'Procfile',
         'runtime.txt',
+        'requirements.txt',
     ]
     for file_name in file_names:
         remove_file(os.path.join(PROJECT_DIR_PATH, file_name))
 
 
-def remove_paas_files():
-    none_paas_files_left = True
-
-    if '{{ cookiecutter.use_heroku }}'.lower() == 'n':
-        remove_heroku_files()
-        none_paas_files_left &= True
-    else:
-        none_paas_files_left &= False
-
-    if none_paas_files_left:
-        remove_file(os.path.join(PROJECT_DIR_PATH, 'requirements.txt'))
 
 
 def remove_grunt_files():
@@ -250,7 +240,8 @@ def main():
     if '{{ cookiecutter.use_docker }}'.lower() == 'n':
         remove_docker_files()
 
-    remove_paas_files()
+    if '{{ cookiecutter.use_heroku }}'.lower() == 'n':
+        remove_heroku_files()
 
     if '{{ cookiecutter.js_task_runner}}'.lower() == 'gulp':
         remove_grunt_files()
