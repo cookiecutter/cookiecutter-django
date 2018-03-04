@@ -7,10 +7,10 @@
     "domain_name": "example.com",
     "version": "0.1.0",
     "open_source_license": [
-        "MIT", 
-        "BSD", 
-        "GPLv3", 
-        "Apache Software License 2.0", 
+        "MIT",
+        "BSD",
+        "GPLv3",
+        "Apache Software License 2.0",
         "Not open source"
     ],
     "timezone": "UTC",
@@ -18,15 +18,17 @@
     "use_pycharm": "n",
     "use_docker": "n",
     "postgresql_version": [
-        "10", 
-        "9.6", 
-        "9.5", 
-        "9.4", 
+        "10.3",
+        "10.2",
+        "10.1",
+        "9.6",
+        "9.5",
+        "9.4",
         "9.3"
     ],
     "js_task_runner": [
-        "Gulp", 
-        "Grunt", 
+        "Gulp",
+        "Grunt",
         "None"
     ],
     "custom_bootstrap_compilation": "n",
