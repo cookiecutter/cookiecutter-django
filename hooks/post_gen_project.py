@@ -105,6 +105,10 @@ def remove_celery_app():
     shutil.rmtree(os.path.join(PROJECT_DIR_PATH, '{{ cookiecutter.project_slug }}', 'taskapp'))
 
 
+def remove_dottravisyml_file():
+    os.remove(os.path.join(PROJECT_DIR_PATH, '.travis.yml'))
+
+
 def append_to_project_gitignore(path):
     gitignore_file_path = os.path.join(PROJECT_DIR_PATH, '.gitignore')
     with open(gitignore_file_path, 'a') as gitignore_file:
@@ -268,6 +272,9 @@ def main():
 
     if '{{ cookiecutter.use_celery }}'.lower() == 'n':
         remove_celery_app()
+
+    if '{{ cookiecutter.use_travisci }}'.lower() == 'n':
+        remove_dottravisyml_file()
 
 
 if __name__ == '__main__':
