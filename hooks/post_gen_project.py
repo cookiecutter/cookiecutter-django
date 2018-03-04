@@ -25,11 +25,6 @@ except NotImplementedError:
 PROJECT_DIR_PATH = os.path.realpath(os.path.curdir)
 
 
-def remove_file(file_path):
-    if os.path.exists(file_path):
-        os.remove(file_path)
-
-
 def remove_open_source_project_only_files():
     file_names = [
         'CONTRIBUTORS.txt',
@@ -75,11 +70,11 @@ def remove_heroku_files():
         'requirements.txt',
     ]
     for file_name in file_names:
-        remove_file(os.path.join(PROJECT_DIR_PATH, file_name))
+        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
 
 
 def remove_dotenv_file():
-    remove_file(os.path.join(PROJECT_DIR_PATH, '.env'))    
+    os.remove(os.path.join(PROJECT_DIR_PATH, '.env'))    
 
 
 def remove_grunt_files():
