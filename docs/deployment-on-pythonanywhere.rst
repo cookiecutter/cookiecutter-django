@@ -63,6 +63,7 @@ Add these exports
 
 .. code-block:: bash
 
+    export WEB_CONCURRENCY=4
     export DJANGO_SETTINGS_MODULE='config.settings.production'
     export DJANGO_SECRET_KEY='<secret key goes here>'
     export DJANGO_ALLOWED_HOSTS='<www.your-domain.com>'

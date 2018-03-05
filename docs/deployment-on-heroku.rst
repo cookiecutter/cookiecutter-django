@@ -16,6 +16,7 @@ Run these commands to deploy the project to Heroku:
     heroku addons:create heroku-redis:hobby-dev
     heroku addons:create mailgun
 
+    heroku config:set WEB_CONCURRENCY=4
     heroku config:set DJANGO_ADMIN_URL="$(openssl rand -base64 32)"
     heroku config:set DJANGO_SECRET_KEY="$(openssl rand -base64 64)"
     heroku config:set DJANGO_SETTINGS_MODULE='config.settings.production'
