@@ -26,10 +26,6 @@ Run these commands to deploy the project to Heroku:
     heroku config:set DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY_HERE
     heroku config:set DJANGO_AWS_STORAGE_BUCKET_NAME=YOUR_AWS_S3_BUCKET_NAME_HERE
 
-    heroku config:set DJANGO_MAILGUN_SERVER_NAME=YOUR_MALGUN_SERVER
-    heroku config:set DJANGO_MAILGUN_API_KEY=YOUR_MAILGUN_API_KEY
-    heroku config:set MAILGUN_SENDER_DOMAIN=YOUR_MAILGUN_SENDER_DOMAIN
-
     heroku config:set PYTHONHASHSEED=random
     heroku config:set DJANGO_ADMIN_URL=\^somelocation/
 
