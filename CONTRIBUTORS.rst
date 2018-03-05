@@ -89,6 +89,7 @@ Listed in alphabetical order.
   Dong Huynh               `@trungdong`_
   Emanuel Calso            `@bloodpet`_                  @bloodpet
   Eraldo Energy            `@eraldo`_
+  Eric Groom               `@ericgroom`_
   Eyad Al Sibai            `@eyadsibai`_
   Felipe Arruda            `@arruda`_
   Garry Cairns             `@garry-cairns`_
