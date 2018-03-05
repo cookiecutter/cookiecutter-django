@@ -31,23 +31,23 @@
     "browser-sync": "^2.14.0",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
+    "gulp-autoprefixer": "^5.0.0",
     {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
     "gulp-concat": "^2.6.1",
     {% endif %}
     "gulp-cssnano": "^2.1.2",
-    "gulp-imagemin": "^3.0.3",
+    "gulp-imagemin": "^4.1.0",
     "gulp-pixrem": "^1.0.0",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
-    "gulp-uglify": "^2.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.7",
     {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
     "jquery": "^3.2.1-slim",
     "popper.js": "^1.12.3",
     {% endif %}
-    "run-sequence": "^1.2.2"
+    "run-sequence": "^2.1.1"
     {% endif %}
   },
   "engines": {
