@@ -19,7 +19,7 @@ email [daniel-roy-greenfeld@example.com]:
     The email address you want to identify yourself in the project.
 
 domain_name [example.com]
-    The domain name you plan to use for your project ones it goes live.
+    The domain name you plan to use for your project once it goes live.
     Note that it can be safely changed later on whenever you need to.
 
 version [0.1.0]
