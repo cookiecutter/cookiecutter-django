@@ -15,7 +15,7 @@ If you don't already have it, install `compass` (doesn't hurt if you run this co
 
 Now you just need::
 
-    $ grunt serve
+    $ npm run dev
 
 The base app will now run as it would with the usual ``manage.py runserver`` but with live reloading and Sass compilation enabled.
 

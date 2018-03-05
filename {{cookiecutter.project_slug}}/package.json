@@ -52,5 +52,13 @@
   },
   "engines": {
     "node": ">=0.8.0"
+  },
+  "scripts": {
+    {% if cookiecutter.js_task_runner == 'Grunt' %}
+    "dev": "grunt serve"
+    {% elif cookiecutter.js_task_runner == 'Gulp' %}
+    "dev": "gulp"
+    {% endif %}
+
   }
 }
