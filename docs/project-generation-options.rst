@@ -86,8 +86,12 @@ open_source_license [1]
     4. `Apache Software License 2.0`_
     5. Not open source
 
+use_travisci [n]
+    Generate `Travis CI`_ configuration file.
+
 **NOTE:** *If you choose to use Docker, selecting a JavaScript task runner is
 not supported out of the box.*
+
 
 .. _WhiteNoise: https://github.com/evansd/whitenoise
 .. _Celery: https://github.com/celery/celery
@@ -106,3 +110,4 @@ not supported out of the box.*
 .. _BSD: https://opensource.org/licenses/BSD-3-Clause
 .. _GPLv3: https://www.gnu.org/licenses/gpl.html
 .. _Apache Software License 2.0: http://www.apache.org/licenses/LICENSE-2.0
+.. _Travis CI: https://travis-ci.org/
