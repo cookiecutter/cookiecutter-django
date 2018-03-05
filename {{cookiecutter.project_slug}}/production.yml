@@ -3,7 +3,6 @@ version: '2'
 volumes:
   postgres_data: {}
   postgres_backup: {}
-  caddy: {}
 
 services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
@@ -14,7 +13,11 @@ services:
       - postgres
       - redis
     env_file: .env
+    environment:
+      - ENABLE_ACME=true
     command: /gunicorn.sh
+    expose:
+      - "5000"
 
   postgres:
     build:
@@ -25,18 +28,18 @@ services:
       - postgres_backup:/backups
     env_file: .env
 
-  caddy:
-    build:
-      context: .
-      dockerfile: ./compose/production/caddy/Dockerfile
+  nginx-proxy:
+    image: neilpang/nginx-proxy
     depends_on:
       - django
-    volumes:
-      - caddy:/root/.caddy
-    env_file: .env
     ports:
-      - "0.0.0.0:80:80"
-      - "0.0.0.0:443:443"
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./proxy/certs:/etc/nginx/certs
+      - ./proxy/acme:/acmecerts
+      - ./proxy/conf.d:/etc/nginx/conf.d
+    network_mode: "host"
 
   redis:
     image: redis:3.0

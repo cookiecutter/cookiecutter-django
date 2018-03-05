@@ -17,7 +17,7 @@ of this application gets its configuration from. Notice how it provides configur
 
 * `postgres` service that runs the database
 * `redis` for caching
-* `caddy` as webserver
+* `nginx` as proxy webserver
 * `django` is the Django project run by gunicorn
 
 If you chose the `use_celery` option, there are two more services:
@@ -66,11 +66,12 @@ It is always better to deploy a site behind HTTPS and will become crucial as the
 HTTPS is configured by default
 ------------------------------
 
-The Caddy webserver used in the default configuration will get you a valid certificate from Lets Encrypt and update it automatically. All you need to do to enable this is to make sure that your DNS records are pointing to the server Caddy runs on.
+The nginx webserver used in the default configuration will get you a valid certificate from Lets Encrypt and update it automatically, using the `nginx-proxy` docker image.
 
-You can read more about this here at `Automatic HTTPS`_ in the Caddy docs.
+You can read more about this here at `Automated Nginx Reverse Proxy for Docker`_ and the `acme.sh`_ docs.
 
-.. _Automatic HTTPS: https://caddyserver.com/docs/automatic-https
+.. _Automated Nginx Reverse Proxy for Docker: http://jasonwilder.com/blog/2014/03/25/automated-nginx-reverse-proxy-for-docker/
+.. _acme.sh: https://github.com/Neilpang/acme.sh
 
 
 Optional: Postgres Data Volume Modifications
@@ -115,7 +116,7 @@ If you want to scale your application, run::
    docker-compose -f production.yml scale django=4
    docker-compose -f production.yml scale celeryworker=2
 
-.. warning:: Don't run the scale command on postgres, celerybeat, or caddy.
+.. warning:: Don't run the scale command on postgres, celerybeat, or nginx-proxy.
 
 If you have errors, you can always check your stack with `docker-compose`. Switch to your projects root directory and run::
 
