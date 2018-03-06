@@ -7,12 +7,12 @@ NOTE:
 
 TODO: ? restrict Cookiecutter Django project initialization to Python 3.x environments only
 """
+from __future__ import print_function
 
 import os
 import random
 import shutil
 import string
-import sys
 
 try:
     # Inspired by
@@ -21,6 +21,12 @@ try:
     using_sysrandom = True
 except NotImplementedError:
     using_sysrandom = False
+
+TERMINATOR = "\x1b[0m"
+WARNING = "\x1b[1;33m [WARNING]: "
+INFO = "\x1b[1;33m [INFO]: "
+HINT = "\x1b[3;33m"
+SUCCESS = "\x1b[1;32m [SUCCESS]: "
 
 PROJECT_DIR_PATH = os.path.realpath(os.path.curdir)  # TODO: ? I doubt even need that
 
@@ -146,8 +152,7 @@ def set_flag(file_path,
     if value is None:
         random_string = generate_random_string(*args, **kwargs)
         if random_string is None:
-            import sys
-            sys.stdout.write(
+            print(
                 "We couldn't find a secure pseudo-random number generator on your system. "
                 "Please, make sure to manually {} later.".format(flag)
             )
@@ -223,8 +228,6 @@ def append_to_gitignore_file(s):
 
 
 def set_flags_in_envs(postgres_user):
-    append_to_gitignore_file('.envs' + '/**/*')
-
     local_postgres_envs_path = os.path.join(PROJECT_DIR_PATH, '.envs', '.local', '.postgres')
     set_postgres_user(local_postgres_envs_path, value=postgres_user)
     set_postgres_password(local_postgres_envs_path)
@@ -241,6 +244,11 @@ def set_flags_in_envs(postgres_user):
 def set_flags_in_settings_files():
     set_django_secret_key(os.path.join(PROJECT_DIR_PATH, 'config', 'settings', 'local.py'))
     set_django_secret_key(os.path.join(PROJECT_DIR_PATH, 'config', 'settings', 'test.py'))
+
+
+def remove_envs_and_associated_files():
+    shutil.rmtree('.envs')
+    os.remove('merge_production_dotenvs_in_dotenv.py')
 
 
 def main():
@@ -262,6 +270,24 @@ def main():
     if '{{ cookiecutter.use_heroku }}'.lower() == 'n':
         remove_heroku_files()
 
+    envs_make_sense = '{{ cookiecutter.use_docker }}'.lower() == 'n' \
+                      and '{{ cookiecutter.use_heroku }}'.lower() == 'n'
+    if envs_make_sense:
+        if '{{ cookiecutter.keep_local_envs_in_vcs }}'.lower() == 'y':
+            print(
+                INFO +
+                ".env(s) are only utilized when Docker Compose and/or "
+                "Heroku support is enabled so keeping them does not "
+                "make sense given your current setup." +
+                TERMINATOR
+            )
+        remove_envs_and_associated_files()
+    else:
+        append_to_gitignore_file('.env')
+        append_to_gitignore_file('.envs' + '/**/*')
+        if '{{ cookiecutter.keep_local_envs_in_vcs }}'.lower() == 'y':
+            append_to_gitignore_file('!.envs/.local/')
+
     if '{{ cookiecutter.js_task_runner}}'.lower() == 'gulp':
         remove_grunt_files()
     elif '{{ cookiecutter.js_task_runner}}'.lower() == 'grunt':
@@ -270,18 +296,20 @@ def main():
         remove_gulp_files()
         remove_grunt_files()
         remove_packagejson_file()
-
     if '{{ cookiecutter.js_task_runner }}'.lower() in ['grunt', 'gulp'] \
         and '{{ cookiecutter.use_docker }}'.lower() == 'y':
-        TERMINATOR = "\x1b[0m"
-        INFO = "\x1b[1;33m [INFO]: "
-        sys.stdout.write(
-            INFO +
-            "Docker and {} JS task runner ".format('{{ cookiecutter.js_task_runner }}'.lower().capitalize()) +
+        print(
+            WARNING +
+            "Docker and {} JS task runner ".format(
+                '{{ cookiecutter.js_task_runner }}'
+                    .lower()
+                    .capitalize()
+            ) +
             "working together not supported yet. "
-            "You can continue using the generated project like you normally would, "
-            "however you would need to add a JS task runner service "
-            "to your Docker Compose configuration manually." +
+            "You can continue using the generated project like you "
+            "normally would, however you would need to add a JS "
+            "task runner service to your Docker Compose configuration "
+            "manually." +
             TERMINATOR
         )
 
@@ -291,8 +319,11 @@ def main():
     if '{{ cookiecutter.use_travisci }}'.lower() == 'n':
         remove_dottravisyml_file()
 
-    if '{{ cookiecutter.keep_local_envs_in_vcs }}'.lower() == 'y':
-        append_to_gitignore_file('!.envs/.local/')
+    print(
+        SUCCESS +
+        "Project initialized, keep up the good work!" +
+        TERMINATOR
+    )
 
 
 if __name__ == '__main__':
