@@ -216,39 +216,37 @@ def set_postgres_password(file_path):
     return postgres_password
 
 
-def append_to_gitignore_file(s) -> None:
+def append_to_gitignore_file(s):
     with open(os.path.join(PROJECT_DIR_PATH, '.gitignore'), 'a') as gitignore_file:
         gitignore_file.write(s)
         gitignore_file.write(os.linesep)
 
 
-def initialize_envs(postgres_user):
-    envs_dir_path = '.envs'
+def set_flags_in_envs(postgres_user):
+    append_to_gitignore_file('.envs' + '/**/*')
 
-    append_to_gitignore_file(envs_dir_path + '/**/*')
-
-    local_postgres_envs_path = os.path.join(PROJECT_DIR_PATH, envs_dir_path, '.local', '.postgres')
+    local_postgres_envs_path = os.path.join(PROJECT_DIR_PATH, '.envs', '.local', '.postgres')
     set_postgres_user(local_postgres_envs_path, value=postgres_user)
     set_postgres_password(local_postgres_envs_path)
 
-    production_django_envs_path = os.path.join(PROJECT_DIR_PATH, envs_dir_path, '.production', '.django')
+    production_django_envs_path = os.path.join(PROJECT_DIR_PATH, '.envs', '.production', '.django')
     set_django_secret_key(production_django_envs_path)
     set_django_admin_url(production_django_envs_path)
 
-    production_postgres_envs_path = os.path.join(PROJECT_DIR_PATH, envs_dir_path, '.production', '.postgres')
+    production_postgres_envs_path = os.path.join(PROJECT_DIR_PATH, '.envs', '.production', '.postgres')
     set_postgres_user(production_postgres_envs_path, value=postgres_user)
     set_postgres_password(production_postgres_envs_path)
 
 
-def initialize_settings_files():
+def set_flags_in_settings_files():
     set_django_secret_key(os.path.join(PROJECT_DIR_PATH, 'config', 'settings', 'local.py'))
     set_django_secret_key(os.path.join(PROJECT_DIR_PATH, 'config', 'settings', 'test.py'))
 
 
 def main():
     postgres_user = generate_postgres_user()
-    initialize_envs(postgres_user)
-    initialize_settings_files()
+    set_flags_in_envs(postgres_user)
+    set_flags_in_settings_files()
 
     if '{{ cookiecutter.open_source_license }}' == 'Not open source':
         remove_open_source_project_only_files()
@@ -292,6 +290,9 @@ def main():
 
     if '{{ cookiecutter.use_travisci }}'.lower() == 'n':
         remove_dottravisyml_file()
+
+    if '{{ cookiecutter.keep_local_envs_in_vcs }}'.lower() == 'y':
+        append_to_gitignore_file('!.envs/.local/')
 
 
 if __name__ == '__main__':
