@@ -1,54 +1,20 @@
-"""
-Local settings for {{cookiecutter.project_name}} project.
-
-- Run in Debug mode
-{% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'y' %}
-- Use mailhog for emails via Docker
-{% elif cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' %}
-- Use mailhog for emails
-{% else %}
-- Use console backend for emails
-{% endif %}
-- Add Django Debug Toolbar
-- Add django-extensions as app
-"""
-
 from .base import *  # noqa
 
-# SITE CONFIGURATION
+# GENERAL
 # ------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/dev/ref/settings/#debug
+DEBUG = env.bool('DJANGO_DEBUG', default=True)
+# https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
+SECRET_KEY = env('DJANGO_SECRET_KEY', default='!!!SET DJANGO_SECRET_KEY!!!')
+# https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = [
     "localhost",
     "0.0.0.0",
 ]
 
-# DEBUG
+# CACHES
 # ------------------------------------------------------------------------------
-DEBUG = env.bool('DJANGO_DEBUG', default=True)
-TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
-
-# SECRET CONFIGURATION
-# ------------------------------------------------------------------------------
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-# Note: This key only used for development and testing.
-SECRET_KEY = env('DJANGO_SECRET_KEY', default='!!!SET DJANGO_SECRET_KEY!!!')
-
-# Mail settings
-# ------------------------------------------------------------------------------
-
-EMAIL_PORT = 1025
-{% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'y' %}
-EMAIL_HOST = env('EMAIL_HOST', default='mailhog')
-{% elif cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' %}
-EMAIL_HOST = 'localhost'
-{% else %}
-EMAIL_HOST = 'localhost'
-EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND',
-                    default='django.core.mail.backends.console.EmailBackend')
-{% endif %}
-
-# CACHING
-# ------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/dev/ref/settings/#caches
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
@@ -56,40 +22,62 @@ CACHES = {
     }
 }
 
+# TEMPLATES
+# ------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/dev/ref/settings/#templates
+TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
+
+# EMAIL
+# ------------------------------------------------------------------------------
+{% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'y' -%}
+# https://docs.djangoproject.com/en/dev/ref/settings/#email-host
+EMAIL_HOST = env('EMAIL_HOST', default='mailhog')
+{%- elif cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' -%}
+# https://docs.djangoproject.com/en/dev/ref/settings/#email-host
+EMAIL_HOST = 'localhost'
+{%- else -%}
+# https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
+EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.console.EmailBackend')
+# https://docs.djangoproject.com/en/dev/ref/settings/#email-host
+EMAIL_HOST = 'localhost'
+{%- endif %}
+# https://docs.djangoproject.com/en/dev/ref/settings/#email-port
+EMAIL_PORT = 1025
+
 # django-debug-toolbar
 # ------------------------------------------------------------------------------
-MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware', ]
-INSTALLED_APPS += ['debug_toolbar', ]
-
-INTERNAL_IPS = ['127.0.0.1', '10.0.2.2', ]
-{% if cookiecutter.use_docker == 'y' %}
-{# [cookiecutter-django] This is a workaround to flake8 "imported but unused" errors #}
-import socket
-import os
-# tricks to have debug toolbar when developing with docker
-if os.environ.get('USE_DOCKER') == 'yes':
-    ip = socket.gethostbyname(socket.gethostname())
-    INTERNAL_IPS += [ip[:-1] + '1']
-{% endif %}
+# https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#prerequisites
+INSTALLED_APPS += ['debug_toolbar']
+# https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#middleware
+MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']
+# https://django-debug-toolbar.readthedocs.io/en/latest/configuration.html#debug-toolbar-config
 DEBUG_TOOLBAR_CONFIG = {
     'DISABLE_PANELS': [
         'debug_toolbar.panels.redirects.RedirectsPanel',
     ],
     'SHOW_TEMPLATE_CONTEXT': True,
 }
+# https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#internal-ips
+INTERNAL_IPS = ['127.0.0.1', '10.0.2.2']
+{% if cookiecutter.use_docker == 'y' -%}
+import socket
+import os
+if os.environ.get('USE_DOCKER') == 'yes':
+    ip = socket.gethostbyname(socket.gethostname())
+    INTERNAL_IPS += [ip[:-1] + '1']
+{%- endif %}
 
 # django-extensions
 # ------------------------------------------------------------------------------
-INSTALLED_APPS += ['django_extensions', ]
+# https://django-extensions.readthedocs.io/en/latest/installation_instructions.html#configuration
+INSTALLED_APPS += ['django_extensions']
+{% if cookiecutter.use_celery == 'y' -%}
 
-# TESTING
+# Celery
 # ------------------------------------------------------------------------------
-TEST_RUNNER = 'django.test.runner.DiscoverRunner'
-{% if cookiecutter.use_celery == 'y' %}
-########## CELERY
-# In development, all tasks will be executed locally by blocking until the task returns
+# http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-task_always_eager
 CELERY_ALWAYS_EAGER = True
-########## END CELERY
-{% endif %}
-# Your local stuff: Below this line define 3rd party library settings
+
+{%- endif %}
+# Your stuff...
 # ------------------------------------------------------------------------------
