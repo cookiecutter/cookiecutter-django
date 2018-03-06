@@ -44,7 +44,7 @@ services:
 
   redis:
     image: redis:3.0
-{% if cookiecutter.use_celery == 'y' %}
+  {% if cookiecutter.use_celery == 'y' %}
   celeryworker:
     <<: *django
     depends_on:
@@ -64,4 +64,4 @@ services:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
     command: /start-celerybeat.sh
-{% endif %}
+  {% endif %}
