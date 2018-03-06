@@ -22,7 +22,7 @@ try:
 except NotImplementedError:
     using_sysrandom = False
 
-PROJECT_DIR_PATH = os.path.realpath(os.path.curdir)
+PROJECT_DIR_PATH = os.path.realpath(os.path.curdir)  # TODO: ? I doubt even need that
 
 
 def remove_open_source_project_only_files():
