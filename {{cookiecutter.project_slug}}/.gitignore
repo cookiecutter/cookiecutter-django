@@ -348,3 +348,5 @@ mailhog
 # See issue https://github.com/pydanny/cookiecutter-django/issues/1321
 !/compose/local/
 {% endif %}
+
+.env

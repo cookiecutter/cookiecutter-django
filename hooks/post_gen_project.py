@@ -144,6 +144,7 @@ def generate_random_string(length,
 def set_flag(file_path,
              flag,
              value=None,
+             formatted=None,
              *args,
              **kwargs):
     if value is None:
@@ -155,6 +156,8 @@ def set_flag(file_path,
                 "Please, make sure to manually {} later.".format(flag)
             )
             random_string = flag
+        if formatted is not None:
+            random_string = formatted.format(random_string)
         value = random_string
 
     with open(file_path, 'r+') as f:
@@ -170,11 +173,30 @@ def set_django_secret_key(file_path):
     django_secret_key = set_flag(
         file_path,
         '!!!SET DJANGO_SECRET_KEY!!!',
-        length=50,
+        length=64,
         using_digits=True,
         using_ascii_letters=True
     )
     return django_secret_key
+
+
+def set_django_admin_url(file_path):
+    django_admin_url = set_flag(
+        file_path,
+        '!!!SET DJANGO_ADMIN_URL!!!',
+        formatted='^{}/',
+        length=32,
+        using_digits=True,
+        using_ascii_letters=True
+    )
+    return django_admin_url
+
+
+def generate_postgres_user():
+    return generate_random_string(
+        length=32,
+        using_ascii_letters=True
+    )
 
 
 def set_postgres_user(file_path,
@@ -182,9 +204,7 @@ def set_postgres_user(file_path,
     postgres_user = set_flag(
         file_path,
         '!!!SET POSTGRES_USER!!!',
-        value=value,
-        length=8,
-        using_ascii_letters=True
+        value=value or generate_postgres_user()
     )
     return postgres_user
 
@@ -193,42 +213,46 @@ def set_postgres_password(file_path):
     postgres_password = set_flag(
         file_path,
         '!!!SET POSTGRES_PASSWORD!!!',
-        length=42,
+        length=64,
         using_digits=True,
         using_ascii_letters=True
     )
     return postgres_password
 
 
-def initialize_dotenv(postgres_user):
-    # Initializing `env.example` first.
-    envexample_file_path = os.path.join(PROJECT_DIR_PATH, 'env.example')
-    set_django_secret_key(envexample_file_path)
-    set_postgres_user(envexample_file_path, value=postgres_user)
-    set_postgres_password(envexample_file_path)
-    # Renaming `env.example` to `.env`.
-    dotenv_file_path = os.path.join(PROJECT_DIR_PATH, '.env')
-    shutil.move(envexample_file_path, dotenv_file_path)
+def append_to_gitignore_file(s) -> None:
+    with open(os.path.join(PROJECT_DIR_PATH, '.gitignore'), 'a') as gitignore_file:
+        gitignore_file.write(s)
+        gitignore_file.write(os.linesep)
 
 
-def initialize_localyml(postgres_user):
-    set_postgres_user(os.path.join(PROJECT_DIR_PATH, 'local.yml'), value=postgres_user)
+def initialize_envs(postgres_user):
+    envs_dir_path = '.envs'
+
+    append_to_gitignore_file(envs_dir_path + '/**/*')
+
+    local_postgres_envs_path = os.path.join(PROJECT_DIR_PATH, envs_dir_path, '.local', '.postgres')
+    set_postgres_user(local_postgres_envs_path, value=postgres_user)
+    set_postgres_password(local_postgres_envs_path)
+
+    production_django_envs_path = os.path.join(PROJECT_DIR_PATH, envs_dir_path, '.production', '.django')
+    set_django_secret_key(production_django_envs_path)
+    set_django_admin_url(production_django_envs_path)
+
+    production_postgres_envs_path = os.path.join(PROJECT_DIR_PATH, envs_dir_path, '.production', '.postgres')
+    set_postgres_user(production_postgres_envs_path, value=postgres_user)
+    set_postgres_password(production_postgres_envs_path)
 
 
-def initialize_local_settings():
+def initialize_settings_files():
     set_django_secret_key(os.path.join(PROJECT_DIR_PATH, 'config', 'settings', 'local.py'))
-
-
-def initialize_test_settings():
     set_django_secret_key(os.path.join(PROJECT_DIR_PATH, 'config', 'settings', 'test.py'))
 
 
 def main():
-    postgres_user = generate_random_string(length=16, using_ascii_letters=True)
-    initialize_dotenv(postgres_user)
-    initialize_localyml(postgres_user)
-    initialize_local_settings()
-    initialize_test_settings()
+    postgres_user = generate_postgres_user()
+    initialize_envs(postgres_user)
+    initialize_settings_files()
 
     if '{{ cookiecutter.open_source_license }}' == 'Not open source':
         remove_open_source_project_only_files()
