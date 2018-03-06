@@ -1,5 +1,5 @@
 # Conservative Django
-django==2.0.2 # pyup: < 2.1
+django==2.0.3 # pyup: < 2.1
 
 # Configuration
 django-environ==0.4.4
