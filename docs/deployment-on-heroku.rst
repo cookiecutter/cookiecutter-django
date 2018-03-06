@@ -17,7 +17,7 @@ Run these commands to deploy the project to Heroku:
     heroku addons:create mailgun
 
     heroku config:set WEB_CONCURRENCY=4
-    heroku config:set DJANGO_ADMIN_URL="$(openssl rand -base64 32)"
+    heroku config:set DJANGO_ADMIN_URL=\^somelocation/
     heroku config:set DJANGO_SECRET_KEY="$(openssl rand -base64 64)"
     heroku config:set DJANGO_SETTINGS_MODULE='config.settings.production'
     heroku config:set DJANGO_ALLOWED_HOSTS='.herokuapp.com'
@@ -30,8 +30,10 @@ Run these commands to deploy the project to Heroku:
     heroku config:set DJANGO_MAILGUN_API_KEY=YOUR_MAILGUN_API_KEY
     heroku config:set MAILGUN_SENDER_DOMAIN=YOUR_MAILGUN_SENDER_DOMAIN
 
+    # required if using sentry
+    heroku config:set DJANGO_SENTRY_DSN=YOUR_SENTRY_DSN
+
     heroku config:set PYTHONHASHSEED=random
-    heroku config:set DJANGO_ADMIN_URL=\^somelocation/
 
     git push heroku master
     heroku run python manage.py migrate
