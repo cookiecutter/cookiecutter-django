@@ -1,6 +1,7 @@
 import logging
 
 from .base import *  # noqa
+from .base import env
 
 # GENERAL
 # ------------------------------------------------------------------------------
@@ -11,9 +12,9 @@ ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['{{ cookiecutter.domai
 
 # DATABASES
 # ------------------------------------------------------------------------------
-DATABASES['default'] = env.db('DATABASE_URL')
-DATABASES['default']['ATOMIC_REQUESTS'] = True
-DATABASES['default']['CONN_MAX_AGE'] = env.int('CONN_MAX_AGE', default=60)
+DATABASES['default'] = env.db('DATABASE_URL')  # noqa F405
+DATABASES['default']['ATOMIC_REQUESTS'] = True  # noqa F405
+DATABASES['default']['CONN_MAX_AGE'] = env.int('CONN_MAX_AGE', default=60)  # noqa F405
 
 # CACHES
 # ------------------------------------------------------------------------------
@@ -62,7 +63,7 @@ X_FRAME_OPTIONS = 'DENY'
 # STORAGES
 # ------------------------------------------------------------------------------
 # https://django-storages.readthedocs.io/en/latest/#installation
-INSTALLED_APPS += ['storages']
+INSTALLED_APPS += ['storages']  # noqa F405
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
 AWS_ACCESS_KEY_ID = env('DJANGO_AWS_ACCESS_KEY_ID')
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
@@ -107,7 +108,7 @@ MEDIA_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/media/'
 # TEMPLATES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#templates
-TEMPLATES[0]['OPTIONS']['loaders'] = [
+TEMPLATES[0]['OPTIONS']['loaders'] = [  # noqa F405
     (
         'django.template.loaders.cached.Loader',
         [
@@ -137,7 +138,7 @@ ADMIN_URL = env('DJANGO_ADMIN_URL')
 # Anymail (Mailgun)
 # ------------------------------------------------------------------------------
 # https://anymail.readthedocs.io/en/stable/installation/#installing-anymail
-INSTALLED_APPS += ['anymail']
+INSTALLED_APPS += ['anymail']  # noqa F405
 EMAIL_BACKEND = 'anymail.backends.mailgun.EmailBackend'
 # https://anymail.readthedocs.io/en/stable/installation/#anymail-settings-reference
 ANYMAIL = {
@@ -147,13 +148,13 @@ ANYMAIL = {
 
 # Gunicorn
 # ------------------------------------------------------------------------------
-INSTALLED_APPS += ['gunicorn']
+INSTALLED_APPS += ['gunicorn']  # noqa F405
 
 {% if cookiecutter.use_whitenoise == 'y' -%}
 # WhiteNoise
 # ------------------------------------------------------------------------------
 # http://whitenoise.evans.io/en/latest/django.html#enable-whitenoise
-MIDDLEWARE = ['whitenoise.middleware.WhiteNoiseMiddleware'] + MIDDLEWARE
+MIDDLEWARE = ['whitenoise.middleware.WhiteNoiseMiddleware'] + MIDDLEWARE  # noqa F405
 
 {%- endif %}
 {% if cookiecutter.use_compressor == 'y' -%}
@@ -171,7 +172,7 @@ COMPRESS_URL = STATIC_URL
 # Collectfast
 # ------------------------------------------------------------------------------
 # https://github.com/antonagestam/collectfast#installation
-INSTALLED_APPS = ['collectfast'] + INSTALLED_APPS
+INSTALLED_APPS = ['collectfast'] + INSTALLED_APPS  # noqa F405
 AWS_PRELOAD_METADATA = True
 
 {%- endif %}
@@ -179,7 +180,7 @@ AWS_PRELOAD_METADATA = True
 # raven
 # ------------------------------------------------------------------------------
 # https://docs.sentry.io/clients/python/integrations/django/
-INSTALLED_APPS += ['raven.contrib.django.raven_compat']
+INSTALLED_APPS += ['raven.contrib.django.raven_compat']  # noqa F405
 MIDDLEWARE = ['raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware'] + MIDDLEWARE
 
 # Sentry
@@ -293,7 +294,7 @@ LOGGING = {
 # opbeat
 # ------------------------------------------------------------------------------
 # https://opbeat.com/docs/articles/get-started-with-django/#setup
-INSTALLED_APPS += ['opbeat.contrib.django']
+INSTALLED_APPS += ['opbeat.contrib.django']  # noqa F405
 # https://opbeat.com/docs/articles/get-started-with-django/#setup
 OPBEAT = {
     'ORGANIZATION_ID': env('DJANGO_OPBEAT_ORGANIZATION_ID'),
