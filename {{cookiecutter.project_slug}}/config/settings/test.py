@@ -3,6 +3,7 @@ With these settings, tests run faster.
 """
 
 from .base import *  # noqa
+from .base import env
 
 # GENERAL
 # ------------------------------------------------------------------------------
@@ -33,8 +34,8 @@ PASSWORD_HASHERS = [
 # TEMPLATES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#templates
-TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
-TEMPLATES[0]['OPTIONS']['loaders'] = [
+TEMPLATES[0]['OPTIONS']['debug'] = DEBUG  # noqa F405
+TEMPLATES[0]['OPTIONS']['loaders'] = [  # noqa F405
     (
         'django.template.loaders.cached.Loader',
         [

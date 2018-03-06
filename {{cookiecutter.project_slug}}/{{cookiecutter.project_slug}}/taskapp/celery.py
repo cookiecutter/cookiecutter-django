@@ -66,7 +66,7 @@ class CeleryConfig(AppConfig):
             try:
                 opbeat_register_signal(opbeat_client)
             except Exception as e:
-                opbeat_logger.exception('Failed installing celery hook: %s' % e)
+                opbeat_logger.exception(f'Failed installing celery hook: {e}')
 
             if 'opbeat.contrib.django' in settings.INSTALLED_APPS:
                 opbeat_register_handlers()
@@ -75,7 +75,7 @@ class CeleryConfig(AppConfig):
 
 @app.task(bind=True)
 def debug_task(self):
-    print('Request: {0!r}'.format(self.request))  # pragma: no cover
+    print(f'Request: {self.request!r}')  # pragma: no cover
 {% else %}
 # Use this as a starting point for your project with celery.
 # If you are not using celery, you can remove this app

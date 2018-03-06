@@ -1,6 +1,7 @@
 import logging
 
 from .base import *  # noqa
+from .base import env
 
 # GENERAL
 # ------------------------------------------------------------------------------
@@ -11,16 +12,16 @@ ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['{{ cookiecutter.domai
 
 # DATABASES
 # ------------------------------------------------------------------------------
-DATABASES['default'] = env.db('DATABASE_URL')
-DATABASES['default']['ATOMIC_REQUESTS'] = True
-DATABASES['default']['CONN_MAX_AGE'] = env.int('CONN_MAX_AGE', default=60)
+DATABASES['default'] = env.db('DATABASE_URL')  # noqa F405
+DATABASES['default']['ATOMIC_REQUESTS'] = True  # noqa F405
+DATABASES['default']['CONN_MAX_AGE'] = env.int('CONN_MAX_AGE', default=60)  # noqa F405
 
 # CACHES
 # ------------------------------------------------------------------------------
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': "{}/0".format(env('REDIS_URL', default='redis://127.0.0.1:6379')),
+        'LOCATION': f'{env("REDIS_URL", default="redis://127.0.0.1:6379")}/{0}',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
             # Mimicing memcache behavior.
@@ -62,7 +63,7 @@ X_FRAME_OPTIONS = 'DENY'
 # STORAGES
 # ------------------------------------------------------------------------------
 # https://django-storages.readthedocs.io/en/latest/#installation
-INSTALLED_APPS += ['storages']
+INSTALLED_APPS += ['storages']  # noqa F405
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
 AWS_ACCESS_KEY_ID = env('DJANGO_AWS_ACCESS_KEY_ID')
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
@@ -77,7 +78,7 @@ AWS_QUERYSTRING_AUTH = False
 _AWS_EXPIRY = 60 * 60 * 24 * 7
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
 AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=%d, s-maxage=%d, must-revalidate' % (_AWS_EXPIRY, _AWS_EXPIRY),
+    'CacheControl': f'max-age={_AWS_EXPIRY}, s-maxage={_AWS_EXPIRY}, must-revalidate',
 }
 
 # STATIC
@@ -93,7 +94,7 @@ STATIC_URL = 'https://s3.amazonaws.com/%s/static/' % AWS_STORAGE_BUCKET_NAME
 # ------------------------------------------------------------------------------
 {% if cookiecutter.use_whitenoise == 'y' -%}
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-MEDIA_URL = 'https://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+MEDIA_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/'
 {%- else %}
 # region http://stackoverflow.com/questions/10390244/
 from storages.backends.s3boto3 import S3Boto3Storage
@@ -101,13 +102,13 @@ StaticRootS3BotoStorage = lambda: S3Boto3Storage(location='static')  # noqa
 MediaRootS3BotoStorage = lambda: S3Boto3Storage(location='media', file_overwrite=False)  # noqa
 # endregion
 DEFAULT_FILE_STORAGE = 'config.settings.production.MediaRootS3BotoStorage'
-MEDIA_URL = 'https://s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
+MEDIA_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/media/'
 {%- endif %}
 
 # TEMPLATES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#templates
-TEMPLATES[0]['OPTIONS']['loaders'] = [
+TEMPLATES[0]['OPTIONS']['loaders'] = [  # noqa F405
     (
         'django.template.loaders.cached.Loader',
         [
@@ -137,7 +138,7 @@ ADMIN_URL = env('DJANGO_ADMIN_URL')
 # Anymail (Mailgun)
 # ------------------------------------------------------------------------------
 # https://anymail.readthedocs.io/en/stable/installation/#installing-anymail
-INSTALLED_APPS += ['anymail']
+INSTALLED_APPS += ['anymail']  # noqa F405
 EMAIL_BACKEND = 'anymail.backends.mailgun.EmailBackend'
 # https://anymail.readthedocs.io/en/stable/installation/#anymail-settings-reference
 ANYMAIL = {
@@ -147,13 +148,13 @@ ANYMAIL = {
 
 # Gunicorn
 # ------------------------------------------------------------------------------
-INSTALLED_APPS += ['gunicorn']
+INSTALLED_APPS += ['gunicorn']  # noqa F405
 
 {% if cookiecutter.use_whitenoise == 'y' -%}
 # WhiteNoise
 # ------------------------------------------------------------------------------
 # http://whitenoise.evans.io/en/latest/django.html#enable-whitenoise
-MIDDLEWARE = ['whitenoise.middleware.WhiteNoiseMiddleware'] + MIDDLEWARE
+MIDDLEWARE = ['whitenoise.middleware.WhiteNoiseMiddleware'] + MIDDLEWARE  # noqa F405
 
 {%- endif %}
 {% if cookiecutter.use_compressor == 'y' -%}
@@ -171,7 +172,7 @@ COMPRESS_URL = STATIC_URL
 # Collectfast
 # ------------------------------------------------------------------------------
 # https://github.com/antonagestam/collectfast#installation
-INSTALLED_APPS = ['collectfast'] + INSTALLED_APPS
+INSTALLED_APPS = ['collectfast'] + INSTALLED_APPS  # noqa F405
 AWS_PRELOAD_METADATA = True
 
 {%- endif %}
@@ -179,7 +180,7 @@ AWS_PRELOAD_METADATA = True
 # raven
 # ------------------------------------------------------------------------------
 # https://docs.sentry.io/clients/python/integrations/django/
-INSTALLED_APPS += ['raven.contrib.django.raven_compat']
+INSTALLED_APPS += ['raven.contrib.django.raven_compat']  # noqa F405
 MIDDLEWARE = ['raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware'] + MIDDLEWARE
 
 # Sentry
@@ -293,7 +294,7 @@ LOGGING = {
 # opbeat
 # ------------------------------------------------------------------------------
 # https://opbeat.com/docs/articles/get-started-with-django/#setup
-INSTALLED_APPS += ['opbeat.contrib.django']
+INSTALLED_APPS += ['opbeat.contrib.django']  # noqa F405
 # https://opbeat.com/docs/articles/get-started-with-django/#setup
 OPBEAT = {
     'ORGANIZATION_ID': env('DJANGO_OPBEAT_ORGANIZATION_ID'),
