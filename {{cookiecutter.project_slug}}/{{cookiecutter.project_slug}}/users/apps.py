@@ -11,6 +11,6 @@ class UsersConfig(AppConfig):
             Users signal registration
         """
         try:
-            import users.signals
+            import users.signals  # noqa F401
         except ImportError:
             pass
