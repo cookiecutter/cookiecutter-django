@@ -10,4 +10,7 @@ class UsersConfig(AppConfig):
             Users system checks
             Users signal registration
         """
-        pass
+        try:
+            import users.signals
+        except ImportError:
+            pass
