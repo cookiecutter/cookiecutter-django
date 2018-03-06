@@ -1,3 +1,5 @@
+import logging
+
 from .base import *  # noqa
 
 # GENERAL
@@ -155,7 +157,6 @@ MIDDLEWARE = ['whitenoise.middleware.WhiteNoiseMiddleware'] + MIDDLEWARE
 
 {%- endif %}
 {% if cookiecutter.use_compressor == 'y' -%}
-
 # django-compressor
 # ------------------------------------------------------------------------------
 # https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_ENABLED
@@ -167,7 +168,6 @@ COMPRESS_URL = STATIC_URL
 
 {%- endif %}
 {% if cookiecutter.use_whitenoise == 'n' -%}
-
 # Collectfast
 # ------------------------------------------------------------------------------
 # https://github.com/antonagestam/collectfast#installation
@@ -176,7 +176,6 @@ AWS_PRELOAD_METADATA = True
 
 {%- endif %}
 {% if cookiecutter.use_sentry_for_error_reporting == 'y' -%}
-
 # raven
 # ------------------------------------------------------------------------------
 # https://docs.sentry.io/clients/python/integrations/django/
@@ -235,8 +234,6 @@ LOGGING = {
     },
 }
 
-import logging
-
 SENTRY_CELERY_LOGLEVEL = env.int('DJANGO_SENTRY_LOG_LEVEL', logging.INFO)
 RAVEN_CONFIG = {
     'CELERY_LOGLEVEL': env.int('DJANGO_SENTRY_LOG_LEVEL', logging.INFO),
@@ -290,8 +287,8 @@ LOGGING = {
         }
     }
 }
-{%- endif %}
 
+{%- endif %}
 {% if cookiecutter.use_opbeat == 'y' -%}
 # opbeat
 # ------------------------------------------------------------------------------
@@ -305,7 +302,7 @@ OPBEAT = {
 }
 # https://opbeat.com/docs/articles/get-started-with-django/#performance-metrics
 MIDDLEWARE = ['opbeat.contrib.django.middleware.OpbeatAPMMiddleware'] + MIDDLEWARE
-{%- endif %}
 
+{%- endif %}
 # Your stuff...
 # ------------------------------------------------------------------------------
