@@ -3,15 +3,14 @@ from typing import Sequence
 
 import pytest
 
-PROJECT_DIR_PATH = os.path.dirname(os.path.realpath(__file__))
-
-PRODUCTION_DOTENV_DIR_PATH = os.path.join(PROJECT_DIR_PATH, '.envs', '.production')
+ROOT_DIR_PATH = os.path.dirname(os.path.realpath(__file__))
+PRODUCTION_DOTENVS_DIR_PATH = os.path.join(ROOT_DIR_PATH, '.envs', '.production')
 PRODUCTION_DOTENV_FILE_PATHS = [
-    os.path.join(PRODUCTION_DOTENV_DIR_PATH, '.django'),
-    os.path.join(PRODUCTION_DOTENV_DIR_PATH, '.postgres'),
-    os.path.join(PRODUCTION_DOTENV_DIR_PATH, '.caddy'),
+    os.path.join(PRODUCTION_DOTENVS_DIR_PATH, '.django'),
+    os.path.join(PRODUCTION_DOTENVS_DIR_PATH, '.postgres'),
+    os.path.join(PRODUCTION_DOTENVS_DIR_PATH, '.caddy'),
 ]
-DOTENV_FILE_PATH = os.path.join(PROJECT_DIR_PATH, '.env')
+DOTENV_FILE_PATH = os.path.join(ROOT_DIR_PATH, '.env')
 
 
 def merge(output_file_path: str,
@@ -32,9 +31,9 @@ def main():
 
 @pytest.mark.parametrize('merged_file_count', range(3))
 @pytest.mark.parametrize('append_linesep', [True, False])
-def test_when_merging_given_valid_arguments_should_succeed(tmpdir_factory,
-                                                           merged_file_count,
-                                                           append_linesep):
+def test_merge(tmpdir_factory,
+               merged_file_count: int,
+               append_linesep: bool):
     tmp_dir_path = str(tmpdir_factory.getbasetemp())
 
     output_file_path = os.path.join(tmp_dir_path, '.env')
