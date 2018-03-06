@@ -17,7 +17,8 @@ Run these commands to deploy the project to Heroku:
     heroku addons:create mailgun
 
     heroku config:set WEB_CONCURRENCY=4
-    heroku config:set DJANGO_ADMIN_URL="$(openssl rand -base64 32)"
+    # Generating a 32 character-long random string without any of the visually similiar characters "IOl01":
+    heroku config:set DJANGO_ADMIN_URL="^$(openssl rand -base64 4096 | tr -dc 'A-HJ-NP-Za-km-z2-9' | head -c 32)/"
     heroku config:set DJANGO_SECRET_KEY="$(openssl rand -base64 64)"
     heroku config:set DJANGO_SETTINGS_MODULE='config.settings.production'
     heroku config:set DJANGO_ALLOWED_HOSTS='.herokuapp.com'
@@ -26,8 +27,10 @@ Run these commands to deploy the project to Heroku:
     heroku config:set DJANGO_AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY_HERE
     heroku config:set DJANGO_AWS_STORAGE_BUCKET_NAME=YOUR_AWS_S3_BUCKET_NAME_HERE
 
+    # This is to be set only if you're using Sentry:
+    heroku config:set DJANGO_SENTRY_DSN=YOUR_SENTRY_DSN
+
     heroku config:set PYTHONHASHSEED=random
-    heroku config:set DJANGO_ADMIN_URL=\^somelocation/
 
     git push heroku master
     heroku run python manage.py migrate
