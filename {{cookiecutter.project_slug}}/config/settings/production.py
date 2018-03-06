@@ -1,6 +1,5 @@
 from .base import *  # noqa
 
-
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
