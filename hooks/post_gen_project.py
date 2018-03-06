@@ -25,11 +25,6 @@ except NotImplementedError:
 PROJECT_DIR_PATH = os.path.realpath(os.path.curdir)
 
 
-def remove_file(file_path):
-    if os.path.exists(file_path):
-        os.remove(file_path)
-
-
 def remove_open_source_project_only_files():
     file_names = [
         'CONTRIBUTORS.txt',
@@ -72,22 +67,14 @@ def remove_heroku_files():
     file_names = [
         'Procfile',
         'runtime.txt',
+        'requirements.txt',
     ]
     for file_name in file_names:
-        remove_file(os.path.join(PROJECT_DIR_PATH, file_name))
+        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
 
 
-def remove_paas_files():
-    none_paas_files_left = True
-
-    if '{{ cookiecutter.use_heroku }}'.lower() == 'n':
-        remove_heroku_files()
-        none_paas_files_left &= True
-    else:
-        none_paas_files_left &= False
-
-    if none_paas_files_left:
-        remove_file(os.path.join(PROJECT_DIR_PATH, 'requirements.txt'))
+def remove_dotenv_file():
+    os.remove(os.path.join(PROJECT_DIR_PATH, '.env'))    
 
 
 def remove_grunt_files():
@@ -116,6 +103,10 @@ def remove_packagejson_file():
 
 def remove_celery_app():
     shutil.rmtree(os.path.join(PROJECT_DIR_PATH, '{{ cookiecutter.project_slug }}', 'taskapp'))
+
+
+def remove_dottravisyml_file():
+    os.remove(os.path.join(PROJECT_DIR_PATH, '.travis.yml'))
 
 
 def append_to_project_gitignore(path):
@@ -241,7 +232,7 @@ def main():
 
     if '{{ cookiecutter.open_source_license }}' == 'Not open source':
         remove_open_source_project_only_files()
-    elif '{{ cookiecutter.open_source_license}}' != 'GPLv3':
+    if '{{ cookiecutter.open_source_license}}' != 'GPLv3':
         remove_gplv3_files()
 
     if '{{ cookiecutter.use_pycharm }}'.lower() == 'n':
@@ -250,7 +241,11 @@ def main():
     if '{{ cookiecutter.use_docker }}'.lower() == 'n':
         remove_docker_files()
 
-    remove_paas_files()
+    if '{{ cookiecutter.use_heroku }}'.lower() == 'n':
+        remove_heroku_files()
+
+    if '{{ cookiecutter.use_docker }}'.lower() == 'n' and '{{ cookiecutter.use_heroku }}'.lower() == 'n':
+        remove_dotenv_file()
 
     if '{{ cookiecutter.js_task_runner}}'.lower() == 'gulp':
         remove_grunt_files()
@@ -277,6 +272,9 @@ def main():
 
     if '{{ cookiecutter.use_celery }}'.lower() == 'n':
         remove_celery_app()
+
+    if '{{ cookiecutter.use_travisci }}'.lower() == 'n':
+        remove_dottravisyml_file()
 
 
 if __name__ == '__main__':

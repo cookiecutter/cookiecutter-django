@@ -47,9 +47,8 @@ DJANGO_AWS_STORAGE_BUCKET_NAME          AWS_STORAGE_BUCKET_NAME     n/a         
 DJANGO_SENTRY_DSN                       SENTRY_DSN                  n/a                                            raises error
 DJANGO_SENTRY_CLIENT                    SENTRY_CLIENT               n/a                                            raven.contrib.django.raven_compat.DjangoClient
 DJANGO_SENTRY_LOG_LEVEL                 SENTRY_LOG_LEVEL            n/a                                            logging.INFO
-DJANGO_MAILGUN_API_KEY                  MAILGUN_ACCESS_KEY          n/a                                            raises error
-DJANGO_MAILGUN_SERVER_NAME              MAILGUN_SERVER_NAME         n/a                                            raises error
-MAILGUN_SENDER_DOMAIN                   MAILGUN_SENDER_DOMAIN       n/a                                            raises error
+MAILGUN_API_KEY                         MAILGUN_ACCESS_KEY          n/a                                            raises error
+MAILGUN_DOMAIN                          MAILGUN_SENDER_DOMAIN       n/a                                            raises error
 NEW_RELIC_APP_NAME                      NEW_RELIC_APP_NAME          n/a                                            raises error
 NEW_RELIC_LICENSE_KEY                   NEW_RELIC_LICENSE_KEY       n/a                                            raises error
 DJANGO_OPBEAT_APP_ID                    OPBEAT['APP_ID']            n/a                                            raises error
