@@ -12,6 +12,10 @@ Cookiecutter Django
 .. image:: https://badges.gitter.im/Join Chat.svg
     :target: https://gitter.im/pydanny/cookiecutter-django?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
+.. image:: https://www.codetriage.com/pydanny/cookiecutter-django/badges/users.svg
+    :target: https://www.codetriage.com/pydanny/cookiecutter-django
+    :alt: Code Helpers Badge
+
 Powered by Cookiecutter_, Cookiecutter Django is a framework for jumpstarting
 production-ready Django projects quickly.
 
@@ -34,10 +38,10 @@ production-ready Django projects quickly.
 Features
 ---------
 
-* For Django 1.10
-* Works with Python 3.4.x or 3.5.x. Python 3.6 is experimental
+* For Django 2.0
+* Works with Python 3.6
 * Renders Django projects with 100% starting test coverage
-* Twitter Bootstrap_ v4.0.0 - beta 1 (`maintained Foundation fork`_ also available)
+* Twitter Bootstrap_ v4.0.0 (`maintained Foundation fork`_ also available)
 * 12-Factor_ based settings via django-environ_
 * Secure by default. We believe in SSL.
 * Optimized development and production settings
@@ -51,7 +55,6 @@ Features
 * Instructions for deploying to PythonAnywhere_
 * Run tests with unittest or py.test
 * Customizable PostgreSQL version
-* Experimental support for Amazon Elastic Beanstalk
 
 .. _`maintained Foundation fork`: https://github.com/Parbhat/cookiecutter-django-foundation
 
@@ -108,7 +111,7 @@ Two Scoops of Django 1.11
    :name: Two Scoops of Django 1.11 Cover
    :align: center
    :alt: Two Scoops of Django
-   :target: http://twoscoopspress.org/products/two-scoops-of-django-1-11
+   :target: http://twoscoopspress.com/products/two-scoops-of-django-1-11
 
 Two Scoops of Django is the best dessert-themed Django reference in the universe
 
@@ -168,16 +171,20 @@ Answer the prompts with your own desired options_. For example::
     use_heroku [n]: y
     use_compressor [n]: y
     Select postgresql_version:
-    1 - 9.5
-    2 - 9.4
-    3 - 9.3
-    4 - 9.2
+    1 - 10.3
+    2 - 10.2
+    3 - 10.1
+    4 - 9.6
+    5 - 9.5
+    6 - 9.4
+    7 - 9.3
     Choose from 1, 2, 3, 4 [1]: 1
     Select js_task_runner:
     1 - Gulp
     2 - Grunt
     3 - None
     Choose from 1, 2, 3, 4 [1]: 1
+    custom_bootstrap_compilation [n]: n
     Select open_source_license:
     1 - MIT
     2 - BSD
@@ -185,7 +192,6 @@ Answer the prompts with your own desired options_. For example::
     4 - Apache Software License 2.0
     5 - Not open source
     Choose from 1, 2, 3, 4, 5 [1]: 1
-    use_elasticbeanstalk_experimental: n
 
 Enter the project and take a look around::
 
@@ -222,7 +228,7 @@ Community
 .. _`issue`: https://github.com/pydanny/cookiecutter-django/issues
 .. _`Gitter`: https://gitter.im/pydanny/cookiecutter-django?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
-For Readers of Two Scoops of Django 1.8
+For Readers of Two Scoops of Django
 --------------------------------------------
 
 You may notice that some elements of this project do not exactly match what we describe in chapter 3. The reason for that is this project, amongst other things, serves as a test bed for trying out new ideas and concepts. Sometimes they work, sometimes they don't, but the end result is that it won't necessarily match precisely what is described in the book I co-authored.
@@ -274,13 +280,20 @@ experience better.
 Articles
 ---------
 
+* `Deploying Cookiecutter-Django with Docker-Compose`_ - Oct. 19, 2017
+* `Using Cookiecutter to Jumpstart a Django Project on Windows with PyCharm`_ - May 19, 2017
+* `Exploring with Cookiecutter`_ - Dec. 3, 2016
+* `Introduction to Cookiecutter-Django`_ - Feb. 19, 2016
+* `Django and GitLab - Running Continuous Integration and tests with your FREE account`_ - May. 11, 2016
 * `Development and Deployment of Cookiecutter-Django on Fedora`_ - Jan. 18, 2016
 * `Development and Deployment of Cookiecutter-Django via Docker`_ - Dec. 29, 2015
 * `How to create a Django Application using Cookiecutter and Django 1.8`_ - Sept. 12, 2015
-* `Introduction to Cookiecutter-Django`_ - Feb. 19, 2016
-* `Django and GitLab - Running Continuous Integration and tests with your FREE account`_ - May. 11, 2016
 
 Have a blog or online publication? Write about your cookiecutter-django tips and tricks, then send us a pull request with the link.
+
+.. _`Deploying Cookiecutter-Django with Docker-Compose`: http://adamantine.me/2017/10/19/deploying-cookiecutter-django-with-docker-compose/
+.. _`Exploring with Cookiecutter`: http://www.snowboardingcoder.com/django/2016/12/03/exploring-with-cookiecutter/
+.. _`Using Cookiecutter to Jumpstart a Django Project on Windows with PyCharm`: https://joshuahunter.com/posts/using-cookiecutter-to-jumpstart-a-django-project-on-windows-with-pycharm/
 
 .. _`Development and Deployment of Cookiecutter-Django via Docker`: https://realpython.com/blog/python/development-and-deployment-of-cookiecutter-django-via-docker/
 .. _`Development and Deployment of Cookiecutter-Django on Fedora`: https://realpython.com/blog/python/development-and-deployment-of-cookiecutter-django-on-fedora/
