@@ -83,7 +83,7 @@ Database setup:
 
 Go to the PythonAnywhere **Databases tab** and configure your database.
 
-* For Postgres, setup your superuser password, then open a Postgres console and run a `CREATE DATABASE my-db-name`.  You should probably also set up a specific role and permissions for your app, rather than using the superuser credentials.  Make a note of the address and port of your postgres server.
+* For Postgres, setup your superuser password, then open a Postgres console and run a ``CREATE DATABASE my-db-name``.  You should probably also set up a specific role and permissions for your app, rather than using the superuser credentials.  Make a note of the address and port of your postgres server.
 
 * For MySQL, set the password and create a database. More info here: https://help.pythonanywhere.com/pages/UsingMySQL
 

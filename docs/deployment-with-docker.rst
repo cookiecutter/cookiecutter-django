@@ -1,5 +1,5 @@
 Deployment with Docker
-=======================
+======================
 
 .. index:: Docker, deployment
 
@@ -10,7 +10,7 @@ Prerequisites
 * Docker Compose (at least 1.6)
 
 Understand the Compose Setup
---------------------------------
+----------------------------
 
 Before you start, check out the `production.yml` file in the root of this project. This is where each component
 of this application gets its configuration from. Notice how it provides configuration for these services:
@@ -73,12 +73,12 @@ You can read more about this here at `Automatic HTTPS`_ in the Caddy docs.
 .. _Automatic HTTPS: https://caddyserver.com/docs/automatic-https
 
 
-Optional: Postgres Data Volume Modifications
+(Optional) Postgres Data Volume Modifications
 ---------------------------------------------
 
 Postgres is saving its database files to the `postgres_data` volume by default. Change that if you want something else and make sure to make backups since this is not done automatically.
 
-Run your app with docker-compose
+Run your app with Docker Compose
 --------------------------------
 
 To get started, pull your code from source control (don't forget the `.env` file) and change to your projects root
@@ -94,15 +94,15 @@ Once this is ready, you can run it with::
 
 To run a migration, open up a second terminal and run::
 
-   docker-compose -f production.yml run django python manage.py migrate
+   docker-compose -f production.yml run --rm django python manage.py migrate
 
 To create a superuser, run::
 
-   docker-compose -f production.yml run django python manage.py createsuperuser
+   docker-compose -f production.yml run --rm django python manage.py createsuperuser
 
 If you need a shell, run::
 
-   docker-compose -f production.yml run django python manage.py shell
+   docker-compose -f production.yml run --rm django python manage.py shell
 
 To get an output of all running containers.
 

@@ -6,6 +6,7 @@ Getting Up and Running Locally With Docker
 The steps below will get you up and running with a local development environment.
 All of these commands assume you are in the root of your generated project.
 
+
 Prerequisites
 -------------
 
@@ -21,6 +22,7 @@ If you don't already have it installed, follow the instructions for your OS:
 .. _`Docker for Windows`: https://docs.docker.com/engine/installation/windows/
 .. _`docker-engine`: https://docs.docker.com/engine/installation/
 
+
 Attention Windows users
 -----------------------
 
@@ -31,6 +33,7 @@ Currently PostgreSQL (``psycopg2`` python package) is not installed inside Docke
 
 Doing this will prevent the project from being installed in an Windows-only environment (thus without usage of Docker). If you want to use this project without Docker, make sure to remove ``psycopg2`` from the requirements again.
 
+
 Build the Stack
 ---------------
 
@@ -39,10 +42,10 @@ on your development system::
 
     $ docker-compose -f local.yml build
 
-If you want to build the production environment you use ``production.yml`` as -f argument (``docker-compose.yml`` or ``docker-compose.yaml`` are the defaults).
+Generally, if you want to emulate production environment use ``production.yml`` instead. And this is true for any other actions you might need to perform: whenever a switch is required, just do it!
 
-Boot the System
----------------
+Run the Stack
+-------------
 
 This brings up both Django and PostgreSQL.
 
@@ -61,53 +64,44 @@ And then run::
 
     $ docker-compose up
 
-Running management commands
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To run in a detached (background) mode, just::
+
+    $ docker-compose up -d
+
+
+Execute Management Commands
+---------------------------
 
 As with any shell command that we wish to run in our container, this is done
-using the ``docker-compose -f local.yml run`` command.
+using the ``docker-compose -f local.yml run --rm`` command.
 
 To migrate your app and to create a superuser, run::
 
-    $ docker-compose -f local.yml run django python manage.py migrate
-    $ docker-compose -f local.yml run django python manage.py createsuperuser
+    $ docker-compose -f local.yml run --rm django python manage.py migrate
+    $ docker-compose -f local.yml run --rm django python manage.py createsuperuser
 
-Here we specify the ``django`` container as the location to run our management commands.
+Here, ``django`` is the target service we want to execute the commands against.
 
-Add your Docker development server IP
--------------------------------------
 
-When ``DEBUG`` is set to `True`, the host is validated against ``['localhost', '127.0.0.1', '[::1]']``. This is adequate when running a ``virtualenv``. For Docker, in the ``config.settings.local``, add your host development server IP to ``INTERNAL_IPS`` or ``ALLOWED_HOSTS`` if the variable exists.
+(Optionally) Designate your Docker Development Server IP
+--------------------------------------------------------
 
-Production Mode
-~~~~~~~~~~~~~~~
+When ``DEBUG`` is set to ``True``, the host is validated against ``['localhost', '127.0.0.1', '[::1]']``. This is adequate when running a ``virtualenv``. For Docker, in the ``config.settings.local``, add your host development server IP to ``INTERNAL_IPS`` or ``ALLOWED_HOSTS`` if the variable exists.
 
-Instead of using `local.yml`, you would use `production.yml`.
 
-Other Useful Tips
------------------
+Tips & Tricks
+-------------
 
-Make a machine the active unit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Activate a Docker Machine
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This tells our computer that all future commands are specifically for the dev1 machine.
-Using the ``eval`` command we can switch machines as needed.
-
-::
+Using the ``eval`` command we can switch machines as needed.::
 
     $ eval "$(docker-machine env dev1)"
 
-Detached Mode
-~~~~~~~~~~~~~
-
-If you want to run the stack in detached mode (in the background), use the ``-d`` argument:
-
-::
-
-    $ docker-compose -f local.yml up -d
-
 Debugging
-~~~~~~~~~~~~~
+~~~~~~~~~
 
 ipdb
 """""
@@ -122,37 +116,21 @@ Then you may need to run the following for it to work as desired:
 
 ::
 
-    $ docker-compose -f local.yml run --service-ports django
+    $ docker-compose -f local.yml run --rm --service-ports django
 
 
 django-debug-toolbar
 """"""""""""""""""""
 
-In order for django-debug-toolbar to work with docker you need to add your docker-machine ip address to ``INTERNAL_IPS`` in ``local.py``
+In order for ``django-debug-toolbar`` to work designate your Docker Machine IP with ``INTERNAL_IPS`` in ``local.py``.
 
 
-.. May be a better place to put this, as it is not Docker specific.
+Mailhog
+~~~~~~~
 
-You may need to add the following to your css in order for the django-debug-toolbar to be visible (this applies whether Docker is being used or not):
+When developing locally you can go with MailHog_ for email testing provided ``use_mailhog`` was set to ``y`` on setup. To proceed,
 
-.. code-block:: css
-
-    /* Override Bootstrap 4 styling on Django Debug Toolbar */
-    #djDebug[hidden], #djDebug [hidden] {
-        display: block !important;
-    }
-
-    #djDebug [hidden][style='display: none;'] {
-        display: none !important;
-    }
-
-
-Using the Mailhog Docker Container
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-In development you can (optionally) use MailHog_ for email testing. If you selected `use_docker`, MailHog is added as a Docker container. To use MailHog:
-
-1. Make sure, that ``mailhog`` docker container is up and running
-2. Open your browser and go to ``http://127.0.0.1:8025``
+1. make sure ``mailhog`` container is up and running;
+1. open up ``http://127.0.0.1:8025``.
 
 .. _Mailhog: https://github.com/mailhog/MailHog/
