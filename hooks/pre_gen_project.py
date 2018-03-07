@@ -22,8 +22,7 @@ if hasattr(project_slug, 'isidentifier'):
 
 assert "\\" not in "{{ cookiecutter.author_name }}", "Don't include backslashes in author name."
 
-using_docker = '{{ cookiecutter.use_docker }}'.lower()
-if using_docker == 'n':
+if '{{ cookiecutter.use_docker }}'.lower() == 'n':
     python_major_version = sys.version_info[0]
     if python_major_version == 2:
         print(
