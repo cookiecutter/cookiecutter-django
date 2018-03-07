@@ -28,15 +28,13 @@ INFO = "\x1b[1;33m [INFO]: "
 HINT = "\x1b[3;33m"
 SUCCESS = "\x1b[1;32m [SUCCESS]: "
 
-PROJECT_DIR_PATH = os.path.realpath(os.path.curdir)  # TODO: ? I doubt even need that
 
-
-def remove_open_source_project_only_files():
+def remove_open_source_files():
     file_names = [
         'CONTRIBUTORS.txt',
     ]
     for file_name in file_names:
-        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
+        os.remove(file_name)
 
 
 def remove_gplv3_files():
@@ -44,21 +42,21 @@ def remove_gplv3_files():
         'COPYING',
     ]
     for file_name in file_names:
-        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
+        os.remove(file_name)
 
 
 def remove_pycharm_files():
-    idea_dir_path = os.path.join(PROJECT_DIR_PATH, '.idea')
+    idea_dir_path = '.idea'
     if os.path.exists(idea_dir_path):
         shutil.rmtree(idea_dir_path)
 
-    docs_dir_path = os.path.join(PROJECT_DIR_PATH, 'docs', 'pycharm')
+    docs_dir_path = os.path.join('docs', 'pycharm')
     if os.path.exists(docs_dir_path):
         shutil.rmtree(docs_dir_path)
 
 
 def remove_docker_files():
-    shutil.rmtree(os.path.join(PROJECT_DIR_PATH, 'compose'))
+    shutil.rmtree('compose')
 
     file_names = [
         'local.yml',
@@ -66,7 +64,7 @@ def remove_docker_files():
         '.dockerignore',
     ]
     for file_name in file_names:
-        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
+        os.remove(file_name)
 
 
 def remove_heroku_files():
@@ -76,7 +74,7 @@ def remove_heroku_files():
         'requirements.txt',
     ]
     for file_name in file_names:
-        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
+        os.remove(file_name)
 
 
 def remove_grunt_files():
@@ -84,7 +82,7 @@ def remove_grunt_files():
         'Gruntfile.js',
     ]
     for file_name in file_names:
-        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
+        os.remove(file_name)
 
 
 def remove_gulp_files():
@@ -92,7 +90,7 @@ def remove_gulp_files():
         'gulpfile.js',
     ]
     for file_name in file_names:
-        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
+        os.remove(file_name)
 
 
 def remove_packagejson_file():
@@ -100,19 +98,19 @@ def remove_packagejson_file():
         'package.json',
     ]
     for file_name in file_names:
-        os.remove(os.path.join(PROJECT_DIR_PATH, file_name))
+        os.remove(file_name)
 
 
 def remove_celery_app():
-    shutil.rmtree(os.path.join(PROJECT_DIR_PATH, '{{ cookiecutter.project_slug }}', 'taskapp'))
+    shutil.rmtree(os.path.join('{{ cookiecutter.project_slug }}', 'taskapp'))
 
 
 def remove_dottravisyml_file():
-    os.remove(os.path.join(PROJECT_DIR_PATH, '.travis.yml'))
+    os.remove('.travis.yml')
 
 
 def append_to_project_gitignore(path):
-    gitignore_file_path = os.path.join(PROJECT_DIR_PATH, '.gitignore')
+    gitignore_file_path = '.gitignore'
     with open(gitignore_file_path, 'a') as gitignore_file:
         gitignore_file.write(path)
         gitignore_file.write(os.linesep)
@@ -222,28 +220,28 @@ def set_postgres_password(file_path):
 
 
 def append_to_gitignore_file(s):
-    with open(os.path.join(PROJECT_DIR_PATH, '.gitignore'), 'a') as gitignore_file:
+    with open('.gitignore', 'a') as gitignore_file:
         gitignore_file.write(s)
         gitignore_file.write(os.linesep)
 
 
 def set_flags_in_envs(postgres_user):
-    local_postgres_envs_path = os.path.join(PROJECT_DIR_PATH, '.envs', '.local', '.postgres')
+    local_postgres_envs_path = os.path.join('.envs', '.local', '.postgres')
     set_postgres_user(local_postgres_envs_path, value=postgres_user)
     set_postgres_password(local_postgres_envs_path)
 
-    production_django_envs_path = os.path.join(PROJECT_DIR_PATH, '.envs', '.production', '.django')
+    production_django_envs_path = os.path.join('.envs', '.production', '.django')
     set_django_secret_key(production_django_envs_path)
     set_django_admin_url(production_django_envs_path)
 
-    production_postgres_envs_path = os.path.join(PROJECT_DIR_PATH, '.envs', '.production', '.postgres')
+    production_postgres_envs_path = os.path.join('.envs', '.production', '.postgres')
     set_postgres_user(production_postgres_envs_path, value=postgres_user)
     set_postgres_password(production_postgres_envs_path)
 
 
 def set_flags_in_settings_files():
-    set_django_secret_key(os.path.join(PROJECT_DIR_PATH, 'config', 'settings', 'local.py'))
-    set_django_secret_key(os.path.join(PROJECT_DIR_PATH, 'config', 'settings', 'test.py'))
+    set_django_secret_key(os.path.join('config', 'settings', 'local.py'))
+    set_django_secret_key(os.path.join('config', 'settings', 'test.py'))
 
 
 def remove_envs_and_associated_files():
@@ -257,7 +255,7 @@ def main():
     set_flags_in_settings_files()
 
     if '{{ cookiecutter.open_source_license }}' == 'Not open source':
-        remove_open_source_project_only_files()
+        remove_open_source_files()
     if '{{ cookiecutter.open_source_license}}' != 'GPLv3':
         remove_gplv3_files()
 
@@ -270,9 +268,7 @@ def main():
     if '{{ cookiecutter.use_heroku }}'.lower() == 'n':
         remove_heroku_files()
 
-    envs_make_sense = '{{ cookiecutter.use_docker }}'.lower() == 'n' \
-                      and '{{ cookiecutter.use_heroku }}'.lower() == 'n'
-    if envs_make_sense:
+    if '{{ cookiecutter.use_docker }}'.lower() == 'n' and '{{ cookiecutter.use_heroku }}'.lower() == 'n':
         if '{{ cookiecutter.keep_local_envs_in_vcs }}'.lower() == 'y':
             print(
                 INFO +
