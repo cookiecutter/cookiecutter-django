@@ -10,21 +10,15 @@ All of these commands assume you are in the root of your generated project.
 Prerequisites
 -------------
 
-You'll need at least Docker 1.10.
+* Docker; if you don't have it yet, follow the `installation instructions`_;
+* Docker Compose; refer to the official documentation for the `installation guide`_.
 
-If you don't already have it installed, follow the instructions for your OS:
-
- - On Mac OS X, you'll need `Docker for Mac`_
- - On Windows, you'll need `Docker for Windows`_
- - On Linux, you'll need `docker-engine`_
-
-.. _`Docker for Mac`: https://docs.docker.com/engine/installation/mac/
-.. _`Docker for Windows`: https://docs.docker.com/engine/installation/windows/
-.. _`docker-engine`: https://docs.docker.com/engine/installation/
+.. _`installation instructions`: https://docs.docker.com/install/#supported-platforms
+.. _`installation guide`: https://docs.docker.com/compose/install/
 
 
-Attention Windows users
------------------------
+Attention, Windows Users
+------------------------
 
 Currently PostgreSQL (``psycopg2`` python package) is not installed inside Docker containers for Windows users, while it is required by the generated Django project. To fix this, add ``psycopg2`` to the list of requirements inside ``requirements/base.txt``::
 
@@ -37,20 +31,17 @@ Doing this will prevent the project from being installed in an Windows-only envi
 Build the Stack
 ---------------
 
-This can take a while, especially the first time you run this particular command
-on your development system::
+This can take a while, especially the first time you run this particular command on your development system::
 
     $ docker-compose -f local.yml build
 
 Generally, if you want to emulate production environment use ``production.yml`` instead. And this is true for any other actions you might need to perform: whenever a switch is required, just do it!
 
+
 Run the Stack
 -------------
 
-This brings up both Django and PostgreSQL.
-
-The first time it is run it might take a while to get started, but subsequent
-runs will occur quickly.
+This brings up both Django and PostgreSQL. The first time it is run it might take a while to get started, but subsequent runs will occur quickly.
 
 Open a terminal at the project root and run the following for local development::
 
@@ -72,15 +63,12 @@ To run in a detached (background) mode, just::
 Execute Management Commands
 ---------------------------
 
-As with any shell command that we wish to run in our container, this is done
-using the ``docker-compose -f local.yml run --rm`` command.
-
-To migrate your app and to create a superuser, run::
+As with any shell command that we wish to run in our container, this is done using the ``docker-compose -f local.yml run --rm`` command: ::
 
     $ docker-compose -f local.yml run --rm django python manage.py migrate
     $ docker-compose -f local.yml run --rm django python manage.py createsuperuser
 
-Here, ``django`` is the target service we want to execute the commands against.
+Here, ``django`` is the target service we are executing the commands against.
 
 
 (Optionally) Designate your Docker Development Server IP
@@ -89,14 +77,55 @@ Here, ``django`` is the target service we want to execute the commands against.
 When ``DEBUG`` is set to ``True``, the host is validated against ``['localhost', '127.0.0.1', '[::1]']``. This is adequate when running a ``virtualenv``. For Docker, in the ``config.settings.local``, add your host development server IP to ``INTERNAL_IPS`` or ``ALLOWED_HOSTS`` if the variable exists.
 
 
+Configuring the Environment
+---------------------------
+
+This is the excerpt from your project's ``local.yml``: ::
+
+  # ...
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    volumes:
+      - postgres_data_local:/var/lib/postgresql/data
+      - postgres_backup_local:/backups
+    env_file:
+      - ./.envs/.local/.postgres
+
+  # ...
+
+The most important thing for us here now is ``env_file`` section enlisting ``./.envs/.local/.postgres``. Generally, the stack's behavior is governed by a number of environment variables (`env(s)`, for short) residing in ``envs/``, for instance, this is what we generate for you: ::
+
+    .envs
+    ├── .local
+    │   ├── .django
+    │   └── .postgres
+    └── .production
+        ├── .caddy
+        ├── .django
+        └── .postgres
+
+By convention, for any service ``sI`` in environment ``e`` (you know ``someenv`` is an environment when there is a ``someenv.yml`` file in the project root), given ``sI`` requires configuration, a ``.envs/.e/.sI`` `service configuration` file exists.
+
+Consider the aforementioned ``.envs/.local/.postgres``: ::
+
+    # PostgreSQL
+    # ------------------------------------------------------------------------------
+    POSTGRES_USER=XgOWtQtJecsAbaIyslwGvFvPawftNaqO
+    POSTGRES_PASSWORD=jSljDz4whHuwO3aJIgVBrqEml5Ycbghorep4uVJ4xjDYQu0LfuTZdctj7y0YcCLu
+
+The two envs we are presented with here are ``POSTGRES_USER``, and ``POSTGRES_PASSWORD`` (by the way, their values have also been generated for you). You might have figured out already where these definitions will end up; it's all the same with ``django`` and ``caddy`` service container envs.
+
+
 Tips & Tricks
 -------------
 
 Activate a Docker Machine
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This tells our computer that all future commands are specifically for the dev1 machine.
-Using the ``eval`` command we can switch machines as needed.::
+This tells our computer that all future commands are specifically for the dev1 machine. Using the ``eval`` command we can switch machines as needed.::
 
     $ eval "$(docker-machine env dev1)"
 
@@ -106,15 +135,11 @@ Debugging
 ipdb
 """""
 
-If you are using the following within your code to debug:
-
-::
+If you are using the following within your code to debug: ::
 
     import ipdb; ipdb.set_trace()
 
-Then you may need to run the following for it to work as desired:
-
-::
+Then you may need to run the following for it to work as desired: ::
 
     $ docker-compose -f local.yml run --rm --service-ports django
 
@@ -130,7 +155,8 @@ Mailhog
 
 When developing locally you can go with MailHog_ for email testing provided ``use_mailhog`` was set to ``y`` on setup. To proceed,
 
-1. make sure ``mailhog`` container is up and running;
-1. open up ``http://127.0.0.1:8025``.
+#. make sure ``mailhog`` container is up and running;
+
+#. open up ``http://127.0.0.1:8025``.
 
 .. _Mailhog: https://github.com/mailhog/MailHog/
