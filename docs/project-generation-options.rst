@@ -10,10 +10,10 @@ project_slug [my_awesome_project]:
     is needed.
 
 description [Behold My Awesome Project!]
-    Describes your project and gets used in places like `README.rst` and such.
+    Describes your project and gets used in places like ``README.rst`` and such.
 
 author_name [Daniel Roy Greenfeld]:
-    This is you! The value goes into places like `LICENSE` and such.
+    This is you! The value goes into places like ``LICENSE`` and such.
 
 email [daniel-roy-greenfeld@example.com]:
     The email address you want to identify yourself in the project.
@@ -35,7 +35,7 @@ open_source_license [1]
     5. Not open source
 
 timezone [UTC]
-    The value to be used for the `TIME_ZONE` setting of the project.
+    The value to be used for the ``TIME_ZONE`` setting of the project.
 
 windows [n]
     Indicates whether the project should be configured for development on Windows.
@@ -93,6 +93,11 @@ use_heroku [n]
 
 use_travisci [n]
     Indicates whether the project should be configured to use `Travis CI`_.
+
+keep_local_envs_in_vcs [y]
+    Indicates whether the project's ``.envs/.local/`` should be kept in VCS
+    (comes in handy when working in teams where local environment reproducibility
+    is strongly encouraged).
 
 
 .. _MIT: https://opensource.org/licenses/MIT

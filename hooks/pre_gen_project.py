@@ -6,6 +6,15 @@ NOTE:
 
 TODO: ? restrict Cookiecutter Django project initialization to Python 3.x environments only
 """
+from __future__ import print_function
+
+import sys
+
+TERMINATOR = "\x1b[0m"
+WARNING = "\x1b[1;33m [WARNING]: "
+INFO = "\x1b[1;33m [INFO]: "
+HINT = "\x1b[3;33m"
+SUCCESS = "\x1b[1;32m [SUCCESS]: "
 
 project_slug = '{{ cookiecutter.project_slug }}'
 if hasattr(project_slug, 'isidentifier'):
@@ -13,20 +22,10 @@ if hasattr(project_slug, 'isidentifier'):
 
 assert "\\" not in "{{ cookiecutter.author_name }}", "Don't include backslashes in author name."
 
-
-using_docker = '{{ cookiecutter.use_docker }}'.lower()
-if using_docker == 'n':
-    TERMINATOR = "\x1b[0m"
-    WARNING = "\x1b[1;33m [WARNING]: "
-    INFO = "\x1b[1;33m [INFO]: "
-    HINT = "\x1b[3;33m"
-    SUCCESS = "\x1b[1;32m [SUCCESS]: "
-
-    import sys
-
+if '{{ cookiecutter.use_docker }}'.lower() == 'n':
     python_major_version = sys.version_info[0]
     if python_major_version == 2:
-        sys.stdout.write(
+        print(
             WARNING +
             "Cookiecutter Django does not support Python 2. "
             "Stability is guaranteed with Python 3.6+ only, "
@@ -39,14 +38,14 @@ if using_docker == 'n':
             if choice in yes_options:
                 break
             elif choice in no_options:
-                sys.stdout.write(
+                print(
                     INFO +
                     "Generation process stopped as requested." +
                     TERMINATOR
                 )
                 sys.exit(1)
             else:
-                sys.stdout.write(
+                print(
                     HINT +
                     "Please respond with {} or {}: ".format(
                         ', '.join(["'{}'".format(o) for o in yes_options if not o == '']),
@@ -54,9 +53,3 @@ if using_docker == 'n':
                     ) +
                     TERMINATOR
                 )
-
-    sys.stdout.write(
-        SUCCESS +
-        "Project initialized, keep up the good work!" +
-        TERMINATOR
-    )

@@ -129,7 +129,7 @@ Pyup brings you automated security and dependency updates used by Google and oth
 Usage
 ------
 
-Let's pretend you want to create a Django project called "redditclone". Rather than using `startproject`
+Let's pretend you want to create a Django project called "redditclone". Rather than using ``startproject``
 and then editing the results to include your name, email, and various configuration issues that always get forgotten until the worst possible moment, get cookiecutter_ to do all the work.
 
 First, get Cookiecutter. Trust me, it's awesome::
@@ -192,6 +192,7 @@ Answer the prompts with your own desired options_. For example::
     4 - Apache Software License 2.0
     5 - Not open source
     Choose from 1, 2, 3, 4, 5 [1]: 1
+    keep_local_envs_in_vcs [y]: y
 
 Enter the project and take a look around::
 
