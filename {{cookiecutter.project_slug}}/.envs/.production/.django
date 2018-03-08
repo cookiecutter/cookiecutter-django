@@ -30,7 +30,11 @@ DJANGO_ACCOUNT_ALLOW_REGISTRATION=True
 # django-compressor
 # ------------------------------------------------------------------------------
 COMPRESS_ENABLED=
-{% endif %}{% if cookiecutter.use_sentry_for_error_reporting == 'y' %}
+{% endif %}
+# Gunicorn
+# ------------------------------------------------------------------------------
+WEB_CONCURRENCY=4
+{% if cookiecutter.use_sentry_for_error_reporting == 'y' %}
 # Sentry
 # ------------------------------------------------------------------------------
 DJANGO_SENTRY_DSN=
