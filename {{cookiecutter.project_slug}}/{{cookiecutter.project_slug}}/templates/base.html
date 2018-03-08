@@ -113,6 +113,10 @@
       <script src="{% static 'js/project.js' %}"></script>
       {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% endcompress %}{% endraw %}{% endif %}{% raw %}
 
+      {% if debug %}
+            <script src="https://cdn.rawgit.com/Khan/tota11y/ce0d19ed/build/tota11y.min.js"></script>
+      {% endif %}
+
     {% endblock javascript %}
   </body>
 </html>
