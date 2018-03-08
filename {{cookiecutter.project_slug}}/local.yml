@@ -11,7 +11,7 @@ services:
       dockerfile: ./compose/local/django/Dockerfile
     depends_on:
       - postgres
-      {% if cookiecutter.use_mailhog == 'y' -%}
+      {%- if cookiecutter.use_mailhog == 'y' %}
       - mailhog
       {%- endif %}
     volumes:
@@ -19,6 +19,9 @@ services:
     env_file:
       - ./.envs/.local/.django
       - ./.envs/.local/.postgres
+      {%- if cookiecutter.use_celery == 'y' %}
+      - ./.envs/.local/.celery
+      {%- endif %}
     ports:
       - "8000:8000"
     command: /start.sh
@@ -32,12 +35,16 @@ services:
       - postgres_backup_local:/backups
     env_file:
       - ./.envs/.local/.postgres
-  {% if cookiecutter.use_mailhog == 'y' %}
+  {%- if cookiecutter.use_mailhog == 'y' %}
+
   mailhog:
     image: mailhog/mailhog:v1.0.0
     ports:
       - "8025:8025"
-  {% endif %}{% if cookiecutter.use_celery == 'y' %}
+
+  {%- endif %}
+  {%- if cookiecutter.use_celery == 'y' %}
+
   redis:
     image: redis:3.0
 
@@ -49,6 +56,8 @@ services:
       {% if cookiecutter.use_mailhog == 'y' -%}
       - mailhog
       {%- endif %}
+    env_file:
+      - ./.envs/.local/.celery
     ports: []
     command: /start-celeryworker.sh
 
@@ -60,6 +69,9 @@ services:
       {% if cookiecutter.use_mailhog == 'y' -%}
       - mailhog
       {%- endif %}
+    env_file:
+      - ./.envs/.local/.celery
     ports: []
     command: /start-celerybeat.sh
-  {% endif %}
+
+  {%- endif %}

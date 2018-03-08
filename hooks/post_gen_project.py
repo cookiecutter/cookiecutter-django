@@ -249,6 +249,11 @@ def remove_envs_and_associated_files():
     os.remove('merge_production_dotenvs_in_dotenv.py')
 
 
+def remove_celery_envs():
+    os.remove(os.path.join('.envs', '.local', '.celery'))
+    os.remove(os.path.join('.envs', '.production', '.celery'))
+
+
 def main():
     postgres_user = generate_postgres_user()
     set_flags_in_envs(postgres_user)
@@ -311,6 +316,8 @@ def main():
 
     if '{{ cookiecutter.use_celery }}'.lower() == 'n':
         remove_celery_app()
+        if '{{ cookiecutter.use_docker }}'.lower() == 'y':
+            remove_celery_envs()
 
     if '{{ cookiecutter.use_travisci }}'.lower() == 'n':
         remove_dottravisyml_file()
