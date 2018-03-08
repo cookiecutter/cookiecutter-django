@@ -1,0 +1,43 @@
+# General
+# ------------------------------------------------------------------------------
+# DJANGO_READ_DOT_ENV_FILE=True
+DJANGO_SETTINGS_MODULE=config.settings.production
+DJANGO_SECRET_KEY=!!!SET DJANGO_SECRET_KEY!!!
+DJANGO_ADMIN_URL=!!!SET DJANGO_ADMIN_URL!!!
+DJANGO_ALLOWED_HOSTS=.{{ cookiecutter.domain_name }}
+
+# Security
+# ------------------------------------------------------------------------------
+# TIP: better off using DNS, however, redirect is OK too
+DJANGO_SECURE_SSL_REDIRECT=False
+
+# Email
+# ------------------------------------------------------------------------------
+MAILGUN_API_KEY=
+DJANGO_SERVER_EMAIL=
+MAILGUN_DOMAIN=
+
+# AWS
+# ------------------------------------------------------------------------------
+DJANGO_AWS_ACCESS_KEY_ID=
+DJANGO_AWS_SECRET_ACCESS_KEY=
+DJANGO_AWS_STORAGE_BUCKET_NAME=
+
+# django-allauth
+# ------------------------------------------------------------------------------
+DJANGO_ACCOUNT_ALLOW_REGISTRATION=True
+{% if cookiecutter.use_compressor == 'y' %}
+# django-compressor
+# ------------------------------------------------------------------------------
+COMPRESS_ENABLED=
+{% endif %}{% if cookiecutter.use_sentry_for_error_reporting == 'y' %}
+# Sentry
+# ------------------------------------------------------------------------------
+DJANGO_SENTRY_DSN=
+{% endif %}{% if cookiecutter.use_opbeat == 'y' %}
+# opbeat
+# ------------------------------------------------------------------------------
+DJANGO_OPBEAT_ORGANIZATION_ID=
+DJANGO_OPBEAT_APP_ID=
+DJANGO_OPBEAT_SECRET_TOKEN=
+{% endif %}

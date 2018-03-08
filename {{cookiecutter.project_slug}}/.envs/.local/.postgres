@@ -1,0 +1,4 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_USER=!!!SET POSTGRES_USER!!!
+POSTGRES_PASSWORD=!!!SET POSTGRES_PASSWORD!!!

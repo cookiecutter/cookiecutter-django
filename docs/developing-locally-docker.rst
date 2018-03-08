@@ -6,23 +6,19 @@ Getting Up and Running Locally With Docker
 The steps below will get you up and running with a local development environment.
 All of these commands assume you are in the root of your generated project.
 
+
 Prerequisites
 -------------
 
-You'll need at least Docker 1.10.
+* Docker; if you don't have it yet, follow the `installation instructions`_;
+* Docker Compose; refer to the official documentation for the `installation guide`_.
 
-If you don't already have it installed, follow the instructions for your OS:
+.. _`installation instructions`: https://docs.docker.com/install/#supported-platforms
+.. _`installation guide`: https://docs.docker.com/compose/install/
 
- - On Mac OS X, you'll need `Docker for Mac`_
- - On Windows, you'll need `Docker for Windows`_
- - On Linux, you'll need `docker-engine`_
 
-.. _`Docker for Mac`: https://docs.docker.com/engine/installation/mac/
-.. _`Docker for Windows`: https://docs.docker.com/engine/installation/windows/
-.. _`docker-engine`: https://docs.docker.com/engine/installation/
-
-Attention Windows users
------------------------
+Attention, Windows Users
+------------------------
 
 Currently PostgreSQL (``psycopg2`` python package) is not installed inside Docker containers for Windows users, while it is required by the generated Django project. To fix this, add ``psycopg2`` to the list of requirements inside ``requirements/base.txt``::
 
@@ -31,23 +27,21 @@ Currently PostgreSQL (``psycopg2`` python package) is not installed inside Docke
 
 Doing this will prevent the project from being installed in an Windows-only environment (thus without usage of Docker). If you want to use this project without Docker, make sure to remove ``psycopg2`` from the requirements again.
 
+
 Build the Stack
 ---------------
 
-This can take a while, especially the first time you run this particular command
-on your development system::
+This can take a while, especially the first time you run this particular command on your development system::
 
     $ docker-compose -f local.yml build
 
-If you want to build the production environment you use ``production.yml`` as -f argument (``docker-compose.yml`` or ``docker-compose.yaml`` are the defaults).
+Generally, if you want to emulate production environment use ``production.yml`` instead. And this is true for any other actions you might need to perform: whenever a switch is required, just do it!
 
-Boot the System
----------------
 
-This brings up both Django and PostgreSQL.
+Run the Stack
+-------------
 
-The first time it is run it might take a while to get started, but subsequent
-runs will occur quickly.
+This brings up both Django and PostgreSQL. The first time it is run it might take a while to get started, but subsequent runs will occur quickly.
 
 Open a terminal at the project root and run the following for local development::
 
@@ -61,98 +55,108 @@ And then run::
 
     $ docker-compose up
 
-Running management commands
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To run in a detached (background) mode, just::
 
-As with any shell command that we wish to run in our container, this is done
-using the ``docker-compose -f local.yml run`` command.
+    $ docker-compose up -d
 
-To migrate your app and to create a superuser, run::
 
-    $ docker-compose -f local.yml run django python manage.py migrate
-    $ docker-compose -f local.yml run django python manage.py createsuperuser
+Execute Management Commands
+---------------------------
 
-Here we specify the ``django`` container as the location to run our management commands.
+As with any shell command that we wish to run in our container, this is done using the ``docker-compose -f local.yml run --rm`` command: ::
 
-Add your Docker development server IP
--------------------------------------
+    $ docker-compose -f local.yml run --rm django python manage.py migrate
+    $ docker-compose -f local.yml run --rm django python manage.py createsuperuser
 
-When ``DEBUG`` is set to `True`, the host is validated against ``['localhost', '127.0.0.1', '[::1]']``. This is adequate when running a ``virtualenv``. For Docker, in the ``config.settings.local``, add your host development server IP to ``INTERNAL_IPS`` or ``ALLOWED_HOSTS`` if the variable exists.
+Here, ``django`` is the target service we are executing the commands against.
 
-Production Mode
-~~~~~~~~~~~~~~~
 
-Instead of using `local.yml`, you would use `production.yml`.
+(Optionally) Designate your Docker Development Server IP
+--------------------------------------------------------
 
-Other Useful Tips
------------------
+When ``DEBUG`` is set to ``True``, the host is validated against ``['localhost', '127.0.0.1', '[::1]']``. This is adequate when running a ``virtualenv``. For Docker, in the ``config.settings.local``, add your host development server IP to ``INTERNAL_IPS`` or ``ALLOWED_HOSTS`` if the variable exists.
 
-Make a machine the active unit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This tells our computer that all future commands are specifically for the dev1 machine.
-Using the ``eval`` command we can switch machines as needed.
+Configuring the Environment
+---------------------------
 
-::
+This is the excerpt from your project's ``local.yml``: ::
+
+  # ...
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    volumes:
+      - postgres_data_local:/var/lib/postgresql/data
+      - postgres_backup_local:/backups
+    env_file:
+      - ./.envs/.local/.postgres
+
+  # ...
+
+The most important thing for us here now is ``env_file`` section enlisting ``./.envs/.local/.postgres``. Generally, the stack's behavior is governed by a number of environment variables (`env(s)`, for short) residing in ``envs/``, for instance, this is what we generate for you: ::
+
+    .envs
+    ├── .local
+    │   ├── .django
+    │   └── .postgres
+    └── .production
+        ├── .caddy
+        ├── .django
+        └── .postgres
+
+By convention, for any service ``sI`` in environment ``e`` (you know ``someenv`` is an environment when there is a ``someenv.yml`` file in the project root), given ``sI`` requires configuration, a ``.envs/.e/.sI`` `service configuration` file exists.
+
+Consider the aforementioned ``.envs/.local/.postgres``: ::
+
+    # PostgreSQL
+    # ------------------------------------------------------------------------------
+    POSTGRES_USER=XgOWtQtJecsAbaIyslwGvFvPawftNaqO
+    POSTGRES_PASSWORD=jSljDz4whHuwO3aJIgVBrqEml5Ycbghorep4uVJ4xjDYQu0LfuTZdctj7y0YcCLu
+
+The two envs we are presented with here are ``POSTGRES_USER``, and ``POSTGRES_PASSWORD`` (by the way, their values have also been generated for you). You might have figured out already where these definitions will end up; it's all the same with ``django`` and ``caddy`` service container envs.
+
+
+Tips & Tricks
+-------------
+
+Activate a Docker Machine
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This tells our computer that all future commands are specifically for the dev1 machine. Using the ``eval`` command we can switch machines as needed.::
 
     $ eval "$(docker-machine env dev1)"
 
-Detached Mode
-~~~~~~~~~~~~~
-
-If you want to run the stack in detached mode (in the background), use the ``-d`` argument:
-
-::
-
-    $ docker-compose -f local.yml up -d
-
 Debugging
-~~~~~~~~~~~~~
+~~~~~~~~~
 
 ipdb
 """""
 
-If you are using the following within your code to debug:
-
-::
+If you are using the following within your code to debug: ::
 
     import ipdb; ipdb.set_trace()
 
-Then you may need to run the following for it to work as desired:
+Then you may need to run the following for it to work as desired: ::
 
-::
-
-    $ docker-compose -f local.yml run --service-ports django
+    $ docker-compose -f local.yml run --rm --service-ports django
 
 
 django-debug-toolbar
 """"""""""""""""""""
 
-In order for django-debug-toolbar to work with docker you need to add your docker-machine ip address to ``INTERNAL_IPS`` in ``local.py``
+In order for ``django-debug-toolbar`` to work designate your Docker Machine IP with ``INTERNAL_IPS`` in ``local.py``.
 
 
-.. May be a better place to put this, as it is not Docker specific.
+Mailhog
+~~~~~~~
 
-You may need to add the following to your css in order for the django-debug-toolbar to be visible (this applies whether Docker is being used or not):
+When developing locally you can go with MailHog_ for email testing provided ``use_mailhog`` was set to ``y`` on setup. To proceed,
 
-.. code-block:: css
+#. make sure ``mailhog`` container is up and running;
 
-    /* Override Bootstrap 4 styling on Django Debug Toolbar */
-    #djDebug[hidden], #djDebug [hidden] {
-        display: block !important;
-    }
-
-    #djDebug [hidden][style='display: none;'] {
-        display: none !important;
-    }
-
-
-Using the Mailhog Docker Container
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-In development you can (optionally) use MailHog_ for email testing. If you selected `use_docker`, MailHog is added as a Docker container. To use MailHog:
-
-1. Make sure, that ``mailhog`` docker container is up and running
-2. Open your browser and go to ``http://127.0.0.1:8025``
+#. open up ``http://127.0.0.1:8025``.
 
 .. _Mailhog: https://github.com/mailhog/MailHog/
