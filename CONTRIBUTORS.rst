@@ -116,6 +116,7 @@ Listed in alphabetical order.
   Luis Nell                `@originell`_
   Lukas Klein
   Lyla Fischer
+  Malik Sulaimanov         `@flyudvik`_                  @flyudvik
   Martin Blech
   Mathijs Hoogland         `@MathijsHoogland`_
   Matt Braymer-Hayes       `@mattayes`_                  @mattayes
@@ -196,6 +197,7 @@ Listed in alphabetical order.
 .. _@eraldo: https://github.com/eraldo
 .. _@eriol: https://github.com/eriol
 .. _@eyadsibai: https://github.com/eyadsibai
+.. _@flyudvik: https://github.com/flyudvik
 .. _@garry-cairns: https://github.com/garry-cairns
 .. _@garrypolley: https://github.com/garrypolley
 .. _@goldhand: https://github.com/goldhand
