@@ -113,10 +113,11 @@ Consider the aforementioned ``.envs/.local/.postgres``: ::
 
     # PostgreSQL
     # ------------------------------------------------------------------------------
+    POSTGRES_DB=<your project slug>
     POSTGRES_USER=XgOWtQtJecsAbaIyslwGvFvPawftNaqO
     POSTGRES_PASSWORD=jSljDz4whHuwO3aJIgVBrqEml5Ycbghorep4uVJ4xjDYQu0LfuTZdctj7y0YcCLu
 
-The two envs we are presented with here are ``POSTGRES_USER``, and ``POSTGRES_PASSWORD`` (by the way, their values have also been generated for you). You might have figured out already where these definitions will end up; it's all the same with ``django`` and ``caddy`` service container envs.
+The three envs we are presented with here are ``POSTGRES_DB``, ``POSTGRES_USER``, and ``POSTGRES_PASSWORD`` (by the way, their values have also been generated for you). You might have figured out already where these definitions will end up; it's all the same with ``django`` and ``caddy`` service container envs.
 
 
 Tips & Tricks
