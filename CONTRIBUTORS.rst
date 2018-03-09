@@ -16,7 +16,7 @@ Fábio C. Barrionuevo da Luz `@luzfcb`_       @luzfcb
 Saurabh Kumar               `@theskumar`_    @_theskumar
 Jannis Gebauer              `@jayfk`_
 Burhan Khalid               `@burhan`_       @burhan
-Shupeyko Nikita             `@webyneter`_    @webyneter
+Nikita Shupeyko             `@webyneter`_    @webyneter
 Bruno Alla                  `@browniebroke`_ @_BrunoAlla
 =========================== ================ ===========
 

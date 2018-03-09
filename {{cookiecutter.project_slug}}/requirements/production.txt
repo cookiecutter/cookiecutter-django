@@ -18,4 +18,4 @@ opbeat==3.6.1  # https://github.com/opbeat/opbeat_python
 # Django
 # ------------------------------------------------------------------------------
 django-storages==1.6.5  # https://github.com/jschneier/django-storages
-django-anymail==1.4  # https://github.com/anymail/django-anymail
+django-anymail==2.0  # https://github.com/anymail/django-anymail
