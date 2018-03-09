@@ -285,7 +285,7 @@ def main():
         remove_envs_and_associated_files()
     else:
         append_to_gitignore_file('.env')
-        append_to_gitignore_file('.envs' + '/**/*')
+        append_to_gitignore_file('.envs/*')
         if '{{ cookiecutter.keep_local_envs_in_vcs }}'.lower() == 'y':
             append_to_gitignore_file('!.envs/.local/')
 
