@@ -1,39 +1,21 @@
-# Pro-tip: Try not to put anything here. Avoid dependencies in
-#	production that aren't in development.
+# PRECAUTION: avoid production dependencies that aren't in development
+
 -r base.txt
 
-{% if cookiecutter.windows == 'y' -%}
-# Python-PostgreSQL Database Adapter
-# Assuming Windows is used locally, and *nix -- in production.
-# ------------------------------------------------------------
-psycopg2==2.7.4 --no-binary psycopg2
-{%- endif %}
-
-# WSGI Handler
-# ------------------------------------------------
 gevent==1.2.2
-gunicorn==19.7.1
-
-# Static and Media Storage
-# ------------------------------------------------
-boto3==1.6.2 # pyup: update minor
-django-storages==1.6.5
-{% if cookiecutter.use_whitenoise != 'y' -%}
-Collectfast==0.6.0
+gunicorn==19.7.1  # https://github.com/benoitc/gunicorn
+boto3==1.6.2  # pyup: update minor  # https://github.com/boto/boto3
+{%- if cookiecutter.use_whitenoise == 'n' %}
+Collectfast==0.6.0  # https://github.com/antonagestam/collectfast
+{%- endif %}
+{%- if cookiecutter.use_sentry_for_error_reporting == "y" %}
+raven==6.6.0  # https://github.com/getsentry/raven-python
+{%- endif %}
+{%- if cookiecutter.use_opbeat == "y" %}
+opbeat==3.6.1  # https://github.com/opbeat/opbeat_python
 {%- endif %}
 
-# Email backends for Mailgun, Postmark, SendGrid and more
-# -------------------------------------------------------
-django-anymail==2.0
-
-{% if cookiecutter.use_sentry_for_error_reporting == "y" -%}
-# Raven is the Sentry client
-# --------------------------
-raven==6.6.0
-{%- endif %}
-
-{% if cookiecutter.use_opbeat == "y" -%}
-# Opbeat agent for performance monitoring
-# -----------------------------------------
-opbeat==3.6.1
-{%- endif %}
+# Django
+# ------------------------------------------------------------------------------
+django-storages==1.6.5  # https://github.com/jschneier/django-storages
+django-anymail==2.0  # https://github.com/anymail/django-anymail

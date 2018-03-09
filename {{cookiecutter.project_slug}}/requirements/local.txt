@@ -1,19 +1,25 @@
-# Local development dependencies go here
--r base.txt
+-r ./base.txt
 
-coverage==4.5.1
-django-coverage-plugin==1.5.0
+Werkzeug==0.14.1  # https://github.com/pallets/werkzeug
+ipdb==0.11  # https://github.com/gotcha/ipdb
+Sphinx==1.7.1  # https://github.com/sphinx-doc/sphinx
 
-Sphinx==1.7.1
-django-extensions==2.0.3
-Werkzeug==0.14.1
-django-test-plus==1.0.22
-factory-boy==2.10.0
+# Testing
+# ------------------------------------------------------------------------------
+pytest==3.4.2  # https://github.com/pytest-dev/pytest
+pytest-sugar==0.9.1  # https://github.com/Frozenball/pytest-sugar
 
-django-debug-toolbar==1.9.1
+# Code quality
+# ------------------------------------------------------------------------------
+flake8==3.5.0  # https://github.com/PyCQA/flake8
+coverage==4.5.1  # https://github.com/nedbat/coveragepy
 
-# improved REPL
-ipdb==0.11
+# Django
+# ------------------------------------------------------------------------------
+factory-boy==2.10.0  # https://github.com/FactoryBoy/factory_boy
+django-test-plus==1.0.22  # https://github.com/revsys/django-test-plus
 
-pytest-django==3.1.2
-pytest-sugar==0.9.1
+django-debug-toolbar==1.9.1  # https://github.com/jazzband/django-debug-toolbar
+django-extensions==2.0.3  # https://github.com/django-extensions/django-extensions
+django-coverage-plugin==1.5.0  # https://github.com/nedbat/django_coverage_plugin
+pytest-django==3.1.2  # https://github.com/pytest-dev/pytest-django
