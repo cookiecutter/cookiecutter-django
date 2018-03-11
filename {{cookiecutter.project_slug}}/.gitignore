@@ -338,7 +338,7 @@ pip-selfcheck.json
 
 
 {% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' -%}
-mailhog
+MailHog
 {% endif %}
 
 {{ cookiecutter.project_slug }}/media/
