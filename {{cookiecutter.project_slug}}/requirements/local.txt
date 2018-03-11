@@ -20,6 +20,6 @@ factory-boy==2.10.0  # https://github.com/FactoryBoy/factory_boy
 django-test-plus==1.0.22  # https://github.com/revsys/django-test-plus
 
 django-debug-toolbar==1.9.1  # https://github.com/jazzband/django-debug-toolbar
-django-extensions==2.0.3  # https://github.com/django-extensions/django-extensions
+django-extensions==2.0.5  # https://github.com/django-extensions/django-extensions
 django-coverage-plugin==1.5.0  # https://github.com/nedbat/django_coverage_plugin
 pytest-django==3.1.2  # https://github.com/pytest-dev/pytest-django
