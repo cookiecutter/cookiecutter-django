@@ -5,6 +5,7 @@
 gevent==1.2.2
 gunicorn==19.7.1  # https://github.com/benoitc/gunicorn
 boto3==1.6.2  # pyup: update minor  # https://github.com/boto/boto3
+psycopg2==2.7.4 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
 {%- if cookiecutter.use_whitenoise == 'n' %}
 Collectfast==0.6.0  # https://github.com/antonagestam/collectfast
 {%- endif %}
