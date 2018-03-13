@@ -21,7 +21,7 @@ message_welcome "Backing up the '${POSTGRES_DB}' database..."
 
 
 if [[ "${POSTGRES_USER}" == "postgres" ]]; then
-    message_error "Backing up as 'postgres' user is not supported. Assign 'POSTGRES_USER' env with something else and try again."
+    message_error "Backing up as 'postgres' user is not supported. Assign 'POSTGRES_USER' env with another one and try again."
     exit 1
 fi
 
