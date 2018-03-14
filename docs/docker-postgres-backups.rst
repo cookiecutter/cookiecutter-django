@@ -1,40 +1,91 @@
-============================
-Database Backups with Docker
-============================
+PostgreSQL Backups with Docker
+==============================
 
-The database has to be running to create/restore a backup. These examples show local examples. If you want to use it on a remote server, use ``-f production.yml`` instead.
+Prerequisites:
 
-Running Backups
-================
+#. the project was generated with ``use_docker`` set to ``y``.
 
-Run the app with `docker-compose -f local.yml up`.
+For brevity it is assumed that will be running the below commands against local environment, however, this is by no means mandatory so feel free switching to ``production.yml`` when needed.
+
+Note that the application stack should not necessarily be running when applying any of the instructions below, unless explicitly stated otherwise. For instance, suppose the stack has been down for quite some time or have never even been up yet -- rather than starting it beforehand use a single ``$ docker-compose -f local.yml run --rm <command>`` with the desired command. By contrast, should you already have your application up and running do not bother waiting for ``run`` instruction to finish (they usually take a bit longer due to bootstrapping phase), just use ``$ docker-compose -f local.yml exec <command>`` instead; note that any ``exec`` command fails unless all of the required containers are running. From now on, we will be using ``run``-style examples for general-case compatibility.
+
+
+Creating a Backup
+-----------------
 
 To create a backup, run::
 
-    docker-compose -f local.yml run --rm postgres backup
+    $ docker-compose -f local.yml run --rm postgres backup
+
+Assuming your project's database is named ``my_project`` here is what you will see: ::
+
+    Backing up the 'my_project' database...
+    SUCCESS: 'my_project' database backup 'backup_2018_03_13T09_05_07.sql.gz' has been created and placed in '/backups'.
+
+Keep in mind that ``/backups`` is the ``postgres`` container directory.
 
 
-To list backups, run::
+Viewing the Existing Backups
+----------------------------
 
-    docker-compose -f local.yml run --rm postgres list-backups
+To list existing backups, ::
+
+    $ docker-compose -f local.yml run --rm postgres backups
+
+These are the sample contents of ``/backups``: ::
+
+    These are the backups you have got:
+    total 24K
+    -rw-r--r-- 1 root root 5.2K Mar 13 09:05 backup_2018_03_13T09_05_07.sql.gz
+    -rw-r--r-- 1 root root 5.2K Mar 12 21:13 backup_2018_03_12T21_13_03.sql.gz
+    -rw-r--r-- 1 root root 5.2K Mar 12 21:12 backup_2018_03_12T21_12_58.sql.gz
 
 
-To restore a backup, run::
+Copying Backups Locally
+-----------------------
 
-    docker-compose -f local.yml run --rm postgres restore filename.sql
+If you want to copy backups from your ``postgres`` container locally, ``docker cp`` command_ will help you on that.
 
-Where <containerId> is the ID of the Postgres container. To get it, run::
+For example, given ``9c5c3f055843`` is the container ID copying all the backups over to a local directory is as simple as ::
 
-    docker ps
+    $ docker cp 9c5c3f055843:/backups ./backups
 
-To copy the files from the running Postgres container to the host system::
+With a single backup file copied to ``.`` that would be ::
 
-    docker cp <containerId>:/backups /host/path/target
+    $ docker cp 9c5c3f055843:/backups/backup_2018_03_13T09_05_07.sql.gz .
 
-Restoring From Backups
-======================
+.. _`command`: https://docs.docker.com/engine/reference/commandline/cp/
 
-To restore the production database to a local PostgreSQL database::
 
-    createdb NAME_OF_DATABASE
-    psql NAME_OF_DATABASE < NAME_OF_BACKUP_FILE
+Restoring from the Existing Backup
+----------------------------------
+
+To restore from one of the backups you have already got (take the ``backup_2018_03_13T09_05_07.sql.gz`` for example), ::
+
+    $ docker-compose -f local.yml run --rm postgres restore backup_2018_03_13T09_05_07.sql.gz
+
+You will see something like ::
+
+    Restoring the 'my_project' database from the '/backups/backup_2018_03_13T09_05_07.sql.gz' backup...
+    INFO: Dropping all connections to the database...
+     pg_terminate_backend
+    ----------------------
+    (0 rows)
+
+    INFO: Dropping the database...
+    INFO: Creating a new database...
+    INFO: Applying the backup to the new database...
+    SET
+    SET
+    SET
+    SET
+    SET
+     set_config
+    ------------
+
+    (1 row)
+
+    SET
+    # ...
+    ALTER TABLE
+    SUCCESS: The 'my_project' database has been restored from the '/backups/backup_2018_03_13T09_05_07.sql.gz' backup.
