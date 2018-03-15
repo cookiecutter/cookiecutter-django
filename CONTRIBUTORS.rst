@@ -18,6 +18,7 @@ Jannis Gebauer              `@jayfk`_
 Burhan Khalid               `@burhan`_       @burhan
 Nikita Shupeyko             `@webyneter`_    @webyneter
 Bruno Alla                  `@browniebroke`_ @_BrunoAlla
+Wan Liuyang                 `@sfdye`_        @sfdye
 =========================== ================ ===========
 
 *Audrey is also the creator of Cookiecutter. Audrey and
@@ -30,6 +31,7 @@ Daniel are on the Cookiecutter core team.*
 .. _@jayfk: https://github.com/jayfk
 .. _@webyneter: https://github.com/webyneter
 .. _@browniebroke: https://github.com/browniebroke
+.. _@sfdye: https://github.com/sfdye
 
 Other Contributors
 ------------------
@@ -154,7 +156,6 @@ Listed in alphabetical order.
   Travis McNeill           `@Travistock`_               @tavistock_esq
   Vitaly Babiy
   Vivian Guillen           `@viviangb`_
-  Wan Liuyang              `@sfdye`_                    @sfdye
   Will Farley              `@goldhand`_                 @g01dhand
   William Archinal         `@archinal`_
   Yaroslav Halchenko
@@ -234,7 +235,6 @@ Listed in alphabetical order.
 .. _@romanosipenko: https://github.com/romanosipenko
 .. _@shireenrao: https://github.com/shireenrao
 .. _@show0k: https://github.com/show0k
-.. _@sfdye: https://github.com/sfdye
 .. _@shultz: https://github.com/shultz
 .. _@siauPatrick: https://github.com/siauPatrick
 .. _@slafs: https://github.com/slafs
