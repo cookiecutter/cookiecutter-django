@@ -1,4 +1,3 @@
-djangorestframework==3.7.7  # https://github.com/encode/django-rest-framework
 pytz==2018.3  # https://github.com/stub42/pytz
 awesome-slugify==1.6.5  # https://github.com/dimka665/awesome-slugify
 Pillow==5.0.0  # https://github.com/python-pillow/Pillow
@@ -25,3 +24,7 @@ django-crispy-forms==1.7.2  # https://github.com/django-crispy-forms/django-cris
 django-compressor==2.2  # https://github.com/django-compressor/django-compressor
 {%- endif %}
 django-redis==4.9.0  # https://github.com/niwinz/django-redis
+
+# Django REST Framework
+djangorestframework==3.7.7  # https://github.com/encode/django-rest-framework
+coreapi==2.3.3  # https://github.com/core-api/python-client
