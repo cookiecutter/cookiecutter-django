@@ -290,20 +290,5 @@ LOGGING = {
 }
 
 {%- endif %}
-{% if cookiecutter.use_opbeat == 'y' -%}
-# opbeat
-# ------------------------------------------------------------------------------
-# https://opbeat.com/docs/articles/get-started-with-django/#setup
-INSTALLED_APPS += ['opbeat.contrib.django']  # noqa F405
-# https://opbeat.com/docs/articles/get-started-with-django/#setup
-OPBEAT = {
-    'ORGANIZATION_ID': env('DJANGO_OPBEAT_ORGANIZATION_ID'),
-    'APP_ID': env('DJANGO_OPBEAT_APP_ID'),
-    'SECRET_TOKEN': env('DJANGO_OPBEAT_SECRET_TOKEN')
-}
-# https://opbeat.com/docs/articles/get-started-with-django/#performance-metrics
-MIDDLEWARE = ['opbeat.contrib.django.middleware.OpbeatAPMMiddleware'] + MIDDLEWARE
-
-{%- endif %}
 # Your stuff...
 # ------------------------------------------------------------------------------

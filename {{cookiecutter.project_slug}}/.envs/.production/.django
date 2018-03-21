@@ -38,10 +38,4 @@ WEB_CONCURRENCY=4
 # Sentry
 # ------------------------------------------------------------------------------
 DJANGO_SENTRY_DSN=
-{% endif %}{% if cookiecutter.use_opbeat == 'y' %}
-# opbeat
-# ------------------------------------------------------------------------------
-DJANGO_OPBEAT_ORGANIZATION_ID=
-DJANGO_OPBEAT_APP_ID=
-DJANGO_OPBEAT_SECRET_TOKEN=
 {% endif %}

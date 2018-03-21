@@ -36,7 +36,6 @@
   "use_celery": "n",
   "use_mailhog": "n",
   "use_sentry_for_error_reporting": "y",
-  "use_opbeat": "n",
   "use_whitenoise": "y",
   "use_heroku": "n",
   "use_travisci": "n",

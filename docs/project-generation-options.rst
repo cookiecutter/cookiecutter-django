@@ -81,9 +81,6 @@ use_mailhog [n]
 use_sentry_for_error_reporting [n]
     Indicates whether the project should be configured to use Sentry_.
 
-use_opbeat [n]
-    Indicates whether the project should be configured to use Opbeat_.
-
 use_whitenoise [y]
     Indicates whether the project should be configured to use WhiteNoise_.
 
@@ -122,8 +119,6 @@ keep_local_envs_in_vcs [y]
 .. _MailHog: https://github.com/mailhog/MailHog
 
 .. _Sentry: https://github.com/getsentry/sentry
-
-.. _Opbeat: https://github.com/opbeat/opbeat_python
 
 .. _WhiteNoise: https://github.com/evansd/whitenoise
 
