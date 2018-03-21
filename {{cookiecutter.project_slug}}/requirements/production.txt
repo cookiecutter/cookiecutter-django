@@ -12,9 +12,6 @@ Collectfast==0.6.2  # https://github.com/antonagestam/collectfast
 {%- if cookiecutter.use_sentry_for_error_reporting == "y" %}
 raven==6.6.0  # https://github.com/getsentry/raven-python
 {%- endif %}
-{%- if cookiecutter.use_opbeat == "y" %}
-opbeat==3.6.1  # https://github.com/opbeat/opbeat_python
-{%- endif %}
 
 # Django
 # ------------------------------------------------------------------------------

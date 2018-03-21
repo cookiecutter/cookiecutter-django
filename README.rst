@@ -68,7 +68,6 @@ Optional Integrations
 * Configuration for Celery_
 * Integration with MailHog_ for local email testing
 * Integration with Sentry_ for error logging
-* Integration with Opbeat_ for performance monitoring
 
 .. _Bootstrap: https://github.com/twbs/bootstrap
 .. _django-environ: https://github.com/joke2k/django-environ
@@ -83,7 +82,6 @@ Optional Integrations
 .. _MailHog: https://github.com/mailhog/MailHog
 .. _Sentry: https://sentry.io/welcome/
 .. _docker-compose: https://github.com/docker/compose
-.. _Opbeat: https://opbeat.com/
 .. _PythonAnywhere: https://www.pythonanywhere.com/
 .. _Caddy: https://caddyserver.com/
 .. _LetsEncrypt: https://letsencrypt.org/
@@ -164,7 +162,6 @@ Answer the prompts with your own desired options_. For example::
     use_celery [n]: y
     use_mailhog [n]: n
     use_sentry_for_error_reporting [y]: y
-    use_opbeat [n]: y
     use_pycharm [n]: y
     windows [n]: n
     use_docker [y]: n
