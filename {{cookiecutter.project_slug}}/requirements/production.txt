@@ -15,5 +15,5 @@ raven==6.6.0  # https://github.com/getsentry/raven-python
 
 # Django
 # ------------------------------------------------------------------------------
-django-storages==1.6.5  # https://github.com/jschneier/django-storages
+django-storages==1.6.6  # https://github.com/jschneier/django-storages
 django-anymail==2.0  # https://github.com/anymail/django-anymail
