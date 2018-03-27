@@ -254,6 +254,11 @@ def remove_celery_envs():
     os.remove(os.path.join('.envs', '.production', '.celery'))
 
 
+def remove_celery_compose_dirs():
+    shutil.rmtree(os.path.join('compose', 'local', 'django', 'celery'))
+    shutil.rmtree(os.path.join('compose', 'production', 'django', 'celery'))
+
+
 def main():
     postgres_user = generate_postgres_user()
     set_flags_in_envs(postgres_user)
@@ -318,6 +323,7 @@ def main():
         remove_celery_app()
         if '{{ cookiecutter.use_docker }}'.lower() == 'y':
             remove_celery_envs()
+            remove_celery_compose_dirs()
 
     if '{{ cookiecutter.use_travisci }}'.lower() == 'n':
         remove_dottravisyml_file()

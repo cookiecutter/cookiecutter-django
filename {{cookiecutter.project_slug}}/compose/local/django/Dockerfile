@@ -15,7 +15,7 @@ RUN apk update \
   # https://docs.djangoproject.com/en/2.0/ref/django-admin/#dbshell
   && apk add postgresql-client
 
-# Requirements have to be pulled and installed here, otherwise caching won't work
+# Requirements are installed here to ensure they will be cached.
 COPY ./requirements /requirements
 RUN pip install -r /requirements/local.txt
 
@@ -26,7 +26,7 @@ RUN chmod +x /entrypoint.sh
 COPY ./compose/local/django/start.sh /start.sh
 RUN sed -i 's/\r//' /start.sh
 RUN chmod +x /start.sh
-
+{% if cookiecutter.use_celery == "y" %}
 COPY ./compose/local/django/celery/worker/start.sh /start-celeryworker.sh
 RUN sed -i 's/\r//' /start-celeryworker.sh
 RUN chmod +x /start-celeryworker.sh
@@ -34,7 +34,7 @@ RUN chmod +x /start-celeryworker.sh
 COPY ./compose/local/django/celery/beat/start.sh /start-celerybeat.sh
 RUN sed -i 's/\r//' /start-celerybeat.sh
 RUN chmod +x /start-celerybeat.sh
-
+{% endif %}
 WORKDIR /app
 
 ENTRYPOINT ["/entrypoint.sh"]
