@@ -15,7 +15,7 @@ RUN apk update \
   # https://docs.djangoproject.com/en/2.0/ref/django-admin/#dbshell
   && apk add postgresql-client
 
-# Requirements have to be pulled and installed here, otherwise caching won't work
+# Requirements are installed here to ensure they will be cached.
 COPY ./requirements /requirements
 RUN pip install -r /requirements/local.txt
 
