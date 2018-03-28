@@ -58,6 +58,7 @@ services:
       {%- endif %}
     env_file:
       - ./.envs/.local/.celery
+      - ./.envs/.local/.postgres
     ports: []
     command: /start-celeryworker.sh
 
@@ -71,6 +72,7 @@ services:
       {%- endif %}
     env_file:
       - ./.envs/.local/.celery
+      - ./.envs/.local/.postgres
     ports: []
     command: /start-celerybeat.sh
 
