@@ -78,7 +78,7 @@ use_celery [n]
 use_mailhog [n]
     Indicates whether the project should be configured to use MailHog_.
 
-use_sentry_for_error_reporting [n]
+use_sentry [n]
     Indicates whether the project should be configured to use Sentry_.
 
 use_whitenoise [y]

@@ -161,7 +161,7 @@ Answer the prompts with your own desired options_. For example::
     use_whitenoise [y]: n
     use_celery [n]: y
     use_mailhog [n]: n
-    use_sentry_for_error_reporting [y]: y
+    use_sentry [y]: y
     use_pycharm [n]: y
     windows [n]: n
     use_docker [y]: n

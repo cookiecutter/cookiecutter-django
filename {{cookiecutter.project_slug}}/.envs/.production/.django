@@ -34,7 +34,7 @@ COMPRESS_ENABLED=
 # Gunicorn
 # ------------------------------------------------------------------------------
 WEB_CONCURRENCY=4
-{% if cookiecutter.use_sentry_for_error_reporting == 'y' %}
+{% if cookiecutter.use_sentry == 'y' %}
 # Sentry
 # ------------------------------------------------------------------------------
 DJANGO_SENTRY_DSN=

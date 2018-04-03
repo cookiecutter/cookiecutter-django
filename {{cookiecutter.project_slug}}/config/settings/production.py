@@ -176,7 +176,7 @@ INSTALLED_APPS = ['collectfast'] + INSTALLED_APPS  # noqa F405
 AWS_PRELOAD_METADATA = True
 
 {%- endif %}
-{% if cookiecutter.use_sentry_for_error_reporting == 'y' -%}
+{% if cookiecutter.use_sentry == 'y' -%}
 # raven
 # ------------------------------------------------------------------------------
 # https://docs.sentry.io/clients/python/integrations/django/
