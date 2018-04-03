@@ -1,6 +1,6 @@
 pytz==2018.3  # https://github.com/stub42/pytz
 awesome-slugify==1.6.5  # https://github.com/dimka665/awesome-slugify
-Pillow==5.0.0  # https://github.com/python-pillow/Pillow
+Pillow==5.1.0  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.use_compressor == "y" %}
 rcssmin==1.0.6{% if cookiecutter.windows == 'y' %} --install-option="--without-c-extensions"{% endif %}  # https://github.com/ndparker/rcssmin
 {%- endif %}
