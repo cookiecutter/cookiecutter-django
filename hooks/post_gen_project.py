@@ -249,11 +249,6 @@ def remove_envs_and_associated_files():
     os.remove('merge_production_dotenvs_in_dotenv.py')
 
 
-def remove_celery_envs():
-    os.remove(os.path.join('.envs', '.local', '.celery'))
-    os.remove(os.path.join('.envs', '.production', '.celery'))
-
-
 def remove_celery_compose_dirs():
     shutil.rmtree(os.path.join('compose', 'local', 'django', 'celery'))
     shutil.rmtree(os.path.join('compose', 'production', 'django', 'celery'))
@@ -322,7 +317,6 @@ def main():
     if '{{ cookiecutter.use_celery }}'.lower() == 'n':
         remove_celery_app()
         if '{{ cookiecutter.use_docker }}'.lower() == 'y':
-            remove_celery_envs()
             remove_celery_compose_dirs()
 
     if '{{ cookiecutter.use_travisci }}'.lower() == 'n':

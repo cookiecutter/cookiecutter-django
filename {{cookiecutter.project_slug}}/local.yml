@@ -19,9 +19,6 @@ services:
     env_file:
       - ./.envs/.local/.django
       - ./.envs/.local/.postgres
-      {%- if cookiecutter.use_celery == 'y' %}
-      - ./.envs/.local/.celery
-      {%- endif %}
     ports:
       - "8000:8000"
     command: /start.sh
@@ -57,7 +54,7 @@ services:
       - mailhog
       {%- endif %}
     env_file:
-      - ./.envs/.local/.celery
+      - ./.envs/.local/.django
       - ./.envs/.local/.postgres
     ports: []
     command: /start-celeryworker.sh
@@ -71,7 +68,7 @@ services:
       - mailhog
       {%- endif %}
     env_file:
-      - ./.envs/.local/.celery
+      - ./.envs/.local/.django
       - ./.envs/.local/.postgres
     ports: []
     command: /start-celerybeat.sh
