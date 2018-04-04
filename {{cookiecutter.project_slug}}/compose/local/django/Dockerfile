@@ -12,7 +12,7 @@ RUN apk update \
   && apk add libffi-dev openssl-dev py-cffi \
   # Translations dependencies
   && apk add gettext \
-  # https://docs.djangoproject.com/en/2.0/ref/django-admin/#dbshell
+  # https://docs.djangoproject.com/en/dev/ref/django-admin/#dbshell
   && apk add postgresql-client
 
 # Requirements are installed here to ensure they will be cached.
