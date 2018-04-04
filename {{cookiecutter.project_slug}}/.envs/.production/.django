@@ -16,11 +16,7 @@ DJANGO_SECURE_SSL_REDIRECT=False
 MAILGUN_API_KEY=
 DJANGO_SERVER_EMAIL=
 MAILGUN_DOMAIN=
-{% if cookiecutter.use_celery == "y" %}
-# Celery
-# ------------------------------------------------------------------------------
-CELERY_BROKER_URL=redis://redis:6379/0
-{% endif %}
+
 # AWS
 # ------------------------------------------------------------------------------
 DJANGO_AWS_ACCESS_KEY_ID=
@@ -43,3 +39,7 @@ WEB_CONCURRENCY=4
 # ------------------------------------------------------------------------------
 DJANGO_SENTRY_DSN=
 {% endif %}
+
+# Redis
+# ------------------------------------------------------------------------------
+REDIS_URL=redis://redis:6379/0

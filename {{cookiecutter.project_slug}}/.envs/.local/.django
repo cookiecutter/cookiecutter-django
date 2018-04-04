@@ -1,8 +1,7 @@
 # General
 # ------------------------------------------------------------------------------
 USE_DOCKER=yes
-{% if cookiecutter.use_celery == "y" %}
-# Celery
+
+# Redis
 # ------------------------------------------------------------------------------
-CELERY_BROKER_URL=redis://redis:6379/0
-{% endif %}
+REDIS_URL=redis://redis:6379/0
