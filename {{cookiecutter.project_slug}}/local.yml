@@ -9,6 +9,7 @@ services:
     build:
       context: .
       dockerfile: ./compose/local/django/Dockerfile
+    image: {{ cookiecutter.project_slug }}_local_django
     depends_on:
       - postgres
       {%- if cookiecutter.use_mailhog == 'y' %}
@@ -27,6 +28,7 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/postgres/Dockerfile
+    image: {{ cookiecutter.project_slug }}_production_postgres
     volumes:
       - postgres_data_local:/var/lib/postgresql/data
       - postgres_backup_local:/backups
@@ -47,6 +49,7 @@ services:
 
   celeryworker:
     <<: *django
+    image: {{ cookiecutter.project_slug }}_local_celeryworker
     depends_on:
       - redis
       - postgres
@@ -61,6 +64,7 @@ services:
 
   celerybeat:
     <<: *django
+    image: {{ cookiecutter.project_slug }}_local_celerybeat
     depends_on:
       - redis
       - postgres

@@ -10,6 +10,7 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/django/Dockerfile
+    image: {{ cookiecutter.project_slug }}_production_django
     depends_on:
       - postgres
       - redis
@@ -22,6 +23,7 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/postgres/Dockerfile
+    image: {{ cookiecutter.project_slug }}_production_postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - postgres_backup:/backups
@@ -32,6 +34,7 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/caddy/Dockerfile
+    image: {{ cookiecutter.project_slug }}_production_caddy
     depends_on:
       - django
     volumes:
@@ -48,6 +51,7 @@ services:
 
   celeryworker:
     <<: *django
+    image: {{ cookiecutter.project_slug }}_production_celeryworker
     depends_on:
      - postgres
      - redis
@@ -58,6 +62,7 @@ services:
 
   celerybeat:
     <<: *django
+    image: {{ cookiecutter.project_slug }}_production_celerybeat
     depends_on:
       - postgres
       - redis
