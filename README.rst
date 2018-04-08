@@ -15,6 +15,10 @@ Cookiecutter Django
 .. image:: https://www.codetriage.com/pydanny/cookiecutter-django/badges/users.svg
     :target: https://www.codetriage.com/pydanny/cookiecutter-django
     :alt: Code Helpers Badge
+    
+.. image:: https://www.codetriage.com/pydanny/cookiecutter-django/badges/users.svg
+    :target: https://www.codetriage.com/pydanny/cookiecutter-django
+    :alt: Code Helpers Badge    
 
 Powered by Cookiecutter_, Cookiecutter Django is a framework for jumpstarting
 production-ready Django projects quickly.
