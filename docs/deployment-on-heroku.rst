@@ -20,7 +20,7 @@ Run these commands to deploy the project to Heroku:
     # Generating a 32 character-long random string without any of the visually similiar characters "IOl01":
     heroku config:set DJANGO_ADMIN_URL="^$(openssl rand -base64 4096 | tr -dc 'A-HJ-NP-Za-km-z2-9' | head -c 32)/"
     heroku config:set DJANGO_SECRET_KEY="$(openssl rand -base64 64)"
-    heroku config:set DJANGO_SETTINGS_MODULE='config.settings.production'
+    heroku config:set DJANGO_SETTINGS_MODULE=config.settings.production
     heroku config:set DJANGO_ALLOWED_HOSTS='.herokuapp.com'
 
     heroku config:set DJANGO_AWS_ACCESS_KEY_ID=YOUR_AWS_ID_HERE
