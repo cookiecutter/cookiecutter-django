@@ -41,7 +41,7 @@ class CeleryConfig(AppConfig):
             # @formatter:on
 {%- endif %}
 
-            raven_client = RavenClient(dsn=settings.RAVEN_CONFIG['DSN'])
+            raven_client = RavenClient(dsn=settings.RAVEN_CONFIG['dsn'])
             raven_register_logger_signal(raven_client)
             raven_register_signal(raven_client)
         {%- endif %}
