@@ -10,7 +10,7 @@ psycopg2==2.7.4 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
 Collectfast==0.6.2  # https://github.com/antonagestam/collectfast
 {%- endif %}
 {%- if cookiecutter.use_sentry == "y" %}
-raven==6.6.0  # https://github.com/getsentry/raven-python
+raven==6.7.0  # https://github.com/getsentry/raven-python
 {%- endif %}
 
 # Django
