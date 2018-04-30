@@ -1,13 +1,14 @@
 PostgreSQL Backups with Docker
 ==============================
 
-Prerequisites:
+.. note:: For brevity it is assumed that you will be running the below commands against local environment, however, this is by no means mandatory so feel free switching to ``production.yml`` when needed.
 
-#. the project was generated with ``use_docker`` set to ``y``.
 
-For brevity it is assumed that will be running the below commands against local environment, however, this is by no means mandatory so feel free switching to ``production.yml`` when needed.
+Prerequisites
+-------------
 
-Note that the application stack should not necessarily be running when applying any of the instructions below, unless explicitly stated otherwise. For instance, suppose the stack has been down for quite some time or have never even been up yet -- rather than starting it beforehand use a single ``$ docker-compose -f local.yml run --rm <command>`` with the desired command. By contrast, should you already have your application up and running do not bother waiting for ``run`` instruction to finish (they usually take a bit longer due to bootstrapping phase), just use ``$ docker-compose -f local.yml exec <command>`` instead; note that any ``exec`` command fails unless all of the required containers are running. From now on, we will be using ``run``-style examples for general-case compatibility.
+#. the project was generated with ``use_docker`` set to ``y``;
+#. the stack is up and running: ``docker-compose -f local.yml up -d``.
 
 
 Creating a Backup
