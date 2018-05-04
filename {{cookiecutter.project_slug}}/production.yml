@@ -46,7 +46,7 @@ services:
       - "0.0.0.0:443:443"
 
   redis:
-    image: redis:3.0
+    image: redis:3.2
   {%- if cookiecutter.use_celery == 'y' %}
 
   celeryworker:
