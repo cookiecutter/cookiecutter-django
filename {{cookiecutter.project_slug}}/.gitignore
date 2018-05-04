@@ -324,7 +324,7 @@ Session.vim
 
 # Auto-generated tag files
 tags
-
+{% if cookiecutter.use_docker == 'n' %}
 
 ### VirtualEnv template
 # Virtualenv
@@ -337,16 +337,10 @@ tags
 [Ss]cripts
 pyvenv.cfg
 pip-selfcheck.json
+{% endif %}
 
-
-{% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' -%}
+### Project template
+{% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' %}
 MailHog
-{% endif %}
-
+{%- endif %}
 {{ cookiecutter.project_slug }}/media/
-
-{% if cookiecutter.use_docker == 'y' -%}
-# Added to maintain local compose files which are ignored by something above.
-# See issue https://github.com/pydanny/cookiecutter-django/issues/1321
-!/compose/local/
-{% endif %}
