@@ -8,7 +8,7 @@ Prerequisites
 -------------
 
 #. the project was generated with ``use_docker`` set to ``y``;
-#. the stack is up and running: ``docker-compose -f local.yml up -d``.
+#. the stack is up and running: ``docker-compose -f local.yml up -d postgres``.
 
 
 Creating a Backup
@@ -16,7 +16,7 @@ Creating a Backup
 
 To create a backup, run::
 
-    $ docker-compose -f local.yml run --rm postgres backup
+    $ docker-compose -f local.yml exec postgres backup
 
 Assuming your project's database is named ``my_project`` here is what you will see: ::
 
@@ -31,7 +31,7 @@ Viewing the Existing Backups
 
 To list existing backups, ::
 
-    $ docker-compose -f local.yml run --rm postgres backups
+    $ docker-compose -f local.yml exec postgres backups
 
 These are the sample contents of ``/backups``: ::
 
@@ -63,16 +63,11 @@ Restoring from the Existing Backup
 
 To restore from one of the backups you have already got (take the ``backup_2018_03_13T09_05_07.sql.gz`` for example), ::
 
-    $ docker-compose -f local.yml run --rm postgres restore backup_2018_03_13T09_05_07.sql.gz
+    $ docker-compose -f local.yml exec postgres restore backup_2018_03_13T09_05_07.sql.gz
 
 You will see something like ::
 
     Restoring the 'my_project' database from the '/backups/backup_2018_03_13T09_05_07.sql.gz' backup...
-    INFO: Dropping all connections to the database...
-     pg_terminate_backend
-    ----------------------
-    (0 rows)
-
     INFO: Dropping the database...
     INFO: Creating a new database...
     INFO: Applying the backup to the new database...
