@@ -28,6 +28,8 @@ INFO = "\x1b[1;33m [INFO]: "
 HINT = "\x1b[3;33m"
 SUCCESS = "\x1b[1;32m [SUCCESS]: "
 
+DEBUG_VALUE = "debug"
+
 
 def remove_open_source_files():
     file_names = ["CONTRIBUTORS.txt"]
@@ -166,21 +168,24 @@ def set_django_admin_url(file_path):
     return django_admin_url
 
 
-def generate_postgres_user():
-    return generate_random_string(length=32, using_ascii_letters=True)
+def generate_postgres_user(debug=False):
+    return DEBUG_VALUE if debug else generate_random_string(length=32, using_ascii_letters=True)
 
 
-def set_postgres_user(file_path, value=None):
+def set_postgres_user(file_path, value):
     postgres_user = set_flag(
-        file_path, "!!!SET POSTGRES_USER!!!", value=value or generate_postgres_user()
+        file_path,
+        "!!!SET POSTGRES_USER!!!",
+        value=value,
     )
     return postgres_user
 
 
-def set_postgres_password(file_path):
+def set_postgres_password(file_path, value=None):
     postgres_password = set_flag(
         file_path,
         "!!!SET POSTGRES_PASSWORD!!!",
+        value=value,
         length=64,
         using_digits=True,
         using_ascii_letters=True,
@@ -194,10 +199,10 @@ def append_to_gitignore_file(s):
         gitignore_file.write(os.linesep)
 
 
-def set_flags_in_envs(postgres_user):
+def set_flags_in_envs(postgres_user, debug=False):
     local_postgres_envs_path = os.path.join(".envs", ".local", ".postgres")
     set_postgres_user(local_postgres_envs_path, value=postgres_user)
-    set_postgres_password(local_postgres_envs_path)
+    set_postgres_password(local_postgres_envs_path, value=DEBUG_VALUE if debug else None)
 
     production_django_envs_path = os.path.join(".envs", ".production", ".django")
     set_django_secret_key(production_django_envs_path)
@@ -205,7 +210,7 @@ def set_flags_in_envs(postgres_user):
 
     production_postgres_envs_path = os.path.join(".envs", ".production", ".postgres")
     set_postgres_user(production_postgres_envs_path, value=postgres_user)
-    set_postgres_password(production_postgres_envs_path)
+    set_postgres_password(production_postgres_envs_path, value=DEBUG_VALUE if debug else None)
 
 
 def set_flags_in_settings_files():
@@ -224,8 +229,8 @@ def remove_celery_compose_dirs():
 
 
 def main():
-    postgres_user = generate_postgres_user()
-    set_flags_in_envs(postgres_user)
+    postgres_user = generate_postgres_user(debug="{{ cookiecutter.debug }}".lower() == "y")
+    set_flags_in_envs(postgres_user, debug="{{ cookiecutter.debug }}".lower() == "y")
     set_flags_in_settings_files()
 
     if "{{ cookiecutter.open_source_license }}" == "Not open source":
@@ -249,8 +254,8 @@ def main():
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
             print(
                 INFO + ".env(s) are only utilized when Docker Compose and/or "
-                "Heroku support is enabled so keeping them does not "
-                "make sense given your current setup." + TERMINATOR
+                       "Heroku support is enabled so keeping them does not "
+                       "make sense given your current setup." + TERMINATOR
             )
         remove_envs_and_associated_files()
     else:
@@ -277,10 +282,10 @@ def main():
                 "{{ cookiecutter.js_task_runner }}".lower().capitalize()
             )
             + "working together not supported yet. "
-            "You can continue using the generated project like you "
-            "normally would, however you would need to add a JS "
-            "task runner service to your Docker Compose configuration "
-            "manually." + TERMINATOR
+              "You can continue using the generated project like you "
+              "normally would, however you would need to add a JS "
+              "task runner service to your Docker Compose configuration "
+              "manually." + TERMINATOR
         )
 
     if "{{ cookiecutter.use_celery }}".lower() == "n":
