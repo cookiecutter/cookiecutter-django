@@ -96,6 +96,10 @@ keep_local_envs_in_vcs [y]
     (comes in handy when working in teams where local environment reproducibility
     is strongly encouraged).
 
+debug [n]
+    Indicates whether the project should be configured for debugging.
+    This option is relevant for Cookiecutter Django developers only.
+
 
 .. _MIT: https://opensource.org/licenses/MIT
 .. _BSD: https://opensource.org/licenses/BSD-3-Clause

@@ -15,7 +15,7 @@ Cookiecutter Django
 .. image:: https://www.codetriage.com/pydanny/cookiecutter-django/badges/users.svg
     :target: https://www.codetriage.com/pydanny/cookiecutter-django
     :alt: Code Helpers Badge
-    
+
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/ambv/black
     :alt: Code style: black
@@ -194,6 +194,7 @@ Answer the prompts with your own desired options_. For example::
     5 - Not open source
     Choose from 1, 2, 3, 4, 5 [1]: 1
     keep_local_envs_in_vcs [y]: y
+    debug[n]: n
 
 Enter the project and take a look around::
 
