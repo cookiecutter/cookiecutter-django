@@ -1,13 +1,14 @@
 PostgreSQL Backups with Docker
 ==============================
 
-Prerequisites:
+.. note:: For brevity it is assumed that you will be running the below commands against local environment, however, this is by no means mandatory so feel free to switch to ``production.yml`` when needed.
 
-#. the project was generated with ``use_docker`` set to ``y``.
 
-For brevity it is assumed that will be running the below commands against local environment, however, this is by no means mandatory so feel free switching to ``production.yml`` when needed.
+Prerequisites
+-------------
 
-Note that the application stack should not necessarily be running when applying any of the instructions below, unless explicitly stated otherwise. For instance, suppose the stack has been down for quite some time or have never even been up yet -- rather than starting it beforehand use a single ``$ docker-compose -f local.yml run --rm <command>`` with the desired command. By contrast, should you already have your application up and running do not bother waiting for ``run`` instruction to finish (they usually take a bit longer due to bootstrapping phase), just use ``$ docker-compose -f local.yml exec <command>`` instead; note that any ``exec`` command fails unless all of the required containers are running. From now on, we will be using ``run``-style examples for general-case compatibility.
+#. the project was generated with ``use_docker`` set to ``y``;
+#. the stack is up and running: ``docker-compose -f local.yml up -d postgres``.
 
 
 Creating a Backup
@@ -15,7 +16,7 @@ Creating a Backup
 
 To create a backup, run::
 
-    $ docker-compose -f local.yml run --rm postgres backup
+    $ docker-compose -f local.yml exec postgres backup
 
 Assuming your project's database is named ``my_project`` here is what you will see: ::
 
@@ -30,7 +31,7 @@ Viewing the Existing Backups
 
 To list existing backups, ::
 
-    $ docker-compose -f local.yml run --rm postgres backups
+    $ docker-compose -f local.yml exec postgres backups
 
 These are the sample contents of ``/backups``: ::
 
@@ -62,16 +63,11 @@ Restoring from the Existing Backup
 
 To restore from one of the backups you have already got (take the ``backup_2018_03_13T09_05_07.sql.gz`` for example), ::
 
-    $ docker-compose -f local.yml run --rm postgres restore backup_2018_03_13T09_05_07.sql.gz
+    $ docker-compose -f local.yml exec postgres restore backup_2018_03_13T09_05_07.sql.gz
 
 You will see something like ::
 
     Restoring the 'my_project' database from the '/backups/backup_2018_03_13T09_05_07.sql.gz' backup...
-    INFO: Dropping all connections to the database...
-     pg_terminate_backend
-    ----------------------
-    (0 rows)
-
     INFO: Dropping the database...
     INFO: Creating a new database...
     INFO: Applying the backup to the new database...

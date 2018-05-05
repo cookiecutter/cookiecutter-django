@@ -37,40 +37,18 @@ if [[ "${POSTGRES_USER}" == "postgres" ]]; then
     exit 1
 fi
 
+export PGHOST="postgres"
+export PGUSER="${POSTGRES_USER}"
 export PGPASSWORD="${POSTGRES_PASSWORD}"
-
-message_info "Dropping all connections to the database..."
-# Source: http://dba.stackexchange.com/a/11895
-drop_postgres_connections_sql='UPDATE pg_database'
-drop_postgres_connections_sql+=" SET datallowconn = 'false'"
-drop_postgres_connections_sql+=" WHERE datname = '${POSTGRES_DB}';"
-drop_postgres_connections_sql+='SELECT pg_terminate_backend(pid)'
-drop_postgres_connections_sql+=' FROM pg_stat_activity'
-drop_postgres_connections_sql+=" WHERE datname = '${POSTGRES_DB}';"
-psql \
-    --host=localhost \
-    --username=postgres \
-    --dbname=postgres \
-    --command="${drop_postgres_connections_sql}"
+export PGDATABASE="${POSTGRES_DB}"
 
 message_info "Dropping the database..."
-dropdb \
-    --host=postgres \
-    --username="${POSTGRES_USER}" \
-    "${POSTGRES_DB}"
+dropdb "${PGDATABASE}"
 
 message_info "Creating a new database..."
-createdb \
-    --host=postgres \
-    --username="${POSTGRES_USER}" \
-    --owner="${POSTGRES_USER}" \
-    "${POSTGRES_DB}"
+createdb --owner="${POSTGRES_USER}"
 
 message_info "Applying the backup to the new database..."
-gunzip -c "${backup_filename}" \
-    | psql \
-        --host=postgres \
-        --username="${POSTGRES_USER}" \
-        "${POSTGRES_DB}"
+gunzip -c "${backup_filename}" | psql "${POSTGRES_DB}"
 
 message_success "The '${POSTGRES_DB}' database has been restored from the '${backup_filename}' backup."
