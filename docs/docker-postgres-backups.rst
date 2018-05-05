@@ -1,7 +1,7 @@
 PostgreSQL Backups with Docker
 ==============================
 
-.. note:: For brevity it is assumed that you will be running the below commands against local environment, however, this is by no means mandatory so feel free switching to ``production.yml`` when needed.
+.. note:: For brevity it is assumed that you will be running the below commands against local environment, however, this is by no means mandatory so feel free to switch to ``production.yml`` when needed.
 
 
 Prerequisites
