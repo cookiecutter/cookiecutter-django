@@ -242,7 +242,10 @@ def main():
     if "{{ cookiecutter.use_heroku }}".lower() == "n":
         remove_heroku_files()
 
-    if "{{ cookiecutter.use_docker }}".lower() == "n" and "{{ cookiecutter.use_heroku }}".lower() == "n":
+    if (
+        "{{ cookiecutter.use_docker }}".lower() == "n"
+        and "{{ cookiecutter.use_heroku }}".lower() == "n"
+    ):
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
             print(
                 INFO + ".env(s) are only utilized when Docker Compose and/or "
@@ -264,9 +267,10 @@ def main():
         remove_gulp_files()
         remove_grunt_files()
         remove_packagejson_file()
-    if "{{ cookiecutter.js_task_runner }}".lower() in [
-        "grunt", "gulp"
-    ] and "{{ cookiecutter.use_docker }}".lower() == "y":
+    if (
+        "{{ cookiecutter.js_task_runner }}".lower() in ["grunt", "gulp"]
+        and "{{ cookiecutter.use_docker }}".lower() == "y"
+    ):
         print(
             WARNING
             + "Docker and {} JS task runner ".format(
