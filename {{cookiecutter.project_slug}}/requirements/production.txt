@@ -1,6 +1,6 @@
 # PRECAUTION: avoid production dependencies that aren't in development
 
--r base.txt
+-r ./base.txt
 
 gunicorn==19.8.1  # https://github.com/benoitc/gunicorn
 psycopg2==2.7.4 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
