@@ -16,6 +16,10 @@ Cookiecutter Django
     :target: https://www.codetriage.com/pydanny/cookiecutter-django
     :alt: Code Helpers Badge
 
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/ambv/black
+    :alt: Code style: black
+
 Powered by Cookiecutter_, Cookiecutter Django is a framework for jumpstarting
 production-ready Django projects quickly.
 
@@ -38,10 +42,10 @@ production-ready Django projects quickly.
 Features
 ---------
 
-* For Django 1.11
+* For Django 2.0
 * Works with Python 3.6
 * Renders Django projects with 100% starting test coverage
-* Twitter Bootstrap_ v4.0.0 - beta 1 (`maintained Foundation fork`_ also available)
+* Twitter Bootstrap_ v4.0.0 (`maintained Foundation fork`_ also available)
 * 12-Factor_ based settings via django-environ_
 * Secure by default. We believe in SSL.
 * Optimized development and production settings
@@ -68,7 +72,6 @@ Optional Integrations
 * Configuration for Celery_
 * Integration with MailHog_ for local email testing
 * Integration with Sentry_ for error logging
-* Integration with Opbeat_ for performance monitoring
 
 .. _Bootstrap: https://github.com/twbs/bootstrap
 .. _django-environ: https://github.com/joke2k/django-environ
@@ -83,7 +86,6 @@ Optional Integrations
 .. _MailHog: https://github.com/mailhog/MailHog
 .. _Sentry: https://sentry.io/welcome/
 .. _docker-compose: https://github.com/docker/compose
-.. _Opbeat: https://opbeat.com/
 .. _PythonAnywhere: https://www.pythonanywhere.com/
 .. _Caddy: https://caddyserver.com/
 .. _LetsEncrypt: https://letsencrypt.org/
@@ -111,7 +113,7 @@ Two Scoops of Django 1.11
    :name: Two Scoops of Django 1.11 Cover
    :align: center
    :alt: Two Scoops of Django
-   :target: http://twoscoopspress.org/products/two-scoops-of-django-1-11
+   :target: http://twoscoopspress.com/products/two-scoops-of-django-1-11
 
 Two Scoops of Django is the best dessert-themed Django reference in the universe
 
@@ -129,7 +131,7 @@ Pyup brings you automated security and dependency updates used by Google and oth
 Usage
 ------
 
-Let's pretend you want to create a Django project called "redditclone". Rather than using `startproject`
+Let's pretend you want to create a Django project called "redditclone". Rather than using ``startproject``
 and then editing the results to include your name, email, and various configuration issues that always get forgotten until the worst possible moment, get cookiecutter_ to do all the work.
 
 First, get Cookiecutter. Trust me, it's awesome::
@@ -163,20 +165,20 @@ Answer the prompts with your own desired options_. For example::
     use_whitenoise [y]: n
     use_celery [n]: y
     use_mailhog [n]: n
-    use_sentry_for_error_reporting [y]: y
-    use_opbeat [n]: y
+    use_sentry [y]: y
     use_pycharm [n]: y
     windows [n]: n
     use_docker [y]: n
     use_heroku [n]: y
     use_compressor [n]: y
     Select postgresql_version:
-    1 - 10
-    2 - 9.6
-    3 - 9.5
-    4 - 9.4
-    5 - 9.3
-    6 - 9.2
+    1 - 10.3
+    2 - 10.2
+    3 - 10.1
+    4 - 9.6
+    5 - 9.5
+    6 - 9.4
+    7 - 9.3
     Choose from 1, 2, 3, 4 [1]: 1
     Select js_task_runner:
     1 - Gulp
@@ -191,6 +193,8 @@ Answer the prompts with your own desired options_. For example::
     4 - Apache Software License 2.0
     5 - Not open source
     Choose from 1, 2, 3, 4, 5 [1]: 1
+    keep_local_envs_in_vcs [y]: y
+    debug[n]: n
 
 Enter the project and take a look around::
 

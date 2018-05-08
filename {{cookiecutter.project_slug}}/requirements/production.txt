@@ -1,39 +1,17 @@
-# Pro-tip: Try not to put anything here. Avoid dependencies in
-#	production that aren't in development.
--r base.txt
+# PRECAUTION: avoid production dependencies that aren't in development
 
-{% if cookiecutter.windows == 'y' -%}
-# Python-PostgreSQL Database Adapter
-# Assuming Windows is used locally, and *nix -- in production.
-# ------------------------------------------------------------
-psycopg2==2.7.4
+-r ./base.txt
+
+gunicorn==19.8.1  # https://github.com/benoitc/gunicorn
+psycopg2==2.7.4 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
+{%- if cookiecutter.use_whitenoise == 'n' %}
+Collectfast==0.6.2  # https://github.com/antonagestam/collectfast
+{%- endif %}
+{%- if cookiecutter.use_sentry == "y" %}
+raven==6.7.0  # https://github.com/getsentry/raven-python
 {%- endif %}
 
-# WSGI Handler
-# ------------------------------------------------
-gevent==1.2.2
-gunicorn==19.7.1
-
-# Static and Media Storage
-# ------------------------------------------------
-boto3==1.5.25
-django-storages==1.6.5
-{% if cookiecutter.use_whitenoise != 'y' -%}
-Collectfast==0.6.0
-{%- endif %}
-
-# Email backends for Mailgun, Postmark, SendGrid and more
-# -------------------------------------------------------
-django-anymail==1.4
-
-{% if cookiecutter.use_sentry_for_error_reporting == "y" -%}
-# Raven is the Sentry client
-# --------------------------
-raven==6.5.0
-{%- endif %}
-
-{% if cookiecutter.use_opbeat == "y" -%}
-# Opbeat agent for performance monitoring
-# -----------------------------------------
-opbeat==3.6.1
-{%- endif %}
+# Django
+# ------------------------------------------------------------------------------
+django-storages[boto3]==1.6.6  # https://github.com/jschneier/django-storages
+django-anymail==2.2  # https://github.com/anymail/django-anymail

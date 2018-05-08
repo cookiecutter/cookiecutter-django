@@ -9,14 +9,17 @@ services:
     build:
       context: .
       dockerfile: ./compose/local/django/Dockerfile
+    image: {{ cookiecutter.project_slug }}_local_django
     depends_on:
-      - postgres{% if cookiecutter.use_mailhog == 'y' %}
-      - mailhog{% endif %}
+      - postgres
+      {%- if cookiecutter.use_mailhog == 'y' %}
+      - mailhog
+      {%- endif %}
     volumes:
       - .:/app
-    environment:
-      - POSTGRES_USER=!!!SET POSTGRES_USER!!!
-      - USE_DOCKER=yes
+    env_file:
+      - ./.envs/.local/.django
+      - ./.envs/.local/.postgres
     ports:
       - "8000:8000"
     command: /start.sh
@@ -25,38 +28,53 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/postgres/Dockerfile
+    image: {{ cookiecutter.project_slug }}_production_postgres
     volumes:
       - postgres_data_local:/var/lib/postgresql/data
       - postgres_backup_local:/backups
-    environment:
-      - POSTGRES_USER=!!!SET POSTGRES_USER!!!
-{% if cookiecutter.use_mailhog == 'y' %}
+    env_file:
+      - ./.envs/.local/.postgres
+  {%- if cookiecutter.use_mailhog == 'y' %}
+
   mailhog:
     image: mailhog/mailhog:v1.0.0
     ports:
       - "8025:8025"
-{% endif %}
-{% if cookiecutter.use_celery == 'y' %}
+
+  {%- endif %}
+  {%- if cookiecutter.use_celery == 'y' %}
+
   redis:
-    image: redis:3.0
+    image: redis:3.2
 
   celeryworker:
-    # https://github.com/docker/compose/issues/3220
     <<: *django
+    image: {{ cookiecutter.project_slug }}_local_celeryworker
     depends_on:
       - redis
-      - postgres{% if cookiecutter.use_mailhog == 'y' %}
-      - mailhog{% endif %}
+      - postgres
+      {% if cookiecutter.use_mailhog == 'y' -%}
+      - mailhog
+      {%- endif %}
+    env_file:
+      - ./.envs/.local/.django
+      - ./.envs/.local/.postgres
     ports: []
     command: /start-celeryworker.sh
 
   celerybeat:
-    # https://github.com/docker/compose/issues/3220
     <<: *django
+    image: {{ cookiecutter.project_slug }}_local_celerybeat
     depends_on:
       - redis
-      - postgres{% if cookiecutter.use_mailhog == 'y' %}
-      - mailhog{% endif %}
+      - postgres
+      {% if cookiecutter.use_mailhog == 'y' -%}
+      - mailhog
+      {%- endif %}
+    env_file:
+      - ./.envs/.local/.django
+      - ./.envs/.local/.postgres
     ports: []
     command: /start-celerybeat.sh
-{% endif %}
+
+  {%- endif %}

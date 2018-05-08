@@ -2,6 +2,10 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2018-02-16]
+### Changed
+- Upgraded to Django 2.0 (@epicwhale)
+
 ## [2018-01-15]
 ### Changed
 - Removed Elastic Beanstalk support (@pydanny)

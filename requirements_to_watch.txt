@@ -1,2 +1,0 @@
-# These requirements prevented an upgrade to Django 1.11.
-django-autoslug==1.9.3

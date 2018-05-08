@@ -16,8 +16,9 @@ Fábio C. Barrionuevo da Luz `@luzfcb`_       @luzfcb
 Saurabh Kumar               `@theskumar`_    @_theskumar
 Jannis Gebauer              `@jayfk`_
 Burhan Khalid               `@burhan`_       @burhan
-Shupeyko Nikita             `@webyneter`_    @webyneter
+Nikita Shupeyko             `@webyneter`_    @webyneter
 Bruno Alla                  `@browniebroke`_ @_BrunoAlla
+Wan Liuyang                 `@sfdye`_        @sfdye
 =========================== ================ ===========
 
 *Audrey is also the creator of Cookiecutter. Audrey and
@@ -30,6 +31,7 @@ Daniel are on the Cookiecutter core team.*
 .. _@jayfk: https://github.com/jayfk
 .. _@webyneter: https://github.com/webyneter
 .. _@browniebroke: https://github.com/browniebroke
+.. _@sfdye: https://github.com/sfdye
 
 Other Contributors
 ------------------
@@ -44,6 +46,7 @@ Listed in alphabetical order.
   Aaron Eikenberry         `@aeikenberry`_
   Adam Bogdał              `@bogdal`_
   Adam Dobrawy             `@ad-m`_
+  Adam Steele              `@adammsteele`
   Agam Dua
   Alberto Sanchez          `@alb3rto`_
   Alex Tsai                `@caffodian`_
@@ -88,6 +91,7 @@ Listed in alphabetical order.
   Dong Huynh               `@trungdong`_
   Emanuel Calso            `@bloodpet`_                  @bloodpet
   Eraldo Energy            `@eraldo`_
+  Eric Groom               `@ericgroom`_
   Eyad Al Sibai            `@eyadsibai`_
   Felipe Arruda            `@arruda`_
   Garry Cairns             `@garry-cairns`_
@@ -114,6 +118,7 @@ Listed in alphabetical order.
   Luis Nell                `@originell`_
   Lukas Klein
   Lyla Fischer
+  Malik Sulaimanov         `@flyudvik`_                  @flyudvik
   Martin Blech
   Mathijs Hoogland         `@MathijsHoogland`_
   Matt Braymer-Hayes       `@mattayes`_                  @mattayes
@@ -151,7 +156,6 @@ Listed in alphabetical order.
   Travis McNeill           `@Travistock`_               @tavistock_esq
   Vitaly Babiy
   Vivian Guillen           `@viviangb`_
-  Wan Liuyang              `@sfdye`_                    @sfdye
   Will Farley              `@goldhand`_                 @g01dhand
   William Archinal         `@archinal`_
   Yaroslav Halchenko
@@ -159,6 +163,7 @@ Listed in alphabetical order.
 
 .. _@a7p: https://github.com/a7p
 .. _@ad-m: https://github.com/ad-m
+.. _@adammsteele: https://github.com/adammsteele
 .. _@aeikenberry: https://github.com/aeikenberry
 .. _@alb3rto: https://github.com/alb3rto
 .. _@ameistad: https://github.com/ameistad
@@ -193,6 +198,7 @@ Listed in alphabetical order.
 .. _@eraldo: https://github.com/eraldo
 .. _@eriol: https://github.com/eriol
 .. _@eyadsibai: https://github.com/eyadsibai
+.. _@flyudvik: https://github.com/flyudvik
 .. _@garry-cairns: https://github.com/garry-cairns
 .. _@garrypolley: https://github.com/garrypolley
 .. _@goldhand: https://github.com/goldhand
@@ -229,7 +235,6 @@ Listed in alphabetical order.
 .. _@romanosipenko: https://github.com/romanosipenko
 .. _@shireenrao: https://github.com/shireenrao
 .. _@show0k: https://github.com/show0k
-.. _@sfdye: https://github.com/sfdye
 .. _@shultz: https://github.com/shultz
 .. _@siauPatrick: https://github.com/siauPatrick
 .. _@slafs: https://github.com/slafs

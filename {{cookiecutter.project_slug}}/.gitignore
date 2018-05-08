@@ -53,41 +53,24 @@ coverage.xml
 # Django stuff:
 staticfiles/
 
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
 # Sphinx documentation
 docs/_build/
 
 # PyBuilder
 target/
 
-# Jupyter Notebook
-.ipynb_checkpoints
-
 # pyenv
 .python-version
 
+{% if cookiecutter.use_celery == 'y' -%}
 # celery beat schedule file
 celerybeat-schedule
-
-# SageMath parsed files
-*.sage.py
+{%- endif %}
 
 # Environments
-.env
 .venv
-env/
 venv/
 ENV/
-
-# Spyder project settings
-.spyderproject
-.spyproject
 
 # Rope project settings
 .ropeproject
@@ -341,7 +324,7 @@ Session.vim
 
 # Auto-generated tag files
 tags
-
+{% if cookiecutter.use_docker == 'n' %}
 
 ### VirtualEnv template
 # Virtualenv
@@ -354,16 +337,10 @@ tags
 [Ss]cripts
 pyvenv.cfg
 pip-selfcheck.json
-
-
-{% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' -%}
-mailhog
 {% endif %}
 
+### Project template
+{% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' %}
+MailHog
+{%- endif %}
 {{ cookiecutter.project_slug }}/media/
-
-{% if cookiecutter.use_docker == 'y' -%}
-# Added to maintain local compose files which are ignored by something above.
-# See issue https://github.com/pydanny/cookiecutter-django/issues/1321
-!/compose/local/
-{% endif %}
