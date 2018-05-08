@@ -18,7 +18,7 @@ celery==3.1.25  # pyup: <4.0  # https://github.com/celery/celery
 django==2.0.5  # pyup: < 2.1  # https://www.djangoproject.com/
 django-environ==0.4.4  # https://github.com/joke2k/django-environ
 django-model-utils==3.1.1  # https://github.com/jazzband/django-model-utils
-django-allauth==0.35.0  # https://github.com/pennersr/django-allauth
+django-allauth==0.36.0  # https://github.com/pennersr/django-allauth
 django-crispy-forms==1.7.2  # https://github.com/django-crispy-forms/django-crispy-forms
 {%- if cookiecutter.use_compressor == "y" %}
 django-compressor==2.2  # https://github.com/django-compressor/django-compressor
