@@ -1,5 +1,6 @@
 # PostgreSQL
 # ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
 POSTGRES_DB={{ cookiecutter.project_slug }}
 POSTGRES_USER=!!!SET POSTGRES_USER!!!
 POSTGRES_PASSWORD=!!!SET POSTGRES_PASSWORD!!!
