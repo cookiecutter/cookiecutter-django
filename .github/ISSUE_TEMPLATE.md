@@ -1,4 +1,4 @@
-**Note: for support questions, please use the `cookiecutter-django` tag on stackoverflow**. This repository's issues are reserved for feature requests and bug reports. If you need quick professional paid support for your project, contact support@cookiecutter.io.
+**Note: for support questions, please use the `cookiecutter-django` tag on stackoverflow**. This repository's issues are reserved for feature requests and bug reports.
 
 * **I'm submitting a ... **
   - [ ] bug report
