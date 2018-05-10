@@ -27,9 +27,6 @@ production-ready Django projects quickly.
 * See Troubleshooting_ for common errors and obstacles
 * If you have problems with Cookiecutter Django, please open issues_ don't send
   emails to the maintainers.
-* Need quick professional paid support? Contact `support@cookiecutter.io`_.
-  This includes configuring your servers, fixing bugs, reviewing your code and
-  everything in between.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
@@ -37,7 +34,6 @@ production-ready Django projects quickly.
 
 .. _528: https://github.com/pydanny/cookiecutter-django/issues/528#issuecomment-212650373
 .. _issues: https://github.com/pydanny/cookiecutter-django/issues/new
-.. _support@cookiecutter.io: support@cookiecutter.io
 
 Features
 ---------
