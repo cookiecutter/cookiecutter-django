@@ -13,14 +13,11 @@ about: Report a bug
 
 
 
-## How can we reproduce the problem?
+## Steps to reproduce
 
+[//]: # (Any or all of the following:)
+[//]: # (* Host system configuration: OS, Docker & friends' versions etc.)
+[//]: # (* Project generation options)
+[//]: # (* Logs)
 
-
-
-### Project Generation Options
-
-
-
-### Logs
 
