@@ -2,9 +2,9 @@
   "project_name": "My Awesome Project",
   "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_') }}",
   "description": "Behold My Awesome Project!",
-  "author_name": "Daniel Roy Greenfeld",
-  "email": "{{ cookiecutter.author_name.lower()|replace(' ', '-') }}@example.com",
+  "author_name": "{{ cookiecutter.project_slug }}",
   "domain_name": "example.com",
+  "email": "{{ cookiecutter.author_name.lower()|replace(' ', '-') }}@example.com",
   "version": "0.1.0",
   "open_source_license": [
     "MIT",
@@ -28,8 +28,7 @@
   ],
   "js_task_runner": [
     "None",
-    "Gulp",
-    "Grunt"
+    "Gulp"
   ],
   "custom_bootstrap_compilation": "n",
   "use_compressor": "n",

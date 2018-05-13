@@ -67,12 +67,6 @@ def remove_heroku_files():
         os.remove(file_name)
 
 
-def remove_grunt_files():
-    file_names = ["Gruntfile.js"]
-    for file_name in file_names:
-        os.remove(file_name)
-
-
 def remove_gulp_files():
     file_names = ["gulpfile.js"]
     for file_name in file_names:
@@ -264,16 +258,11 @@ def main():
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
             append_to_gitignore_file("!.envs/.local/")
 
-    if "{{ cookiecutter.js_task_runner}}".lower() == "gulp":
-        remove_grunt_files()
-    elif "{{ cookiecutter.js_task_runner}}".lower() == "grunt":
+    if "{{ cookiecutter.js_task_runner}}".lower() == "none":
         remove_gulp_files()
-    else:
-        remove_gulp_files()
-        remove_grunt_files()
         remove_packagejson_file()
     if (
-        "{{ cookiecutter.js_task_runner }}".lower() in ["grunt", "gulp"]
+        "{{ cookiecutter.js_task_runner }}".lower() != "none"
         and "{{ cookiecutter.use_docker }}".lower() == "y"
     ):
         print(

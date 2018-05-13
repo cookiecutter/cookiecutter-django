@@ -3,28 +3,7 @@
   "version": "{{ cookiecutter.version }}",
   "dependencies": {},
   "devDependencies": {
-    {% if cookiecutter.js_task_runner == 'Grunt' %}
-    "autoprefixer": "~8.1.0",
-    {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
-    "bootstrap": "^4.0.0",
-    {% endif %}
-    "connect-livereload": "~0.6.0",
-    "cssnano": "~3.10.0",
-    "grunt": "~1.0.2",
-    "grunt-bg-shell": "~2.3.1",
-    "grunt-contrib-watch": "~1.0.0",
-    "grunt-postcss": "~0.9.0",
-    "grunt-sass": "~2.1.0",
-    {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
-    "jquery": "^3.2.1-slim",
-    {% endif %}
-    "load-grunt-tasks": "~3.2.0",
-    "pixrem": "~4.0.1",
-    {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
-    "popper.js": "^1.12.3",
-    {% endif %}
-    "time-grunt": "~1.2.1"
-    {% elif cookiecutter.js_task_runner == 'Gulp' %}
+    {% if cookiecutter.js_task_runner == 'Gulp' %}
     {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
     "bootstrap": "^4.0.0",
     {% endif %}
@@ -54,11 +33,8 @@
     "node": ">=0.8.0"
   },
   "scripts": {
-    {% if cookiecutter.js_task_runner == 'Grunt' %}
-    "dev": "grunt serve"
-    {% elif cookiecutter.js_task_runner == 'Gulp' %}
+    {% if cookiecutter.js_task_runner == 'Gulp' %}
     "dev": "gulp"
     {% endif %}
-
   }
 }

@@ -60,9 +60,8 @@ postgresql_version [1]
 js_task_runner [1]
     Select a JavaScript task runner. The choices are:
 
-    1. Gulp_
-    2. Grunt_
-    3. None
+    1. None
+    2. Gulp_
 
 custom_bootstrap_compilation [n]
     Indicates whether the project should support Bootstrap recompilation
@@ -114,7 +113,6 @@ debug [n]
 .. _PostgreSQL: https://www.postgresql.org/docs/
 
 .. _Gulp: https://github.com/gulpjs/gulp
-.. _Grunt: https://github.com/gruntjs/grunt
 
 .. _Django Compressor: https://github.com/django-compressor/django-compressor
 
