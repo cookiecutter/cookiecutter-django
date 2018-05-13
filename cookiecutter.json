@@ -2,7 +2,7 @@
   "project_name": "My Awesome Project",
   "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_') }}",
   "description": "Behold My Awesome Project!",
-  "author_name": "{{ cookiecutter.project_slug }}",
+  "author_name": "Daniel Roy Greenfeld",
   "domain_name": "example.com",
   "email": "{{ cookiecutter.author_name.lower()|replace(' ', '-') }}@example.com",
   "version": "0.1.0",
