@@ -17,7 +17,7 @@ services:
     env_file:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
-    command: /gunicorn.sh
+    command: /gunicorn
 
   postgres:
     build:
@@ -58,7 +58,7 @@ services:
     env_file:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
-    command: /start-celeryworker.sh
+    command: /start-celeryworker
 
   celerybeat:
     <<: *django
@@ -69,6 +69,6 @@ services:
     env_file:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
-    command: /start-celerybeat.sh
+    command: /start-celerybeat
 
   {%- endif %}

@@ -19,23 +19,23 @@ COPY ./requirements /requirements
 RUN pip install --no-cache-dir -r /requirements/production.txt \
     && rm -rf /requirements
 
-COPY ./compose/production/django/gunicorn.sh /gunicorn.sh
-RUN sed -i 's/\r//' /gunicorn.sh
-RUN chmod +x /gunicorn.sh
-RUN chown django /gunicorn.sh
+COPY ./compose/production/django/gunicorn /gunicorn
+RUN sed -i 's/\r//' /gunicorn
+RUN chmod +x /gunicorn
+RUN chown django /gunicorn
 
-COPY ./compose/production/django/entrypoint.sh /entrypoint.sh
-RUN sed -i 's/\r//' /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-RUN chown django /entrypoint.sh
+COPY ./compose/production/django/entrypoint /entrypoint
+RUN sed -i 's/\r//' /entrypoint
+RUN chmod +x /entrypoint
+RUN chown django /entrypoint
 {% if cookiecutter.use_celery == "y" %}
-COPY ./compose/production/django/celery/worker/start.sh /start-celeryworker.sh
-RUN sed -i 's/\r//' /start-celeryworker.sh
-RUN chmod +x /start-celeryworker.sh
+COPY ./compose/production/django/celery/worker/start /start-celeryworker
+RUN sed -i 's/\r//' /start-celeryworker
+RUN chmod +x /start-celeryworker
 
-COPY ./compose/production/django/celery/beat/start.sh /start-celerybeat.sh
-RUN sed -i 's/\r//' /start-celerybeat.sh
-RUN chmod +x /start-celerybeat.sh
+COPY ./compose/production/django/celery/beat/start /start-celerybeat
+RUN sed -i 's/\r//' /start-celerybeat
+RUN chmod +x /start-celerybeat
 {% endif %}
 COPY . /app
 
@@ -45,4 +45,4 @@ USER django
 
 WORKDIR /app
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint"]
