@@ -154,7 +154,7 @@ def set_django_admin_url(file_path):
     django_admin_url = set_flag(
         file_path,
         "!!!SET DJANGO_ADMIN_URL!!!",
-        formatted="^{}/",
+        formatted="{}/",
         length=32,
         using_digits=True,
         using_ascii_letters=True,
