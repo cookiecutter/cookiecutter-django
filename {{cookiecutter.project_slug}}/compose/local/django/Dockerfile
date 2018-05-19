@@ -1,19 +1,23 @@
-FROM python:3.6-alpine
+FROM python:3.6
 
 ENV PYTHONUNBUFFERED 1
 
-RUN apk update \
+RUN apt-get update
+Run apt install -y binutils libproj-dev gdal-bin
+
+RUN apt-get update 
   # psycopg2 dependencies
-  && apk add --virtual build-deps gcc python3-dev musl-dev \
-  && apk add postgresql-dev \
+RUN apt install -y build-essential gcc python3-dev musl-dev 
   # Pillow dependencies
-  && apk add jpeg-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-dev tcl-dev \
+  # && apt install -y tk-dev tcl-dev \
   # CFFI dependencies
-  && apk add libffi-dev openssl-dev py-cffi \
+# RUN apt install -y openssl-dev 
   # Translations dependencies
-  && apk add gettext \
+RUN apt install -y gettext 
   # https://docs.djangoproject.com/en/dev/ref/django-admin/#dbshell
-  && apk add postgresql-client
+RUN apt install -y postgresql-client
+
+
 
 # Requirements are installed here to ensure they will be cached.
 COPY ./requirements /requirements
@@ -26,15 +30,7 @@ RUN chmod +x /entrypoint.sh
 COPY ./compose/local/django/start.sh /start.sh
 RUN sed -i 's/\r//' /start.sh
 RUN chmod +x /start.sh
-{% if cookiecutter.use_celery == "y" %}
-COPY ./compose/local/django/celery/worker/start.sh /start-celeryworker.sh
-RUN sed -i 's/\r//' /start-celeryworker.sh
-RUN chmod +x /start-celeryworker.sh
 
-COPY ./compose/local/django/celery/beat/start.sh /start-celerybeat.sh
-RUN sed -i 's/\r//' /start-celerybeat.sh
-RUN chmod +x /start-celerybeat.sh
-{% endif %}
 WORKDIR /app
 
 ENTRYPOINT ["/entrypoint.sh"]
