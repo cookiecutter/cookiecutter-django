@@ -1,4 +1,4 @@
-FROM postgres:{{ cookiecutter.postgresql_version }}
+FROM mdillon/postgis
 
 COPY ./compose/production/postgres/maintenance /usr/local/bin/maintenance
 RUN chmod +x /usr/local/bin/maintenance/*
