@@ -84,6 +84,10 @@ Once this is ready, you can run it with::
 
     docker-compose -f production.yml up
 
+To run the stack and detach the containers, run::
+
+    docker-compose -f production.yml up -d
+
 To run a migration, open up a second terminal and run::
 
    docker-compose -f production.yml run --rm django python manage.py migrate
