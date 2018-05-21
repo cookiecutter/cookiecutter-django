@@ -158,13 +158,13 @@ Answer the prompts with your own desired options_. For example::
     domain_name [example.com]: myreddit.com
     version [0.1.0]: 0.0.1
     timezone [UTC]: America/Los_Angeles
-    use_whitenoise [y]: n
+    use_whitenoise [n]: n
     use_celery [n]: y
     use_mailhog [n]: n
-    use_sentry [y]: y
+    use_sentry [n]: y
     use_pycharm [n]: y
     windows [n]: n
-    use_docker [y]: n
+    use_docker [n]: n
     use_heroku [n]: y
     use_compressor [n]: y
     Select postgresql_version:
