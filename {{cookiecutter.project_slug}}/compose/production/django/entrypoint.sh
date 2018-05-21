@@ -5,8 +5,6 @@ set -o pipefail
 set -o nounset
 
 
-cmd="$@"
-
 # N.B. If only .env files supported variable expansion...
 export CELERY_BROKER_URL="${REDIS_URL}"
 
@@ -44,4 +42,4 @@ done
 
 >&2 echo 'PostgreSQL is up - continuing...'
 
-exec $cmd
+exec "$@"
