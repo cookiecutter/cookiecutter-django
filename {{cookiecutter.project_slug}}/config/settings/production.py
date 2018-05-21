@@ -158,8 +158,8 @@ INSTALLED_APPS += ['gunicorn']  # noqa F405
 # http://whitenoise.evans.io/en/latest/django.html#enable-whitenoise
 MIDDLEWARE = ['whitenoise.middleware.WhiteNoiseMiddleware'] + MIDDLEWARE  # noqa F405
 
-{%- endif %}
-{% if cookiecutter.use_compressor == 'y' -%}
+{% endif %}
+{%- if cookiecutter.use_compressor == 'y' -%}
 # django-compressor
 # ------------------------------------------------------------------------------
 # https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_ENABLED
@@ -169,16 +169,16 @@ COMPRESS_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_URL
 COMPRESS_URL = STATIC_URL
 
-{%- endif %}
-{% if cookiecutter.use_whitenoise == 'n' -%}
+{% endif %}
+{%- if cookiecutter.use_whitenoise == 'n' -%}
 # Collectfast
 # ------------------------------------------------------------------------------
 # https://github.com/antonagestam/collectfast#installation
 INSTALLED_APPS = ['collectfast'] + INSTALLED_APPS  # noqa F405
 AWS_PRELOAD_METADATA = True
 
-{%- endif %}
-{% if cookiecutter.use_sentry == 'y' -%}
+{% endif %}
+{%- if cookiecutter.use_sentry == 'y' -%}
 # raven
 # ------------------------------------------------------------------------------
 # https://docs.sentry.io/clients/python/integrations/django/
@@ -241,6 +241,7 @@ SENTRY_CELERY_LOGLEVEL = env.int('DJANGO_SENTRY_LOG_LEVEL', logging.INFO)
 RAVEN_CONFIG = {
     'dsn': SENTRY_DSN
 }
+
 {%- else %}
 # LOGGING
 # ------------------------------------------------------------------------------
@@ -290,6 +291,6 @@ LOGGING = {
     }
 }
 
-{%- endif %}
+{% endif %}
 # Your stuff...
 # ------------------------------------------------------------------------------
