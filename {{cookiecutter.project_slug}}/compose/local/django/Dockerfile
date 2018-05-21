@@ -27,6 +27,10 @@ COPY ./compose/local/django/start /start
 RUN sed -i 's/\r//' /start
 RUN chmod +x /start
 {% if cookiecutter.use_celery == "y" %}
+COPY ./compose/local/django/celery/flower/start /start-flower
+RUN sed -i 's/\r//' /start-flower
+RUN chmod +x /start-flower
+
 COPY ./compose/local/django/celery/worker/start /start-celeryworker
 RUN sed -i 's/\r//' /start-celeryworker
 RUN chmod +x /start-celeryworker

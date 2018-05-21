@@ -44,6 +44,12 @@ services:
   {%- endif %}
   {%- if cookiecutter.use_celery == 'y' %}
 
+  flower:
+    <<: *django
+    ports:
+      - "5555:5555"
+    command: /start-flower
+
   redis:
     image: redis:3.2
 
