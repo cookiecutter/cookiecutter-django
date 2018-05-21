@@ -34,12 +34,10 @@ sys.exit(0)
 
 END
 }
-
 until postgres_ready; do
-  >&2 echo 'PostgreSQL is unavailable (sleeping)...'
+  >&2 echo 'Waiting for PostgreSQL to become available...'
   sleep 1
 done
-
->&2 echo 'PostgreSQL is up - continuing...'
+>&2 echo 'PostgreSQL is available'
 
 exec "$@"
