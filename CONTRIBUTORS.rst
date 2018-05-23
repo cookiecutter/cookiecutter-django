@@ -141,6 +141,7 @@ Listed in alphabetical order.
   Roman Afanaskin          `@siauPatrick`_
   Roman Osipenko           `@romanosipenko`_
   Russell Davies
+  Sascha                   `@saschalalala`              @saschalalala
   Sam Collins              `@MightySCollins`_
   Shupeyko Nikita          `@webyneter`_
   Sławek Ehlert            `@slafs`_

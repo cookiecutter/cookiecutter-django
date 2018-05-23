@@ -19,22 +19,22 @@ RUN apk update \
 COPY ./requirements /requirements
 RUN pip install -r /requirements/local.txt
 
-COPY ./compose/production/django/entrypoint.sh /entrypoint.sh
-RUN sed -i 's/\r//' /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+COPY ./compose/production/django/entrypoint /entrypoint
+RUN sed -i 's/\r//' /entrypoint
+RUN chmod +x /entrypoint
 
-COPY ./compose/local/django/start.sh /start.sh
-RUN sed -i 's/\r//' /start.sh
-RUN chmod +x /start.sh
+COPY ./compose/local/django/start /start
+RUN sed -i 's/\r//' /start
+RUN chmod +x /start
 {% if cookiecutter.use_celery == "y" %}
-COPY ./compose/local/django/celery/worker/start.sh /start-celeryworker.sh
-RUN sed -i 's/\r//' /start-celeryworker.sh
-RUN chmod +x /start-celeryworker.sh
+COPY ./compose/local/django/celery/worker/start /start-celeryworker
+RUN sed -i 's/\r//' /start-celeryworker
+RUN chmod +x /start-celeryworker
 
-COPY ./compose/local/django/celery/beat/start.sh /start-celerybeat.sh
-RUN sed -i 's/\r//' /start-celerybeat.sh
-RUN chmod +x /start-celerybeat.sh
+COPY ./compose/local/django/celery/beat/start /start-celerybeat
+RUN sed -i 's/\r//' /start-celerybeat
+RUN chmod +x /start-celerybeat
 {% endif %}
 WORKDIR /app
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint"]

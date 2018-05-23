@@ -18,7 +18,7 @@ DJANGO_READ_DOT_ENV_FILE                READ_DOT_ENV_FILE           False       
 ======================================= =========================== ============================================== ======================================================================
 Environment Variable                    Django Setting              Development Default                            Production Default
 ======================================= =========================== ============================================== ======================================================================
-DJANGO_ADMIN_URL                        n/a                         r'^admin/'                                     raises error
+DJANGO_ADMIN_URL                        n/a                         'admin/'                                       raises error
 DJANGO_CACHES                           CACHES (default)            locmem                                         redis
 DJANGO_DATABASES                        DATABASES (default)         See code                                       See code
 DJANGO_DEBUG                            DEBUG                       True                                           False
