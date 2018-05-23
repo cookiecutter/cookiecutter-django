@@ -8,4 +8,3 @@ Provided your question goes beyound [regular support](https://github.com/pydanny
 * Daniel Roy Greenfeld, Project Lead ([GitHub](https://github.com/pydanny), [Patreon](https://www.patreon.com/danielroygreenfeld)): expertise in Django and AWS ELB.
 
 * Nikita Shupeyko, Core Developer ([GitHub](https://github.com/webyneter)): expertise in Django, Docker, and Heroku.
-
