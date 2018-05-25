@@ -37,7 +37,7 @@ WEB_CONCURRENCY=4
 {% if cookiecutter.use_sentry == 'y' %}
 # Sentry
 # ------------------------------------------------------------------------------
-DJANGO_SENTRY_DSN=
+SENTRY_DSN=
 {% endif %}
 
 # Redis
