@@ -6,4 +6,4 @@ set -o nounset
 set -o xtrace
 
 
-celery flower -A {{cookiecutter.project_slug}}.taskapp worker --broker="${CELERY_BROKER_URL}"
+celery flower -A {{cookiecutter.project_slug}}.taskapp --broker="${CELERY_BROKER_URL}"
