@@ -32,10 +32,12 @@ RUN chown django /start
 COPY ./compose/production/django/celery/worker/start /start-celeryworker
 RUN sed -i 's/\r//' /start-celeryworker
 RUN chmod +x /start-celeryworker
+RUN chown django /start-celeryworker
 
 COPY ./compose/production/django/celery/beat/start /start-celerybeat
 RUN sed -i 's/\r//' /start-celerybeat
 RUN chmod +x /start-celerybeat
+RUN chown django /start-celerybeat
 {% endif %}
 COPY . /app
 
