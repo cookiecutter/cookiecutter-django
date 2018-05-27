@@ -120,6 +120,7 @@ Listed in alphabetical order.
   Lyla Fischer
   Malik Sulaimanov         `@flyudvik`_                  @flyudvik
   Martin Blech
+  Martin Saizar            `@msaizar`_
   Mathijs Hoogland         `@MathijsHoogland`_
   Matt Braymer-Hayes       `@mattayes`_                  @mattayes
   Matt Linares
@@ -218,6 +219,7 @@ Listed in alphabetical order.
 .. _@kevgathuku: https://github.com/kevgathuku
 .. _@knitatoms: https://github.com/knitatoms
 .. _@krzysztofzuraw: https://github.com/krzysztofzuraw
+.. _@msaizar: https://github.com/msaizar
 .. _@MathijsHoogland: https://github.com/MathijsHoogland
 .. _@mattayes: https://github.com/mattayes
 .. _@menzenski: https://github.com/menzenski
