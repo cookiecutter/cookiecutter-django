@@ -17,7 +17,7 @@ services:
     env_file:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
-    command: /gunicorn
+    command: /start
 
   postgres:
     build:
