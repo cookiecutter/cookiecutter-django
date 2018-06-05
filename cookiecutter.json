@@ -18,6 +18,7 @@
   "use_pycharm": "n",
   "use_docker": "n",
   "postgresql_version": [
+    "10.4",
     "10.3",
     "10.2",
     "10.1",
