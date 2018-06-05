@@ -75,7 +75,7 @@ THIRD_PARTY_APPS = [
     'rest_framework',
 ]
 LOCAL_APPS = [
-    '{{ cookiecutter.project_slug }}.users.apps.UsersConfig',
+    '{{ cookiecutter.project_slug }}.users.apps.UsersAppConfig',
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
