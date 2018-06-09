@@ -76,8 +76,10 @@ INSTALLED_APPS += ['django_extensions']  # noqa F405
 
 # Celery
 # ------------------------------------------------------------------------------
-# http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-task_always_eager
+# http://docs.celeryproject.org/en/latest/userguide/configuration.html#task-always-eager
 CELERY_TASK_ALWAYS_EAGER = True
+# http://docs.celeryproject.org/en/latest/userguide/configuration.html#task-eager-propagates
+CELERY_EAGER_PROPAGATES = CELERY_TASK_ALWAYS_EAGER
 
 {%- endif %}
 # Your stuff...
