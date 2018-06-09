@@ -56,9 +56,6 @@ services:
       {% if cookiecutter.use_mailhog == 'y' -%}
       - mailhog
       {%- endif %}
-    env_file:
-      - ./.envs/.local/.django
-      - ./.envs/.local/.postgres
     ports: []
     command: /start-celeryworker
 
@@ -71,9 +68,6 @@ services:
       {% if cookiecutter.use_mailhog == 'y' -%}
       - mailhog
       {%- endif %}
-    env_file:
-      - ./.envs/.local/.django
-      - ./.envs/.local/.postgres
     ports: []
     command: /start-celerybeat
 
