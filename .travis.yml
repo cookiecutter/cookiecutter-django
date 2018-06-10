@@ -1,5 +1,3 @@
-# Config file for automatic testing at travis-ci.org
-
 sudo: required
 
 services:
@@ -10,18 +8,18 @@ language: python
 python: 3.6
 
 env:
-    - TOX_ENV=py36
+  - TOX_ENV=py36
 
 before_install:
   - docker-compose -v
   - docker -v
 
 script:
-    - tox -e $TOX_ENV
-    - sh tests/test_docker.sh
+  - tox -e $TOX_ENV
+  - sh tests/test_docker.sh
 
 install:
-    - pip install tox
+  - pip install tox
 
 notifications:
   email:

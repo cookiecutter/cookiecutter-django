@@ -341,3 +341,5 @@ pip-selfcheck.json
 MailHog
 {%- endif %}
 {{ cookiecutter.project_slug }}/media/
+
+.pytest_cache/
