@@ -44,13 +44,6 @@ services:
   {%- endif %}
   {%- if cookiecutter.use_celery == 'y' %}
 
-  flower:
-    <<: *django
-    image: {{ cookiecutter.project_slug }}_local_flower
-    ports:
-      - "5555:5555"
-    command: /start-flower
-
   redis:
     image: redis:3.2
 
@@ -77,5 +70,12 @@ services:
       {%- endif %}
     ports: []
     command: /start-celerybeat
+
+  flower:
+    <<: *django
+    image: {{ cookiecutter.project_slug }}_local_flower
+    ports:
+      - "5555:5555"
+    command: /start-flower
 
   {%- endif %}
