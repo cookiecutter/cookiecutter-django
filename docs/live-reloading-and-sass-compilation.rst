@@ -1,5 +1,5 @@
-Live reloading and Sass CSS compilation
-=======================================
+Sass Compilation & Live Reloading
+=================================
 
 If you'd like to take advantage of live reloading and Sass / Compass CSS compilation you can do so with a little bit of prep work.
 
@@ -15,7 +15,7 @@ If you don't already have it, install `compass` (doesn't hurt if you run this co
 
 Now you just need::
 
-    $ grunt serve
+    $ npm run dev
 
 The base app will now run as it would with the usual ``manage.py runserver`` but with live reloading and Sass compilation enabled.
 

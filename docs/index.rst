@@ -24,7 +24,6 @@ Contents:
    docker-postgres-backups
    faq
    troubleshooting
-   my-favorite-cookie
 
 Indices and tables
 ==================

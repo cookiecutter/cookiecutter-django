@@ -13,6 +13,8 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
 
+    <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
+
     {% block css %}
     {% endraw %}{% if cookiecutter.custom_bootstrap_compilation == "n" %}{% raw %}
     <!-- Latest compiled and minified Bootstrap 4 beta CSS -->
@@ -22,7 +24,7 @@
     <!-- Your stuff: Third-party CSS libraries go here -->
     {% endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% compress css %}{% endraw %}{% endif %}{% raw %}
     <!-- This file stores project-specific CSS -->
-    {% endraw %}{% if cookiecutter.js_task_runner == "Gulp" %}{% raw %}
+    {% endraw %}{% if cookiecutter.js_task_runner == "Gulp" and cookiecutter.use_compressor == "n" %}{% raw %}
     <link href="{% static 'css/project.min.css' %}" rel="stylesheet">
     {% endraw %}{% else %}{% raw %}
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
