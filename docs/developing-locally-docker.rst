@@ -172,6 +172,8 @@ When developing locally you can go with MailHog_ for email testing provided ``us
 .. _Mailhog: https://github.com/mailhog/MailHog/
 
 
+.. _`CeleryFlower`:
+
 Celery Flower
 ~~~~~~~~~~~~~
 
