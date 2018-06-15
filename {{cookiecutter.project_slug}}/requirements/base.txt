@@ -10,7 +10,7 @@ whitenoise==3.3.1  # https://github.com/evansd/whitenoise
 {%- endif %}
 redis>=2.10.5  # https://github.com/antirez/redis
 {%- if cookiecutter.use_celery == "y" %}
-celery==3.1.25  # pyup: <4.0  # https://github.com/celery/celery
+celery==3.1.26.post2  # pyup: <4.0  # https://github.com/celery/celery
 {%- endif %}
 
 # Django
