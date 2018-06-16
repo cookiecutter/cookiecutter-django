@@ -10,7 +10,7 @@ SECRET_KEY = env('DJANGO_SECRET_KEY', default='!!!SET DJANGO_SECRET_KEY!!!')
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = [
     "localhost",
-    { % - if cookiecutter.js_task_runner == 'Gulp' and cookiecutter.use_docker == 'y' %}
+    {%- if cookiecutter.js_task_runner == 'Gulp' and cookiecutter.use_docker == 'y' %}
     "django",
     {%- endif %}
     "0.0.0.0",
