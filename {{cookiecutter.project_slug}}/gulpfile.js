@@ -60,9 +60,9 @@ gulp.task('styles', function() {
   return gulp.src(paths.sass + '/project.scss')
     .pipe(sass({
       includePaths: [
-        {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
+        {%- if cookiecutter.custom_bootstrap_compilation == 'y' %}
         paths.bootstrapSass,
-        {% endif %}
+        {%- endif %}
         paths.sass
       ]
     }).on('error', sass.logError))
@@ -84,8 +84,7 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest(paths.js));
 });
 
-
-{% if cookiecutter.custom_bootstrap_compilation == 'y' %}
+{%- if cookiecutter.custom_bootstrap_compilation == 'y' %}
 // Vendor Javascript minification
 gulp.task('vendor-scripts', function() {
   return gulp.src(paths.vendorsJs)
@@ -96,7 +95,7 @@ gulp.task('vendor-scripts', function() {
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(paths.js));
 });
-{% endif %}
+{%- endif %}
 
 // Image compression
 gulp.task('imgCompression', function(){
@@ -105,6 +104,7 @@ gulp.task('imgCompression', function(){
     .pipe(gulp.dest(paths.images))
 });
 
+{%- if cookiecutter.use_docker == 'n' %}
 // Run django server
 gulp.task('runServer', function(cb) {
   var cmd = spawn('python', ['manage.py', 'runserver'], {stdio: 'inherit'});
@@ -113,18 +113,23 @@ gulp.task('runServer', function(cb) {
     cb(code);
   });
 });
+{%- endif %}
 
 // Browser sync server for live reload
 gulp.task('browserSync', function() {
     browserSync.init(
       [paths.css + "/*.css", paths.js + "*.js", paths.templates + '*.html'], {
+        {%- if cookiecutter.use_docker == 'n' %}
         proxy:  "localhost:8000"
+        {% else %}
+        proxy:  "django:8000",
+        open: false
+        {%- endif %}
     });
 });
 
 // Watch
 gulp.task('watch', function() {
-
   gulp.watch(paths.sass + '/*.scss', ['styles']);
   gulp.watch(paths.js + '/*.js', ['scripts']).on("change", reload);
   gulp.watch(paths.images + '/*', ['imgCompression']);
@@ -134,5 +139,21 @@ gulp.task('watch', function() {
 
 // Default task
 gulp.task('default', function() {
-    runSequence(['styles', 'scripts', {% if cookiecutter.custom_bootstrap_compilation == 'y' %}'vendor-scripts', {% endif %}'imgCompression'], ['runServer', 'browserSync', 'watch']);
+  runSequence(
+      [
+        'styles',
+        'scripts',
+        {%- if cookiecutter.custom_bootstrap_compilation == 'y' %}
+        'vendor-scripts',
+        {%- endif %}
+        'imgCompression'
+      ],
+      [
+        {%- if cookiecutter.use_docker == 'n' %}
+        'runServer',
+        {%- endif %}
+        'browserSync',
+        'watch'
+      ]
+  );
 });
