@@ -13,7 +13,7 @@ if not settings.configured:
 app = Celery('{{cookiecutter.project_slug}}')
 
 
-class CeleryConfig(AppConfig):
+class CeleryAppConfig(AppConfig):
     name = '{{cookiecutter.project_slug}}.taskapp'
     verbose_name = 'Celery Config'
 

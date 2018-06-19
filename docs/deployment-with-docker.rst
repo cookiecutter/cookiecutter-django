@@ -32,7 +32,7 @@ Configuring the Stack
 
 The majority of services above are configured through the use of environment variables. Just check out :ref:`envs` and you will know the drill.
 
-To obtain logs and information about crashes in a production setup, make sure that you have access to an external Sentry instance (e.g. by creating an account with `sentry.io`_), and set the ``DJANGO_SENTRY_DSN`` variable.
+To obtain logs and information about crashes in a production setup, make sure that you have access to an external Sentry instance (e.g. by creating an account with `sentry.io`_), and set the ``SENTRY_DSN`` variable.
 
 You will probably also need to setup the Mail backend, for example by adding a `Mailgun`_ API key and a `Mailgun`_ sender domain, otherwise, the account creation view will crash and result in a 500 error when the backend attempts to send an email to the account owner.
 
@@ -83,6 +83,10 @@ You will need to build the stack first. To do that, run::
 Once this is ready, you can run it with::
 
     docker-compose -f production.yml up
+
+To run the stack and detach the containers, run::
+
+    docker-compose -f production.yml up -d
 
 To run a migration, open up a second terminal and run::
 

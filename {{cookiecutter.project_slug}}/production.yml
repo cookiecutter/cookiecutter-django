@@ -17,7 +17,7 @@ services:
     env_file:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
-    command: /gunicorn.sh
+    command: /start
 
   postgres:
     build:
@@ -52,23 +52,11 @@ services:
   celeryworker:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_celeryworker
-    depends_on:
-     - postgres
-     - redis
-    env_file:
-      - ./.envs/.production/.django
-      - ./.envs/.production/.postgres
-    command: /start-celeryworker.sh
+    command: /start-celeryworker
 
   celerybeat:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_celerybeat
-    depends_on:
-      - postgres
-      - redis
-    env_file:
-      - ./.envs/.production/.django
-      - ./.envs/.production/.postgres
-    command: /start-celerybeat.sh
+    command: /start-celerybeat
 
   {%- endif %}
