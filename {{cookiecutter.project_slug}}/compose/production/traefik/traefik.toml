@@ -1,9 +1,10 @@
-logLevel = "ERROR"
+logLevel = "DEBUG"
 defaultEntryPoints = ["http", "https"]
 
 [web]
 # Port for the status page
-address = ":7080"
+address = ":8080"
+dashboard = true
 
 # Entrypoints, http and https
 [entryPoints]
@@ -21,7 +22,7 @@ address = ":7080"
 [acme]
 # Email address used for registration
 email = "{{ cookiecutter.email }}"
-storageFile = "acme.json"
+storageFile = "/etc/traefik/acme/acme.json"
 entryPoint = "https"
 onDemand = false
 OnHostRule = true

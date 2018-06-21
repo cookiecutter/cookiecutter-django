@@ -3,6 +3,7 @@ version: '2'
 volumes:
   postgres_data: {}
   postgres_backup: {}
+  traefik_acme: {}
 
 services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
@@ -20,7 +21,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=django"
-      - "traefik.frontend.rule={{ cookiecutter.domain_name }}"
+      - "traefik.frontend.rule=Host:{{ cookiecutter.domain_name }}"
       - "traefik.port=5000"
 
   postgres:
@@ -43,12 +44,11 @@ services:
       - django
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      # - ./traefik/traefik.toml:/etc/traefik/traefik.toml:ro
-      # - ./traefik/acme:/etc/traefik/acme
+      - traefik_acme:/etc/traefik/acme
     ports:
      - "80:80"
      - "443:443"
-     - "7080:7080"
+     - "8080:8080"
 
   redis:
     image: redis:3.2
