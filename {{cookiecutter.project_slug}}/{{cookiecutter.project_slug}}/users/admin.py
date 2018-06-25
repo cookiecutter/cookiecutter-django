@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from .models import User
 from django.utils.translation import ugettext_lazy as _
 
+
 class MyUserChangeForm(UserChangeForm):
 
     class Meta(UserChangeForm.Meta):
