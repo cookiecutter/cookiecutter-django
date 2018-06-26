@@ -21,7 +21,7 @@ Before you begin, check out the ``production.yml`` file in the root of this proj
 * ``redis``: Redis instance for caching;
 * ``caddy``: Caddy web server with HTTPS on by default.
 
-Provided you have opted for Celery (via setting ``use_celery`` to ``y``) there are two more services:
+Provided you have opted for Celery (via setting ``use_celery`` to ``y``) there are three more services:
 
 * ``celeryworker`` running a Celery worker process;
 * ``celerybeat`` running a Celery beat process;
