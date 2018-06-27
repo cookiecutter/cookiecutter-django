@@ -162,6 +162,7 @@ Listed in alphabetical order.
   Will Farley              `@goldhand`_                 @g01dhand
   William Archinal         `@archinal`_
   Yaroslav Halchenko
+  Denis Bobrov             `@delneg`_       
 ========================== ============================ ==============
 
 .. _@a7p: https://github.com/a7p
@@ -265,7 +266,7 @@ Listed in alphabetical order.
 .. _@brentpayne: https://github.com/brentpayne
 .. _@afrowave: https://github.com/afrowave
 .. _@pchiquet: https://github.com/pchiquet
-
+.. _@delneg: https://github.com/delneg
 Special Thanks
 ~~~~~~~~~~~~~~
 
