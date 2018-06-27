@@ -45,6 +45,7 @@ services:
         environment: production
         cmd: /celerybeat
     image: {{ cookiecutter.project_slug }}_production_celerybeat
+    user: root  # TODO: a temporary workaround -- do it right instead
     command: /celerybeat
 
   flower:
