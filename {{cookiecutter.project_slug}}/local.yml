@@ -26,7 +26,6 @@ services:
       - ./.envs/.postgres.local
     ports:
       - "8000:8000"
-    entrypoint: /entrypoint.local
     command: /django.local
   {%- if cookiecutter.use_celery == 'y' %}
 
