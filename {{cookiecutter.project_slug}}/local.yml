@@ -1,8 +1,8 @@
 version: '3'
 
 volumes:
-  postgres_data_local: {}
-  postgres_backup_local: {}
+  local_postgres_data: {}
+  local_postgres_data_backups: {}
 
 services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
@@ -30,8 +30,8 @@ services:
       dockerfile: ./compose/production/postgres/Dockerfile
     image: {{ cookiecutter.project_slug }}_production_postgres
     volumes:
-      - postgres_data_local:/var/lib/postgresql/data
-      - postgres_backup_local:/backups
+      - local_postgres_data:/var/lib/postgresql/data
+      - local_postgres_data_backups:/backups
     env_file:
       - ./.envs/.local/.postgres
   {%- if cookiecutter.use_mailhog == 'y' %}

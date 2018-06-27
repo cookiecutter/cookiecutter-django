@@ -91,8 +91,8 @@ This is the excerpt from your project's ``local.yml``: ::
       context: .
       dockerfile: ./compose/production/postgres/Dockerfile
     volumes:
-      - postgres_data_local:/var/lib/postgresql/data
-      - postgres_backup_local:/backups
+      - local_postgres_data:/var/lib/postgresql/data
+      - local_postgres_data_backups:/backups
     env_file:
       - ./.envs/.local/.postgres
 

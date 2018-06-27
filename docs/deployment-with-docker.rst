@@ -73,7 +73,7 @@ You can read more about this here at `Automatic HTTPS`_ in the Caddy docs.
 (Optional) Postgres Data Volume Modifications
 ---------------------------------------------
 
-Postgres is saving its database files to the ``postgres_data`` volume by default. Change that if you want something else and make sure to make backups since this is not done automatically.
+Postgres is saving its database files to the ``production_postgres_data`` volume by default. Change that if you want something else and make sure to make backups since this is not done automatically.
 
 
 Building & Running Production Stack

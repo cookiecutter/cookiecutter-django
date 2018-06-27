@@ -1,9 +1,9 @@
 version: '3'
 
 volumes:
-  postgres_data: {}
-  postgres_backup: {}
-  caddy: {}
+  production_postgres_data: {}
+  production_postgres_data_backups: {}
+  production_caddy: {}
 
 services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
@@ -25,8 +25,8 @@ services:
       dockerfile: ./compose/production/postgres/Dockerfile
     image: {{ cookiecutter.project_slug }}_production_postgres
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - postgres_backup:/backups
+      - production_postgres_data:/var/lib/postgresql/data
+      - production_postgres_data_backups:/backups
     env_file:
       - ./.envs/.production/.postgres
 
@@ -38,7 +38,7 @@ services:
     depends_on:
       - django
     volumes:
-      - caddy:/root/.caddy
+      - production_caddy:/root/.caddy
     env_file:
       - ./.envs/.production/.caddy
     ports:
