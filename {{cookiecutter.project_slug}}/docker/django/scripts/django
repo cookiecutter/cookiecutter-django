@@ -5,6 +5,4 @@ set -o nounset
 
 
 python manage.py migrate
-# TODO: runs so long that web dyno times out after 60 secs on Heroku
-#python manage.py collectstatic --noinput
 /usr/local/bin/gunicorn config.wsgi --bind 0.0.0.0:5000 --chdir=/app
