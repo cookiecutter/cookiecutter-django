@@ -65,7 +65,7 @@ Optional Integrations
 *These features can be enabled during initial project setup.*
 
 * Serve static files from Amazon S3 or Whitenoise_
-* Configuration for Celery_
+* Configuration for Celery_ and Flower_ (the latter in Docker setup only)
 * Integration with MailHog_ for local email testing
 * Integration with Sentry_ for error logging
 
@@ -78,6 +78,7 @@ Optional Integrations
 .. _Mailgun: http://www.mailgun.com/
 .. _Whitenoise: https://whitenoise.readthedocs.io/
 .. _Celery: http://www.celeryproject.org/
+.. _Flower: https://github.com/mher/flower
 .. _Anymail: https://github.com/anymail/django-anymail
 .. _MailHog: https://github.com/mailhog/MailHog
 .. _Sentry: https://sentry.io/welcome/

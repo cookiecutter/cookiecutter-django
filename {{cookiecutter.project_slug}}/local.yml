@@ -71,4 +71,11 @@ services:
     ports: []
     command: /start-celerybeat
 
+  flower:
+    <<: *django
+    image: {{ cookiecutter.project_slug }}_local_flower
+    ports:
+      - "5555:5555"
+    command: /start-flower
+
   {%- endif %}

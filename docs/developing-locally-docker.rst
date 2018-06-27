@@ -170,3 +170,20 @@ When developing locally you can go with MailHog_ for email testing provided ``us
 #. open up ``http://127.0.0.1:8025``.
 
 .. _Mailhog: https://github.com/mailhog/MailHog/
+
+
+.. _`CeleryFlower`:
+
+Celery Flower
+~~~~~~~~~~~~~
+
+`Flower`_ is a "real-time monitor and web admin for Celery distributed task queue".
+
+Prerequisites:
+
+* ``use_docker`` was set to ``y`` on project initialization;
+* ``use_celery`` was set to ``y`` on project initialization.
+
+By default, it's enabled both in local and production environments (``local.yml`` and ``production.yml`` Docker Compose configs, respectively) through a ``flower`` service. For added security, ``flower`` requires its clients to provide authentication credentials specified as the corresponding environments' ``.envs/.local/.django`` and ``.envs/.production/.django`` ``CELERY_FLOWER_USER`` and ``CELERY_FLOWER_PASSWORD`` environment variables. Check out ``localhost:5555`` and see for yourself.
+
+.. _`Flower`: https://github.com/mher/flower
