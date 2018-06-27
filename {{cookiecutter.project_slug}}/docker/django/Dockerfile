@@ -16,7 +16,8 @@ RUN apk update \
     # Translations dependencies
     gettext \
     # and https://docs.djangoproject.com/en/dev/ref/django-admin/#dbshell
-    postgresql-client
+    postgresql-client \
+    || true
 
 COPY ./requirements/ /app/requirements/
 WORKDIR /app/
