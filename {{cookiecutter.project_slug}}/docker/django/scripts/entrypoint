@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -o errexit
+set -o nounset
+
+
+# TODO: ? merge with -local somehow
+
+# N.B. If only .env files supported variable expansion...
+export CELERY_BROKER_URL="${REDIS_URL}"
+
+exec "$@"

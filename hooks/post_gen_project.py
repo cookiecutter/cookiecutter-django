@@ -54,7 +54,7 @@ def remove_pycharm_files():
 
 
 def remove_docker_files():
-    shutil.rmtree("compose")
+    shutil.rmtree("docker")
 
     file_names = ["local.yml", "production.yml", ".dockerignore"]
     for file_name in file_names:
@@ -223,10 +223,10 @@ def set_flags_in_envs(
     celery_flower_user,
     debug=False,
 ):
-    local_django_envs_path = os.path.join(".envs", ".local", ".django")
-    production_django_envs_path = os.path.join(".envs", ".production", ".django")
-    local_postgres_envs_path = os.path.join(".envs", ".local", ".postgres")
-    production_postgres_envs_path = os.path.join(".envs", ".production", ".postgres")
+    local_django_envs_path = os.path.join(".envs", ".django.local")
+    production_django_envs_path = os.path.join(".envs", ".django")
+    local_postgres_envs_path = os.path.join(".envs", ".postgres.local")
+    production_postgres_envs_path = os.path.join(".envs", ".postgres")
 
     set_django_secret_key(production_django_envs_path)
     set_django_admin_url(production_django_envs_path)
@@ -252,9 +252,14 @@ def remove_envs_and_associated_files():
     os.remove("merge_production_dotenvs_in_dotenv.py")
 
 
-def remove_celery_compose_dirs():
-    shutil.rmtree(os.path.join("compose", "local", "django", "celery"))
-    shutil.rmtree(os.path.join("compose", "production", "django", "celery"))
+def remove_django_celery_docker_scripts():
+    file_names = [
+        "celerybeat",
+        "celeryworker",
+        "flower"
+    ]
+    for file_name in file_names:
+        os.remove(os.path.join("docker", "django", "scripts", file_name))
 
 
 def main():
@@ -296,7 +301,7 @@ def main():
         append_to_gitignore_file(".env")
         append_to_gitignore_file(".envs/*")
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
-            append_to_gitignore_file("!.envs/.local/")
+            append_to_gitignore_file("!.envs/*.local")
 
     if "{{ cookiecutter.js_task_runner}}".lower() == "none":
         remove_gulp_files()
@@ -320,7 +325,7 @@ def main():
     if "{{ cookiecutter.use_celery }}".lower() == "n":
         remove_celery_app()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
-            remove_celery_compose_dirs()
+            remove_django_celery_docker_scripts()
 
     if "{{ cookiecutter.use_travisci }}".lower() == "n":
         remove_dottravisyml_file()

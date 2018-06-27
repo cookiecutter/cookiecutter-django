@@ -3,12 +3,16 @@ version: '3'
 volumes:
   local_postgres_data: {}
   local_postgres_data_backups: {}
+  local_redis_data: {}
 
 services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
     build:
       context: .
-      dockerfile: ./compose/local/django/Dockerfile
+      dockerfile: ./docker/django/Dockerfile
+      args:
+        environment: local
+        cmd: /django.local
     image: {{ cookiecutter.project_slug }}_local_django
     depends_on:
       - postgres
@@ -18,34 +22,13 @@ services:
     volumes:
       - .:/app
     env_file:
-      - ./.envs/.local/.django
-      - ./.envs/.local/.postgres
+      - ./.envs/.django.local
+      - ./.envs/.postgres.local
     ports:
       - "8000:8000"
-    command: /start
-
-  postgres:
-    build:
-      context: .
-      dockerfile: ./compose/production/postgres/Dockerfile
-    image: {{ cookiecutter.project_slug }}_production_postgres
-    volumes:
-      - local_postgres_data:/var/lib/postgresql/data
-      - local_postgres_data_backups:/backups
-    env_file:
-      - ./.envs/.local/.postgres
-  {%- if cookiecutter.use_mailhog == 'y' %}
-
-  mailhog:
-    image: mailhog/mailhog:v1.0.0
-    ports:
-      - "8025:8025"
-
-  {%- endif %}
+    entrypoint: /entrypoint.local
+    command: /django.local
   {%- if cookiecutter.use_celery == 'y' %}
-
-  redis:
-    image: redis:3.2
 
   celeryworker:
     <<: *django
@@ -57,7 +40,7 @@ services:
       - mailhog
       {%- endif %}
     ports: []
-    command: /start-celeryworker
+    command: /celeryworker
 
   celerybeat:
     <<: *django
@@ -69,13 +52,34 @@ services:
       - mailhog
       {%- endif %}
     ports: []
-    command: /start-celerybeat
+    command: /celerybeat
 
   flower:
     <<: *django
     image: {{ cookiecutter.project_slug }}_local_flower
     ports:
       - "5555:5555"
-    command: /start-flower
+    command: /flower
+
+  redis:
+    build: ./docker/redis/
+    volumes:
+      - local_redis_data:/data
+
+  {%- endif %}
+  postgres:
+    build:  ./docker/postgres/
+    image: {{ cookiecutter.project_slug }}_production_postgres
+    volumes:
+      - local_postgres_data:/var/lib/postgresql/data
+      - local_postgres_data_backups:/backups
+    env_file:
+      - ./.envs/.postgres.local
+  {%- if cookiecutter.use_mailhog == 'y' %}
+
+  mailhog:
+    build:  ./docker/mailhog/
+    ports:
+      - "8025:8025"
 
   {%- endif %}

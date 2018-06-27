@@ -1,7 +1,6 @@
 #!/bin/sh
 
 set -o errexit
-set -o pipefail
 set -o nounset
 
 
@@ -17,9 +16,7 @@ export DATABASE_URL="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES
 postgres_ready() {
 python << END
 import sys
-
 import psycopg2
-
 try:
     psycopg2.connect(
         dbname="${POSTGRES_DB}",
@@ -31,7 +28,6 @@ try:
 except psycopg2.OperationalError:
     sys.exit(-1)
 sys.exit(0)
-
 END
 }
 until postgres_ready; do
