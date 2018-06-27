@@ -1,18 +1,14 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="tests - module: users" type="DjangoTestsConfigurationType" factoryName="Django tests" singleton="true">
+  <configuration default="false" name="pytest: users" type="tests" factoryName="py.test" singleton="true">
     <module name="{{ cookiecutter.project_slug }}" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
-    <envs>
-      <env name="PYTHONUNBUFFERED" value="1" />
-      <env name="DJANGO_SETTINGS_MODULE" value="config.settings.test" />
-    </envs>
     <option name="SDK_HOME" value="" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     <option name="IS_MODULE_SDK" value="true" />
     <option name="ADD_CONTENT_ROOTS" value="true" />
     <option name="ADD_SOURCE_ROOTS" value="true" />
-    <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+    <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
     <PathMappingSettings>
       <option name="pathMappings">
         <list>
@@ -20,11 +16,10 @@
         </list>
       </option>
     </PathMappingSettings>
-    <option name="TARGET" value="{{ cookiecutter.project_slug }}.users" />
-    <option name="SETTINGS_FILE" value="" />
-    <option name="CUSTOM_SETTINGS" value="false" />
-    <option name="USE_OPTIONS" value="false" />
-    <option name="OPTIONS" value="" />
+    <option name="_new_keywords" value="&quot;&quot;" />
+    <option name="_new_additionalArguments" value="&quot;&quot;" />
+    <option name="_new_target" value="&quot;./{{ cookiecutter.project_slug }}/users/&quot;" />
+    <option name="_new_targetType" value="&quot;PATH&quot;" />
     <method />
   </configuration>
 </component>
