@@ -52,6 +52,7 @@ services:
       - mailhog
       {%- endif %}
     ports: []
+    user: root  # TODO: a workaround allowing the container to write to the mounted directory -- fix
     command: /celerybeat
 
   flower:
