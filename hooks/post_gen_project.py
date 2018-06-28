@@ -32,7 +32,10 @@ DEBUG_VALUE = "debug"
 
 
 def remove_open_source_files():
-    file_names = ["CONTRIBUTORS.txt"]
+    file_names = [
+        "CONTRIBUTORS.txt",
+        "LICENSE",
+    ]
     for file_name in file_names:
         os.remove(file_name)
 
