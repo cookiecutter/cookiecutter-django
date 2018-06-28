@@ -60,8 +60,8 @@ services:
     ports:
       - "5555:5555"
     command: /flower
-
   {%- endif %}
+
   postgres:
     build:  ./docker/postgres/
     image: {{ cookiecutter.project_slug }}_production_postgres

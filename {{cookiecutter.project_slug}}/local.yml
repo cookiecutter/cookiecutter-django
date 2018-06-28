@@ -65,8 +65,8 @@ services:
     build: ./docker/redis/
     volumes:
       - local_redis_data:/data
-
   {%- endif %}
+  
   postgres:
     build:  ./docker/postgres/
     image: {{ cookiecutter.project_slug }}_production_postgres
