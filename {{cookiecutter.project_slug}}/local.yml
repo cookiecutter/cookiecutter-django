@@ -66,9 +66,9 @@ services:
     volumes:
       - local_redis_data:/data
   {%- endif %}
-  
+
   postgres:
-    build:  ./docker/postgres/
+    build: ./docker/postgres/
     image: {{ cookiecutter.project_slug }}_production_postgres
     volumes:
       - local_postgres_data:/var/lib/postgresql/data
@@ -78,7 +78,7 @@ services:
   {%- if cookiecutter.use_mailhog == 'y' %}
 
   mailhog:
-    build:  ./docker/mailhog/
+    build: ./docker/mailhog/
     ports:
       - "8025:8025"
 

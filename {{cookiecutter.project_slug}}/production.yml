@@ -63,7 +63,7 @@ services:
   {%- endif %}
 
   postgres:
-    build:  ./docker/postgres/
+    build: ./docker/postgres/
     image: {{ cookiecutter.project_slug }}_production_postgres
     volumes:
       - production_postgres_data:/var/lib/postgresql/data
@@ -77,7 +77,7 @@ services:
       - production_redis_data:/data
 
   caddy:
-    build:  ./docker/caddy/
+    build: ./docker/caddy/
     image: {{ cookiecutter.project_slug }}_production_caddy
     depends_on:
       - django
