@@ -125,6 +125,7 @@ Listed in alphabetical order.
   Mathijs Hoogland         `@MathijsHoogland`_
   Matt Braymer-Hayes       `@mattayes`_                  @mattayes
   Matt Linares
+  Matt Knapper             `@mknapper1`_                 @mknapper1
   Matt Menzenski           `@menzenski`_
   Matt Warren              `@mfwarren`_
   Matthew Sisley           `@mjsisley`_
