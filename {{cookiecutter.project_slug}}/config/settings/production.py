@@ -87,14 +87,14 @@ AWS_S3_OBJECT_PARAMETERS = {
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 {%- else %}
 STATICFILES_STORAGE = 'config.settings.production.StaticRootS3BotoStorage'
-STATIC_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/static/'
+STATIC_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/'
 {%- endif %}
 
 # MEDIA
 # ------------------------------------------------------------------------------
 {% if cookiecutter.use_whitenoise == 'y' -%}
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-MEDIA_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/'
+MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/'
 {%- else %}
 # region http://stackoverflow.com/questions/10390244/
 from storages.backends.s3boto3 import S3Boto3Storage  # noqa E402
@@ -102,7 +102,7 @@ StaticRootS3BotoStorage = lambda: S3Boto3Storage(location='static')  # noqa
 MediaRootS3BotoStorage = lambda: S3Boto3Storage(location='media', file_overwrite=False)  # noqa
 # endregion
 DEFAULT_FILE_STORAGE = 'config.settings.production.MediaRootS3BotoStorage'
-MEDIA_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/media/'
+MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/'
 {%- endif %}
 
 # TEMPLATES
