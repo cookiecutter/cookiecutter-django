@@ -44,7 +44,7 @@ Environment Variable                    Django Setting              Development 
 DJANGO_AWS_ACCESS_KEY_ID                AWS_ACCESS_KEY_ID           n/a                                            raises error
 DJANGO_AWS_SECRET_ACCESS_KEY            AWS_SECRET_ACCESS_KEY       n/a                                            raises error
 DJANGO_AWS_STORAGE_BUCKET_NAME          AWS_STORAGE_BUCKET_NAME     n/a                                            raises error
-DJANGO_SENTRY_DSN                       SENTRY_DSN                  n/a                                            raises error
+SENTRY_DSN                              SENTRY_DSN                  n/a                                            raises error
 DJANGO_SENTRY_CLIENT                    SENTRY_CLIENT               n/a                                            raven.contrib.django.raven_compat.DjangoClient
 DJANGO_SENTRY_LOG_LEVEL                 SENTRY_LOG_LEVEL            n/a                                            logging.INFO
 MAILGUN_API_KEY                         MAILGUN_ACCESS_KEY          n/a                                            raises error

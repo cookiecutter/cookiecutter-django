@@ -1,9 +1,9 @@
-version: '2'
+version: '3'
 
 volumes:
-  postgres_data: {}
-  postgres_backup: {}
-  traefik_acme: {}
+  production_postgres_data: {}
+  production_postgres_data_backups: {}
+  production_traefik: {}
 
 services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
@@ -17,7 +17,7 @@ services:
     env_file:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
-    command: /gunicorn.sh
+    command: /start
     labels:
       - "traefik.enable=true"
       - "traefik.backend=django"
@@ -30,8 +30,8 @@ services:
       dockerfile: ./compose/production/postgres/Dockerfile
     image: {{ cookiecutter.project_slug }}_production_postgres
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - postgres_backup:/backups
+      - production_postgres_data:/var/lib/postgresql/data
+      - production_postgres_data_backups:/backups
     env_file:
       - ./.envs/.production/.postgres
 
@@ -44,11 +44,11 @@ services:
       - django
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - traefik_acme:/etc/traefik/acme
+      - production_traefik:/etc/traefik/acme
     ports:
-     - "80:80"
-     - "443:443"
-     - "8080:8080"
+      - "0.0.0.0:80:80"
+      - "0.0.0.0:443:443"
+      - "0.0.0.0:8080:8080"
 
   redis:
     image: redis:3.2
@@ -57,26 +57,23 @@ services:
   celeryworker:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_celeryworker
-    depends_on:
-     - postgres
-     - redis
-    env_file:
-      - ./.envs/.production/.django
-      - ./.envs/.production/.postgres
-    command: /start-celeryworker.sh
+    command: /start-celeryworker
     labels:
       - "traefik.enable=false"
 
   celerybeat:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_celerybeat
-    depends_on:
-      - postgres
-      - redis
-    env_file:
-      - ./.envs/.production/.django
-      - ./.envs/.production/.postgres
-    command: /start-celerybeat.sh
+    command: /start-celerybeat
+    labels:
+      - "traefik.enable=false"
+
+  flower:
+    <<: *django
+    image: {{ cookiecutter.project_slug }}_production_flower
+    ports:
+      - "5555:5555"
+    command: /start-flower
     labels:
       - "traefik.enable=false"
 

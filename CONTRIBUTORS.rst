@@ -87,6 +87,7 @@ Listed in alphabetical order.
   David Díaz               `@ddiazpinto`_                @DavidDiazPinto
   Davur Clementsen         `@dsclementsen`_              @davur
   Delio Castillo           `@jangeador`_                 @jangeador
+  Denis Orehovsky          `@apirobot`_
   Dónal Adams              `@epileptic-fish`_
   Dong Huynh               `@trungdong`_
   Emanuel Calso            `@bloodpet`_                  @bloodpet
@@ -120,6 +121,7 @@ Listed in alphabetical order.
   Lyla Fischer
   Malik Sulaimanov         `@flyudvik`_                  @flyudvik
   Martin Blech
+  Martin Saizar            `@msaizar`_
   Mathijs Hoogland         `@MathijsHoogland`_
   Matt Braymer-Hayes       `@mattayes`_                  @mattayes
   Matt Linares
@@ -160,6 +162,7 @@ Listed in alphabetical order.
   Will Farley              `@goldhand`_                 @g01dhand
   William Archinal         `@archinal`_
   Yaroslav Halchenko
+  Denis Bobrov             `@delneg`_       
 ========================== ============================ ==============
 
 .. _@a7p: https://github.com/a7p
@@ -171,6 +174,7 @@ Listed in alphabetical order.
 .. _@amjith: https://github.com/amjith
 .. _@andor-pierdelacabeza: https://github.com/andor-pierdelacabeza
 .. _@antoniablair: https://github.com/antoniablair
+.. _@apirobot: https://github.com/apirobot
 .. _@archinal: https://github.com/archinal
 .. _@areski: https://github.com/areski
 .. _@arruda: https://github.com/arruda
@@ -218,6 +222,7 @@ Listed in alphabetical order.
 .. _@kevgathuku: https://github.com/kevgathuku
 .. _@knitatoms: https://github.com/knitatoms
 .. _@krzysztofzuraw: https://github.com/krzysztofzuraw
+.. _@msaizar: https://github.com/msaizar
 .. _@MathijsHoogland: https://github.com/MathijsHoogland
 .. _@mattayes: https://github.com/mattayes
 .. _@menzenski: https://github.com/menzenski
@@ -261,7 +266,7 @@ Listed in alphabetical order.
 .. _@brentpayne: https://github.com/brentpayne
 .. _@afrowave: https://github.com/afrowave
 .. _@pchiquet: https://github.com/pchiquet
-
+.. _@delneg: https://github.com/delneg
 Special Thanks
 ~~~~~~~~~~~~~~
 
