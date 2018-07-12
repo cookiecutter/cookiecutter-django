@@ -122,6 +122,7 @@ Listed in alphabetical order.
   Malik Sulaimanov         `@flyudvik`_                  @flyudvik
   Martin Blech
   Martin Saizar            `@msaizar`_
+  Mateusz Ostaszewski      `@mostaszewski`_
   Mathijs Hoogland         `@MathijsHoogland`_
   Matt Braymer-Hayes       `@mattayes`_                  @mattayes
   Matt Linares
@@ -226,6 +227,7 @@ Listed in alphabetical order.
 .. _@MathijsHoogland: https://github.com/MathijsHoogland
 .. _@mattayes: https://github.com/mattayes
 .. _@menzenski: https://github.com/menzenski
+.. _@mostaszewski: https://github.com/mostaszewski
 .. _@mfwarren: https://github.com/mfwarren
 .. _@mimischi: https://github.com/mimischi
 .. _@mjsisley: https://github.com/mjsisley
