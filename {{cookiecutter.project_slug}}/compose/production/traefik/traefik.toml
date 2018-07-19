@@ -1,4 +1,4 @@
-logLevel = "DEBUG"
+logLevel = "ERROR"
 defaultEntryPoints = ["http", "https"]
 
 [web]
@@ -30,9 +30,15 @@ OnHostRule = true
   [acme.httpChallenge]
   entryPoint = "http"
 
-# Enable Docker configuration backend
-[docker]
-endpoint = "unix:///var/run/docker.sock"
-domain = "{{cookiecutter.domain_name}}"
-watch = true
-exposedbydefault = false
+[file]
+[backends]
+  [backends.django]
+    [backends.django.servers.server1]
+      url = "http://django:5000"
+
+[frontends]
+  [frontends.django]
+    backend = "django"
+    passHostHeader = true
+    [frontends.django.routes.dr1]
+      rule = "Host:{{ cookiecutter.domain_name }}"

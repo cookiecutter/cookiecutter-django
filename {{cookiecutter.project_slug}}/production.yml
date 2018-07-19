@@ -18,11 +18,6 @@ services:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
     command: /start
-    labels:
-      - "traefik.enable=true"
-      - "traefik.backend=django"
-      - "traefik.frontend.rule=Host:{{ cookiecutter.domain_name }}"
-      - "traefik.port=5000"
 
   postgres:
     build:
@@ -43,7 +38,6 @@ services:
     depends_on:
       - django
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
       - production_traefik:/etc/traefik/acme
     ports:
       - "0.0.0.0:80:80"
@@ -58,15 +52,11 @@ services:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_celeryworker
     command: /start-celeryworker
-    labels:
-      - "traefik.enable=false"
 
   celerybeat:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_celerybeat
     command: /start-celerybeat
-    labels:
-      - "traefik.enable=false"
 
   flower:
     <<: *django
@@ -74,7 +64,5 @@ services:
     ports:
       - "5555:5555"
     command: /start-flower
-    labels:
-      - "traefik.enable=false"
 
   {%- endif %}
