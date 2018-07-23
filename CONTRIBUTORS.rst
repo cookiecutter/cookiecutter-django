@@ -105,6 +105,7 @@ Listed in alphabetical order.
   Jan Van Bruggen          `@jvanbrug`_
   Jens Nilsson             `@phiberjenz`_
   Jimmy Gitonga            `@afrowave`_                  @afrowave
+  John Cass                `@jcass77`_                   @cass_john
   Julien Almarcha          `@sladinji`_
   Julio Castillo           `@juliocc`_
   Kaido Kert               `@kaidokert`_
@@ -164,7 +165,7 @@ Listed in alphabetical order.
   Will Farley              `@goldhand`_                 @g01dhand
   William Archinal         `@archinal`_
   Yaroslav Halchenko
-  Denis Bobrov             `@delneg`_       
+  Denis Bobrov             `@delneg`_
 ========================== ============================ ==============
 
 .. _@a7p: https://github.com/a7p
