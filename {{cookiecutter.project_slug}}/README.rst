@@ -46,7 +46,7 @@ Running tests with py.test
 
 ::
 
-  $ py.test
+  $ pytest
 
 Live reloading and Sass CSS compilation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
