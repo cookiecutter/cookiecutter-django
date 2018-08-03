@@ -89,6 +89,7 @@ Listed in alphabetical order.
   Delio Castillo           `@jangeador`_                 @jangeador
   Denis Orehovsky          `@apirobot`_
   Dónal Adams              `@epileptic-fish`_
+  Diane Chen               `@purplediane`_               @purplediane88
   Dong Huynh               `@trungdong`_
   Emanuel Calso            `@bloodpet`_                  @bloodpet
   Eraldo Energy            `@eraldo`_
@@ -272,6 +273,7 @@ Listed in alphabetical order.
 .. _@afrowave: https://github.com/afrowave
 .. _@pchiquet: https://github.com/pchiquet
 .. _@delneg: https://github.com/delneg
+.. _@purplediane: https://github.com/purplediane
 Special Thanks
 ~~~~~~~~~~~~~~
 
