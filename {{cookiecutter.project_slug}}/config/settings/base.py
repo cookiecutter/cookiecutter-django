@@ -234,7 +234,7 @@ if USE_TZ:
     CELERY_TIMEZONE = TIME_ZONE
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-broker_url
 {% if cookiecutter.use_docker == 'y' -%}
-CELERY_BROKER_URL = env('CELERY_BROKER_URL')
+CELERY_BROKER_URL = env('CELERY_BROKER_URL', default="redis://redis:6379/0")
 {%- else %}
 CELERY_BROKER_URL = env('CELERY_BROKER_URL', default="redis://localhost:6379")
 {%- endif %}
