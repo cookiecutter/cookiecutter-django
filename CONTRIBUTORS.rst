@@ -158,6 +158,7 @@ Listed in alphabetical order.
   Taylor Baldwin
   Théo Segonds             `@show0k`_
   Tim Freund               `@timfreund`_
+  Tim Godfrey              `@timmygee`_
   Tom Atkins               `@knitatoms`_
   Tom Offermann
   Travis McNeill           `@Travistock`_               @tavistock_esq
