@@ -14,6 +14,9 @@ cd .cache/docker
 cookiecutter ../../ --no-input --overwrite-if-exists use_docker=y
 cd my_awesome_project
 
+# run the project's type checks
+docker-compose -f local.yml run django mypy my_awesome_project
+
 # run the project's tests
 docker-compose -f local.yml run django python manage.py pytest
 
