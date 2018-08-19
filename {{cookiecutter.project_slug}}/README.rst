@@ -46,7 +46,7 @@ Test coverage
 
 To run the tests, check your test coverage, and generate an HTML coverage report::
 
-    $ coverage run manage.py test
+    $ coverage run -m pytest
     $ coverage html
     $ open htmlcov/index.html
 
@@ -55,7 +55,7 @@ Running tests with py.test
 
 ::
 
-  $ py.test
+  $ pytest
 
 Live reloading and Sass CSS compilation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -147,7 +147,7 @@ Custom Bootstrap Compilation
 ^^^^^^
 
 The generated CSS is set up with automatic Bootstrap recompilation with variables of your choice.
-Bootstrap v4 is installed using npm and customised by tweaking your variables in ``static/sass/custom_bootstrap_vars``.
+Bootstrap v4.1.1 is installed using npm and customised by tweaking your variables in ``static/sass/custom_bootstrap_vars``.
 
 You can find a list of available variables `in the bootstrap source`_, or get explanations on them in the `Bootstrap docs`_.
 
@@ -156,6 +156,6 @@ Bootstrap's javascript as well as its dependencies is concatenated into a single
 {% endif %}
 
 .. _in the bootstrap source: https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss
-.. _Bootstrap docs: https://getbootstrap.com/docs/4.0/getting-started/theming/
+.. _Bootstrap docs: https://getbootstrap.com/docs/4.1/getting-started/theming/
 
 {% endif %}
