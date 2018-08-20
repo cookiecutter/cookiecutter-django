@@ -26,4 +26,4 @@ factory-boy==2.11.1  # https://github.com/FactoryBoy/factory_boy
 django-debug-toolbar==1.9.1  # https://github.com/jazzband/django-debug-toolbar
 django-extensions==2.1.0  # https://github.com/django-extensions/django-extensions
 django-coverage-plugin==1.5.0  # https://github.com/nedbat/django_coverage_plugin
-pytest-django==3.4.1  # https://github.com/pytest-dev/pytest-django
+pytest-django==3.4.2  # https://github.com/pytest-dev/pytest-django
