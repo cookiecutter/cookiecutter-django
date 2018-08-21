@@ -87,6 +87,7 @@ Listed in alphabetical order.
   David Díaz               `@ddiazpinto`_                @DavidDiazPinto
   Davur Clementsen         `@dsclementsen`_              @davur
   Delio Castillo           `@jangeador`_                 @jangeador
+  Demetris Stavrou         `@demestav`_
   Denis Orehovsky          `@apirobot`_
   Dónal Adams              `@epileptic-fish`_
   Diane Chen               `@purplediane`_               @purplediane88
