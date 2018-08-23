@@ -15,10 +15,6 @@ urlpatterns = [
     # Django Admin, use {% raw %}{% url 'admin:index' %}{% endraw %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
-    path(
-        "users/",
-        include("{{ cookiecutter.project_slug }}.users.urls", namespace="users"),
-    ),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
 ] + static(
@@ -26,6 +22,14 @@ urlpatterns = [
 )
 
 if settings.DEBUG:
+    # User management
+    urlpatterns += [
+        path(
+            "users/",
+            include("{{ cookiecutter.project_slug }}.users.urls", namespace="users"),
+        ),
+    ]
+
     # This allows the error pages to be debugged during development, just visit
     # these url in browser to see how these error pages look like.
     urlpatterns += [
