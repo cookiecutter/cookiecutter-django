@@ -20,7 +20,9 @@ class CeleryAppConfig(AppConfig):
     def ready(self):
         # Using a string here means the worker will not have to
         # pickle the object when using Windows.
-        app.config_from_object('django.conf:settings')
+        # - namespace='CELERY' means all celery-related configuration keys
+        #   should have a `CELERY_` prefix.
+        app.config_from_object('django.conf:settings', namespace='CELERY')
         installed_apps = [app_config.name for app_config in apps.get_app_configs()]
         app.autodiscover_tasks(lambda: installed_apps, force=True)
 

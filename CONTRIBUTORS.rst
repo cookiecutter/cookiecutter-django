@@ -87,7 +87,9 @@ Listed in alphabetical order.
   David Díaz               `@ddiazpinto`_                @DavidDiazPinto
   Davur Clementsen         `@dsclementsen`_              @davur
   Delio Castillo           `@jangeador`_                 @jangeador
+  Denis Orehovsky          `@apirobot`_
   Dónal Adams              `@epileptic-fish`_
+  Diane Chen               `@purplediane`_               @purplediane88
   Dong Huynh               `@trungdong`_
   Emanuel Calso            `@bloodpet`_                  @bloodpet
   Eraldo Energy            `@eraldo`_
@@ -98,11 +100,13 @@ Listed in alphabetical order.
   Garry Polley             `@garrypolley`_
   Hamish Durkin            `@durkode`_
   Harry Percival           `@hjwp`_
+  Hendrik Schneider        `@hendrikschneider`_
   Henrique G. G. Pereira   `@ikkebr`_
   Ian Lee                  `@IanLee1521`_
   Jan Van Bruggen          `@jvanbrug`_
   Jens Nilsson             `@phiberjenz`_
   Jimmy Gitonga            `@afrowave`_                  @afrowave
+  John Cass                `@jcass77`_                   @cass_john
   Julien Almarcha          `@sladinji`_
   Julio Castillo           `@juliocc`_
   Kaido Kert               `@kaidokert`_
@@ -121,6 +125,7 @@ Listed in alphabetical order.
   Malik Sulaimanov         `@flyudvik`_                  @flyudvik
   Martin Blech
   Martin Saizar            `@msaizar`_
+  Mateusz Ostaszewski      `@mostaszewski`_
   Mathijs Hoogland         `@MathijsHoogland`_
   Matt Braymer-Hayes       `@mattayes`_                  @mattayes
   Matt Linares
@@ -161,6 +166,7 @@ Listed in alphabetical order.
   Will Farley              `@goldhand`_                 @g01dhand
   William Archinal         `@archinal`_
   Yaroslav Halchenko
+  Denis Bobrov             `@delneg`_
 ========================== ============================ ==============
 
 .. _@a7p: https://github.com/a7p
@@ -172,6 +178,7 @@ Listed in alphabetical order.
 .. _@amjith: https://github.com/amjith
 .. _@andor-pierdelacabeza: https://github.com/andor-pierdelacabeza
 .. _@antoniablair: https://github.com/antoniablair
+.. _@apirobot: https://github.com/apirobot
 .. _@archinal: https://github.com/archinal
 .. _@areski: https://github.com/areski
 .. _@arruda: https://github.com/arruda
@@ -206,6 +213,7 @@ Listed in alphabetical order.
 .. _@goldhand: https://github.com/goldhand
 .. _@hackebrot: https://github.com/hackebrot
 .. _@hairychris: https://github.com/hairychris
+.. _@hendrikschneider https://github.com/hendrikschneider
 .. _@hjwp: https://github.com/hjwp
 .. _@IanLee1521: https://github.com/IanLee1521
 .. _@ikkebr: https://github.com/ikkebr
@@ -223,6 +231,7 @@ Listed in alphabetical order.
 .. _@MathijsHoogland: https://github.com/MathijsHoogland
 .. _@mattayes: https://github.com/mattayes
 .. _@menzenski: https://github.com/menzenski
+.. _@mostaszewski: https://github.com/mostaszewski
 .. _@mfwarren: https://github.com/mfwarren
 .. _@mimischi: https://github.com/mimischi
 .. _@mjsisley: https://github.com/mjsisley
@@ -263,7 +272,8 @@ Listed in alphabetical order.
 .. _@brentpayne: https://github.com/brentpayne
 .. _@afrowave: https://github.com/afrowave
 .. _@pchiquet: https://github.com/pchiquet
-
+.. _@delneg: https://github.com/delneg
+.. _@purplediane: https://github.com/purplediane
 Special Thanks
 ~~~~~~~~~~~~~~
 

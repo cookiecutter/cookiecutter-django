@@ -41,7 +41,7 @@ Features
 * For Django 2.0
 * Works with Python 3.6
 * Renders Django projects with 100% starting test coverage
-* Twitter Bootstrap_ v4.0.0 (`maintained Foundation fork`_ also available)
+* Twitter Bootstrap_ v4.1.1 (`maintained Foundation fork`_ also available)
 * 12-Factor_ based settings via django-environ_
 * Secure by default. We believe in SSL.
 * Optimized development and production settings
@@ -65,7 +65,7 @@ Optional Integrations
 *These features can be enabled during initial project setup.*
 
 * Serve static files from Amazon S3 or Whitenoise_
-* Configuration for Celery_
+* Configuration for Celery_ and Flower_ (the latter in Docker setup only)
 * Integration with MailHog_ for local email testing
 * Integration with Sentry_ for error logging
 
@@ -78,6 +78,7 @@ Optional Integrations
 .. _Mailgun: http://www.mailgun.com/
 .. _Whitenoise: https://whitenoise.readthedocs.io/
 .. _Celery: http://www.celeryproject.org/
+.. _Flower: https://github.com/mher/flower
 .. _Anymail: https://github.com/anymail/django-anymail
 .. _MailHog: https://github.com/mailhog/MailHog
 .. _Sentry: https://sentry.io/welcome/
