@@ -28,8 +28,6 @@ production-ready Django projects quickly.
 * If you have problems with Cookiecutter Django, please open issues_ don't send
   emails to the maintainers.
 
-.. _cookiecutter: https://github.com/audreyr/cookiecutter
-
 .. _Troubleshooting: https://cookiecutter-django.readthedocs.io/en/latest/troubleshooting.html
 
 .. _528: https://github.com/pydanny/cookiecutter-django/issues/528#issuecomment-212650373
