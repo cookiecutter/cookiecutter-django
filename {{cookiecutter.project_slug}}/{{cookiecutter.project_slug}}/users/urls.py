@@ -1,15 +1,16 @@
 from django.urls import path
 
-from . import views
+from {{ cookiecutter.project_slug }}.users.views import (
+    user_list_view,
+    user_redirect_view,
+    user_update_view,
+    user_detail_view,
+)
 
 app_name = "users"
 urlpatterns = [
-    path("", view=views.UserListView.as_view(), name="list"),
-    path("~redirect/", view=views.UserRedirectView.as_view(), name="redirect"),
-    path("~update/", view=views.UserUpdateView.as_view(), name="update"),
-    path(
-        "<str:username>/",
-        view=views.UserDetailView.as_view(),
-        name="detail",
-    ),
+    path("", view=user_list_view, name="list"),
+    path("~redirect/", view=user_redirect_view, name="redirect"),
+    path("~update/", view=user_update_view, name="update"),
+    path("<str:username>/", view=user_detail_view, name="detail"),
 ]
