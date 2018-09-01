@@ -34,7 +34,8 @@
   },
   "scripts": {
     {% if cookiecutter.js_task_runner == 'Gulp' -%}
-    "dev": "gulp"
+    "dev": "gulp",
+    "build": "gulp build"
     {%- endif %}
   }
 }

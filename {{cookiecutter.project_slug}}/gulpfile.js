@@ -137,6 +137,20 @@ gulp.task('watch', function() {
 
 });
 
+// Build task
+gulp.task('build',
+  [
+    'styles',
+    'scripts',
+    {%- if cookiecutter.custom_bootstrap_compilation == 'y' %}
+    'vendor-scripts',
+    {%- endif %}
+    'imgCompression'
+  ],
+  function () {
+    console.log('Build complete!')
+});
+
 // Default task
 gulp.task('default', function() {
   runSequence(
