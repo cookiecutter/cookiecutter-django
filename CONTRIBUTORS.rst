@@ -206,6 +206,7 @@ Listed in alphabetical order.
 .. _@durkode: https://github.com/durkode
 .. _@epileptic-fish: https://gihub.com/epileptic-fish
 .. _@eraldo: https://github.com/eraldo
+.. _@erfaan: https://github.com/erfaan
 .. _@eriol: https://github.com/eriol
 .. _@eyadsibai: https://github.com/eyadsibai
 .. _@flyudvik: https://github.com/flyudvik
