@@ -88,7 +88,7 @@ In production, we have Mailgun_ configured to have your back!
 Sass Compilation & Live Reloading
 ---------------------------------
 
-If you’d like to take advantage of live reloading and Sass / Compass CSS compilation you can do so with a little bit of preparation_.
+If you’d like to take advantage of live reloading and Sass compilation you can do so with a little bit of preparation_.
 
 
 .. _preparation: https://cookiecutter-django.readthedocs.io/en/latest/live-reloading-and-sass-compilation.html
