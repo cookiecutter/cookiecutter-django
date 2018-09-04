@@ -73,6 +73,10 @@ AWS_SECRET_ACCESS_KEY = env('DJANGO_AWS_SECRET_ACCESS_KEY')
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
 AWS_STORAGE_BUCKET_NAME = env('DJANGO_AWS_STORAGE_BUCKET_NAME')
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+AWS_DEFAULT_ACL = env('DJANGO_AWS_DEFAULT_ACL', default=None)
+# https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+AWS_BUCKET_ACL = env('DJANGO_AWS_BUCKET_ACL', default=None)
+# https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
 AWS_QUERYSTRING_AUTH = False
 # DO NOT change these unless you know what you're doing.
 _AWS_EXPIRY = 60 * 60 * 24 * 7
@@ -86,7 +90,7 @@ AWS_S3_OBJECT_PARAMETERS = {
 {% if cookiecutter.use_whitenoise == 'y' -%}
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 {%- else %}
-STATICFILES_STORAGE = 'config.settings.production.StaticRootS3BotoStorage'
+STATICFILES_STORAGE = 'config.settings.production.StaticRootS3Boto3Storage'
 STATIC_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/static/'
 {%- endif %}
 
@@ -101,17 +105,17 @@ MEDIA_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/'
 from storages.backends.s3boto3 import S3Boto3Storage  # noqa E402
 
 
-class StaticRootS3BotoStorage(S3Boto3Storage):
+class StaticRootS3Boto3Storage(S3Boto3Storage):
     location = 'static'
 
 
-class MediaRootS3BotoStorage(S3Boto3Storage):
+class MediaRootS3Boto3Storage(S3Boto3Storage):
     location = 'media'
     file_overwrite = False
 
 
 # endregion
-DEFAULT_FILE_STORAGE = 'config.settings.production.MediaRootS3BotoStorage'
+DEFAULT_FILE_STORAGE = 'config.settings.production.MediaRootS3Boto3Storage'
 MEDIA_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/media/'
 {%- endif %}
 
