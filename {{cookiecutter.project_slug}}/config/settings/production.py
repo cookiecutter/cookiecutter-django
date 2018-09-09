@@ -86,7 +86,7 @@ AWS_S3_OBJECT_PARAMETERS = {
 {% if cookiecutter.use_whitenoise == 'y' -%}
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 {%- else %}
-STATICFILES_STORAGE = 'config.settings.production.StaticRootS3BotoStorage'
+STATICFILES_STORAGE = 'config.settings.production.StaticRootS3Boto3Storage'
 STATIC_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/static/'
 {%- endif %}
 
@@ -101,17 +101,17 @@ MEDIA_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/'
 from storages.backends.s3boto3 import S3Boto3Storage  # noqa E402
 
 
-class StaticRootS3BotoStorage(S3Boto3Storage):
+class StaticRootS3Boto3Storage(S3Boto3Storage):
     location = 'static'
 
 
-class MediaRootS3BotoStorage(S3Boto3Storage):
+class MediaRootS3Boto3Storage(S3Boto3Storage):
     location = 'media'
     file_overwrite = False
 
 
 # endregion
-DEFAULT_FILE_STORAGE = 'config.settings.production.MediaRootS3BotoStorage'
+DEFAULT_FILE_STORAGE = 'config.settings.production.MediaRootS3Boto3Storage'
 MEDIA_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/media/'
 {%- endif %}
 
