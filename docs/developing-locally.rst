@@ -69,7 +69,7 @@ For instance, one of the packages we depend upon, ``django-allauth`` sends verif
 
 Now you have your own mail server running locally, ready to receive whatever you send it.
 
-.. _MailHog: https://github.com/mailhog/MailHog/
+.. _`Download the latest MailHog release`: https://github.com/mailhog/MailHog/releases
 .. _`properly configured`: https://docs.djangoproject.com/en/dev/topics/email/#smtp-backend
 
 
@@ -88,9 +88,9 @@ In production, we have Mailgun_ configured to have your back!
 Sass Compilation & Live Reloading
 ---------------------------------
 
-If you’d like to take advantage of live reloading and Sass / Compass CSS compilation you can do so with a little bit of preparation_.
+If you’d like to take advantage of live reloading and Sass compilation you can do so with a little bit of preparation_.
 
-.. _`Download the latest MailHog release`: https://github.com/mailhog/MailHog/releases
+
 .. _preparation: https://cookiecutter-django.readthedocs.io/en/latest/live-reloading-and-sass-compilation.html
 
 

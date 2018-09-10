@@ -95,16 +95,25 @@ With MailHog running, to view messages that are sent by your application, open y
 {% else %}
 In development, it is often nice to be able to see emails that are being sent from your application. If you choose to use `MailHog`_ when generating the project a local SMTP server with a web interface will be available.
 
-To start the service, make sure you have nodejs installed, and then type the following::
+#. `Download the latest MailHog release`_ for your OS.
 
-    $ npm install
-    $ grunt serve
+#. Rename the build to ``MailHog``.
 
-(After the first run you only need to type ``grunt serve``) This will start an email server that listens on ``127.0.0.1:1025`` in addition to starting your Django project and a watch task for live reload.
+#. Copy the file to the project root.
 
-To view messages that are sent by your application, open your browser and go to ``http://127.0.0.1:8025``
+#. Make it executable: ::
 
-The email server will exit when you exit the Grunt task on the CLI with Ctrl+C.
+    $ chmod +x MailHog
+
+#. Spin up another terminal window and start it there: ::
+
+    ./MailHog
+
+#. Check out `<http://127.0.0.1:8025/>`_ to see how it goes.
+
+Now you have your own mail server running locally, ready to receive whatever you send it.
+
+.. _`Download the latest MailHog release`: https://github.com/mailhog/MailHog/releases
 {% endif %}
 .. _mailhog: https://github.com/mailhog/MailHog
 {% endif %}
