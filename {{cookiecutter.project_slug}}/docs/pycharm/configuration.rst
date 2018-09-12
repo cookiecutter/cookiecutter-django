@@ -25,6 +25,10 @@ Switch to *Docker Compose* and select `local.yml` file from directory of your pr
 
 .. image:: images/4.png
 
+If you want to use docker-sync ( mac users only ) you should add also `local-sync.yml`
+
+.. image:: images/4a.png
+
 Having that, click *OK*. Close *Settings* panel, and wait few seconds...
 
 .. image:: images/7.png
@@ -43,6 +47,8 @@ After few seconds, all *Run/Debug Configurations* should be ready to use.
 * run and debug migrations or different django management commands
 .. image:: images/f4.png
 * and many others..
+
+
 
 Known issues
 ------------

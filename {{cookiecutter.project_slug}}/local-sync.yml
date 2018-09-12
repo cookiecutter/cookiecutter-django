@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  django:
+    volumes:
+      - django-sync:/app:nocopy
+
+volumes:
+  django-sync:
+    external: true

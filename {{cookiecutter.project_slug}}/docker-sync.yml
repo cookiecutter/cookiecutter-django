@@ -1,0 +1,11 @@
+version: "2"
+
+options:
+  compose-file-path: 'local.yml'
+  compose-dev-file-path: 'local-sync.yml'
+
+syncs:
+  django-sync:
+    host_disk_mount_mode: 'cached'
+    src: '.'
+    sync_excludes: [ '.git', '.idea' ]

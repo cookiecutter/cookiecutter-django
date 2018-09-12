@@ -59,6 +59,21 @@ To run in a detached (background) mode, just::
 
     $ docker-compose up -d
 
+Developing on Mac OS
+--------------------
+
+If you are using Mac OS you should be familiar with long timeouts from a filesystem. Sharing files into containers is really slow. To resolve this issue is use an external tool like docker-sync.
+First of all you need to install docker-sync::
+
+    $ gem install docker-sync
+
+After this, run::
+
+    $ docker-sync start
+
+Run composer::
+
+    $ docker-compose -f local.yml -f local-sync.yml up
 
 Execute Management Commands
 ---------------------------
