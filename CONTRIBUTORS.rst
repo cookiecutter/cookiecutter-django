@@ -162,6 +162,7 @@ Listed in alphabetical order.
   Tom Atkins               `@knitatoms`_
   Tom Offermann
   Travis McNeill           `@Travistock`_               @tavistock_esq
+  Umair Ashraf             `@umrashrf`_                 @fabumair
   Vitaly Babiy
   Vivian Guillen           `@viviangb`_
   Will Farley              `@goldhand`_                 @g01dhand
@@ -276,6 +277,7 @@ Listed in alphabetical order.
 .. _@pchiquet: https://github.com/pchiquet
 .. _@delneg: https://github.com/delneg
 .. _@purplediane: https://github.com/purplediane
+.. _@umrashrf: https://github.com/umrashrf
 Special Thanks
 ~~~~~~~~~~~~~~
 
