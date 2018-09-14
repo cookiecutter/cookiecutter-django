@@ -1,5 +1,5 @@
 www.{% raw %}{$DOMAIN_NAME}{% endraw %} {
-    redir https://{{cookiecutter.domain_name}}
+    redir https://{% raw %}{$DOMAIN_NAME}{% endraw %} {
 }
 
 {% raw %}{$DOMAIN_NAME}{% endraw %} {
