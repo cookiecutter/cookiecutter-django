@@ -83,6 +83,29 @@ def remove_gulp_files():
         os.remove(file_name)
 
 
+def remove_react_files():
+    cra_dir_location = "frontend/"
+
+    if os.path.exists(cra_dir_location):
+        shutil.rmtree(cra_dir_location)
+
+    bundles_dir_location = os.path.join(
+        '{{ cookiecutter.project_slug }}',
+        'bundles/'
+    )
+
+    if os.path.exists(bundles_dir_location):
+        shutil.rmtree(bundles_dir_location)
+
+    for filename in ["index.html", "react-base.html"]:
+        file_path = os.path.join(
+            '{{ cookiecutter.project_slug }}',
+            'templates',
+            filename,
+        )
+        os.remove(file_path)
+
+
 def remove_packagejson_file():
     file_names = ["package.json"]
     for file_name in file_names:
@@ -312,9 +335,20 @@ def main():
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
             append_to_gitignore_file("!.envs/.local/")
 
-    if "{{ cookiecutter.js_task_runner}}".lower() == "none":
+    if "{{ cookiecutter.js_task_runner}}".lower() == "gulp":
+        remove_react_files()
+
+    elif "{{ cookiecutter.js_task_runner}}".lower() == "createreactapp":
         remove_gulp_files()
+
+        if "{{ cookiecutter.use_heroku }}".lower() == "n":
+            remove_packagejson_file()
+
+    else:
+        remove_gulp_files()
+        remove_react_files()
         remove_packagejson_file()
+
     if (
         "{{ cookiecutter.js_task_runner }}".lower() != "none"
         and "{{ cookiecutter.use_docker }}".lower() == "y"

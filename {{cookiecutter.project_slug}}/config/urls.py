@@ -1,12 +1,20 @@
 from django.conf import settings
-from django.urls import include, path
+from django.urls import include, path, re_path
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
 
+from rest_framework.routers import DefaultRouter
+
+
+router = DefaultRouter(trailing_slash=False)
+
+
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
+    re_path(r'^app/(?P<route>.*)$', TemplateView.as_view(template_name="index.html"), name='app'),
+    path("api/", include(router.urls)),
     path(
         "about/",
         TemplateView.as_view(template_name="pages/about.html"),

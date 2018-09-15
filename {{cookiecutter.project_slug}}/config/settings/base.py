@@ -3,9 +3,13 @@ Base settings to build other settings files upon.
 """
 
 import environ
+import os
 
 ROOT_DIR = environ.Path(__file__) - 3  # ({{ cookiecutter.project_slug }}/config/settings/base.py - 3 = {{ cookiecutter.project_slug }}/)
 APPS_DIR = ROOT_DIR.path('{{ cookiecutter.project_slug }}')
+{% if cookiecutter.js_task_runner == 'CreateReactApp' -%}
+REACT_APP_DIR = ROOT_DIR.path('frontend')
+{%- endif %}
 
 env = environ.Env()
 
@@ -73,6 +77,9 @@ THIRD_PARTY_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'rest_framework',
+    {% if cookiecutter.js_task_runner == 'CreateReactApp' -%}
+    'corsheaders',
+    {%- endif %}
 ]
 LOCAL_APPS = [
     '{{ cookiecutter.project_slug }}.users.apps.UsersAppConfig',
@@ -135,6 +142,9 @@ AUTH_PASSWORD_VALIDATORS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    {% if cookiecutter.js_task_runner == 'CreateReactApp' -%}
+    'corsheaders.middleware.CorsMiddleware',  # SEE: https://github.com/ottoyiu/django-cors-headers#setup
+    {%- endif %}
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -151,6 +161,9 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = [
     str(APPS_DIR.path('static')),
+    {% if cookiecutter.js_task_runner == 'CreateReactApp' -%}
+    os.path.join(str(REACT_APP_DIR.path('build')), 'static'),
+    {%- endif %}
 ]
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = [
@@ -175,6 +188,7 @@ TEMPLATES = [
         # https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
         'DIRS': [
             str(APPS_DIR.path('templates')),
+            str(REACT_APP_DIR.path('build')),
         ],
         'OPTIONS': {
             # https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
@@ -244,7 +258,7 @@ if USE_TZ:
     # http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-timezone
     CELERY_TIMEZONE = TIME_ZONE
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-broker_url
-CELERY_BROKER_URL = env('CELERY_BROKER_URL')
+CELERY_BROKER_URL = env('CELERY_BROKER_URL', default='redis://')
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-result_backend
 CELERY_RESULT_BACKEND = CELERY_BROKER_URL
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-accept_content
@@ -282,6 +296,12 @@ SOCIALACCOUNT_ADAPTER = '{{cookiecutter.project_slug}}.users.adapters.SocialAcco
 INSTALLED_APPS += ['compressor']
 STATICFILES_FINDERS += ['compressor.finders.CompressorFinder']
 
+{%- endif %}
+{% if cookiecutter.js_task_runner == 'CreateReactApp' -%}
+# django-cors-headers
+# ------------------------------------------------------------------------------
+# https://github.com/ottoyiu/django-cors-headers#cors_origin_allow_all
+CORS_ORIGIN_ALLOW_ALL = True
 {%- endif %}
 # Your stuff...
 # ------------------------------------------------------------------------------
