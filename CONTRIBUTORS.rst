@@ -136,6 +136,7 @@ Listed in alphabetical order.
   Meghan Heintz            `@dot2dotseurat`_
   Mesut Yılmaz             `@myilmaz`_
   Michael Gecht            `@mimischi`_                  @_mischi
+  Michael Gonzalez         `@genomics-geek`_             @TheCanesBoy2010
   mozillazg                `@mozillazg`_
   Pablo                    `@oubiga`_
   Parbhat Puri             `@parbhat`_
