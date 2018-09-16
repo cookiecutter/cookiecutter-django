@@ -17,7 +17,7 @@ First things first.
 
 #. Create a virtualenv: ::
 
-    $ python3 -m venv <virtual env path>
+    $ python3.6 -m venv <virtual env path>
 
 #. Activate the virtualenv you have just created: ::
 
