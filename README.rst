@@ -28,8 +28,6 @@ production-ready Django projects quickly.
 * If you have problems with Cookiecutter Django, please open issues_ don't send
   emails to the maintainers.
 
-.. _cookiecutter: https://github.com/audreyr/cookiecutter
-
 .. _Troubleshooting: https://cookiecutter-django.readthedocs.io/en/latest/troubleshooting.html
 
 .. _528: https://github.com/pydanny/cookiecutter-django/issues/528#issuecomment-212650373
@@ -47,7 +45,7 @@ Features
 * Optimized development and production settings
 * Registration via django-allauth_
 * Comes with custom user model ready to go
-* Grunt build for compass and livereload
+* Optional custom static build using Gulp and livereload
 * Send emails via Anymail_ (using Mailgun_ by default, but switchable)
 * Media storage using Amazon S3
 * Docker support using docker-compose_ for development and production (using Caddy_ with LetsEncrypt_ support)
@@ -180,10 +178,9 @@ Answer the prompts with your own desired options_. For example::
     7 - 9.3
     Choose from 1, 2, 3, 4 [1]: 1
     Select js_task_runner:
-    1 - Gulp
-    2 - Grunt
-    3 - None
-    Choose from 1, 2, 3, 4 [1]: 1
+    1 - None
+    2 - Gulp
+    Choose from 1, 2 [1]: 1
     custom_bootstrap_compilation [n]: n
     Select open_source_license:
     1 - MIT
