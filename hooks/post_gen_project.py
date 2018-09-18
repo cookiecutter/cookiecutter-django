@@ -118,9 +118,11 @@ def generate_random_string(
     if using_ascii_letters:
         symbols += string.ascii_letters
     if using_punctuation:
-        symbols += string.punctuation.replace('"', "").replace("'", "").replace(
-            "\\", ""
-        )
+        all_punctuation = set(string.punctuation)
+        # These symbols can cause issues in environment variables
+        unsuitable = {"'", '"', "\\", "$"}
+        suitable = all_punctuation.difference(unsuitable)
+        symbols += "".join(suitable)
     return "".join([random.choice(symbols) for _ in range(length)])
 
 
