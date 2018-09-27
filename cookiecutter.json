@@ -2,7 +2,7 @@
   "project_name": "My Awesome Project",
   "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_') }}",
   "description": "Behold My Awesome Project!",
-  "author_name": "Daniel Roy Greenfeld",
+  "author_name": "Mohand Ahmad",
   "domain_name": "example.com",
   "email": "{{ cookiecutter.author_name.lower()|replace(' ', '-') }}@example.com",
   "version": "0.1.0",
@@ -13,11 +13,12 @@
     "Apache Software License 2.0",
     "Not open source"
   ],
-  "timezone": "UTC",
+  "timezone": "GMT+3",
   "windows": "n",
-  "use_pycharm": "n",
+  "use_pycharm": "y",
   "use_docker": "n",
   "postgresql_version": [
+    "10.5"
     "10.4",
     "10.3",
     "10.2",
@@ -41,5 +42,5 @@
   "use_travisci": "n",
   "keep_local_envs_in_vcs": "y",
 
-  "debug": "n"
+  "debug": "y"
 }
