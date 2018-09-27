@@ -2,6 +2,7 @@
   "project_name": "My Awesome Project",
   "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_') }}",
   "venv_name": "{{cookiecutter.project_slug}}_venv",
+  "database_user_password":"pass",
   "description": "Behold My Awesome Project!",
   "author_name": "Mohand Ahmad",
   "domain_name": "example.com",
