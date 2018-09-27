@@ -87,6 +87,12 @@ THIRD_PARTY_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'rest_framework',
+    'django_filters',
+    'reversion',
+    'django_tables2',
+    'widget_tweaks',
+    'phonenumber_field',
+    
 ]
 LOCAL_APPS = [
     '{{ cookiecutter.project_slug }}.users.apps.UsersAppConfig',
