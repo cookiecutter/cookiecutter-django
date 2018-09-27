@@ -1,2 +1,2 @@
 #!/bin/bash
-. ../venv/{{pname}}/bin/activate
+. ../venv/{{cookiecutter.venv_name}}/bin/activate
