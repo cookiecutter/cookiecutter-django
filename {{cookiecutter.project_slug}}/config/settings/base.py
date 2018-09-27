@@ -2,6 +2,11 @@
 Base settings to build other settings files upon.
 """
 
+### for sqllite
+#import os
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+###
+
 import environ
 
 ROOT_DIR = environ.Path(__file__) - 3  # ({{ cookiecutter.project_slug }}/config/settings/base.py - 3 = {{ cookiecutter.project_slug }}/)
@@ -47,6 +52,15 @@ DATABASES = {
 }
 {%- endif %}
 DATABASES['default']['ATOMIC_REQUESTS'] = True
+
+
+# sqlite3
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+# }
 
 # URLS
 # ------------------------------------------------------------------------------
