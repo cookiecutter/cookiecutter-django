@@ -33,13 +33,15 @@ First things first.
 
    .. note::
 
-       if this is the first time a database is created on your machine you might need to alter
-       a localhost-related entry in your ``pg_hba.conf`` so as to utilize ``trust`` policy, see the
-       `postgres documentation`_ for more details.
+       if this is the first time a database is created on your machine you might need an
+       `initial PostgreSQL set up`_ to allow local connections & set a password for
+       the ``postgres`` user. The `postgres documentation`_ explains the syntax of the config file
+       that you need to change.
+
 
 #. Set the environment variables for your database(s): ::
 
-    $ export DATABASE_URL=postgres://<project_slug>
+    $ export DATABASE_URL=postgres://postgres:<password>@127.0.0.1:5432/<DB name given to createdb>
     # Optional: set broker URL if using Celery
     $ export CELERY_BROKER_URL=redis://localhost:6379/0
 
@@ -67,6 +69,7 @@ First things first.
 .. _PostgreSQL: https://www.postgresql.org/download/
 .. _Redis: https://redis.io/download
 .. _createdb: https://www.postgresql.org/docs/current/static/app-createdb.html
+.. _initial PostgreSQL set up: http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html
 .. _postgres documentation: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
 .. _direnv: https://direnv.net/
 
