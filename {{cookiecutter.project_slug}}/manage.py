@@ -3,6 +3,7 @@ import os
 import sys
 
 if __name__ == "__main__":
+    # must be overriden in the env for production to "config.settings.production"
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
 
     try:

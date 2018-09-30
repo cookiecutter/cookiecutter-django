@@ -321,7 +321,6 @@ Session.vim
 
 # Auto-generated tag files
 tags
-{% if cookiecutter.use_docker == 'n' %}
 
 ### VirtualEnv template
 # Virtualenv
@@ -333,10 +332,9 @@ tags
 [Ss]cripts
 pyvenv.cfg
 pip-selfcheck.json
-{% endif %}
 
 ### Project template
-{% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' %}
+{% if cookiecutter.use_mailhog == 'y'%}
 MailHog
 {%- endif %}
 {{ cookiecutter.project_slug }}/media/

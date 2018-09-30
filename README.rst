@@ -159,23 +159,15 @@ Answer the prompts with your own desired options_. For example::
     domain_name [example.com]: myreddit.com
     version [0.1.0]: 0.0.1
     timezone [UTC]: America/Los_Angeles
-    use_whitenoise [n]: n
-    use_celery [n]: y
+    use_whitenoise [y]: y
+    use_celery [y]: y
     use_mailhog [n]: n
-    use_sentry [n]: y
+    use_sentry [y]: y
     use_pycharm [n]: y
     windows [n]: n
-    use_docker [n]: n
-    use_heroku [n]: y
     use_compressor [n]: y
-    Select postgresql_version:
-    1 - 10.3
-    2 - 10.2
-    3 - 10.1
-    4 - 9.6
-    5 - 9.5
-    6 - 9.4
-    7 - 9.3
+    use_newrelic [y]: y
+    use_prometheus [y]: y
     Choose from 1, 2, 3, 4 [1]: 1
     Select js_task_runner:
     1 - None
@@ -190,7 +182,7 @@ Answer the prompts with your own desired options_. For example::
     5 - Not open source
     Choose from 1, 2, 3, 4, 5 [1]: 1
     keep_local_envs_in_vcs [y]: y
-    debug[n]: n
+    debug[y]: y
 
 Enter the project and take a look around::
 

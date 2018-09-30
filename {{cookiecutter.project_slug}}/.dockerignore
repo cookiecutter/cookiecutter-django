@@ -1,4 +1,10 @@
-.*
-!.coveragerc
-!.env
-!.pylintrc
+Dockerfile*
+
+# dot files and dot directories
+**/.*
+
+.venv
+
+# Add ref files from .git, needed by sentry (logs)
+!.git/HEAD
+!.git/refs/
