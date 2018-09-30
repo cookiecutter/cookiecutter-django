@@ -48,7 +48,7 @@ DATABASES = {
 }
 {%- else %}
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres://{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.project_slug}}_user'),
+    'default': env.db('DATABASE_URL', default='postgres://{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.project_slug}}'),
 }
 {%- endif %}
 DATABASES['default']['ATOMIC_REQUESTS'] = True
