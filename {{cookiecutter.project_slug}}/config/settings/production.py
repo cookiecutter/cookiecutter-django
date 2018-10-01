@@ -198,7 +198,7 @@ SENTRY_DSN = env('SENTRY_DSN')
 SENTRY_CELERY_LOGLEVEL = env.int('DJANGO_SENTRY_LOG_LEVEL', logging.INFO)
 
 sentry_logging = LoggingIntegration(
-    level=SENTRY_CELERY_LOGLEVEL,  # Capture info and above as breadcrumbs
+    level=DJANGO_SENTRY_LOG_LEVEL,  # Capture info and above as breadcrumbs
     event_level=None     # Send no events from log messages
 )
 
