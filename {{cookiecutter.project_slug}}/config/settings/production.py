@@ -192,12 +192,6 @@ AWS_PRELOAD_METADATA = True
 
 {% endif %}
 {%- if cookiecutter.use_sentry == 'y' -%}
-# raven
-# ------------------------------------------------------------------------------
-# https://docs.sentry.io/clients/python/integrations/django/
-INSTALLED_APPS += ['raven.contrib.django.raven_compat']  # noqa F405
-MIDDLEWARE = ['raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware'] + MIDDLEWARE
-
 # Sentry
 # ------------------------------------------------------------------------------
 SENTRY_DSN = env('SENTRY_DSN')
