@@ -1,6 +1,10 @@
 {% if cookiecutter.use_celery == 'y' %}
 import os
 from celery import Celery
+
+import sentry_sdk
+from sentry_sdk.integrations.logging import LoggingIntegration
+
 from django.apps import apps, AppConfig
 from django.conf import settings
 
@@ -26,9 +30,6 @@ class CeleryAppConfig(AppConfig):
         installed_apps = [app_config.name for app_config in apps.get_app_configs()]
         app.autodiscover_tasks(lambda: installed_apps, force=True)
 
-        {% if cookiecutter.use_sentry == 'y' -%}
-        if hasattr(settings, 'RAVEN_CONFIG'):
-            # Celery signal registration
 {% if cookiecutter.use_pycharm == 'y' -%}
 	    # Since raven is required in production only,
             # imports might (most surely will) be wiped out
@@ -36,16 +37,16 @@ class CeleryAppConfig(AppConfig):
             # in other environments.
             # @formatter:off
 {%- endif %}
-            from raven import Client as RavenClient
-            from raven.contrib.celery import register_signal as raven_register_signal
-            from raven.contrib.celery import register_logger_signal as raven_register_logger_signal
+    import sentry_sdk
+    from sentry_sdk.integrations.celery import CeleryIntegration
 {% if cookiecutter.use_pycharm == 'y' -%}
             # @formatter:on
 {%- endif %}
-
-            raven_client = RavenClient(dsn=settings.RAVEN_CONFIG['dsn'])
-            raven_register_logger_signal(raven_client)
-            raven_register_signal(raven_client)
+        sentry_logging = LoggingIntegration(
+            level=settings.SENTRY_CELERY_LOGLEVEL,  # Capture info and above as breadcrumbs
+            event_level=None     # Send no events from log messages
+        )
+        sentry_sdk.init(dsn=settings.SENTRY_DSN, integrations=[sentry_logging, CeleryIntegration()])
         {%- endif %}
 
 
