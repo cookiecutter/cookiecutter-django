@@ -1,0 +1,130 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{cookiecutter.project_slug}}
+  labels:
+    app: {{cookiecutter.project_slug}}
+spec:
+  ports:
+  - port: 80
+    targetPort: 8000
+  selector:
+    app: {{cookiecutter.project_slug}}
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{cookiecutter.project_slug}}
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: {{cookiecutter.project_slug}}
+        fleet: production
+
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{cookiecutter.project_slug}}
+            topologyKey: kubernetes.io/hostname
+      imagePullSecrets:
+      - name: myregistrykey
+      containers:
+      - name: {{cookiecutter.project_slug}}
+        image: menacommere-docker-registry.bintray.io/{{cookiecutter.project_slug}}
+        imagePullPolicy: Always
+        env:
+        - name: "DEPLOY_ENV"
+          value: "{{cookiecutter.project_slug}}"
+        - name: "CONSUL_TOKEN"
+          valueFrom:
+            secretKeyRef:
+              key: accesstoken
+              name: consul-token
+        - name: DB_HOST
+          valueFrom:
+            secretKeyRef:
+              key: hostname
+              name: mysql-prod
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: mysql-prod
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: mysql-prod
+        volumeMounts:
+        - name: tz-config
+          mountPath: /etc/localtime
+      volumes:
+        - name: tz-config
+          hostPath:
+             path: /usr/share/zoneinfo/Africa/Cairo
+      nodeSelector:
+          environment: production
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{cookiecutter.project_slug}}-worker
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{cookiecutter.project_slug}}-worker
+        fleet: production
+
+    spec:
+      imagePullSecrets:
+      - name: myregistrykey
+      containers:
+      - name: {{cookiecutter.project_slug}}
+        image: menacommere-docker-registry.bintray.io/{{cookiecutter.project_slug}}
+        args: ["./run.sh", "worker"]
+        imagePullPolicy: Always
+        env:
+        - name: "DEPLOY_ENV"
+          value: "{{cookiecutter.project_slug}}"
+        - name: "CONSUL_TOKEN"
+          valueFrom:
+            secretKeyRef:
+              key: accesstoken
+              name: consul-token
+        - name: DB_HOST
+          valueFrom:
+            secretKeyRef:
+              key: hostname
+              name: mysql-prod
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: mysql-prod
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: mysql-prod
+        volumeMounts:
+        - name: tz-config
+          mountPath: /etc/localtime
+      volumes:
+        - name: tz-config
+          hostPath:
+             path: /usr/share/zoneinfo/Africa/Cairo
+      nodeSelector:
+          environment: production

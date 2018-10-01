@@ -43,19 +43,11 @@ windows:
 use_pycharm:
     Indicates whether the project should be configured for development with PyCharm_.
 
-use_docker:
-    Indicates whether the project should be configured to use Docker_ and `Docker Compose`_.
+use_newrelic:
+    Indicates whether the project should be configured to use Newrelic
 
-postgresql_version:
-    Select a PostgreSQL_ version to use. The choices are:
-
-    1. 10.3
-    2. 10.2
-    3. 10.1
-    4. 9.6
-    5. 9.5
-    6. 9.4
-    7. 9.3
+use_prometheus:
+    Indicates whether the project should be configured to use Prometheus
 
 js_task_runner:
     Select a JavaScript task runner. The choices are:
@@ -83,17 +75,13 @@ use_sentry:
 use_whitenoise:
     Indicates whether the project should be configured to use WhiteNoise_.
 
-use_heroku:
-    Indicates whether the project should be configured so as to be deployable
-    to Heroku_.
-
 use_travisci:
     Indicates whether the project should be configured to use `Travis CI`_.
 
 keep_local_envs_in_vcs:
     Indicates whether the project's ``.envs/.local/`` should be kept in VCS
     (comes in handy when working in teams where local environment reproducibility
-    is strongly encouraged). 
+    is strongly encouraged).
     Note: .env(s) are only utilized when Docker Compose and/or Heroku support is enabled.
 
 debug:

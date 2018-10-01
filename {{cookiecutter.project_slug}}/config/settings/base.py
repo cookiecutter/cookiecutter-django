@@ -3,21 +3,29 @@ Base settings to build other settings files upon.
 """
 
 import environ
+from os import getenv
+import dj_database_url
 
 ROOT_DIR = environ.Path(__file__) - 3  # ({{ cookiecutter.project_slug }}/config/settings/base.py - 3 = {{ cookiecutter.project_slug }}/)
 APPS_DIR = ROOT_DIR.path('{{ cookiecutter.project_slug }}')
 
 env = environ.Env()
 
+def eval_bool(env_value, default=None):
+    return {'true': True, 'false': False}.get(str(env_value).lower(), default)
+
 READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=False)
 if READ_DOT_ENV_FILE:
     # OS environment variables take precedence over variables from .env
     env.read_env(str(ROOT_DIR.path('.env')))
 
+ENV = getenv('ENV', 'development').lower()
+
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
-DEBUG = env.bool('DJANGO_DEBUG', False)
+DEBUG = eval_bool(getenv('DEBUG'), True)
+
 # Local time zone. Choices are
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # though not all of them may be available with every OS.
@@ -37,16 +45,27 @@ USE_TZ = True
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-{% if cookiecutter.use_docker == 'y' -%}
+
+DB_NAME = getenv('DB_NAME', '{{ cookiecutter.project_slug }}')
+DB_USER = getenv('DB_USER', 'root')
+DB_PASSWORD = getenv('DB_PASSWORD', '')
+DB_HOST = getenv('DB_HOST', '127.0.0.1')
+DB_PORT = getenv('DB_PORT', '3306')
+DB_URL = getenv('DB_URL',
+                    'mysql://' + DB_USER + ':' + DB_PASSWORD + '@' +
+                    DB_HOST + ':' + DB_PORT + '/' + DB_NAME)
+
 DATABASES = {
-    'default': env.db('DATABASE_URL'),
+    'default': dj_database_url.config(
+        default=DB_URL,
+        conn_max_age=int(getenv('DB_CONN_MAX_AGE', 600)),
+    )
 }
-{%- else %}
-DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres://{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.project_slug}}'),
-}
+
+{% if cookiecutter.use_prometheus == 'y' -%}
+DB_ENGINE = getenv('DB_ENGINE', 'django_prometheus.db.backends.mysql')
+DATABASES['default']['ENGINE'] = DB_ENGINE
 {%- endif %}
-DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 # URLS
 # ------------------------------------------------------------------------------
@@ -133,6 +152,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
 MIDDLEWARE = [
+    {% if cookiecutter.use_prometheus == 'y' -%}
+        'django_prometheus.middleware.PrometheusBeforeMiddleware',
+    {% endif %}
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -140,6 +162,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    {% if cookiecutter.use_prometheus == 'y' -%}
+        'django_prometheus.middleware.PrometheusAfterMiddleware',
+    {% endif %}
 ]
 
 # STATIC
@@ -210,9 +235,22 @@ FIXTURE_DIRS = (
 )
 
 # EMAIL
-# ------------------------------------------------------------------------------
-# https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
-EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
+# to test smtp server in development comment console backend line
+# and start local smtp mail server using the following command:
+# `python -m smtpd -n -c DebuggingServer localhost:1025`
+EMAIL_BACKEND = 'naomi.mail.backends.naomi.NaomiBackend'
+
+(
+    EMAIL_HOST,
+    EMAIL_PORT,
+    EMAIL_HOST_USER,
+    EMAIL_HOST_PASSWORD,
+) = (
+        'localhost',
+        '1025',
+        '',
+        '',
+    )
 
 # ADMIN
 # ------------------------------------------------------------------------------
@@ -232,22 +270,33 @@ INSTALLED_APPS += ['{{cookiecutter.project_slug}}.taskapp.celery.CeleryAppConfig
 if USE_TZ:
     # http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-timezone
     CELERY_TIMEZONE = TIME_ZONE
-# http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-broker_url
-CELERY_BROKER_URL = env('CELERY_BROKER_URL')
-# http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-result_backend
-CELERY_RESULT_BACKEND = CELERY_BROKER_URL
-# http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-accept_content
-CELERY_ACCEPT_CONTENT = ['json']
-# http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-task_serializer
-CELERY_TASK_SERIALIZER = 'json'
-# http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-result_serializer
-CELERY_RESULT_SERIALIZER = 'json'
-# http://docs.celeryproject.org/en/latest/userguide/configuration.html#task-time-limit
-# TODO: set to whatever value is adequate in your circumstances
+
+# Celery Broker
+(
+    CELERY_BROKER_URL,
+    CELERY_RESULT_BACKEND,
+    CELERY_ACCEPT_CONTENT,
+    CELERY_TASK_SERIALIZER,
+    CELERY_RESULT_SERIALIZER,
+    CELERY_IGNORE_RESULT,
+) = (
+        getenv('CELERY_BROKER_URL', 'redis://localhost:6379/1'),
+        getenv('CELERY_RESULT_BACKEND', 'django-db'),
+        getenv('CELERY_ACCEPT_CONTENT', ['json']),
+        getenv('CELERY_TASK_SERIALIZER', 'json'),
+        getenv('CELERY_RESULT_SERIALIZER', 'json'),
+        getenv('CELERY_IGNORE_RESULT', False),
+    )
+
 CELERYD_TASK_TIME_LIMIT = 5 * 60
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#task-soft-time-limit
 # TODO: set to whatever value is adequate in your circumstances
 CELERYD_TASK_SOFT_TIME_LIMIT = 60
+
+{%- endif %}
+
+{% if cookiecutter.use_prometheus == 'y' -%}
+    INSTALLED_APPS+= ['django_prometheus']
 
 {%- endif %}
 # django-allauth

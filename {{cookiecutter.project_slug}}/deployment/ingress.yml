@@ -1,0 +1,14 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{cookiecutter.project_slug}}
+spec:
+  rules:
+  - host: {{cookiecutter.domain_name}}
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: {{cookiecutter.project_slug}}
+          servicePort: 80
