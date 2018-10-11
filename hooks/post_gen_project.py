@@ -69,7 +69,7 @@ def remove_utility_files():
 
 
 def remove_heroku_files():
-    file_names = ["Procfile", "runtime.txt", "requirements.txt"]
+    file_names = ["Procfile", "runtime.txt"]
     for file_name in file_names:
         os.remove(file_name)
 
