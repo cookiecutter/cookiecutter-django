@@ -14,7 +14,7 @@ Prerequisites
 Understanding the Docker Compose Setup
 --------------------------------------
 
-Before you begin, check out the ``production.yml`` file in the root of this project. Keep note of how it provides configuration for the following services:
+Before you begin, check out the ``docker-compose.prod.yml`` file in the root of this project. Keep note of how it provides configuration for the following services:
 
 * ``django``: your application running behind ``Gunicorn``;
 * ``postgres``: PostgreSQL database with the application's relational data;
@@ -81,42 +81,42 @@ Building & Running Production Stack
 
 You will need to build the stack first. To do that, run::
 
-    docker-compose -f production.yml build
+    docker-compose -f docker-compose.prod.yml build
 
 Once this is ready, you can run it with::
 
-    docker-compose -f production.yml up
+    docker-compose -f docker-compose.prod.yml up
 
 To run the stack and detach the containers, run::
 
-    docker-compose -f production.yml up -d
+    docker-compose -f docker-compose.prod.yml up -d
 
 To run a migration, open up a second terminal and run::
 
-   docker-compose -f production.yml run --rm django python manage.py migrate
+   docker-compose -f docker-compose.prod.yml run --rm django python manage.py migrate
 
 To create a superuser, run::
 
-   docker-compose -f production.yml run --rm django python manage.py createsuperuser
+   docker-compose -f docker-compose.prod.yml run --rm django python manage.py createsuperuser
 
 If you need a shell, run::
 
-   docker-compose -f production.yml run --rm django python manage.py shell
+   docker-compose -f docker-compose.prod.yml run --rm django python manage.py shell
 
 To check the logs out, run::
 
-   docker-compose -f production.yml logs
+   docker-compose -f docker-compose.prod.yml logs
 
 If you want to scale your application, run::
 
-   docker-compose -f production.yml scale django=4
-   docker-compose -f production.yml scale celeryworker=2
+   docker-compose -f docker-compose.prod.yml scale django=4
+   docker-compose -f docker-compose.prod.yml scale celeryworker=2
 
 .. warning:: don't try to scale ``postgres``, ``celerybeat``, or ``caddy``.
 
 To see how your containers are doing run::
 
-    docker-compose -f production.yml ps
+    docker-compose -f docker-compose.prod.yml ps
 
 
 Example: Supervisor
@@ -124,12 +124,12 @@ Example: Supervisor
 
 Once you are ready with your initial setup, you want to make sure that your application is run by a process manager to
 survive reboots and auto restarts in case of an error. You can use the process manager you are most familiar with. All
-it needs to do is to run ``docker-compose -f production.yml up`` in your projects root directory.
+it needs to do is to run ``docker-compose -f docker-compose.prod.yml up`` in your projects root directory.
 
 If you are using ``supervisor``, you can use this file as a starting point::
 
     [program:{{cookiecutter.project_slug}}]
-    command=docker-compose -f production.yml up
+    command=docker-compose -f docker-compose.prod.yml up
     directory=/path/to/{{cookiecutter.project_slug}}
     redirect_stderr=true
     autostart=true

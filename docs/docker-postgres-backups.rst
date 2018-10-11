@@ -1,14 +1,14 @@
 PostgreSQL Backups with Docker
 ==============================
 
-.. note:: For brevity it is assumed that you will be running the below commands against local environment, however, this is by no means mandatory so feel free to switch to ``production.yml`` when needed.
+.. note:: For brevity it is assumed that you will be running the below commands against local environment, however, this is by no means mandatory so feel free to switch to ``docker-compose.prod.yml`` when needed.
 
 
 Prerequisites
 -------------
 
 #. the project was generated with ``use_docker`` set to ``y``;
-#. the stack is up and running: ``docker-compose -f local.yml up -d postgres``.
+#. the stack is up and running: ``docker-compose up -d postgres``.
 
 
 Creating a Backup
@@ -16,7 +16,7 @@ Creating a Backup
 
 To create a backup, run::
 
-    $ docker-compose -f local.yml exec postgres backup
+    $ docker-compose exec postgres backup
 
 Assuming your project's database is named ``my_project`` here is what you will see: ::
 
@@ -31,7 +31,7 @@ Viewing the Existing Backups
 
 To list existing backups, ::
 
-    $ docker-compose -f local.yml exec postgres backups
+    $ docker-compose exec postgres backups
 
 These are the sample contents of ``/backups``: ::
 
@@ -63,7 +63,7 @@ Restoring from the Existing Backup
 
 To restore from one of the backups you have already got (take the ``backup_2018_03_13T09_05_07.sql.gz`` for example), ::
 
-    $ docker-compose -f local.yml exec postgres restore backup_2018_03_13T09_05_07.sql.gz
+    $ docker-compose exec postgres restore backup_2018_03_13T09_05_07.sql.gz
 
 You will see something like ::
 
