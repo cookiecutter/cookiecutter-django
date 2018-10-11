@@ -163,6 +163,7 @@ Listed in alphabetical order.
   Tom Offermann
   Travis McNeill           `@Travistock`_               @tavistock_esq
   Umair Ashraf             `@umrashrf`_                 @fabumair
+  Uyen Do                  `@minhuyen`_
   Vitaly Babiy
   Vivian Guillen           `@viviangb`_
   Will Farley              `@goldhand`_                 @g01dhand
