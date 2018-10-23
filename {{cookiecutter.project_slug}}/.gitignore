@@ -343,3 +343,7 @@ MailHog
 {{ cookiecutter.project_slug }}/media/
 
 .pytest_cache/
+
+{% if cookiecutter.use_docker == 'y' %}
+.ipython/
+{%- endif %}
