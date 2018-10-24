@@ -85,6 +85,7 @@ Listed in alphabetical order.
   Daniel Hepper            `@dhepper`_                   @danielhepper
   Daniele Tricoli          `@eriol`_
   David Díaz               `@ddiazpinto`_                @DavidDiazPinto
+  Davit Tovmasyan          `@davitovmasyan`_
   Davur Clementsen         `@dsclementsen`_              @davur
   Delio Castillo           `@jangeador`_                 @jangeador
   Denis Orehovsky          `@apirobot`_
@@ -200,6 +201,7 @@ Listed in alphabetical order.
 .. _@ChrisPappalardo: https://github.com/ChrisPappalardo
 .. _@chuckus: https://github.com/chuckus
 .. _@Collederas: https://github.com/Collederas
+.. _@davitovmasyan: https://github.com/davitovmasyan
 .. _@ddiazpinto: https://github.com/ddiazpinto
 .. _@dezoito: https://github.com/dezoito
 .. _@dhepper: https://github.com/dhepper
