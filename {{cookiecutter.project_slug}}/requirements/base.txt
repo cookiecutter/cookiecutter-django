@@ -1,4 +1,4 @@
-pytz==2018.5  # https://github.com/stub42/pytz
+pytz==2018.6  # https://github.com/stub42/pytz
 python-slugify==1.2.6  # https://github.com/un33k/python-slugify
 Pillow==5.3.0  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.use_compressor == "y" %}
@@ -29,7 +29,7 @@ django-compressor==2.2  # https://github.com/django-compressor/django-compressor
 django-redis==4.9.0  # https://github.com/niwinz/django-redis
 
 # Django REST Framework
-djangorestframework==3.8.2  # https://github.com/encode/django-rest-framework
+djangorestframework==3.9.0  # https://github.com/encode/django-rest-framework
 coreapi==2.3.3  # https://github.com/core-api/python-client
 
 {% if cookiecutter.js_task_runner == "CreateReactApp" %}
