@@ -17,6 +17,7 @@
   "windows": "n",
   "use_pycharm": "n",
   "use_docker": "n",
+  "use_gitlab_ci": "n",
   "postgresql_version": [
     "10.5",
     "10.4",
