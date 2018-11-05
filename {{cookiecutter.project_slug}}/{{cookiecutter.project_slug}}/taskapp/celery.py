@@ -12,6 +12,9 @@ if not settings.configured:
 
 
 app = Celery('{{cookiecutter.project_slug}}')
+# Using a string here means the worker will not have to
+# pickle the object when using Windows.
+app.config_from_object('django.conf:settings')
 
 
 class CeleryConfig(AppConfig):
@@ -19,9 +22,6 @@ class CeleryConfig(AppConfig):
     verbose_name = 'Celery Config'
 
     def ready(self):
-        # Using a string here means the worker will not have to
-        # pickle the object when using Windows.
-        app.config_from_object('django.conf:settings')
         app.autodiscover_tasks(lambda: settings.INSTALLED_APPS, force=True)
 
         {% if cookiecutter.use_sentry_for_error_reporting == 'y' -%}
