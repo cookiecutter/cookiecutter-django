@@ -121,6 +121,7 @@ Listed in alphabetical order.
   Krzysztof Szumny         `@noisy`_
   Krzysztof Żuraw          `@krzysztofzuraw`_
   Leonardo Jimenez         `@xpostudio4`_
+  Leo Zhou                 `@glasslion`_
   Lin Xianyi               `@iynaix`_
   Luis Nell                `@originell`_
   Lukas Klein
@@ -217,6 +218,7 @@ Listed in alphabetical order.
 .. _@garry-cairns: https://github.com/garry-cairns
 .. _@garrypolley: https://github.com/garrypolley
 .. _@goldhand: https://github.com/goldhand
+.. _@glasslion: https://github.com/glasslion
 .. _@hackebrot: https://github.com/hackebrot
 .. _@hairychris: https://github.com/hairychris
 .. _@hendrikschneider: https://github.com/hendrikschneider
