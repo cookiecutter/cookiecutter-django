@@ -85,6 +85,7 @@ Listed in alphabetical order.
   Daniel Hepper            `@dhepper`_                   @danielhepper
   Daniele Tricoli          `@eriol`_
   David Díaz               `@ddiazpinto`_                @DavidDiazPinto
+  Davit Tovmasyan          `@davitovmasyan`_
   Davur Clementsen         `@dsclementsen`_              @davur
   Delio Castillo           `@jangeador`_                 @jangeador
   Demetris Stavrou         `@demestav`_
@@ -104,8 +105,10 @@ Listed in alphabetical order.
   Hendrik Schneider        `@hendrikschneider`_
   Henrique G. G. Pereira   `@ikkebr`_
   Ian Lee                  `@IanLee1521`_
+  Irfan Ahmad              `@erfaan`_                    @erfaan
   Jan Van Bruggen          `@jvanbrug`_
   Jens Nilsson             `@phiberjenz`_
+  Jerome Leclanche         `@jleclanche`_                @Adys
   Jimmy Gitonga            `@afrowave`_                  @afrowave
   John Cass                `@jcass77`_                   @cass_john
   Julien Almarcha          `@sladinji`_
@@ -119,6 +122,7 @@ Listed in alphabetical order.
   Krzysztof Szumny         `@noisy`_
   Krzysztof Żuraw          `@krzysztofzuraw`_
   Leonardo Jimenez         `@xpostudio4`_
+  Leo Zhou                 `@glasslion`_
   Lin Xianyi               `@iynaix`_
   Luis Nell                `@originell`_
   Lukas Klein
@@ -162,6 +166,7 @@ Listed in alphabetical order.
   Tom Atkins               `@knitatoms`_
   Tom Offermann
   Travis McNeill           `@Travistock`_               @tavistock_esq
+  Umair Ashraf             `@umrashrf`_                 @fabumair
   Vitaly Babiy
   Vivian Guillen           `@viviangb`_
   Will Farley              `@goldhand`_                 @g01dhand
@@ -198,6 +203,7 @@ Listed in alphabetical order.
 .. _@ChrisPappalardo: https://github.com/ChrisPappalardo
 .. _@chuckus: https://github.com/chuckus
 .. _@Collederas: https://github.com/Collederas
+.. _@davitovmasyan: https://github.com/davitovmasyan
 .. _@ddiazpinto: https://github.com/ddiazpinto
 .. _@dezoito: https://github.com/dezoito
 .. _@dhepper: https://github.com/dhepper
@@ -206,20 +212,23 @@ Listed in alphabetical order.
 .. _@durkode: https://github.com/durkode
 .. _@epileptic-fish: https://gihub.com/epileptic-fish
 .. _@eraldo: https://github.com/eraldo
+.. _@erfaan: https://github.com/erfaan
 .. _@eriol: https://github.com/eriol
 .. _@eyadsibai: https://github.com/eyadsibai
 .. _@flyudvik: https://github.com/flyudvik
 .. _@garry-cairns: https://github.com/garry-cairns
 .. _@garrypolley: https://github.com/garrypolley
 .. _@goldhand: https://github.com/goldhand
+.. _@glasslion: https://github.com/glasslion
 .. _@hackebrot: https://github.com/hackebrot
 .. _@hairychris: https://github.com/hairychris
-.. _@hendrikschneider https://github.com/hendrikschneider
+.. _@hendrikschneider: https://github.com/hendrikschneider
 .. _@hjwp: https://github.com/hjwp
 .. _@IanLee1521: https://github.com/IanLee1521
 .. _@ikkebr: https://github.com/ikkebr
 .. _@iynaix: https://github.com/iynaix
 .. _@jazztpt: https://github.com/jazztpt
+.. _@jleclanche: https://github.com/jleclanche
 .. _@juliocc: https://github.com/juliocc
 .. _@jvanbrug: https://github.com/jvanbrug
 .. _@ka7eh: https://github.com/ka7eh
@@ -275,6 +284,7 @@ Listed in alphabetical order.
 .. _@pchiquet: https://github.com/pchiquet
 .. _@delneg: https://github.com/delneg
 .. _@purplediane: https://github.com/purplediane
+.. _@umrashrf: https://github.com/umrashrf
 Special Thanks
 ~~~~~~~~~~~~~~
 

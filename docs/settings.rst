@@ -1,7 +1,7 @@
 .. _settings:
 
 Settings
-==========
+========
 
 This project relies extensively on environment settings which **will not work with Apache/mod_wsgi setups**. It has been deployed successfully with both Gunicorn/Nginx and even uWSGI/Nginx.
 
@@ -18,11 +18,10 @@ DJANGO_READ_DOT_ENV_FILE                READ_DOT_ENV_FILE           False       
 ======================================= =========================== ============================================== ======================================================================
 Environment Variable                    Django Setting              Development Default                            Production Default
 ======================================= =========================== ============================================== ======================================================================
+DATABASE_URL                            DATABASES                   auto w/ Docker; postgres://project_slug w/o    raises error
 DJANGO_ADMIN_URL                        n/a                         'admin/'                                       raises error
-DJANGO_CACHES                           CACHES (default)            locmem                                         redis
-DJANGO_DATABASES                        DATABASES (default)         See code                                       See code
 DJANGO_DEBUG                            DEBUG                       True                                           False
-DJANGO_SECRET_KEY                       SECRET_KEY                  !!!SET DJANGO_SECRET_KEY!!!                    raises error
+DJANGO_SECRET_KEY                       SECRET_KEY                  auto-generated                                 raises error
 DJANGO_SECURE_BROWSER_XSS_FILTER        SECURE_BROWSER_XSS_FILTER   n/a                                            True
 DJANGO_SECURE_SSL_REDIRECT              SECURE_SSL_REDIRECT         n/a                                            True
 DJANGO_SECURE_CONTENT_TYPE_NOSNIFF      SECURE_CONTENT_TYPE_NOSNIFF n/a                                            True
@@ -41,6 +40,7 @@ The following table lists settings and their defaults for third-party applicatio
 ======================================= =========================== ============================================== ======================================================================
 Environment Variable                    Django Setting              Development Default                            Production Default
 ======================================= =========================== ============================================== ======================================================================
+CELERY_BROKER_URL                       CELERY_BROKER_URL           auto w/ Docker; raises error w/o               raises error
 DJANGO_AWS_ACCESS_KEY_ID                AWS_ACCESS_KEY_ID           n/a                                            raises error
 DJANGO_AWS_SECRET_ACCESS_KEY            AWS_SECRET_ACCESS_KEY       n/a                                            raises error
 DJANGO_AWS_STORAGE_BUCKET_NAME          AWS_STORAGE_BUCKET_NAME     n/a                                            raises error
@@ -49,8 +49,6 @@ DJANGO_SENTRY_CLIENT                    SENTRY_CLIENT               n/a         
 DJANGO_SENTRY_LOG_LEVEL                 SENTRY_LOG_LEVEL            n/a                                            logging.INFO
 MAILGUN_API_KEY                         MAILGUN_ACCESS_KEY          n/a                                            raises error
 MAILGUN_DOMAIN                          MAILGUN_SENDER_DOMAIN       n/a                                            raises error
-NEW_RELIC_APP_NAME                      NEW_RELIC_APP_NAME          n/a                                            raises error
-NEW_RELIC_LICENSE_KEY                   NEW_RELIC_LICENSE_KEY       n/a                                            raises error
 ======================================= =========================== ============================================== ======================================================================
 
 --------------------------
