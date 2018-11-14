@@ -1,6 +1,6 @@
 {
   "project_name": "My Awesome Project",
-  "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_') }}",
+  "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
   "description": "Behold My Awesome Project!",
   "author_name": "Daniel Roy Greenfeld",
   "domain_name": "example.com",
