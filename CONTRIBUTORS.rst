@@ -174,6 +174,7 @@ Listed in alphabetical order.
   William Archinal         `@archinal`_
   Yaroslav Halchenko
   Denis Bobrov             `@delneg`_
+  Philipp Matthies         `@canonnervio`_
 ========================== ============================ ==============
 
 .. _@a7p: https://github.com/a7p
