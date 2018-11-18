@@ -8,7 +8,7 @@ argon2-cffi==18.3.0  # https://github.com/hynek/argon2_cffi
 {%- if cookiecutter.use_whitenoise == 'y' %}
 whitenoise==4.1.1  # https://github.com/evansd/whitenoise
 {%- endif %}
-redis>=2.10.5  # https://github.com/antirez/redis
+redis>=2.10.6  # pyup: <3 # https://github.com/antirez/redis
 {%- if cookiecutter.use_celery == "y" %}
 celery==4.2.1  # pyup: <5.0  # https://github.com/celery/celery
 {%- if cookiecutter.use_docker == 'y' %}
