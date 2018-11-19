@@ -17,6 +17,7 @@ Contents:
    developing-locally-docker
    settings
    linters
+   testing
    deployment-on-pythonanywhere
    deployment-on-heroku
    deployment-with-docker
