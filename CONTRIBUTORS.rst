@@ -79,6 +79,7 @@ Listed in alphabetical order.
   Chris Franklin           `@hairychris`_
   Chris Pappalardo         `@ChrisPappalardo`_
   Christopher Clarke       `@chrisdev`_
+  Cole Mackenzie           `@cmackenzie1`_
   Collederas               `@Collederas`_
   Cristian Vargas          `@cdvv7788`_
   Cullen Rhodes            `@c-rhodes`_
@@ -205,6 +206,7 @@ Listed in alphabetical order.
 .. _@chrisdev: https://github.com/chrisdev
 .. _@ChrisPappalardo: https://github.com/ChrisPappalardo
 .. _@chuckus: https://github.com/chuckus
+.. _@cmackenzie1: https://github.com/cmackenzie1
 .. _@Collederas: https://github.com/Collederas
 .. _@davitovmasyan: https://github.com/davitovmasyan
 .. _@ddiazpinto: https://github.com/ddiazpinto
