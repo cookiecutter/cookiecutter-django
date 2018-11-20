@@ -176,6 +176,7 @@ Listed in alphabetical order.
   Yaroslav Halchenko
   Denis Bobrov             `@delneg`_
   Philipp Matthies         `@canonnervio`_
+  Vadim Iskuchekov         `@Egregors`_                 @egregors
 ========================== ============================ ==============
 
 .. _@a7p: https://github.com/a7p
