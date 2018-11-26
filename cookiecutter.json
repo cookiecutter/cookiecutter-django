@@ -1,13 +1,13 @@
 {
-  "project_name": "My Awesome Project",
+  "project_name": "ma project",
   "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_') }}",
   "venv_name": "{{cookiecutter.project_slug}}_venv",
   "database_user":"{{cookiecutter.project_slug}}_user",
   "database_user_password":"password",
-  "description": "Behold My Awesome Project!",
-  "author_name": "Mohand Ahmad",
+  "description": "Behold ... :)",
+  "author_name": "Mohandoz",
   "domain_name": "example.com",
-  "email": "{{ cookiecutter.author_name.lower()|replace(' ', '-') }}@example.com",
+  "email": "vaultofpython@outlook.com",
   "version": "0.1.0",
   "open_source_license": [
     "MIT",

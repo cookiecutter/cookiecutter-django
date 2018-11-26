@@ -1,4 +1,6 @@
 git rm -r --cached .
 git add -A
-git commit -am 'Removing ignored files'
+echo "Enter comment"
+read comment
+git commit -am $comment
 git push
