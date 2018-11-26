@@ -2,7 +2,7 @@
 
 -r ./base.txt
 
-gunicorn==19.8.1  # https://github.com/benoitc/gunicorn
+gunicorn==19.9.0  # https://github.com/benoitc/gunicorn
 psycopg2==2.7.4 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
 {%- if cookiecutter.use_whitenoise == 'n' %}
 Collectfast==0.6.2  # https://github.com/antonagestam/collectfast
@@ -13,5 +13,5 @@ raven==6.9.0  # https://github.com/getsentry/raven-python
 
 # Django
 # ------------------------------------------------------------------------------
-django-storages[boto3]==1.6.6  # https://github.com/jschneier/django-storages
-django-anymail[mailgun]==4.1  # https://github.com/anymail/django-anymail
+django-storages[boto3]==1.7.1  # https://github.com/jschneier/django-storages
+django-anymail[mailgun]==5.0  # https://github.com/anymail/django-anymail

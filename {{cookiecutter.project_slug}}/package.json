@@ -3,17 +3,17 @@
   "version": "{{ cookiecutter.version }}",
   "dependencies": {},
   "devDependencies": {
-    {% if cookiecutter.js_task_runner == 'Gulp' %}
-    {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
+    {% if cookiecutter.js_task_runner == 'Gulp' -%}
+    {% if cookiecutter.custom_bootstrap_compilation == 'y' -%}
     "bootstrap": "4.1.1",
-    {% endif %}
+    {% endif -%}
     "browser-sync": "^2.14.0",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
-    {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
+    {% if cookiecutter.custom_bootstrap_compilation == 'y' -%}
     "gulp-concat": "^2.6.1",
-    {% endif %}
+    {% endif -%}
     "gulp-cssnano": "^2.1.2",
     "gulp-imagemin": "^4.1.0",
     "gulp-pixrem": "^1.0.0",
@@ -22,19 +22,19 @@
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.7",
-    {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
-    "jquery": "3.3.1-slim",
+    {% if cookiecutter.custom_bootstrap_compilation == 'y' -%}
+    "jquery": "3.3.1",
     "popper.js": "1.14.3",
-    {% endif %}
+    {% endif -%}
     "run-sequence": "^2.1.1"
-    {% endif %}
+    {%- endif %}
   },
   "engines": {
     "node": ">=0.8.0"
   },
   "scripts": {
-    {% if cookiecutter.js_task_runner == 'Gulp' %}
+    {% if cookiecutter.js_task_runner == 'Gulp' -%}
     "dev": "gulp"
-    {% endif %}
+    {%- endif %}
   }
 }
