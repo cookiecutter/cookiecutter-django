@@ -4,6 +4,7 @@ volumes:
   production_postgres_data: {}
   production_postgres_data_backups: {}
   production_caddy: {}
+  production_caddy_log: {}
 
 services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
@@ -39,6 +40,7 @@ services:
       - django
     volumes:
       - production_caddy:/root/.caddy
+      - production_caddy_log:/var/log/caddy
     env_file:
       - ./.envs/.production/.caddy
     ports:
@@ -67,3 +69,11 @@ services:
     command: /start-flower
 
   {%- endif %}
+
+  {% if cookiecutter.use_goaccess == "y" %}
+  goaccess:
+    image: allinurl/goaccess
+    volumes:
+      - production_caddy_log:/srv/logs
+
+  {% endif %}

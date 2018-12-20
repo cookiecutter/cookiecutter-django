@@ -9,7 +9,11 @@ www.{% raw %}{$DOMAIN_NAME}{% endraw %} {
         header_upstream X-Forwarded-Proto {scheme}
         header_upstream X-CSRFToken {~csrftoken}
     }
+    {%- if cookiecutter.use_goaccess == "y" %}
+    log / /var/log/caddy/requests.log "{combined}"
+    {%- else %}
     log stdout
+    {%- endif %}
     errors stdout
     gzip
 }

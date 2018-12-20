@@ -118,6 +118,9 @@ To see how your containers are doing run::
 
     docker-compose -f production.yml ps
 
+To view the GoAccess analytics run::
+
+    docker-compose -f production.yml run --rm goaccess goaccess --log-format COMBINED --log-file /srv/logs/requests.log
 
 Example: Supervisor
 -------------------
