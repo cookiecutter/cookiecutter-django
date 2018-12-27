@@ -2,7 +2,7 @@
 
 Werkzeug==0.14.1  # https://github.com/pallets/werkzeug
 ipdb==0.11  # https://github.com/gotcha/ipdb
-Sphinx==1.8.2  # https://github.com/sphinx-doc/sphinx
+Sphinx==1.8.3  # https://github.com/sphinx-doc/sphinx
 {%- if cookiecutter.use_docker == 'y' %}
 psycopg2==2.7.4 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
 {%- else %}
