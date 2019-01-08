@@ -58,6 +58,7 @@ Listed in alphabetical order.
   Andy Rose
   Anna Callahan            `@jazztpt`_
   Antonia Blair            `@antoniablair`_             @antoniablairart
+  Anuj Bansal              `@ahhda`_
   Arcuri Davide            `@dadokkio`_
   Areski Belaid            `@areski`_
   Ashley Camba
@@ -168,6 +169,7 @@ Listed in alphabetical order.
   Tom Atkins               `@knitatoms`_
   Tom Offermann
   Travis McNeill           `@Travistock`_               @tavistock_esq
+  Tubo Shi                 `@Tubo`_
   Umair Ashraf             `@umrashrf`_                 @fabumair
   Vitaly Babiy
   Vivian Guillen           `@viviangb`_
@@ -272,6 +274,7 @@ Listed in alphabetical order.
 .. _@timfreund: https://github.com/timfreund
 .. _@Travistock: https://github.com/Tavistock
 .. _@trungdong: https://github.com/trungdong
+.. _@Tubo: https://github.com/tubo
 .. _@viviangb: https://github.com/viviangb
 .. _@xpostudio4: https://github.com/xpostudio4
 .. _@yunti: https://github.com/yunti
@@ -291,6 +294,7 @@ Listed in alphabetical order.
 .. _@delneg: https://github.com/delneg
 .. _@purplediane: https://github.com/purplediane
 .. _@umrashrf: https://github.com/umrashrf
+.. _@ahhda: https://github.com/ahhda
 Special Thanks
 ~~~~~~~~~~~~~~
 
