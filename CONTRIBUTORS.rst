@@ -175,6 +175,7 @@ Listed in alphabetical order.
   Vivian Guillen           `@viviangb`_
   Will Farley              `@goldhand`_                 @g01dhand
   William Archinal         `@archinal`_
+  Will Gordon              `@wgordon17`                 @wpg4665
   Yaroslav Halchenko
   Denis Bobrov             `@delneg`_
   Philipp Matthies         `@canonnervio`_
@@ -291,6 +292,7 @@ Listed in alphabetical order.
 .. _@brentpayne: https://github.com/brentpayne
 .. _@afrowave: https://github.com/afrowave
 .. _@pchiquet: https://github.com/pchiquet
+.. _@wgordon17: https://github.com/wgordon17
 .. _@delneg: https://github.com/delneg
 .. _@purplediane: https://github.com/purplediane
 .. _@umrashrf: https://github.com/umrashrf
