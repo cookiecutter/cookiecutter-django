@@ -2,6 +2,10 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2019-01-30]
+### Added
+- Added `DJANGO_ADMIN_FORCE_ALLAUTH` environment variable to force the `admin` sign in process to go through the `django-allauth` workflow
+
 ## [2018-02-16]
 ### Changed
 - Upgraded to Django 2.0 (@epicwhale)
