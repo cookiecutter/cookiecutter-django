@@ -30,11 +30,21 @@
     {%- endif %}
   },
   "engines": {
+    {% if cookiecutter.js_task_runner == 'CreateReactApp' %}
+    "node": "9.11.1",
+    "npm": "5.6.0",
+    "yarn": "1.6.0"
+    {% else %}
     "node": ">=0.8.0"
+    {% endif %}
   },
   "scripts": {
     {% if cookiecutter.js_task_runner == 'Gulp' -%}
     "dev": "gulp"
-    {%- endif %}
+    {% endif %}
+    {% if cookiecutter.js_task_runner == 'CreateReactApp' %}
+    "heroku-prebuild": "cd frontend/ && yarn install && yarn build",
+    "heroku-postbuild": "cd ../"
+    {% endif %}
   }
 }

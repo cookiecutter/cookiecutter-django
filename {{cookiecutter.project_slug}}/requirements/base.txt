@@ -31,3 +31,9 @@ django-redis==4.10.0  # https://github.com/niwinz/django-redis
 # Django REST Framework
 djangorestframework==3.9.1  # https://github.com/encode/django-rest-framework
 coreapi==2.3.3  # https://github.com/core-api/python-client
+
+{% if cookiecutter.js_task_runner == "CreateReactApp" %}
+# Django/ReactJS integration
+# ------------------------------------------------------------------------------
+django-cors-headers==2.4.0  # https://github.com/ottoyiu/django-cors-headers
+{%- endif %}
