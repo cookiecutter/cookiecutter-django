@@ -272,6 +272,7 @@ Listed in alphabetical order.
 .. _@stepmr: https://github.com/stepmr
 .. _@suledev: https://github.com/suledev
 .. _@timfreund: https://github.com/timfreund
+.. _@timtech4u: https://github.com/timtech4u
 .. _@Travistock: https://github.com/Tavistock
 .. _@trungdong: https://github.com/trungdong
 .. _@Tubo: https://github.com/tubo
