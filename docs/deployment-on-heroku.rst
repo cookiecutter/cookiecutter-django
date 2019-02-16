@@ -8,6 +8,18 @@ Run these commands to deploy the project to Heroku:
 .. code-block:: bash
 
     heroku create --buildpack https://github.com/heroku/heroku-buildpack-python
+    
+    # Setup heroku requirements
+    pip install django-heroku
+    pip freeze > requirements.txt
+    
+    # In your base/setting.py file, append the following:
+    import django_heroku
+
+    # All the way at the bottom of the file
+    # ...
+
+    django_heroku.settings(locals())
 
     heroku addons:create heroku-postgresql:hobby-dev
     # On Windows use double quotes for the time zone, e.g.
