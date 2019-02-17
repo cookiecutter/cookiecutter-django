@@ -57,3 +57,5 @@ Other Environment Settings
 
 DJANGO_ACCOUNT_ALLOW_REGISTRATION (=True)
     Allow enable or disable user registration through `django-allauth` without disabling other characteristics like authentication and account management. (Django Setting: ACCOUNT_ALLOW_REGISTRATION)
+DJANGO_ACCOUNT_HIDE_INTERMEDIARY_LOGOUT (=False)
+    Hide the intermediary logout form and instead auto-submit via JavaScript. This degrades back to using the form in case JavaScript is disabled. (Django Setting: ACCOUNT_ALLOW_REGISTRATION)

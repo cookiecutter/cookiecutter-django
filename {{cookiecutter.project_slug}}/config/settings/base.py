@@ -195,6 +195,7 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
+                '{{cookiecutter.project_slug}}.users.context_processors.expose_settings',
             ],
         },
     },
@@ -274,6 +275,11 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_ADAPTER = '{{cookiecutter.project_slug}}.users.adapters.AccountAdapter'
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = '{{cookiecutter.project_slug}}.users.adapters.SocialAccountAdapter'
+
+# Configuration options
+# ------------------------------------------------------------------------------
+# https://cookiecutter-django.readthedocs.io/en/latest/settings.html#other-environment-settings
+ACCOUNT_HIDE_INTERMEDIARY_LOGOUT = env.bool('DJANGO_ACCOUNT_HIDE_INTERMEDIARY_LOGOUT', False)
 
 {% if cookiecutter.use_compressor == 'y' -%}
 # django-compressor

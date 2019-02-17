@@ -5,11 +5,17 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block inner %}
+
+{% if ACCOUNT_HIDE_INTERMEDIARY_LOGOUT %}
+  {# Hide form - prevents user confusion by seeing an auto-submitting form #}
+  <script>document.getElementsByClassName('container')[0].style.display = 'none';</script>
+{% endif %}
+
 <h1>{% trans "Sign Out" %}</h1>
 
 <p>{% trans 'Are you sure you want to sign out?' %}</p>
 
-<form method="post" action="{% url 'account_logout' %}">
+<form id="form-logout" method="post" action="{% url 'account_logout' %}">
   {% csrf_token %}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
@@ -17,6 +23,10 @@
   <button class="btn btn-danger" type="submit">{% trans 'Sign Out' %}</button>
 </form>
 
+{% if ACCOUNT_HIDE_INTERMEDIARY_LOGOUT %}
+  {# submit form automatically #}
+  <script>document.getElementById('form-logout').submit();</script>
+{% endif %}
 
 {% endblock %}
 {% endraw %}
