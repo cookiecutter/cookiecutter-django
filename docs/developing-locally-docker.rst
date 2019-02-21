@@ -171,6 +171,13 @@ When developing locally you can go with MailHog_ for email testing provided ``us
 
 .. _Mailhog: https://github.com/mailhog/MailHog/
 
+.. _`CeleryTasks`:
+
+Celery tasks in local development
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+By default Celery tasks are set to 'eager' during local development. This results in tasks being evaluated as normal functions which will not reach the redis queue.
+
+If you need tasks to be executed by a worker during development set CELERY_TASK_ALWAYS_EAGER = False in config/settings/local.py
 
 .. _`CeleryFlower`:
 
