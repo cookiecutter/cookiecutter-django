@@ -1,10 +1,10 @@
-pytz==2018.7  # https://github.com/stub42/pytz
-python-slugify==1.2.6  # https://github.com/un33k/python-slugify
-Pillow==5.3.0  # https://github.com/python-pillow/Pillow
+pytz==2018.9  # https://github.com/stub42/pytz
+python-slugify==2.0.1  # https://github.com/un33k/python-slugify
+Pillow==5.4.1  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.use_compressor == "y" %}
 rcssmin==1.0.6{% if cookiecutter.windows == 'y' %} --install-option="--without-c-extensions"{% endif %}  # https://github.com/ndparker/rcssmin
 {%- endif %}
-argon2-cffi==18.3.0  # https://github.com/hynek/argon2_cffi
+argon2-cffi==19.1.0  # https://github.com/hynek/argon2_cffi
 {%- if cookiecutter.use_whitenoise == 'y' %}
 whitenoise==4.1.2  # https://github.com/evansd/whitenoise
 {%- endif %}
@@ -18,7 +18,7 @@ flower==0.9.2  # https://github.com/mher/flower
 
 # Django
 # ------------------------------------------------------------------------------
-django==2.0.9  # pyup: < 2.1  # https://www.djangoproject.com/
+django==2.0.13  # pyup: < 2.1  # https://www.djangoproject.com/
 django-environ==0.4.5  # https://github.com/joke2k/django-environ
 django-model-utils==3.1.2  # https://github.com/jazzband/django-model-utils
 django-allauth==0.38.0  # https://github.com/pennersr/django-allauth
@@ -29,5 +29,5 @@ django-compressor==2.2  # https://github.com/django-compressor/django-compressor
 django-redis==4.10.0  # https://github.com/niwinz/django-redis
 
 # Django REST Framework
-djangorestframework==3.9.0  # https://github.com/encode/django-rest-framework
+djangorestframework==3.9.1  # https://github.com/encode/django-rest-framework
 coreapi==2.3.3  # https://github.com/core-api/python-client
