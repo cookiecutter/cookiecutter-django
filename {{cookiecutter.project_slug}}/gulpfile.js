@@ -1,34 +1,32 @@
+////////////////////////////////
+// Setup
+////////////////////////////////
 
-////////////////////////////////
-		//Setup//
-////////////////////////////////
+// Gulp and package
+const { src, dest, parallel, series, watch } = require('gulp')
+const pjson = require('./package.json')
 
 // Plugins
-var gulp = require('gulp'),
-      pjson = require('./package.json'),
-      gutil = require('gulp-util'),
-      sass = require('gulp-sass'),
-      autoprefixer = require('gulp-autoprefixer'),
-      cssnano = require('gulp-cssnano'),
-      {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
-      concat = require('gulp-concat'),
-      {% endif %}
-      rename = require('gulp-rename'),
-      del = require('del'),
-      plumber = require('gulp-plumber'),
-      pixrem = require('gulp-pixrem'),
-      uglify = require('gulp-uglify'),
-      imagemin = require('gulp-imagemin'),
-      spawn = require('child_process').spawn,
-      runSequence = require('run-sequence'),
-      browserSync = require('browser-sync').create(),
-      reload = browserSync.reload;
-
+const autoprefixer = require('autoprefixer')
+const browserSync = require('browser-sync').create()
+{% if cookiecutter.custom_bootstrap_compilation == 'y' %}
+const concat = require('gulp-concat')
+{% endif %}
+const cssnano = require ('cssnano')
+const imagemin = require('gulp-imagemin')
+const pixrem = require('pixrem')
+const plumber = require('gulp-plumber')
+const postcss = require('gulp-postcss')
+const reload = browserSync.reload
+const rename = require('gulp-rename')
+const sass = require('gulp-sass')
+const spawn = require('child_process').spawn
+const uglify = require('gulp-uglify-es').default
 
 // Relative paths function
-var pathsConfig = function (appName) {
-  this.app = "./" + (appName || pjson.name);
-  var vendorsRoot = 'node_modules/';
+function pathsConfig(appName) {
+  this.app = "./" + (appName || pjson.name)
+  var vendorsRoot = 'node_modules/'
 
   return {
     {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
@@ -47,17 +45,26 @@ var pathsConfig = function (appName) {
     images: this.app + '/static/images',
     js: this.app + '/static/js'
   }
-};
+}
 
-var paths = pathsConfig();
+var paths = pathsConfig()
 
 ////////////////////////////////
-		//Tasks//
+// Tasks
 ////////////////////////////////
 
 // Styles autoprefixing and minification
-gulp.task('styles', function() {
-  return gulp.src(paths.sass + '/project.scss')
+function styles() {
+  var processCss = [
+      autoprefixer(), // adds vendor prefixes
+      pixrem(),       // add fallbacks for rem units
+  ]
+
+  var minifyCss = [
+      cssnano({ preset: 'default' })   // minify result
+  ]
+
+  return src(paths.sass + '/project.scss')
     .pipe(sass({
       includePaths: [
         {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
@@ -67,72 +74,80 @@ gulp.task('styles', function() {
       ]
     }).on('error', sass.logError))
     .pipe(plumber()) // Checks for errors
-    .pipe(autoprefixer({browsers: ['last 2 versions']})) // Adds vendor prefixes
-    .pipe(pixrem())  // add fallbacks for rem units
-    .pipe(gulp.dest(paths.css))
+    .pipe(postcss(processCss))
+    .pipe(dest(paths.css))
     .pipe(rename({ suffix: '.min' }))
-    .pipe(cssnano()) // Minifies the result
-    .pipe(gulp.dest(paths.css));
-});
+    .pipe(postcss(minifyCss)) // Minifies the result
+    .pipe(dest(paths.css))
+}
 
 // Javascript minification
-gulp.task('scripts', function() {
-  return gulp.src(paths.js + '/project.js')
+function scripts() {
+  return src(paths.js + '/project.js')
     .pipe(plumber()) // Checks for errors
     .pipe(uglify()) // Minifies the js
     .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest(paths.js));
-});
-
+    .pipe(dest(paths.js))
+}
 
 {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
 // Vendor Javascript minification
-gulp.task('vendor-scripts', function() {
-  return gulp.src(paths.vendorsJs)
+function vendorScripts() {
+  return src(paths.vendorsJs)
     .pipe(concat('vendors.js'))
-    .pipe(gulp.dest(paths.js))
+    .pipe(dest(paths.js))
     .pipe(plumber()) // Checks for errors
     .pipe(uglify()) // Minifies the js
     .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest(paths.js));
-});
+    .pipe(dest(paths.js))
+}
 {% endif %}
 
 // Image compression
-gulp.task('imgCompression', function(){
-  return gulp.src(paths.images + '/*')
+function imgCompression() {
+  return src(paths.images + '/*')
     .pipe(imagemin()) // Compresses PNG, JPEG, GIF and SVG images
-    .pipe(gulp.dest(paths.images))
-});
+    .pipe(dest(paths.images))
+}
+
+// Generate all assets
+const generateAssets = parallel(
+  styles,
+  scripts,
+  {% if cookiecutter.custom_bootstrap_compilation == 'y' %}vendorScripts,{% endif %}
+  imgCompression
+)
 
 // Run django server
-gulp.task('runServer', function(cb) {
-  var cmd = spawn('python', ['manage.py', 'runserver'], {stdio: 'inherit'});
+function runServer(cb) {
+  var cmd = spawn('python', ['manage.py', 'runserver'], {stdio: 'inherit'})
   cmd.on('close', function(code) {
-    console.log('runServer exited with code ' + code);
-    cb(code);
-  });
-});
+    console.log('runServer exited with code ' + code)
+    cb(code)
+  })
+}
 
 // Browser sync server for live reload
-gulp.task('browserSync', function() {
+function initBrowserSync() {
     browserSync.init(
       [paths.css + "/*.css", paths.js + "*.js", paths.templates + '*.html'], {
         proxy:  "localhost:8000"
-    });
-});
+    })
+}
 
 // Watch
-gulp.task('watch', function() {
+function watchPaths() {
+  watch(paths.sass + '/*.scss', styles)
+  watch(paths.js + '/*.js', scripts).on("change", reload)
+  watch(paths.images + '/*', imgCompression)
+  watch(paths.templates + '/**/*.html').on("change", reload)
+}
 
-  gulp.watch(paths.sass + '/*.scss', ['styles']);
-  gulp.watch(paths.js + '/*.js', ['scripts']).on("change", reload);
-  gulp.watch(paths.images + '/*', ['imgCompression']);
-  gulp.watch(paths.templates + '/**/*.html').on("change", reload);
+// Set up dev environment
+const dev = parallel(
+  runServer,
+  initBrowserSync,
+  watchPaths
+)
 
-});
-
-// Default task
-gulp.task('default', function() {
-    runSequence(['styles', 'scripts', {% if cookiecutter.custom_bootstrap_compilation == 'y' %}'vendor-scripts', {% endif %}'imgCompression'], ['runServer', 'browserSync', 'watch']);
-});
+exports.default = series(generateAssets, dev)
