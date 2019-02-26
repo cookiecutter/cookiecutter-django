@@ -25,25 +25,25 @@ const uglify = require('gulp-uglify-es').default
 
 // Relative paths function
 function pathsConfig(appName) {
-  this.app = "./" + (appName || pjson.name)
-  var vendorsRoot = 'node_modules/'
+  this.app = `./${pjson.name}`
+  const vendorsRoot = 'node_modules'
 
   return {
     {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
-    bootstrapSass: vendorsRoot + '/bootstrap/scss',
+    bootstrapSass: `${vendorsRoot}/bootstrap/scss`,
     vendorsJs: [
-      vendorsRoot + 'jquery/dist/jquery.slim.js',
-      vendorsRoot + 'popper.js/dist/umd/popper.js',
-      vendorsRoot + 'bootstrap/dist/js/bootstrap.js'
+      `${vendorsRoot}/jquery/dist/jquery.slim.js`,
+      `${vendorsRoot}/popper.js/dist/umd/popper.js`,
+      `${vendorsRoot}/bootstrap/dist/js/bootstrap.js`,
     ],
     {% endif %}
     app: this.app,
-    templates: this.app + '/templates',
-    css: this.app + '/static/css',
-    sass: this.app + '/static/sass',
-    fonts: this.app + '/static/fonts',
-    images: this.app + '/static/images',
-    js: this.app + '/static/js'
+    templates: `${this.app}/templates`,
+    css: `${this.app}/static/css`,
+    sass: `${this.app}/static/sass`,
+    fonts: `${this.app}/static/fonts`,
+    images: `${this.app}/static/images`,
+    js: `${this.app}/static/js`,
   }
 }
 
@@ -64,7 +64,7 @@ function styles() {
       cssnano({ preset: 'default' })   // minify result
   ]
 
-  return src(paths.sass + '/project.scss')
+  return src(`${paths.sass}/project.scss`)
     .pipe(sass({
       includePaths: [
         {% if cookiecutter.custom_bootstrap_compilation == 'y' %}
@@ -83,7 +83,7 @@ function styles() {
 
 // Javascript minification
 function scripts() {
-  return src(paths.js + '/project.js')
+  return src(`${paths.js}/project.js`)
     .pipe(plumber()) // Checks for errors
     .pipe(uglify()) // Minifies the js
     .pipe(rename({ suffix: '.min' }))
@@ -105,18 +105,10 @@ function vendorScripts() {
 
 // Image compression
 function imgCompression() {
-  return src(paths.images + '/*')
+  return src(`${paths.images}/*`)
     .pipe(imagemin()) // Compresses PNG, JPEG, GIF and SVG images
     .pipe(dest(paths.images))
 }
-
-// Generate all assets
-const generateAssets = parallel(
-  styles,
-  scripts,
-  {% if cookiecutter.custom_bootstrap_compilation == 'y' %}vendorScripts,{% endif %}
-  imgCompression
-)
 
 // Run django server
 function runServer(cb) {
@@ -130,18 +122,30 @@ function runServer(cb) {
 // Browser sync server for live reload
 function initBrowserSync() {
     browserSync.init(
-      [paths.css + "/*.css", paths.js + "*.js", paths.templates + '*.html'], {
-        proxy:  "localhost:8000"
-    })
+      [
+        `${paths.css}/*.css`,
+        `${paths.js}/*.js`,
+        `${paths.templates}/*.html`
+      ], {
+        proxy: "localhost:8000"
+      }
+    )
 }
 
 // Watch
 function watchPaths() {
-  watch(paths.sass + '/*.scss', styles)
-  watch(paths.js + '/*.js', scripts).on("change", reload)
-  watch(paths.images + '/*', imgCompression)
-  watch(paths.templates + '/**/*.html').on("change", reload)
+  watch(`${paths.sass}/*.scss`, styles)
+  watch(`${paths.templates}/**/*.html`).on("change", reload)
+  watch([`${paths.js}/*.js`, `!${paths.js}/*.min.js`], scripts).on("change", reload)
 }
+
+// Generate all assets
+const generateAssets = parallel(
+  styles,
+  scripts,
+  {% if cookiecutter.custom_bootstrap_compilation == 'y' %}vendorScripts,{% endif %}
+  imgCompression
+)
 
 // Set up dev environment
 const dev = parallel(
@@ -151,3 +155,5 @@ const dev = parallel(
 )
 
 exports.default = series(generateAssets, dev)
+exports["generate-assets"] = generateAssets
+exports["dev"] = dev
