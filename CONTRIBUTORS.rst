@@ -57,6 +57,7 @@ Listed in alphabetical order.
   Andrew Mikhnevich        `@zcho`_
   Andy Rose
   Anna Callahan            `@jazztpt`_
+  Anna Sidwell             `@takkaria`_
   Antonia Blair            `@antoniablair`_             @antoniablairart
   Anuj Bansal              `@ahhda`_
   Arcuri Davide            `@dadokkio`_
@@ -271,6 +272,7 @@ Listed in alphabetical order.
 .. _@ssteinerX: https://github.com/ssteinerx
 .. _@stepmr: https://github.com/stepmr
 .. _@suledev: https://github.com/suledev
+.. _@takkaria: https://github.com/takkaria
 .. _@timfreund: https://github.com/timfreund
 .. _@Travistock: https://github.com/Tavistock
 .. _@trungdong: https://github.com/trungdong
