@@ -79,7 +79,7 @@ INSTALLED_APPS += ['django_extensions']  # noqa F405
 {% if cookiecutter.use_docker == 'n' -%}
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#task-always-eager
 CELERY_TASK_ALWAYS_EAGER = True
-{%- endif % }
+{%- endif %}
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#task-eager-propagates
 CELERY_TASK_EAGER_PROPAGATES = True
 
