@@ -127,7 +127,12 @@ function initBrowserSync() {
         `${paths.js}/*.js`,
         `${paths.templates}/*.html`
       ], {
+        {%- if cookiecutter.use_docker == 'n' %}
         proxy: "localhost:8000"
+        {% else %}
+        proxy:  "django:8000",
+        open: false
+        {%- endif %}
       }
     )
 }
@@ -149,7 +154,9 @@ const generateAssets = parallel(
 
 // Set up dev environment
 const dev = parallel(
+  {%- if cookiecutter.use_docker == 'n' %}
   runServer,
+  {%- endif %}
   initBrowserSync,
   watchPaths
 )
