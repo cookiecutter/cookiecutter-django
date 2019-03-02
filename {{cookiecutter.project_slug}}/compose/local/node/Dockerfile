@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:8-jessie-slim
 
 WORKDIR /app
 

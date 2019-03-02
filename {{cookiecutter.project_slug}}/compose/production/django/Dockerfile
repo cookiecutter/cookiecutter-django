@@ -1,5 +1,5 @@
 {% if cookiecutter.js_task_runner == 'Gulp' -%}
-FROM node:8-alpine as client-builder
+FROM node:8-jessie-slim as client-builder
 
 WORKDIR /app
 COPY ./package.json /app
