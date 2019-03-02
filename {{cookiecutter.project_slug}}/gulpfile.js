@@ -131,6 +131,7 @@ function initBrowserSync() {
         proxy: "localhost:8000"
         {% else %}
         proxy:  "django:8000",
+        // Doesn't work from inside the Docker image
         open: false
         {%- endif %}
       }
