@@ -180,6 +180,7 @@ Listed in alphabetical order.
   Denis Bobrov             `@delneg`_
   Philipp Matthies         `@canonnervio`_
   Vadim Iskuchekov         `@Egregors`_                 @egregors
+  Keith Bailey             `@keithjeb`_
 ========================== ============================ ==============
 
 .. _@a7p: https://github.com/a7p
@@ -297,6 +298,7 @@ Listed in alphabetical order.
 .. _@purplediane: https://github.com/purplediane
 .. _@umrashrf: https://github.com/umrashrf
 .. _@ahhda: https://github.com/ahhda
+.. _@keithjeb: https://github.com/keithjeb
 Special Thanks
 ~~~~~~~~~~~~~~
 
