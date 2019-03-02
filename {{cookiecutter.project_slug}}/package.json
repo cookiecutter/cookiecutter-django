@@ -32,7 +32,7 @@
   "scripts": {
     {% if cookiecutter.js_task_runner == 'Gulp' -%}
     "dev": "gulp",
-    "build": "gulp build"
+    "build": "gulp generate-assets"
     {%- endif %}
   }
 }
