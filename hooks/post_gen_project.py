@@ -71,6 +71,9 @@ def remove_utility_files():
 def remove_heroku_files():
     file_names = ["Procfile", "runtime.txt", "requirements.txt"]
     for file_name in file_names:
+        if file_name == "requirements.txt" and "{{ cookiecutter.use_travisci }}".lower() == "y":
+            # don't remove the file if we are using travisci but not using heroku
+            continue
         os.remove(file_name)
 
 
@@ -118,9 +121,11 @@ def generate_random_string(
     if using_ascii_letters:
         symbols += string.ascii_letters
     if using_punctuation:
-        symbols += string.punctuation.replace('"', "").replace("'", "").replace(
-            "\\", ""
-        )
+        all_punctuation = set(string.punctuation)
+        # These symbols can cause issues in environment variables
+        unsuitable = {"'", '"', "\\", "$"}
+        suitable = all_punctuation.difference(unsuitable)
+        symbols += "".join(suitable)
     return "".join([random.choice(symbols) for _ in range(length)])
 
 

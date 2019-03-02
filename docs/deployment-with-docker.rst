@@ -59,7 +59,7 @@ SSL (Secure Sockets Layer) is a standard security technology for establishing an
 
 It is always better to deploy a site behind HTTPS and will become crucial as the web services extend to the IoT (Internet of Things). For this reason, we have set up a number of security defaults to help make your website secure:
 
-* If you are not using a subdomain of the domain name set in the project, then remember to put the your staging/production IP address in the ``DJANGO_ALLOWED_HOSTS`` environment variable (see :ref:`settings`) before you deploy your website. Failure to do this will mean you will not have access to your website through the HTTP protocol.
+* If you are not using a subdomain of the domain name set in the project, then remember to put your staging/production IP address in the ``DJANGO_ALLOWED_HOSTS`` environment variable (see :ref:`settings`) before you deploy your website. Failure to do this will mean you will not have access to your website through the HTTP protocol.
 
 * Access to the Django admin is set up by default to require HTTPS in production or once *live*.
 
