@@ -131,7 +131,8 @@ function initBrowserSync() {
         proxy: "localhost:8000"
         {% else %}
         proxy:  "django:8000",
-        // Doesn't work from inside the Docker image
+        // Browsersync may open the browser when ready, but it doesn't work from
+        // inside a container, so set this option to false
         open: false
         {%- endif %}
       }
