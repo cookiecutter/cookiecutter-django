@@ -13,6 +13,7 @@ redis>=2.10.6, < 3  # pyup: < 3 # https://github.com/antirez/redis
 celery==4.2.1  # pyup: < 5.0  # https://github.com/celery/celery
 {%- if cookiecutter.use_docker == 'y' %}
 flower==0.9.2  # https://github.com/mher/flower
+tornado>=4.2.0,<6.0.0 #https://github.com/tornadoweb/tornado/tree/stable required as 6.0 breaks flower.
 {%- endif %}
 {%- endif %}
 
