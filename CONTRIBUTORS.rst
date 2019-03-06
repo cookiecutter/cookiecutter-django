@@ -71,6 +71,7 @@ Listed in alphabetical order.
   Bo Lopker                `@blopker`_
   Bouke Haarsma
   Brent Payne              `@brentpayne`_               @brentpayne
+  Bartek                   `@btknu`
   Burhan Khalid            `@burhan`_                   @burhan
   Carl Johnson             `@carlmjohnson`_             @carlmjohnson
   Catherine Devlin         `@catherinedevlin`_
@@ -299,6 +300,7 @@ Listed in alphabetical order.
 .. _@umrashrf: https://github.com/umrashrf
 .. _@ahhda: https://github.com/ahhda
 .. _@keithjeb: https://github.com/keithjeb
+.. _@btknu: https://github.com/btknu
 Special Thanks
 ~~~~~~~~~~~~~~
 
