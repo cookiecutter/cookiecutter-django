@@ -3,6 +3,8 @@
 # it is meant to be run from the root directory of the repository, eg:
 # sh tests/test_docker.sh
 
+set -o errexit
+
 # install test requirements
 pip install -r requirements.txt
 
