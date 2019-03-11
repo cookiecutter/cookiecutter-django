@@ -13,8 +13,10 @@ before_install:
 
 matrix:
   include:
-    - name: Tox test
+    - name: Test
       script: tox -e py36
+    - name: Black
+      script: tox -e black
     - name: Basic Docker
       script: sh tests/test_docker.sh
     - name: Docker with Celery
