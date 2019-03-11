@@ -20,7 +20,7 @@ cd my_awesome_project
 docker-compose -f local.yml run django mypy my_awesome_project
 
 # Run black with --check option
-docker-compose -f local.yml run django black --check --diff  --exclude 'migrations' ./
+docker-compose -f local.yml run django black --check --diff  --exclude 'migrations' my_awesome_project
 
 # run the project's tests
 docker-compose -f local.yml run django pytest
