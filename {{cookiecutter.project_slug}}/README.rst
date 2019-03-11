@@ -32,12 +32,21 @@ Setting Up Your Users
 
 For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
 
+Type checks
+^^^^^^^^^^^
+
+Running type checks with mypy:
+
+::
+
+  $ mypy {{cookiecutter.project_slug}}
+
 Test coverage
 ^^^^^^^^^^^^^
 
 To run the tests, check your test coverage, and generate an HTML coverage report::
 
-    $ coverage run manage.py test
+    $ coverage run -m pytest
     $ coverage html
     $ open htmlcov/index.html
 
@@ -46,7 +55,7 @@ Running tests with py.test
 
 ::
 
-  $ py.test
+  $ pytest
 
 Live reloading and Sass CSS compilation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -86,16 +95,25 @@ With MailHog running, to view messages that are sent by your application, open y
 {% else %}
 In development, it is often nice to be able to see emails that are being sent from your application. If you choose to use `MailHog`_ when generating the project a local SMTP server with a web interface will be available.
 
-To start the service, make sure you have nodejs installed, and then type the following::
+#. `Download the latest MailHog release`_ for your OS.
 
-    $ npm install
-    $ grunt serve
+#. Rename the build to ``MailHog``.
 
-(After the first run you only need to type ``grunt serve``) This will start an email server that listens on ``127.0.0.1:1025`` in addition to starting your Django project and a watch task for live reload.
+#. Copy the file to the project root.
 
-To view messages that are sent by your application, open your browser and go to ``http://127.0.0.1:8025``
+#. Make it executable: ::
 
-The email server will exit when you exit the Grunt task on the CLI with Ctrl+C.
+    $ chmod +x MailHog
+
+#. Spin up another terminal window and start it there: ::
+
+    ./MailHog
+
+#. Check out `<http://127.0.0.1:8025/>`_ to see how it goes.
+
+Now you have your own mail server running locally, ready to receive whatever you send it.
+
+.. _`Download the latest MailHog release`: https://github.com/mailhog/MailHog/releases
 {% endif %}
 .. _mailhog: https://github.com/mailhog/MailHog
 {% endif %}
@@ -138,7 +156,7 @@ Custom Bootstrap Compilation
 ^^^^^^
 
 The generated CSS is set up with automatic Bootstrap recompilation with variables of your choice.
-Bootstrap v4 is installed using npm and customised by tweaking your variables in ``static/sass/custom_bootstrap_vars``.
+Bootstrap v4.1.1 is installed using npm and customised by tweaking your variables in ``static/sass/custom_bootstrap_vars``.
 
 You can find a list of available variables `in the bootstrap source`_, or get explanations on them in the `Bootstrap docs`_.
 
@@ -147,6 +165,6 @@ Bootstrap's javascript as well as its dependencies is concatenated into a single
 {% endif %}
 
 .. _in the bootstrap source: https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss
-.. _Bootstrap docs: https://getbootstrap.com/docs/4.0/getting-started/theming/
+.. _Bootstrap docs: https://getbootstrap.com/docs/4.1/getting-started/theming/
 
 {% endif %}

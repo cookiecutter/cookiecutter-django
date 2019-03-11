@@ -32,7 +32,10 @@ DEBUG_VALUE = "debug"
 
 
 def remove_open_source_files():
-    file_names = ["CONTRIBUTORS.txt"]
+    file_names = [
+        "CONTRIBUTORS.txt",
+        "LICENSE",
+    ]
     for file_name in file_names:
         os.remove(file_name)
 
@@ -61,9 +64,16 @@ def remove_docker_files():
         os.remove(file_name)
 
 
+def remove_utility_files():
+    shutil.rmtree("utility")
+
+
 def remove_heroku_files():
     file_names = ["Procfile", "runtime.txt", "requirements.txt"]
     for file_name in file_names:
+        if file_name == "requirements.txt" and "{{ cookiecutter.use_travisci }}".lower() == "y":
+            # don't remove the file if we are using travisci but not using heroku
+            continue
         os.remove(file_name)
 
 
@@ -111,9 +121,11 @@ def generate_random_string(
     if using_ascii_letters:
         symbols += string.ascii_letters
     if using_punctuation:
-        symbols += string.punctuation.replace('"', "").replace("'", "").replace(
-            "\\", ""
-        )
+        all_punctuation = set(string.punctuation)
+        # These symbols can cause issues in environment variables
+        unsuitable = {"'", '"', "\\", "$"}
+        suitable = all_punctuation.difference(unsuitable)
+        symbols += "".join(suitable)
     return "".join([random.choice(symbols) for _ in range(length)])
 
 
@@ -275,7 +287,9 @@ def main():
     if "{{ cookiecutter.use_pycharm }}".lower() == "n":
         remove_pycharm_files()
 
-    if "{{ cookiecutter.use_docker }}".lower() == "n":
+    if "{{ cookiecutter.use_docker }}".lower() == "y":
+        remove_utility_files()
+    else:
         remove_docker_files()
 
     if "{{ cookiecutter.use_heroku }}".lower() == "n":
