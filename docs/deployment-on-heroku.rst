@@ -47,7 +47,7 @@ Run these commands to deploy the project to Heroku:
 
     git push heroku master
 
-    heroku run python manage.py migrate
+    # no need to run migrations as this is configured to run automatically in the heroku procfile
     heroku run python manage.py createsuperuser
     heroku run python manage.py collectstatic --no-input
 
