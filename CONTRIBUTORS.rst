@@ -145,6 +145,7 @@ Listed in alphabetical order.
   Mesut Yılmaz             `@myilmaz`_
   Michael Gecht            `@mimischi`_                  @_mischi
   mozillazg                `@mozillazg`_
+  Oleg Russkin             `@rolep`_
   Pablo                    `@oubiga`_
   Parbhat Puri             `@parbhat`_
   Peter Bittner            `@bittner`_
