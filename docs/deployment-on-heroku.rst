@@ -10,6 +10,8 @@ Run these commands to deploy the project to Heroku:
     heroku create --buildpack https://github.com/heroku/heroku-buildpack-python
 
     heroku addons:create heroku-postgresql:hobby-dev
+    # On Windows use double quotes for the time zone, e.g.
+    # heroku pg:backups schedule --at "02:00 America/Los_Angeles" DATABASE_URL
     heroku pg:backups schedule --at '02:00 America/Los_Angeles' DATABASE_URL
     heroku pg:promote DATABASE_URL
 
@@ -45,7 +47,6 @@ Run these commands to deploy the project to Heroku:
 
     git push heroku master
 
-    heroku run python manage.py migrate
     heroku run python manage.py createsuperuser
     heroku run python manage.py collectstatic --no-input
 

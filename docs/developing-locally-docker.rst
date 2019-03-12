@@ -171,6 +171,16 @@ When developing locally you can go with MailHog_ for email testing provided ``us
 
 .. _Mailhog: https://github.com/mailhog/MailHog/
 
+.. _`CeleryTasks`:
+
+Celery tasks in local development
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+When not using docker Celery tasks are set to run in Eager mode, so that a full stack is not needed. When using docker the task
+scheduler will be used by default.
+
+If you need tasks to be executed on the main thread during development set CELERY_TASK_ALWAYS_EAGER = True in config/settings/local.py.
+
+Possible uses could be for testing, or ease of profiling with DJDT.
 
 .. _`CeleryFlower`:
 
