@@ -57,6 +57,7 @@ Listed in alphabetical order.
   Andrew Mikhnevich        `@zcho`_
   Andy Rose
   Anna Callahan            `@jazztpt`_
+  Anna Sidwell             `@takkaria`_
   Antonia Blair            `@antoniablair`_             @antoniablairart
   Anuj Bansal              `@ahhda`_
   Arcuri Davide            `@dadokkio`_
@@ -70,6 +71,7 @@ Listed in alphabetical order.
   Bo Lopker                `@blopker`_
   Bouke Haarsma
   Brent Payne              `@brentpayne`_               @brentpayne
+  Bartek                   `@btknu`
   Burhan Khalid            `@burhan`_                   @burhan
   Carl Johnson             `@carlmjohnson`_             @carlmjohnson
   Catherine Devlin         `@catherinedevlin`_
@@ -179,6 +181,7 @@ Listed in alphabetical order.
   Denis Bobrov             `@delneg`_
   Philipp Matthies         `@canonnervio`_
   Vadim Iskuchekov         `@Egregors`_                 @egregors
+  Keith Bailey             `@keithjeb`_
 ========================== ============================ ==============
 
 .. _@a7p: https://github.com/a7p
@@ -271,6 +274,7 @@ Listed in alphabetical order.
 .. _@ssteinerX: https://github.com/ssteinerx
 .. _@stepmr: https://github.com/stepmr
 .. _@suledev: https://github.com/suledev
+.. _@takkaria: https://github.com/takkaria
 .. _@timfreund: https://github.com/timfreund
 .. _@Travistock: https://github.com/Tavistock
 .. _@trungdong: https://github.com/trungdong
@@ -295,6 +299,8 @@ Listed in alphabetical order.
 .. _@purplediane: https://github.com/purplediane
 .. _@umrashrf: https://github.com/umrashrf
 .. _@ahhda: https://github.com/ahhda
+.. _@keithjeb: https://github.com/keithjeb
+.. _@btknu: https://github.com/btknu
 Special Thanks
 ~~~~~~~~~~~~~~
 
