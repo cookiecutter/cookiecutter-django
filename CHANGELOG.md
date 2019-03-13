@@ -2,6 +2,11 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2019-01-31]
+### Added
+- Added `DJANGO_ACCOUNT_HIDE_INTERMEDIARY_LOGOUT` environment variable to hide the intermediary logout form and instead auto-submit via JavaScript
+
+
 ## [2018-02-16]
 ### Changed
 - Upgraded to Django 2.0 (@epicwhale)
