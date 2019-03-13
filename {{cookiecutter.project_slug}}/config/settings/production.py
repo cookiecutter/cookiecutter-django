@@ -173,7 +173,6 @@ COMPRESS_ENABLED = env.bool('COMPRESS_ENABLED', default=True)
 COMPRESS_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_URL
 COMPRESS_URL = STATIC_URL
-
 {% endif %}
 {%- if cookiecutter.use_whitenoise == 'n' -%}
 # Collectfast
@@ -181,32 +180,16 @@ COMPRESS_URL = STATIC_URL
 # https://github.com/antonagestam/collectfast#installation
 INSTALLED_APPS = ['collectfast'] + INSTALLED_APPS  # noqa F405
 AWS_PRELOAD_METADATA = True
-
 {% endif %}
-{%- if cookiecutter.use_sentry == 'y' -%}
-# Sentry
-# ------------------------------------------------------------------------------
-SENTRY_DSN = env('SENTRY_DSN')
-SENTRY_CELERY_LOGLEVEL = env.int('DJANGO_SENTRY_LOG_LEVEL', logging.INFO)
-
-sentry_logging = LoggingIntegration(
-    level=DJANGO_SENTRY_LOG_LEVEL,  # Capture info and above as breadcrumbs
-    event_level=None     # Send no events from log messages
-)
-
-sentry_sdk.init(
-    dsn="SENTRY_DSN",
-    integrations=[sentry_logging, DjangoIntegration()]
-)
-{%- else %}
 # LOGGING
 # ------------------------------------------------------------------------------
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#logging
+# https://docs.djangoproject.com/en/dev/ref/settings/#logging
+# See https://docs.djangoproject.com/en/dev/topics/logging for
+# more details on how to customize your logging configuration.
+{%- if cookiecutter.use_sentry == 'n' -%}
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
-# See https://docs.djangoproject.com/en/dev/topics/logging for
-# more details on how to customize your logging configuration.
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -246,7 +229,57 @@ LOGGING = {
         }
     }
 }
+{% else %}
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s '
+                      '%(process)d %(thread)d %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        }
+    },
+    'loggers': {
+        'django.db.backends': {
+            'level': 'ERROR',
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        # Errors logged by the SDK itself
+        'sentry_sdk': {
+            'level': 'ERROR',
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'django.security.DisallowedHost': {
+            'level': 'ERROR',
+            'handlers': ['console'],
+            'propagate': False,
+        },
+    },
+}
 
+# Sentry
+# ------------------------------------------------------------------------------
+SENTRY_DSN = env('SENTRY_DSN')
+SENTRY_LOGLEVEL = env.int('DJANGO_SENTRY_LOG_LEVEL', logging.INFO)
+
+sentry_logging = LoggingIntegration(
+    level=SENTRY_LOGLEVEL,  # Capture info and above as breadcrumbs
+    event_level=None,  # Send no events from log messages
+)
+
+sentry_sdk.init(
+    dsn=SENTRY_DSN,
+    integrations=[sentry_logging, DjangoIntegration()]
+)
 {% endif %}
 # Your stuff...
 # ------------------------------------------------------------------------------

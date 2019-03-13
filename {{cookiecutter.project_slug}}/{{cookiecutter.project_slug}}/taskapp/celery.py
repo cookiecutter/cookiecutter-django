@@ -1,7 +1,6 @@
 {% if cookiecutter.use_celery == 'y' %}
 import os
 from celery import Celery
-
 from django.apps import apps, AppConfig
 from django.conf import settings
 
@@ -26,26 +25,29 @@ class CeleryAppConfig(AppConfig):
     def ready(self):
         installed_apps = [app_config.name for app_config in apps.get_app_configs()]
         app.autodiscover_tasks(lambda: installed_apps, force=True)
-{% if cookiecutter.use_sentry == 'y' -%}
-{% if cookiecutter.use_pycharm == 'y' -%}
-	    # Since raven is required in production only,
+
+        {% if cookiecutter.use_sentry == 'y' -%}
+        if hasattr(settings, "SENTRY_DSN"):
+            # Celery signal registration
+            {% if cookiecutter.use_pycharm == 'y' -%}
+	        # Since Sentry is required in production only,
             # imports might (most surely will) be wiped out
             # during PyCharm code clean up started
             # in other environments.
             # @formatter:off
-{%- endif %}
-    import sentry_sdk
-    from sentry_sdk.integrations.celery import CeleryIntegration
-    from sentry_sdk.integrations.logging import LoggingIntegration
-{% if cookiecutter.use_pycharm == 'y' -%}
+            {%- endif %}
+            import sentry_sdk
+            from sentry_sdk.integrations.celery import CeleryIntegration
+            from sentry_sdk.integrations.logging import LoggingIntegration
+            {% if cookiecutter.use_pycharm == 'y' -%}
             # @formatter:on
-{%- endif %}
-    sentry_logging = LoggingIntegration(
-        level=settings.SENTRY_CELERY_LOGLEVEL,  # Capture info and above as breadcrumbs
-        event_level=None     # Send no events from log messages
-    )
-    sentry_sdk.init(dsn=settings.SENTRY_DSN, integrations=[sentry_logging, CeleryIntegration()])
-    {%- endif %}
+            {%- endif %}
+            sentry_logging = LoggingIntegration(
+                level=settings.SENTRY_LOGLEVEL,  # Capture info and above as breadcrumbs
+                event_level=None,  # Send no events from log messages
+            )
+            sentry_sdk.init(dsn=settings.SENTRY_DSN, integrations=[sentry_logging, CeleryIntegration()])
+        {%- endif %}
 
 
 @app.task(bind=True)
