@@ -43,7 +43,7 @@ class CeleryAppConfig(AppConfig):
             # @formatter:on
             {%- endif %}
             sentry_logging = LoggingIntegration(
-                level=settings.SENTRY_LOGLEVEL,  # Capture info and above as breadcrumbs
+                level=settings.SENTRY_LOG_LEVEL,  # Capture info and above as breadcrumbs
                 event_level=None,  # Send no events from log messages
             )
             sentry_sdk.init(dsn=settings.SENTRY_DSN, integrations=[sentry_logging, CeleryIntegration()])
