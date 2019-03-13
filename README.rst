@@ -279,9 +279,9 @@ experience better.
 Articles
 ---------
 
+* `Using cookiecutter-django with Google Cloud Storage`_ - Mar. 12, 2019
 * `cookiecutter-django with Nginx, Route 53 and ELB`_ - Feb. 12, 2018
 * `cookiecutter-django and Amazon RDS`_ - Feb. 7, 2018
-* `Deploying Cookiecutter-Django with Docker-Compose`_ - Oct. 19, 2017
 * `Using Cookiecutter to Jumpstart a Django Project on Windows with PyCharm`_ - May 19, 2017
 * `Exploring with Cookiecutter`_ - Dec. 3, 2016
 * `Introduction to Cookiecutter-Django`_ - Feb. 19, 2016
@@ -292,9 +292,9 @@ Articles
 
 Have a blog or online publication? Write about your cookiecutter-django tips and tricks, then send us a pull request with the link.
 
+.. _`Using cookiecutter-django with Google Cloud Storage`: https://ahhda.github.io/cloud/gce/django/2019/03/12/using-django-cookiecutter-cloud-storage.html
 .. _`cookiecutter-django with Nginx, Route 53 and ELB`: https://msaizar.com/blog/cookiecutter-django-nginx-route-53-and-elb/
 .. _`cookiecutter-django and Amazon RDS`: https://msaizar.com/blog/cookiecutter-django-and-amazon-rds/
-.. _`Deploying Cookiecutter-Django with Docker-Compose`: http://adamantine.me/2017/10/19/deploying-cookiecutter-django-with-docker-compose/
 .. _`Exploring with Cookiecutter`: http://www.snowboardingcoder.com/django/2016/12/03/exploring-with-cookiecutter/
 .. _`Using Cookiecutter to Jumpstart a Django Project on Windows with PyCharm`: https://joshuahunter.com/posts/using-cookiecutter-to-jumpstart-a-django-project-on-windows-with-pycharm/
 

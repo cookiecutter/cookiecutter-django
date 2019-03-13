@@ -1,3 +1,5 @@
+.. _sass-compilation-live-reload:
+
 Sass Compilation & Live Reloading
 =================================
 
