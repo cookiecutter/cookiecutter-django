@@ -40,5 +40,7 @@ OnHostRule = true
   [frontends.django]
     backend = "django"
     passHostHeader = true
+    [frontends.django.headers]
+      HostsProxyHeaders = ['X-CSRFToken']
     [frontends.django.routes.dr1]
       rule = "Host:{{ cookiecutter.domain_name }}"
