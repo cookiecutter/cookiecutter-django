@@ -93,6 +93,7 @@ Listed in alphabetical order.
   Davit Tovmasyan          `@davitovmasyan`_
   Davur Clementsen         `@dsclementsen`_              @davur
   Delio Castillo           `@jangeador`_                 @jangeador
+  Demetris Stavrou         `@demestav`_
   Denis Orehovsky          `@apirobot`_
   Dónal Adams              `@epileptic-fish`_
   Diane Chen               `@purplediane`_               @purplediane88
@@ -216,6 +217,7 @@ Listed in alphabetical order.
 .. _@Collederas: https://github.com/Collederas
 .. _@davitovmasyan: https://github.com/davitovmasyan
 .. _@ddiazpinto: https://github.com/ddiazpinto
+.. _@demestav: https://github.com/demestav
 .. _@dezoito: https://github.com/dezoito
 .. _@dhepper: https://github.com/dhepper
 .. _@dot2dotseurat: https://github.com/dot2dotseurat
