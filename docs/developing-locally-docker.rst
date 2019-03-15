@@ -105,7 +105,6 @@ The most important thing for us here now is ``env_file`` section enlisting ``./.
     │   ├── .django
     │   └── .postgres
     └── .production
-        ├── .traefik
         ├── .django
         └── .postgres
 
