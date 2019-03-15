@@ -1,11 +1,6 @@
 logLevel = "INFO"
 defaultEntryPoints = ["http", "https"]
 
-[web]
-# Port for the status page
-address = ":8080"
-dashboard = true
-
 # Entrypoints, http and https
 [entryPoints]
   # http should be redirected to https
