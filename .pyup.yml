@@ -1,18 +1,6 @@
 # Specify requirement files by hand
 requirements:
-  - requirements.txt:
-      # update all dependencies and pin them
-      update: all
-      pin: True
-  - {{cookiecutter.project_slug}}/requirements/base.txt:
-      # update all dependencies and pin them
-      update: all
-      pin: True
-  - {{cookiecutter.project_slug}}/requirements/local.txt:
-      # update all dependencies and pin them
-      update: all
-      pin: True
-  - {{cookiecutter.project_slug}}/requirements/production.txt:
-      # update all dependencies and pin them
-      update: all
-      pin: True
+  - "requirements.txt"
+  - "{{cookiecutter.project_slug}}/requirements/base.txt"
+  - "{{cookiecutter.project_slug}}/requirements/local.txt"
+  - "{{cookiecutter.project_slug}}/requirements/production.txt"
