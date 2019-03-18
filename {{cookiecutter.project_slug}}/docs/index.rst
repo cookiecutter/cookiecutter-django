@@ -3,23 +3,17 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to {{ cookiecutter.project_name }}'s documentation!
+{{ cookiecutter.project_name }} Project Documentation
 ====================================================================
 
-Contents:
+Table of Contents:
 
 .. toctree::
    :maxdepth: 2
 
-   install
-   deploy
-   docker_ec2
-   tests
 
-
-
-Indices and tables
-==================
+Indices & Tables
+================
 
 * :ref:`genindex`
 * :ref:`modindex`
