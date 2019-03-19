@@ -48,7 +48,7 @@ Features
 * Optional custom static build using Gulp and livereload
 * Send emails via Anymail_ (using Mailgun_ by default, but switchable)
 * Media storage using Amazon S3
-* Docker support using docker-compose_ for development and production (using Caddy_ with LetsEncrypt_ support)
+* Docker support using docker-compose_ for development and production (using Traefik_ with LetsEncrypt_ support)
 * Procfile_ for deploying to Heroku
 * Instructions for deploying to PythonAnywhere_
 * Run tests with unittest or py.test
@@ -82,7 +82,7 @@ Optional Integrations
 .. _Sentry: https://sentry.io/welcome/
 .. _docker-compose: https://github.com/docker/compose
 .. _PythonAnywhere: https://www.pythonanywhere.com/
-.. _Caddy: https://caddyserver.com/
+.. _Traefik: https://traefik.io/
 .. _LetsEncrypt: https://letsencrypt.org/
 
 Constraints
