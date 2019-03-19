@@ -105,7 +105,6 @@ The most important thing for us here now is ``env_file`` section enlisting ``./.
     │   ├── .django
     │   └── .postgres
     └── .production
-        ├── .caddy
         ├── .django
         └── .postgres
 
@@ -120,7 +119,7 @@ Consider the aforementioned ``.envs/.local/.postgres``: ::
     POSTGRES_USER=XgOWtQtJecsAbaIyslwGvFvPawftNaqO
     POSTGRES_PASSWORD=jSljDz4whHuwO3aJIgVBrqEml5Ycbghorep4uVJ4xjDYQu0LfuTZdctj7y0YcCLu
 
-The three envs we are presented with here are ``POSTGRES_DB``, ``POSTGRES_USER``, and ``POSTGRES_PASSWORD`` (by the way, their values have also been generated for you). You might have figured out already where these definitions will end up; it's all the same with ``django`` and ``caddy`` service container envs.
+The three envs we are presented with here are ``POSTGRES_DB``, ``POSTGRES_USER``, and ``POSTGRES_PASSWORD`` (by the way, their values have also been generated for you). You might have figured out already where these definitions will end up; it's all the same with ``django`` service container envs.
 
 One final touch: should you ever need to merge ``.envs/production/*`` in a single ``.env`` run the ``merge_production_dotenvs_in_dotenv.py``: ::
 

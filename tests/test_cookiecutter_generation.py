@@ -97,8 +97,8 @@ def test_travis_invokes_pytest(cookies, context):
     assert result.project.basename == context["project_slug"]
     assert result.project.isdir()
 
-    with open(f'{result.project}/.travis.yml', 'r') as travis_yml:
+    with open(f"{result.project}/.travis.yml", "r") as travis_yml:
         try:
-            assert yaml.load(travis_yml)['script'] == ['pytest']
+            assert yaml.load(travis_yml)["script"] == ["pytest"]
         except yaml.YAMLError as e:
             pytest.fail(e)
