@@ -5,6 +5,9 @@ import sentry_sdk
 
 from sentry_sdk.integrations.django import DjangoIntegration
 from sentry_sdk.integrations.logging import LoggingIntegration
+{%- if cookiecutter.use_celery == 'y' %}
+from sentry_sdk.integrations.celery import CeleryIntegration
+{% endif %}
 
 {% endif -%}
 from .base import *  # noqa
@@ -275,7 +278,14 @@ sentry_logging = LoggingIntegration(
     event_level=None,  # Send no events from log messages
 )
 
+{%- if cookiecutter.use_celery == 'y' %}
+sentry_sdk.init(
+    dsn=SENTRY_DSN,
+    integrations=[sentry_logging, DjangoIntegration(), CeleryIntegration()],
+)
+{% else %}
 sentry_sdk.init(dsn=SENTRY_DSN, integrations=[sentry_logging, DjangoIntegration()])
+{% endif -%}
 {% endif %}
 # Your stuff...
 # ------------------------------------------------------------------------------
