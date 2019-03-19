@@ -41,6 +41,7 @@ class CeleryAppConfig(AppConfig):
             import sentry_sdk
             from sentry_sdk.integrations.celery import CeleryIntegration
             from sentry_sdk.integrations.logging import LoggingIntegration
+
             {% if cookiecutter.use_pycharm == 'y' -%}
             # @formatter:on
             {%- endif %}
@@ -48,7 +49,10 @@ class CeleryAppConfig(AppConfig):
                 level=settings.SENTRY_LOG_LEVEL,  # Capture info and above as breadcrumbs
                 event_level=None,  # Send no events from log messages
             )
-            sentry_sdk.init(dsn=settings.SENTRY_DSN, integrations=[sentry_logging, CeleryIntegration()])
+            sentry_sdk.init(
+                dsn=settings.SENTRY_DSN,
+                integrations=[sentry_logging, CeleryIntegration()],
+            )
         {%- endif %}
 
 
