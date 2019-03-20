@@ -266,6 +266,7 @@ def remove_celery_compose_dirs():
     shutil.rmtree(os.path.join("compose", "local", "django", "celery"))
     shutil.rmtree(os.path.join("compose", "production", "django", "celery"))
 
+
 def remove_node_dockerfile():
     shutil.rmtree(os.path.join("compose", "local", "node"))
 
