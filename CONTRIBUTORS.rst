@@ -46,7 +46,7 @@ Listed in alphabetical order.
   Aaron Eikenberry         `@aeikenberry`_
   Adam Bogdał              `@bogdal`_
   Adam Dobrawy             `@ad-m`_
-  Adam Steele              `@adammsteele`
+  Adam Steele              `@adammsteele`_
   Agam Dua
   Alberto Sanchez          `@alb3rto`_
   Alex Tsai                `@caffodian`_
@@ -64,13 +64,14 @@ Listed in alphabetical order.
   Areski Belaid            `@areski`_
   Ashley Camba
   Barclay Gauld            `@yunti`_
-  Ben Warren               `@bwarren2`
+  Ben Warren               `@bwarren2`_
   Ben Lopatin
   Benjamin Abel
   Bert de Miranda          `@bertdemiranda`_
   Bo Lopker                `@blopker`_
   Bouke Haarsma
   Brent Payne              `@brentpayne`_               @brentpayne
+  Bartek                   `@btknu`_
   Burhan Khalid            `@burhan`_                   @burhan
   Carl Johnson             `@carlmjohnson`_             @carlmjohnson
   Catherine Devlin         `@catherinedevlin`_
@@ -92,6 +93,7 @@ Listed in alphabetical order.
   Davit Tovmasyan          `@davitovmasyan`_
   Davur Clementsen         `@dsclementsen`_              @davur
   Delio Castillo           `@jangeador`_                 @jangeador
+  Demetris Stavrou         `@demestav`_
   Denis Orehovsky          `@apirobot`_
   Dónal Adams              `@epileptic-fish`_
   Diane Chen               `@purplediane`_               @purplediane88
@@ -144,6 +146,7 @@ Listed in alphabetical order.
   Mesut Yılmaz             `@myilmaz`_
   Michael Gecht            `@mimischi`_                  @_mischi
   mozillazg                `@mozillazg`_
+  Oleg Russkin             `@rolep`_
   Pablo                    `@oubiga`_
   Parbhat Puri             `@parbhat`_
   Peter Bittner            `@bittner`_
@@ -156,7 +159,7 @@ Listed in alphabetical order.
   Roman Afanaskin          `@siauPatrick`_
   Roman Osipenko           `@romanosipenko`_
   Russell Davies
-  Sascha                   `@saschalalala`              @saschalalala
+  Sascha                   `@saschalalala`_             @saschalalala
   Sam Collins              `@MightySCollins`_
   Shupeyko Nikita          `@webyneter`_
   Sławek Ehlert            `@slafs`_
@@ -215,6 +218,7 @@ Listed in alphabetical order.
 .. _@Collederas: https://github.com/Collederas
 .. _@davitovmasyan: https://github.com/davitovmasyan
 .. _@ddiazpinto: https://github.com/ddiazpinto
+.. _@demestav: https://github.com/demestav
 .. _@dezoito: https://github.com/dezoito
 .. _@dhepper: https://github.com/dhepper
 .. _@dot2dotseurat: https://github.com/dot2dotseurat
@@ -299,6 +303,15 @@ Listed in alphabetical order.
 .. _@umrashrf: https://github.com/umrashrf
 .. _@ahhda: https://github.com/ahhda
 .. _@keithjeb: https://github.com/keithjeb
+.. _@btknu: https://github.com/btknu
+.. _@rolep: https://github.com/rolep
+.. _@canonnervio: https://github.com/canonnervio
+.. _@jcass77: https://github.com/jcass77
+.. _@Egregors: https://github.com/Egregors
+.. _@saschalalala: https://github.com/saschalalala
+.. _@mrcoles: https://github.com/mrcoles
+.. _@ericgroom: https://github.com/ericgroom
+
 Special Thanks
 ~~~~~~~~~~~~~~
 
