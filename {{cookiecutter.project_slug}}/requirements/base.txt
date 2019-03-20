@@ -8,9 +8,10 @@ argon2-cffi==19.1.0  # https://github.com/hynek/argon2_cffi
 {%- if cookiecutter.use_whitenoise == 'y' %}
 whitenoise==4.1.2  # https://github.com/evansd/whitenoise
 {%- endif %}
-redis>=2.10.6, < 3  # pyup: < 3 # https://github.com/antirez/redis
+redis>=3.2.0  # https://github.com/antirez/redis
 {%- if cookiecutter.use_celery == "y" %}
 celery==4.2.1  # pyup: < 5.0  # https://github.com/celery/celery
+kombu==4.4.0  # https://github.com/celery/kombu
 {%- if cookiecutter.use_docker == 'y' %}
 flower==0.9.3  # https://github.com/mher/flower
 {%- endif %}
