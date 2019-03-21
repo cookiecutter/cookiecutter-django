@@ -127,12 +127,21 @@ function initBrowserSync() {
         `${paths.js}/*.js`,
         `${paths.templates}/*.html`
       ], {
+        // https://www.browsersync.io/docs/options/#option-proxy
         {%- if cookiecutter.use_docker == 'n' %}
-        proxy: "localhost:8000"
+        proxy: 'localhost:8000'
         {% else %}
-        proxy:  "django:8000",
-        // Browsersync may open the browser when ready, but it doesn't work from
-        // inside a container, so set this option to false
+        proxy:  {
+          target: 'django:8000',
+          proxyReq: [
+            function(proxyReq) {
+              // Set to the browsersync host & port to have email links working
+              proxyReq.setHeader('Host', 'localhost:3000')
+            }
+          ]
+        }
+        // https://www.browsersync.io/docs/options/#option-open
+        // Disable as it doesn't work from inside a container
         open: false
         {%- endif %}
       }
