@@ -139,7 +139,7 @@ function initBrowserSync() {
               proxyReq.setHeader('Host', req.headers.host)
             }
           ]
-        }
+        },
         // https://www.browsersync.io/docs/options/#option-open
         // Disable as it doesn't work from inside a container
         open: false
