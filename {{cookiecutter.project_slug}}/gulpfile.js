@@ -134,9 +134,9 @@ function initBrowserSync() {
         proxy:  {
           target: 'django:8000',
           proxyReq: [
-            function(proxyReq) {
-              // Set to the browsersync host & port to have email links working
-              proxyReq.setHeader('Host', 'localhost:3000')
+            function(proxyReq, req) {
+              // Assign proxy "host" header same as current request at Browsersync server
+              proxyReq.setHeader('Host', req.headers.host)
             }
           ]
         }
