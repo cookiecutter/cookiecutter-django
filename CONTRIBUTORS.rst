@@ -106,6 +106,7 @@ Listed in alphabetical order.
   Garry Cairns             `@garry-cairns`_
   Garry Polley             `@garrypolley`_
   Hamish Durkin            `@durkode`_
+  Hana Quadara             `@hanaquadara`_
   Harry Percival           `@hjwp`_
   Hendrik Schneider        `@hendrikschneider`_
   Henrique G. G. Pereira   `@ikkebr`_
