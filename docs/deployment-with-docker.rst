@@ -7,8 +7,8 @@ Deployment with Docker
 Prerequisites
 -------------
 
-* Docker 1.10+.
-* Docker Compose 1.6+
+* Docker 17.05+.
+* Docker Compose 1.17+
 
 
 Understanding the Docker Compose Setup
@@ -144,3 +144,4 @@ Move it to ``/etc/supervisor/conf.d/{{cookiecutter.project_slug}}.conf`` and run
 For status check, run::
 
     supervisorctl status
+

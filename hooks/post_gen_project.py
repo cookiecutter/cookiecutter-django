@@ -267,6 +267,10 @@ def remove_celery_compose_dirs():
     shutil.rmtree(os.path.join("compose", "production", "django", "celery"))
 
 
+def remove_node_dockerfile():
+    shutil.rmtree(os.path.join("compose", "local", "node"))
+
+
 def main():
     debug = "{{ cookiecutter.debug }}".lower() == "y"
 
@@ -313,21 +317,8 @@ def main():
     if "{{ cookiecutter.js_task_runner}}".lower() == "none":
         remove_gulp_files()
         remove_packagejson_file()
-    if (
-        "{{ cookiecutter.js_task_runner }}".lower() != "none"
-        and "{{ cookiecutter.use_docker }}".lower() == "y"
-    ):
-        print(
-            WARNING
-            + "Docker and {} JS task runner ".format(
-                "{{ cookiecutter.js_task_runner }}".lower().capitalize()
-            )
-            + "working together not supported yet. "
-            "You can continue using the generated project like you "
-            "normally would, however you would need to add a JS "
-            "task runner service to your Docker Compose configuration "
-            "manually." + TERMINATOR
-        )
+        if "{{ cookiecutter.use_docker }}".lower() == "y":
+            remove_node_dockerfile()
 
     if "{{ cookiecutter.use_celery }}".lower() == "n":
         remove_celery_app()
