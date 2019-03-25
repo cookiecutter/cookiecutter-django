@@ -119,6 +119,45 @@ def test_flake8_compliance(
         pytest.fail(e)
 
 
+@pytest.mark.parametrize("windows", BINARY_CHOICES)
+@pytest.mark.parametrize("use_docker", BINARY_CHOICES)
+@pytest.mark.parametrize("use_celery", BINARY_CHOICES)
+@pytest.mark.parametrize("use_mailhog", BINARY_CHOICES)
+@pytest.mark.parametrize("use_sentry", BINARY_CHOICES)
+@pytest.mark.parametrize(
+    # These 2 cannot be used together, but test the other combinations
+    ["use_compressor", "use_whitenoise"],
+    [("y", "n"), ("n", "n"), ("n", "n")],
+)
+def test_black_compliance(
+    cookies,
+    windows,
+    use_docker,
+    use_celery,
+    use_mailhog,
+    use_sentry,
+    use_compressor,
+    use_whitenoise,
+):
+    """Generated project should pass black"""
+    result = cookies.bake(
+        extra_context={
+            "windows": windows,
+            "use_docker": use_docker,
+            "use_compressor": use_compressor,
+            "use_celery": use_celery,
+            "use_mailhog": use_mailhog,
+            "use_sentry": use_sentry,
+            "use_whitenoise": use_whitenoise,
+        }
+    )
+
+    try:
+        sh.black("--check", "--diff", "--exclude", "migrations", f"{result.project}/")
+    except sh.ErrorReturnCode as e:
+        pytest.fail(e)
+
+
 def test_travis_invokes_pytest(cookies, context):
     context.update({"use_travisci": "y"})
     result = cookies.bake(extra_context=context)
