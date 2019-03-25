@@ -50,8 +50,39 @@ def check_paths(paths):
             assert match is None, msg.format(path)
 
 
-def test_default_configuration(cookies, context):
-    result = cookies.bake(extra_context=context)
+@pytest.mark.parametrize("windows", BINARY_CHOICES)
+@pytest.mark.parametrize("use_docker", BINARY_CHOICES)
+@pytest.mark.parametrize("use_celery", BINARY_CHOICES)
+@pytest.mark.parametrize("use_mailhog", BINARY_CHOICES)
+@pytest.mark.parametrize("use_sentry", BINARY_CHOICES)
+@pytest.mark.parametrize(
+    # These 2 cannot be used together, but test the other combinations
+    ["use_compressor", "use_whitenoise"],
+    [("y", "n"), ("n", "n"), ("n", "n")],
+)
+def test_project_generation(
+    cookies,
+    context,
+    windows,
+    use_docker,
+    use_celery,
+    use_mailhog,
+    use_sentry,
+    use_compressor,
+    use_whitenoise,
+):
+    result = cookies.bake(
+        extra_context={
+            **context,
+            "windows": windows,
+            "use_docker": use_docker,
+            "use_compressor": use_compressor,
+            "use_celery": use_celery,
+            "use_mailhog": use_mailhog,
+            "use_sentry": use_sentry,
+            "use_whitenoise": use_whitenoise,
+        }
+    )
     assert result.exit_code == 0
     assert result.exception is None
     assert result.project.basename == context["project_slug"]
@@ -151,6 +182,8 @@ def test_black_compliance(
             "use_whitenoise": use_whitenoise,
         }
     )
+
+    assert result.project is not None
 
     try:
         sh.black("--check", "--diff", "--exclude", "migrations", f"{result.project}/")
