@@ -7,8 +7,8 @@ Deployment with Docker
 Prerequisites
 -------------
 
-* Docker 1.10+.
-* Docker Compose 1.6+
+* Docker 17.05+.
+* Docker Compose 1.17+
 
 
 Understanding the Docker Compose Setup
@@ -19,7 +19,7 @@ Before you begin, check out the ``production.yml`` file in the root of this proj
 * ``django``: your application running behind ``Gunicorn``;
 * ``postgres``: PostgreSQL database with the application's relational data;
 * ``redis``: Redis instance for caching;
-* ``caddy``: Caddy web server with HTTPS on by default.
+* ``traefik``: Traefik reverse proxy with HTTPS on by default.
 
 Provided you have opted for Celery (via setting ``use_celery`` to ``y``) there are three more services:
 
@@ -59,15 +59,15 @@ SSL (Secure Sockets Layer) is a standard security technology for establishing an
 
 It is always better to deploy a site behind HTTPS and will become crucial as the web services extend to the IoT (Internet of Things). For this reason, we have set up a number of security defaults to help make your website secure:
 
-* If you are not using a subdomain of the domain name set in the project, then remember to put the your staging/production IP address in the ``DJANGO_ALLOWED_HOSTS`` environment variable (see :ref:`settings`) before you deploy your website. Failure to do this will mean you will not have access to your website through the HTTP protocol.
+* If you are not using a subdomain of the domain name set in the project, then remember to put your staging/production IP address in the ``DJANGO_ALLOWED_HOSTS`` environment variable (see :ref:`settings`) before you deploy your website. Failure to do this will mean you will not have access to your website through the HTTP protocol.
 
 * Access to the Django admin is set up by default to require HTTPS in production or once *live*.
 
-The Caddy web server used in the default configuration will get you a valid certificate from Lets Encrypt and update it automatically. All you need to do to enable this is to make sure that your DNS records are pointing to the server Caddy runs on.
+The Traefik reverse proxy used in the default configuration will get you a valid certificate from Lets Encrypt and update it automatically. All you need to do to enable this is to make sure that your DNS records are pointing to the server Traefik runs on.
 
-You can read more about this here at `Automatic HTTPS`_ in the Caddy docs.
+You can read more about this feature and how to configure it, at `Automatic HTTPS`_ in the Traefik docs.
 
-.. _Automatic HTTPS: https://caddyserver.com/docs/automatic-https
+.. _Automatic HTTPS: https://docs.traefik.io/configuration/acme/
 
 
 (Optional) Postgres Data Volume Modifications
@@ -112,7 +112,7 @@ If you want to scale your application, run::
    docker-compose -f production.yml scale django=4
    docker-compose -f production.yml scale celeryworker=2
 
-.. warning:: don't try to scale ``postgres``, ``celerybeat``, or ``caddy``.
+.. warning:: don't try to scale ``postgres``, ``celerybeat``, or ``traefik``.
 
 To see how your containers are doing run::
 
@@ -144,3 +144,4 @@ Move it to ``/etc/supervisor/conf.d/{{cookiecutter.project_slug}}.conf`` and run
 For status check, run::
 
     supervisorctl status
+

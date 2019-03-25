@@ -29,7 +29,7 @@ First things first.
 
 #. Create a new PostgreSQL database using createdb_: ::
 
-    $ createdb <what you've entered as the project_slug at setup stage>
+    $ createdb <what you have entered as the project_slug at setup stage> -U postgres --password <password>
 
    .. note::
 
@@ -116,6 +116,16 @@ Alternatively, deliver emails over console via ``EMAIL_BACKEND = 'django.core.ma
 In production, we have Mailgun_ configured to have your back!
 
 .. _Mailgun: https://www.mailgun.com/
+
+
+Celery
+------
+If the project is configured to use Celery as a task scheduler then by default tasks are set to run on the main thread
+when developing locally. If you have the appropriate setup on your local machine then set
+
+CELERY_TASK_ALWAYS_EAGER = False
+
+in /config/settings/local.py
 
 
 Sass Compilation & Live Reloading
