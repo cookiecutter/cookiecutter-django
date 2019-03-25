@@ -121,7 +121,7 @@ def test_enabled_features(cookies, feature_context):
     ["use_compressor", "use_whitenoise"],
     [("y", "n"), ("n", "n"), ("n", "n")],
 )
-def test_flake8_compliance(
+def test_linting_passes(
     cookies,
     windows,
     use_docker,
@@ -148,42 +148,6 @@ def test_flake8_compliance(
         sh.flake8(str(result.project))
     except sh.ErrorReturnCode as e:
         pytest.fail(e)
-
-
-@pytest.mark.parametrize("windows", BINARY_CHOICES)
-@pytest.mark.parametrize("use_docker", BINARY_CHOICES)
-@pytest.mark.parametrize("use_celery", BINARY_CHOICES)
-@pytest.mark.parametrize("use_mailhog", BINARY_CHOICES)
-@pytest.mark.parametrize("use_sentry", BINARY_CHOICES)
-@pytest.mark.parametrize(
-    # These 2 cannot be used together, but test the other combinations
-    ["use_compressor", "use_whitenoise"],
-    [("y", "n"), ("n", "n"), ("n", "n")],
-)
-def test_black_compliance(
-    cookies,
-    windows,
-    use_docker,
-    use_celery,
-    use_mailhog,
-    use_sentry,
-    use_compressor,
-    use_whitenoise,
-):
-    """Generated project should pass black"""
-    result = cookies.bake(
-        extra_context={
-            "windows": windows,
-            "use_docker": use_docker,
-            "use_compressor": use_compressor,
-            "use_celery": use_celery,
-            "use_mailhog": use_mailhog,
-            "use_sentry": use_sentry,
-            "use_whitenoise": use_whitenoise,
-        }
-    )
-
-    assert result.project is not None
 
     try:
         sh.black("--check", "--diff", "--exclude", "migrations", f"{result.project}/")
