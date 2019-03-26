@@ -51,6 +51,11 @@ Run these commands to deploy the project to Heroku:
     heroku open
 
 
+.. warning::
+
+    .. include:: mailgun.rst
+
+
 Optional actions
 ----------------
 
