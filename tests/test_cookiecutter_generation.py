@@ -55,11 +55,8 @@ def check_paths(paths):
 @pytest.mark.parametrize("use_celery", BINARY_CHOICES)
 @pytest.mark.parametrize("use_mailhog", BINARY_CHOICES)
 @pytest.mark.parametrize("use_sentry", BINARY_CHOICES)
-@pytest.mark.parametrize(
-    # These 2 cannot be used together, but test the other combinations
-    ["use_compressor", "use_whitenoise"],
-    [("y", "n"), ("n", "n"), ("n", "n")],
-)
+@pytest.mark.parametrize("use_compressor", BINARY_CHOICES)
+@pytest.mark.parametrize("use_whitenoise", BINARY_CHOICES)
 def test_project_generation(
     cookies,
     context,
@@ -98,11 +95,8 @@ def test_project_generation(
 @pytest.mark.parametrize("use_celery", BINARY_CHOICES)
 @pytest.mark.parametrize("use_mailhog", BINARY_CHOICES)
 @pytest.mark.parametrize("use_sentry", BINARY_CHOICES)
-@pytest.mark.parametrize(
-    # These 2 cannot be used together, but test the other combinations
-    ["use_compressor", "use_whitenoise"],
-    [("y", "n"), ("n", "n"), ("n", "n")],
-)
+@pytest.mark.parametrize("use_compressor", BINARY_CHOICES)
+@pytest.mark.parametrize("use_whitenoise", BINARY_CHOICES)
 def test_linting_passes(
     cookies,
     windows,
@@ -113,7 +107,7 @@ def test_linting_passes(
     use_compressor,
     use_whitenoise,
 ):
-    """generated project should pass flake8"""
+    """generated project should pass flake8 & black."""
     result = cookies.bake(
         extra_context={
             "windows": windows,
