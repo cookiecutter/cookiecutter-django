@@ -43,6 +43,11 @@ You will probably also need to setup the Mail backend, for example by adding a `
 .. _Mailgun: https://mailgun.com
 
 
+.. warning::
+
+    .. include:: mailgun.rst
+
+
 Optional: Use AWS IAM Role for EC2 instance
 -------------------------------------------
 
