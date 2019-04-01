@@ -11,7 +11,6 @@ whitenoise==4.1.2  # https://github.com/evansd/whitenoise
 redis==3.2.1  # https://github.com/antirez/redis
 {%- if cookiecutter.use_celery == "y" %}
 celery==4.3.0  # pyup: < 5.0  # https://github.com/celery/celery
-kombu==4.4.0  # https://github.com/celery/kombu
 {%- if cookiecutter.use_docker == 'y' %}
 flower==0.9.3  # https://github.com/mher/flower
 {%- endif %}
