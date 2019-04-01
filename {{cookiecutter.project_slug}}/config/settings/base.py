@@ -43,9 +43,7 @@ USE_TZ = True
 DATABASES = {"default": env.db("DATABASE_URL")}
 {%- else %}
 DATABASES = {
-    "default": env.db(
-        "DATABASE_URL", default="postgres://{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.project_slug}}"
-    ),
+    "default": env.db("DATABASE_URL", default="postgres://{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.project_slug}}")
 }
 {%- endif %}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
