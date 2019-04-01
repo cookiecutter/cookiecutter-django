@@ -1,8 +1,8 @@
 pytz==2018.9  # https://github.com/stub42/pytz
-python-slugify==3.0.0  # https://github.com/un33k/python-slugify
+python-slugify==3.0.2  # https://github.com/un33k/python-slugify
 Pillow==5.4.1  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.use_compressor == "y" %}
-rcssmin==1.0.6{% if cookiecutter.windows == 'y' and use_docker == 'n' %} --install-option="--without-c-extensions"{% endif %}  # https://github.com/ndparker/rcssmin
+rcssmin==1.0.6{% if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %} --install-option="--without-c-extensions"{% endif %}  # https://github.com/ndparker/rcssmin
 {%- endif %}
 argon2-cffi==19.1.0  # https://github.com/hynek/argon2_cffi
 {%- if cookiecutter.use_whitenoise == 'y' %}
@@ -10,8 +10,7 @@ whitenoise==4.1.2  # https://github.com/evansd/whitenoise
 {%- endif %}
 redis==3.2.1  # https://github.com/antirez/redis
 {%- if cookiecutter.use_celery == "y" %}
-celery==4.2.1  # pyup: < 5.0  # https://github.com/celery/celery
-kombu==4.4.0  # https://github.com/celery/kombu
+celery==4.3.0  # pyup: < 5.0  # https://github.com/celery/celery
 {%- if cookiecutter.use_docker == 'y' %}
 flower==0.9.3  # https://github.com/mher/flower
 {%- endif %}

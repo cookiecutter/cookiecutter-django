@@ -2,7 +2,7 @@
 
 Werkzeug==0.15.1  # https://github.com/pallets/werkzeug
 ipdb==0.12  # https://github.com/gotcha/ipdb
-Sphinx==1.8.5  # https://github.com/sphinx-doc/sphinx
+Sphinx==2.0.0  # https://github.com/sphinx-doc/sphinx
 {%- if cookiecutter.use_docker == 'y' %}
 psycopg2==2.7.4 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
 {%- else %}
@@ -12,7 +12,7 @@ psycopg2-binary==2.7.7  # https://github.com/psycopg/psycopg2
 # Testing
 # ------------------------------------------------------------------------------
 mypy==0.670  # https://github.com/python/mypy
-pytest==4.3.1  # https://github.com/pytest-dev/pytest
+pytest==4.4.0  # https://github.com/pytest-dev/pytest
 pytest-sugar==0.9.2  # https://github.com/Frozenball/pytest-sugar
 
 # Code quality
@@ -20,6 +20,10 @@ pytest-sugar==0.9.2  # https://github.com/Frozenball/pytest-sugar
 flake8==3.7.5  # https://github.com/PyCQA/flake8
 coverage==4.5.3  # https://github.com/nedbat/coveragepy
 black==19.3b0  # https://github.com/ambv/black
+pylint-django==2.0.6  # https://github.com/PyCQA/pylint-django
+{%- if cookiecutter.use_celery == 'y' %}
+pylint-celery==0.3  # https://github.com/PyCQA/pylint-celery
+{%- endif %}
 
 # Django
 # ------------------------------------------------------------------------------

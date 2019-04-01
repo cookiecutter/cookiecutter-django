@@ -1,13 +1,16 @@
 import os
 import re
-import sh
-import yaml
 
 import pytest
+from pytest_cases import pytest_fixture_plus
+import sh
+import yaml
 from binaryornot.check import is_binary
 
 PATTERN = "{{(\s?cookiecutter)[.](.*?)}}"
 RE_OBJ = re.compile(PATTERN)
+
+YN_CHOICES = ["y", "n"]
 
 
 @pytest.fixture
@@ -21,6 +24,35 @@ def context():
         "domain_name": "example.com",
         "version": "0.1.0",
         "timezone": "UTC",
+    }
+
+
+@pytest_fixture_plus
+@pytest.mark.parametrize("windows", YN_CHOICES, ids=lambda yn: f"win:{yn}")
+@pytest.mark.parametrize("use_docker", YN_CHOICES, ids=lambda yn: f"docker:{yn}")
+@pytest.mark.parametrize("use_celery", YN_CHOICES, ids=lambda yn: f"celery:{yn}")
+@pytest.mark.parametrize("use_mailhog", YN_CHOICES, ids=lambda yn: f"mailhog:{yn}")
+@pytest.mark.parametrize("use_sentry", YN_CHOICES, ids=lambda yn: f"sentry:{yn}")
+@pytest.mark.parametrize("use_compressor", YN_CHOICES, ids=lambda yn: f"cmpr:{yn}")
+@pytest.mark.parametrize("use_whitenoise", YN_CHOICES, ids=lambda yn: f"wnoise:{yn}")
+def context_combination(
+    windows,
+    use_docker,
+    use_celery,
+    use_mailhog,
+    use_sentry,
+    use_compressor,
+    use_whitenoise,
+):
+    """Fixture that parametrize the function where it's used."""
+    return {
+        "windows": windows,
+        "use_docker": use_docker,
+        "use_compressor": use_compressor,
+        "use_celery": use_celery,
+        "use_mailhog": use_mailhog,
+        "use_sentry": use_sentry,
+        "use_whitenoise": use_whitenoise,
     }
 
 
@@ -48,8 +80,13 @@ def check_paths(paths):
             assert match is None, msg.format(path)
 
 
-def test_default_configuration(cookies, context):
-    result = cookies.bake(extra_context=context)
+def test_project_generation(cookies, context, context_combination):
+    """
+    Test that project is generated and fully rendered.
+
+    This is parametrized for each combination from ``context_combination`` fixture
+    """
+    result = cookies.bake(extra_context={**context, **context_combination})
     assert result.exit_code == 0
     assert result.exception is None
     assert result.project.basename == context["project_slug"]
@@ -60,30 +97,21 @@ def test_default_configuration(cookies, context):
     check_paths(paths)
 
 
-@pytest.fixture(params=["use_mailhog", "use_celery", "windows"])
-def feature_context(request, context):
-    context.update({request.param: "y"})
-    return context
+def test_linting_passes(cookies, context_combination):
+    """
+    Generated project should pass flake8 & black.
 
-
-def test_enabled_features(cookies, feature_context):
-    result = cookies.bake(extra_context=feature_context)
-    assert result.exit_code == 0
-    assert result.exception is None
-    assert result.project.basename == feature_context["project_slug"]
-    assert result.project.isdir()
-
-    paths = build_files_list(str(result.project))
-    assert paths
-    check_paths(paths)
-
-
-def test_flake8_compliance(cookies):
-    """generated project should pass flake8"""
-    result = cookies.bake()
+    This is parametrized for each combination from ``context_combination`` fixture
+    """
+    result = cookies.bake(extra_context=context_combination)
 
     try:
         sh.flake8(str(result.project))
+    except sh.ErrorReturnCode as e:
+        pytest.fail(e)
+
+    try:
+        sh.black("--check", "--diff", "--exclude", "migrations", f"{result.project}/")
     except sh.ErrorReturnCode as e:
         pytest.fail(e)
 
