@@ -287,5 +287,12 @@ sentry_sdk.init(
 sentry_sdk.init(dsn=SENTRY_DSN, integrations=[sentry_logging, DjangoIntegration()])
 {% endif -%}
 {% endif %}
+
+# USER APPLICATION
+# ------------------------------------------------------------------------------
+# Enable the User application. Note that this is a placeholder application
+# and should not be used as is in production.
+USER_APP_URLS_ENABLED = False
+
 # Your stuff...
 # ------------------------------------------------------------------------------

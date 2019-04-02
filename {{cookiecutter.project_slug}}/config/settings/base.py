@@ -269,5 +269,11 @@ INSTALLED_APPS += ["compressor"]
 STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
 
 {%- endif %}
+# USER APPLICATION
+# ------------------------------------------------------------------------------
+# Enable the User application. Note that this is a placeholder application
+# and should not be used as is in production.
+USER_APP_URLS_ENABLED = True
+
 # Your stuff...
 # ------------------------------------------------------------------------------

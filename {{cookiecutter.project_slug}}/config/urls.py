@@ -17,12 +17,13 @@ urlpatterns = [
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-if settings.DEBUG:
+if settings.USER_APP_URLS_ENABLED:
     # User management
     urlpatterns += [
         path("users/", include("{{ cookiecutter.project_slug }}.users.urls", namespace="users"))
     ]
 
+if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit
     # these url in browser to see how these error pages look like.
     urlpatterns += [
