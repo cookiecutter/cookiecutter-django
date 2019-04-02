@@ -7,9 +7,7 @@ from {{ cookiecutter.project_slug }}.users.views import UserRedirectView, UserUp
 pytestmark = pytest.mark.django_db
 
 
-@pytest.mark.skipif(
-    not settings.USER_APP_URLS_ENABLED, reason="User app is disabled."
-)
+@pytest.mark.skipif(not settings.USER_APP_URLS_ENABLED, reason="User app is disabled.")
 class TestUserUpdateView:
     """
     TODO:
@@ -42,9 +40,7 @@ class TestUserUpdateView:
         assert view.get_object() == user
 
 
-@pytest.mark.skipif(
-    not settings.USER_APP_URLS_ENABLED, reason="User app is disabled."
-)
+@pytest.mark.skipif(not settings.USER_APP_URLS_ENABLED, reason="User app is disabled.")
 class TestUserRedirectView:
     def test_get_redirect_url(
         self, user: settings.AUTH_USER_MODEL, request_factory: RequestFactory

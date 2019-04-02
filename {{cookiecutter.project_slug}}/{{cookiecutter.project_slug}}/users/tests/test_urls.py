@@ -5,9 +5,7 @@ from django.urls import reverse, resolve
 pytestmark = pytest.mark.django_db
 
 
-@pytest.mark.skipif(
-    not settings.USER_APP_URLS_ENABLED, reason="User app is disabled."
-)
+@pytest.mark.skipif(not settings.USER_APP_URLS_ENABLED, reason="User app is disabled.")
 def test_detail(user: settings.AUTH_USER_MODEL):
     assert (
         reverse("users:detail", kwargs={"username": user.username})
@@ -16,25 +14,19 @@ def test_detail(user: settings.AUTH_USER_MODEL):
     assert resolve(f"/users/{user.username}/").view_name == "users:detail"
 
 
-@pytest.mark.skipif(
-    not settings.USER_APP_URLS_ENABLED, reason="User app is disabled."
-)
+@pytest.mark.skipif(not settings.USER_APP_URLS_ENABLED, reason="User app is disabled.")
 def test_list():
     assert reverse("users:list") == "/users/"
     assert resolve("/users/").view_name == "users:list"
 
 
-@pytest.mark.skipif(
-    not settings.USER_APP_URLS_ENABLED, reason="User app is disabled."
-)
+@pytest.mark.skipif(not settings.USER_APP_URLS_ENABLED, reason="User app is disabled.")
 def test_update():
     assert reverse("users:update") == "/users/~update/"
     assert resolve("/users/~update/").view_name == "users:update"
 
 
-@pytest.mark.skipif(
-    not settings.USER_APP_URLS_ENABLED, reason="User app is disabled."
-)
+@pytest.mark.skipif(not settings.USER_APP_URLS_ENABLED, reason="User app is disabled.")
 def test_redirect():
     assert reverse("users:redirect") == "/users/~redirect/"
     assert resolve("/users/~redirect/").view_name == "users:redirect"

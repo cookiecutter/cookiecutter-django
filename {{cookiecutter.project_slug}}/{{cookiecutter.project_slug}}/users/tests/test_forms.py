@@ -7,9 +7,7 @@ from {{ cookiecutter.project_slug }}.users.tests.factories import UserFactory
 pytestmark = pytest.mark.django_db
 
 
-@pytest.mark.skipif(
-    not settings.USER_APP_URLS_ENABLED, reason="User app is disabled."
-)
+@pytest.mark.skipif(not settings.USER_APP_URLS_ENABLED, reason="User app is disabled.")
 class TestUserCreationForm:
     def test_clean_username(self):
         # A user with proto_user params does not exist yet.
