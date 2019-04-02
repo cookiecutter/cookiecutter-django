@@ -159,7 +159,7 @@ Custom Bootstrap Compilation
 ^^^^^^
 
 The generated CSS is set up with automatic Bootstrap recompilation with variables of your choice.
-Bootstrap v4.1.1 is installed using npm and customised by tweaking your variables in ``static/sass/custom_bootstrap_vars``.
+Bootstrap v4 is installed using npm and customised by tweaking your variables in ``static/sass/custom_bootstrap_vars``.
 
 You can find a list of available variables `in the bootstrap source`_, or get explanations on them in the `Bootstrap docs`_.
 
