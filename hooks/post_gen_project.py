@@ -89,8 +89,16 @@ def remove_packagejson_file():
         os.remove(file_name)
 
 
-def remove_celery_app():
-    shutil.rmtree(os.path.join("{{ cookiecutter.project_slug }}", "taskapp"))
+def remove_celery_files():
+    file_names = [
+        os.path.join("config", "celery_app.py"),
+        os.path.join("{{ cookiecutter.project_slug }}", "users", "tasks.py"),
+        os.path.join(
+            "{{ cookiecutter.project_slug }}", "users", "tests", "test_tasks.py"
+        ),
+    ]
+    for file_name in file_names:
+        os.remove(file_name)
 
 
 def remove_dottravisyml_file():
@@ -321,7 +329,7 @@ def main():
             remove_node_dockerfile()
 
     if "{{ cookiecutter.use_celery }}".lower() == "n":
-        remove_celery_app()
+        remove_celery_files()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_celery_compose_dirs()
 
