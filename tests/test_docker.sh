@@ -16,17 +16,9 @@ cd .cache/docker
 cookiecutter ../../ --no-input --overwrite-if-exists use_docker=y $@
 cd my_awesome_project
 
-# run the project's type checks
-docker-compose -f local.yml run django mypy my_awesome_project
+# run migrations
+docker-compose -f local.yml run django python manage.py migrate
 
-# Run black with --check option
-docker-compose -f local.yml run django black --check --diff  --exclude 'migrations' ./
+# view backups
+docker-compose -f local.yml exec postgres backups
 
-# run the project's tests
-docker-compose -f local.yml run django pytest
-
-# return non-zero status code if there are migrations that have not been created
-docker-compose -f local.yml run django python manage.py makemigrations --dry-run --check || { echo "ERROR: there were changes in the models, but migration listed above have not been created and are not saved in version control"; exit 1; }
-
-# Test support for translations
-docker-compose -f local.yml run django python manage.py makemessages

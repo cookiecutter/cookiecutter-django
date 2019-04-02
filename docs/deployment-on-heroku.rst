@@ -3,6 +3,9 @@ Deployment on Heroku
 
 .. index:: Heroku
 
+Commands to run
+---------------
+
 Run these commands to deploy the project to Heroku:
 
 .. code-block:: bash
@@ -115,4 +118,4 @@ About Heroku & Docker
 Although Heroku has some sort of `Docker support`_, it's not supported by cookiecutter-django.
 We invite you to follow Heroku documentation about it.
 
-.. _Docker support:: https://devcenter.heroku.com/articles/build-docker-images-heroku-yml
+.. _Docker support: https://devcenter.heroku.com/articles/build-docker-images-heroku-yml
