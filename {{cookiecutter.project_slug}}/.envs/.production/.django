@@ -16,13 +16,18 @@ DJANGO_SECURE_SSL_REDIRECT=False
 MAILGUN_API_KEY=
 DJANGO_SERVER_EMAIL=
 MAILGUN_DOMAIN=
-
+{% if cookiecutter.cloud_provider == 'AWS' %}
 # AWS
 # ------------------------------------------------------------------------------
 DJANGO_AWS_ACCESS_KEY_ID=
 DJANGO_AWS_SECRET_ACCESS_KEY=
 DJANGO_AWS_STORAGE_BUCKET_NAME=
-
+{% elif cookiecutter.cloud_provider == 'GCE' %}
+# GCE
+# ------------------------------------------------------------------------------
+GOOGLE_APPLICATION_CREDENTIALS=
+DJANGO_GCE_STORAGE_BUCKET_NAME=
+{% endif %}
 # django-allauth
 # ------------------------------------------------------------------------------
 DJANGO_ACCOUNT_ALLOW_REGISTRATION=True
