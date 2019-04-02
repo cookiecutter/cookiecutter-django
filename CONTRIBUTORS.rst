@@ -114,6 +114,7 @@ Listed in alphabetical order.
   Irfan Ahmad              `@erfaan`_                    @erfaan
   Jan Van Bruggen          `@jvanbrug`_
   Jens Nilsson             `@phiberjenz`_
+  Jelmer Draaijer          `@foarsitter`_
   Jerome Leclanche         `@jleclanche`_                @Adys
   Jimmy Gitonga            `@afrowave`_                  @afrowave
   John Cass                `@jcass77`_                   @cass_john
@@ -231,6 +232,7 @@ Listed in alphabetical order.
 .. _@eriol: https://github.com/eriol
 .. _@eyadsibai: https://github.com/eyadsibai
 .. _@flyudvik: https://github.com/flyudvik
+.. _@foarsitter: https://github.com/foarsitter
 .. _@garry-cairns: https://github.com/garry-cairns
 .. _@garrypolley: https://github.com/garrypolley
 .. _@goldhand: https://github.com/goldhand
