@@ -17,17 +17,6 @@ Prerequisites
 .. _`installation guide`: https://docs.docker.com/compose/install/
 
 
-Attention, Windows Users
-------------------------
-
-Currently PostgreSQL (``psycopg2`` python package) is not installed inside Docker containers for Windows users, while it is required by the generated Django project. To fix this, add ``psycopg2`` to the list of requirements inside ``requirements/base.txt``::
-
-    # Python-PostgreSQL Database Adapter
-    psycopg2==2.6.2
-
-Doing this will prevent the project from being installed in an Windows-only environment (thus without usage of Docker). If you want to use this project without Docker, make sure to remove ``psycopg2`` from the requirements again.
-
-
 Build the Stack
 ---------------
 
