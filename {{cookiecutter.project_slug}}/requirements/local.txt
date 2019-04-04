@@ -4,9 +4,9 @@ Werkzeug==0.15.2  # https://github.com/pallets/werkzeug
 ipdb==0.12  # https://github.com/gotcha/ipdb
 Sphinx==2.0.0  # https://github.com/sphinx-doc/sphinx
 {%- if cookiecutter.use_docker == 'y' %}
-psycopg2==2.7.4 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
+psycopg2==2.8 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
 {%- else %}
-psycopg2-binary==2.7.7  # https://github.com/psycopg/psycopg2
+psycopg2-binary==2.8  # https://github.com/psycopg/psycopg2
 {%- endif %}
 
 # Testing
