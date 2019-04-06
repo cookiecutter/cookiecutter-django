@@ -11,6 +11,7 @@ PATTERN = "{{(\s?cookiecutter)[.](.*?)}}"
 RE_OBJ = re.compile(PATTERN)
 
 YN_CHOICES = ["y", "n"]
+CLOUD_CHOICES = ["AWS", "GCE"]
 
 
 @pytest.fixture
@@ -35,6 +36,7 @@ def context():
 @pytest.mark.parametrize("use_sentry", YN_CHOICES, ids=lambda yn: f"sentry:{yn}")
 @pytest.mark.parametrize("use_compressor", YN_CHOICES, ids=lambda yn: f"cmpr:{yn}")
 @pytest.mark.parametrize("use_whitenoise", YN_CHOICES, ids=lambda yn: f"wnoise:{yn}")
+@pytest.mark.parametrize("cloud_provider", CLOUD_CHOICES, ids=lambda yn: f"cloud:{yn}")
 def context_combination(
     windows,
     use_docker,
@@ -43,6 +45,7 @@ def context_combination(
     use_sentry,
     use_compressor,
     use_whitenoise,
+    cloud_provider,
 ):
     """Fixture that parametrize the function where it's used."""
     return {
@@ -53,6 +56,7 @@ def context_combination(
         "use_mailhog": use_mailhog,
         "use_sentry": use_sentry,
         "use_whitenoise": use_whitenoise,
+        "cloud_provider": cloud_provider,
     }
 
 
