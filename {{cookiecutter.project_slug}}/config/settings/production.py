@@ -70,6 +70,7 @@ SECURE_CONTENT_TYPE_NOSNIFF = env.bool(
 # ------------------------------------------------------------------------------
 # https://django-storages.readthedocs.io/en/latest/#installation
 INSTALLED_APPS += ["storages"]  # noqa F405
+{% if cookiecutter.cloud_provider == 'AWS' %}
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
 AWS_ACCESS_KEY_ID = env("DJANGO_AWS_ACCESS_KEY_ID")
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
@@ -88,22 +89,27 @@ AWS_S3_OBJECT_PARAMETERS = {
 AWS_DEFAULT_ACL = None
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
 AWS_S3_REGION_NAME = env("DJANGO_AWS_S3_REGION_NAME", default=None)
+{% elif cookiecutter.cloud_provider == 'GCE' %}
+DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
+GS_BUCKET_NAME = env("DJANGO_GCE_STORAGE_BUCKET_NAME")
+GS_DEFAULT_ACL = "publicRead"
+{% endif %}
 
 # STATIC
 # ------------------------
 {% if cookiecutter.use_whitenoise == 'y' -%}
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-{%- else %}
+{%- endif -%}
+{%- if cookiecutter.cloud_provider == 'AWS' %}
 STATICFILES_STORAGE = "config.settings.production.StaticRootS3Boto3Storage"
 STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/"
+{%- elif cookiecutter.cloud_provider == 'GCE' %}
+STATIC_URL = "https://storage.googleapis.com/{}/static".format(GS_BUCKET_NAME)
 {%- endif %}
 
 # MEDIA
 # ------------------------------------------------------------------------------
-{% if cookiecutter.use_whitenoise == 'y' -%}
-DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/"
-{%- else %}
+{%- if cookiecutter.cloud_provider == 'AWS' %}
 # region http://stackoverflow.com/questions/10390244/
 # Full-fledge class: https://stackoverflow.com/a/18046120/104731
 from storages.backends.s3boto3 import S3Boto3Storage  # noqa E402
@@ -121,6 +127,9 @@ class MediaRootS3Boto3Storage(S3Boto3Storage):
 # endregion
 DEFAULT_FILE_STORAGE = "config.settings.production.MediaRootS3Boto3Storage"
 MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/"
+{%- elif cookiecutter.cloud_provider == 'GCE' %}
+MEDIA_URL = "https://storage.googleapis.com/{}/media".format(GS_BUCKET_NAME)
+MEDIA_ROOT = "https://storage.googleapis.com/{}/media".format(GS_BUCKET_NAME)
 {%- endif %}
 
 # TEMPLATES
