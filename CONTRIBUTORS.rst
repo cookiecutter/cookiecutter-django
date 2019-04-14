@@ -177,6 +177,7 @@ Listed in alphabetical order.
   Travis McNeill           `@Travistock`_               @tavistock_esq
   Tubo Shi                 `@Tubo`_
   Umair Ashraf             `@umrashrf`_                 @fabumair
+  Vlad Doster              `@vladdoster`_
   Vitaly Babiy
   Vivian Guillen           `@viviangb`_
   Will Farley              `@goldhand`_                 @g01dhand
@@ -315,6 +316,7 @@ Listed in alphabetical order.
 .. _@mrcoles: https://github.com/mrcoles
 .. _@ericgroom: https://github.com/ericgroom
 .. _@hanaquadara: https://github.com/hanaquadara
+.. _@vladdoster: https://github.com/vladdoster
 
 Special Thanks
 ~~~~~~~~~~~~~~

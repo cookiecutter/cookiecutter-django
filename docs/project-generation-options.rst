@@ -121,6 +121,9 @@ debug:
 
 .. _Gulp: https://github.com/gulpjs/gulp
 
+.. _AWS: https://aws.amazon.com/s3/
+.. _GCS: https://cloud.google.com/storage/
+
 .. _Django Compressor: https://github.com/django-compressor/django-compressor
 
 .. _Celery: https://github.com/celery/celery
