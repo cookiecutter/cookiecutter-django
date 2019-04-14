@@ -63,6 +63,12 @@ js_task_runner:
     1. None
     2. Gulp_
 
+cloud_provider:
+    Select a cloud provider for static files. The choices are:
+
+    1. AWS_
+    2. GCS_
+
 custom_bootstrap_compilation:
     Indicates whether the project should support Bootstrap recompilation
     via the selected JavaScript task runner's task. This can be useful
