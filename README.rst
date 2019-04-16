@@ -47,7 +47,7 @@ Features
 * Comes with custom user model ready to go
 * Optional custom static build using Gulp and livereload
 * Send emails via Anymail_ (using Mailgun_ by default, but switchable)
-* Media storage using Amazon S3
+* Media storage using Amazon S3 or Google Cloud Storage
 * Docker support using docker-compose_ for development and production (using Traefik_ with LetsEncrypt_ support)
 * Procfile_ for deploying to Heroku
 * Instructions for deploying to PythonAnywhere_
@@ -62,7 +62,7 @@ Optional Integrations
 
 *These features can be enabled during initial project setup.*
 
-* Serve static files from Amazon S3 or Whitenoise_
+* Serve static files from Amazon S3, Google Cloud Storage or Whitenoise_
 * Configuration for Celery_ and Flower_ (the latter in Docker setup only)
 * Integration with MailHog_ for local email testing
 * Integration with Sentry_ for error logging
@@ -180,6 +180,10 @@ Answer the prompts with your own desired options_. For example::
     Select js_task_runner:
     1 - None
     2 - Gulp
+    Choose from 1, 2 [1]: 1
+    Select cloud_provider:
+    1 - AWS
+    2 - GCS
     Choose from 1, 2 [1]: 1
     custom_bootstrap_compilation [n]: n
     Select open_source_license:
