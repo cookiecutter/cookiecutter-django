@@ -64,7 +64,7 @@ js_task_runner:
     2. Gulp_
 
 cloud_provider:
-    Select a cloud provider for static files. The choices are:
+    Select a cloud provider for static & media files. The choices are:
 
     1. AWS_
     2. GCS_
