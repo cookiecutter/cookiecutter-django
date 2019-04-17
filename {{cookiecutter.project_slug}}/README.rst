@@ -6,6 +6,9 @@
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
      :target: https://github.com/pydanny/cookiecutter-django/
      :alt: Built with Cookiecutter Django
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+     :target: https://github.com/ambv/black
+     :alt: Black code style
 {% if cookiecutter.open_source_license != "Not open source" %}
 
 :License: {{cookiecutter.open_source_license}}
@@ -156,7 +159,7 @@ Custom Bootstrap Compilation
 ^^^^^^
 
 The generated CSS is set up with automatic Bootstrap recompilation with variables of your choice.
-Bootstrap v4.1.1 is installed using npm and customised by tweaking your variables in ``static/sass/custom_bootstrap_vars``.
+Bootstrap v4 is installed using npm and customised by tweaking your variables in ``static/sass/custom_bootstrap_vars``.
 
 You can find a list of available variables `in the bootstrap source`_, or get explanations on them in the `Bootstrap docs`_.
 

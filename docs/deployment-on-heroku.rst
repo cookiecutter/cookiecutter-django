@@ -3,6 +3,9 @@ Deployment on Heroku
 
 .. index:: Heroku
 
+Commands to run
+---------------
+
 Run these commands to deploy the project to Heroku:
 
 .. code-block:: bash
@@ -17,10 +20,7 @@ Run these commands to deploy the project to Heroku:
 
     heroku addons:create heroku-redis:hobby-dev
 
-    # If using mailgun:
     heroku addons:create mailgun:starter
-
-    heroku addons:create sentry:f1
 
     heroku config:set PYTHONHASHSEED=random
     
@@ -47,10 +47,75 @@ Run these commands to deploy the project to Heroku:
 
     git push heroku master
 
-    heroku run python manage.py migrate
     heroku run python manage.py createsuperuser
-    heroku run python manage.py collectstatic --no-input
 
     heroku run python manage.py check --deploy
 
     heroku open
+
+
+.. warning::
+
+    .. include:: mailgun.rst
+
+
+Optional actions
+----------------
+
+Celery
+++++++
+
+Celery requires a few extra environment variables to be ready operational. Also, the worker is created,
+it's in the ``Procfile``, but is turned off by default:
+
+.. code-block:: bash
+
+    # Set the broker URL to Redis
+    heroku config:set CELERY_BROKER_URL=`heroku config:get REDIS_URL`
+    # Scale dyno to 1 instance
+    heroku ps:scale worker=1
+
+Sentry
+++++++
+
+If you're opted for Sentry error tracking, you can either install it through the `Sentry add-on`_:
+
+.. code-block:: bash
+
+    heroku addons:create sentry:f1
+
+
+Or add the DSN for your account, if you already have one:
+
+.. code-block:: bash
+
+    heroku config:set SENTRY_DSN=https://xxxx@sentry.io/12345
+
+.. _Sentry add-on: https://elements.heroku.com/addons/sentry
+
+
+Gulp & Bootstrap compilation
+++++++++++++++++++++++++++++
+
+If you've opted for a custom bootstrap build, you'll most likely need to setup
+your app to use `multiple buildpacks`_: one for Python & one for Node.js:
+
+.. code-block:: bash
+
+    heroku buildpacks:add --index 1 heroku/nodejs
+
+At time of writing, this should do the trick: during deployment,
+the Heroku should run ``npm install`` and then ``npm build``,
+which runs Gulp in cookiecutter-django.
+
+If things don't work, please refer to the Heroku docs.
+
+.. _multiple buildpacks: https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app
+
+About Heroku & Docker
+---------------------
+
+Although Heroku has some sort of `Docker support`_, it's not supported by cookiecutter-django.
+We invite you to follow Heroku documentation about it.
+
+.. _Docker support: https://devcenter.heroku.com/articles/build-docker-images-heroku-yml
