@@ -39,7 +39,7 @@ Features
 * For Django 2.0
 * Works with Python 3.6
 * Renders Django projects with 100% starting test coverage
-* Twitter Bootstrap_ v4.1.1 (`maintained Foundation fork`_ also available)
+* Twitter Bootstrap_ v4 (`maintained Foundation fork`_ also available)
 * 12-Factor_ based settings via django-environ_
 * Secure by default. We believe in SSL.
 * Optimized development and production settings
@@ -51,7 +51,7 @@ Features
 * Docker support using docker-compose_ for development and production (using Traefik_ with LetsEncrypt_ support)
 * Procfile_ for deploying to Heroku
 * Instructions for deploying to PythonAnywhere_
-* Run tests with unittest or py.test
+* Run tests with unittest or pytest
 * Customizable PostgreSQL version
 
 .. _`maintained Foundation fork`: https://github.com/Parbhat/cookiecutter-django-foundation
@@ -90,7 +90,7 @@ Constraints
 
 * Only maintained 3rd party libraries are used.
 * Uses PostgreSQL everywhere (9.2+)
-* Environment variables for configuration (This won't work with Apache/mod_wsgi except on AWS ELB).
+* Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
 Support this Project!
 ----------------------
