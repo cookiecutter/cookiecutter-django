@@ -85,3 +85,11 @@ You will see something like ::
     # ...
     ALTER TABLE
     SUCCESS: The 'my_project' database has been restored from the '/backups/backup_2018_03_13T09_05_07.sql.gz' backup.
+
+
+Backup to Amazon S3
+----------------------------------
+For uploading your backups to Amazon S3 you can use the aws cli container. There is an upload command for uploading the postgres /backups directory recursively and there is a download command for downloading a specific backup. The default S3 environment variables are used. ::
+
+    $ docker-compose -f production.yml run --rm awscli upload
+    $ docker-compose -f production.yml run --rm awscli download backup_2018_03_13T09_05_07.sql.gz

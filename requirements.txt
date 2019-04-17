@@ -9,8 +9,8 @@ flake8==3.7.6
 
 # Testing
 # ------------------------------------------------------------------------------
-tox==3.8.4
-pytest==4.4.0
-pytest_cases==1.5.1
+tox==3.8.6
+pytest==4.4.1
+pytest_cases==1.6.2
 pytest-cookies==0.3.0
 pyyaml==5.1

@@ -31,6 +31,10 @@
     "None",
     "Gulp"
   ],
+  "cloud_provider": [
+    "AWS",
+    "GCE"
+  ],
   "custom_bootstrap_compilation": "n",
   "use_compressor": "n",
   "use_celery": "n",
