@@ -84,6 +84,7 @@ Listed in alphabetical order.
   Christopher Clarke       `@chrisdev`_
   Cole Mackenzie           `@cmackenzie1`_
   Collederas               `@Collederas`_
+  Craig Margieson          `@cmargieson`_
   Cristian Vargas          `@cdvv7788`_
   Cullen Rhodes            `@c-rhodes`_
   Dan Shultz               `@shultz`_
