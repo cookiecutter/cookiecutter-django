@@ -318,6 +318,7 @@ Listed in alphabetical order.
 .. _@ericgroom: https://github.com/ericgroom
 .. _@hanaquadara: https://github.com/hanaquadara
 .. _@vladdoster: https://github.com/vladdoster
+.. _@cmargieson: https://github.com/cmargieson
 
 Special Thanks
 ~~~~~~~~~~~~~~
