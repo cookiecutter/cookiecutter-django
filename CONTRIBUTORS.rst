@@ -84,6 +84,7 @@ Listed in alphabetical order.
   Christopher Clarke       `@chrisdev`_
   Cole Mackenzie           `@cmackenzie1`_
   Collederas               `@Collederas`_
+  Craig Margieson          `@cmargieson`_
   Cristian Vargas          `@cdvv7788`_
   Cullen Rhodes            `@c-rhodes`_
   Dan Shultz               `@shultz`_
@@ -317,6 +318,7 @@ Listed in alphabetical order.
 .. _@ericgroom: https://github.com/ericgroom
 .. _@hanaquadara: https://github.com/hanaquadara
 .. _@vladdoster: https://github.com/vladdoster
+.. _@cmargieson: https://github.com/cmargieson
 
 Special Thanks
 ~~~~~~~~~~~~~~
