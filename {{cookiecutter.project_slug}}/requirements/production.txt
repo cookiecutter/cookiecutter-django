@@ -3,15 +3,19 @@
 -r ./base.txt
 
 gunicorn==19.9.0  # https://github.com/benoitc/gunicorn
-psycopg2==2.7.4 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
+psycopg2==2.8 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
 {%- if cookiecutter.use_whitenoise == 'n' %}
 Collectfast==0.6.2  # https://github.com/antonagestam/collectfast
 {%- endif %}
 {%- if cookiecutter.use_sentry == "y" %}
-raven==6.10.0  # https://github.com/getsentry/raven-python
+sentry-sdk==0.7.14  # https://github.com/getsentry/sentry-python
 {%- endif %}
 
 # Django
 # ------------------------------------------------------------------------------
+{%- if cookiecutter.cloud_provider == 'AWS' %}
 django-storages[boto3]==1.7.1  # https://github.com/jschneier/django-storages
-django-anymail[mailgun]==5.0  # https://github.com/anymail/django-anymail
+{%- elif cookiecutter.cloud_provider == 'GCE' %}
+django-storages[google]==1.7.1  # https://github.com/jschneier/django-storages
+{%- endif %}
+django-anymail[mailgun]==6.0  # https://github.com/anymail/django-anymail

@@ -18,19 +18,20 @@ SUCCESS = "\x1b[1;32m [SUCCESS]: "
 
 project_slug = "{{ cookiecutter.project_slug }}"
 if hasattr(project_slug, "isidentifier"):
-    assert project_slug.isidentifier(), "'{}' project slug is not a valid Python identifier.".format(
-        project_slug
-    )
+    assert (
+        project_slug.isidentifier()
+    ), "'{}' project slug is not a valid Python identifier.".format(project_slug)
 
-assert "\\" not in "{{ cookiecutter.author_name }}", "Don't include backslashes in author name."
+assert (
+    "\\" not in "{{ cookiecutter.author_name }}"
+), "Don't include backslashes in author name."
 
 if "{{ cookiecutter.use_docker }}".lower() == "n":
     python_major_version = sys.version_info[0]
     if python_major_version == 2:
         print(
-            WARNING + "Cookiecutter Django does not support Python 2. "
-            "Stability is guaranteed with Python 3.6+ only, "
-            "are you sure you want to proceed (y/n)? " + TERMINATOR
+            WARNING + "You're running cookiecutter under Python 2, but the generated "
+            "project requires Python 3.6+. Do you want to proceed (y/n)? " + TERMINATOR
         )
         yes_options, no_options = frozenset(["y"]), frozenset(["n"])
         while True:

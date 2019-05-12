@@ -1,0 +1,17 @@
+# configure updates globally
+# default: all
+# allowed: all, insecure, False
+update: all
+
+# configure dependency pinning globally
+# default: True
+# allowed: True, False
+pin: True
+
+# Specify requirement files by hand, pyup seems to struggle to 
+# find the ones in the project_slug folder
+requirements:
+  - "requirements.txt"
+  - "{{cookiecutter.project_slug}}/requirements/base.txt"
+  - "{{cookiecutter.project_slug}}/requirements/local.txt"
+  - "{{cookiecutter.project_slug}}/requirements/production.txt"

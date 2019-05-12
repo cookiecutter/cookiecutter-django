@@ -49,19 +49,26 @@ use_docker:
 postgresql_version:
     Select a PostgreSQL_ version to use. The choices are:
 
-    1. 10.3
-    2. 10.2
-    3. 10.1
-    4. 9.6
-    5. 9.5
-    6. 9.4
-    7. 9.3
+    1. 10.5
+    2. 10.4
+    3. 10.3
+    4. 10.2
+    5. 10.1
+    6. 9.6
+    7. 9.5
+    8. 9.4
 
 js_task_runner:
     Select a JavaScript task runner. The choices are:
 
     1. None
     2. Gulp_
+
+cloud_provider:
+    Select a cloud provider for static & media files. The choices are:
+
+    1. AWS_
+    2. GCS_
 
 custom_bootstrap_compilation:
     Indicates whether the project should support Bootstrap recompilation
@@ -114,6 +121,9 @@ debug:
 .. _PostgreSQL: https://www.postgresql.org/docs/
 
 .. _Gulp: https://github.com/gulpjs/gulp
+
+.. _AWS: https://aws.amazon.com/s3/
+.. _GCS: https://cloud.google.com/storage/
 
 .. _Django Compressor: https://github.com/django-compressor/django-compressor
 

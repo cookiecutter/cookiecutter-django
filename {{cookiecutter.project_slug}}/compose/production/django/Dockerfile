@@ -1,3 +1,14 @@
+{% if cookiecutter.js_task_runner == 'Gulp' -%}
+FROM node:10-stretch-slim as client-builder
+
+WORKDIR /app
+COPY ./package.json /app
+RUN npm install && npm cache clean --force
+COPY . /app
+RUN npm run build
+
+# Python build stage
+{%- endif %}
 FROM python:3.6-alpine
 
 ENV PYTHONUNBUFFERED 1
@@ -28,7 +39,8 @@ COPY ./compose/production/django/start /start
 RUN sed -i 's/\r//' /start
 RUN chmod +x /start
 RUN chown django /start
-{% if cookiecutter.use_celery == "y" %}
+
+{%- if cookiecutter.use_celery == "y" %}
 COPY ./compose/production/django/celery/worker/start /start-celeryworker
 RUN sed -i 's/\r//' /start-celeryworker
 RUN chmod +x /start-celeryworker
@@ -42,8 +54,13 @@ RUN chown django /start-celerybeat
 COPY ./compose/production/django/celery/flower/start /start-flower
 RUN sed -i 's/\r//' /start-flower
 RUN chmod +x /start-flower
-{% endif %}
+{%- endif %}
+
+{%- if cookiecutter.js_task_runner == 'Gulp' %}
+COPY --from=client-builder /app /app
+{% else %}
 COPY . /app
+{%- endif %}
 
 RUN chown -R django /app
 

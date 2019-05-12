@@ -36,10 +36,10 @@ production-ready Django projects quickly.
 Features
 ---------
 
-* For Django 2.0
+* For Django 2.1
 * Works with Python 3.6
 * Renders Django projects with 100% starting test coverage
-* Twitter Bootstrap_ v4.1.1 (`maintained Foundation fork`_ also available)
+* Twitter Bootstrap_ v4 (`maintained Foundation fork`_ also available)
 * 12-Factor_ based settings via django-environ_
 * Secure by default. We believe in SSL.
 * Optimized development and production settings
@@ -47,11 +47,11 @@ Features
 * Comes with custom user model ready to go
 * Optional custom static build using Gulp and livereload
 * Send emails via Anymail_ (using Mailgun_ by default, but switchable)
-* Media storage using Amazon S3
-* Docker support using docker-compose_ for development and production (using Caddy_ with LetsEncrypt_ support)
+* Media storage using Amazon S3 or Google Cloud Storage
+* Docker support using docker-compose_ for development and production (using Traefik_ with LetsEncrypt_ support)
 * Procfile_ for deploying to Heroku
 * Instructions for deploying to PythonAnywhere_
-* Run tests with unittest or py.test
+* Run tests with unittest or pytest
 * Customizable PostgreSQL version
 
 .. _`maintained Foundation fork`: https://github.com/Parbhat/cookiecutter-django-foundation
@@ -62,7 +62,7 @@ Optional Integrations
 
 *These features can be enabled during initial project setup.*
 
-* Serve static files from Amazon S3 or Whitenoise_
+* Serve static files from Amazon S3, Google Cloud Storage or Whitenoise_
 * Configuration for Celery_ and Flower_ (the latter in Docker setup only)
 * Integration with MailHog_ for local email testing
 * Integration with Sentry_ for error logging
@@ -82,15 +82,15 @@ Optional Integrations
 .. _Sentry: https://sentry.io/welcome/
 .. _docker-compose: https://github.com/docker/compose
 .. _PythonAnywhere: https://www.pythonanywhere.com/
-.. _Caddy: https://caddyserver.com/
+.. _Traefik: https://traefik.io/
 .. _LetsEncrypt: https://letsencrypt.org/
 
 Constraints
 -----------
 
 * Only maintained 3rd party libraries are used.
-* Uses PostgreSQL everywhere (9.2+)
-* Environment variables for configuration (This won't work with Apache/mod_wsgi except on AWS ELB).
+* Uses PostgreSQL everywhere (9.4 - 10.5)
+* Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
 Support this Project!
 ----------------------
@@ -155,7 +155,7 @@ Answer the prompts with your own desired options_. For example::
     project_slug [reddit_clone]: reddit
     author_name [Daniel Roy Greenfeld]: Daniel Greenfeld
     email [you@example.com]: pydanny@gmail.com
-    description [A short description of the project.]: A reddit clone.
+    description [Behold My Awesome Project!]: A reddit clone.
     domain_name [example.com]: myreddit.com
     version [0.1.0]: 0.0.1
     timezone [UTC]: America/Los_Angeles
@@ -169,17 +169,22 @@ Answer the prompts with your own desired options_. For example::
     use_heroku [n]: y
     use_compressor [n]: y
     Select postgresql_version:
-    1 - 10.3
-    2 - 10.2
-    3 - 10.1
-    4 - 9.6
-    5 - 9.5
-    6 - 9.4
-    7 - 9.3
-    Choose from 1, 2, 3, 4 [1]: 1
+    1 - 10.5
+    2 - 10.4
+    3 - 10.3
+    4 - 10.2
+    5 - 10.1
+    6 - 9.6
+    7 - 9.5
+    8 - 9.4
+    Choose from 1, 2, 3, 4, 5, 6, 7, 8 [1]: 1
     Select js_task_runner:
     1 - None
     2 - Gulp
+    Choose from 1, 2 [1]: 1
+    Select cloud_provider:
+    1 - AWS
+    2 - GCS
     Choose from 1, 2 [1]: 1
     custom_bootstrap_compilation [n]: n
     Select open_source_license:
@@ -279,9 +284,9 @@ experience better.
 Articles
 ---------
 
+* `Using cookiecutter-django with Google Cloud Storage`_ - Mar. 12, 2019
 * `cookiecutter-django with Nginx, Route 53 and ELB`_ - Feb. 12, 2018
 * `cookiecutter-django and Amazon RDS`_ - Feb. 7, 2018
-* `Deploying Cookiecutter-Django with Docker-Compose`_ - Oct. 19, 2017
 * `Using Cookiecutter to Jumpstart a Django Project on Windows with PyCharm`_ - May 19, 2017
 * `Exploring with Cookiecutter`_ - Dec. 3, 2016
 * `Introduction to Cookiecutter-Django`_ - Feb. 19, 2016
@@ -292,9 +297,9 @@ Articles
 
 Have a blog or online publication? Write about your cookiecutter-django tips and tricks, then send us a pull request with the link.
 
+.. _`Using cookiecutter-django with Google Cloud Storage`: https://ahhda.github.io/cloud/gce/django/2019/03/12/using-django-cookiecutter-cloud-storage.html
 .. _`cookiecutter-django with Nginx, Route 53 and ELB`: https://msaizar.com/blog/cookiecutter-django-nginx-route-53-and-elb/
 .. _`cookiecutter-django and Amazon RDS`: https://msaizar.com/blog/cookiecutter-django-and-amazon-rds/
-.. _`Deploying Cookiecutter-Django with Docker-Compose`: http://adamantine.me/2017/10/19/deploying-cookiecutter-django-with-docker-compose/
 .. _`Exploring with Cookiecutter`: http://www.snowboardingcoder.com/django/2016/12/03/exploring-with-cookiecutter/
 .. _`Using Cookiecutter to Jumpstart a Django Project on Windows with PyCharm`: https://joshuahunter.com/posts/using-cookiecutter-to-jumpstart-a-django-project-on-windows-with-pycharm/
 

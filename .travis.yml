@@ -7,16 +7,20 @@ language: python
 
 python: 3.6
 
-env:
-  - TOX_ENV=py36
-
 before_install:
   - docker-compose -v
   - docker -v
 
-script:
-  - tox -e $TOX_ENV
-  - sh tests/test_docker.sh
+matrix:
+  include:
+    - name: Tox Test
+      script: tox -e py36
+    - name: Black template
+      script: tox -e black
+    - name: Basic Docker
+      script: sh tests/test_docker.sh
+    - name: Docker with Celery
+      script: sh tests/test_docker.sh use_celery=y
 
 install:
   - pip install tox
