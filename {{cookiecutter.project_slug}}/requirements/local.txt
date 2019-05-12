@@ -27,7 +27,7 @@ pylint-celery==0.3  # https://github.com/PyCQA/pylint-celery
 
 # Django
 # ------------------------------------------------------------------------------
-factory-boy==2.11.1  # https://github.com/FactoryBoy/factory_boy
+factory-boy==2.12.0  # https://github.com/FactoryBoy/factory_boy
 
 django-debug-toolbar==1.11  # https://github.com/jazzband/django-debug-toolbar
 django-extensions==2.1.6  # https://github.com/django-extensions/django-extensions
