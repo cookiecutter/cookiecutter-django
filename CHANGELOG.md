@@ -2,6 +2,171 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2019-05-08]
+### Changed
+- Upgraded to Django 2.1 (@browniebroke)
+
+## [2019-04-07]
+### Added
+- Support for Google Cloud Storage (@ahhda)
+
+## [2019-04-03]
+### Added
+- Command to backup Db to AWS S3 (@foarsitter)
+
+## [2019-03-25]
+### Added
+- Node image to run Gulp with Docker (@browniebroke)
+
+## [2019-03-19]
+### Changed
+- Replaced Caddy with Traefik (@demestav)
+
+## [2019-03-11]
+### Changed
+- Sentry integration from Raven to Sentry-SDK (@gfabricio)
+- Made Redis config conditional on Celery locally (@demestav) 
+
+## [2019-03-11]
+### Added
+- Automatic migrations on Heroku (@yunti)
+
+## [2019-03-06]
+### Fixed
+- Missing script tag in Travis config (@btknu)
+
+## [2019-03-02]
+### Changed
+- Celery eager setting in local setting with Docker (@keithjeb)
+
+## [2019-03-01]
+### Updated
+- All NPM dependencies (@takkaria)
+
+## [2018-11-13]
+### Changed
+- Security settings in Dev (@carlmjohnson)
+
+## [2018-11-20]
+### Fixed
+- Passing the CSRF header from the reverse proxy to Django server for DRF (@hpbruna)
+
+## [2018-11-12]
+### Fixed
+- Initialisation of Celery app (@glasslion)
+
+## [2018-10-24]
+### Fixed
+- Persisting of iPython history between sessions (@davitovmasyan)
+
+### Added
+- Postgres 10.5 option (@jleclanche)
+
+## [2018-09-18]
+### Added
+- Included `mypy` in dependencies and run it in tests (@apirobot)
+
+## [2018-09-18]
+### Fixed
+- Avoid `$` in environment variables to workaround a bug from django-environ (@browniebroke)
+
+## [2018-09-16]
+### Fixed
+- Bug in ordering of Middleware for production config (@ChrisPappalardo)
+
+## [2018-09-12]
+### Fixed
+- URLs for Static and Media for S3 buckets in regions other than N. Virginia (@umrashrf)
+
+## [2018-09-09]
+### Changed
+- Name of static and media storage classes (@sfdye)
+
+## [2018-09-01]
+### Changed
+- Make static and media storage fully-fledged classes (@erfaan)
+
+## [2018-08-28]
+### Fixed
+- Running tests in docker test script (@apirobot)
+
+## [2018-07-23]
+### Changed
+- Test commands to use pytest (@jcass77)
+
+### Removed 
+- Some hacks leftovers from Bootstrap v4 beta in `project.js` (@hendrikschneider)
+
+## [2018-07-12]
+### Changed
+- Upgraded to Bootstrap 4.1.1 (@mostaszewski)
+
+## [2018-06-25]
+### Added
+- Flower integration with Docker (@webyneter)
+
+## [2018-06-25]
+### Changed
+- Rewrite user app test to use a pytest style (@webyneter)
+
+## [2018-06-21]
+### Added
+- Extend & update Celery config (@webyneter & @apirobot)
+
+## [2018-05-25]
+### Fixed
+- Build issues due to incompatibility between libressl & openssl (@SassanoM)
+
+## [2018-05-21]
+### Changed
+- Updated Caddy to 0.11 and pin its version (@webyneter)
+
+## [2018-05-14]
+### Changed
+- Replace `awesome-slugify` by `python-slugify` (@hongquan)
+- Migrate to Django 2.0+ URL style (@saschalalala)
+
+## [2018-05-05]
+### Fixed
+- Postgres backup & restore commands (@webyneter)
+
+## [2018-04-10]
+### Changed
+- Simplify configuration (@danidee10)
+
+## [2018-04-08]
+### Added
+- Adopt Black code style (@pydanny)
+
+## [2018-03-27]
+### Fixed
+- Simplified extra Celery config generated when opted out (@webyneter)
+
+## [2018-03-21]
+### Removed
+- Remove Opbeat support (@sfdye)
+
+## [2018-03-16]
+### Fixed
+- Install `psycopg2-binary` when using Docker locally (@browniebroke)
+
+## [2018-03-14]
+### Fixed
+- Fixed and improved Postgres backup & restore scripts (@webyneter)
+
+## [2018-03-10]
+### Changed
+- Simplify Mailgun setting (@browniebroke)
+
+## [2018-03-06]
+### Changed
+- Convert string formatting to f-strings (@sfdye)
+
+## [2018-03-01]
+### Changed
+- Celery to use JSON serialization by default (@adammsteele)
+- Use Docker version from Travis to run tests (@browniebroke)
+
 ## [2018-02-16]
 ### Changed
 - Upgraded to Django 2.0 (@epicwhale)
