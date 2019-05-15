@@ -64,6 +64,7 @@ Listed in alphabetical order.
   Areski Belaid            `@areski`_
   Ashley Camba
   Barclay Gauld            `@yunti`_
+  Bartek                   `@btknu`_
   Ben Warren               `@bwarren2`_
   Ben Lopatin
   Benjamin Abel
@@ -71,7 +72,6 @@ Listed in alphabetical order.
   Bo Lopker                `@blopker`_
   Bouke Haarsma
   Brent Payne              `@brentpayne`_               @brentpayne
-  Bartek                   `@btknu`_
   Burhan Khalid            `@burhan`_                   @burhan
   Carl Johnson             `@carlmjohnson`_             @carlmjohnson
   Catherine Devlin         `@catherinedevlin`_
@@ -95,6 +95,7 @@ Listed in alphabetical order.
   Davur Clementsen         `@dsclementsen`_              @davur
   Delio Castillo           `@jangeador`_                 @jangeador
   Demetris Stavrou         `@demestav`_
+  Denis Bobrov             `@delneg`_
   Denis Orehovsky          `@apirobot`_
   Dónal Adams              `@epileptic-fish`_
   Diane Chen               `@purplediane`_               @purplediane88
@@ -114,8 +115,8 @@ Listed in alphabetical order.
   Ian Lee                  `@IanLee1521`_
   Irfan Ahmad              `@erfaan`_                    @erfaan
   Jan Van Bruggen          `@jvanbrug`_
-  Jens Nilsson             `@phiberjenz`_
   Jelmer Draaijer          `@foarsitter`_
+  Jens Nilsson             `@phiberjenz`_
   Jerome Leclanche         `@jleclanche`_                @Adys
   Jimmy Gitonga            `@afrowave`_                  @afrowave
   John Cass                `@jcass77`_                   @cass_john
@@ -124,9 +125,10 @@ Listed in alphabetical order.
   Kaido Kert               `@kaidokert`_
   kappataumu               `@kappataumu`_                @kappataumu
   Kaveh                    `@ka7eh`_
+  Keith Bailey             `@keithjeb`_
+  Keith Webber             `@townie`_
   Kevin A. Stone
   Kevin Ndung'u            `@kevgathuku`_
-  Keith Webber             `@townie`_
   Krzysztof Szumny         `@noisy`_
   Krzysztof Żuraw          `@krzysztofzuraw`_
   Leonardo Jimenez         `@xpostudio4`_
@@ -154,22 +156,24 @@ Listed in alphabetical order.
   Parbhat Puri             `@parbhat`_
   Peter Bittner            `@bittner`_
   Peter Coles              `@mrcoles`_
+  Philipp Matthies         `@canonnervio`_
   Pierre Chiquet           `@pchiquet`_
-  Raphael Pierzina         `@hackebrot`_
   Raony Guimarães Corrêa   `@raonyguimaraes`_
+  Raphael Pierzina         `@hackebrot`_
   Reggie Riser             `@reggieriser`_
   René Muhl                `@rm--`_
   Roman Afanaskin          `@siauPatrick`_
   Roman Osipenko           `@romanosipenko`_
   Russell Davies
-  Sascha                   `@saschalalala`_             @saschalalala
   Sam Collins              `@MightySCollins`_
+  Sascha                   `@saschalalala`_             @saschalalala
   Shupeyko Nikita          `@webyneter`_
   Sławek Ehlert            `@slafs`_
   Srinivas Nyayapati       `@shireenrao`_
   stepmr                   `@stepmr`_
   Steve Steiner            `@ssteinerX`_
   Sule Marshall            `@suledev`_
+  Tano Abeleyra            `@tanoabeleyra`_
   Taylor Baldwin
   Théo Segonds             `@show0k`_
   Tim Freund               `@timfreund`_
@@ -178,16 +182,13 @@ Listed in alphabetical order.
   Travis McNeill           `@Travistock`_               @tavistock_esq
   Tubo Shi                 `@Tubo`_
   Umair Ashraf             `@umrashrf`_                 @fabumair
-  Vlad Doster              `@vladdoster`_
+  Vadim Iskuchekov         `@Egregors`_                 @egregors
   Vitaly Babiy
   Vivian Guillen           `@viviangb`_
+  Vlad Doster              `@vladdoster`_
   Will Farley              `@goldhand`_                 @g01dhand
   William Archinal         `@archinal`_
   Yaroslav Halchenko
-  Denis Bobrov             `@delneg`_
-  Philipp Matthies         `@canonnervio`_
-  Vadim Iskuchekov         `@Egregors`_                 @egregors
-  Keith Bailey             `@keithjeb`_
 ========================== ============================ ==============
 
 .. _@a7p: https://github.com/a7p
