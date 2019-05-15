@@ -101,9 +101,10 @@ def test_project_generation(cookies, context, context_combination):
     check_paths(paths)
 
 
-def test_linting_passes(cookies, context_combination):
+@pytest.mark.flake8
+def test_flake8_passes(cookies, context_combination):
     """
-    Generated project should pass flake8 & black.
+    Generated project should pass flake8.
 
     This is parametrized for each combination from ``context_combination`` fixture
     """
@@ -113,6 +114,16 @@ def test_linting_passes(cookies, context_combination):
         sh.flake8(str(result.project))
     except sh.ErrorReturnCode as e:
         pytest.fail(e)
+
+
+@pytest.mark.black
+def test_black_passes(cookies, context_combination):
+    """
+    Generated project should pass black.
+
+    This is parametrized for each combination from ``context_combination`` fixture
+    """
+    result = cookies.bake(extra_context=context_combination)
 
     try:
         sh.black("--check", "--diff", "--exclude", "migrations", f"{result.project}/")
