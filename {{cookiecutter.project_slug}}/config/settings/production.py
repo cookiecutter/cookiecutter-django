@@ -233,6 +233,7 @@ LOGGING = {
             "formatter": "verbose",
         },
     },
+    "root": {"level": "INFO", "handlers": ["console"]},
     "loggers": {
         "django.request": {
             "handlers": ["mail_admins"],
@@ -263,6 +264,7 @@ LOGGING = {
             "formatter": "verbose",
         }
     },
+    "root": {"level": "INFO", "handlers": ["console"]},
     "loggers": {
         "django.db.backends": {
             "level": "ERROR",
