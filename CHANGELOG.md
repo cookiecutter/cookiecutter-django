@@ -2,6 +2,11 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2019-05-16]
+### Changed
+- Users app to have a translated verbose name (@tanoabeleyra)
+- Logging configuration for local (@browniebroke)
+
 ## [2019-05-08]
 ### Changed
 - Upgraded to Django 2.1 (@browniebroke)
