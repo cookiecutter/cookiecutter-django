@@ -320,6 +320,7 @@ Listed in alphabetical order.
 .. _@hanaquadara: https://github.com/hanaquadara
 .. _@vladdoster: https://github.com/vladdoster
 .. _@cmargieson: https://github.com/cmargieson
+.. _@tanoabeleyra: https://github.com/tanoabeleyra
 
 Special Thanks
 ~~~~~~~~~~~~~~
