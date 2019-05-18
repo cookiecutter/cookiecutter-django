@@ -45,7 +45,7 @@ services:
   {%- if cookiecutter.use_celery == 'y' %}
 
   redis:
-    image: redis:3.2
+    image: redis:5.0
 
   celeryworker:
     <<: *django
