@@ -33,7 +33,8 @@
   ],
   "cloud_provider": [
     "AWS",
-    "GCE"
+    "GCE",
+    "None"
   ],
   "custom_bootstrap_compilation": "n",
   "use_compressor": "n",

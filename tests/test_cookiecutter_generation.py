@@ -11,7 +11,7 @@ PATTERN = "{{(\s?cookiecutter)[.](.*?)}}"
 RE_OBJ = re.compile(PATTERN)
 
 YN_CHOICES = ["y", "n"]
-CLOUD_CHOICES = ["AWS", "GCE"]
+CLOUD_CHOICES = ["AWS", "GCE", "None"]
 
 
 @pytest.fixture
