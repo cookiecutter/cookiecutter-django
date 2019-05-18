@@ -6,6 +6,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 - Remove the user list view (@browniebroke)
 
+### Fixed 
+- Static storage default ACL (@browniebroke)
+
 ## [2019-05-17]
 ### Fixed
 - Added `LocaleMiddleware` to the list of middlewares (@tanoabeleyra)
