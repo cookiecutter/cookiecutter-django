@@ -65,7 +65,7 @@ cloud_provider:
     Select a cloud provider for static & media files. The choices are:
 
     1. AWS_
-    2. GCS_
+    2. GCP_
     3. None
 
     Note that if you choose no cloud provider, media files won't work.
@@ -123,7 +123,7 @@ debug:
 .. _Gulp: https://github.com/gulpjs/gulp
 
 .. _AWS: https://aws.amazon.com/s3/
-.. _GCS: https://cloud.google.com/storage/
+.. _GCP: https://cloud.google.com/storage/
 
 .. _Django Compressor: https://github.com/django-compressor/django-compressor
 

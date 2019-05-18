@@ -181,7 +181,7 @@ Answer the prompts with your own desired options_. For example::
     Choose from 1, 2 [1]: 1
     Select cloud_provider:
     1 - AWS
-    2 - GCS
+    2 - GCP
     3 - None
     Choose from 1, 2, 3 [1]: 1
     custom_bootstrap_compilation [n]: n
