@@ -2,6 +2,10 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2019-05-18]
+### Removed
+- Remove the user list view (@browniebroke)
+
 ## [2019-05-17]
 ### Fixed
 - Added `LocaleMiddleware` to the list of middlewares (@tanoabeleyra)
