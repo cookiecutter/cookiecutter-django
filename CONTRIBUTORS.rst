@@ -143,6 +143,7 @@ Listed in alphabetical order.
   Mateusz Ostaszewski      `@mostaszewski`_
   Mathijs Hoogland         `@MathijsHoogland`_
   Matt Braymer-Hayes       `@mattayes`_                  @mattayes
+  Matt Knapper             `@mknapper1`_
   Matt Linares
   Matt Menzenski           `@menzenski`_
   Matt Warren              `@mfwarren`_
@@ -260,6 +261,7 @@ Listed in alphabetical order.
 .. _@msaizar: https://github.com/msaizar
 .. _@MathijsHoogland: https://github.com/MathijsHoogland
 .. _@mattayes: https://github.com/mattayes
+.. _@mknapper1: https://github.com/mknapper1
 .. _@menzenski: https://github.com/menzenski
 .. _@mostaszewski: https://github.com/mostaszewski
 .. _@mfwarren: https://github.com/mfwarren
