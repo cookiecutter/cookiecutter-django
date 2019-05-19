@@ -99,8 +99,7 @@ GS_DEFAULT_ACL = "publicRead"
 # ------------------------
 {% if cookiecutter.use_whitenoise == 'y' -%}
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-{%- endif -%}
-{%- if cookiecutter.cloud_provider == 'AWS' %}
+{%- elif cookiecutter.cloud_provider == 'AWS' %}
 STATICFILES_STORAGE = "config.settings.production.StaticRootS3Boto3Storage"
 STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/"
 {%- elif cookiecutter.cloud_provider == 'GCE' %}
