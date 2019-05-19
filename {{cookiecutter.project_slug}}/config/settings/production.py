@@ -102,7 +102,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 {%- elif cookiecutter.cloud_provider == 'AWS' %}
 STATICFILES_STORAGE = "config.settings.production.StaticRootS3Boto3Storage"
 STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/"
-{%- elif cookiecutter.cloud_provider == 'GCE' and cookiecutter.use_whitenoise == 'n' %}
+{%- elif cookiecutter.cloud_provider == 'GCE' %}
 STATIC_URL = "https://storage.googleapis.com/{}/static/".format(GS_BUCKET_NAME)
 {%- endif %}
 
