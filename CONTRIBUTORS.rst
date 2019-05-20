@@ -7,19 +7,19 @@ Core Developers
 These contributors have commit flags for the repository,
 and are able to accept and merge pull requests.
 
-=========================== ================ ===========
-Name                        Github           Twitter
-=========================== ================ ===========
-Daniel Roy Greenfeld        `@pydanny`_      @pydanny
-Audrey Roy Greenfeld*       `@audreyr`_      @audreyr
-Fábio C. Barrionuevo da Luz `@luzfcb`_       @luzfcb
-Saurabh Kumar               `@theskumar`_    @_theskumar
+=========================== ================= ===========
+Name                        Github            Twitter
+=========================== ================= ===========
+Daniel Roy Greenfeld        `@pydanny`_        @pydanny
+Audrey Roy Greenfeld*       `@audreyr`_        @audreyr
+Fábio C. Barrionuevo da Luz `@luzfcb`_         @luzfcb
+Saurabh Kumar               `@theskumar`_      @_theskumar
 Jannis Gebauer              `@jayfk`_
-Burhan Khalid               `@burhan`_       @burhan
-Nikita Shupeyko             `@webyneter`_    @webyneter
-Bruno Alla                  `@browniebroke`_ @_BrunoAlla
-Wan Liuyang                 `@sfdye`_        @sfdye
-=========================== ================ ===========
+Burhan Khalid               `@burhan`_         @burhan
+Nikita Shupeyko             `@webyneter`_      @webyneter
+Bruno Alla                  `@browniebroke`_   @_BrunoAlla
+Wan Liuyang                 `@sfdye`_          @sfdye
+=========================== ================= ===========
 
 *Audrey is also the creator of Cookiecutter. Audrey and
 Daniel are on the Cookiecutter core team.*
@@ -87,6 +87,7 @@ Listed in alphabetical order.
   Craig Margieson          `@cmargieson`_
   Cristian Vargas          `@cdvv7788`_
   Cullen Rhodes            `@c-rhodes`_
+  Curtis St Pierre         `@curtisstpierre`_            @cstpierre1388
   Dan Shultz               `@shultz`_
   Daniel Hepper            `@dhepper`_                   @danielhepper
   Daniele Tricoli          `@eriol`_
@@ -222,6 +223,7 @@ Listed in alphabetical order.
 .. _@chuckus: https://github.com/chuckus
 .. _@cmackenzie1: https://github.com/cmackenzie1
 .. _@Collederas: https://github.com/Collederas
+.. _@curtisstpierre: https://github.com/curtisstpierre
 .. _@davitovmasyan: https://github.com/davitovmasyan
 .. _@ddiazpinto: https://github.com/ddiazpinto
 .. _@demestav: https://github.com/demestav
