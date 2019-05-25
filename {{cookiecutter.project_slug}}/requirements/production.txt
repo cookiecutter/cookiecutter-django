@@ -3,7 +3,7 @@
 -r ./base.txt
 
 gunicorn==19.9.0  # https://github.com/benoitc/gunicorn
-psycopg2==2.8 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
+psycopg2==2.8.2 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
 {%- if cookiecutter.use_whitenoise == 'n' %}
 Collectfast==0.6.2  # https://github.com/antonagestam/collectfast
 {%- endif %}
