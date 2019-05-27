@@ -66,9 +66,9 @@ SECURE_CONTENT_TYPE_NOSNIFF = env.bool(
     "DJANGO_SECURE_CONTENT_TYPE_NOSNIFF", default=True
 )
 
+{% if cookiecutter.cloud_provider != 'None' -%}
 # STORAGES
 # ------------------------------------------------------------------------------
-{% if cookiecutter.cloud_provider != 'None' -%}
 # https://django-storages.readthedocs.io/en/latest/#installation
 INSTALLED_APPS += ["storages"]  # noqa F405
 {%- endif -%}
@@ -95,18 +95,20 @@ AWS_S3_REGION_NAME = env("DJANGO_AWS_S3_REGION_NAME", default=None)
 DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
 GS_BUCKET_NAME = env("DJANGO_GCE_STORAGE_BUCKET_NAME")
 GS_DEFAULT_ACL = "publicRead"
-{% endif %}
+{% endif -%}
 
+{% if cookiecutter.cloud_provider != 'None' or cookiecutter.use_whitenoise == 'y' -%}
 # STATIC
 # ------------------------
+{% endif -%}
 {% if cookiecutter.use_whitenoise == 'y' -%}
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-{%- elif cookiecutter.cloud_provider == 'AWS' %}
+{% elif cookiecutter.cloud_provider == 'AWS' -%}
 STATICFILES_STORAGE = "config.settings.production.StaticRootS3Boto3Storage"
 STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/"
-{%- elif cookiecutter.cloud_provider == 'GCE' %}
-STATIC_URL = "https://storage.googleapis.com/{}/static/".format(GS_BUCKET_NAME)
-{%- endif %}
+{% elif cookiecutter.cloud_provider == 'GCE' -%}
+STATIC_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/static/"
+{% endif -%}
 
 # MEDIA
 # ------------------------------------------------------------------------------
@@ -130,8 +132,8 @@ class MediaRootS3Boto3Storage(S3Boto3Storage):
 DEFAULT_FILE_STORAGE = "config.settings.production.MediaRootS3Boto3Storage"
 MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/"
 {%- elif cookiecutter.cloud_provider == 'GCE' %}
-MEDIA_URL = "https://storage.googleapis.com/{}/media/".format(GS_BUCKET_NAME)
-MEDIA_ROOT = "https://storage.googleapis.com/{}/media/".format(GS_BUCKET_NAME)
+MEDIA_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/media/"
+MEDIA_ROOT = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/media/"
 {%- endif %}
 
 # TEMPLATES
