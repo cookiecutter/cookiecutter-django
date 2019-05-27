@@ -2,6 +2,14 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2019-05-27]
+### Changed
+- Made cloud provider optional (@tanoabeleyra)
+- Updated to Django 2.2.1 (@browniebroke)
+
+### Fixed
+- Celery worker-related setting names (@browniebroke)
+
 ## [2019-05-18]
 ### Removed
 - Remove the user list view (@browniebroke)
