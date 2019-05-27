@@ -66,6 +66,7 @@ cloud_provider:
 
     1. AWS_
     2. GCS_
+    3. None
 
 custom_bootstrap_compilation:
     Indicates whether the project should support Bootstrap recompilation
