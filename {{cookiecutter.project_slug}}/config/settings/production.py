@@ -105,7 +105,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATICFILES_STORAGE = "config.settings.production.StaticRootS3Boto3Storage"
 STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/"
 {% elif cookiecutter.cloud_provider == 'GCE' -%}
-STATIC_URL = "https://storage.googleapis.com/{}/static/".format(GS_BUCKET_NAME)
+STATIC_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/static/"
 {%- endif %}
 
 # MEDIA
@@ -130,8 +130,8 @@ class MediaRootS3Boto3Storage(S3Boto3Storage):
 DEFAULT_FILE_STORAGE = "config.settings.production.MediaRootS3Boto3Storage"
 MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/"
 {%- elif cookiecutter.cloud_provider == 'GCE' %}
-MEDIA_URL = "https://storage.googleapis.com/{}/media/".format(GS_BUCKET_NAME)
-MEDIA_ROOT = "https://storage.googleapis.com/{}/media/".format(GS_BUCKET_NAME)
+MEDIA_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/media/"
+MEDIA_ROOT = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/media/"
 {%- endif %}
 
 # TEMPLATES
