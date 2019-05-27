@@ -95,10 +95,12 @@ AWS_S3_REGION_NAME = env("DJANGO_AWS_S3_REGION_NAME", default=None)
 DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
 GS_BUCKET_NAME = env("DJANGO_GCE_STORAGE_BUCKET_NAME")
 GS_DEFAULT_ACL = "publicRead"
-{% endif %}
+{% endif -%}
 
+{% if cookiecutter.cloud_provider != 'None' or cookiecutter.use_whitenoise == 'y' -%}
 # STATIC
 # ------------------------
+{% endif -%}
 {% if cookiecutter.use_whitenoise == 'y' -%}
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 {% elif cookiecutter.cloud_provider == 'AWS' -%}
@@ -106,7 +108,7 @@ STATICFILES_STORAGE = "config.settings.production.StaticRootS3Boto3Storage"
 STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/"
 {% elif cookiecutter.cloud_provider == 'GCE' -%}
 STATIC_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/static/"
-{%- endif %}
+{% endif -%}
 
 # MEDIA
 # ------------------------------------------------------------------------------
