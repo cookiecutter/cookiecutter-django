@@ -7,7 +7,7 @@ import sh
 import yaml
 from binaryornot.check import is_binary
 
-PATTERN = "{{(\s?cookiecutter)[.](.*?)}}"
+PATTERN = r"{{(\s?cookiecutter)[.](.*?)}}"
 RE_OBJ = re.compile(PATTERN)
 
 YN_CHOICES = ["y", "n"]
