@@ -68,6 +68,8 @@ cloud_provider:
     2. GCS_
     3. None
 
+    Note that if you choose no cloud provider, media files won't work.
+
 custom_bootstrap_compilation:
     Indicates whether the project should support Bootstrap recompilation
     via the selected JavaScript task runner's task. This can be useful
