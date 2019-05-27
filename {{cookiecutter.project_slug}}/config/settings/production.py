@@ -66,9 +66,9 @@ SECURE_CONTENT_TYPE_NOSNIFF = env.bool(
     "DJANGO_SECURE_CONTENT_TYPE_NOSNIFF", default=True
 )
 
+{% if cookiecutter.cloud_provider != 'None' -%}
 # STORAGES
 # ------------------------------------------------------------------------------
-{% if cookiecutter.cloud_provider != 'None' -%}
 # https://django-storages.readthedocs.io/en/latest/#installation
 INSTALLED_APPS += ["storages"]  # noqa F405
 {%- endif -%}
@@ -101,10 +101,10 @@ GS_DEFAULT_ACL = "publicRead"
 # ------------------------
 {% if cookiecutter.use_whitenoise == 'y' -%}
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-{%- elif cookiecutter.cloud_provider == 'AWS' %}
+{% elif cookiecutter.cloud_provider == 'AWS' -%}
 STATICFILES_STORAGE = "config.settings.production.StaticRootS3Boto3Storage"
 STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/"
-{%- elif cookiecutter.cloud_provider == 'GCE' %}
+{% elif cookiecutter.cloud_provider == 'GCE' -%}
 STATIC_URL = "https://storage.googleapis.com/{}/static/".format(GS_BUCKET_NAME)
 {%- endif %}
 
