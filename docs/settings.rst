@@ -49,7 +49,7 @@ DJANGO_GCE_STORAGE_BUCKET_NAME          GS_BUCKET_NAME              n/a         
 GOOGLE_APPLICATION_CREDENTIALS          n/a                         n/a                                            raises error
 SENTRY_DSN                              SENTRY_DSN                  n/a                                            raises error
 DJANGO_SENTRY_LOG_LEVEL                 SENTRY_LOG_LEVEL            n/a                                            logging.INFO
-MAILGUN_API_KEY                         MAILGUN_ACCESS_KEY          n/a                                            raises error
+MAILGUN_API_KEY                         MAILGUN_API_KEY             n/a                                            raises error
 MAILGUN_DOMAIN                          MAILGUN_SENDER_DOMAIN       n/a                                            raises error
 ======================================= =========================== ============================================== ======================================================================
 
