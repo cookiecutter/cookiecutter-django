@@ -49,14 +49,11 @@ use_docker:
 postgresql_version:
     Select a PostgreSQL_ version to use. The choices are:
 
-    1. 10.5
-    2. 10.4
-    3. 10.3
-    4. 10.2
-    5. 10.1
-    6. 9.6
-    7. 9.5
-    8. 9.4
+    1. 11.3
+    2. 10.8
+    3. 9.6
+    4. 9.5
+    5. 9.4
 
 js_task_runner:
     Select a JavaScript task runner. The choices are:
@@ -69,6 +66,7 @@ cloud_provider:
 
     1. AWS_
     2. GCS_
+    3. None
 
 custom_bootstrap_compilation:
     Indicates whether the project should support Bootstrap recompilation
@@ -100,7 +98,7 @@ use_travisci:
 keep_local_envs_in_vcs:
     Indicates whether the project's ``.envs/.local/`` should be kept in VCS
     (comes in handy when working in teams where local environment reproducibility
-    is strongly encouraged). 
+    is strongly encouraged).
     Note: .env(s) are only utilized when Docker Compose and/or Heroku support is enabled.
 
 debug:

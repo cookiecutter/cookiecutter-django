@@ -1,10 +1,10 @@
 -r ./base.txt
 
-Werkzeug==0.15.4  # https://github.com/pallets/werkzeug
+Werkzeug==0.14.1  # pyup: < 0.15 # https://github.com/pallets/werkzeug
 ipdb==0.12  # https://github.com/gotcha/ipdb
 Sphinx==2.0.1  # https://github.com/sphinx-doc/sphinx
 {%- if cookiecutter.use_docker == 'y' %}
-psycopg2==2.8 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
+psycopg2==2.8.2 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
 {%- else %}
 psycopg2-binary==2.8.2  # https://github.com/psycopg/psycopg2
 {%- endif %}
@@ -17,7 +17,7 @@ pytest-sugar==0.9.2  # https://github.com/Frozenball/pytest-sugar
 
 # Code quality
 # ------------------------------------------------------------------------------
-flake8==3.7.5  # https://github.com/PyCQA/flake8
+flake8==3.7.7  # https://github.com/PyCQA/flake8
 coverage==4.5.3  # https://github.com/nedbat/coveragepy
 black==19.3b0  # https://github.com/ambv/black
 pylint-django==2.0.9  # https://github.com/PyCQA/pylint-django
@@ -30,6 +30,6 @@ pylint-celery==0.3  # https://github.com/PyCQA/pylint-celery
 factory-boy==2.12.0  # https://github.com/FactoryBoy/factory_boy
 
 django-debug-toolbar==1.11  # https://github.com/jazzband/django-debug-toolbar
-django-extensions==2.1.6  # https://github.com/django-extensions/django-extensions
+django-extensions==2.1.7  # https://github.com/django-extensions/django-extensions
 django-coverage-plugin==1.6.0  # https://github.com/nedbat/django_coverage_plugin
 pytest-django==3.4.8  # https://github.com/pytest-dev/pytest-django
