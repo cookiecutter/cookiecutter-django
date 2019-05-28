@@ -51,6 +51,7 @@ SENTRY_DSN                              SENTRY_DSN                  n/a         
 DJANGO_SENTRY_LOG_LEVEL                 SENTRY_LOG_LEVEL            n/a                                            logging.INFO
 MAILGUN_API_KEY                         MAILGUN_API_KEY             n/a                                            raises error
 MAILGUN_DOMAIN                          MAILGUN_SENDER_DOMAIN       n/a                                            raises error
+MAILGUN_API_URL                         n/a                         n/a                                            "https://api.mailgun.net/v3"
 ======================================= =========================== ============================================== ======================================================================
 
 --------------------------
