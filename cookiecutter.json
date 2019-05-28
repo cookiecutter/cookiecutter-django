@@ -30,7 +30,7 @@
   ],
   "cloud_provider": [
     "AWS",
-    "GCE",
+    "GCP",
     "None"
   ],
   "custom_bootstrap_compilation": "n",
