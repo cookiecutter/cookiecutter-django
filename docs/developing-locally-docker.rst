@@ -10,7 +10,7 @@ All of these commands assume you are in the root of your generated project.
 
     If you're new to Docker, please be aware that some resources are cached system-wide
     and might reappear if you generate a project multiple times with the same name (e.g.
-    :ref:`this issue with Postgres <docker-posgres-auth-failed>`).
+    :ref:`this issue with Postgres <docker-postgres-auth-failed>`).
 
 
 Prerequisites

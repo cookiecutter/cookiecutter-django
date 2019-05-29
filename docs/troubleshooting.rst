@@ -10,7 +10,7 @@ Make sure you have configured the mail backend (e.g. Mailgun) by adding the API 
 
 .. include:: mailgun.rst
 
-.. _docker-posgres-auth-failed:
+.. _docker-postgres-auth-failed:
 
 Docker: Postgres authentication failed
 --------------------------------------
