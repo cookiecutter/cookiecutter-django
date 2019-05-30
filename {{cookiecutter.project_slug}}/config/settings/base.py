@@ -75,10 +75,12 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "rest_framework",
-{% if cookiecutter.use_celery == 'y' -%}
-    "django_celery_beat",
-{%- endif %}
 ]
+# http://docs.celeryproject.org/en/latest/userguide/periodic-tasks.html#using-custom-scheduler-classes
+{% if cookiecutter.use_celery == 'y' -%}
+THIRD_PARTY_APPS += ["django_celery_beat"]
+{%- endif %}
+
 LOCAL_APPS = [
     "{{ cookiecutter.project_slug }}.users.apps.UsersConfig",
     # Your stuff: custom apps go here
