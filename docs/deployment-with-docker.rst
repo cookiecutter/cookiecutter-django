@@ -35,7 +35,15 @@ Configuring the Stack
 
 The majority of services above are configured through the use of environment variables. Just check out :ref:`envs` and you will know the drill.
 
-To obtain logs and information about crashes in a production setup, make sure that you have access to an external Sentry instance (e.g. by creating an account with `sentry.io`_), and set the ``SENTRY_DSN`` variable.
+To obtain logs and information about crashes in a production setup, make sure that you have access to an external Sentry instance (e.g. by creating an account with `sentry.io`_), and set the ``SENTRY_DSN`` variable. Logs of level `logging.ERROR` are sent as Sentry events. Therefore, in order to send a Sentry event use:
+
+.. code-block:: python
+
+    import logging
+    logging.error("This event is sent to Sentry", extra={"<example_key>": "<example_value>"})
+
+The `extra` parameter allows you to send additional information about the context of this error.
+
 
 You will probably also need to setup the Mail backend, for example by adding a `Mailgun`_ API key and a `Mailgun`_ sender domain, otherwise, the account creation view will crash and result in a 500 error when the backend attempts to send an email to the account owner.
 
