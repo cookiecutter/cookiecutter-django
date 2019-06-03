@@ -3,13 +3,14 @@ Base settings to build other settings files upon.
 """
 
 import environ
+import os
 
 ROOT_DIR = (
     environ.Path(__file__) - 3
 )  # ({{ cookiecutter.project_slug }}/config/settings/base.py - 3 = {{ cookiecutter.project_slug }}/)
 APPS_DIR = ROOT_DIR.path("{{ cookiecutter.project_slug }}")
 {% if cookiecutter.js_task_runner == "CreateReactApp" -%}
-REACT_APP_DIR = ROOT_DIR.path('frontend')
+REACT_APP_DIR = ROOT_DIR.path("frontend")
 {%- endif %}
 
 env = environ.Env()
@@ -153,7 +154,7 @@ STATIC_ROOT = str(ROOT_DIR("staticfiles"))
 STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = [
-    str(APPS_DIR.path("static"))
+    str(APPS_DIR.path("static")),
     {% if cookiecutter.js_task_runner == "CreateReactApp" -%}
     os.path.join(str(REACT_APP_DIR.path("build")), 'static'),
     {%- endif %}
