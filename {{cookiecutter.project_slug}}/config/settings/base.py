@@ -8,7 +8,7 @@ import os
 # ({{ cookiecutter.project_slug }}/config/settings/base.py - 3 = {{ cookiecutter.project_slug }}/)
 ROOT_DIR = environ.Path(__file__) - 3
 APPS_DIR = ROOT_DIR.path('{{ cookiecutter.project_slug }}')
-{ % if cookiecutter.js_task_runner == "CreateReactApp" - %}
+{% if cookiecutter.js_task_runner == "CreateReactApp" - %}
 REACT_APP_DIR = ROOT_DIR.path('frontend')
 {%- endif %}
 
@@ -44,7 +44,7 @@ LOCALE_PATHS = [ROOT_DIR.path("locale")]
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-{ % if cookiecutter.use_docker == "y" - %}
+{% if cookiecutter.use_docker == "y" - %}
 DATABASES = {"default": env.db("DATABASE_URL")}
 {%- else %}
 DATABASES = {
@@ -78,7 +78,7 @@ THIRD_PARTY_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'rest_framework',
-    { % if cookiecutter.js_task_runner == "CreateReactApp" - %}
+    {% if cookiecutter.js_task_runner == "CreateReactApp" - %}
     'corsheaders',
     {%- endif %}
 ]
@@ -134,7 +134,7 @@ AUTH_PASSWORD_VALIDATORS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    { % if cookiecutter.js_task_runner == "CreateReactApp" - %}
+    {% if cookiecutter.js_task_runner == "CreateReactApp" - %}
     "corsheaders.middleware.CorsMiddleware",  # SEE: https://github.com/ottoyiu/django-cors-headers#setup
     {%- endif %}
     "django.middleware.locale.LocaleMiddleware",
@@ -154,7 +154,7 @@ STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = [
     str(APPS_DIR.path('static')),
-    { % if cookiecutter.js_task_runner == "CreateReactApp" - %}
+    {% if cookiecutter.js_task_runner == "CreateReactApp" - %}
     os.path.join(str(REACT_APP_DIR.path('build')), 'static'),
     {%- endif %}
 ]
@@ -265,7 +265,7 @@ LOGGING = {
     "root": {"level": "INFO", "handlers": ["console"]},
 }
 
-{ % if cookiecutter.use_celery == 'y' - %}
+{% if cookiecutter.use_celery == 'y' - %}
 # Celery
 # ------------------------------------------------------------------------------
 if USE_TZ:
@@ -303,7 +303,7 @@ ACCOUNT_ADAPTER = "{{cookiecutter.project_slug}}.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = "{{cookiecutter.project_slug}}.users.adapters.SocialAccountAdapter"
 
-{ % if cookiecutter.use_compressor == 'y' - %}
+{% if cookiecutter.use_compressor == 'y' - %}
 # django-compressor
 # ------------------------------------------------------------------------------
 # https://django-compressor.readthedocs.io/en/latest/quickstart/#installation
@@ -311,7 +311,7 @@ INSTALLED_APPS += ["compressor"]
 STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
 
 {%- endif %}
-{ % if cookiecutter.js_task_runner == "CreateReactApp" - %}
+{% if cookiecutter.js_task_runner == "CreateReactApp" - %}
 # django-cors-headers
 # ------------------------------------------------------------------------------
 # https://github.com/ottoyiu/django-cors-headers#cors_origin_allow_all
