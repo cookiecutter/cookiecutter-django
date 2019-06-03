@@ -191,6 +191,7 @@ Listed in alphabetical order.
   Will Farley              `@goldhand`_                 @g01dhand
   William Archinal         `@archinal`_
   Yaroslav Halchenko
+  Keyvan Mosharraf         `@keyvanm`_
 ========================== ============================ ==============
 
 .. _@a7p: https://github.com/a7p
@@ -325,6 +326,7 @@ Listed in alphabetical order.
 .. _@vladdoster: https://github.com/vladdoster
 .. _@cmargieson: https://github.com/cmargieson
 .. _@tanoabeleyra: https://github.com/tanoabeleyra
+.. _@keyvanm: https://github.com/keyvanm
 
 Special Thanks
 ~~~~~~~~~~~~~~
