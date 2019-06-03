@@ -135,7 +135,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     { % if cookiecutter.js_task_runner == 'CreateReactApp' - %}
-    'corsheaders.middleware.CorsMiddleware',  # SEE: https://github.com/ottoyiu/django-cors-headers#setup
+    "corsheaders.middleware.CorsMiddleware",  # SEE: https://github.com/ottoyiu/django-cors-headers#setup
     {%- endif %}
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
