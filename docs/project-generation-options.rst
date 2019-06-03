@@ -49,13 +49,11 @@ use_docker:
 postgresql_version:
     Select a PostgreSQL_ version to use. The choices are:
 
-    1. 10.3
-    2. 10.2
-    3. 10.1
-    4. 9.6
-    5. 9.5
-    6. 9.4
-    7. 9.3
+    1. 11.3
+    2. 10.8
+    3. 9.6
+    4. 9.5
+    5. 9.4
 
 js_task_runner:
     Select a JavaScript task runner. The choices are:
@@ -67,7 +65,10 @@ cloud_provider:
     Select a cloud provider for static & media files. The choices are:
 
     1. AWS_
-    2. GCS_
+    2. GCP_
+    3. None
+
+    Note that if you choose no cloud provider, media files won't work.
 
 custom_bootstrap_compilation:
     Indicates whether the project should support Bootstrap recompilation
@@ -99,7 +100,7 @@ use_travisci:
 keep_local_envs_in_vcs:
     Indicates whether the project's ``.envs/.local/`` should be kept in VCS
     (comes in handy when working in teams where local environment reproducibility
-    is strongly encouraged). 
+    is strongly encouraged).
     Note: .env(s) are only utilized when Docker Compose and/or Heroku support is enabled.
 
 debug:
@@ -122,7 +123,7 @@ debug:
 .. _Gulp: https://github.com/gulpjs/gulp
 
 .. _AWS: https://aws.amazon.com/s3/
-.. _GCS: https://cloud.google.com/storage/
+.. _GCP: https://cloud.google.com/storage/
 
 .. _Django Compressor: https://github.com/django-compressor/django-compressor
 
