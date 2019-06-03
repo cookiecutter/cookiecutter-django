@@ -5,4 +5,4 @@ set -o nounset
 
 
 rm -f './celerybeat.pid'
-celery -A {{cookiecutter.project_slug}}.taskapp beat -l INFO
+celery -A config.celery_app beat -l INFO

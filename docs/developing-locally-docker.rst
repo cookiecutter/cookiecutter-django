@@ -6,6 +6,12 @@ Getting Up and Running Locally With Docker
 The steps below will get you up and running with a local development environment.
 All of these commands assume you are in the root of your generated project.
 
+.. note::
+
+    If you're new to Docker, please be aware that some resources are cached system-wide
+    and might reappear if you generate a project multiple times with the same name (e.g.
+    :ref:`this issue with Postgres <docker-postgres-auth-failed>`).
+
 
 Prerequisites
 -------------

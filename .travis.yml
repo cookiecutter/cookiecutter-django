@@ -1,4 +1,4 @@
-sudo: required
+dist: xenial
 
 services:
   - docker
@@ -13,10 +13,14 @@ before_install:
 
 matrix:
   include:
-    - name: Tox Test
+    - name: Test results
       script: tox -e py36
-    - name: Black template
+    - name: Run flake8 on result
+      script: tox -e flake8
+    - name: Run black on result
       script: tox -e black
+    - name: Black template
+      script: tox -e black-template
     - name: Basic Docker
       script: sh tests/test_docker.sh
     - name: Docker with Celery

@@ -22,11 +22,11 @@ MAILGUN_DOMAIN=
 DJANGO_AWS_ACCESS_KEY_ID=
 DJANGO_AWS_SECRET_ACCESS_KEY=
 DJANGO_AWS_STORAGE_BUCKET_NAME=
-{% elif cookiecutter.cloud_provider == 'GCE' %}
-# GCE
+{% elif cookiecutter.cloud_provider == 'GCP' %}
+# GCP
 # ------------------------------------------------------------------------------
 GOOGLE_APPLICATION_CREDENTIALS=
-DJANGO_GCE_STORAGE_BUCKET_NAME=
+DJANGO_GCP_STORAGE_BUCKET_NAME=
 {% endif %}
 # django-allauth
 # ------------------------------------------------------------------------------
