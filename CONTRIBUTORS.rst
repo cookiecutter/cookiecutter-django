@@ -190,6 +190,7 @@ Listed in alphabetical order.
   Vlad Doster              `@vladdoster`_
   Will Farley              `@goldhand`_                 @g01dhand
   William Archinal         `@archinal`_
+  Xaver Y.R. Chen          `@yrchen`_                   @yrchen
   Yaroslav Halchenko
   Keyvan Mosharraf         `@keyvanm`_
 ========================== ============================ ==============
@@ -327,6 +328,7 @@ Listed in alphabetical order.
 .. _@cmargieson: https://github.com/cmargieson
 .. _@tanoabeleyra: https://github.com/tanoabeleyra
 .. _@keyvanm: https://github.com/keyvanm
+.. _@yrchen: https://github.com/yrchen
 
 Special Thanks
 ~~~~~~~~~~~~~~
