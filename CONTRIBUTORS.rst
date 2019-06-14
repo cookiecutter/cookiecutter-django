@@ -152,6 +152,7 @@ Listed in alphabetical order.
   Meghan Heintz            `@dot2dotseurat`_
   Mesut Yılmaz             `@myilmaz`_
   Michael Gecht            `@mimischi`_                  @_mischi
+  Min ho Kim               `@minho42`_
   mozillazg                `@mozillazg`_
   Oleg Russkin             `@rolep`_
   Pablo                    `@oubiga`_
@@ -270,6 +271,7 @@ Listed in alphabetical order.
 .. _@mostaszewski: https://github.com/mostaszewski
 .. _@mfwarren: https://github.com/mfwarren
 .. _@mimischi: https://github.com/mimischi
+.. _@minho42: https://github.com/minho42
 .. _@mjsisley: https://github.com/mjsisley
 .. _@myilmaz: https://github.com/myilmaz
 .. _@mozillazg: https://github.com/mozillazg
