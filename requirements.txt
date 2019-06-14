@@ -13,5 +13,5 @@ tox==3.12.1
 pytest==4.6.3
 pytest_cases==1.6.3
 pytest-cookies==0.3.0
-pytest-xdist==1.28.0
+pytest-xdist==1.29.0
 pyyaml==5.1.1
