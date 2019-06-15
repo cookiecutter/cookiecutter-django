@@ -130,6 +130,7 @@ Listed in alphabetical order.
   Keith Webber             `@townie`_
   Kevin A. Stone
   Kevin Ndung'u            `@kevgathuku`_
+  Keyvan Mosharraf         `@keyvanm`_
   Krzysztof Szumny         `@noisy`_
   Krzysztof Żuraw          `@krzysztofzuraw`_
   Leonardo Jimenez         `@xpostudio4`_
@@ -193,7 +194,6 @@ Listed in alphabetical order.
   William Archinal         `@archinal`_
   Xaver Y.R. Chen          `@yrchen`_                   @yrchen
   Yaroslav Halchenko
-  Keyvan Mosharraf         `@keyvanm`_
 ========================== ============================ ==============
 
 .. _@a7p: https://github.com/a7p
