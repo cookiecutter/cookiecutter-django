@@ -5,10 +5,10 @@
       <configuration>
         <option name="rootFolder" value="$MODULE_DIR$" />
         <option name="settingsModule" value="config/settings/local.py" />
-        <option name="manageScript" value="$MODULE_DIR$/manage.py" />  
+        <option name="manageScript" value="$MODULE_DIR$/manage.py" />
         <option name="environment" value="&lt;map/&gt;" />
-        <option name="doNotUseTestRunner" value="false" /> 
-        <option name="trackFilePattern" value="migrations" /> 
+        <option name="doNotUseTestRunner" value="false" />
+        <option name="trackFilePattern" value="migrations" />
       </configuration>
     </facet>
   </component>
@@ -25,12 +25,12 @@
   <component name="PackageRequirementsSettings">
     <option name="requirementsPath" value="$MODULE_DIR$/requirements/local.txt" />
   </component>
-   <component name="PyDocumentationSettings"> 
-    <option name="renderExternalDocumentation" value="true" /> 
-  </component> 
-  <component name="ReSTService"> 
-    <option name="workdir" value="$MODULE_DIR$/docs" /> 
-    <option name="DOC_DIR" value="$MODULE_DIR$/docs" /> 
+   <component name="PyDocumentationSettings">
+    <option name="renderExternalDocumentation" value="true" />
+  </component>
+  <component name="ReSTService">
+    <option name="workdir" value="$MODULE_DIR$/docs" />
+    <option name="DOC_DIR" value="$MODULE_DIR$/docs" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
