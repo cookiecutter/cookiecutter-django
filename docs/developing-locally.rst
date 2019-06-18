@@ -120,12 +120,12 @@ In production, we have Mailgun_ configured to have your back!
 
 Celery
 ------
+
 If the project is configured to use Celery as a task scheduler then by default tasks are set to run on the main thread
-when developing locally. If you have the appropriate setup on your local machine then set
+when developing locally. If you have the appropriate setup on your local machine then set the following
+in ``config/settings/local.py``::
 
-CELERY_TASK_ALWAYS_EAGER = False
-
-in /config/settings/local.py
+    CELERY_TASK_ALWAYS_EAGER = False
 
 
 Sass Compilation & Live Reloading
