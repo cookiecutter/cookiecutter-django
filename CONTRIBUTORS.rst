@@ -65,8 +65,8 @@ Listed in alphabetical order.
   Ashley Camba
   Barclay Gauld            `@yunti`_
   Bartek                   `@btknu`_
-  Ben Warren               `@bwarren2`_
   Ben Lopatin
+  Ben Warren               `@bwarren2`_
   Benjamin Abel
   Bert de Miranda          `@bertdemiranda`_
   Bo Lopker                `@blopker`_
@@ -98,8 +98,8 @@ Listed in alphabetical order.
   Demetris Stavrou         `@demestav`_
   Denis Bobrov             `@delneg`_
   Denis Orehovsky          `@apirobot`_
-  Dónal Adams              `@epileptic-fish`_
   Diane Chen               `@purplediane`_               @purplediane88
+  Dónal Adams              `@epileptic-fish`_
   Dong Huynh               `@trungdong`_
   Emanuel Calso            `@bloodpet`_                  @bloodpet
   Eraldo Energy            `@eraldo`_
@@ -133,8 +133,8 @@ Listed in alphabetical order.
   Keyvan Mosharraf         `@keyvanm`_
   Krzysztof Szumny         `@noisy`_
   Krzysztof Żuraw          `@krzysztofzuraw`_
-  Leonardo Jimenez         `@xpostudio4`_
   Leo Zhou                 `@glasslion`_
+  Leonardo Jimenez         `@xpostudio4`_
   Lin Xianyi               `@iynaix`_
   Luis Nell                `@originell`_
   Lukas Klein
