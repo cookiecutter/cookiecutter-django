@@ -180,7 +180,7 @@ Listed in alphabetical order.
   Tano Abeleyra            `@tanoabeleyra`_
   Taylor Baldwin
   Théo Segonds             `@show0k`_
-  Tim Claessens            `@timclaessens`
+  Tim Claessens            `@timclaessens`_
   Tim Freund               `@timfreund`_
   Tom Atkins               `@knitatoms`_
   Tom Offermann
