@@ -29,7 +29,7 @@ pylint-celery==0.3  # https://github.com/PyCQA/pylint-celery
 # ------------------------------------------------------------------------------
 factory-boy==2.12.0  # https://github.com/FactoryBoy/factory_boy
 
-django-debug-toolbar==1.11  # https://github.com/jazzband/django-debug-toolbar
+django-debug-toolbar==2.0  # https://github.com/jazzband/django-debug-toolbar
 django-extensions==2.1.9  # https://github.com/django-extensions/django-extensions
 django-coverage-plugin==1.6.0  # https://github.com/nedbat/django_coverage_plugin
 pytest-django==3.5.0  # https://github.com/pytest-dev/pytest-django
