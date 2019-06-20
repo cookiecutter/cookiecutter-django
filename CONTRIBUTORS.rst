@@ -89,6 +89,7 @@ Listed in alphabetical order.
   Cullen Rhodes            `@c-rhodes`_
   Curtis St Pierre         `@curtisstpierre`_            @cstpierre1388
   Dan Shultz               `@shultz`_
+  Dani Hodovic             `@danihodovic`
   Daniel Hepper            `@dhepper`_                   @danielhepper
   Daniele Tricoli          `@eriol`_
   David Díaz               `@ddiazpinto`_                @DavidDiazPinto
@@ -238,6 +239,7 @@ Listed in alphabetical order.
 .. _@Collederas: https://github.com/Collederas
 .. _@curtisstpierre: https://github.com/curtisstpierre
 .. _@dadokkio: https://github.com/dadokkio
+.. _@danihodovic: https://github.com/danihodovic
 .. _@davitovmasyan: https://github.com/davitovmasyan
 .. _@ddiazpinto: https://github.com/ddiazpinto
 .. _@delneg: https://github.com/delneg
