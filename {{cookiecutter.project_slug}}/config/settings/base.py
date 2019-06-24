@@ -75,8 +75,13 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "rest_framework",
+    "health_check",
+    "health_check.db",
+    "health_check.cache",
+    "health_check.storage",
 {%- if cookiecutter.use_celery == 'y' %}
     "django_celery_beat",
+    "health_check.contrib.celery",
 {%- endif %}
 ]
 
