@@ -122,6 +122,7 @@ Listed in alphabetical order.
   Jerome Leclanche         `@jleclanche`_                @Adys
   Jimmy Gitonga            `@afrowave`_                  @afrowave
   John Cass                `@jcass77`_                   @cass_john
+  Jules Cheron             `@jules-ch`_
   Julien Almarcha          `@sladinji`_
   Julio Castillo           `@juliocc`_
   Kaido Kert               `@kaidokert`_
@@ -274,6 +275,7 @@ Listed in alphabetical order.
 .. _@jazztpt: https://github.com/jazztpt
 .. _@jcass77: https://github.com/jcass77
 .. _@jleclanche: https://github.com/jleclanche
+.. _@jules-ch: https://github.com/jules-ch
 .. _@juliocc: https://github.com/juliocc
 .. _@jvanbrug: https://github.com/jvanbrug
 .. _@ka7eh: https://github.com/ka7eh
