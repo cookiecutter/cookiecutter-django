@@ -179,10 +179,6 @@ ANYMAIL = {
     "MAILGUN_API_URL": env("MAILGUN_API_URL", default="https://api.mailgun.net/v3"),
 }
 
-# Gunicorn
-# ------------------------------------------------------------------------------
-INSTALLED_APPS += ["gunicorn"]  # noqa F405
-
 {% if cookiecutter.use_whitenoise == 'y' -%}
 # WhiteNoise
 # ------------------------------------------------------------------------------
