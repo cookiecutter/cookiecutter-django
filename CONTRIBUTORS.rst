@@ -42,6 +42,7 @@ Listed in alphabetical order.
   Name                     Github                        Twitter
 ========================== ============================ ==============
   18                       `@dezoito`_
+  2O4                      `@2O4`_
   a7p                      `@a7p`_
   Aaron Eikenberry         `@aeikenberry`_
   Adam Bogdał              `@bogdal`_
@@ -199,6 +200,7 @@ Listed in alphabetical order.
 ========================== ============================ ==============
 
 .. _@a7p: https://github.com/a7p
+.. _@2O4: https://github.com/2O4
 .. _@ad-m: https://github.com/ad-m
 .. _@adammsteele: https://github.com/adammsteele
 .. _@aeikenberry: https://github.com/aeikenberry
