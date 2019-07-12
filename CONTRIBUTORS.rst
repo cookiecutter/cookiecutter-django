@@ -90,7 +90,7 @@ Listed in alphabetical order.
   Cullen Rhodes            `@c-rhodes`_
   Curtis St Pierre         `@curtisstpierre`_            @cstpierre1388
   Dan Shultz               `@shultz`_
-  Dani Hodovic             `@danihodovic`
+  Dani Hodovic             `@danihodovic`_
   Daniel Hepper            `@dhepper`_                   @danielhepper
   Daniele Tricoli          `@eriol`_
   David Díaz               `@ddiazpinto`_                @DavidDiazPinto
