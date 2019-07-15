@@ -32,7 +32,7 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         form.save()
         messages.add_message(self.request, messages.INFO, _("Infos successfully updated"))
-        return super(UserUpdateView, self).form_valid(form)
+        return super().form_valid(form)
 
 
 user_update_view = UserUpdateView.as_view()
