@@ -2,6 +2,39 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2019-07-09]
+### Fixed
+- Always use test settings in pytest (@danihodovic)
+- Remove gunicorn from `INSTALLED_APPS` (@danihodovic)
+- Remove `EMAIL_HOST` and `EMAIL_PORT` with locmem backend (@danihodovic)
+
+### Added
+- Add `EMAIL_TIMEOUT` (@danihodovic)
+
+## [2019-06-22]
+### Fixed
+- Remove redundant template debug setting (@danihodovic)
+
+## [2019-06-19]
+### Fixed
+- Fix removal carriage returns in docker scripts (@timclaessens)
+
+## [2019-06-15]
+### Fixed
+- Issue with Pycharm setup for running things in Docker compose (@foarsitter)
+
+## [2019-06-06]
+### Changed
+- Update generated Travis config (@browniebroke)
+
+## [2019-06-03]
+### Added
+- Installed `django-celery-beat` to keep scheduled tasks in DB (@keyvanm)
+
+## [2019-05-28]
+### Changed
+- Use GCP acronym rather than inconsistent GCE/GCS (@tanoabeleyra)
+
 ## [2019-05-27]
 ### Changed
 - Made cloud provider optional (@tanoabeleyra)

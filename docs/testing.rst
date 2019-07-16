@@ -19,9 +19,9 @@ You will get a readout of the `users` app that has already been set up with test
 
 If you set up your project to `develop locally with docker`_, run the following command: ::
 
-   $ docker-compose -f local.yml run django pytest 
+   $ docker-compose -f local.yml run django pytest
 
-Targetting particular apps for testing in ``docker`` follows a similar pattern as previously shown above.
+Targeting particular apps for testing in ``docker`` follows a similar pattern as previously shown above.
 
 Coverage
 --------
@@ -36,9 +36,9 @@ Once the tests are complete, in order to see the code coverage, run the followin
 
 .. note::
 
-   At the root of the project folder, you will find the `pytest.ini` file. You can use this to customize_ the ``pytest`` to your liking. 
+   At the root of the project folder, you will find the `pytest.ini` file. You can use this to customize_ the ``pytest`` to your liking.
 
-   There is also the `.coveragerc`. This is the configuration file for the ``coverage`` tool. You can find out more about `configuring`_ ``coverage``. 
+   There is also the `.coveragerc`. This is the configuration file for the ``coverage`` tool. You can find out more about `configuring`_ ``coverage``.
 
 .. seealso::
 
