@@ -108,6 +108,7 @@ Listed in alphabetical order.
   Eric Groom               `@ericgroom`_
   Eyad Al Sibai            `@eyadsibai`_
   Felipe Arruda            `@arruda`_
+  Florian Idelberger       `@step21`_                    @windrush
   Garry Cairns             `@garry-cairns`_
   Garry Polley             `@garrypolley`_
   Hamish Durkin            `@durkode`_
