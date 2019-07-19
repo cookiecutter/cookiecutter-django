@@ -84,6 +84,7 @@ Optional Integrations
 .. _PythonAnywhere: https://www.pythonanywhere.com/
 .. _Traefik: https://traefik.io/
 .. _LetsEncrypt: https://letsencrypt.org/
+.. _pre-commit: https://github.com/pre-commit/pre-commit
 
 Constraints
 -----------
@@ -193,6 +194,7 @@ Answer the prompts with your own desired options_. For example::
     5 - Not open source
     Choose from 1, 2, 3, 4, 5 [1]: 1
     keep_local_envs_in_vcs [y]: y
+    use_pre_commit [n]: n
     debug[n]: n
 
 Enter the project and take a look around::

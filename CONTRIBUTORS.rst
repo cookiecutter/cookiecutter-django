@@ -136,6 +136,7 @@ Listed in alphabetical order.
   Keyvan Mosharraf         `@keyvanm`_
   Krzysztof Szumny         `@noisy`_
   Krzysztof Żuraw          `@krzysztofzuraw`_
+  Leo Wong                 `@leollon`_
   Leo Zhou                 `@glasslion`_
   Leonardo Jimenez         `@xpostudio4`_
   Lin Xianyi               `@iynaix`_
@@ -286,6 +287,7 @@ Listed in alphabetical order.
 .. _@kevgathuku: https://github.com/kevgathuku
 .. _@keyvanm: https://github.com/keyvanm
 .. _@knitatoms: https://github.com/knitatoms
+.. _@leollon: https://github.com/leollon
 .. _@krzysztofzuraw: https://github.com/krzysztofzuraw
 .. _@MathijsHoogland: https://github.com/MathijsHoogland
 .. _@mattayes: https://github.com/mattayes

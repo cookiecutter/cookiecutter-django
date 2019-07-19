@@ -279,6 +279,10 @@ def remove_node_dockerfile():
     shutil.rmtree(os.path.join("compose", "local", "node"))
 
 
+def remove_dotpre_commit_config_yaml():
+    os.remove(".pre-commit-config.yaml")
+
+
 def main():
     debug = "{{ cookiecutter.debug }}".lower() == "y"
 
@@ -341,6 +345,9 @@ def main():
 
     if "{{ cookiecutter.use_travisci }}".lower() == "n":
         remove_dottravisyml_file()
+
+    if "{{ cookiecutter.use_pre_commit }}".lower() == "n":
+        remove_dotpre_commit_config_yaml()
 
     print(SUCCESS + "Project initialized, keep up the good work!" + TERMINATOR)
 

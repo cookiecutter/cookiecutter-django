@@ -37,6 +37,7 @@ def context():
 @pytest.mark.parametrize("use_sentry", YN_CHOICES, ids=lambda yn: f"sentry:{yn}")
 @pytest.mark.parametrize("use_compressor", YN_CHOICES, ids=lambda yn: f"cmpr:{yn}")
 @pytest.mark.parametrize("use_whitenoise", YN_CHOICES, ids=lambda yn: f"wnoise:{yn}")
+@pytest.mark.parametrize("use_pre_commit", YN_CHOICES, ids=lambda yn: f"precommit:{yn}")
 @pytest.mark.parametrize("cloud_provider", CLOUD_CHOICES, ids=lambda yn: f"cloud:{yn}")
 def context_combination(
     windows,
@@ -47,6 +48,7 @@ def context_combination(
     use_compressor,
     use_whitenoise,
     cloud_provider,
+    use_pre_commit,
 ):
     """Fixture that parametrize the function where it's used."""
     return {
@@ -58,6 +60,7 @@ def context_combination(
         "use_sentry": use_sentry,
         "use_whitenoise": use_whitenoise,
         "cloud_provider": cloud_provider,
+        "use_pre_commit": use_pre_commit,
     }
 
 

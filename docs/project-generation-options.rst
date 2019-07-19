@@ -103,6 +103,14 @@ keep_local_envs_in_vcs:
     is strongly encouraged).
     Note: .env(s) are only utilized when Docker Compose and/or Heroku support is enabled.
 
+use_pre_commit:
+    Indicates that pointing out issues in code on every commit with git,
+    such as missing semicolons, trailing whitespace, sort import statements
+    and debug statements. It is also good for code review while not wasting time with
+    trivial style nitpicks.
+    This option is just relevant for Django project developers,
+    but not for Cookiecutter Django developers.
+
 debug:
     Indicates whether the project should be configured for debugging.
     This option is relevant for Cookiecutter Django developers only.
