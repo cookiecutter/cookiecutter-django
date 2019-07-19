@@ -118,7 +118,7 @@ The three envs we are presented with here are ``POSTGRES_DB``, ``POSTGRES_USER``
 
 One final touch: should you ever need to merge ``.envs/production/*`` in a single ``.env`` run the ``merge_production_dotenvs_in_dotenv.py``: ::
 
-    $ python merge_production_dotenvs_in_dotenv.py
+    $ ./bin/merge_production_dotenvs_in_dotenv.py
 
 The ``.env`` file will then be created, with all your production envs residing beside each other.
 
