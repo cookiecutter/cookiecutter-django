@@ -79,7 +79,6 @@ services:
     command: /start-flower
 
   {%- endif %}
-  {%- if cookiecutter.js_task_runner == 'Gulp' %}
 
   node:
     build:
@@ -97,5 +96,3 @@ services:
       - "3000:3000"
       # Expose browsersync UI: https://www.browsersync.io/docs/options/#option-ui
       - "3001:3001"
-
-  {%- endif %}

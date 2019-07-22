@@ -29,33 +29,3 @@ assert (
 assert (
     "\\" not in "{{ cookiecutter.author_name }}"
 ), "Don't include backslashes in author name."
-
-if "{{ cookiecutter.use_docker }}".lower() == "n":
-    python_major_version = sys.version_info[0]
-    if python_major_version == 2:
-        print(
-            WARNING + "You're running cookiecutter under Python 2, but the generated "
-            "project requires Python 3.6+. Do you want to proceed (y/n)? " + TERMINATOR
-        )
-        yes_options, no_options = frozenset(["y"]), frozenset(["n"])
-        while True:
-            choice = raw_input().lower()
-            if choice in yes_options:
-                break
-
-            elif choice in no_options:
-                print(INFO + "Generation process stopped as requested." + TERMINATOR)
-                sys.exit(1)
-            else:
-                print(
-                    HINT
-                    + "Please respond with {} or {}: ".format(
-                        ", ".join(
-                            ["'{}'".format(o) for o in yes_options if not o == ""]
-                        ),
-                        ", ".join(
-                            ["'{}'".format(o) for o in no_options if not o == ""]
-                        ),
-                    )
-                    + TERMINATOR
-                )

@@ -1,4 +1,3 @@
-{% if cookiecutter.js_task_runner == 'Gulp' -%}
 FROM node:10-stretch-slim as client-builder
 
 WORKDIR /app
@@ -8,7 +7,6 @@ COPY . /app
 RUN npm run build
 
 # Python build stage
-{%- endif %}
 FROM python:3.6-alpine
 
 ENV PYTHONUNBUFFERED 1
@@ -56,11 +54,7 @@ RUN sed -i 's/\r$//g' /start-flower
 RUN chmod +x /start-flower
 {%- endif %}
 
-{%- if cookiecutter.js_task_runner == 'Gulp' %}
 COPY --from=client-builder /app /app
-{% else %}
-COPY . /app
-{%- endif %}
 
 RUN chown -R django /app
 

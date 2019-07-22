@@ -91,7 +91,7 @@ def remove_packagejson_file():
 
 def remove_celery_files():
     file_names = [
-        os.path.join("config", "celery_app.py"),
+        os.path.join("{{ cookiecutter.project_slug }}", "celery_app.py"),
         os.path.join("{{ cookiecutter.project_slug }}", "users", "tasks.py"),
         os.path.join(
             "{{ cookiecutter.project_slug }}", "users", "tests", "test_tasks.py"
@@ -261,8 +261,12 @@ def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):
 
 
 def set_flags_in_settings_files():
-    set_django_secret_key(os.path.join("config", "settings", "local.py"))
-    set_django_secret_key(os.path.join("config", "settings", "test.py"))
+    set_django_secret_key(
+        os.path.join("{{ cookiecutter.project_slug }}", "settings", "dev_template.py")
+    )
+    set_django_secret_key(
+        os.path.join("{{ cookiecutter.project_slug }}", "settings", "test.py")
+    )
 
 
 def remove_envs_and_associated_files():
@@ -280,13 +284,8 @@ def remove_node_dockerfile():
 
 
 def main():
-    debug = "{{ cookiecutter.debug }}".lower() == "y"
+    set_flags_in_envs(generate_random_user(), generate_random_user())
 
-    set_flags_in_envs(
-        DEBUG_VALUE if debug else generate_random_user(),
-        DEBUG_VALUE if debug else generate_random_user(),
-        debug=debug,
-    )
     set_flags_in_settings_files()
 
     if "{{ cookiecutter.open_source_license }}" == "Not open source":
@@ -294,39 +293,11 @@ def main():
     if "{{ cookiecutter.open_source_license}}" != "GPLv3":
         remove_gplv3_files()
 
-    if "{{ cookiecutter.use_pycharm }}".lower() == "n":
-        remove_pycharm_files()
+    remove_utility_files()
+    remove_heroku_files()
 
-    if "{{ cookiecutter.use_docker }}".lower() == "y":
-        remove_utility_files()
-    else:
-        remove_docker_files()
-
-    if "{{ cookiecutter.use_heroku }}".lower() == "n":
-        remove_heroku_files()
-
-    if (
-        "{{ cookiecutter.use_docker }}".lower() == "n"
-        and "{{ cookiecutter.use_heroku }}".lower() == "n"
-    ):
-        if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
-            print(
-                INFO + ".env(s) are only utilized when Docker Compose and/or "
-                "Heroku support is enabled so keeping them does not "
-                "make sense given your current setup." + TERMINATOR
-            )
-        remove_envs_and_associated_files()
-    else:
-        append_to_gitignore_file(".env")
-        append_to_gitignore_file(".envs/*")
-        if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
-            append_to_gitignore_file("!.envs/.local/")
-
-    if "{{ cookiecutter.js_task_runner}}".lower() == "none":
-        remove_gulp_files()
-        remove_packagejson_file()
-        if "{{ cookiecutter.use_docker }}".lower() == "y":
-            remove_node_dockerfile()
+    append_to_gitignore_file(".env")
+    append_to_gitignore_file(".envs/*")
 
     if "{{ cookiecutter.cloud_provider}}".lower() == "none":
         print(
@@ -336,8 +307,7 @@ def main():
 
     if "{{ cookiecutter.use_celery }}".lower() == "n":
         remove_celery_files()
-        if "{{ cookiecutter.use_docker }}".lower() == "y":
-            remove_celery_compose_dirs()
+        remove_celery_compose_dirs()
 
     if "{{ cookiecutter.use_travisci }}".lower() == "n":
         remove_dottravisyml_file()

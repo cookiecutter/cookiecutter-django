@@ -3,13 +3,6 @@
   "version": "{{ cookiecutter.version }}",
   "dependencies": {},
   "devDependencies": {
-    {% if cookiecutter.js_task_runner == 'Gulp' -%}
-    {% if cookiecutter.custom_bootstrap_compilation == 'y' -%}
-    "bootstrap": "4.3.1",
-    "gulp-concat": "^2.6.1",
-    "jquery": "3.3.1",
-    "popper.js": "1.14.3",
-    {% endif -%}
     "autoprefixer": "^9.4.7",
     "browser-sync": "^2.14.0",
     "cssnano": "^4.1.10",
@@ -21,7 +14,6 @@
     "gulp-sass": "^4.0.2",
     "gulp-uglify-es": "^1.0.4",
     "pixrem": "^5.0.0"
-    {%- endif %}
   },
   "engines": {
     "node": ">=8"
@@ -30,9 +22,7 @@
     "last 2 versions"
   ],
   "scripts": {
-    {% if cookiecutter.js_task_runner == 'Gulp' -%}
     "dev": "gulp",
     "build": "gulp generate-assets"
-    {%- endif %}
   }
 }

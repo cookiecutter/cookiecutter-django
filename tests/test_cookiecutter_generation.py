@@ -30,8 +30,6 @@ def context():
 
 
 @pytest_fixture_plus
-@pytest.mark.parametrize("windows", YN_CHOICES, ids=lambda yn: f"win:{yn}")
-@pytest.mark.parametrize("use_docker", YN_CHOICES, ids=lambda yn: f"docker:{yn}")
 @pytest.mark.parametrize("use_celery", YN_CHOICES, ids=lambda yn: f"celery:{yn}")
 @pytest.mark.parametrize("use_mailhog", YN_CHOICES, ids=lambda yn: f"mailhog:{yn}")
 @pytest.mark.parametrize("use_sentry", YN_CHOICES, ids=lambda yn: f"sentry:{yn}")
@@ -39,19 +37,10 @@ def context():
 @pytest.mark.parametrize("use_whitenoise", YN_CHOICES, ids=lambda yn: f"wnoise:{yn}")
 @pytest.mark.parametrize("cloud_provider", CLOUD_CHOICES, ids=lambda yn: f"cloud:{yn}")
 def context_combination(
-    windows,
-    use_docker,
-    use_celery,
-    use_mailhog,
-    use_sentry,
-    use_compressor,
-    use_whitenoise,
-    cloud_provider,
+    use_celery, use_mailhog, use_sentry, use_compressor, use_whitenoise, cloud_provider
 ):
     """Fixture that parametrize the function where it's used."""
     return {
-        "windows": windows,
-        "use_docker": use_docker,
         "use_compressor": use_compressor,
         "use_celery": use_celery,
         "use_mailhog": use_mailhog,
@@ -125,7 +114,8 @@ def test_black_passes(cookies, context_combination):
     This is parametrized for each combination from ``context_combination`` fixture
     """
     result = cookies.bake(extra_context=context_combination)
-
+    if result.exception:
+        pytest.fail(str(result.exception))
     try:
         sh.black("--check", "--diff", "--exclude", "migrations", f"{result.project}/")
     except sh.ErrorReturnCode as e:
