@@ -61,22 +61,6 @@ def remove_docker_files():
         os.remove(file_name)
 
 
-def remove_utility_files():
-    shutil.rmtree("utility")
-
-
-def remove_heroku_files():
-    file_names = ["Procfile", "runtime.txt", "requirements.txt"]
-    for file_name in file_names:
-        if (
-            file_name == "requirements.txt"
-            and "{{ cookiecutter.use_travisci }}".lower() == "y"
-        ):
-            # don't remove the file if we are using travisci but not using heroku
-            continue
-        os.remove(file_name)
-
-
 def remove_gulp_files():
     file_names = ["gulpfile.js"]
     for file_name in file_names:
@@ -292,9 +276,6 @@ def main():
         remove_open_source_files()
     if "{{ cookiecutter.open_source_license}}" != "GPLv3":
         remove_gplv3_files()
-
-    remove_utility_files()
-    remove_heroku_files()
 
     append_to_gitignore_file(".env")
     append_to_gitignore_file(".envs/*")

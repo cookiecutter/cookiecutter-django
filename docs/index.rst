@@ -18,8 +18,6 @@ Contents:
    settings
    linters
    testing
-   deployment-on-pythonanywhere
-   deployment-on-heroku
    deployment-with-docker
    docker-postgres-backups
    faq
