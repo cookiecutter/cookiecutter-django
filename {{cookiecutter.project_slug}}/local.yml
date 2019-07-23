@@ -8,7 +8,7 @@ services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
     build:
       context: .
-      dockerfile: ./compose/local/django/Dockerfile
+      dockerfile: ./compose/dev/django/Dockerfile
     image: {{ cookiecutter.project_slug }}_local_django
     depends_on:
       - postgres
@@ -18,8 +18,8 @@ services:
     volumes:
       - .:/app
     env_file:
-      - ./.envs/.local/.django
-      - ./.envs/.local/.postgres
+      - ./.envs/dev/django
+      - ./.envs/dev/postgres
     ports:
       - "8000:8000"
     command: /start
@@ -27,13 +27,13 @@ services:
   postgres:
     build:
       context: .
-      dockerfile: ./compose/production/postgres/Dockerfile
-    image: {{ cookiecutter.project_slug }}_production_postgres
+      dockerfile: postgres:11-alpine
+    image: {{ cookiecutter.project_slug }}_postgres
     volumes:
       - local_postgres_data:/var/lib/postgresql/data
       - local_postgres_data_backups:/backups
     env_file:
-      - ./.envs/.local/.postgres
+      - .envs/dev/postgres
   {%- if cookiecutter.use_mailhog == 'y' %}
 
   mailhog:
@@ -49,7 +49,7 @@ services:
 
   celeryworker:
     <<: *django
-    image: {{ cookiecutter.project_slug }}_local_celeryworker
+    image: {{ cookiecutter.project_slug }}_celeryworker
     depends_on:
       - redis
       - postgres
@@ -61,7 +61,7 @@ services:
 
   celerybeat:
     <<: *django
-    image: {{ cookiecutter.project_slug }}_local_celerybeat
+    image: {{ cookiecutter.project_slug }}_celerybeat
     depends_on:
       - redis
       - postgres
@@ -73,7 +73,7 @@ services:
 
   flower:
     <<: *django
-    image: {{ cookiecutter.project_slug }}_local_flower
+    image: {{ cookiecutter.project_slug }}_flower
     ports:
       - "5555:5555"
     command: /start-flower
@@ -83,8 +83,8 @@ services:
   node:
     build:
       context: .
-      dockerfile: ./compose/local/node/Dockerfile
-    image: {{ cookiecutter.project_slug }}_local_node
+      dockerfile: node:10-stretch-slim
+    image: {{ cookiecutter.project_slug }}_node
     depends_on:
       - django
     volumes:

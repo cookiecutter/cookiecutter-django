@@ -1,14 +1,3 @@
-"""
-NOTE:
-    the below code is to be maintained Python 2.x-compatible
-    as the whole Cookiecutter Django project initialization
-    can potentially be run in Python 2.x environment
-    (at least so we presume in `pre_gen_project.py`).
-
-TODO: ? restrict Cookiecutter Django project initialization to Python 3.x environments only
-"""
-from __future__ import print_function
-
 import os
 import random
 import shutil
@@ -56,7 +45,7 @@ def remove_pycharm_files():
 def remove_docker_files():
     shutil.rmtree("compose")
 
-    file_names = ["local.yml", "production.yml", ".dockerignore"]
+    file_names = ["dev.yml", ".dockerignore"]
     for file_name in file_names:
         os.remove(file_name)
 
@@ -220,10 +209,10 @@ def append_to_gitignore_file(s):
 
 
 def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):
-    local_django_envs_path = os.path.join(".envs", ".local", ".django")
-    production_django_envs_path = os.path.join(".envs", ".production", ".django")
-    local_postgres_envs_path = os.path.join(".envs", ".local", ".postgres")
-    production_postgres_envs_path = os.path.join(".envs", ".production", ".postgres")
+    local_django_envs_path = os.path.join(".envs", "dev", "django")
+    production_django_envs_path = os.path.join(".envs", "prod", "django")
+    local_postgres_envs_path = os.path.join(".envs", "dev", "postgres")
+    production_postgres_envs_path = os.path.join(".envs", "prod", "postgres")
 
     set_django_secret_key(production_django_envs_path)
     set_django_admin_url(production_django_envs_path)
