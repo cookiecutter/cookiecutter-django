@@ -40,12 +40,11 @@ services:
     image: mailhog/mailhog:v1.0.0
     ports:
       - "8025:8025"
-
   {%- endif %}
-  {%- if cookiecutter.use_celery == 'y' %}
 
   redis:
     image: redis:5.0
+  {%- if cookiecutter.use_celery == 'y' %}
 
   celeryworker:
     <<: *django

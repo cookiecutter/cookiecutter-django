@@ -212,7 +212,6 @@ def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):
     local_django_envs_path = os.path.join(".envs", "dev", "django")
     production_django_envs_path = os.path.join(".envs", "prod", "django")
     local_postgres_envs_path = os.path.join(".envs", "dev", "postgres")
-    production_postgres_envs_path = os.path.join(".envs", "prod", "postgres")
 
     set_django_secret_key(production_django_envs_path)
     set_django_admin_url(production_django_envs_path)
@@ -220,10 +219,6 @@ def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):
     set_postgres_user(local_postgres_envs_path, value=postgres_user)
     set_postgres_password(
         local_postgres_envs_path, value=DEBUG_VALUE if debug else None
-    )
-    set_postgres_user(production_postgres_envs_path, value=postgres_user)
-    set_postgres_password(
-        production_postgres_envs_path, value=DEBUG_VALUE if debug else None
     )
 
     set_celery_flower_user(local_django_envs_path, value=celery_flower_user)
@@ -250,10 +245,18 @@ def remove_envs_and_associated_files():
     os.remove(os.path.join("bin", "merge_production_dotenvs_in_dotenv.py"))
 
 
+def create_dev_settings():
+    shutil.copy(
+        os.path.join("{{ cookiecutter.project_slug }}", "settings", "dev_template.py"),
+        os.path.join("{{ cookiecutter.project_slug }}", "settings", "dev.py"),
+    )
+
+
 def main():
     set_flags_in_envs(generate_random_user(), generate_random_user())
 
     set_flags_in_settings_files()
+    create_dev_settings()
 
     if "{{ cookiecutter.open_source_license }}" == "Not open source":
         remove_open_source_files()

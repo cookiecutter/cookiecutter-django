@@ -12,6 +12,6 @@ language: python
 python:
   - "3.6"
 install:
-  - pip install -r requirements/local.txt
+  - pip install -r requirements/test.txt
 script:
   - "pytest"
