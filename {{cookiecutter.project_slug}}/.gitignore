@@ -330,8 +330,11 @@ pip-selfcheck.json
 {% if cookiecutter.use_mailhog == 'y' %}
 MailHog
 {%- endif %}
-{{ cookiecutter.project_slug }}/media/
+media/
 
 .pytest_cache/
 
 .ipython/
+
+RELEASE.txt
+{{ cookiecutter.project_slug }}/settings/dev.txt
