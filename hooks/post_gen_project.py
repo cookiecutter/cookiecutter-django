@@ -80,6 +80,9 @@ def remove_celery_files():
         os.path.join(
             "{{ cookiecutter.project_slug }}", "users", "tests", "test_tasks.py"
         ),
+        os.path.join("bin", "start-celery-beat"),
+        os.path.join("bin", "start-celery-worker"),
+        os.path.join("bin", "start-flower"),
     ]
     for file_name in file_names:
         os.remove(file_name)
@@ -258,15 +261,6 @@ def remove_envs_and_associated_files():
     os.remove(os.path.join("bin", "merge_production_dotenvs_in_dotenv.py"))
 
 
-def remove_celery_compose_dirs():
-    shutil.rmtree(os.path.join("compose", "local", "django", "celery"))
-    shutil.rmtree(os.path.join("compose", "production", "django", "celery"))
-
-
-def remove_node_dockerfile():
-    shutil.rmtree(os.path.join("compose", "local", "node"))
-
-
 def main():
     set_flags_in_envs(generate_random_user(), generate_random_user())
 
@@ -288,7 +282,6 @@ def main():
 
     if "{{ cookiecutter.use_celery }}".lower() == "n":
         remove_celery_files()
-        remove_celery_compose_dirs()
 
     if "{{ cookiecutter.use_travisci }}".lower() == "n":
         remove_dottravisyml_file()
