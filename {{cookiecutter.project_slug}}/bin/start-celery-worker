@@ -5,4 +5,4 @@ set -o pipefail
 set -o nounset
 
 
-celery -A config.celery_app worker -l INFO
+celery -A {{ cookiecutter.project_slug }}.celery_app worker -l INFO

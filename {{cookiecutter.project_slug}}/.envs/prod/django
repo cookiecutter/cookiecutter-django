@@ -1,32 +1,47 @@
 # General
 # ------------------------------------------------------------------------------
-# DJANGO_READ_DOT_ENV_FILE=True
-DJANGO_SETTINGS_MODULE=config.settings.production
+DJANGO_SETTINGS_MODULE={{ cookiecutter.project_slug }}.settings.prod
 DJANGO_SECRET_KEY=!!!SET DJANGO_SECRET_KEY!!!
-DJANGO_ADMIN_URL=!!!SET DJANGO_ADMIN_URL!!!
+DJANGO_ADMIN_URL=admin/
 DJANGO_ALLOWED_HOSTS=.{{ cookiecutter.domain_name }}
+DJANGO_DEBUG=False
+
+DATABASE_URL=postgres://postgres:!!!SET POSTGRES_PASSWORD!!!@localhost/{{ cookiecutter.project_slug }}
 
 # Security
 # ------------------------------------------------------------------------------
 # TIP: better off using DNS, however, redirect is OK too
 DJANGO_SECURE_SSL_REDIRECT=False
+DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS=True
+DJANGO_SECURE_HSTS_PRELOAD=True
+DJANGO_SECURE_CONTENT_TYPE_NOSNIFF=True
 
 # Email
 # ------------------------------------------------------------------------------
-MAILGUN_API_KEY=
 DJANGO_SERVER_EMAIL=
-MAILGUN_DOMAIN=
+DJANGO_EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
+EMAIL_HOST=localhost
+EMAIL_HOST_USER=
+EMAIL_HOST_PASSWORD=
+EMAIL_PORT=25
+DJANGO_EMAIL_SUBJECT_PREFIX="[{{cookiecutter.project_name}}]"
+
 {% if cookiecutter.cloud_provider == 'AWS' %}
 # AWS
 # ------------------------------------------------------------------------------
 DJANGO_AWS_ACCESS_KEY_ID=
 DJANGO_AWS_SECRET_ACCESS_KEY=
 DJANGO_AWS_STORAGE_BUCKET_NAME=
+DJANGO_AWS_S3_REGION_NAME=
 {% elif cookiecutter.cloud_provider == 'GCP' %}
 # GCP
 # ------------------------------------------------------------------------------
 GOOGLE_APPLICATION_CREDENTIALS=
 DJANGO_GCP_STORAGE_BUCKET_NAME=
+{% elif cookiecutter.cloud_provider == 'Azure' %}
+DJANGO_AZURE_ACCOUNT_NAME=
+DJANGO_AZURE_ACCOUNT_KEY=
+DJANGO_AZURE_CONTAINER=
 {% endif %}
 # django-allauth
 # ------------------------------------------------------------------------------
@@ -43,15 +58,16 @@ WEB_CONCURRENCY=4
 # Sentry
 # ------------------------------------------------------------------------------
 SENTRY_DSN=
+# SENTRY_LOG_LEVEL=
 {% endif %}
 
 # Redis
 # ------------------------------------------------------------------------------
-REDIS_URL=redis://redis:6379/0
+REDIS_URL=redis://localhost:6379/0
 {% if cookiecutter.use_celery == 'y' %}
 # Celery
 # ------------------------------------------------------------------------------
-
+CELERY_BROKER_URL=redis://localhost:6379/0
 # Flower
 CELERY_FLOWER_USER=!!!SET CELERY_FLOWER_USER!!!
 CELERY_FLOWER_PASSWORD=!!!SET CELERY_FLOWER_PASSWORD!!!

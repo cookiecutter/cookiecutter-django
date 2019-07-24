@@ -5,7 +5,6 @@
   "author_name": "Your Name",
   "domain_name": "example.com",
   "email": "{{ cookiecutter.author_name.lower()|replace(' ', '-') }}@example.com",
-  "version": "0.1.0",
   "open_source_license": [
     "MIT",
     "BSD",

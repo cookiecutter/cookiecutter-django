@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+PROJECT_PATH=`pwd`
+ENV_PATH="${PROJECT_PATH}/.envs/prod/django"
+SETTINGS_PATH="${PROJECT_PATH}/{{ cookiecutter.project_slug }}/settings/dev_template.py"
+
+echo "Creating local .env file"
+cp ${ENV_PATH} "${PROJECT_PATH}/.env"
+
+echo "Creating local dev.py settings"
+cp ${SETTINGS_PATH} "${PROJECT_PATH}/{{ cookiecutter.project_slug }}/settings/dev.py"

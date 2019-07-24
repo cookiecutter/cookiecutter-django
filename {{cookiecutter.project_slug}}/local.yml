@@ -8,8 +8,8 @@ services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
     build:
       context: .
-      dockerfile: ./compose/dev/django/Dockerfile
-    image: {{ cookiecutter.project_slug }}_local_django
+      dockerfile: ./Dockerfile
+    image: {{ cookiecutter.project_slug }}_django
     depends_on:
       - postgres
       {%- if cookiecutter.use_mailhog == 'y' %}
@@ -18,22 +18,20 @@ services:
     volumes:
       - .:/app
     env_file:
-      - ./.envs/dev/django
-      - ./.envs/dev/postgres
+      - .env
     ports:
       - "8000:8000"
-    command: /start
+    command: /app/bin/start-django-dev
 
   postgres:
-    build:
-      context: .
-      dockerfile: postgres:11-alpine
-    image: {{ cookiecutter.project_slug }}_postgres
+    image: postgres:11-alpine
     volumes:
       - local_postgres_data:/var/lib/postgresql/data
       - local_postgres_data_backups:/backups
     env_file:
-      - .envs/dev/postgres
+      - .env
+    ports:
+      - "5432:5432"
   {%- if cookiecutter.use_mailhog == 'y' %}
 
   mailhog:
@@ -56,7 +54,7 @@ services:
       - mailhog
       {%- endif %}
     ports: []
-    command: /start-celeryworker
+    command: /app/bin/start-celeryworker
 
   celerybeat:
     <<: *django
@@ -68,22 +66,19 @@ services:
       - mailhog
       {%- endif %}
     ports: []
-    command: /start-celerybeat
+    command: /app/bin/start-celerybeat
 
   flower:
     <<: *django
     image: {{ cookiecutter.project_slug }}_flower
     ports:
       - "5555:5555"
-    command: /start-flower
+    command: /app/bin/start-flower
 
   {%- endif %}
 
   node:
-    build:
-      context: .
-      dockerfile: node:10-stretch-slim
-    image: {{ cookiecutter.project_slug }}_node
+    image: node:10-stretch-slim
     depends_on:
       - django
     volumes:

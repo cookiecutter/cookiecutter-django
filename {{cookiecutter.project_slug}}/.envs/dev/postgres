@@ -1,7 +1,6 @@
-# PostgreSQL
-# ------------------------------------------------------------------------------
-POSTGRES_HOST=postgres
-POSTGRES_PORT=5432
-POSTGRES_DB={{ cookiecutter.project_slug }}
-POSTGRES_USER=!!!SET POSTGRES_USER!!!
 POSTGRES_PASSWORD=!!!SET POSTGRES_PASSWORD!!!
+# PGDATA=/var/lib/postgresql/data
+# POSTGRES_INITDB_WALDIR=
+# POSTGRES_INITDB_ARGS=
+# POSTGRES_USER=postgres
+# POSTGRES_DB=postgres

@@ -14,5 +14,5 @@ requirements:
   - "requirements.txt"
   - "{{cookiecutter.project_slug}}/requirements/base.txt"
   - "{{cookiecutter.project_slug}}/requirements/dev.txt"
-  - "{{cookiecutter.project_slug}}/requirements/production.txt"
+  - "{{cookiecutter.project_slug}}/requirements/prod.txt"
   - "{{cookiecutter.project_slug}}/requirements/test.txt"

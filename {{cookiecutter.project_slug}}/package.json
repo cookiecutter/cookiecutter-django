@@ -1,6 +1,6 @@
 {
   "name": "{{cookiecutter.project_slug}}",
-  "version": "{{ cookiecutter.version }}",
+  "version": "1.0.0",
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^9.4.7",

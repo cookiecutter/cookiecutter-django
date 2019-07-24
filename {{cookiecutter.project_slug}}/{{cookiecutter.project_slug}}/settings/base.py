@@ -1,21 +1,6 @@
 """
 Base settings to build other settings files upon.
 """
-{% if cookiecutter.use_sentry == 'y' -%}
-import logging
-
-import sentry_sdk
-
-from sentry_sdk.integrations.django import DjangoIntegration
-from sentry_sdk.integrations.logging import LoggingIntegration
-{%- if cookiecutter.use_celery == 'y' %}
-from sentry_sdk.integrations.celery import CeleryIntegration
-{% endif %}{% endif -%}
-{% if cookiecutter.cloud_provider == 'AWS' %}
-from storages.backends.s3boto3 import S3Boto3Storage
-{% elif cookiecutter.cloud_provider == 'Azure' %}
-from storages.backends.azure_storage import AzureStorage
-{%- endif %}
 import environ
 
 ROOT_DIR = (
@@ -32,7 +17,7 @@ env.read_env(str(ROOT_DIR.path(".env")))
 # ------------------------------------------------------------------------------
 DEBUG = env.bool("DJANGO_DEBUG", False)
 SITE_ID = 1
-ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["{{ cookiecutter.domain_name }}"])
+ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=[".{{ cookiecutter.domain_name }}"])
 
 
 # DATABASES
@@ -234,28 +219,13 @@ STATICFILES_FINDERS = [
 {%- endif %}
 ]
 {%- if cookiecutter.cloud_provider == 'AWS' %}
-
-
-class StaticRootS3Boto3Storage(S3Boto3Storage):
-    location = "static"
-    default_acl = "public-read"
-
-
-STATICFILES_STORAGE = "settings.base.StaticRootS3Boto3Storage"
+STATICFILES_STORAGE = "{{ cookiecutter.project_slug }}.storage.StaticRootS3Boto3Storage"
 STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/"
 {% elif cookiecutter.cloud_provider == 'GCP' %}
 STATICFILES_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
 STATIC_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/static/"
 {% elif cookiecutter.cloud_provider == 'Azure' %}
-
-
-class PublicAzureStorage(AzureStorage):
-    account_name = AZURE_ACCOUNT_NAME
-    account_key = AZURE_ACCOUNT_KEY
-    azure_container = AZURE_CONTAINER
-    expiration_secs = None
-
-STATICFILES_STORAGE = "settings.base.PublicAzureStorage"
+STATICFILES_STORAGE = "{{ cookiecutter.project_slug }}.storage.PublicAzureStorage"
 {% elif cookiecutter.use_whitenoise == 'y' %}
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 {% else %}
@@ -273,14 +243,7 @@ COMPRESS_URL = STATIC_URL
 # https://docs.djangoproject.com/en/2.2/ref/settings/#file-uploads
 # ------------------------------------------------------------------------------
 {%- if cookiecutter.cloud_provider == 'AWS' %}
-
-
-class MediaRootS3Boto3Storage(S3Boto3Storage):
-    location = "media"
-    file_overwrite = False
-
-
-DEFAULT_FILE_STORAGE = "config.settings.production.MediaRootS3Boto3Storage"
+DEFAULT_FILE_STORAGE = "{{ cookiecutter.project_slug }}.storage.MediaRootS3Boto3Storage"
 MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/"
 {% elif cookiecutter.cloud_provider == 'GCP' %}
 DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
@@ -384,34 +347,8 @@ LOGGING = {
             "handlers": ["console"],
             "propagate": False,
         },
-{%- if cookiecutter.use_sentry == 'y' %}
-        "sentry_sdk": {  # Errors logged by Sentry's SDK itself
-            "level": "ERROR",
-            "handlers": ["console"],
-            "propagate": False,
-        },
-        {%- endif %}
     },
 }
-
-{%- if cookiecutter.use_sentry == 'y' %}
-# Sentry
-# ------------------------------------------------------------------------------
-SENTRY_DSN = env("SENTRY_DSN")
-SENTRY_LOG_LEVEL = env.int("DJANGO_SENTRY_LOG_LEVEL", logging.INFO)
-
-sentry_logging = LoggingIntegration(
-    level=SENTRY_LOG_LEVEL,  # Capture info and above as breadcrumbs
-    event_level=logging.ERROR,  # Send errors as events
-)
-{%- if cookiecutter.use_celery == 'y' %}
-sentry_sdk.init(
-    dsn=SENTRY_DSN,
-    integrations=[sentry_logging, DjangoIntegration(), CeleryIntegration()],
-)
-{%- else %}
-sentry_sdk.init(dsn=SENTRY_DSN, integrations=[sentry_logging, DjangoIntegration()])
-{% endif -%}{%- endif %}
 {%- if cookiecutter.use_celery == 'y' %}
 
 
