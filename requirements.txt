@@ -14,4 +14,4 @@ pytest==5.0.1
 pytest_cases==1.10.1
 pytest-cookies==0.4.0
 pytest-xdist==1.29.0
-pyyaml==5.1.1
+pyyaml==5.1.2
