@@ -25,6 +25,13 @@ matrix:
       script: sh tests/test_docker.sh
     - name: Docker with Celery
       script: sh tests/test_docker.sh use_celery=y
+    - name: Bare metal
+      script: sh tests/test_bare.sh use_celery=y use_compressor=y
+      services:
+        - postgresql
+        - redis-server
+      env:
+        - CELERY_BROKER_URL=redis://localhost:6379/0
 
 install:
   - pip install tox
