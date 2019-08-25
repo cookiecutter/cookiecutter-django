@@ -1,6 +1,7 @@
 """
 Base settings to build other settings files upon.
 """
+import sys
 
 import environ
 
@@ -8,6 +9,9 @@ ROOT_DIR = (
     environ.Path(__file__) - 3
 )  # ({{ cookiecutter.project_slug }}/config/settings/base.py - 3 = {{ cookiecutter.project_slug }}/)
 APPS_DIR = ROOT_DIR.path("{{ cookiecutter.project_slug }}")
+# This allows easy placement of apps within the interior
+# {{ cookiecutter.project_slug }} directory.
+sys.path.append(str(APPS_DIR))
 
 env = environ.Env()
 
