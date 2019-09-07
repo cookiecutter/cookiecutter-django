@@ -5,12 +5,12 @@ defaultEntryPoints = ["http", "https"]
 [entryPoints]
   # http should be redirected to https
   [entryPoints.http]
-  address = ":80"
+  address = ":8080"
     [entryPoints.http.redirect]
     entryPoint = "https"
   # https is the default
   [entryPoints.https]
-  address = ":443"
+  address = ":8443"
     [entryPoints.https.tls]
 
 # Enable ACME (Let's Encrypt): automatic SSL
