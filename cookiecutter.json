@@ -3,8 +3,8 @@
   "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
   "description": "Behold My Awesome Project!",
   "author_name": "Daniel Roy Greenfeld",
-  "domain_name": "example.com",
-  "email": "{{ cookiecutter.author_name.lower()|replace(' ', '-') }}@example.com",
+  "domain": "{{ cookiecutter.project_slug }}.com",
+  "email": "{{ cookiecutter.author_name.lower()|replace(' ', '-') }}@{{ cookiecutter.project_slug }}.com",
   "version": "0.1.0",
   "open_source_license": [
     "MIT",
