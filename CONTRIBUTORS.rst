@@ -120,6 +120,7 @@ Listed in alphabetical order.
   Irfan Ahmad              `@erfaan`_                    @erfaan
   Jan Van Bruggen          `@jvanbrug`_
   Jelmer Draaijer          `@foarsitter`_
+  Jerome Caisip            `@jeromecaisip`_
   Jens Nilsson             `@phiberjenz`_
   Jerome Leclanche         `@jleclanche`_                @Adys
   Jimmy Gitonga            `@afrowave`_                  @afrowave
@@ -276,6 +277,7 @@ Listed in alphabetical order.
 .. _@jangeador: https://github.com/jangeador
 .. _@jazztpt: https://github.com/jazztpt
 .. _@jcass77: https://github.com/jcass77
+.. _@jeromecaisip: https://github.com/jeromecaisip
 .. _@jleclanche: https://github.com/jleclanche
 .. _@juliocc: https://github.com/juliocc
 .. _@jvanbrug: https://github.com/jvanbrug
