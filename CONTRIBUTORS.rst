@@ -121,6 +121,7 @@ Listed in alphabetical order.
   Jan Van Bruggen          `@jvanbrug`_
   Jelmer Draaijer          `@foarsitter`_
   Jens Nilsson             `@phiberjenz`_
+  Jerome Caisip            `@jeromecaisip`_
   Jerome Leclanche         `@jleclanche`_                @Adys
   Jimmy Gitonga            `@afrowave`_                  @afrowave
   John Cass                `@jcass77`_                   @cass_john
@@ -276,6 +277,7 @@ Listed in alphabetical order.
 .. _@jangeador: https://github.com/jangeador
 .. _@jazztpt: https://github.com/jazztpt
 .. _@jcass77: https://github.com/jcass77
+.. _@jeromecaisip: https://github.com/jeromecaisip
 .. _@jleclanche: https://github.com/jleclanche
 .. _@juliocc: https://github.com/juliocc
 .. _@jvanbrug: https://github.com/jvanbrug

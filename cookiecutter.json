@@ -35,6 +35,7 @@
   ],
   "custom_bootstrap_compilation": "n",
   "use_compressor": "n",
+  "use_stimulusJS": "n",
   "use_celery": "n",
   "use_mailhog": "n",
   "use_sentry": "n",

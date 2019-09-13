@@ -78,6 +78,9 @@ custom_bootstrap_compilation:
 use_compressor:
     Indicates whether the project should be configured to use `Django Compressor`_.
 
+use_stimulusJS:
+    Indicates whether the project should be configured to use `Stimulus JS`_.
+
 use_celery:
     Indicates whether the project should be configured to use Celery_.
 
@@ -138,3 +141,6 @@ debug:
 .. _Heroku: https://github.com/heroku/heroku-buildpack-python
 
 .. _Travis CI: https://travis-ci.org/
+
+.. _Stimulus JS: https://stimulusjs.org/
+
