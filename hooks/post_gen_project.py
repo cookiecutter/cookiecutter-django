@@ -279,6 +279,10 @@ def remove_node_dockerfile():
     shutil.rmtree(os.path.join("compose", "local", "node"))
 
 
+def remove_behave_django_files():
+    shutil.rmtree('features')
+
+
 def main():
     debug = "{{ cookiecutter.debug }}".lower() == "y"
 
@@ -341,6 +345,9 @@ def main():
 
     if "{{ cookiecutter.use_travisci }}".lower() == "n":
         remove_dottravisyml_file()
+
+    if "{{ cookiecutter.use_behave_django }}".lower() == "n":
+        remove_behave_django_files()
 
     print(SUCCESS + "Project initialized, keep up the good work!" + TERMINATOR)
 

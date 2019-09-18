@@ -292,7 +292,12 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_ADAPTER = "{{cookiecutter.project_slug}}.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = "{{cookiecutter.project_slug}}.users.adapters.SocialAccountAdapter"
-
+{% if cookiecutter.use_behave_django == 'y' -%}
+# django-behave
+# ------------------------------------------------------------------------------
+# https://behave-django.readthedocs.io
+INSTALLED_APPS +=["behave_django"]
+{%- endif%}
 {% if cookiecutter.use_compressor == 'y' -%}
 # django-compressor
 # ------------------------------------------------------------------------------
