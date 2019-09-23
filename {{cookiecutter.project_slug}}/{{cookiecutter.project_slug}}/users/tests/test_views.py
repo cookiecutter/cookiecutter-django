@@ -56,26 +56,20 @@ class TestUserRedirectView:
 
 class TestUserDetailView:
     def test_user_detail_view(self, rf):
-        user          = UserFactory(username = 'tEsTcAsE')
-        request       = rf.get(
-                             path  = reverse(
-                                       viewname  = 'users:detail',
-                                       kwargs    = {'username': user.username}
-                                     )
-                           )
-        request.user  = user
-        response = UserDetailView.as_view()(request, **{'username': user.username})
+        user = UserFactory(username="tEsTcAsE")
+        request = rf.get(
+            path=reverse(viewname="users:detail", kwargs={"username": user.username})
+        )
+        request.user = user
+        response = UserDetailView.as_view()(request, **{"username": user.username})
 
         assert response.status_code == 200
 
     def test_user_detail_view_url(self, client):
-        user          = UserFactory(username = 'tEsTcAsE')
-        response      = client.get(
-                                 path  = reverse(
-                                           viewname  = 'users:detail',
-                                           kwargs    = {'username': user.username}
-                                         )
-                               )
+        user = UserFactory(username="tEsTcAsE")
+        response = client.get(
+            path=reverse(viewname="users:detail", kwargs={"username": user.username})
+        )
 
         assert response.status_code == 302
-        assert response.url == f'/accounts/login/?next=/users/{user.username}/'
+        assert response.url == f"/accounts/login/?next=/users/{user.username}/"
