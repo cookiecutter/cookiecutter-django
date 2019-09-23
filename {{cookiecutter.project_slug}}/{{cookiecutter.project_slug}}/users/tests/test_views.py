@@ -1,8 +1,10 @@
 import pytest
 from django.conf import settings
 from django.test import RequestFactory
+from django.urls import reverse
 
-from {{ cookiecutter.project_slug }}.users.views import UserRedirectView, UserUpdateView
+from {{ cookiecutter.project_slug }}.users.tests.factories import UserFactory
+from {{ cookiecutter.project_slug }}.users.views import UserDetailView, UserRedirectView, UserUpdateView
 
 pytestmark = pytest.mark.django_db
 
@@ -50,3 +52,30 @@ class TestUserRedirectView:
         view.request = request
 
         assert view.get_redirect_url() == f"/users/{user.username}/"
+
+
+class TestUserDetailView:
+    def test_user_detail_view(self, rf):
+        user          = UserFactory(username = 'tEsTcAsE')
+        request       = rf.get(
+                             path  = reverse(
+                                       viewname  = 'users:detail',
+                                       kwargs    = {'username': user.username}
+                                     )
+                           )
+        request.user  = user
+        response = UserDetailView.as_view()(request, **{'username': user.username})
+
+        assert response.status_code == 200
+
+    def test_user_detail_view_url(self, client):
+        user          = UserFactory(username = 'tEsTcAsE')
+        response      = client.get(
+                                 path  = reverse(
+                                           viewname  = 'users:detail',
+                                           kwargs    = {'username': user.username}
+                                         )
+                               )
+
+        assert response.status_code == 302
+        assert response.url == f'/accounts/login/?next=/users/{user.username}/'
