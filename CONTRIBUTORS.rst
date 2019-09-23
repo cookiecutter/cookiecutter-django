@@ -92,6 +92,7 @@ Listed in alphabetical order.
   Dan Shultz               `@shultz`_
   Dani Hodovic             `@danihodovic`_
   Daniel Hepper            `@dhepper`_                   @danielhepper
+  Daniel Sears             `@highpost`_                  @highpost
   Daniele Tricoli          `@eriol`_
   David Díaz               `@ddiazpinto`_                @DavidDiazPinto
   Davit Tovmasyan          `@davitovmasyan`_
@@ -269,6 +270,7 @@ Listed in alphabetical order.
 .. _@hairychris: https://github.com/hairychris
 .. _@hanaquadara: https://github.com/hanaquadara
 .. _@hendrikschneider: https://github.com/hendrikschneider
+.. _@highpost: https://github.com/highpost
 .. _@hjwp: https://github.com/hjwp
 .. _@IanLee1521: https://github.com/IanLee1521
 .. _@ikkebr: https://github.com/ikkebr
