@@ -9,7 +9,7 @@ Setting Up Development Environment
 
 Make sure to have the following on your host:
 
-* Python 3.6
+* Python 3.7
 * PostgreSQL_.
 * Redis_, if using Celery
 
@@ -17,7 +17,7 @@ First things first.
 
 #. Create a virtualenv: ::
 
-    $ python3.6 -m venv <virtual env path>
+    $ python3.7 -m venv <virtual env path>
 
 #. Activate the virtualenv you have just created: ::
 
