@@ -191,6 +191,7 @@ Listed in alphabetical order.
   Tubo Shi                 `@Tubo`_
   Umair Ashraf             `@umrashrf`_                 @fabumair
   Vadim Iskuchekov         `@Egregors`_                 @egregors
+  Vicente Reyes            `@reyesvicente`_             @highcenburg
   Vitaly Babiy
   Vivian Guillen           `@viviangb`_
   Vlad Doster              `@vladdoster`_
