@@ -18,4 +18,4 @@ django-storages[boto3]==1.7.2  # https://github.com/jschneier/django-storages
 {%- elif cookiecutter.cloud_provider == 'GCP' %}
 django-storages[google]==1.7.2  # https://github.com/jschneier/django-storages
 {%- endif %}
-django-anymail[mailgun]==6.1.0  # https://github.com/anymail/django-anymail
+django-anymail[mailgun]==7.0.0  # https://github.com/anymail/django-anymail
