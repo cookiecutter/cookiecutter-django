@@ -49,6 +49,11 @@ def context_combination(
     cloud_provider,
 ):
     """Fixture that parametrize the function where it's used."""
+    if cloud_provider == "None":
+        # Either of the two should be set for serving static files, so if cloud provider
+        # is not set, we force Whitenoise to be set
+        use_whitenoise = "y"
+
     return {
         "windows": windows,
         "use_docker": use_docker,
@@ -157,3 +162,10 @@ def test_invalid_slug(cookies, context, slug):
 
     assert result.exit_code != 0
     assert isinstance(result.exception, FailedHookException)
+
+
+def test_no_whitenoise_and_no_cloud_provider(cookies, context):
+    context.update({"use_whitenoise": "n", "cloud_provider": "None"})
+    result = cookies.bake(extra_context=context)
+
+    assert result.exit_code == 1
