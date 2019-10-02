@@ -107,6 +107,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATICFILES_STORAGE = "config.settings.production.StaticRootS3Boto3Storage"
 STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/"
 {% elif cookiecutter.cloud_provider == 'GCP' -%}
+STATICFILES_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
 STATIC_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/static/"
 {% endif -%}
 
