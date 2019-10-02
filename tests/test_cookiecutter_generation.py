@@ -165,6 +165,7 @@ def test_invalid_slug(cookies, context, slug):
 
 
 def test_no_whitenoise_and_no_cloud_provider(cookies, context):
+    """It should not generate project if neither whitenoise or cloud provider are set"""
     context.update({"use_whitenoise": "n", "cloud_provider": "None"})
     result = cookies.bake(extra_context=context)
 
