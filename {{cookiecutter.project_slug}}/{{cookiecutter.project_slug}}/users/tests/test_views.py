@@ -5,7 +5,7 @@ from django.urls import reverse
 
 from {{ cookiecutter.project_slug }}.users.tests.factories import UserFactory
 from {{ cookiecutter.project_slug }}.users.views import (
-    UserDetailView
+    UserDetailView,
     UserRedirectView, 
     UserUpdateView,
 )
@@ -62,7 +62,7 @@ class TestUserDetailView:
     def test_user_detail_view(self, rf):
         user = UserFactory(username="tEsTcAsE")
         request = rf.get(
-            path=reverse(viewname="users:detail", kwargs={"username": user.username})
+            path=reverse(viewname="users:detail", kwargs={"username": user.username.lower()})
         )
         request.user = user
         response = UserDetailView.as_view()(request, **{"username": user.username})
@@ -72,7 +72,7 @@ class TestUserDetailView:
     def test_user_detail_view_url(self, client):
         user = UserFactory(username="tEsTcAsE")
         response = client.get(
-            path=reverse(viewname="users:detail", kwargs={"username": user.username})
+            path=reverse(viewname="users:detail", kwargs={"username": user.username.lower()})
         )
 
         assert response.status_code == 302
