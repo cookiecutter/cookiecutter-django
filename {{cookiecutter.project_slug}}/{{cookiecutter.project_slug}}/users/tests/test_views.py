@@ -3,7 +3,7 @@ from django.conf import settings
 from django.test import RequestFactory
 from django.urls import reverse
 
-from .factories import UserFactory
+from {{ cookiecutter.project_slug }}.users.tests.factories import UserFactory
 from {{ cookiecutter.project_slug }}.users.views import (
     UserDetailView
     UserRedirectView, 
