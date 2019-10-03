@@ -169,4 +169,5 @@ def test_no_whitenoise_and_no_cloud_provider(cookies, context):
     context.update({"use_whitenoise": "n", "cloud_provider": "None"})
     result = cookies.bake(extra_context=context)
 
-    assert result.exit_code == 1
+    assert result.exit_code != 0
+    assert isinstance(result.exception, FailedHookException)
