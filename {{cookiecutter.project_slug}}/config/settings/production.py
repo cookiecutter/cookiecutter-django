@@ -92,7 +92,6 @@ AWS_DEFAULT_ACL = None
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
 AWS_S3_REGION_NAME = env("DJANGO_AWS_S3_REGION_NAME", default=None)
 {% elif cookiecutter.cloud_provider == 'GCP' %}
-DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
 GS_BUCKET_NAME = env("DJANGO_GCP_STORAGE_BUCKET_NAME")
 GS_DEFAULT_ACL = "publicRead"
 {% endif -%}
@@ -107,7 +106,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATICFILES_STORAGE = "config.settings.production.StaticRootS3Boto3Storage"
 STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/"
 {% elif cookiecutter.cloud_provider == 'GCP' -%}
-STATICFILES_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
+STATICFILES_STORAGE = "config.settings.production.StaticRootGoogleCloudStorage"
 STATIC_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/static/"
 {% endif -%}
 
@@ -133,8 +132,21 @@ class MediaRootS3Boto3Storage(S3Boto3Storage):
 DEFAULT_FILE_STORAGE = "config.settings.production.MediaRootS3Boto3Storage"
 MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/"
 {%- elif cookiecutter.cloud_provider == 'GCP' %}
+from storages.backends.gcloud import GoogleCloudStorage  # noqa E402
+
+
+class StaticRootGoogleCloudStorage(GoogleCloudStorage):
+    location = "static"
+    default_acl = "publicRead"
+
+
+class MediaRootGoogleCloudStorage(GoogleCloudStorage):
+    location = "media"
+    file_overwrite = False
+
+
+DEFAULT_FILE_STORAGE = "config.settings.production.MediaRootGoogleCloudStorage"
 MEDIA_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/media/"
-MEDIA_ROOT = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/media/"
 {%- endif %}
 
 # TEMPLATES
