@@ -230,6 +230,7 @@ Listed in alphabetical order.
 .. _@c-rhodes: https://github.com/c-rhodes
 .. _@caffodian: https://github.com/caffodian
 .. _@canonnervio: https://github.com/canonnervio
+.. _@caioariede: https://github.com/caioariede
 .. _@carlmjohnson: https://github.com/carlmjohnson
 .. _@catherinedevlin: https://github.com/catherinedevlin
 .. _@ccurvey: https://github.com/ccurvey
