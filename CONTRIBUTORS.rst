@@ -74,6 +74,7 @@ Listed in alphabetical order.
   Bouke Haarsma
   Brent Payne              `@brentpayne`_               @brentpayne
   Burhan Khalid            `@burhan`_                   @burhan
+  Caio Ariede              `@caioariede`_               @caioariede
   Carl Johnson             `@carlmjohnson`_             @carlmjohnson
   Catherine Devlin         `@catherinedevlin`_
   Cédric Gaspoz            `@cgaspoz`_
