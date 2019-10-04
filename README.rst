@@ -132,8 +132,15 @@ Let's pretend you want to create a Django project called "redditclone". Rather t
 and then editing the results to include your name, email, and various configuration issues that always get forgotten until the worst possible moment, get cookiecutter_ to do all the work.
 
 First, get Cookiecutter. Trust me, it's awesome::
+There are to ways get Cookiecutter:
+
+Using pip
 
     $ pip install "cookiecutter>=1.4.0"
+    
+Using conda
+
+    $ conda install -c cmckeague cookiecutter
 
 Now run it against this repo::
 
