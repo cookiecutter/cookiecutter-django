@@ -43,5 +43,4 @@ coreapi==2.3.3  # https://github.com/core-api/python-client
 # Django/ReactJS integration
 # ------------------------------------------------------------------------------
 django-cors-headers==2.4.0  # https://github.com/ottoyiu/django-cors-headers
-django-oauth-toolkit==1.2.0  # http://dot.evonove.it/#setup
 {%- endif %}

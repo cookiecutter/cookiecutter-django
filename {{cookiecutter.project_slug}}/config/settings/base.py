@@ -81,7 +81,6 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     {%- if cookiecutter.js_task_runner == "CreateReactApp" -%}
     "corsheaders",
-    "oauth2_provider",
     {%- endif %}
     {%- if cookiecutter.use_celery == 'y' -%}
     "django_celery_beat",
@@ -352,18 +351,6 @@ REST_FRAMEWORK = {
     "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.URLPathVersioning",
     # NOTE: See: https://www.django-rest-framework.org/community/3.10-announcement/#continuing-to-use-coreapi
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
-}
-
-# OAUTH2 CONFIGURATION
-# ------------------------------------------------------------------------------
-# https://django-oauth-toolkit.readthedocs.io/en/latest/rest-framework/getting_started.html
-OAUTH2_PROVIDER = {
-    # this is the list of available scopes
-    "SCOPES": {
-        "read": "Read scope",
-        "write": "Write scope",
-    },
-    "ACCESS_TOKEN_EXPIRE_SECONDS": 31536000,  # Sets OAUTH access tokens good for a year
 }
 
 # Graphene Setup
