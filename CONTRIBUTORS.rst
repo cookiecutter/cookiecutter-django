@@ -74,6 +74,7 @@ Listed in alphabetical order.
   Bouke Haarsma
   Brent Payne              `@brentpayne`_               @brentpayne
   Burhan Khalid            `@burhan`_                   @burhan
+  Caio Ariede              `@caioariede`_               @caioariede
   Carl Johnson             `@carlmjohnson`_             @carlmjohnson
   Catherine Devlin         `@catherinedevlin`_
   Cédric Gaspoz            `@cgaspoz`_
@@ -230,6 +231,7 @@ Listed in alphabetical order.
 .. _@c-rhodes: https://github.com/c-rhodes
 .. _@caffodian: https://github.com/caffodian
 .. _@canonnervio: https://github.com/canonnervio
+.. _@caioariede: https://github.com/caioariede
 .. _@carlmjohnson: https://github.com/carlmjohnson
 .. _@catherinedevlin: https://github.com/catherinedevlin
 .. _@ccurvey: https://github.com/ccurvey
