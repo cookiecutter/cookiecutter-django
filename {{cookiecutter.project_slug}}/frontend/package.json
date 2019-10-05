@@ -18,9 +18,22 @@
     "react-scripts": "3.1.1"
   },
   "devDependencies": {
+    "@apollo/react-common": "3.1.2",
+    "@apollo/react-components": "3.1.2",
+    "@apollo/react-hooks": "3.1.2",
+    "@apollo/react-testing": "3.1.2",
+    "apollo-boost": "0.4.4",
+    "apollo-cache-persist": "0.1.1",
+    "apollo-link-context": "1.0.19",
+    "apollo-link-rest": "0.7.3",
+    "apollo-link-schema": "1.2.4",
+    "apollo-link-state": "0.4.2",
+    "apollo-upload-client": "11.0.0",
     "axios": "0.19.0",
     "node-sass": "4.12.0",
     "raven-js": "3.27.2",
+    "react-alert": "5.5.0",
+    "react-alert-template-basic": "1.0.0",
     "react-document-title": "2.0.3",
     "react-router-dom": "5.1.2"
   },
