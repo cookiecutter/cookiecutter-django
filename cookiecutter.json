@@ -24,11 +24,7 @@
     "9.5",
     "9.4"
   ],
-  "js_task_runner": [
-    "None",
-    "CreateReactApp",
-    "Gulp"
-  ],
+  "js_task_runner": "CreateReactApp",
   "cloud_provider": [
     "AWS",
     "GCP",
