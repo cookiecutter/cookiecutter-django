@@ -23,6 +23,9 @@ urlpatterns = [
     path("api-docs/", include_docs_urls(title="{{ cookiecutter.project_name }} REST API", public=False)),
     path("graphql/", csrf_exempt(FileUploadGraphQLView.as_view(graphiql=True, pretty=True))),
 
+    # OAUTH2: https://github.com/evonove/django-oauth-toolkit
+    path("oauth/", include('oauth2_provider.urls', namespace='oauth2_provider')),
+
     # User management from django-all-auth
     path("about/", TemplateView.as_view(template_name="pages/about.html"), name="about"),
     path("users/", include("{{ cookiecutter.project_slug }}.users.urls", namespace="users")),
