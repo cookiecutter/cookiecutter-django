@@ -85,6 +85,7 @@ THIRD_PARTY_APPS = [
     {%- if cookiecutter.use_celery == 'y' -%}
     "django_celery_beat",
     {%- endif %}
+    "graphene_django",
 ]
 
 LOCAL_APPS = [
@@ -325,5 +326,47 @@ STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
 # https://github.com/ottoyiu/django-cors-headers#cors_origin_allow_all
 CORS_ORIGIN_ALLOW_ALL = True
 {%- endif %}
+
+# DJANGO REST FRAMEWORK
+# ------------------------------------------------------------------------------
+# http://www.django-rest-framework.org/
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": (
+        "rest_framework.permissions.IsAuthenticated",
+    ),
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.BasicAuthentication",
+        "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
+        "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
+    ),
+    "DEFAULT_RENDERER_CLASSES": (
+        "rest_framework.renderers.JSONRenderer",
+        "rest_framework.renderers.BrowsableAPIRenderer",
+        "rest_framework.renderers.AdminRenderer",
+    ),
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
+    "PAGE_SIZE": 100,
+    "COERCE_DECIMAL_TO_STRING": False,
+    "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.URLPathVersioning",
+    # NOTE: See: https://www.django-rest-framework.org/community/3.10-announcement/#continuing-to-use-coreapi
+    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
+}
+
+# Graphene Setup
+# ------------------------------------------------------------------------------
+# See: http://docs.graphene-python.org/projects/django/en/latest/tutorial-plain/#update-settings
+GRAPHENE = {
+    "SCHEMA": "{{ cookiecutter.project_slug }}.graphql.schema.schema",
+    'SCHEMA_OUTPUT': 'frontend/src/apollo/schema.json',
+    'SCHEMA_INDENT': 2,
+    "MIDDLEWARE": [
+        "graphene_django.debug.DjangoDebugMiddleware",
+    ]
+}
+# NOTE: As Graphene schema gets larger, it needs more room to run the recursive graphql queries
+# See: https://github.com/graphql-python/graphene/issues/663
+GRAPHENE_RECURSION_LIMIT = env.int("GRAPHENE_RECURSION_LIMIT", default=3500)
+
 # Your stuff...
 # ------------------------------------------------------------------------------
