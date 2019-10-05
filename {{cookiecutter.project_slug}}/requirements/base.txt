@@ -33,6 +33,7 @@ django-redis==4.10.0  # https://github.com/niwinz/django-redis
 graphene-django==2.6.0 # http://docs.graphene-python.org/projects/django/en/latest/
 graphene-django-optimizer==0.6.0  # https://github.com/tfoxy/graphene-django-optimizer
 graphene-file-upload==1.2.2  # https://github.com/lmcgartland/graphene-file-upload
+django-filter==2.2.0  # https://github.com/carltongibson/django-filter
 
 # Django REST Framework
 djangorestframework==3.10.3  # https://github.com/encode/django-rest-framework
