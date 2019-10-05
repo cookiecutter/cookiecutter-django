@@ -33,12 +33,15 @@
     "graphql": "14.5.4",
     "graphql-tag": "2.10.1",
     "graphql-tools": "4.0.5",
+    "localforage": "1.7.3",
     "node-sass": "4.12.0",
     "raven-js": "3.27.2",
     "react-alert": "5.5.0",
     "react-alert-template-basic": "1.0.0",
+    "react-cookies": "0.1.1",
     "react-document-title": "2.0.3",
-    "react-router-dom": "5.1.2"
+    "react-router-dom": "5.1.2",
+    "react-transition-group": "4.3.0"
   },
   "engines": {
     "node": ">=9.11.1",
