@@ -304,6 +304,7 @@ Listed in alphabetical order.
 .. _@mrcoles: https://github.com/mrcoles
 .. _@msaizar: https://github.com/msaizar
 .. _@myilmaz: https://github.com/myilmaz
+.. _@nicolas471: https://github.com/nicolas471
 .. _@noisy: https://github.com/noisy
 .. _@originell: https://github.com/originell
 .. _@oubiga: https://github.com/oubiga
