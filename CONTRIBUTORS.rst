@@ -159,6 +159,7 @@ Listed in alphabetical order.
   Michael Gecht            `@mimischi`_                  @_mischi
   Min ho Kim               `@minho42`_
   mozillazg                `@mozillazg`_
+  Nico Stefani             `@nicolas471`_                @moby_dick91
   Oleg Russkin             `@rolep`_
   Pablo                    `@oubiga`_
   Parbhat Puri             `@parbhat`_
