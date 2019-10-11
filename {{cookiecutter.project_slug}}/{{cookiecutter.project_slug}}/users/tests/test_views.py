@@ -59,8 +59,9 @@ class TestUserRedirectView:
 
 
 class TestUserDetailView:
-    def test_user_detail_view(self, rf):
+    def test_user_detail_view(self, client, rf):
         user = UserFactory(username="tEsTcAsE")
+        client.force_login(user)
         request = rf.get(
             path=reverse(
                 viewname="users:detail", kwargs={"username": user.username.lower()}
