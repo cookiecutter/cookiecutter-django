@@ -59,6 +59,7 @@ class TestUserRedirectView:
 
 
 class TestUserDetailView:
+    # PR #2234
     # Django usernames are case-sensitive.
     # See https://code.djangoproject.com/ticket/2273
     def test_username_case_detail_view(self, client, rf):
