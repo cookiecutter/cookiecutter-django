@@ -62,27 +62,27 @@ class TestUserDetailView:
     # Django usernames are case-sensitive.
     # See https://code.djangoproject.com/ticket/2273
     def test_username_case_detail_view(self, client, rf):
-        user1 = UserFactory(username="testcase")
-        user2 = UserFactory(username="tEsTcAsE")
-        client.force_login(user2)
+        _ = UserFactory(username="testcase")
+        user = UserFactory(username="tEsTcAsE")
+        client.force_login(user)
         request = rf.get(
             path=reverse(
-                viewname="users:detail", kwargs={"username": user2.username}
+                viewname="users:detail", kwargs={"username": user.username}
             )
         )
-        request.user = user2
-        response = UserDetailView.as_view()(request, **{"username": user2.username})
+        request.user = user
+        response = UserDetailView.as_view()(request, **{"username": user.username})
 
         assert response.status_code == 200
 
     def test_username_case_detail_view_url(self, client):
-        user1 = UserFactory(username="testcase")
-        user2 = UserFactory(username="tEsTcAsE")
+        _ = UserFactory(username="testcase")
+        user = UserFactory(username="tEsTcAsE")
         response = client.get(
             path=reverse(
-                viewname="users:detail", kwargs={"username": user2.username}
+                viewname="users:detail", kwargs={"username": user.username}
             )
         )
 
         assert response.status_code == 302
-        assert response.url == f"/accounts/login/?next=/users/{user2.username}/"
+        assert response.url == f"/accounts/login/?next=/users/{user.username}/"
