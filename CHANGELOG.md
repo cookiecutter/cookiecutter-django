@@ -2,6 +2,18 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2019-10-06]
+### Changed
+- Default Python version is now 3.7 (@nicolas471)
+
+## [2019-10-04]
+### Fixed
+- Fix static files handling on GCP (@caioariede)
+
+## [2019-10-03]
+### Fixed
+- Fix incompatible combination between Whitenoise and no cloud provider (@caioariede)
+
 ## [2019-07-09]
 ### Fixed
 - Always use test settings in pytest (@danihodovic)

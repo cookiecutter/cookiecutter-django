@@ -11,9 +11,6 @@ from binaryornot.check import is_binary
 PATTERN = r"{{(\s?cookiecutter)[.](.*?)}}"
 RE_OBJ = re.compile(PATTERN)
 
-YN_CHOICES = ["y", "n"]
-CLOUD_CHOICES = ["AWS", "GCE", "None"]
-
 
 @pytest.fixture
 def context():
@@ -30,14 +27,24 @@ def context():
 
 
 @pytest_fixture_plus
-@pytest.mark.parametrize("windows", YN_CHOICES, ids=lambda yn: f"win:{yn}")
-@pytest.mark.parametrize("use_docker", YN_CHOICES, ids=lambda yn: f"docker:{yn}")
-@pytest.mark.parametrize("use_celery", YN_CHOICES, ids=lambda yn: f"celery:{yn}")
-@pytest.mark.parametrize("use_mailhog", YN_CHOICES, ids=lambda yn: f"mailhog:{yn}")
-@pytest.mark.parametrize("use_sentry", YN_CHOICES, ids=lambda yn: f"sentry:{yn}")
-@pytest.mark.parametrize("use_compressor", YN_CHOICES, ids=lambda yn: f"cmpr:{yn}")
-@pytest.mark.parametrize("use_whitenoise", YN_CHOICES, ids=lambda yn: f"wnoise:{yn}")
-@pytest.mark.parametrize("cloud_provider", CLOUD_CHOICES, ids=lambda yn: f"cloud:{yn}")
+@pytest.mark.parametrize("windows", ["y", "n"], ids=lambda yn: f"win:{yn}")
+@pytest.mark.parametrize("use_docker", ["y", "n"], ids=lambda yn: f"docker:{yn}")
+@pytest.mark.parametrize("use_celery", ["y", "n"], ids=lambda yn: f"celery:{yn}")
+@pytest.mark.parametrize("use_mailhog", ["y", "n"], ids=lambda yn: f"mailhog:{yn}")
+@pytest.mark.parametrize("use_sentry", ["y", "n"], ids=lambda yn: f"sentry:{yn}")
+@pytest.mark.parametrize("use_compressor", ["y", "n"], ids=lambda yn: f"cmpr:{yn}")
+@pytest.mark.parametrize(
+    "use_whitenoise,cloud_provider",
+    [
+        ("y", "AWS"),
+        ("y", "GCP"),
+        ("y", "None"),
+        ("n", "AWS"),
+        ("n", "GCP"),
+        # no whitenoise + co cloud provider is not supported
+    ],
+    ids=lambda id: f"wnoise:{id[0]}-cloud:{id[1]}",
+)
 def context_combination(
     windows,
     use_docker,
@@ -49,11 +56,6 @@ def context_combination(
     cloud_provider,
 ):
     """Fixture that parametrize the function where it's used."""
-    if cloud_provider == "None":
-        # Either of the two should be set for serving static files, so if cloud provider
-        # is not set, we force Whitenoise to be set
-        use_whitenoise = "y"
-
     return {
         "windows": windows,
         "use_docker": use_docker,

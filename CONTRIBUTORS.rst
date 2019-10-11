@@ -74,6 +74,7 @@ Listed in alphabetical order.
   Bouke Haarsma
   Brent Payne              `@brentpayne`_               @brentpayne
   Burhan Khalid            `@burhan`_                   @burhan
+  Caio Ariede              `@caioariede`_               @caioariede
   Carl Johnson             `@carlmjohnson`_             @carlmjohnson
   Catherine Devlin         `@catherinedevlin`_
   Cédric Gaspoz            `@cgaspoz`_
@@ -158,6 +159,7 @@ Listed in alphabetical order.
   Michael Gecht            `@mimischi`_                  @_mischi
   Min ho Kim               `@minho42`_
   mozillazg                `@mozillazg`_
+  Nico Stefani             `@nicolas471`_                @moby_dick91
   Oleg Russkin             `@rolep`_
   Pablo                    `@oubiga`_
   Parbhat Puri             `@parbhat`_
@@ -229,6 +231,7 @@ Listed in alphabetical order.
 .. _@c-rhodes: https://github.com/c-rhodes
 .. _@caffodian: https://github.com/caffodian
 .. _@canonnervio: https://github.com/canonnervio
+.. _@caioariede: https://github.com/caioariede
 .. _@carlmjohnson: https://github.com/carlmjohnson
 .. _@catherinedevlin: https://github.com/catherinedevlin
 .. _@ccurvey: https://github.com/ccurvey
@@ -301,6 +304,7 @@ Listed in alphabetical order.
 .. _@mrcoles: https://github.com/mrcoles
 .. _@msaizar: https://github.com/msaizar
 .. _@myilmaz: https://github.com/myilmaz
+.. _@nicolas471: https://github.com/nicolas471
 .. _@noisy: https://github.com/noisy
 .. _@originell: https://github.com/originell
 .. _@oubiga: https://github.com/oubiga
