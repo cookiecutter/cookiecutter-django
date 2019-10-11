@@ -59,13 +59,15 @@ class TestUserRedirectView:
 
 
 class TestUserDetailView:
+    # Django usernames are case-sensitive.
+    # See https://code.djangoproject.com/ticket/2273
     def test_username_case_detail_view(self, client, rf):
         user1 = UserFactory(username="testcase")
         user2 = UserFactory(username="tEsTcAsE")
         client.force_login(user2)
         request = rf.get(
             path=reverse(
-                viewname="users:detail", kwargs={"username": user2.username.lower()}
+                viewname="users:detail", kwargs={"username": user2.username}
             )
         )
         request.user = user2
@@ -78,7 +80,7 @@ class TestUserDetailView:
         user2 = UserFactory(username="tEsTcAsE")
         response = client.get(
             path=reverse(
-                viewname="users:detail", kwargs={"username": user2.username.lower()}
+                viewname="users:detail", kwargs={"username": user2.username}
             )
         )
 
