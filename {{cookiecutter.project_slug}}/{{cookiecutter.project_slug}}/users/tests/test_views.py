@@ -74,12 +74,13 @@ class TestUserDetailView:
         assert response.status_code == 200
 
     def test_username_case_detail_view_url(self, client):
-        user = UserFactory(username="tEsTcAsE")
+        user1 = UserFactory(username="testcase")
+        user2 = UserFactory(username="tEsTcAsE")
         response = client.get(
             path=reverse(
-                viewname="users:detail", kwargs={"username": user.username.lower()}
+                viewname="users:detail", kwargs={"username": user2.username.lower()}
             )
         )
 
         assert response.status_code == 302
-        assert response.url == f"/accounts/login/?next=/users/{user.username}/"
+        assert response.url == f"/accounts/login/?next=/users/{user2.username}/"
