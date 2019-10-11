@@ -66,9 +66,7 @@ class TestUserDetailView:
         user = UserFactory(username="tEsTcAsE")
         client.force_login(user)
         request = rf.get(
-            path=reverse(
-                viewname="users:detail", kwargs={"username": user.username}
-            )
+            path=reverse(viewname="users:detail", kwargs={"username": user.username})
         )
         request.user = user
         response = UserDetailView.as_view()(request, **{"username": user.username})
@@ -79,9 +77,7 @@ class TestUserDetailView:
         _ = UserFactory(username="testcase")
         user = UserFactory(username="tEsTcAsE")
         response = client.get(
-            path=reverse(
-                viewname="users:detail", kwargs={"username": user.username}
-            )
+            path=reverse(viewname="users:detail", kwargs={"username": user.username})
         )
 
         assert response.status_code == 302
