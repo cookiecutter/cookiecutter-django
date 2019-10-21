@@ -306,7 +306,10 @@ def main():
     else:
         remove_docker_files()
 
-    if "{{ cookiecutter.use_docker }}".lower() == "y" and "{{ cookiecutter.cloud_provider}}".lower() != 'aws':
+    if (
+        "{{ cookiecutter.use_docker }}".lower() == "y"
+        and "{{ cookiecutter.cloud_provider}}".lower() != "aws"
+    ):
         remove_aws_dockerfile()
 
     if "{{ cookiecutter.use_heroku }}".lower() == "n":
