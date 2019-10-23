@@ -196,7 +196,8 @@ Listed in alphabetical order.
   Vitaly Babiy
   Vivian Guillen           `@viviangb`_
   Vlad Doster              `@vladdoster`_
-  Will Farley              `@goldhand`_                 @g01dhand
+ Vansh Devgan             `@vanshdevgan`_              @vanshdevgan
+ Will Farley              `@goldhand`_                 @g01dhand
   William Archinal         `@archinal`_
   Xaver Y.R. Chen          `@yrchen`_                   @yrchen
   Yaroslav Halchenko
