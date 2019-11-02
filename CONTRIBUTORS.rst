@@ -73,6 +73,7 @@ Listed in alphabetical order.
   Bo Lopker                `@blopker`_
   Bouke Haarsma
   Brent Payne              `@brentpayne`_               @brentpayne
+  Bruce Olivier            `@bolivierjr`_
   Burhan Khalid            `@burhan`_                   @burhan
   Caio Ariede              `@caioariede`_               @caioariede
   Carl Johnson             `@carlmjohnson`_             @carlmjohnson
@@ -225,6 +226,7 @@ Listed in alphabetical order.
 .. _@bloodpet: https://github.com/bloodpet
 .. _@blopker: https://github.com/blopker
 .. _@bogdal: https://github.com/bogdal
+.. _@bolivierjr: https://github.com/bolivierjr
 .. _@brentpayne: https://github.com/brentpayne
 .. _@btknu: https://github.com/btknu
 .. _@burhan: https://github.com/burhan
