@@ -113,6 +113,7 @@ Listed in alphabetical order.
   Florian Idelberger       `@step21`_                    @windrush
   Garry Cairns             `@garry-cairns`_
   Garry Polley             `@garrypolley`_
+  Gilbishkosma             `@Gilbishkosma`_
   Hamish Durkin            `@durkode`_
   Hana Quadara             `@hanaquadara`_
   Harry Percival           `@hjwp`_
@@ -269,6 +270,7 @@ Listed in alphabetical order.
 .. _@foarsitter: https://github.com/foarsitter
 .. _@garry-cairns: https://github.com/garry-cairns
 .. _@garrypolley: https://github.com/garrypolley
+.. _@Gilbishkosma: https://github.com/Gilbishkosma
 .. _@glasslion: https://github.com/glasslion
 .. _@goldhand: https://github.com/goldhand
 .. _@hackebrot: https://github.com/hackebrot
