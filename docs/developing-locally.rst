@@ -26,6 +26,12 @@ First things first.
 #. Install development requirements: ::
 
     $ pip install -r requirements/local.txt
+    $ pre-commit install
+
+     .. note::
+
+        the `pre-commit` exists in the generated project as default.
+        for the details of `pre-commit`, follow the [site of pre-commit](https://pre-commit.com/).
 
 #. Create a new PostgreSQL database using createdb_: ::
 

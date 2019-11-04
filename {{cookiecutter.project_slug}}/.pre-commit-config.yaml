@@ -1,0 +1,19 @@
+exclude: 'docs|node_modules|migrations|.git|.tox'
+default_stages: [commit]
+fail_fast: true
+
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: master
+    hooks:
+      - id: trailing-whitespace
+        files: (^|/)a/.+\.(py|html|sh|css|js)$
+
+-   repo: local
+    hooks:
+      - id: flake8
+        name: flake8
+        entry: flake8
+        language: python
+        types: [python]
+
