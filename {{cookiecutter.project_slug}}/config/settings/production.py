@@ -182,10 +182,15 @@ EMAIL_SUBJECT_PREFIX = env(
 # Django Admin URL regex.
 ADMIN_URL = env("DJANGO_ADMIN_URL")
 
-# Anymail (Mailgun)
+# Anymail
 # ------------------------------------------------------------------------------
 # https://anymail.readthedocs.io/en/stable/installation/#installing-anymail
 INSTALLED_APPS += ["anymail"]  # noqa F405
+{%- if cookiecutter.cloud_provider == 'AWS' %}
+# Use boto3 credentials
+# https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html#configuring-credentials
+EMAIL_BACKEND = "anymail.backends.amazon_ses.EmailBackend"
+{% else %}
 EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
 # https://anymail.readthedocs.io/en/stable/installation/#anymail-settings-reference
 ANYMAIL = {
@@ -193,6 +198,7 @@ ANYMAIL = {
     "MAILGUN_SENDER_DOMAIN": env("MAILGUN_DOMAIN"),
     "MAILGUN_API_URL": env("MAILGUN_API_URL", default="https://api.mailgun.net/v3"),
 }
+{% endif -%}
 
 {% if cookiecutter.use_compressor == 'y' -%}
 # django-compressor
