@@ -17,22 +17,10 @@
   "windows": "n",
   "use_pycharm": "n",
   "use_docker": "n",
-  "postgresql_version": [
-    "11.3",
-    "10.8",
-    "9.6",
-    "9.5",
-    "9.4"
-  ],
-  "js_task_runner": [
-    "None",
-    "Gulp"
-  ],
-  "cloud_provider": [
-    "AWS",
-    "GCP",
-    "None"
-  ],
+  "postgresql_version": ["11.3", "10.8", "9.6", "9.5", "9.4"],
+  "js_task_runner": ["None", "Gulp"],
+  "cloud_provider": ["AWS", "GCP", "None"],
+  "email_provider": ["SES", "Mailgun"],
   "custom_bootstrap_compilation": "n",
   "use_compressor": "n",
   "use_celery": "n",

@@ -186,7 +186,7 @@ ADMIN_URL = env("DJANGO_ADMIN_URL")
 # ------------------------------------------------------------------------------
 # https://anymail.readthedocs.io/en/stable/installation/#installing-anymail
 INSTALLED_APPS += ["anymail"]  # noqa F405
-{%- if cookiecutter.cloud_provider == 'AWS' %}
+{%- if cookiecutter.email_provider == 'SES' %}
 # Use boto3 credentials
 # https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html#configuring-credentials
 EMAIL_BACKEND = "anymail.backends.amazon_ses.EmailBackend"
