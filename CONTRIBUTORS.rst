@@ -116,6 +116,7 @@ Listed in alphabetical order.
   Gilbishkosma             `@Gilbishkosma`_
   Hamish Durkin            `@durkode`_
   Hana Quadara             `@hanaquadara`_
+  Harry Moreno             `@morenoh149`_                @morenoh149
   Harry Percival           `@hjwp`_
   Hendrik Schneider        `@hendrikschneider`_
   Henrique G. G. Pereira   `@ikkebr`_
@@ -307,6 +308,7 @@ Listed in alphabetical order.
 .. _@minho42: https://github.com/minho42
 .. _@mjsisley: https://github.com/mjsisley
 .. _@mknapper1: https://github.com/mknapper1
+.. _@morenoh149: https://github.com/morenoh149
 .. _@mostaszewski: https://github.com/mostaszewski
 .. _@mozillazg: https://github.com/mozillazg
 .. _@mrcoles: https://github.com/mrcoles
