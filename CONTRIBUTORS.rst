@@ -102,6 +102,7 @@ Listed in alphabetical order.
   Demetris Stavrou         `@demestav`_
   Denis Bobrov             `@delneg`_
   Denis Orehovsky          `@apirobot`_
+  Denis Savran             `@blaxpy`_
   Diane Chen               `@purplediane`_               @purplediane88
   Dónal Adams              `@epileptic-fish`_
   Dong Huynh               `@trungdong`_
@@ -226,6 +227,7 @@ Listed in alphabetical order.
 .. _@arruda: https://github.com/arruda
 .. _@bertdemiranda: https://github.com/bertdemiranda
 .. _@bittner: https://github.com/bittner
+.. _@blaxpy: https://github.com/blaxpy
 .. _@bloodpet: https://github.com/bloodpet
 .. _@blopker: https://github.com/blopker
 .. _@bogdal: https://github.com/bogdal
