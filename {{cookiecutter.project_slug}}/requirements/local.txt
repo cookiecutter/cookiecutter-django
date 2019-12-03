@@ -1,6 +1,6 @@
 -r ./base.txt
 
-Werkzeug==0.14.1  # pyup: < 0.15 # https://github.com/pallets/werkzeug
+Werkzeug==0.16.0 # https://github.com/pallets/werkzeug
 ipdb==0.12.2  # https://github.com/gotcha/ipdb
 Sphinx==2.2.2  # https://github.com/sphinx-doc/sphinx
 {%- if cookiecutter.use_docker == 'y' %}
