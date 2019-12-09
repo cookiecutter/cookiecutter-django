@@ -53,6 +53,7 @@ Features
 * Instructions for deploying to PythonAnywhere_
 * Run tests with unittest or pytest
 * Customizable PostgreSQL version
+* Default integration with pre-commit_ for identifying simple issues before submission to code review
 
 .. _`maintained Foundation fork`: https://github.com/Parbhat/cookiecutter-django-foundation
 
@@ -84,6 +85,7 @@ Optional Integrations
 .. _PythonAnywhere: https://www.pythonanywhere.com/
 .. _Traefik: https://traefik.io/
 .. _LetsEncrypt: https://letsencrypt.org/
+.. _pre-commit: https://github.com/pre-commit/pre-commit 
 
 Constraints
 -----------
@@ -106,7 +108,7 @@ Projects that provide financial support to the maintainers:
 Two Scoops of Django 1.11
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: https://cdn.shopify.com/s/files/1/0304/6901/products/tsd-111-alpha_medium.jpg?v=1499531513
+.. image:: https://cdn.shopify.com/s/files/1/0304/6901/products/2017-06-29-tsd11-sticker-02.png
    :name: Two Scoops of Django 1.11 Cover
    :align: center
    :alt: Two Scoops of Django
