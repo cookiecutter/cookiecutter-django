@@ -256,6 +256,16 @@ LOGGING = {
     "root": {"level": "INFO", "handlers": ["console"]},
 }
 
+# django-extensions
+SHELL_PLUS_PRINT_SQL_TRUNCATE = 10000
+SHELL_PLUS_SQLPARSE_FORMAT_KWARGS = dict(
+    reindent_aligned=True,
+    truncate_strings=500
+)
+SHELL_PLUS_MODEL_IMPORTS_RESOLVER = (
+    "django_extensions.collision_resolvers.AppNameSuffixCustomOrderCR"
+)
+
 {% if cookiecutter.use_celery == 'y' -%}
 # Celery
 # ------------------------------------------------------------------------------
