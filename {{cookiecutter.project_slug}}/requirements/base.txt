@@ -6,7 +6,7 @@ rcssmin==1.0.6{% if cookiecutter.windows == 'y' and cookiecutter.use_docker == '
 {%- endif %}
 argon2-cffi==19.2.0  # https://github.com/hynek/argon2_cffi
 {%- if cookiecutter.use_whitenoise == 'y' %}
-whitenoise==4.1.4  # https://github.com/evansd/whitenoise
+whitenoise==5.0.1  # https://github.com/evansd/whitenoise
 {%- endif %}
 redis==3.3.11  # https://github.com/antirez/redis
 {%- if cookiecutter.use_celery == "y" %}
