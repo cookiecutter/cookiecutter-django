@@ -10,7 +10,7 @@ whitenoise==5.0.1  # https://github.com/evansd/whitenoise
 {%- endif %}
 redis==3.3.11  # https://github.com/antirez/redis
 {%- if cookiecutter.use_celery == "y" %}
-celery==4.3.0  # pyup: < 5.0  # https://github.com/celery/celery
+celery==4.4.0  # pyup: < 5.0  # https://github.com/celery/celery
 django-celery-beat==1.5.0  # https://github.com/celery/django-celery-beat
 {%- if cookiecutter.use_docker == 'y' %}
 flower==0.9.3  # https://github.com/mher/flower
