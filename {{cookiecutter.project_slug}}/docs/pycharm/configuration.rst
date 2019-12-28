@@ -36,12 +36,18 @@ After few seconds, all *Run/Debug Configurations* should be ready to use.
 **Things you can do with provided configuration**:
 
 * run and debug python code
+
 .. image:: images/f1.png
+
 * run and debug tests
+
 .. image:: images/f2.png
 .. image:: images/f3.png
+
 * run and debug migrations or different django management commands
+
 .. image:: images/f4.png
+
 * and many others..
 
 Known issues
