@@ -1,14 +1,10 @@
-FROM debian:buster-slim
+FROM python:3.7-slim-buster
 
 ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update \
   # dependencies for building Python packages
-  && apt-get install -y build-essential python3-dev python3-pip \
-  # link the system python3 as just python for convenience
-  && ln -s `which python3` /usr/local/bin/python \
-  # update pip et al
-  && pip3 install -U pip setuptools wheel \ 
+  && apt-get install -y build-essential \
   # psycopg2 dependencies
   && apt-get install -y libpq-dev \
   # Translations dependencies
