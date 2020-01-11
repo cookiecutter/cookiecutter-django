@@ -9,7 +9,7 @@ RUN npm run build
 
 # Python build stage
 {%- endif %}
-FROM python:3.6-alpine
+FROM python:3.7-alpine
 
 ENV PYTHONUNBUFFERED 1
 
@@ -57,12 +57,10 @@ RUN chmod +x /start-flower
 {%- endif %}
 
 {%- if cookiecutter.js_task_runner == 'Gulp' %}
-COPY --from=client-builder /app /app
+COPY --from=client-builder --chown=django:django /app /app
 {% else %}
-COPY . /app
+COPY --chown=django:django . /app
 {%- endif %}
-
-RUN chown -R django /app
 
 USER django
 

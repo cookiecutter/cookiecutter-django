@@ -279,6 +279,10 @@ def remove_node_dockerfile():
     shutil.rmtree(os.path.join("compose", "local", "node"))
 
 
+def remove_aws_dockerfile():
+    shutil.rmtree(os.path.join("compose", "production", "aws"))
+
+
 def main():
     debug = "{{ cookiecutter.debug }}".lower() == "y"
 
@@ -301,6 +305,12 @@ def main():
         remove_utility_files()
     else:
         remove_docker_files()
+
+    if (
+        "{{ cookiecutter.use_docker }}".lower() == "y"
+        and "{{ cookiecutter.cloud_provider}}".lower() != "aws"
+    ):
+        remove_aws_dockerfile()
 
     if "{{ cookiecutter.use_heroku }}".lower() == "n":
         remove_heroku_files()

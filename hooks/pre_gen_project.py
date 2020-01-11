@@ -35,7 +35,7 @@ if "{{ cookiecutter.use_docker }}".lower() == "n":
     if python_major_version == 2:
         print(
             WARNING + "You're running cookiecutter under Python 2, but the generated "
-            "project requires Python 3.6+. Do you want to proceed (y/n)? " + TERMINATOR
+            "project requires Python 3.7+. Do you want to proceed (y/n)? " + TERMINATOR
         )
         yes_options, no_options = frozenset(["y"]), frozenset(["n"])
         while True:
@@ -59,3 +59,12 @@ if "{{ cookiecutter.use_docker }}".lower() == "n":
                     )
                     + TERMINATOR
                 )
+
+if (
+    "{{ cookiecutter.use_whitenoise }}".lower() == "n"
+    and "{{ cookiecutter.cloud_provider }}" == "None"
+):
+    print(
+        "You should either use Whitenoise or select a Cloud Provider to serve static files"
+    )
+    sys.exit(1)

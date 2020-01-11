@@ -152,6 +152,7 @@ If you are using ``supervisor``, you can use this file as a starting point::
 Move it to ``/etc/supervisor/conf.d/{{cookiecutter.project_slug}}.conf`` and run::
 
     supervisorctl reread
+    supervisorctl update
     supervisorctl start {{cookiecutter.project_slug}}
 
 For status check, run::

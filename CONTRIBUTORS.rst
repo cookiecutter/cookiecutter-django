@@ -73,7 +73,9 @@ Listed in alphabetical order.
   Bo Lopker                `@blopker`_
   Bouke Haarsma
   Brent Payne              `@brentpayne`_               @brentpayne
+  Bruce Olivier            `@bolivierjr`_
   Burhan Khalid            `@burhan`_                   @burhan
+  Caio Ariede              `@caioariede`_               @caioariede
   Carl Johnson             `@carlmjohnson`_             @carlmjohnson
   Catherine Devlin         `@catherinedevlin`_
   Cédric Gaspoz            `@cgaspoz`_
@@ -100,6 +102,7 @@ Listed in alphabetical order.
   Demetris Stavrou         `@demestav`_
   Denis Bobrov             `@delneg`_
   Denis Orehovsky          `@apirobot`_
+  Denis Savran             `@blaxpy`_
   Diane Chen               `@purplediane`_               @purplediane88
   Dónal Adams              `@epileptic-fish`_
   Dong Huynh               `@trungdong`_
@@ -111,13 +114,16 @@ Listed in alphabetical order.
   Florian Idelberger       `@step21`_                    @windrush
   Garry Cairns             `@garry-cairns`_
   Garry Polley             `@garrypolley`_
+  Gilbishkosma             `@Gilbishkosma`_
   Hamish Durkin            `@durkode`_
   Hana Quadara             `@hanaquadara`_
+  Harry Moreno             `@morenoh149`_                @morenoh149
   Harry Percival           `@hjwp`_
   Hendrik Schneider        `@hendrikschneider`_
   Henrique G. G. Pereira   `@ikkebr`_
   Ian Lee                  `@IanLee1521`_
   Irfan Ahmad              `@erfaan`_                    @erfaan
+  Isaac12x                 `@Isaac12x`_
   Jan Van Bruggen          `@jvanbrug`_
   Jelmer Draaijer          `@foarsitter`_
   Jens Nilsson             `@phiberjenz`_
@@ -136,6 +142,7 @@ Listed in alphabetical order.
   Keyvan Mosharraf         `@keyvanm`_
   Krzysztof Szumny         `@noisy`_
   Krzysztof Żuraw          `@krzysztofzuraw`_
+  Leo won                  `@leollon`_
   Leo Zhou                 `@glasslion`_
   Leonardo Jimenez         `@xpostudio4`_
   Lin Xianyi               `@iynaix`_
@@ -158,6 +165,7 @@ Listed in alphabetical order.
   Michael Gecht            `@mimischi`_                  @_mischi
   Min ho Kim               `@minho42`_
   mozillazg                `@mozillazg`_
+  Nico Stefani             `@nicolas471`_                @moby_dick91
   Oleg Russkin             `@rolep`_
   Pablo                    `@oubiga`_
   Parbhat Puri             `@parbhat`_
@@ -198,6 +206,7 @@ Listed in alphabetical order.
   William Archinal         `@archinal`_
   Xaver Y.R. Chen          `@yrchen`_                   @yrchen
   Yaroslav Halchenko
+  Yuchen Xie               `@mapx`_
 ========================== ============================ ==============
 
 .. _@a7p: https://github.com/a7p
@@ -219,9 +228,11 @@ Listed in alphabetical order.
 .. _@arruda: https://github.com/arruda
 .. _@bertdemiranda: https://github.com/bertdemiranda
 .. _@bittner: https://github.com/bittner
+.. _@blaxpy: https://github.com/blaxpy
 .. _@bloodpet: https://github.com/bloodpet
 .. _@blopker: https://github.com/blopker
 .. _@bogdal: https://github.com/bogdal
+.. _@bolivierjr: https://github.com/bolivierjr
 .. _@brentpayne: https://github.com/brentpayne
 .. _@btknu: https://github.com/btknu
 .. _@burhan: https://github.com/burhan
@@ -229,6 +240,7 @@ Listed in alphabetical order.
 .. _@c-rhodes: https://github.com/c-rhodes
 .. _@caffodian: https://github.com/caffodian
 .. _@canonnervio: https://github.com/canonnervio
+.. _@caioariede: https://github.com/caioariede
 .. _@carlmjohnson: https://github.com/carlmjohnson
 .. _@catherinedevlin: https://github.com/catherinedevlin
 .. _@ccurvey: https://github.com/ccurvey
@@ -263,6 +275,7 @@ Listed in alphabetical order.
 .. _@foarsitter: https://github.com/foarsitter
 .. _@garry-cairns: https://github.com/garry-cairns
 .. _@garrypolley: https://github.com/garrypolley
+.. _@Gilbishkosma: https://github.com/Gilbishkosma
 .. _@glasslion: https://github.com/glasslion
 .. _@goldhand: https://github.com/goldhand
 .. _@hackebrot: https://github.com/hackebrot
@@ -272,6 +285,7 @@ Listed in alphabetical order.
 .. _@hjwp: https://github.com/hjwp
 .. _@IanLee1521: https://github.com/IanLee1521
 .. _@ikkebr: https://github.com/ikkebr
+.. _@Isaac12x: https://github.com/Isaac12x
 .. _@iynaix: https://github.com/iynaix
 .. _@jangeador: https://github.com/jangeador
 .. _@jazztpt: https://github.com/jazztpt
@@ -287,7 +301,9 @@ Listed in alphabetical order.
 .. _@keyvanm: https://github.com/keyvanm
 .. _@knitatoms: https://github.com/knitatoms
 .. _@krzysztofzuraw: https://github.com/krzysztofzuraw
+.. _@leollon: https://github.com/leollon
 .. _@MathijsHoogland: https://github.com/MathijsHoogland
+.. _@mapx: https://github.com/mapx
 .. _@mattayes: https://github.com/mattayes
 .. _@menzenski: https://github.com/menzenski
 .. _@mfwarren: https://github.com/mfwarren
@@ -296,11 +312,13 @@ Listed in alphabetical order.
 .. _@minho42: https://github.com/minho42
 .. _@mjsisley: https://github.com/mjsisley
 .. _@mknapper1: https://github.com/mknapper1
+.. _@morenoh149: https://github.com/morenoh149
 .. _@mostaszewski: https://github.com/mostaszewski
 .. _@mozillazg: https://github.com/mozillazg
 .. _@mrcoles: https://github.com/mrcoles
 .. _@msaizar: https://github.com/msaizar
 .. _@myilmaz: https://github.com/myilmaz
+.. _@nicolas471: https://github.com/nicolas471
 .. _@noisy: https://github.com/noisy
 .. _@originell: https://github.com/originell
 .. _@oubiga: https://github.com/oubiga

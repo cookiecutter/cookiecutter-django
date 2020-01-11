@@ -65,6 +65,8 @@ services:
     command: /start-flower
 
   {%- endif %}
+
+  {% if cookiecutter.cloud_provider == 'AWS' %}
   awscli:
     build:
       context: .
@@ -73,3 +75,4 @@ services:
       - ./.envs/.production/.django
     volumes:
       - production_postgres_data_backups:/backups
+  {%- endif %}
