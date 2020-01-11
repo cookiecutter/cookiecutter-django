@@ -4,11 +4,11 @@ log:
 entryPoints:
   web:
     # http
-    address: ":80"
+    address: ":8080"
 
   web-secure:
     # https
-    address: ":443"
+    address: ":8443"
 
 certificatesResolvers:
   letsencrypt:
