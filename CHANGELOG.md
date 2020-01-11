@@ -8,6 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Bumped runtime version for Heroku
 - Added Debian 10 (Buster) OS dependencies
 - Update Traefik to v2
+- Switched from Alpine based image to Debian based image
 
 ## [2019-10-06]
 ### Changed
