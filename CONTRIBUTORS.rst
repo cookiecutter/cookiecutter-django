@@ -125,6 +125,7 @@ Listed in alphabetical order.
   Ian Lee                  `@IanLee1521`_
   Irfan Ahmad              `@erfaan`_                    @erfaan
   Isaac12x                 `@Isaac12x`_
+  Ivan Khomutov            `@ikhomutov`_
   Jan Van Bruggen          `@jvanbrug`_
   Jelmer Draaijer          `@foarsitter`_
   Jens Nilsson             `@phiberjenz`_
@@ -286,6 +287,7 @@ Listed in alphabetical order.
 .. _@hendrikschneider: https://github.com/hendrikschneider
 .. _@hjwp: https://github.com/hjwp
 .. _@IanLee1521: https://github.com/IanLee1521
+.. _@ikhomutov: https://github.com/ikhomutov
 .. _@ikkebr: https://github.com/ikkebr
 .. _@Isaac12x: https://github.com/Isaac12x
 .. _@iynaix: https://github.com/iynaix
