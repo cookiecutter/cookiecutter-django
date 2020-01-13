@@ -94,6 +94,7 @@ Listed in alphabetical order.
   Dan Shultz               `@shultz`_
   Dani Hodovic             `@danihodovic`_
   Daniel Hepper            `@dhepper`_                   @danielhepper
+  Daniel Hillier           `@danifus`_
   Daniele Tricoli          `@eriol`_
   David Díaz               `@ddiazpinto`_                @DavidDiazPinto
   Davit Tovmasyan          `@davitovmasyan`_
@@ -255,6 +256,7 @@ Listed in alphabetical order.
 .. _@curtisstpierre: https://github.com/curtisstpierre
 .. _@dadokkio: https://github.com/dadokkio
 .. _@danihodovic: https://github.com/danihodovic
+.. _@danifus: https://github.com/danifus
 .. _@davitovmasyan: https://github.com/davitovmasyan
 .. _@ddiazpinto: https://github.com/ddiazpinto
 .. _@delneg: https://github.com/delneg
