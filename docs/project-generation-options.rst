@@ -94,8 +94,12 @@ use_heroku:
     Indicates whether the project should be configured so as to be deployable
     to Heroku_.
 
-use_travisci:
-    Indicates whether the project should be configured to use `Travis CI`_.
+ci_tool:
+    Select a CI tool for running tests. The choices are:
+
+    1. None
+    2. Travis_
+    3. Gitlab_
 
 keep_local_envs_in_vcs:
     Indicates whether the project's ``.envs/.local/`` should be kept in VCS
@@ -138,3 +142,6 @@ debug:
 .. _Heroku: https://github.com/heroku/heroku-buildpack-python
 
 .. _Travis CI: https://travis-ci.org/
+
+.. _GitLab CI: https://docs.gitlab.com/ee/ci/
+
