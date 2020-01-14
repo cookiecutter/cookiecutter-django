@@ -71,6 +71,7 @@ Listed in alphabetical order.
   Benjamin Abel
   Bert de Miranda          `@bertdemiranda`_
   Bo Lopker                `@blopker`_
+  Bo Peng                  `@BoPeng`_
   Bouke Haarsma
   Brent Payne              `@brentpayne`_               @brentpayne
   Bruce Olivier            `@bolivierjr`_
@@ -235,6 +236,7 @@ Listed in alphabetical order.
 .. _@blopker: https://github.com/blopker
 .. _@bogdal: https://github.com/bogdal
 .. _@bolivierjr: https://github.com/bolivierjr
+.. _@BoPeng: https://github.com/BoPeng
 .. _@brentpayne: https://github.com/brentpayne
 .. _@btknu: https://github.com/btknu
 .. _@burhan: https://github.com/burhan
