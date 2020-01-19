@@ -12,7 +12,7 @@ class UserFactory(DjangoModelFactory):
 
     @post_generation
     def password(self, create: bool, extracted: Sequence[Any], **kwargs):
-        password = Faker(
+        password = extracted if extracted else Faker(
             "password",
             length=42,
             special_chars=True,
