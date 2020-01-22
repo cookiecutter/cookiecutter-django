@@ -49,8 +49,8 @@ Once the tests are complete, in order to see the code coverage, run the followin
    Since this is a fresh install, and there are no tests built using the Python `unittest`_ library yet, you should get feedback that says there were no tests carried out.
 
 .. _Pytest: https://docs.pytest.org/en/latest/example/simple.html
-.. _develop locally: ../developing-locally.rst
-.. _develop locally with docker: ..../developing-locally-docker.rst
+.. _develop locally: ./developing-locally.html
+.. _develop locally with docker: ./developing-locally-docker.html
 .. _customize: https://docs.pytest.org/en/latest/customize.html
 .. _unittest: https://docs.python.org/3/library/unittest.html#module-unittest
 .. _configuring: https://coverage.readthedocs.io/en/v4.5.x/config.html
