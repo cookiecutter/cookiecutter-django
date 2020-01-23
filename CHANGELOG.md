@@ -1,19 +1,23 @@
 # Change Log
 All enhancements and patches to Cookiecutter Django will be documented in this file.
-This project adheres to [Semantic Versioning](http://semver.org/).
+
+## [2020-01-23]
+### Changed
+- Fix UserFactory to set the password if provided (@BoPeng)
+- Update documentation files with latest Sphinx (@howiezhao)
 
 ## [2020-01-12]
 ### Changed
-- Fix mypy setup and added django-stubs
-- Add Gitlab CI as option
+- Fix mypy setup and added django-stubs (@danifus)
+- Add Gitlab CI as option (@ikhomutov)
 
 ## [2020-01-11]
 ### Changed
-- Speed up & reduce size for production Django image
-- Bumped runtime version for Heroku
-- Added Debian 10 (Buster) OS dependencies
-- Update Traefik to v2
-- Switched Docker images from Alpine based to Debian based
+- Speed up & reduce size for production Django image (@maxp)
+- Bumped runtime version for Heroku (@Isaac12x)
+- Added Debian 10 (Buster) OS dependencies (@ddiazpinto)
+- Update Traefik to v2 (@blaxpy)
+- Switched Docker images from Alpine based to Debian based (@trungdong)
 
 ## [2019-10-06]
 ### Changed

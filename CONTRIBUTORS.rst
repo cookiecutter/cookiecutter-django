@@ -123,6 +123,7 @@ Listed in alphabetical order.
   Harry Percival           `@hjwp`_
   Hendrik Schneider        `@hendrikschneider`_
   Henrique G. G. Pereira   `@ikkebr`_
+  Howie Zhao               `@howiezhao`_
   Ian Lee                  `@IanLee1521`_
   Irfan Ahmad              `@erfaan`_                    @erfaan
   Isaac12x                 `@Isaac12x`_
@@ -288,6 +289,7 @@ Listed in alphabetical order.
 .. _@hanaquadara: https://github.com/hanaquadara
 .. _@hendrikschneider: https://github.com/hendrikschneider
 .. _@hjwp: https://github.com/hjwp
+.. _@howiezhao: https://github.com/howiezhao
 .. _@IanLee1521: https://github.com/IanLee1521
 .. _@ikhomutov: https://github.com/ikhomutov
 .. _@ikkebr: https://github.com/ikkebr
