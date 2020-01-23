@@ -41,5 +41,5 @@ Sphinx can automatically generate documentation from docstrings, to enable this 
 4. Regenerate HTML documentation as written above.
 
 .. _Sphinx: https://www.sphinx-doc.org/en/master/index.html
-.. _develop locally: ../developing-locally.rst
-.. _develop locally with docker: ..../developing-locally-docker.rst
+.. _develop locally: ./developing-locally.html
+.. _develop locally with docker: ./developing-locally-docker.html
