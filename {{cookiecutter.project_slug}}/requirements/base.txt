@@ -1,6 +1,6 @@
 pytz==2019.3  # https://github.com/stub42/pytz
 python-slugify==4.0.0  # https://github.com/un33k/python-slugify
-Pillow==6.2.1  # https://github.com/python-pillow/Pillow
+Pillow==7.0.0  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.use_compressor == "y" %}
 rcssmin==1.0.6{% if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %} --install-option="--without-c-extensions"{% endif %}  # https://github.com/ndparker/rcssmin
 {%- endif %}
@@ -25,7 +25,7 @@ django-model-utils==4.0.0  # https://github.com/jazzband/django-model-utils
 django-allauth==0.41.0  # https://github.com/pennersr/django-allauth
 django-crispy-forms==1.8.1  # https://github.com/django-crispy-forms/django-crispy-forms
 {%- if cookiecutter.use_compressor == "y" %}
-django-compressor==2.3  # https://github.com/django-compressor/django-compressor
+django-compressor==2.4  # https://github.com/django-compressor/django-compressor
 {%- endif %}
 django-redis==4.11.0  # https://github.com/niwinz/django-redis
 

@@ -40,7 +40,11 @@
   "use_sentry": "n",
   "use_whitenoise": "n",
   "use_heroku": "n",
-  "use_travisci": "n",
+  "ci_tool": [
+    "None",
+    "Travis",
+    "Gitlab"
+  ],
   "keep_local_envs_in_vcs": "y",
 
   "debug": "n"

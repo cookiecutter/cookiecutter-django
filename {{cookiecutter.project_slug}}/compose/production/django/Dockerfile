@@ -9,21 +9,23 @@ RUN npm run build
 
 # Python build stage
 {%- endif %}
-FROM python:3.7-alpine
+FROM python:3.7-slim-buster
 
 ENV PYTHONUNBUFFERED 1
 
-RUN apk update \
+RUN apt-get update \
+  # dependencies for building Python packages
+  && apt-get install -y build-essential \
   # psycopg2 dependencies
-  && apk add --virtual build-deps gcc python3-dev musl-dev \
-  && apk add postgresql-dev \
-  # Pillow dependencies
-  && apk add jpeg-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-dev tcl-dev \
-  # CFFI dependencies
-  && apk add libffi-dev py-cffi
+  && apt-get install -y libpq-dev \
+  # Translations dependencies
+  && apt-get install -y gettext \
+  # cleaning up unused files
+  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
+  && rm -rf /var/lib/apt/lists/*
 
-RUN addgroup -S django \
-    && adduser -S -G django django
+RUN addgroup --system django \
+    && adduser --system --ingroup django django
 
 # Requirements are installed here to ensure they will be cached.
 COPY ./requirements /requirements
@@ -57,12 +59,10 @@ RUN chmod +x /start-flower
 {%- endif %}
 
 {%- if cookiecutter.js_task_runner == 'Gulp' %}
-COPY --from=client-builder /app /app
+COPY --from=client-builder --chown=django:django /app /app
 {% else %}
-COPY . /app
+COPY --chown=django:django . /app
 {%- endif %}
-
-RUN chown -R django /app
 
 USER django
 

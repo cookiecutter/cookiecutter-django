@@ -2,6 +2,19 @@
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2020-01-12]
+### Changed
+- Fix mypy setup and added django-stubs
+- Add Gitlab CI as option
+
+## [2020-01-11]
+### Changed
+- Speed up & reduce size for production Django image
+- Bumped runtime version for Heroku
+- Added Debian 10 (Buster) OS dependencies
+- Update Traefik to v2
+- Switched Docker images from Alpine based to Debian based
+
 ## [2019-10-06]
 ### Changed
 - Default Python version is now 3.7 (@nicolas471)

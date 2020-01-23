@@ -140,7 +140,7 @@ def test_black_passes(cookies, context_combination):
 
 
 def test_travis_invokes_pytest(cookies, context):
-    context.update({"use_travisci": "y"})
+    context.update({"ci_tool": "Travis"})
     result = cookies.bake(extra_context=context)
 
     assert result.exit_code == 0
@@ -151,6 +151,24 @@ def test_travis_invokes_pytest(cookies, context):
     with open(f"{result.project}/.travis.yml", "r") as travis_yml:
         try:
             assert yaml.load(travis_yml)["script"] == ["pytest"]
+        except yaml.YAMLError as e:
+            pytest.fail(e)
+
+
+def test_gitlab_invokes_flake8_and_pytest(cookies, context):
+    context.update({"ci_tool": "Gitlab"})
+    result = cookies.bake(extra_context=context)
+
+    assert result.exit_code == 0
+    assert result.exception is None
+    assert result.project.basename == context["project_slug"]
+    assert result.project.isdir()
+
+    with open(f"{result.project}/.gitlab-ci.yml", "r") as gitlab_yml:
+        try:
+            gitlab_config = yaml.load(gitlab_yml)
+            assert gitlab_config["flake8"]["script"] == ["flake8"]
+            assert gitlab_config["pytest"]["script"] == ["pytest"]
         except yaml.YAMLError as e:
             pytest.fail(e)
 
