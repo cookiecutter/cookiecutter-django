@@ -18,6 +18,7 @@ Contents:
    settings
    linters
    testing
+   document
    deployment-on-pythonanywhere
    deployment-on-heroku
    deployment-with-docker
