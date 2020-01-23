@@ -92,7 +92,6 @@ AWS_DEFAULT_ACL = None
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
 AWS_S3_REGION_NAME = env("DJANGO_AWS_S3_REGION_NAME", default=None)
 {% elif cookiecutter.cloud_provider == 'GCP' %}
-DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
 GS_BUCKET_NAME = env("DJANGO_GCP_STORAGE_BUCKET_NAME")
 GS_DEFAULT_ACL = "publicRead"
 {% endif -%}
@@ -105,8 +104,11 @@ GS_DEFAULT_ACL = "publicRead"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 {% elif cookiecutter.cloud_provider == 'AWS' -%}
 STATICFILES_STORAGE = "config.settings.production.StaticRootS3Boto3Storage"
+COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
 STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/"
 {% elif cookiecutter.cloud_provider == 'GCP' -%}
+STATICFILES_STORAGE = "config.settings.production.StaticRootGoogleCloudStorage"
+COLLECTFAST_STRATEGY = "collectfast.strategies.gcloud.GoogleCloudStrategy"
 STATIC_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/static/"
 {% endif -%}
 
@@ -132,14 +134,27 @@ class MediaRootS3Boto3Storage(S3Boto3Storage):
 DEFAULT_FILE_STORAGE = "config.settings.production.MediaRootS3Boto3Storage"
 MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/"
 {%- elif cookiecutter.cloud_provider == 'GCP' %}
+from storages.backends.gcloud import GoogleCloudStorage  # noqa E402
+
+
+class StaticRootGoogleCloudStorage(GoogleCloudStorage):
+    location = "static"
+    default_acl = "publicRead"
+
+
+class MediaRootGoogleCloudStorage(GoogleCloudStorage):
+    location = "media"
+    file_overwrite = False
+
+
+DEFAULT_FILE_STORAGE = "config.settings.production.MediaRootGoogleCloudStorage"
 MEDIA_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/media/"
-MEDIA_ROOT = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/media/"
 {%- endif %}
 
 # TEMPLATES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#templates
-TEMPLATES[0]["OPTIONS"]["loaders"] = [  # noqa F405
+TEMPLATES[-1]["OPTIONS"]["loaders"] = [  # type: ignore[index] # noqa F405
     (
         "django.template.loaders.cached.Loader",
         [
@@ -179,14 +194,7 @@ ANYMAIL = {
     "MAILGUN_API_URL": env("MAILGUN_API_URL", default="https://api.mailgun.net/v3"),
 }
 
-{% if cookiecutter.use_whitenoise == 'y' -%}
-# WhiteNoise
-# ------------------------------------------------------------------------------
-# http://whitenoise.evans.io/en/latest/django.html#enable-whitenoise
-MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")  # noqa F405
-
-{% endif %}
-{%- if cookiecutter.use_compressor == 'y' -%}
+{% if cookiecutter.use_compressor == 'y' -%}
 # django-compressor
 # ------------------------------------------------------------------------------
 # https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_ENABLED
