@@ -167,6 +167,7 @@ Listed in alphabetical order.
   Meghan Heintz            `@dot2dotseurat`_
   Mesut Yılmaz             `@myilmaz`_
   Michael Gecht            `@mimischi`_                  @_mischi
+  Michael Samoylov         `@msamoylov`_
   Min ho Kim               `@minho42`_
   mozillazg                `@mozillazg`_
   Nico Stefani             `@nicolas471`_                @moby_dick91
@@ -325,6 +326,7 @@ Listed in alphabetical order.
 .. _@mozillazg: https://github.com/mozillazg
 .. _@mrcoles: https://github.com/mrcoles
 .. _@msaizar: https://github.com/msaizar
+.. _@msamoylov: https://github.com/msamoylov
 .. _@myilmaz: https://github.com/myilmaz
 .. _@nicolas471: https://github.com/nicolas471
 .. _@noisy: https://github.com/noisy
