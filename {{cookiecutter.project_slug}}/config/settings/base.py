@@ -175,6 +175,8 @@ TEMPLATES = [
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         # https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
         "DIRS": [str(APPS_DIR.path("templates"))],
+        # https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-TEMPLATES-APP_DIRS
+        "APP_DIRS": True,
         "OPTIONS": {
             # https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
             # https://docs.djangoproject.com/en/dev/ref/templates/api/#loader-types
@@ -198,7 +200,7 @@ TEMPLATES = [
     }
 ]
 
-# https://docs.djangoproject.com/en/3.0/ref/settings/#form-renderer
+# https://docs.djangoproject.com/en/dev/ref/settings/#form-renderer
 FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 
 # http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
