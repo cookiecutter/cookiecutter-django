@@ -33,6 +33,7 @@ def context():
 @pytest.mark.parametrize("use_mailhog", ["y", "n"], ids=lambda yn: f"mailhog:{yn}")
 @pytest.mark.parametrize("use_sentry", ["y", "n"], ids=lambda yn: f"sentry:{yn}")
 @pytest.mark.parametrize("use_compressor", ["y", "n"], ids=lambda yn: f"cmpr:{yn}")
+@pytest.mark.parametrize("use_drf", ["y", "n"], ids=lambda yn: f"drf:{yn}")
 @pytest.mark.parametrize(
     "use_whitenoise,cloud_provider",
     [
@@ -53,6 +54,7 @@ def context_combination(
     use_sentry,
     use_compressor,
     use_whitenoise,
+    use_drf,
     cloud_provider,
 ):
     """Fixture that parametrize the function where it's used."""
@@ -64,6 +66,7 @@ def context_combination(
         "use_mailhog": use_mailhog,
         "use_sentry": use_sentry,
         "use_whitenoise": use_whitenoise,
+        "use_drf": use_drf,
         "cloud_provider": cloud_provider,
     }
 

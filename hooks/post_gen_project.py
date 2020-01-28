@@ -287,6 +287,11 @@ def remove_aws_dockerfile():
     shutil.rmtree(os.path.join("compose", "production", "aws"))
 
 
+def remove_drf_starter_files():
+    os.remove(os.path.join("config", "api_router.py"))
+    shutil.rmtree(os.path.join("{{cookiecutter.project_slug}}", "users", "api"))
+
+
 def main():
     debug = "{{ cookiecutter.debug }}".lower() == "y"
 
@@ -358,6 +363,9 @@ def main():
 
     if "{{ cookiecutter.ci_tool }}".lower() != "gitlab":
         remove_dotgitlabciyml_file()
+
+    if "{{ cookiecutter.use_drf }}".lower() == "n":
+        remove_drf_starter_files()
 
     print(SUCCESS + "Project initialized, keep up the good work!" + TERMINATOR)
 
