@@ -42,7 +42,7 @@ def context():
         ("y", "None"),
         ("n", "AWS"),
         ("n", "GCP"),
-        # no whitenoise + co cloud provider is not supported
+        # no whitenoise + no cloud provider is not supported
     ],
     ids=lambda id: f"wnoise:{id[0]}-cloud:{id[1]}",
 )
