@@ -51,11 +51,16 @@ services:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_celeryworker
     command: /start-celeryworker
+    env_file:
+      - ./.envs/.production/.django
+      - ./.envs/.production/.postgres
 
   celerybeat:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_celerybeat
     command: /start-celerybeat
+    env_file:
+      - ./.envs/.production/.postgres
 
   flower:
     <<: *django
