@@ -8,7 +8,7 @@ argon2-cffi==19.2.0  # https://github.com/hynek/argon2_cffi
 {%- if cookiecutter.use_whitenoise == 'y' %}
 whitenoise==5.0.1  # https://github.com/evansd/whitenoise
 {%- endif %}
-redis==3.4.0  # https://github.com/andymccurdy/redis-py
+redis==3.3.11 # pyup: != 3.4.0 # https://github.com/andymccurdy/redis-py
 {%- if cookiecutter.use_celery == "y" %}
 celery==4.4.0  # pyup: < 5.0  # https://github.com/celery/celery
 django-celery-beat==1.5.0  # https://github.com/celery/django-celery-beat
