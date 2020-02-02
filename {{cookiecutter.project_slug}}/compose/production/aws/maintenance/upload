@@ -1,0 +1,30 @@
+#!/bin/sh
+
+### Upload the /backups folder to Amazon S3
+###
+### Usage:
+###     $ docker-compose -f production.yml run --rm awscli upload
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+working_dir="$(dirname ${0})"
+source "${working_dir}/_sourced/constants.sh"
+source "${working_dir}/_sourced/messages.sh"
+
+export AWS_ACCESS_KEY_ID="${DJANGO_AWS_ACCESS_KEY_ID}"
+export AWS_SECRET_ACCESS_KEY="${DJANGO_AWS_SECRET_ACCESS_KEY}"
+export AWS_STORAGE_BUCKET_NAME="${DJANGO_AWS_STORAGE_BUCKET_NAME}"
+
+
+message_info "Upload the backups directory to S3 bucket {$AWS_STORAGE_BUCKET_NAME}"
+
+aws s3 cp ${BACKUP_DIR_PATH} s3://${AWS_STORAGE_BUCKET_NAME}${BACKUP_DIR_PATH} --recursive
+
+message_info "Cleaning the directory ${BACKUP_DIR_PATH}"
+
+rm -rf ${BACKUP_DIR_PATH}/*
+
+message_success "Finished uploading and cleaning."
+

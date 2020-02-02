@@ -44,11 +44,14 @@ CELERY_BROKER_URL                       CELERY_BROKER_URL           auto w/ Dock
 DJANGO_AWS_ACCESS_KEY_ID                AWS_ACCESS_KEY_ID           n/a                                            raises error
 DJANGO_AWS_SECRET_ACCESS_KEY            AWS_SECRET_ACCESS_KEY       n/a                                            raises error
 DJANGO_AWS_STORAGE_BUCKET_NAME          AWS_STORAGE_BUCKET_NAME     n/a                                            raises error
+DJANGO_AWS_S3_REGION_NAME               AWS_S3_REGION_NAME          n/a                                            None
+DJANGO_GCP_STORAGE_BUCKET_NAME          GS_BUCKET_NAME              n/a                                            raises error
+GOOGLE_APPLICATION_CREDENTIALS          n/a                         n/a                                            raises error
 SENTRY_DSN                              SENTRY_DSN                  n/a                                            raises error
-DJANGO_SENTRY_CLIENT                    SENTRY_CLIENT               n/a                                            raven.contrib.django.raven_compat.DjangoClient
 DJANGO_SENTRY_LOG_LEVEL                 SENTRY_LOG_LEVEL            n/a                                            logging.INFO
-MAILGUN_API_KEY                         MAILGUN_ACCESS_KEY          n/a                                            raises error
+MAILGUN_API_KEY                         MAILGUN_API_KEY             n/a                                            raises error
 MAILGUN_DOMAIN                          MAILGUN_SENDER_DOMAIN       n/a                                            raises error
+MAILGUN_API_URL                         n/a                         n/a                                            "https://api.mailgun.net/v3"
 ======================================= =========================== ============================================== ======================================================================
 
 --------------------------

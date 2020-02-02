@@ -1,22 +1,37 @@
-sudo: required
+dist: xenial
 
 services:
   - docker
 
 language: python
 
-python: 3.6
-
-env:
-  - TOX_ENV=py36
+python: 3.7
 
 before_install:
   - docker-compose -v
   - docker -v
 
-script:
-  - tox -e $TOX_ENV
-  - sh tests/test_docker.sh
+matrix:
+  include:
+    - name: Test results
+      script: tox -e py37
+    - name: Run flake8 on result
+      script: tox -e flake8
+    - name: Run black on result
+      script: tox -e black
+    - name: Black template
+      script: tox -e black-template
+    - name: Basic Docker
+      script: sh tests/test_docker.sh
+    - name: Docker with Celery
+      script: sh tests/test_docker.sh use_celery=y
+    - name: Bare metal
+      script: sh tests/test_bare.sh use_celery=y use_compressor=y
+      services:
+        - postgresql
+        - redis-server
+      env:
+        - CELERY_BROKER_URL=redis://localhost:6379/0
 
 install:
   - pip install tox

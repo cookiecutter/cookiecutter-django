@@ -10,10 +10,10 @@ except ImportError:
 
 # Our version ALWAYS matches the version of Django we support
 # If Django has a new release, we branch, tag, then update this setting after the tag.
-version = "2.0.2"
+version = "2.2.1"
 
 if sys.argv[-1] == "tag":
-    os.system('git tag -a %s -m "version %s"' % (version, version))
+    os.system(f'git tag -a {version} -m "version {version}"')
     os.system("git push --tags")
     sys.exit()
 
@@ -34,13 +34,13 @@ setup(
     classifiers=[
         "Development Status :: 4 - Beta",
         "Environment :: Console",
-        "Framework :: Django :: 2.0",
+        "Framework :: Django :: 2.2",
         "Intended Audience :: Developers",
         "Natural Language :: English",
         "License :: OSI Approved :: BSD License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: Implementation :: CPython",
         "Topic :: Software Development",
     ],

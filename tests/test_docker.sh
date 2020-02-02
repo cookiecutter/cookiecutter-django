@@ -3,6 +3,8 @@
 # it is meant to be run from the root directory of the repository, eg:
 # sh tests/test_docker.sh
 
+set -o errexit
+
 # install test requirements
 pip install -r requirements.txt
 
@@ -11,11 +13,14 @@ mkdir -p .cache/docker
 cd .cache/docker
 
 # create the project using the default settings in cookiecutter.json
-cookiecutter ../../ --no-input --overwrite-if-exists use_docker=y
+cookiecutter ../../ --no-input --overwrite-if-exists use_docker=y $@
 cd my_awesome_project
 
 # run the project's type checks
 docker-compose -f local.yml run django mypy my_awesome_project
+
+# Run black with --check option
+docker-compose -f local.yml run django black --check --diff  --exclude 'migrations' ./
 
 # run the project's tests
 docker-compose -f local.yml run django pytest

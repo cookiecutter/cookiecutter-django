@@ -29,13 +29,13 @@ Once you've been through this one-off config, future deployments are much simple
 Getting your code and dependencies installed on PythonAnywhere
 --------------------------------------------------------------
 
-Make sure your project is fully commited and pushed up to Bitbucket or Github or wherever it may be.  Then, log into your PythonAnywhere account, open up a **Bash** console, clone your repo, and create a virtualenv:
+Make sure your project is fully committed and pushed up to Bitbucket or Github or wherever it may be.  Then, log into your PythonAnywhere account, open up a **Bash** console, clone your repo, and create a virtualenv:
 
 .. code-block:: bash
 
     git clone <my-repo-url>  # you can also use hg
     cd my-project-name
-    mkvirtualenv --python=/usr/bin/python3.6 my-project-name
+    mkvirtualenv --python=/usr/bin/python3.7 my-project-name
     pip install -r requirements/production.txt  # may take a few minutes
 
 
@@ -153,7 +153,7 @@ Back on the Web tab, hit **Reload**, and your app should be live!
 
 
 **NOTE:** *you may see security warnings until you set up your SSL certificates. If you
-want to supress them temporarily, set DJANGO_SECURE_SSL_REDIRECT to blank.  Follow
+want to suppress them temporarily, set DJANGO_SECURE_SSL_REDIRECT to blank.  Follow
 the instructions here to get SSL set up: https://help.pythonanywhere.com/pages/SSLOwnDomains/*
 
 

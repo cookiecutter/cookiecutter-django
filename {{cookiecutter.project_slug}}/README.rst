@@ -6,6 +6,9 @@
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
      :target: https://github.com/pydanny/cookiecutter-django/
      :alt: Built with Cookiecutter Django
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+     :target: https://github.com/ambv/black
+     :alt: Black code style
 {% if cookiecutter.open_source_license != "Not open source" %}
 
 :License: {{cookiecutter.open_source_license}}
@@ -76,7 +79,7 @@ To run a celery worker:
 .. code-block:: bash
 
     cd {{cookiecutter.project_slug}}
-    celery -A {{cookiecutter.project_slug}}.taskapp worker -l info
+    celery -A config.celery_app worker -l info
 
 Please note: For Celery's import magic to work, it is important *where* the celery commands are run. If you are in the same folder with *manage.py*, you should be right.
 
@@ -156,7 +159,7 @@ Custom Bootstrap Compilation
 ^^^^^^
 
 The generated CSS is set up with automatic Bootstrap recompilation with variables of your choice.
-Bootstrap v4.1.1 is installed using npm and customised by tweaking your variables in ``static/sass/custom_bootstrap_vars``.
+Bootstrap v4 is installed using npm and customised by tweaking your variables in ``static/sass/custom_bootstrap_vars``.
 
 You can find a list of available variables `in the bootstrap source`_, or get explanations on them in the `Bootstrap docs`_.
 

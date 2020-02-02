@@ -1,21 +1,17 @@
 import pytest
-from django.conf import settings
 from django.urls import reverse, resolve
+
+from {{ cookiecutter.project_slug }}.users.models import User
 
 pytestmark = pytest.mark.django_db
 
 
-def test_detail(user: settings.AUTH_USER_MODEL):
+def test_detail(user: User):
     assert (
         reverse("users:detail", kwargs={"username": user.username})
         == f"/users/{user.username}/"
     )
     assert resolve(f"/users/{user.username}/").view_name == "users:detail"
-
-
-def test_list():
-    assert reverse("users:list") == "/users/"
-    assert resolve("/users/").view_name == "users:list"
 
 
 def test_update():

@@ -32,10 +32,7 @@ DEBUG_VALUE = "debug"
 
 
 def remove_open_source_files():
-    file_names = [
-        "CONTRIBUTORS.txt",
-        "LICENSE",
-    ]
+    file_names = ["CONTRIBUTORS.txt", "LICENSE"]
     for file_name in file_names:
         os.remove(file_name)
 
@@ -71,7 +68,10 @@ def remove_utility_files():
 def remove_heroku_files():
     file_names = ["Procfile", "runtime.txt", "requirements.txt"]
     for file_name in file_names:
-        if file_name == "requirements.txt" and "{{ cookiecutter.use_travisci }}".lower() == "y":
+        if (
+            file_name == "requirements.txt"
+            and "{{ cookiecutter.ci_tool }}".lower() == "travis"
+        ):
             # don't remove the file if we are using travisci but not using heroku
             continue
         os.remove(file_name)
@@ -89,12 +89,24 @@ def remove_packagejson_file():
         os.remove(file_name)
 
 
-def remove_celery_app():
-    shutil.rmtree(os.path.join("{{ cookiecutter.project_slug }}", "taskapp"))
+def remove_celery_files():
+    file_names = [
+        os.path.join("config", "celery_app.py"),
+        os.path.join("{{ cookiecutter.project_slug }}", "users", "tasks.py"),
+        os.path.join(
+            "{{ cookiecutter.project_slug }}", "users", "tests", "test_tasks.py"
+        ),
+    ]
+    for file_name in file_names:
+        os.remove(file_name)
 
 
 def remove_dottravisyml_file():
     os.remove(".travis.yml")
+
+
+def remove_dotgitlabciyml_file():
+    os.remove(".gitlab-ci.yml")
 
 
 def append_to_project_gitignore(path):
@@ -183,11 +195,7 @@ def generate_postgres_user(debug=False):
 
 
 def set_postgres_user(file_path, value):
-    postgres_user = set_flag(
-        file_path,
-        "!!!SET POSTGRES_USER!!!",
-        value=value,
-    )
+    postgres_user = set_flag(file_path, "!!!SET POSTGRES_USER!!!", value=value)
     return postgres_user
 
 
@@ -205,9 +213,7 @@ def set_postgres_password(file_path, value=None):
 
 def set_celery_flower_user(file_path, value):
     celery_flower_user = set_flag(
-        file_path,
-        "!!!SET CELERY_FLOWER_USER!!!",
-        value=value,
+        file_path, "!!!SET CELERY_FLOWER_USER!!!", value=value
     )
     return celery_flower_user
 
@@ -230,11 +236,7 @@ def append_to_gitignore_file(s):
         gitignore_file.write(os.linesep)
 
 
-def set_flags_in_envs(
-    postgres_user,
-    celery_flower_user,
-    debug=False,
-):
+def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):
     local_django_envs_path = os.path.join(".envs", ".local", ".django")
     production_django_envs_path = os.path.join(".envs", ".production", ".django")
     local_postgres_envs_path = os.path.join(".envs", ".local", ".postgres")
@@ -244,14 +246,22 @@ def set_flags_in_envs(
     set_django_admin_url(production_django_envs_path)
 
     set_postgres_user(local_postgres_envs_path, value=postgres_user)
-    set_postgres_password(local_postgres_envs_path, value=DEBUG_VALUE if debug else None)
+    set_postgres_password(
+        local_postgres_envs_path, value=DEBUG_VALUE if debug else None
+    )
     set_postgres_user(production_postgres_envs_path, value=postgres_user)
-    set_postgres_password(production_postgres_envs_path, value=DEBUG_VALUE if debug else None)
+    set_postgres_password(
+        production_postgres_envs_path, value=DEBUG_VALUE if debug else None
+    )
 
     set_celery_flower_user(local_django_envs_path, value=celery_flower_user)
-    set_celery_flower_password(local_django_envs_path, value=DEBUG_VALUE if debug else None)
+    set_celery_flower_password(
+        local_django_envs_path, value=DEBUG_VALUE if debug else None
+    )
     set_celery_flower_user(production_django_envs_path, value=celery_flower_user)
-    set_celery_flower_password(production_django_envs_path, value=DEBUG_VALUE if debug else None)
+    set_celery_flower_password(
+        production_django_envs_path, value=DEBUG_VALUE if debug else None
+    )
 
 
 def set_flags_in_settings_files():
@@ -267,6 +277,19 @@ def remove_envs_and_associated_files():
 def remove_celery_compose_dirs():
     shutil.rmtree(os.path.join("compose", "local", "django", "celery"))
     shutil.rmtree(os.path.join("compose", "production", "django", "celery"))
+
+
+def remove_node_dockerfile():
+    shutil.rmtree(os.path.join("compose", "local", "node"))
+
+
+def remove_aws_dockerfile():
+    shutil.rmtree(os.path.join("compose", "production", "aws"))
+
+
+def remove_drf_starter_files():
+    os.remove(os.path.join("config", "api_router.py"))
+    shutil.rmtree(os.path.join("{{cookiecutter.project_slug}}", "users", "api"))
 
 
 def main():
@@ -292,6 +315,12 @@ def main():
     else:
         remove_docker_files()
 
+    if (
+        "{{ cookiecutter.use_docker }}".lower() == "y"
+        and "{{ cookiecutter.cloud_provider}}".lower() != "aws"
+    ):
+        remove_aws_dockerfile()
+
     if "{{ cookiecutter.use_heroku }}".lower() == "n":
         remove_heroku_files()
 
@@ -302,8 +331,8 @@ def main():
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
             print(
                 INFO + ".env(s) are only utilized when Docker Compose and/or "
-                       "Heroku support is enabled so keeping them does not "
-                       "make sense given your current setup." + TERMINATOR
+                "Heroku support is enabled so keeping them does not "
+                "make sense given your current setup." + TERMINATOR
             )
         remove_envs_and_associated_files()
     else:
@@ -315,29 +344,28 @@ def main():
     if "{{ cookiecutter.js_task_runner}}".lower() == "none":
         remove_gulp_files()
         remove_packagejson_file()
-    if (
-        "{{ cookiecutter.js_task_runner }}".lower() != "none"
-        and "{{ cookiecutter.use_docker }}".lower() == "y"
-    ):
+        if "{{ cookiecutter.use_docker }}".lower() == "y":
+            remove_node_dockerfile()
+
+    if "{{ cookiecutter.cloud_provider}}".lower() == "none":
         print(
-            WARNING
-            + "Docker and {} JS task runner ".format(
-                "{{ cookiecutter.js_task_runner }}".lower().capitalize()
-            )
-            + "working together not supported yet. "
-              "You can continue using the generated project like you "
-              "normally would, however you would need to add a JS "
-              "task runner service to your Docker Compose configuration "
-              "manually." + TERMINATOR
+            WARNING + "You chose not to use a cloud provider, "
+            "media files won't be served in production." + TERMINATOR
         )
 
     if "{{ cookiecutter.use_celery }}".lower() == "n":
-        remove_celery_app()
+        remove_celery_files()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_celery_compose_dirs()
 
-    if "{{ cookiecutter.use_travisci }}".lower() == "n":
+    if "{{ cookiecutter.ci_tool }}".lower() != "travis":
         remove_dottravisyml_file()
+
+    if "{{ cookiecutter.ci_tool }}".lower() != "gitlab":
+        remove_dotgitlabciyml_file()
+
+    if "{{ cookiecutter.use_drf }}".lower() == "n":
+        remove_drf_starter_files()
 
     print(SUCCESS + "Project initialized, keep up the good work!" + TERMINATOR)
 

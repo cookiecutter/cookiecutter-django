@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 set -o errexit
 set -o pipefail
 set -o nounset
 
 
-celery -A {{cookiecutter.project_slug}}.taskapp beat -l INFO
+celery -A config.celery_app beat -l INFO

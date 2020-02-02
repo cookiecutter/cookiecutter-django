@@ -6,6 +6,12 @@ Getting Up and Running Locally With Docker
 The steps below will get you up and running with a local development environment.
 All of these commands assume you are in the root of your generated project.
 
+.. note::
+
+    If you're new to Docker, please be aware that some resources are cached system-wide
+    and might reappear if you generate a project multiple times with the same name (e.g.
+    :ref:`this issue with Postgres <docker-postgres-auth-failed>`).
+
 
 Prerequisites
 -------------
@@ -15,17 +21,6 @@ Prerequisites
 
 .. _`installation instructions`: https://docs.docker.com/install/#supported-platforms
 .. _`installation guide`: https://docs.docker.com/compose/install/
-
-
-Attention, Windows Users
-------------------------
-
-Currently PostgreSQL (``psycopg2`` python package) is not installed inside Docker containers for Windows users, while it is required by the generated Django project. To fix this, add ``psycopg2`` to the list of requirements inside ``requirements/base.txt``::
-
-    # Python-PostgreSQL Database Adapter
-    psycopg2==2.6.2
-
-Doing this will prevent the project from being installed in an Windows-only environment (thus without usage of Docker). If you want to use this project without Docker, make sure to remove ``psycopg2`` from the requirements again.
 
 
 Build the Stack
@@ -105,7 +100,6 @@ The most important thing for us here now is ``env_file`` section enlisting ``./.
     │   ├── .django
     │   └── .postgres
     └── .production
-        ├── .caddy
         ├── .django
         └── .postgres
 
@@ -120,7 +114,7 @@ Consider the aforementioned ``.envs/.local/.postgres``: ::
     POSTGRES_USER=XgOWtQtJecsAbaIyslwGvFvPawftNaqO
     POSTGRES_PASSWORD=jSljDz4whHuwO3aJIgVBrqEml5Ycbghorep4uVJ4xjDYQu0LfuTZdctj7y0YcCLu
 
-The three envs we are presented with here are ``POSTGRES_DB``, ``POSTGRES_USER``, and ``POSTGRES_PASSWORD`` (by the way, their values have also been generated for you). You might have figured out already where these definitions will end up; it's all the same with ``django`` and ``caddy`` service container envs.
+The three envs we are presented with here are ``POSTGRES_DB``, ``POSTGRES_USER``, and ``POSTGRES_PASSWORD`` (by the way, their values have also been generated for you). You might have figured out already where these definitions will end up; it's all the same with ``django`` service container envs.
 
 One final touch: should you ever need to merge ``.envs/production/*`` in a single ``.env`` run the ``merge_production_dotenvs_in_dotenv.py``: ::
 

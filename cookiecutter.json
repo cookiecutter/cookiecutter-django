@@ -18,20 +18,22 @@
   "use_pycharm": "n",
   "use_docker": "n",
   "postgresql_version": [
-    "10.5",
-    "10.4",
-    "10.3",
-    "10.2",
-    "10.1",
+    "11.3",
+    "10.8",
     "9.6",
     "9.5",
-    "9.4",
-    "9.3"
+    "9.4"
   ],
   "js_task_runner": [
     "None",
     "Gulp"
   ],
+  "cloud_provider": [
+    "AWS",
+    "GCP",
+    "None"
+  ],
+  "use_drf": "n",
   "custom_bootstrap_compilation": "n",
   "use_compressor": "n",
   "use_celery": "n",
@@ -39,7 +41,11 @@
   "use_sentry": "n",
   "use_whitenoise": "n",
   "use_heroku": "n",
-  "use_travisci": "n",
+  "ci_tool": [
+    "None",
+    "Travis",
+    "Gitlab"
+  ],
   "keep_local_envs_in_vcs": "y",
 
   "debug": "n"

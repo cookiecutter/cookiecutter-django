@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
 set -o errexit
 set -o nounset
 
 
-celery -A {{cookiecutter.project_slug}}.taskapp worker -l INFO
+celery -A config.celery_app worker -l INFO
