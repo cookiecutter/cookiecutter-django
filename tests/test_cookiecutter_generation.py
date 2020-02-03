@@ -3,7 +3,7 @@ import re
 
 import pytest
 from cookiecutter.exceptions import FailedHookException
-from pytest_cases import pytest_fixture_plus
+from pytest_cases import fixture_plus
 import sh
 import yaml
 from binaryornot.check import is_binary
@@ -26,7 +26,7 @@ def context():
     }
 
 
-@pytest_fixture_plus
+@fixture_plus
 @pytest.mark.parametrize("windows", ["y", "n"], ids=lambda yn: f"win:{yn}")
 @pytest.mark.parametrize("use_docker", ["y", "n"], ids=lambda yn: f"docker:{yn}")
 @pytest.mark.parametrize("use_celery", ["y", "n"], ids=lambda yn: f"celery:{yn}")
