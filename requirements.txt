@@ -12,6 +12,6 @@ flake8==3.7.9
 tox==3.14.3
 pytest==5.3.5
 pytest_cases==1.12.1
-pytest-cookies==0.4.0
+pytest-cookies==0.5.0
 pytest-xdist==1.31.0
 pyyaml==5.3
