@@ -60,8 +60,6 @@ services:
   flower:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_flower
-    ports:
-      - "5555:5555"
     command: /start-flower
 
   {%- endif %}

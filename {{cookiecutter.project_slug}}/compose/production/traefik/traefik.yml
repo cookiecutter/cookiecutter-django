@@ -10,6 +10,9 @@ entryPoints:
     # https
     address: ":443"
 
+  flower:
+    address: ":5555"
+
 certificatesResolvers:
   letsencrypt:
     # https://docs.traefik.io/master/https/acme/#lets-encrypt
@@ -42,6 +45,15 @@ http:
         # https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
 
+    flower-secure-router:
+      rule: "Host(`{{ cookiecutter.domain_name }}`)"
+      entryPoints:
+        - flower
+      service: flower
+      tls:
+        # https://docs.traefik.io/master/routing/routers/#certresolver
+        certResolver: letsencrypt
+
   middlewares:
     redirect:
       # https://docs.traefik.io/master/middlewares/redirectscheme/
@@ -52,13 +64,18 @@ http:
       # https://docs.traefik.io/master/middlewares/headers/#hostsproxyheaders
       # https://docs.djangoproject.com/en/dev/ref/csrf/#ajax
       headers:
-        hostsProxyHeaders: ['X-CSRFToken']
+        hostsProxyHeaders: ["X-CSRFToken"]
 
   services:
     django:
       loadBalancer:
         servers:
           - url: http://django:5000
+
+    flower:
+      loadBalancer:
+        servers:
+          - url: http://flower:5555
 
 providers:
   # https://docs.traefik.io/master/providers/file/
