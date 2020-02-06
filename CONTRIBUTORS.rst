@@ -56,6 +56,7 @@ Listed in alphabetical order.
   Andreas Meistad          `@ameistad`_
   Andres Gonzalez          `@andresgz`_
   Andrew Mikhnevich        `@zcho`_
+  Andrew Chen Wang         `@Andrew-Chen-Wang`_
   Andy Rose
   Anna Callahan            `@jazztpt`_
   Anna Sidwell             `@takkaria`_
@@ -228,6 +229,7 @@ Listed in alphabetical order.
 .. _@andor-pierdelacabeza: https://github.com/andor-pierdelacabeza
 .. _@andresgz: https://github.com/andresgz
 .. _@antoniablair: https://github.com/antoniablair
+.. _@Andrew-Chen-Wang: https://github.com/Andrew-Chen-Wang
 .. _@apirobot: https://github.com/apirobot
 .. _@archinal: https://github.com/archinal
 .. _@areski: https://github.com/areski
