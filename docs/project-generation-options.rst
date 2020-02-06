@@ -70,6 +70,9 @@ cloud_provider:
 
     Note that if you choose no cloud provider, media files won't work.
 
+use_drf:
+    Indicates whether the project should be configured to use `Django Rest Framework`_.
+
 custom_bootstrap_compilation:
     Indicates whether the project should support Bootstrap recompilation
     via the selected JavaScript task runner's task. This can be useful
@@ -128,6 +131,8 @@ debug:
 
 .. _AWS: https://aws.amazon.com/s3/
 .. _GCP: https://cloud.google.com/storage/
+
+.. _Django Rest Framework: https://github.com/encode/django-rest-framework/
 
 .. _Django Compressor: https://github.com/django-compressor/django-compressor
 
