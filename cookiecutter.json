@@ -34,7 +34,7 @@
     "None"
   ],
   "mail_service": [
-    {% if cookiecutter.cloud_provider == 'AWS' %}"Amazon SES",{% endif %}
+    "{% if cookiecutter.cloud_provider == 'AWS' %}Amazon SES{% else %}None{% endif %}",
     "Mailgun",
     "Mailjet",
     "Mandrill",
