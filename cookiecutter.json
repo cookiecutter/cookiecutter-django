@@ -34,16 +34,16 @@
     "None"
   ],
   "mail_service": [
-    "{% if cookiecutter.cloud_provider == 'AWS' %}Amazon SES{% else %}Mailgun{% endif %}",
-    "{% if cookiecutter.cloud_provider == 'AWS' %}Mailgun{% else %}Mailjet{% endif %}",
-    "{% if cookiecutter.cloud_provider == 'AWS' %}Mailjet{% else %}Mandrill{% endif %}",
-    "{% if cookiecutter.cloud_provider == 'AWS' %}Mandrill{% else %}Postmark{% endif %}",
-    "{% if cookiecutter.cloud_provider == 'AWS' %}Postmark{% else %}Sendgrid{% endif %}",
-    "{% if cookiecutter.cloud_provider == 'AWS' %}Sendgrid{% else %}SendinBlue{% endif %}",
-    "{% if cookiecutter.cloud_provider == 'AWS' %}SendinBlue{% else %}SparkPost{% endif %}",
-    "{% if cookiecutter.cloud_provider == 'AWS' %}SparkPost{% else %}Plain Django-Anymail{% endif %}",
-    "{% if cookiecutter.cloud_provider == 'AWS' %}Plain Django-Anymail{% else %}None{% endif %}",
-    "{% if cookiecutter.cloud_provider == 'AWS' %}None{% else %}None{% endif %}"
+    {% if cookiecutter.cloud_provider == 'AWS' %}"Amazon SES",{% endif %}
+    "Mailgun",
+    "Mailjet",
+    "Mandrill",
+    "Postmark",
+    "Sendgrid",
+    "SendinBlue",
+    "SparkPost",
+    "Plain/Vanilla Django-Anymail",
+    "None"
   ],
   "use_drf": "n",
   "custom_bootstrap_compilation": "n",
