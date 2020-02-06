@@ -182,16 +182,66 @@ EMAIL_SUBJECT_PREFIX = env(
 # Django Admin URL regex.
 ADMIN_URL = env("DJANGO_ADMIN_URL")
 
-# Anymail (Mailgun)
+# Anymail
 # ------------------------------------------------------------------------------
 # https://anymail.readthedocs.io/en/stable/installation/#installing-anymail
 INSTALLED_APPS += ["anymail"]  # noqa F405
+{%- if cookiecutter.mail_service == 'Amazon SES' %}
+EMAIL_BACKEND = "anymail.backends.amazon_ses.EmailBackend"
+# https://anymail.readthedocs.io/en/stable/esps/amazon_ses/
+{%- elif cookiecutter.mail_service == 'Mailgun' %}
 EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
+# https://anymail.readthedocs.io/en/stable/esps/mailgun/
+{%- elif cookiecutter.mail_service == 'Mailjet' %}
+EMAIL_BACKEND = "anymail.backends.mailjet.EmailBackend"
+# https://anymail.readthedocs.io/en/stable/esps/mailjet/
+{%- elif cookiecutter.mail_service == 'Mandrill' %}
+EMAIL_BACKEND = "anymail.backends.mandrill.EmailBackend"
+# https://anymail.readthedocs.io/en/stable/esps/mandrill/
+{%- elif cookiecutter.mail_service == 'Postmark' %}
+EMAIL_BACKEND = "anymail.backends.postmark.EmailBackend"
+# https://anymail.readthedocs.io/en/stable/esps/postmark/
+{%- elif cookiecutter.mail_service == 'Sendgrid' %}
+EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
+# https://anymail.readthedocs.io/en/stable/esps/sendgrid/
+{%- elif cookiecutter.mail_service == 'SendinBlue' %}
+EMAIL_BACKEND = "anymail.backends.sendinblue.EmailBackend"
+# https://anymail.readthedocs.io/en/stable/esps/sendinblue/
+{%- elif cookiecutter.mail_service == 'SparkPost' %}
+EMAIL_BACKEND = "anymail.backends.sparkpost.EmailBackend"
+# https://anymail.readthedocs.io/en/stable/esps/sparkpost/
+{%- elif cookiecutter.mail_service == 'Plain/Vanilla Django-Anymail' %}
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# https://docs.djangoproject.com/en/3.0/ref/settings/#email-backend
+{%- endif %}
 # https://anymail.readthedocs.io/en/stable/installation/#anymail-settings-reference
 ANYMAIL = {
+    {%- if cookiecutter.mail_service == 'Mailgun' %}
     "MAILGUN_API_KEY": env("MAILGUN_API_KEY"),
     "MAILGUN_SENDER_DOMAIN": env("MAILGUN_DOMAIN"),
     "MAILGUN_API_URL": env("MAILGUN_API_URL", default="https://api.mailgun.net/v3"),
+    {%- elif cookiecutter.mail_service == 'Mailjet' %}
+    "MAILJET_API_KEY": env("MAILJET_API_KEY"),
+    "MAILJET_SECRET_KEY": env("MAILJET_SECRET_KEY"),
+    "MAILJET_API_URL": env("MAILJET_API_URL", default="https://api.mailjet.com/v3"),
+    {%- elif cookiecutter.mail_service == 'Mandrill' %}
+    "MANDRILL_API_KEY": env("MANDRILL_API_KEY"),
+    "MANDRILL_API_URL": env("MANDRILL_API_URL", default="https://mandrillapp.com/api/1.0"),
+    {%- elif cookiecutter.mail_service == 'Postmark' %}
+    "POSTMARK_SERVER_TOKEN": env("POSTMARK_SERVER_TOKEN"),
+    "POSTMARK_API_URL": env("POSTMARK_API_URL", default="https://api.postmarkapp.com/"),
+    {%- elif cookiecutter.mail_service == 'Sendgrid' %}
+    "SENDGRID_API_KEY": env("SENDGRID_API_KEY"),
+    "SENDGRID_GENERATE_MESSAGE_ID": env("SENDGRID_GENERATE_MESSAGE_ID"),
+    "SENDGRID_MERGE_FIELD_FORMAT": env("SENDGRID_MERGE_FIELD_FORMAT"),
+    "SENDGRID_API_URL": env("SENDGRID_API_URL", default="https://api.sendgrid.com/v3/"),
+    {%- elif cookiecutter.mail_service == 'SendinBlue' %}
+    "SENDINBLUE_API_KEY": env("SENDINBLUE_API_KEY"),
+    "SENDINBLUE_API_URL": env("SENDINBLUE_API_URL", default="https://api.sendinblue.com/v3/"),
+    {%- elif cookiecutter.mail_service == 'SparkPost' %}
+    "SPARKPOST_API_KEY": env("SPARKPOST_API_KEY"),
+    "SPARKPOST_API_URL": env("SPARKPOST_API_URL", default="https://api.sparkpost.com/api/v1"),
+    {%- endif %}
 }
 
 {% if cookiecutter.use_compressor == 'y' -%}
