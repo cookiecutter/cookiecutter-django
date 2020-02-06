@@ -34,7 +34,7 @@
     "None"
   ],
   "mail_service": [
-    "{% if cookiecutter.cloud_provider == 'AWS' %}Amazon SES{% else %}None{% endif %}",
+    "{% if cookiecutter.cloud_provider == 'AWS' %}Amazon SES{% else %}Plain/Vanilla Django-Anymail{% endif %}",
     "Mailgun",
     "Mailjet",
     "Mandrill",
@@ -42,8 +42,7 @@
     "Sendgrid",
     "SendinBlue",
     "SparkPost",
-    "Plain/Vanilla Django-Anymail",
-    "None"
+    "Plain/Vanilla Django-Anymail"
   ],
   "use_drf": "n",
   "custom_bootstrap_compilation": "n",
