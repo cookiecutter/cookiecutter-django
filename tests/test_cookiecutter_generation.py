@@ -46,6 +46,41 @@ def context():
     ],
     ids=lambda id: f"wnoise:{id[0]}-cloud:{id[1]}",
 )
+@pytest.mark.parametrize(
+    "cloud_provider,mail_service",
+    [
+        ("AWS", "Amazon SES"),
+        ("AWS", "Mailgun"),
+        ("AWS", "Mailjet"),
+        ("AWS", "Mandrill"),
+        ("AWS", "Postmark"),
+        ("AWS", "Sendgrid"),
+        ("AWS", "SendinBlue"),
+        ("AWS", "SparkPost"),
+        ("AWS", "Plain/Vanilla Django-Anymail"),
+
+        ("GCP", "Mailgun"),
+        ("GCP", "Mailjet"),
+        ("GCP", "Mandrill"),
+        ("GCP", "Postmark"),
+        ("GCP", "Sendgrid"),
+        ("GCP", "SendinBlue"),
+        ("GCP", "SparkPost"),
+        ("GCP", "Plain/Vanilla Django-Anymail"),
+
+        ("None", "Mailgun"),
+        ("None", "Mailjet"),
+        ("None", "Mandrill"),
+        ("None", "Postmark"),
+        ("None", "Sendgrid"),
+        ("None", "SendinBlue"),
+        ("None", "SparkPost"),
+        ("None", "Plain/Vanilla Django-Anymail"),
+
+        # GCP or None (i.e. no cloud provider) + Amazon SES is not supported
+    ],
+    ids=lambda id: f"cloud:{id[0]}-mail:{id[1]}",
+)
 def context_combination(
     windows,
     use_docker,
@@ -56,6 +91,7 @@ def context_combination(
     use_whitenoise,
     use_drf,
     cloud_provider,
+    mail_service,
 ):
     """Fixture that parametrize the function where it's used."""
     return {
@@ -68,6 +104,7 @@ def context_combination(
         "use_whitenoise": use_whitenoise,
         "use_drf": use_drf,
         "cloud_provider": cloud_provider,
+        "mail_service": mail_service,
     }
 
 
@@ -190,6 +227,24 @@ def test_invalid_slug(cookies, context, slug):
 def test_no_whitenoise_and_no_cloud_provider(cookies, context):
     """It should not generate project if neither whitenoise or cloud provider are set"""
     context.update({"use_whitenoise": "n", "cloud_provider": "None"})
+    result = cookies.bake(extra_context=context)
+
+    assert result.exit_code != 0
+    assert isinstance(result.exception, FailedHookException)
+
+
+def test_gcp_with_aws_ses_mail_service(cookies, context):
+    """It should not generate project if SES is set with GCP cloud provider"""
+    context.update({"cloud_provider": "GCP", "mail_service": "Amazon SES"})
+    result = cookies.bake(extra_context=context)
+
+    assert result.exit_code != 0
+    assert isinstance(result.exception, FailedHookException)
+
+
+def test_no_cloud_provider_with_aws_ses_mail_service(cookies, context):
+    """It should not generate project if SES is set with no cloud provider"""
+    context.update({"cloud_provider": "None", "mail_service": "Amazon SES"})
     result = cookies.bake(extra_context=context)
 
     assert result.exit_code != 0
