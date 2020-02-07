@@ -47,39 +47,20 @@ def context():
     ids=lambda id: f"wnoise:{id[0]}-cloud:{id[1]}",
 )
 @pytest.mark.parametrize(
-    "cloud_provider,mail_service",
+    "mail_service",
     [
-        ("AWS", "Amazon SES"),
-        ("AWS", "Mailgun"),
-        ("AWS", "Mailjet"),
-        ("AWS", "Mandrill"),
-        ("AWS", "Postmark"),
-        ("AWS", "Sendgrid"),
-        ("AWS", "SendinBlue"),
-        ("AWS", "SparkPost"),
-        ("AWS", "Plain/Vanilla Django-Anymail"),
-
-        ("GCP", "Mailgun"),
-        ("GCP", "Mailjet"),
-        ("GCP", "Mandrill"),
-        ("GCP", "Postmark"),
-        ("GCP", "Sendgrid"),
-        ("GCP", "SendinBlue"),
-        ("GCP", "SparkPost"),
-        ("GCP", "Plain/Vanilla Django-Anymail"),
-
-        ("None", "Mailgun"),
-        ("None", "Mailjet"),
-        ("None", "Mandrill"),
-        ("None", "Postmark"),
-        ("None", "Sendgrid"),
-        ("None", "SendinBlue"),
-        ("None", "SparkPost"),
-        ("None", "Plain/Vanilla Django-Anymail"),
-
+        "Amazon SES",
+        "Mailgun",
+        "MailJet",
+        "Mandrill",
+        "Postmark",
+        "Sendgrid",
+        "SendinBlue",
+        "SparkPost",
+        "Plain/Vanilla Django-Anymail"
         # GCP or None (i.e. no cloud provider) + Amazon SES is not supported
     ],
-    ids=lambda id: f"cloud:{id[0]}-mail:{id[1]}",
+    ids=lambda id: f"mail:{id[0]}",
 )
 def context_combination(
     windows,
