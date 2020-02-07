@@ -70,6 +70,19 @@ cloud_provider:
 
     Note that if you choose no cloud provider, media files won't work.
 
+mail_service:
+    Select an email service that Django-Anymail provides
+
+    1. Amazon SES_
+    2. Mailgun_
+    3. Mailjet_
+    4. Mandrill_
+    5. Postmark_
+    6. SendGrid_
+    7. SendinBlue_
+    8. SparkPost_
+    9. Plain/Vanilla Django-Anymail_
+
 use_drf:
     Indicates whether the project should be configured to use `Django Rest Framework`_.
 
@@ -131,6 +144,16 @@ debug:
 
 .. _AWS: https://aws.amazon.com/s3/
 .. _GCP: https://cloud.google.com/storage/
+
+.. _SES: https://aws.amazon.com/ses/
+.. _Mailgun: https://www.mailgun.com
+.. _Mailjet: https://www.mailjet.com
+.. _Mandrill: http://mandrill.com
+.. _Postmark: https://postmarkapp.com
+.. _SendGrid: https://sendgrid.com
+.. _SendinBlue: https://www.sendinblue.com
+.. _SparkPost: https://www.sparkpost.com
+.. _Django-Anymail: https://anymail.readthedocs.io/en/stable/
 
 .. _Django Rest Framework: https://github.com/encode/django-rest-framework/
 
