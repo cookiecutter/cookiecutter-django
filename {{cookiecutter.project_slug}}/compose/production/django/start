@@ -6,4 +6,10 @@ set -o nounset
 
 
 python /app/manage.py collectstatic --noinput
+{%- if cookiecutter.use_whitenoise == 'y' and cookiecutter.use_compressor == 'y' %}
+if [ "${COMPRESS_ENABLED:-}" = "True" ];
+then
+  python /app/manage.py compress
+fi
+{%- endif %}
 /usr/local/bin/gunicorn config.wsgi --bind 0.0.0.0:5000 --chdir=/app

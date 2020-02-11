@@ -129,6 +129,7 @@ Listed in alphabetical order.
   Irfan Ahmad              `@erfaan`_                    @erfaan
   Isaac12x                 `@Isaac12x`_
   Ivan Khomutov            `@ikhomutov`_
+  James Williams           `@jameswilliams1`_
   Jan Van Bruggen          `@jvanbrug`_
   Jelmer Draaijer          `@foarsitter`_
   Jerome Caisip            `@jeromecaisip`_
