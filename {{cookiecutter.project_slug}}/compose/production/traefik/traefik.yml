@@ -9,9 +9,11 @@ entryPoints:
   web-secure:
     # https
     address: ":443"
+  {%- if cookiecutter.use_celery == 'y' %}
 
   flower:
     address: ":5555"
+  {%- endif %}
 
 certificatesResolvers:
   letsencrypt:
@@ -44,6 +46,7 @@ http:
       tls:
         # https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
+    {%- if cookiecutter.use_celery == 'y' %}
 
     flower-secure-router:
       rule: "Host(`{{ cookiecutter.domain_name }}`)"
@@ -53,6 +56,7 @@ http:
       tls:
         # https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
+    {%- endif %}
 
   middlewares:
     redirect:
@@ -71,11 +75,13 @@ http:
       loadBalancer:
         servers:
           - url: http://django:5000
+    {%- if cookiecutter.use_celery == 'y' %}
 
     flower:
       loadBalancer:
         servers:
           - url: http://flower:5555
+    {%- endif %}
 
 providers:
   # https://docs.traefik.io/master/providers/file/
