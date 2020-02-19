@@ -205,6 +205,7 @@ Listed in alphabetical order.
   Tubo Shi                 `@Tubo`_
   Umair Ashraf             `@umrashrf`_                 @fabumair
   Vadim Iskuchekov         `@Egregors`_                 @egregors
+  Vicente G. Reyes         `@reyesvicente`_             @highcenburg
   Vitaly Babiy
   Vivian Guillen           `@viviangb`_
   Vlad Doster              `@vladdoster`_
@@ -340,6 +341,7 @@ Listed in alphabetical order.
 .. _@purplediane: https://github.com/purplediane
 .. _@raonyguimaraes: https://github.com/raonyguimaraes
 .. _@reggieriser: https://github.com/reggieriser
+.. _@reyesvicente: https://github.com/reyesvicente
 .. _@rm--: https://github.com/rm--
 .. _@rolep: https://github.com/rolep
 .. _@romanosipenko: https://github.com/romanosipenko
