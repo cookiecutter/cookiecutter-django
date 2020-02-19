@@ -341,6 +341,7 @@ Listed in alphabetical order.
 .. _@purplediane: https://github.com/purplediane
 .. _@raonyguimaraes: https://github.com/raonyguimaraes
 .. _@reggieriser: https://github.com/reggieriser
+.. _@reyesvicente: https://github.com/reyesvicente
 .. _@rm--: https://github.com/rm--
 .. _@rolep: https://github.com/rolep
 .. _@romanosipenko: https://github.com/romanosipenko
