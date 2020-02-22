@@ -63,6 +63,7 @@ Listed in alphabetical order.
   Anuj Bansal              `@ahhda`_
   Arcuri Davide            `@dadokkio`_
   Areski Belaid            `@areski`_
+  Arkadiusz Michał Ryś     `@arkadiuszmichalrys`_
   Ashley Camba
   Barclay Gauld            `@yunti`_
   Bartek                   `@btknu`_
@@ -233,6 +234,7 @@ Listed in alphabetical order.
 .. _@apirobot: https://github.com/apirobot
 .. _@archinal: https://github.com/archinal
 .. _@areski: https://github.com/areski
+.. _@arkadiuszmichalrys: https://github.com/ArkadiuszMichalRys
 .. _@arruda: https://github.com/arruda
 .. _@bertdemiranda: https://github.com/bertdemiranda
 .. _@bittner: https://github.com/bittner

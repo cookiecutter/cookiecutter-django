@@ -47,7 +47,7 @@ Features
 * Comes with custom user model ready to go
 * Optional custom static build using Gulp and livereload
 * Send emails via Anymail_ (using Mailgun_ by default, but switchable)
-* Media storage using Amazon S3 or Google Cloud Storage
+* Media storage using Amazon S3, Google Cloud Storage or a local nginx instance
 * Docker support using docker-compose_ for development and production (using Traefik_ with LetsEncrypt_ support)
 * Procfile_ for deploying to Heroku
 * Instructions for deploying to PythonAnywhere_
@@ -85,7 +85,7 @@ Optional Integrations
 .. _PythonAnywhere: https://www.pythonanywhere.com/
 .. _Traefik: https://traefik.io/
 .. _LetsEncrypt: https://letsencrypt.org/
-.. _pre-commit: https://github.com/pre-commit/pre-commit 
+.. _pre-commit: https://github.com/pre-commit/pre-commit
 
 Constraints
 -----------
@@ -184,7 +184,8 @@ Answer the prompts with your own desired options_. For example::
     Select cloud_provider:
     1 - AWS
     2 - GCP
-    3 - None
+    3 - nginx
+    4 - None
     Choose from 1, 2, 3 [1]: 1
     custom_bootstrap_compilation [n]: n
     Select open_source_license:
