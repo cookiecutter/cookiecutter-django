@@ -176,6 +176,7 @@ Listed in alphabetical order.
   Oleg Russkin             `@rolep`_
   Pablo                    `@oubiga`_
   Parbhat Puri             `@parbhat`_
+  Pawan Chaurasia          `@rjsnh1522`_
   Peter Bittner            `@bittner`_
   Peter Coles              `@mrcoles`_
   Philipp Matthies         `@canonnervio`_
