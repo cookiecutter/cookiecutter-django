@@ -176,6 +176,7 @@ Listed in alphabetical order.
   Oleg Russkin             `@rolep`_
   Pablo                    `@oubiga`_
   Parbhat Puri             `@parbhat`_
+  Pawan Chaurasia          `@rjsnh1522`_
   Peter Bittner            `@bittner`_
   Peter Coles              `@mrcoles`_
   Philipp Matthies         `@canonnervio`_
@@ -338,6 +339,7 @@ Listed in alphabetical order.
 .. _@originell: https://github.com/originell
 .. _@oubiga: https://github.com/oubiga
 .. _@parbhat: https://github.com/parbhat
+.. _@rjsnh1522: https://github.com/rjsnh1522
 .. _@pchiquet: https://github.com/pchiquet
 .. _@phiberjenz: https://github.com/phiberjenz
 .. _@purplediane: https://github.com/purplediane
