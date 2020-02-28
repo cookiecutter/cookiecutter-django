@@ -299,6 +299,7 @@ Listed in alphabetical order.
 .. _@howiezhao: https://github.com/howiezhao
 .. _@IanLee1521: https://github.com/IanLee1521
 .. _@ikhomutov: https://github.com/ikhomutov
+.. _@jameswilliams1: https://github.com/jameswilliams1
 .. _@ikkebr: https://github.com/ikkebr
 .. _@Isaac12x: https://github.com/Isaac12x
 .. _@iynaix: https://github.com/iynaix
