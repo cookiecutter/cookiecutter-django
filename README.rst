@@ -105,16 +105,16 @@ This project is run by volunteers. Please support them in their efforts to maint
 
 Projects that provide financial support to the maintainers:
 
-Two Scoops of Django 1.11
+Django Crash Course
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: https://cdn.shopify.com/s/files/1/0304/6901/products/2017-06-29-tsd11-sticker-02.png
-   :name: Two Scoops of Django 1.11 Cover
+.. image:: https://cdn.shopify.com/s/files/1/0304/6901/files/Django-Crash-Course-300x436.jpg
+   :name: Django Crash Course: Covers Django 3.0 and Python 3.8
    :align: center
-   :alt: Two Scoops of Django
-   :target: http://twoscoopspress.com/products/two-scoops-of-django-1-11
+   :alt: Django Crash Course
+   :target: https://www.roygreenfeld.com/products/django-crash-course
 
-Two Scoops of Django is the best dessert-themed Django reference in the universe
+Django Crash Course for Django 3.0 and Python 3.8 is the best cheese-themed Django reference in the universe!
 
 pyup
 ~~~~~~~~~~~~~~~~~~
