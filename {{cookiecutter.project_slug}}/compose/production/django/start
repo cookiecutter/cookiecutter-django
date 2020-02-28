@@ -6,9 +6,24 @@ set -o nounset
 
 
 python /app/manage.py collectstatic --noinput
-{%- if cookiecutter.use_whitenoise == 'y' and cookiecutter.use_compressor == 'y' %}
-if [ "${COMPRESS_ENABLED:-}" = "True" ];
-then
+{% if cookiecutter.use_whitenoise == 'y' and cookiecutter.use_compressor == 'y' %}
+compress_enabled() {
+python << END
+import sys
+
+from environ import Env
+
+env = Env(COMPRESS_ENABLED=(bool, True))
+if env('COMPRESS_ENABLED'):
+    sys.exit(0)
+else:
+    sys.exit(1)
+
+END
+}
+
+if compress_enabled; then
+  # NOTE this command will fail if django-compressor is disabled
   python /app/manage.py compress
 fi
 {%- endif %}
