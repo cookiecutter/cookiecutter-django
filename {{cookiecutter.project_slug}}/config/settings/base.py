@@ -79,10 +79,9 @@ THIRD_PARTY_APPS = [
 {%- if cookiecutter.use_celery == 'y' %}
     "django_celery_beat",
 {%- endif %}
-{% if cookiecutter.use_drf == "y" -%}
+{%- if cookiecutter.use_drf == "y" %}
     "rest_framework.authtoken",
 {%- endif %}
-
 ]
 
 LOCAL_APPS = [
