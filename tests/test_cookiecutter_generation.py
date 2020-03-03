@@ -127,7 +127,7 @@ def test_flake8_passes(cookies, context_override):
     try:
         sh.flake8(str(result.project))
     except sh.ErrorReturnCode as e:
-        pytest.fail(e)
+        pytest.fail(e.stdout.decode())
 
 
 @pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
@@ -138,7 +138,7 @@ def test_black_passes(cookies, context_override):
     try:
         sh.black("--check", "--diff", "--exclude", "migrations", f"{result.project}/")
     except sh.ErrorReturnCode as e:
-        pytest.fail(e)
+        pytest.fail(e.stdout.decode())
 
 
 def test_travis_invokes_pytest(cookies, context):
