@@ -1,9 +1,7 @@
-"""isort:skip_file"""
 {% if cookiecutter.use_sentry == 'y' -%}
 import logging
 
 import sentry_sdk
-
 from sentry_sdk.integrations.django import DjangoIntegration
 from sentry_sdk.integrations.logging import LoggingIntegration
 {%- if cookiecutter.use_celery == 'y' %}
