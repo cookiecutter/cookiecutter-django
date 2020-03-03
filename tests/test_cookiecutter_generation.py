@@ -3,7 +3,6 @@ import re
 
 import pytest
 from cookiecutter.exceptions import FailedHookException
-from pytest_cases import fixture_plus
 import sh
 import yaml
 from binaryornot.check import is_binary
@@ -26,49 +25,62 @@ def context():
     }
 
 
-@fixture_plus
-@pytest.mark.parametrize("windows", ["y", "n"], ids=lambda yn: f"win:{yn}")
-@pytest.mark.parametrize("use_docker", ["y", "n"], ids=lambda yn: f"docker:{yn}")
-@pytest.mark.parametrize("use_celery", ["y", "n"], ids=lambda yn: f"celery:{yn}")
-@pytest.mark.parametrize("use_mailhog", ["y", "n"], ids=lambda yn: f"mailhog:{yn}")
-@pytest.mark.parametrize("use_sentry", ["y", "n"], ids=lambda yn: f"sentry:{yn}")
-@pytest.mark.parametrize("use_compressor", ["y", "n"], ids=lambda yn: f"cmpr:{yn}")
-@pytest.mark.parametrize("use_drf", ["y", "n"], ids=lambda yn: f"drf:{yn}")
-@pytest.mark.parametrize(
-    "use_whitenoise,cloud_provider",
-    [
-        ("y", "AWS"),
-        ("y", "GCP"),
-        ("y", "None"),
-        ("n", "AWS"),
-        ("n", "GCP"),
-        # no whitenoise + no cloud provider is not supported
-    ],
-    ids=lambda id: f"wnoise:{id[0]}-cloud:{id[1]}",
-)
-def context_combination(
-    windows,
-    use_docker,
-    use_celery,
-    use_mailhog,
-    use_sentry,
-    use_compressor,
-    use_whitenoise,
-    use_drf,
-    cloud_provider,
-):
-    """Fixture that parametrize the function where it's used."""
-    return {
-        "windows": windows,
-        "use_docker": use_docker,
-        "use_compressor": use_compressor,
-        "use_celery": use_celery,
-        "use_mailhog": use_mailhog,
-        "use_sentry": use_sentry,
-        "use_whitenoise": use_whitenoise,
-        "use_drf": use_drf,
-        "cloud_provider": cloud_provider,
-    }
+SUPPORTED_COMBINATIONS = [
+    {"open_source_license": "MIT"},
+    {"open_source_license": "BSD"},
+    {"open_source_license": "GPLv3"},
+    {"open_source_license": "Apache Software License 2.0"},
+    {"open_source_license": "Not open source"},
+    {"windows": "y"},
+    {"windows": "n"},
+    {"use_pycharm": "y"},
+    {"use_pycharm": "n"},
+    {"use_docker": "y"},
+    {"use_docker": "n"},
+    {"postgresql_version": "11.3"},
+    {"postgresql_version": "10.8"},
+    {"postgresql_version": "9.6"},
+    {"postgresql_version": "9.5"},
+    {"postgresql_version": "9.4"},
+    {"cloud_provider": "AWS", "use_whitenoise": "y"},
+    {"cloud_provider": "AWS", "use_whitenoise": "n"},
+    {"cloud_provider": "GCP", "use_whitenoise": "y"},
+    {"cloud_provider": "GCP", "use_whitenoise": "n"},
+    {"cloud_provider": "None", "use_whitenoise": "y"},
+    # Note: cloud_provider=None AND use_whitenoise=n is not supported
+    {"use_drf": "y"},
+    {"use_drf": "n"},
+    {"js_task_runner": "None"},
+    {"js_task_runner": "Gulp"},
+    {"custom_bootstrap_compilation": "y"},
+    {"custom_bootstrap_compilation": "n"},
+    {"use_compressor": "y"},
+    {"use_compressor": "n"},
+    {"use_celery": "y"},
+    {"use_celery": "n"},
+    {"use_mailhog": "y"},
+    {"use_mailhog": "n"},
+    {"use_sentry": "y"},
+    {"use_sentry": "n"},
+    {"use_whitenoise": "y"},
+    {"use_whitenoise": "n"},
+    {"use_heroku": "y"},
+    {"use_heroku": "n"},
+    {"ci_tool": "None"},
+    {"ci_tool": "Travis"},
+    {"ci_tool": "Gitlab"},
+    {"keep_local_envs_in_vcs": "y"},
+    {"keep_local_envs_in_vcs": "n"},
+    {"debug": "y"},
+    {"debug": "n"},
+]
+
+UNSUPPORTED_COMBINATIONS = [{"cloud_provider": "None", "use_whitenoise": "n"}]
+
+
+def _fixture_id(ctx):
+    """Helper to get a user friendly test name from the parametrized context."""
+    return "-".join(f"{key}:{value}" for key, value in ctx.items())
 
 
 def build_files_list(root_dir):
@@ -81,9 +93,7 @@ def build_files_list(root_dir):
 
 
 def check_paths(paths):
-    """Method to check all paths have correct substitutions,
-    used by other tests cases
-    """
+    """Method to check all paths have correct substitutions."""
     # Assert that no match is found in any of the files
     for path in paths:
         if is_binary(path):
@@ -95,13 +105,10 @@ def check_paths(paths):
             assert match is None, msg.format(path)
 
 
-def test_project_generation(cookies, context, context_combination):
-    """
-    Test that project is generated and fully rendered.
-
-    This is parametrized for each combination from ``context_combination`` fixture
-    """
-    result = cookies.bake(extra_context={**context, **context_combination})
+@pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
+def test_project_generation(cookies, context, context_override):
+    """Test that project is generated and fully rendered."""
+    result = cookies.bake(extra_context={**context, **context_override})
     assert result.exit_code == 0
     assert result.exception is None
     assert result.project.basename == context["project_slug"]
@@ -112,14 +119,10 @@ def test_project_generation(cookies, context, context_combination):
     check_paths(paths)
 
 
-@pytest.mark.flake8
-def test_flake8_passes(cookies, context_combination):
-    """
-    Generated project should pass flake8.
-
-    This is parametrized for each combination from ``context_combination`` fixture
-    """
-    result = cookies.bake(extra_context=context_combination)
+@pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
+def test_flake8_passes(cookies, context_override):
+    """Generated project should pass flake8."""
+    result = cookies.bake(extra_context=context_override)
 
     try:
         sh.flake8(str(result.project))
@@ -127,14 +130,10 @@ def test_flake8_passes(cookies, context_combination):
         pytest.fail(e)
 
 
-@pytest.mark.black
-def test_black_passes(cookies, context_combination):
-    """
-    Generated project should pass black.
-
-    This is parametrized for each combination from ``context_combination`` fixture
-    """
-    result = cookies.bake(extra_context=context_combination)
+@pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
+def test_black_passes(cookies, context_override):
+    """Generated project should pass black."""
+    result = cookies.bake(extra_context=context_override)
 
     try:
         sh.black("--check", "--diff", "--exclude", "migrations", f"{result.project}/")
@@ -187,9 +186,10 @@ def test_invalid_slug(cookies, context, slug):
     assert isinstance(result.exception, FailedHookException)
 
 
-def test_no_whitenoise_and_no_cloud_provider(cookies, context):
-    """It should not generate project if neither whitenoise or cloud provider are set"""
-    context.update({"use_whitenoise": "n", "cloud_provider": "None"})
+@pytest.mark.parametrize("invalid_context", UNSUPPORTED_COMBINATIONS)
+def test_error_if_incompatible(cookies, context, invalid_context):
+    """It should not generate project an incompatible combination is selected."""
+    context.update(invalid_context)
     result = cookies.bake(extra_context=context)
 
     assert result.exit_code != 0

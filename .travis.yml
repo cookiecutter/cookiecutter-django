@@ -15,10 +15,6 @@ matrix:
   include:
     - name: Test results
       script: tox -e py37
-    - name: Run flake8 on result
-      script: tox -e flake8
-    - name: Run black on result
-      script: tox -e black
     - name: Black template
       script: tox -e black-template
     - name: Basic Docker
