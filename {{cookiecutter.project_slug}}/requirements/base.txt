@@ -28,7 +28,6 @@ django-crispy-forms==1.9.0  # https://github.com/django-crispy-forms/django-cris
 django-compressor==2.4  # https://github.com/django-compressor/django-compressor
 {%- endif %}
 django-redis==4.11.0  # https://github.com/niwinz/django-redis
-
 {%- if cookiecutter.use_drf == "y" %}
 # Django REST Framework
 djangorestframework==3.11.0  # https://github.com/encode/django-rest-framework
