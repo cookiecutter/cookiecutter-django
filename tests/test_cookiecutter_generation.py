@@ -48,6 +48,15 @@ SUPPORTED_COMBINATIONS = [
     {"cloud_provider": "GCP", "use_whitenoise": "n"},
     {"cloud_provider": "None", "use_whitenoise": "y"},
     # Note: cloud_provider=None AND use_whitenoise=n is not supported
+    {"mail_service": "Mailgun"},
+    {"mail_service": "Amazon SES"},
+    {"mail_service": "Mailjet"},
+    {"mail_service": "Mandrill"},
+    {"mail_service": "Postmark"},
+    {"mail_service": "Sendgrid"},
+    {"mail_service": "SendinBlue"},
+    {"mail_service": "SparkPost"},
+    {"mail_service": "Other SMTP"},
     {"use_drf": "y"},
     {"use_drf": "n"},
     {"js_task_runner": "None"},
@@ -73,21 +82,10 @@ SUPPORTED_COMBINATIONS = [
     {"keep_local_envs_in_vcs": "n"},
     {"debug": "y"},
     {"debug": "n"},
-    {"mail_service", "AWS SES"},
-    {"mail_service", "Mailgun"},
-    {"mail_service", "Mailjet"},
-    {"mail_service", "Mandrill"},
-    {"mail_service", "Postmark"},
-    {"mail_service", "Sendgrid"},
-    {"mail_service", "SendinBlue"},
-    {"mail_service", "SparkPost"},
-    {"mail_service", "Other SMTP"},
 ]
 
 UNSUPPORTED_COMBINATIONS = [
     {"cloud_provider": "None", "use_whitenoise": "n"},
-    {"cloud_provider": "GCP", "mail_service": "Amazon SES"},
-    {"cloud_provider": "None", "mail_service": "Amazon SES"}
 ]
 
 
