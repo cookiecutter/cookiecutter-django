@@ -1,3 +1,4 @@
+"""isort:skip_file"""
 {% if cookiecutter.use_sentry == 'y' -%}
 import logging
 

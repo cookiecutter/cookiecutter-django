@@ -6,12 +6,12 @@ binaryornot==0.4.4
 # ------------------------------------------------------------------------------
 black==19.10b0
 flake8==3.7.9
+flake8-isort==2.8.0
 
 # Testing
 # ------------------------------------------------------------------------------
-tox==3.14.3
-pytest==5.3.5
-pytest_cases==1.12.1
-pytest-cookies==0.5.0
-pytest-xdist==1.31.0
+tox==3.14.5
+pytest==5.4.1
+pytest-cookies==0.5.1
+pytest-instafail==0.4.1.post0
 pyyaml==5.3

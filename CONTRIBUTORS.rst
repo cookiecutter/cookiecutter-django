@@ -88,6 +88,7 @@ Listed in alphabetical order.
   Chris Pappalardo         `@ChrisPappalardo`_
   Christopher Clarke       `@chrisdev`_
   Cole Mackenzie           `@cmackenzie1`_
+  Cole Maclean             `@cole`_                      @cole
   Collederas               `@Collederas`_
   Craig Margieson          `@cmargieson`_
   Cristian Vargas          `@cdvv7788`_
@@ -176,6 +177,7 @@ Listed in alphabetical order.
   Oleg Russkin             `@rolep`_
   Pablo                    `@oubiga`_
   Parbhat Puri             `@parbhat`_
+  Pawan Chaurasia          `@rjsnh1522`_
   Peter Bittner            `@bittner`_
   Peter Coles              `@mrcoles`_
   Philipp Matthies         `@canonnervio`_
@@ -206,6 +208,7 @@ Listed in alphabetical order.
   Tubo Shi                 `@Tubo`_
   Umair Ashraf             `@umrashrf`_                 @fabumair
   Vadim Iskuchekov         `@Egregors`_                 @egregors
+  Vicente G. Reyes         `@reyesvicente`_             @highcenburg
   Vitaly Babiy
   Vivian Guillen           `@viviangb`_
   Vlad Doster              `@vladdoster`_
@@ -260,6 +263,7 @@ Listed in alphabetical order.
 .. _@chuckus: https://github.com/chuckus
 .. _@cmackenzie1: https://github.com/cmackenzie1
 .. _@cmargieson: https://github.com/cmargieson
+.. _@cole: https://github.com/cole
 .. _@Collederas: https://github.com/Collederas
 .. _@curtisstpierre: https://github.com/curtisstpierre
 .. _@dadokkio: https://github.com/dadokkio
@@ -337,11 +341,13 @@ Listed in alphabetical order.
 .. _@originell: https://github.com/originell
 .. _@oubiga: https://github.com/oubiga
 .. _@parbhat: https://github.com/parbhat
+.. _@rjsnh1522: https://github.com/rjsnh1522
 .. _@pchiquet: https://github.com/pchiquet
 .. _@phiberjenz: https://github.com/phiberjenz
 .. _@purplediane: https://github.com/purplediane
 .. _@raonyguimaraes: https://github.com/raonyguimaraes
 .. _@reggieriser: https://github.com/reggieriser
+.. _@reyesvicente: https://github.com/reyesvicente
 .. _@rm--: https://github.com/rm--
 .. _@rolep: https://github.com/rolep
 .. _@romanosipenko: https://github.com/romanosipenko
