@@ -118,6 +118,7 @@ Listed in alphabetical order.
   Garry Cairns             `@garry-cairns`_
   Garry Polley             `@garrypolley`_
   Gilbishkosma             `@Gilbishkosma`_
+  Guilherme Guy            `@guilherme1guy`_
   Hamish Durkin            `@durkode`_
   Hana Quadara             `@hanaquadara`_
   Harry Moreno             `@morenoh149`_                @morenoh149
@@ -275,6 +276,7 @@ Listed in alphabetical order.
 .. _@dhepper: https://github.com/dhepper
 .. _@dot2dotseurat: https://github.com/dot2dotseurat
 .. _@dsclementsen: https://github.com/dsclementsen
+.. _@guilherme1guy: https://github.com/guilherme1guy
 .. _@durkode: https://github.com/durkode
 .. _@Egregors: https://github.com/Egregors
 .. _@epileptic-fish: https://gihub.com/epileptic-fish
