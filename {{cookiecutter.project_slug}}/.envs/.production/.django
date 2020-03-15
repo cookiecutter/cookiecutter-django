@@ -31,11 +31,7 @@ DJANGO_GCP_STORAGE_BUCKET_NAME=
 # django-allauth
 # ------------------------------------------------------------------------------
 DJANGO_ACCOUNT_ALLOW_REGISTRATION=True
-{% if cookiecutter.use_compressor == 'y' %}
-# django-compressor
-# ------------------------------------------------------------------------------
-COMPRESS_ENABLED=
-{% endif %}
+
 # Gunicorn
 # ------------------------------------------------------------------------------
 WEB_CONCURRENCY=4
