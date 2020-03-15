@@ -49,6 +49,7 @@ Listed in alphabetical order.
   Adam Dobrawy             `@ad-m`_
   Adam Steele              `@adammsteele`_
   Agam Dua
+  Agustín Scaramuzza       `@scaramagus`_               @scaramagus
   Alberto Sanchez          `@alb3rto`_
   Alex Tsai                `@caffodian`_
   Alvaro [Andor]           `@andor-pierdelacabeza`_
