@@ -353,6 +353,7 @@ Listed in alphabetical order.
 .. _@rolep: https://github.com/rolep
 .. _@romanosipenko: https://github.com/romanosipenko
 .. _@saschalalala: https://github.com/saschalalala
+.. _@scaramagus: https://github.com/scaramagus
 .. _@shireenrao: https://github.com/shireenrao
 .. _@show0k: https://github.com/show0k
 .. _@shultz: https://github.com/shultz
