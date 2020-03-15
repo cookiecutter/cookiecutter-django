@@ -10,7 +10,7 @@ whitenoise==5.0.1  # https://github.com/evansd/whitenoise
 {%- endif %}
 redis==3.4.1 # https://github.com/andymccurdy/redis-py
 {%- if cookiecutter.use_celery == "y" %}
-celery==4.4.0  # pyup: < 5.0  # https://github.com/celery/celery
+celery==4.4.1  # pyup: < 5.0  # https://github.com/celery/celery
 django-celery-beat==2.0.0  # https://github.com/celery/django-celery-beat
 {%- if cookiecutter.use_docker == 'y' %}
 flower==0.9.3  # https://github.com/mher/flower
@@ -19,7 +19,7 @@ flower==0.9.3  # https://github.com/mher/flower
 
 # Django
 # ------------------------------------------------------------------------------
-django==2.2.10  # pyup: < 3.0  # https://www.djangoproject.com/
+django==2.2.11  # pyup: < 3.0  # https://www.djangoproject.com/
 django-environ==0.4.5  # https://github.com/joke2k/django-environ
 django-model-utils==4.0.0  # https://github.com/jazzband/django-model-utils
 django-allauth==0.41.0  # https://github.com/pennersr/django-allauth

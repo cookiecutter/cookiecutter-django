@@ -6,6 +6,7 @@ variables:
   POSTGRES_USER: '{{ cookiecutter.project_slug }}'
   POSTGRES_PASSWORD: ''
   POSTGRES_DB: 'test_{{ cookiecutter.project_slug }}'
+  POSTGRES_HOST_AUTH_METHOD: trust
 
 flake8:
   stage: lint
