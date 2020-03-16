@@ -33,6 +33,17 @@
     "GCP",
     "None"
   ],
+  "mail_service": [
+    "Mailgun",
+    "Amazon SES",
+    "Mailjet",
+    "Mandrill",
+    "Postmark",
+    "Sendgrid",
+    "SendinBlue",
+    "SparkPost",
+    "Other SMTP"
+  ],
   "use_drf": "n",
   "custom_bootstrap_compilation": "n",
   "use_compressor": "n",

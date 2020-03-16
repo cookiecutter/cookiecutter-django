@@ -48,6 +48,15 @@ SUPPORTED_COMBINATIONS = [
     {"cloud_provider": "GCP", "use_whitenoise": "n"},
     {"cloud_provider": "None", "use_whitenoise": "y"},
     # Note: cloud_provider=None AND use_whitenoise=n is not supported
+    {"mail_service": "Mailgun"},
+    {"mail_service": "Amazon SES"},
+    {"mail_service": "Mailjet"},
+    {"mail_service": "Mandrill"},
+    {"mail_service": "Postmark"},
+    {"mail_service": "Sendgrid"},
+    {"mail_service": "SendinBlue"},
+    {"mail_service": "SparkPost"},
+    {"mail_service": "Other SMTP"},
     {"use_drf": "y"},
     {"use_drf": "n"},
     {"js_task_runner": "None"},
@@ -75,7 +84,9 @@ SUPPORTED_COMBINATIONS = [
     {"debug": "n"},
 ]
 
-UNSUPPORTED_COMBINATIONS = [{"cloud_provider": "None", "use_whitenoise": "n"}]
+UNSUPPORTED_COMBINATIONS = [
+    {"cloud_provider": "None", "use_whitenoise": "n"},
+]
 
 
 def _fixture_id(ctx):
