@@ -201,9 +201,27 @@ ANYMAIL = {
 # https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_ENABLED
 COMPRESS_ENABLED = env.bool("COMPRESS_ENABLED", default=True)
 # https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_STORAGE
+{%- if cookiecutter.cloud_provider == 'AWS' %}
 COMPRESS_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+{%- elif cookiecutter.cloud_provider == 'GCP' %}
+COMPRESS_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
+{%- elif cookiecutter.cloud_provider == 'None' %}
+COMPRESS_STORAGE = "compressor.storage.GzipCompressorFileStorage"
+{%- endif %}
 # https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_URL
 COMPRESS_URL = STATIC_URL{% if cookiecutter.use_whitenoise == 'y' or cookiecutter.cloud_provider == 'None' %}  # noqa F405{% endif %}
+{%- if cookiecutter.use_whitenoise == 'y' %}
+# https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
+COMPRESS_OFFLINE = True  # Offline compression is required when using Whitenoise
+{%- endif %}
+# https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_FILTERS
+COMPRESS_FILTERS = {
+    "css": [
+        "compressor.filters.css_default.CssAbsoluteFilter",
+        "compressor.filters.cssmin.rCSSMinFilter",
+    ],
+    "js": ["compressor.filters.jsmin.JSMinFilter"],
+}
 {% endif %}
 {%- if cookiecutter.use_whitenoise == 'n' -%}
 # Collectfast

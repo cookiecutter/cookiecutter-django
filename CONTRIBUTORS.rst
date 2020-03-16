@@ -131,6 +131,7 @@ Listed in alphabetical order.
   Irfan Ahmad              `@erfaan`_                    @erfaan
   Isaac12x                 `@Isaac12x`_
   Ivan Khomutov            `@ikhomutov`_
+  James Williams           `@jameswilliams1`_
   Jan Van Bruggen          `@jvanbrug`_
   Jelmer Draaijer          `@foarsitter`_
   Jerome Caisip            `@jeromecaisip`_
@@ -301,6 +302,7 @@ Listed in alphabetical order.
 .. _@howiezhao: https://github.com/howiezhao
 .. _@IanLee1521: https://github.com/IanLee1521
 .. _@ikhomutov: https://github.com/ikhomutov
+.. _@jameswilliams1: https://github.com/jameswilliams1
 .. _@ikkebr: https://github.com/ikkebr
 .. _@Isaac12x: https://github.com/Isaac12x
 .. _@iynaix: https://github.com/iynaix
