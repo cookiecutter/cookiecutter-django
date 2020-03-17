@@ -25,7 +25,9 @@ Provided you have opted for Celery (via setting ``use_celery`` to ``y``) there a
 
 * ``celeryworker`` running a Celery worker process;
 * ``celerybeat`` running a Celery beat process;
-* ``flower`` running Flower_ (for more info, check out :ref:`CeleryFlower` instructions for local environment).
+* ``flower`` running Flower_.
+
+The ``flower`` service is served by Traefik over HTTPS, through the port ``5555``. For more information about Flower and its login credentials, check out :ref:`CeleryFlower` instructions for local environment.
 
 .. _`Flower`: https://github.com/mher/flower
 
@@ -152,6 +154,7 @@ If you are using ``supervisor``, you can use this file as a starting point::
 Move it to ``/etc/supervisor/conf.d/{{cookiecutter.project_slug}}.conf`` and run::
 
     supervisorctl reread
+    supervisorctl update
     supervisorctl start {{cookiecutter.project_slug}}
 
 For status check, run::

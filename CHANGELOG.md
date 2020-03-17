@@ -1,6 +1,68 @@
 # Change Log
 All enhancements and patches to Cookiecutter Django will be documented in this file.
-This project adheres to [Semantic Versioning](http://semver.org/).
+
+## [2020-01-23]
+### Changed
+- Fix UserFactory to set the password if provided (@BoPeng)
+- Update documentation files with latest Sphinx (@howiezhao)
+
+## [2020-01-12]
+### Changed
+- Fix mypy setup and added django-stubs (@danifus)
+- Add Gitlab CI as option (@ikhomutov)
+
+## [2020-01-11]
+### Changed
+- Speed up & reduce size for production Django image (@maxp)
+- Bumped runtime version for Heroku (@Isaac12x)
+- Added Debian 10 (Buster) OS dependencies (@ddiazpinto)
+- Update Traefik to v2 (@blaxpy)
+- Switched Docker images from Alpine based to Debian based (@trungdong)
+
+## [2019-10-06]
+### Changed
+- Default Python version is now 3.7 (@nicolas471)
+
+## [2019-10-04]
+### Fixed
+- Fix static files handling on GCP (@caioariede)
+
+## [2019-10-03]
+### Fixed
+- Fix incompatible combination between Whitenoise and no cloud provider (@caioariede)
+
+## [2019-07-09]
+### Fixed
+- Always use test settings in pytest (@danihodovic)
+- Remove gunicorn from `INSTALLED_APPS` (@danihodovic)
+- Remove `EMAIL_HOST` and `EMAIL_PORT` with locmem backend (@danihodovic)
+
+### Added
+- Add `EMAIL_TIMEOUT` (@danihodovic)
+
+## [2019-06-22]
+### Fixed
+- Remove redundant template debug setting (@danihodovic)
+
+## [2019-06-19]
+### Fixed
+- Fix removal carriage returns in docker scripts (@timclaessens)
+
+## [2019-06-15]
+### Fixed
+- Issue with Pycharm setup for running things in Docker compose (@foarsitter)
+
+## [2019-06-06]
+### Changed
+- Update generated Travis config (@browniebroke)
+
+## [2019-06-03]
+### Added
+- Installed `django-celery-beat` to keep scheduled tasks in DB (@keyvanm)
+
+## [2019-05-28]
+### Changed
+- Use GCP acronym rather than inconsistent GCE/GCS (@tanoabeleyra)
 
 ## [2019-05-27]
 ### Changed

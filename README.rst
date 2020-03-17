@@ -9,8 +9,8 @@ Cookiecutter Django
     :target: https://pyup.io/repos/github/pydanny/cookiecutter-django/
     :alt: Updates
 
-.. image:: https://badges.gitter.im/Join Chat.svg
-    :target: https://gitter.im/pydanny/cookiecutter-django?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+.. image:: https://img.shields.io/badge/cookiecutter-Join%20on%20Slack-green?style=flat&logo=slack
+    :target: https://join.slack.com/t/cookie-cutter/shared_invite/enQtNzI0Mzg5NjE5Nzk5LTRlYWI2YTZhYmQ4YmU1Y2Q2NmE1ZjkwOGM0NDQyNTIwY2M4ZTgyNDVkNjMxMDdhZGI5ZGE5YmJjM2M3ODJlY2U
 
 .. image:: https://www.codetriage.com/pydanny/cookiecutter-django/badges/users.svg
     :target: https://www.codetriage.com/pydanny/cookiecutter-django
@@ -37,7 +37,7 @@ Features
 ---------
 
 * For Django 2.2
-* Works with Python 3.6
+* Works with Python 3.7
 * Renders Django projects with 100% starting test coverage
 * Twitter Bootstrap_ v4 (`maintained Foundation fork`_ also available)
 * 12-Factor_ based settings via django-environ_
@@ -46,13 +46,14 @@ Features
 * Registration via django-allauth_
 * Comes with custom user model ready to go
 * Optional custom static build using Gulp and livereload
-* Send emails via Anymail_ (using Mailgun_ by default, but switchable)
+* Send emails via Anymail_ (using Mailgun_ by default or Amazon SES if AWS is selected cloud provider, but switchable)
 * Media storage using Amazon S3 or Google Cloud Storage
 * Docker support using docker-compose_ for development and production (using Traefik_ with LetsEncrypt_ support)
 * Procfile_ for deploying to Heroku
 * Instructions for deploying to PythonAnywhere_
 * Run tests with unittest or pytest
 * Customizable PostgreSQL version
+* Default integration with pre-commit_ for identifying simple issues before submission to code review
 
 .. _`maintained Foundation fork`: https://github.com/Parbhat/cookiecutter-django-foundation
 
@@ -84,6 +85,7 @@ Optional Integrations
 .. _PythonAnywhere: https://www.pythonanywhere.com/
 .. _Traefik: https://traefik.io/
 .. _LetsEncrypt: https://letsencrypt.org/
+.. _pre-commit: https://github.com/pre-commit/pre-commit
 
 Constraints
 -----------
@@ -103,16 +105,16 @@ This project is run by volunteers. Please support them in their efforts to maint
 
 Projects that provide financial support to the maintainers:
 
-Two Scoops of Django 1.11
+Django Crash Course
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: https://cdn.shopify.com/s/files/1/0304/6901/products/tsd-111-alpha_medium.jpg?v=1499531513
-   :name: Two Scoops of Django 1.11 Cover
+.. image:: https://cdn.shopify.com/s/files/1/0304/6901/files/Django-Crash-Course-300x436.jpg
+   :name: Django Crash Course: Covers Django 3.0 and Python 3.8
    :align: center
-   :alt: Two Scoops of Django
-   :target: http://twoscoopspress.com/products/two-scoops-of-django-1-11
+   :alt: Django Crash Course
+   :target: https://www.roygreenfeld.com/products/django-crash-course
 
-Two Scoops of Django is the best dessert-themed Django reference in the universe
+Django Crash Course for Django 3.0 and Python 3.8 is the best cheese-themed Django reference in the universe!
 
 pyup
 ~~~~~~~~~~~~~~~~~~
@@ -133,7 +135,7 @@ and then editing the results to include your name, email, and various configurat
 
 First, get Cookiecutter. Trust me, it's awesome::
 
-    $ pip install "cookiecutter>=1.4.0"
+    $ pip install "cookiecutter>=1.7.0"
 
 Now run it against this repo::
 
@@ -224,11 +226,11 @@ Community
 
 * Have questions? **Before you ask questions anywhere else**, please post your question on `Stack Overflow`_ under the *cookiecutter-django* tag. We check there periodically for questions.
 * If you think you found a bug or want to request a feature, please open an issue_.
-* For anything else, you can chat with us on `Gitter`_.
+* For anything else, you can chat with us on `Slack`_.
 
 .. _`Stack Overflow`: http://stackoverflow.com/questions/tagged/cookiecutter-django
 .. _`issue`: https://github.com/pydanny/cookiecutter-django/issues
-.. _`Gitter`: https://gitter.im/pydanny/cookiecutter-django?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+.. _`Slack`: https://join.slack.com/t/cookie-cutter/shared_invite/enQtNzI0Mzg5NjE5Nzk5LTRlYWI2YTZhYmQ4YmU1Y2Q2NmE1ZjkwOGM0NDQyNTIwY2M4ZTgyNDVkNjMxMDdhZGI5ZGE5YmJjM2M3ODJlY2U
 
 For Readers of Two Scoops of Django
 --------------------------------------------
