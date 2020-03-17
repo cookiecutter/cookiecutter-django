@@ -16,7 +16,7 @@ services:
     image: {{ cookiecutter.project_slug }}_production_django
     {%- if cookiecutter.cloud_provider == 'nginx' %}
     volumes:
-      - production_django_media:{{ cookiecutter.project_slug }}/media
+      - production_django_media:/app/{{ cookiecutter.project_slug }}/media
     {%- endif %}
     depends_on:
       - postgres

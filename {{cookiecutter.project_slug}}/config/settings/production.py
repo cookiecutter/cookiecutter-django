@@ -66,7 +66,7 @@ SECURE_CONTENT_TYPE_NOSNIFF = env.bool(
     "DJANGO_SECURE_CONTENT_TYPE_NOSNIFF", default=True
 )
 
-{% if cookiecutter.cloud_provider != 'None' -%}
+{% if cookiecutter.cloud_provider != 'None' and cookiecutter.cloud_provider != 'nginx' -%}
 # STORAGES
 # ------------------------------------------------------------------------------
 # https://django-storages.readthedocs.io/en/latest/#installation
