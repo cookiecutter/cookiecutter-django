@@ -15,9 +15,9 @@ framework.
 """
 import os
 import sys
+from pathlib import Path
 
 from django.core.wsgi import get_wsgi_application
-from pathlib import Path
 
 # This allows easy placement of apps within the interior
 # {{ cookiecutter.project_slug }} directory.

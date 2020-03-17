@@ -1,10 +1,9 @@
 """
 Base settings to build other settings files upon.
 """
+from pathlib import Path
 
 import environ
-
-from pathlib import Path
 
 ROOT_DIR = Path(__file__).parents[2]
 # {{ cookiecutter.project_slug }}/)
