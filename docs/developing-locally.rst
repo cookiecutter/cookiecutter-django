@@ -140,6 +140,13 @@ Sass Compilation & Live Reloading
 If you’d like to take advantage of live reloading and Sass compilation you can do so with a little
 bit of preparation, see :ref:`sass-compilation-live-reload`.
 
+Starting new apps
+-----------------
+
+The *newapp* command is like *startapp* but conforms to the cookiecutter-django directory structure and naming convention: ::
+
+    python manage.py newapp name_of_app
+
 Summary
 -------
 
