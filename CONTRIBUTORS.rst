@@ -175,6 +175,7 @@ Listed in alphabetical order.
   Meghan Heintz            `@dot2dotseurat`_
   Mesut Yılmaz             `@myilmaz`_
   Michael Gecht            `@mimischi`_                  @_mischi
+  Michael Karamuth         `@confuzeus`
   Michael Samoylov         `@msamoylov`_
   Min ho Kim               `@minho42`_
   mozillazg                `@mozillazg`_
@@ -270,6 +271,7 @@ Listed in alphabetical order.
 .. _@cmargieson: https://github.com/cmargieson
 .. _@cole: https://github.com/cole
 .. _@Collederas: https://github.com/Collederas
+.. _@confuzeus: https://github.com/confuzeus
 .. _@curtisstpierre: https://github.com/curtisstpierre
 .. _@dadokkio: https://github.com/dadokkio
 .. _@danihodovic: https://github.com/danihodovic
