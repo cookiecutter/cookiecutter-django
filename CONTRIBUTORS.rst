@@ -222,6 +222,7 @@ Listed in alphabetical order.
   Xaver Y.R. Chen          `@yrchen`_                   @yrchen
   Yaroslav Halchenko
   Yuchen Xie               `@mapx`_
+  Gabriel Mejia            `@elgartoinf`                @elgartoinf
 ========================== ============================ ==============
 
 .. _@a7p: https://github.com/a7p
