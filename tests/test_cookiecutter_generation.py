@@ -46,17 +46,33 @@ SUPPORTED_COMBINATIONS = [
     {"cloud_provider": "AWS", "use_whitenoise": "n"},
     {"cloud_provider": "GCP", "use_whitenoise": "y"},
     {"cloud_provider": "GCP", "use_whitenoise": "n"},
-    {"cloud_provider": "None", "use_whitenoise": "y"},
+    {"cloud_provider": "None", "use_whitenoise": "y", "mail_service": "Mailgun"},
+    {"cloud_provider": "None", "use_whitenoise": "y", "mail_service": "Mailjet"},
+    {"cloud_provider": "None", "use_whitenoise": "y", "mail_service": "Mandrill"},
+    {"cloud_provider": "None", "use_whitenoise": "y", "mail_service": "Postmark"},
+    {"cloud_provider": "None", "use_whitenoise": "y", "mail_service": "Sendgrid"},
+    {"cloud_provider": "None", "use_whitenoise": "y", "mail_service": "SendinBlue"},
+    {"cloud_provider": "None", "use_whitenoise": "y", "mail_service": "SparkPost"},
+    {"cloud_provider": "None", "use_whitenoise": "y", "mail_service": "Other SMTP"},
     # Note: cloud_provider=None AND use_whitenoise=n is not supported
-    {"mail_service": "Mailgun"},
-    {"mail_service": "Amazon SES"},
-    {"mail_service": "Mailjet"},
-    {"mail_service": "Mandrill"},
-    {"mail_service": "Postmark"},
-    {"mail_service": "Sendgrid"},
-    {"mail_service": "SendinBlue"},
-    {"mail_service": "SparkPost"},
-    {"mail_service": "Other SMTP"},
+    {"cloud_provider": "AWS", "mail_service": "Mailgun"},
+    {"cloud_provider": "AWS", "mail_service": "Amazon SES"},
+    {"cloud_provider": "AWS", "mail_service": "Mailjet"},
+    {"cloud_provider": "AWS", "mail_service": "Mandrill"},
+    {"cloud_provider": "AWS", "mail_service": "Postmark"},
+    {"cloud_provider": "AWS", "mail_service": "Sendgrid"},
+    {"cloud_provider": "AWS", "mail_service": "SendinBlue"},
+    {"cloud_provider": "AWS", "mail_service": "SparkPost"},
+    {"cloud_provider": "AWS", "mail_service": "Other SMTP"},
+    {"cloud_provider": "GCP", "mail_service": "Mailgun"},
+    {"cloud_provider": "GCP", "mail_service": "Mailjet"},
+    {"cloud_provider": "GCP", "mail_service": "Mandrill"},
+    {"cloud_provider": "GCP", "mail_service": "Postmark"},
+    {"cloud_provider": "GCP", "mail_service": "Sendgrid"},
+    {"cloud_provider": "GCP", "mail_service": "SendinBlue"},
+    {"cloud_provider": "GCP", "mail_service": "SparkPost"},
+    {"cloud_provider": "GCP", "mail_service": "Other SMTP"},
+    # Note: cloud_providers GCP and None with mail_service Amazon SES is not supported
     {"use_drf": "y"},
     {"use_drf": "n"},
     {"js_task_runner": "None"},
@@ -86,6 +102,8 @@ SUPPORTED_COMBINATIONS = [
 
 UNSUPPORTED_COMBINATIONS = [
     {"cloud_provider": "None", "use_whitenoise": "n"},
+    {"cloud_provider": "GCP", "mail_service": "Amazon SES"},
+    {"cloud_provider": "None", "mail_service": "Amazon SES"},
 ]
 
 
@@ -163,7 +181,7 @@ def test_travis_invokes_pytest(cookies, context):
 
     with open(f"{result.project}/.travis.yml", "r") as travis_yml:
         try:
-            assert yaml.load(travis_yml)["script"] == ["pytest"]
+            assert yaml.load(travis_yml, Loader=yaml.FullLoader)["script"] == ["pytest"]
         except yaml.YAMLError as e:
             pytest.fail(e)
 
@@ -179,7 +197,7 @@ def test_gitlab_invokes_flake8_and_pytest(cookies, context):
 
     with open(f"{result.project}/.gitlab-ci.yml", "r") as gitlab_yml:
         try:
-            gitlab_config = yaml.load(gitlab_yml)
+            gitlab_config = yaml.load(gitlab_yml, Loader=yaml.FullLoader)
             assert gitlab_config["flake8"]["script"] == ["flake8"]
             assert gitlab_config["pytest"]["script"] == ["pytest"]
         except yaml.YAMLError as e:

@@ -99,6 +99,7 @@ Listed in alphabetical order.
   Dani Hodovic             `@danihodovic`_
   Daniel Hepper            `@dhepper`_                   @danielhepper
   Daniel Hillier           `@danifus`_
+  Daniel Sears             `@highpost`_                  @highpost
   Daniele Tricoli          `@eriol`_
   David Díaz               `@ddiazpinto`_                @DavidDiazPinto
   Davit Tovmasyan          `@davitovmasyan`_
@@ -140,6 +141,7 @@ Listed in alphabetical order.
   Jerome Leclanche         `@jleclanche`_                @Adys
   Jimmy Gitonga            `@afrowave`_                  @afrowave
   John Cass                `@jcass77`_                   @cass_john
+  Jules Cheron             `@jules-ch`_
   Julien Almarcha          `@sladinji`_
   Julio Castillo           `@juliocc`_
   Kaido Kert               `@kaidokert`_
@@ -300,6 +302,7 @@ Listed in alphabetical order.
 .. _@hairychris: https://github.com/hairychris
 .. _@hanaquadara: https://github.com/hanaquadara
 .. _@hendrikschneider: https://github.com/hendrikschneider
+.. _@highpost: https://github.com/highpost
 .. _@hjwp: https://github.com/hjwp
 .. _@howiezhao: https://github.com/howiezhao
 .. _@IanLee1521: https://github.com/IanLee1521
@@ -313,6 +316,7 @@ Listed in alphabetical order.
 .. _@jcass77: https://github.com/jcass77
 .. _@jeromecaisip: https://github.com/jeromecaisip
 .. _@jleclanche: https://github.com/jleclanche
+.. _@jules-ch: https://github.com/jules-ch
 .. _@juliocc: https://github.com/juliocc
 .. _@jvanbrug: https://github.com/jvanbrug
 .. _@ka7eh: https://github.com/ka7eh

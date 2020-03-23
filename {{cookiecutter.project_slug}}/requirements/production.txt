@@ -8,7 +8,7 @@ psycopg2==2.8.4 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
 Collectfast==2.1.0  # https://github.com/antonagestam/collectfast
 {%- endif %}
 {%- if cookiecutter.use_sentry == "y" %}
-sentry-sdk==0.14.2  # https://github.com/getsentry/sentry-python
+sentry-sdk==0.14.3  # https://github.com/getsentry/sentry-python
 {%- endif %}
 
 # Django
