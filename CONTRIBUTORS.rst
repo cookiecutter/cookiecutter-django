@@ -118,6 +118,7 @@ Listed in alphabetical order.
   Eyad Al Sibai            `@eyadsibai`_
   Felipe Arruda            `@arruda`_
   Florian Idelberger       `@step21`_                    @windrush
+  Gabriel Mejia            `@elgartoinf`_                @elgartoinf
   Garry Cairns             `@garry-cairns`_
   Garry Polley             `@garrypolley`_
   Gilbishkosma             `@Gilbishkosma`_
@@ -222,7 +223,6 @@ Listed in alphabetical order.
   Xaver Y.R. Chen          `@yrchen`_                   @yrchen
   Yaroslav Halchenko
   Yuchen Xie               `@mapx`_
-  Gabriel Mejia            `@elgartoinf`                @elgartoinf
 ========================== ============================ ==============
 
 .. _@a7p: https://github.com/a7p
@@ -286,6 +286,7 @@ Listed in alphabetical order.
 .. _@guilherme1guy: https://github.com/guilherme1guy
 .. _@durkode: https://github.com/durkode
 .. _@Egregors: https://github.com/Egregors
+.. _@elgartoinf: https://gihub.com/elgartoinf
 .. _@epileptic-fish: https://gihub.com/epileptic-fish
 .. _@eraldo: https://github.com/eraldo
 .. _@erfaan: https://github.com/erfaan
