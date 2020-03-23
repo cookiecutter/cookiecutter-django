@@ -36,7 +36,7 @@ production-ready Django projects quickly.
 Features
 ---------
 
-* For Django 2.2
+* For Django 3.0
 * Works with Python 3.7
 * Renders Django projects with 100% starting test coverage
 * Twitter Bootstrap_ v4 (`maintained Foundation fork`_ also available)
