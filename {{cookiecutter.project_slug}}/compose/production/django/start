@@ -27,4 +27,8 @@ if compress_enabled; then
   python /app/manage.py compress
 fi
 {%- endif %}
+{% if cookiecutter.use_async %}
+/usr/local/bin/uvicorn config.asgi --bind 0.0.0.0:5000 --chdir=/app
+{% else %}
 /usr/local/bin/gunicorn config.wsgi --bind 0.0.0.0:5000 --chdir=/app
+{%- endif %}
