@@ -11,6 +11,7 @@ import sys
 from pathlib import Path
 
 from django.core.asgi import get_asgi_application
+
 from .websocket import websocket_application
 
 # This allows easy placement of apps within the interior
