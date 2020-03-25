@@ -7,6 +7,9 @@ from django.views.generic import TemplateView
 {%- if cookiecutter.use_drf == 'y' %}
 from rest_framework.authtoken.views import obtain_auth_token
 {%- endif %}
+{%- if cookiecutter.use_async %}
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+{%- endif %}
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
@@ -20,6 +23,11 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+{% if cookiecutter.use_async %}
+# Static file serving when using Gunicorn + Uvicorn for local development
+if settings.DEBUG:
+    urlpatterns += staticfiles_urlpatterns()
+{% endif %}
 {% if cookiecutter.use_drf == 'y' -%}
 # API URLS
 urlpatterns += [
