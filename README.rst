@@ -272,7 +272,7 @@ If you do rename your fork, I encourage you to submit it to the following places
 * cookiecutter_ so it gets listed in the README as a template.
 * The cookiecutter grid_ on Django Packages.
 
-.. _cookiecutter: https://github.com/audreyr/cookiecutter
+.. _cookiecutter: https://github.com/cookiecutter/cookiecutter
 .. _grid: https://www.djangopackages.com/grids/g/cookiecutters/
 
 Submit a Pull Request
