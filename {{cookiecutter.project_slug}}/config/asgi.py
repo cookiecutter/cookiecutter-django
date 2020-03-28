@@ -12,8 +12,6 @@ from pathlib import Path
 
 from django.core.asgi import get_asgi_application
 
-from .websocket import websocket_application
-
 # This allows easy placement of apps within the interior
 # {{ cookiecutter.project_slug }} directory.
 app_path = Path(__file__).parents[1].resolve()
@@ -31,6 +29,9 @@ django_application = get_asgi_application()
 # Apply ASGI middleware here.
 # from helloworld.asgi import HelloWorldApplication
 # application = HelloWorldApplication(application)
+
+# Importing websocket application so that apps are loaded first
+from .websocket import websocket_application  # noqa
 
 
 async def application(scope, receive, send):
