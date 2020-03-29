@@ -13,7 +13,7 @@ redis==3.4.1 # https://github.com/andymccurdy/redis-py
 celery==4.4.2  # pyup: < 5.0  # https://github.com/celery/celery
 django-celery-beat==2.0.0  # https://github.com/celery/django-celery-beat
 {%- if cookiecutter.use_docker == 'y' %}
-flower==0.9.3  # https://github.com/mher/flower
+flower==0.9.4  # https://github.com/mher/flower
 {%- endif %}
 {%- endif %}
 
