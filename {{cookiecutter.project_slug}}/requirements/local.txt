@@ -1,6 +1,6 @@
 -r ./base.txt
 
-Werkzeug==1.0.0 # https://github.com/pallets/werkzeug
+Werkzeug==1.0.1 # https://github.com/pallets/werkzeug
 ipdb==0.13.2  # https://github.com/gotcha/ipdb
 Sphinx==2.4.4  # https://github.com/sphinx-doc/sphinx
 {%- if cookiecutter.use_docker == 'y' %}
