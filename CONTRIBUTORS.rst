@@ -84,6 +84,7 @@ Listed in alphabetical order.
   Felipe Arruda            `@arruda`_
   Garry Cairns             `@garry-cairns`_
   Garry Polley             `@garrypolley`_
+  Glenn Wiskur             `@gwiskur`_  
   Harry Percival           `@hjwp`_
   Henrique G. G. Pereira   `@ikkebr`_
   Ian Lee                  `@IanLee1521`_
@@ -179,6 +180,7 @@ Listed in alphabetical order.
 .. _@eyadsibai: https://github.com/eyadsibai
 .. _@garry-cairns: https://github.com/garry-cairns
 .. _@garrypolley: https://github.com/garrypolley
+.. _@gwiskur: https://github.com/gwiskur
 .. _@goldhand: https://github.com/goldhand
 .. _@hackebrot: https://github.com/hackebrot
 .. _@hairychris: https://github.com/hairychris
