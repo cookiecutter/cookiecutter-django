@@ -122,6 +122,7 @@ Listed in alphabetical order.
   Garry Cairns             `@garry-cairns`_
   Garry Polley             `@garrypolley`_
   Gilbishkosma             `@Gilbishkosma`_
+  Glenn Wiskur             `@gwiskur`_
   Guilherme Guy            `@guilherme1guy`_
   Hamish Durkin            `@durkode`_
   Hana Quadara             `@hanaquadara`_
@@ -298,6 +299,7 @@ Listed in alphabetical order.
 .. _@garry-cairns: https://github.com/garry-cairns
 .. _@garrypolley: https://github.com/garrypolley
 .. _@Gilbishkosma: https://github.com/Gilbishkosma
+.. _@gwiskur: https://github.com/gwiskur
 .. _@glasslion: https://github.com/glasslion
 .. _@goldhand: https://github.com/goldhand
 .. _@hackebrot: https://github.com/hackebrot
