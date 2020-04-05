@@ -50,6 +50,8 @@ http:
       middlewares:
         - csrf
       service: django-media
+      tls:
+        certResolver: letsencrypt
     {%- endif %}
 
   middlewares:
