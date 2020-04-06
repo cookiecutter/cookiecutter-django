@@ -6,7 +6,7 @@ Sphinx==3.0.0  # https://github.com/sphinx-doc/sphinx
 {%- if cookiecutter.use_docker == 'y' %}
 psycopg2==2.8.4 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
 {%- else %}
-psycopg2-binary==2.8.4  # https://github.com/psycopg/psycopg2
+psycopg2-binary==2.8.5  # https://github.com/psycopg/psycopg2
 {%- endif %}
 
 # Testing
