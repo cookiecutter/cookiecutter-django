@@ -5,6 +5,7 @@ It exposes the ASGI callable as a module-level variable named ``application``.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/dev/howto/deployment/asgi/
+
 """
 import os
 import sys
@@ -30,8 +31,8 @@ django_application = get_asgi_application()
 # from helloworld.asgi import HelloWorldApplication
 # application = HelloWorldApplication(application)
 
-# Importing websocket application so that apps are loaded first
-from .websocket import websocket_application  # noqa
+# Import websocket application here, so apps from django_application are loaded first
+from .websocket import websocket_application  # noqa isort:skip
 
 
 async def application(scope, receive, send):
