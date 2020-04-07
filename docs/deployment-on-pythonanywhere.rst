@@ -15,7 +15,7 @@ Full instructions follow, but here's a high-level view.
 
 2. Set your config variables in the *postactivate* script
 
-3. Run the *manage.py* ``migrate`` and ``collectstatic`` commands
+3. Run the *manage.py* ``migrate`` and ``collectstatic`` {%- if cookiecutter.use_compressor == "y" %}and ``compress`` {%- endif %}commands
 
 4. Add an entry to the PythonAnywhere *Web tab*
 
@@ -109,6 +109,7 @@ Now run the migration, and collectstatic:
     source $VIRTUAL_ENV/bin/postactivate
     python manage.py migrate
     python manage.py collectstatic
+    {%- if cookiecutter.use_compressor == "y" %}python manage.py compress {%- endif %}
     # and, optionally
     python manage.py createsuperuser
 
@@ -175,6 +176,7 @@ For subsequent deployments, the procedure is much simpler.  In a Bash console:
     git pull
     python manage.py migrate
     python manage.py collectstatic
+    {%- if cookiecutter.use_compressor == "y" %}python manage.py compress {%- endif %}
 
 And then go to the Web tab and hit **Reload**
 
