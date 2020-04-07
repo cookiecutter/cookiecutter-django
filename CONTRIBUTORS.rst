@@ -112,6 +112,7 @@ Listed in alphabetical order.
   Diane Chen               `@purplediane`_               @purplediane88
   Dónal Adams              `@epileptic-fish`_
   Dong Huynh               `@trungdong`_
+  Duda Nogueira            `@dudanogueira`_                  @dudanogueira
   Emanuel Calso            `@bloodpet`_                  @bloodpet
   Eraldo Energy            `@eraldo`_
   Eric Groom               `@ericgroom`_
