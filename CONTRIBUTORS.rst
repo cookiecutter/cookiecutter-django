@@ -112,6 +112,7 @@ Listed in alphabetical order.
   Diane Chen               `@purplediane`_               @purplediane88
   Dónal Adams              `@epileptic-fish`_
   Dong Huynh               `@trungdong`_
+  Duda Nogueira            `@dudanogueira`_              @dudanogueira
   Emanuel Calso            `@bloodpet`_                  @bloodpet
   Eraldo Energy            `@eraldo`_
   Eric Groom               `@ericgroom`_
@@ -283,6 +284,7 @@ Listed in alphabetical order.
 .. _@dezoito: https://github.com/dezoito
 .. _@dhepper: https://github.com/dhepper
 .. _@dot2dotseurat: https://github.com/dot2dotseurat
+.. _@dudanogueira: https://github.com/dudanogueira
 .. _@dsclementsen: https://github.com/dsclementsen
 .. _@guilherme1guy: https://github.com/guilherme1guy
 .. _@durkode: https://github.com/durkode
