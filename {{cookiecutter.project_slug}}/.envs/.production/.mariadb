@@ -1,0 +1,7 @@
+# MariaDB
+# ------------------------------------------------------------------------------
+MYSQL_HOST=mysql
+MYSQL_PORT=3306
+MYSQL_DB={{ cookiecutter.project_slug }}
+MYSQL_USER=!!!SET MYSQL_USER!!!
+MYSQL_PASSWORD=!!!SET MYSQL_PASSWORD!!!
