@@ -17,6 +17,11 @@
   "windows": "n",
   "use_pycharm": "n",
   "use_docker": "n",
+  "db_provider": [
+    "postgresql",
+    "mariadb",
+    "mysql"
+  ],
   "postgresql_version": [
     "11.3",
     "10.8",
