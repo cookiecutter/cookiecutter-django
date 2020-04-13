@@ -1,4 +1,8 @@
 dist: xenial
+language: python
+python:
+  - "3.8"
+{% if cookiecutter.use_docker == 'y' %}
 services:
   - postgresql
 before_install:
@@ -8,10 +12,21 @@ before_install:
   - sudo apt-get install -qq graphviz-dev python-setuptools python3-dev python-virtualenv python-pip
   - sudo apt-get install -qq firefox automake libtool libreadline6 libreadline6-dev libreadline-dev
   - sudo apt-get install -qq libsqlite3-dev libxml2 libxml2-dev libssl-dev libbz2-dev wget curl llvm
-language: python
-python:
-  - "3.8"
 install:
   - pip install -r requirements/local.txt
 script:
   - "pytest"
+{%- else %}
+services:
+  - docker
+before_install:
+  - docker-compose -v
+  - docker -v
+before_script:
+  - docker-compose -f local.yml build
+  - docker-compose -f local.yml run --rm django python manage.py migrate
+  - docker-compose -f local.yml up
+  - docker-compose -f local.yml down
+script:
+  - docker-compose -f local.yml run --rm django pytest
+{%- endif %}
