@@ -272,6 +272,7 @@ Listed in alphabetical order.
 .. _@chuckus: https://github.com/chuckus
 .. _@cmackenzie1: https://github.com/cmackenzie1
 .. _@cmargieson: https://github.com/cmargieson
+.. _@codnee: https://github.com/codnee
 .. _@cole: https://github.com/cole
 .. _@Collederas: https://github.com/Collederas
 .. _@curtisstpierre: https://github.com/curtisstpierre
