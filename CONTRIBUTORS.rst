@@ -116,6 +116,7 @@ Listed in alphabetical order.
   Emanuel Calso            `@bloodpet`_                  @bloodpet
   Eraldo Energy            `@eraldo`_
   Eric Groom               `@ericgroom`_
+  Ernesto Cedeno           `@codnee`_
   Eyad Al Sibai            `@eyadsibai`_
   Felipe Arruda            `@arruda`_
   Florian Idelberger       `@step21`_                    @windrush
