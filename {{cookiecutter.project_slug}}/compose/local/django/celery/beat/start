@@ -22,17 +22,18 @@ try:
     # If not, wait for docker-compose up to migrate all tables.
     cur = conn.cursor()
     cur.execute(
-        "select exists(select * from ${POSTGRES_DB}.tables where table_name=%s)",
+        "select exists(select * from information_schema.tables where table_name=%s)",
         ('django_celery_beat_periodictask',)
     )
-    conn.close()
+    if cur.fetchone()[0] == 1:
+        cur.close()
+        sys.exit(0)
+    else:
+        cur.close()
+        sys.exit(-1)
 except psycopg2.OperationalError:
     sys.exit(-1)
-except psycopg2.errors.UndefinedTable:
-    conn.close()
-    sys.exit(-1)
 
-sys.exit(0)
 END
 }
 until postgres_ready; do
