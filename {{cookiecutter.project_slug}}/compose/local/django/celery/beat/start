@@ -9,7 +9,6 @@ rm -f './celerybeat.pid'
 postgres_ready() {
 python << END
 import sys
-from time import sleep
 import psycopg2
 try:
     conn = psycopg2.connect(
