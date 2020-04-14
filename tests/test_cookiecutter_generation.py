@@ -181,7 +181,15 @@ def test_travis_invokes_pytest(cookies, context):
 
     with open(f"{result.project}/.travis.yml", "r") as travis_yml:
         try:
-            assert yaml.load(travis_yml, Loader=yaml.FullLoader)["script"] == ["pytest"]
+            yml = yaml.load(travis_yml, Loader=yaml.FullLoader)["jobs"]["include"]
+            assert yml[0]["script"] == ["flake8"]
+
+            if context.get("use_docker") == "y":
+                assert yml[1]["script"] == [
+                    "docker-compose -f local.yml run django pytest"
+                ]
+            else:
+                assert yml[1]["script"] == ["pytest"]
         except yaml.YAMLError as e:
             pytest.fail(e)
 

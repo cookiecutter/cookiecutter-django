@@ -4,5 +4,40 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
+postgres_ready() {
+python << END
+import sys
+from time import sleep
+import psycopg2
+try:
+    conn = psycopg2.connect(
+        dbname="${POSTGRES_DB}",
+        user="${POSTGRES_USER}",
+        password="${POSTGRES_PASSWORD}",
+        host="${POSTGRES_HOST}",
+        port="${POSTGRES_PORT}",
+    )
+    # Check if table exists yet.
+    # If not, wait for docker-compose up to migrate all tables.
+    cur = conn.cursor()
+    cur.execute(
+        "select exists(select * from ${POSTGRES_DB}.tables where table_name=%s)",
+        ('django_celery_beat_periodictask',)
+    )
+    conn.close()
+except psycopg2.OperationalError:
+    sys.exit(-1)
+except psycopg2.errors.UndefinedTable:
+    conn.close()
+    sys.exit(-1)
+
+sys.exit(0)
+END
+}
+until postgres_ready; do
+  >&2 echo 'Waiting for celerybeat models to be migrated...'
+  sleep 1
+done
+>&2 echo 'PostgreSQL is ready'
 
 celery -A config.celery_app beat -l INFO
