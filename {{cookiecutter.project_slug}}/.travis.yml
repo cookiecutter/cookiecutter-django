@@ -2,7 +2,7 @@ dist: xenial
 
 language: python
 python:
-  - "3.7"
+  - "3.8"
 
 services:
   - {% if cookiecutter.use_docker == 'y' %}docker{% else %}postgresql{% endif %}

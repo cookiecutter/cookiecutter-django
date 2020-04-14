@@ -1,6 +1,6 @@
 pytz==2019.3  # https://github.com/stub42/pytz
 python-slugify==4.0.0  # https://github.com/un33k/python-slugify
-Pillow==7.0.0  # https://github.com/python-pillow/Pillow
+Pillow==7.1.1  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.use_compressor == "y" %}
 rcssmin==1.0.6{% if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %} --install-option="--without-c-extensions"{% endif %}  # https://github.com/ndparker/rcssmin
 {%- endif %}
@@ -13,13 +13,13 @@ redis==3.4.1 # https://github.com/andymccurdy/redis-py
 celery==4.4.2  # pyup: < 5.0  # https://github.com/celery/celery
 django-celery-beat==2.0.0  # https://github.com/celery/django-celery-beat
 {%- if cookiecutter.use_docker == 'y' %}
-flower==0.9.3  # https://github.com/mher/flower
+flower==0.9.4  # https://github.com/mher/flower
 {%- endif %}
 {%- endif %}
 
 # Django
 # ------------------------------------------------------------------------------
-django==2.2.11  # pyup: < 3.0  # https://www.djangoproject.com/
+django==3.0.5  # pyup: < 3.1  # https://www.djangoproject.com/
 django-environ==0.4.5  # https://github.com/joke2k/django-environ
 django-model-utils==4.0.0  # https://github.com/jazzband/django-model-utils
 django-allauth==0.41.0  # https://github.com/pennersr/django-allauth

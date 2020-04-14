@@ -36,8 +36,8 @@ production-ready Django projects quickly.
 Features
 ---------
 
-* For Django 2.2
-* Works with Python 3.7
+* For Django 3.0
+* Works with Python 3.8
 * Renders Django projects with 100% starting test coverage
 * Twitter Bootstrap_ v4 (`maintained Foundation fork`_ also available)
 * 12-Factor_ based settings via django-environ_
@@ -272,7 +272,7 @@ If you do rename your fork, I encourage you to submit it to the following places
 * cookiecutter_ so it gets listed in the README as a template.
 * The cookiecutter grid_ on Django Packages.
 
-.. _cookiecutter: https://github.com/audreyr/cookiecutter
+.. _cookiecutter: https://github.com/cookiecutter/cookiecutter
 .. _grid: https://www.djangopackages.com/grids/g/cookiecutters/
 
 Submit a Pull Request
