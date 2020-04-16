@@ -15,7 +15,7 @@ jobs:
         - "flake8"
 
     - name: "Django Test"
-    {% if cookiecutter.use_docker == 'y' -%}
+    {%- if cookiecutter.use_docker == 'y' %}
       before_script:
         - docker-compose -v
         - docker -v
