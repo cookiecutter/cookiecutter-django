@@ -7,6 +7,7 @@ For more information on this file, see
 https://docs.djangoproject.com/en/dev/howto/deployment/asgi/
 
 """
+import os
 import sys
 from pathlib import Path
 
@@ -16,6 +17,9 @@ from django.core.asgi import get_asgi_application
 # {{ cookiecutter.project_slug }} directory.
 app_path = Path(__file__).parents[1].resolve()
 sys.path.append(str(app_path / "{{ cookiecutter.project_slug }}"))
+
+# If DJANGO_SETTINGS_MODULE is unset, default to the local settings
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
 
 # This application object is used by any ASGI server configured to use this file.
 django_application = get_asgi_application()
