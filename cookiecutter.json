@@ -44,6 +44,7 @@
     "SparkPost",
     "Other SMTP"
   ],
+  "use_async": "n",
   "use_drf": "n",
   "custom_bootstrap_compilation": "n",
   "use_compressor": "n",

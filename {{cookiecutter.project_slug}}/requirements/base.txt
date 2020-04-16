@@ -16,6 +16,10 @@ django-celery-beat==2.0.0  # https://github.com/celery/django-celery-beat
 flower==0.9.4  # https://github.com/mher/flower
 {%- endif %}
 {%- endif %}
+{%- if cookiecutter.use_async == 'y' %}
+uvicorn==0.11.3  # https://github.com/encode/uvicorn
+gunicorn==20.0.4  # https://github.com/benoitc/gunicorn
+{%- endif %}
 
 # Django
 # ------------------------------------------------------------------------------

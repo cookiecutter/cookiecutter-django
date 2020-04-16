@@ -83,6 +83,9 @@ mail_service:
     8. SparkPost_
     9. `Other SMTP`_
 
+use_async:
+    Indicates whether the project should use web sockets with Uvicorn + Gunicorn.
+
 use_drf:
     Indicates whether the project should be configured to use `Django Rest Framework`_.
 

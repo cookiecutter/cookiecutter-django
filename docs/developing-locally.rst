@@ -68,9 +68,13 @@ First things first.
 
     $ python manage.py migrate
 
-#. See the application being served through Django development server: ::
+#. If you're running synchronously, see the application being served through Django development server: ::
 
     $ python manage.py runserver 0.0.0.0:8000
+
+or if you're running asynchronously: ::
+
+    $ gunicorn config.asgi --bind 0.0.0.0:8000 -k uvicorn.workers.UvicornWorker --reload
 
 .. _PostgreSQL: https://www.postgresql.org/download/
 .. _Redis: https://redis.io/download

@@ -45,6 +45,7 @@ Features
 * Optimized development and production settings
 * Registration via django-allauth_
 * Comes with custom user model ready to go
+* Optional basic ASGI setup for Websockets
 * Optional custom static build using Gulp and livereload
 * Send emails via Anymail_ (using Mailgun_ by default or Amazon SES if AWS is selected cloud provider, but switchable)
 * Media storage using Amazon S3 or Google Cloud Storage

@@ -73,6 +73,8 @@ SUPPORTED_COMBINATIONS = [
     {"cloud_provider": "GCP", "mail_service": "SparkPost"},
     {"cloud_provider": "GCP", "mail_service": "Other SMTP"},
     # Note: cloud_providers GCP and None with mail_service Amazon SES is not supported
+    {"use_async": "y"},
+    {"use_async": "n"},
     {"use_drf": "y"},
     {"use_drf": "n"},
     {"js_task_runner": "None"},
