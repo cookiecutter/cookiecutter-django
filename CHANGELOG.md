@@ -1,6 +1,36 @@
 # Change Log
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 
+## [2020-04-13]
+### Changed
+- Updated to Python 3.8 (@codnee)
+- Moved converage config in setup.cfg (@danihodovic)
+
+## [2020-04-08]
+### Fixed
+- Internal IPs for debug toolbar (@dudanogueira)
+
+## [2020-04-04]
+### Fixed
+- Added compress command command with Django compressor (@gwiskur)
+
+## [2020-03-23]
+### Changed
+- Updated project to Django 3.0
+
+## [2020-03-17]
+### Changed
+- Handle paths using Pathlib (@jules-ch)
+
+### Fixed
+- Pre-commit hook regex (@demestav)
+
+## [2020-03-16]
+### Added
+- Support for all Anymail providers (@Andrew-Chen-Wang)
+### Fixed
+- Django compressor setup (@jameswilliams1)
+
 ## [2020-01-23]
 ### Changed
 - Fix UserFactory to set the password if provided (@BoPeng)

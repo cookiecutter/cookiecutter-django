@@ -311,7 +311,7 @@ INSTALLED_APPS += ["compressor"]
 STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
 {%- endif %}
 {% if cookiecutter.use_drf == "y" -%}
-# django-reset-framework
+# django-rest-framework
 # -------------------------------------------------------------------------------
 # django-rest-framework - https://www.django-rest-framework.org/api-guide/settings/
 REST_FRAMEWORK = {

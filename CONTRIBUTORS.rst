@@ -112,9 +112,11 @@ Listed in alphabetical order.
   Diane Chen               `@purplediane`_               @purplediane88
   Dónal Adams              `@epileptic-fish`_
   Dong Huynh               `@trungdong`_
+  Duda Nogueira            `@dudanogueira`_              @dudanogueira
   Emanuel Calso            `@bloodpet`_                  @bloodpet
   Eraldo Energy            `@eraldo`_
   Eric Groom               `@ericgroom`_
+  Ernesto Cedeno           `@codnee`_
   Eyad Al Sibai            `@eyadsibai`_
   Felipe Arruda            `@arruda`_
   Florian Idelberger       `@step21`_                    @windrush
@@ -270,6 +272,7 @@ Listed in alphabetical order.
 .. _@chuckus: https://github.com/chuckus
 .. _@cmackenzie1: https://github.com/cmackenzie1
 .. _@cmargieson: https://github.com/cmargieson
+.. _@codnee: https://github.com/codnee
 .. _@cole: https://github.com/cole
 .. _@Collederas: https://github.com/Collederas
 .. _@curtisstpierre: https://github.com/curtisstpierre
@@ -283,6 +286,7 @@ Listed in alphabetical order.
 .. _@dezoito: https://github.com/dezoito
 .. _@dhepper: https://github.com/dhepper
 .. _@dot2dotseurat: https://github.com/dot2dotseurat
+.. _@dudanogueira: https://github.com/dudanogueira
 .. _@dsclementsen: https://github.com/dsclementsen
 .. _@guilherme1guy: https://github.com/guilherme1guy
 .. _@durkode: https://github.com/durkode
