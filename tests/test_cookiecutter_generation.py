@@ -172,8 +172,12 @@ def test_black_passes(cookies, context_override):
         pytest.fail(e.stdout.decode())
 
 
-def test_travis_invokes_pytest(cookies, context):
-    context.update({"ci_tool": "Travis"})
+@pytest.mark.parametrize(
+    ["use_docker", "expected_test_script"],
+    [("n", "pytest"), ("y", "docker-compose -f local.yml run django pytest"),],
+)
+def test_travis_invokes_pytest(cookies, context, use_docker, expected_test_script):
+    context.update({"ci_tool": "Travis", "use_docker": use_docker})
     result = cookies.bake(extra_context=context)
 
     assert result.exit_code == 0
@@ -183,13 +187,21 @@ def test_travis_invokes_pytest(cookies, context):
 
     with open(f"{result.project}/.travis.yml", "r") as travis_yml:
         try:
-            assert yaml.load(travis_yml, Loader=yaml.FullLoader)["script"] == ["pytest"]
+            yml = yaml.load(travis_yml, Loader=yaml.FullLoader)["jobs"]["include"]
+            assert yml[0]["script"] == ["flake8"]
+            assert yml[1]["script"] == [expected_test_script]
         except yaml.YAMLError as e:
-            pytest.fail(e)
+            pytest.fail(str(e))
 
 
-def test_gitlab_invokes_flake8_and_pytest(cookies, context):
-    context.update({"ci_tool": "Gitlab"})
+@pytest.mark.parametrize(
+    ["use_docker", "expected_test_script"],
+    [("n", "pytest"), ("y", "docker-compose -f local.yml run django pytest"),],
+)
+def test_gitlab_invokes_flake8_and_pytest(
+    cookies, context, use_docker, expected_test_script
+):
+    context.update({"ci_tool": "Gitlab", "use_docker": use_docker})
     result = cookies.bake(extra_context=context)
 
     assert result.exit_code == 0
@@ -201,7 +213,7 @@ def test_gitlab_invokes_flake8_and_pytest(cookies, context):
         try:
             gitlab_config = yaml.load(gitlab_yml, Loader=yaml.FullLoader)
             assert gitlab_config["flake8"]["script"] == ["flake8"]
-            assert gitlab_config["pytest"]["script"] == ["pytest"]
+            assert gitlab_config["pytest"]["script"] == [expected_test_script]
         except yaml.YAMLError as e:
             pytest.fail(e)
 

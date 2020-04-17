@@ -1,17 +1,45 @@
 dist: xenial
-services:
-  - postgresql
-before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq build-essential gettext python-dev zlib1g-dev libpq-dev xvfb
-  - sudo apt-get install -qq libjpeg8-dev libfreetype6-dev libwebp-dev
-  - sudo apt-get install -qq graphviz-dev python-setuptools python3-dev python-virtualenv python-pip
-  - sudo apt-get install -qq firefox automake libtool libreadline6 libreadline6-dev libreadline-dev
-  - sudo apt-get install -qq libsqlite3-dev libxml2 libxml2-dev libssl-dev libbz2-dev wget curl llvm
+
 language: python
 python:
   - "3.8"
-install:
-  - pip install -r requirements/local.txt
-script:
-  - "pytest"
+
+services:
+  - {% if cookiecutter.use_docker == 'y' %}docker{% else %}postgresql{% endif %}
+jobs:
+  include:
+    - name: "Linter"
+      before_script:
+        - pip install -q flake8
+      script:
+        - "flake8"
+
+    - name: "Django Test"
+    {%- if cookiecutter.use_docker == 'y' %}
+      before_script:
+        - docker-compose -v
+        - docker -v
+        - docker-compose -f local.yml build
+        # Ensure celerybeat does not crash due to non-existent tables
+        - docker-compose -f local.yml run --rm django python manage.py migrate
+        - docker-compose -f local.yml up -d
+      script:
+        - "docker-compose -f local.yml run django pytest"
+      after_failure:
+        - docker-compose -f local.yml logs
+    {%- else %}
+      before_install:
+        - sudo apt-get update -qq
+        - sudo apt-get install -qq build-essential gettext python-dev zlib1g-dev libpq-dev xvfb
+        - sudo apt-get install -qq libjpeg8-dev libfreetype6-dev libwebp-dev
+        - sudo apt-get install -qq graphviz-dev python-setuptools python3-dev python-virtualenv python-pip
+        - sudo apt-get install -qq firefox automake libtool libreadline6 libreadline6-dev libreadline-dev
+        - sudo apt-get install -qq libsqlite3-dev libxml2 libxml2-dev libssl-dev libbz2-dev wget curl llvm
+      language: python
+      python:
+        - "3.8"
+      install:
+        - pip install -r requirements/local.txt
+      script:
+        - "pytest"
+    {%- endif %}
