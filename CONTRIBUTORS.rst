@@ -206,6 +206,7 @@ Listed in alphabetical order.
   Srinivas Nyayapati       `@shireenrao`_
   stepmr                   `@stepmr`_
   Steve Steiner            `@ssteinerX`_
+  Sudarshan Wadkar         `@wadkar`_
   Sule Marshall            `@suledev`_
   Tano Abeleyra            `@tanoabeleyra`_
   Taylor Baldwin
@@ -393,6 +394,7 @@ Listed in alphabetical order.
 .. _@umrashrf: https://github.com/umrashrf
 .. _@viviangb: https://github.com/viviangb
 .. _@vladdoster: https://github.com/vladdoster
+.. _@wadkar: https://github.com/wadkar
 .. _@xpostudio4: https://github.com/xpostudio4
 .. _@yrchen: https://github.com/yrchen
 .. _@yunti: https://github.com/yunti
