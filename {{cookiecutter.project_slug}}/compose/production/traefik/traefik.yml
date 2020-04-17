@@ -28,7 +28,11 @@ certificatesResolvers:
 http:
   routers:
     web-router:
+      {%- if len(cookiecutter.domain_name.split('.')) == 2 %}
       rule: "Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)"
+      {% else %}
+      rule: "Host(`{{ cookiecutter.domain_name }}`)"
+      {%- endif %}
       entryPoints:
         - web
       middlewares:
@@ -37,7 +41,11 @@ http:
       service: django
 
     web-secure-router:
+      {%- if len(cookiecutter.domain_name.split('.')) == 2 %}
       rule: "Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)"
+      {% else %}
+      rule: "Host(`{{ cookiecutter.domain_name }}`)"
+      {%- endif %}
       entryPoints:
         - web-secure
       middlewares:
