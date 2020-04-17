@@ -26,9 +26,10 @@ certificatesResolvers:
         entryPoint: web
 
 http:
+  {%- set domain_dots = cookiecutter.domain_name.count('.') %}
   routers:
     web-router:
-      {%- if len(cookiecutter.domain_name.split('.')) == 2 %}
+      {%- if domain_dots == 1 or (domain_dots == 2 and '.co.' in cookiecutter.domain_name) %}
       rule: "Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)"
       {% else %}
       rule: "Host(`{{ cookiecutter.domain_name }}`)"
@@ -41,7 +42,7 @@ http:
       service: django
 
     web-secure-router:
-      {%- if len(cookiecutter.domain_name.split('.')) == 2 %}
+      {%- if domain_dots == 1 or (domain_dots == 2 and '.co.' in cookiecutter.domain_name) %}
       rule: "Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)"
       {% else %}
       rule: "Host(`{{ cookiecutter.domain_name }}`)"
