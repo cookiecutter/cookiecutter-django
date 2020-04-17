@@ -202,6 +202,7 @@ Listed in alphabetical order.
   Sascha                   `@saschalalala`_             @saschalalala
   Shupeyko Nikita          `@webyneter`_
   Sławek Ehlert            `@slafs`_
+  Sorasful                 `@sorasful`_
   Srinivas Nyayapati       `@shireenrao`_
   stepmr                   `@stepmr`_
   Steve Steiner            `@ssteinerX`_
@@ -376,6 +377,7 @@ Listed in alphabetical order.
 .. _@siauPatrick: https://github.com/siauPatrick
 .. _@sladinji: https://github.com/sladinji
 .. _@slafs: https://github.com/slafs
+.. _@sorasful:: https://github.com/sorasful
 .. _@ssteinerX: https://github.com/ssteinerx
 .. _@step21: https://github.com/step21
 .. _@stepmr: https://github.com/stepmr

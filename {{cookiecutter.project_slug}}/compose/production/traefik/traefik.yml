@@ -28,7 +28,7 @@ certificatesResolvers:
 http:
   routers:
     web-router:
-      rule: "Host(`{{ cookiecutter.domain_name }}`)"
+      rule: "Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)"
       entryPoints:
         - web
       middlewares:
@@ -37,7 +37,7 @@ http:
       service: django
 
     web-secure-router:
-      rule: "Host(`{{ cookiecutter.domain_name }}`)"
+      rule: "Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)"
       entryPoints:
         - web-secure
       middlewares:
