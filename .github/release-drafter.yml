@@ -21,6 +21,7 @@ categories:
 exclude-labels:
   - 'skip-changelog'
   - 'update'
+  - 'project infrastructure'
 
 template: |
   ## Changes
