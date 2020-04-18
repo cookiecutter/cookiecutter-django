@@ -17,9 +17,6 @@ categories:
   - title: 'Documentation updates'
     labels:
       - 'docs'
-  - title: 'Dependencies updates'
-    labels:
-      - 'update'
 
 exclude-labels:
   - 'skip-changelog'
