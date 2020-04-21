@@ -5,6 +5,10 @@ ipdb==0.13.2  # https://github.com/gotcha/ipdb
 Sphinx==3.0.1  # https://github.com/sphinx-doc/sphinx
 {%- if cookiecutter.use_docker == 'y' %}
 psycopg2==2.8.5 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
+{%- if cookiecutter.use_celery == 'y' %}
+argh==0.26.2  # http://github.com/neithere/argh/
+watchdog==0.10.2  # http://github.com/gorakhargosh/watchdog
+{%- endif %}
 {%- else %}
 psycopg2-binary==2.8.5  # https://github.com/psycopg/psycopg2
 {%- endif %}

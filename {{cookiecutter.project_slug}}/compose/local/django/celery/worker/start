@@ -4,4 +4,4 @@ set -o errexit
 set -o nounset
 
 
-celery -A config.celery_app worker -l INFO
+watchmedo auto-restart --directory=./ --pattern="*tasks.py;*celery_app.py" --recursive -- celery -A config.celery_app worker -l INFO
