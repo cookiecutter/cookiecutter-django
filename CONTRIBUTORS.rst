@@ -226,6 +226,7 @@ Listed in alphabetical order.
   William Archinal         `@archinal`_
   Xaver Y.R. Chen          `@yrchen`_                   @yrchen
   Yaroslav Halchenko
+  Yotam Tal                `@yotamtal`_
   Yuchen Xie               `@mapx`_
 ========================== ============================ ==============
 
@@ -395,6 +396,7 @@ Listed in alphabetical order.
 .. _@vladdoster: https://github.com/vladdoster
 .. _@xpostudio4: https://github.com/xpostudio4
 .. _@yrchen: https://github.com/yrchen
+.. _@yotamtal: https://github.com/yotamtal
 .. _@yunti: https://github.com/yunti
 .. _@zcho: https://github.com/zcho
 
