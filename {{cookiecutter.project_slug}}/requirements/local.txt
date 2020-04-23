@@ -26,7 +26,7 @@ pylint-django==2.0.15  # https://github.com/PyCQA/pylint-django
 {%- if cookiecutter.use_celery == 'y' %}
 pylint-celery==0.3  # https://github.com/PyCQA/pylint-celery
 {%- endif %}
-pre-commit==2.2.0  # https://github.com/pre-commit/pre-commit
+pre-commit==2.3.0  # https://github.com/pre-commit/pre-commit
 
 # Django
 # ------------------------------------------------------------------------------
