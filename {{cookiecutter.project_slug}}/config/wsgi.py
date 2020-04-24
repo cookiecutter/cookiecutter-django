@@ -15,15 +15,14 @@ framework.
 """
 import os
 import sys
+from pathlib import Path
 
 from django.core.wsgi import get_wsgi_application
 
 # This allows easy placement of apps within the interior
 # {{ cookiecutter.project_slug }} directory.
-app_path = os.path.abspath(
-    os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir)
-)
-sys.path.append(os.path.join(app_path, "{{ cookiecutter.project_slug }}"))
+app_path = Path(__file__).parents[1].resolve()
+sys.path.append(str(app_path / "{{ cookiecutter.project_slug }}"))
 # We defer to a DJANGO_SETTINGS_MODULE already in the environment. This breaks
 # if running multiple sites in the same mod_wsgi process. To fix this, use
 # mod_wsgi daemon mode with each site in its own daemon process, or use

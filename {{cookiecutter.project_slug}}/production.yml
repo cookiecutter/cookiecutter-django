@@ -42,6 +42,9 @@ services:
     ports:
       - "0.0.0.0:80:80"
       - "0.0.0.0:443:443"
+      {%- if cookiecutter.use_celery == 'y' %}
+      - "0.0.0.0:5555:5555"
+      {%- endif %}
 
   redis:
     image: redis:5.0
@@ -60,8 +63,6 @@ services:
   flower:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_flower
-    ports:
-      - "5555:5555"
     command: /start-flower
 
   {%- endif %}

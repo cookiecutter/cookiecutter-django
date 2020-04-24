@@ -9,7 +9,7 @@ Setting Up Development Environment
 
 Make sure to have the following on your host:
 
-* Python 3.7
+* Python 3.8
 * PostgreSQL_.
 * Redis_, if using Celery
 
@@ -17,7 +17,7 @@ First things first.
 
 #. Create a virtualenv: ::
 
-    $ python3.7 -m venv <virtual env path>
+    $ python3.8 -m venv <virtual env path>
 
 #. Activate the virtualenv you have just created: ::
 
@@ -68,9 +68,13 @@ First things first.
 
     $ python manage.py migrate
 
-#. See the application being served through Django development server: ::
+#. If you're running synchronously, see the application being served through Django development server: ::
 
     $ python manage.py runserver 0.0.0.0:8000
+
+or if you're running asynchronously: ::
+
+    $ gunicorn config.asgi --bind 0.0.0.0:8000 -k uvicorn.workers.UvicornWorker --reload
 
 .. _PostgreSQL: https://www.postgresql.org/download/
 .. _Redis: https://redis.io/download

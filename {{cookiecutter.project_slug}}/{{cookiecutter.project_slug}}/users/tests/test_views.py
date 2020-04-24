@@ -16,18 +16,18 @@ class TestUserUpdateView:
         https://github.com/pytest-dev/pytest-django/pull/258
     """
 
-    def test_get_success_url(self, user: User, request_factory: RequestFactory):
+    def test_get_success_url(self, user: User, rf: RequestFactory):
         view = UserUpdateView()
-        request = request_factory.get("/fake-url/")
+        request = rf.get("/fake-url/")
         request.user = user
 
         view.request = request
 
         assert view.get_success_url() == f"/users/{user.username}/"
 
-    def test_get_object(self, user: User, request_factory: RequestFactory):
+    def test_get_object(self, user: User, rf: RequestFactory):
         view = UserUpdateView()
-        request = request_factory.get("/fake-url/")
+        request = rf.get("/fake-url/")
         request.user = user
 
         view.request = request
@@ -36,9 +36,9 @@ class TestUserUpdateView:
 
 
 class TestUserRedirectView:
-    def test_get_redirect_url(self, user: User, request_factory: RequestFactory):
+    def test_get_redirect_url(self, user: User, rf: RequestFactory):
         view = UserRedirectView()
-        request = request_factory.get("/fake-url")
+        request = rf.get("/fake-url")
         request.user = user
 
         view.request = request

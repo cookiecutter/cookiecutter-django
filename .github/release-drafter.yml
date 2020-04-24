@@ -1,0 +1,29 @@
+categories:
+  - title: 'Breaking Changes'
+    labels:
+      - 'breaking'
+  - title: 'Major Changes'
+    labels:
+      - 'major'
+  - title: 'Minor Changes'
+    labels:
+      - 'enhancement'
+  - title: 'Bugfixes'
+    labels:
+      - 'bug'
+  - title: 'Removals'
+    labels:
+      - 'removed'
+  - title: 'Documentation updates'
+    labels:
+      - 'docs'
+
+exclude-labels:
+  - 'skip-changelog'
+  - 'update'
+  - 'project infrastructure'
+
+template: |
+  ## Changes
+
+  $CHANGES

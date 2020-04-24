@@ -7,7 +7,7 @@ repos:
     rev: master
     hooks:
       - id: trailing-whitespace
-        files: (^|/)a/.+\.(py|html|sh|css|js)$
+        files: (^|/).+\.(py|html|sh|css|js)$
 
 -   repo: local
     hooks:
@@ -16,4 +16,5 @@ repos:
         entry: flake8
         language: python
         types: [python]
+        args: ['--config=setup.cfg']
 

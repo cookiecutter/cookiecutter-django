@@ -1,0 +1,11 @@
+# Add 'docs' to any changes within 'docs' folder or any subfolders
+docs:
+  - 'README.rst'
+  - 'docs/**/*'
+  - '{{cookiecutter.project_slug}}/docs/**/*'
+
+# Flag PR related to docker
+docker:
+  - '{{cookiecutter.project_slug}}/compose/**/*'
+  - '{{cookiecutter.project_slug}}/local.yml'
+  - '{{cookiecutter.project_slug}}/production.yml'

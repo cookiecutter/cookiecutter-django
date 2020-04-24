@@ -6,4 +6,8 @@ set -o nounset
 
 
 python manage.py migrate
+{%- if cookiecutter.use_async == 'y' %}
+/usr/local/bin/gunicorn config.asgi --bind 0.0.0.0:8000 --chdir=/app -k uvicorn.workers.UvicornWorker --reload
+{%- else %}
 python manage.py runserver_plus 0.0.0.0:8000
+{% endif %}

@@ -35,7 +35,7 @@ if "{{ cookiecutter.use_docker }}".lower() == "n":
     if python_major_version == 2:
         print(
             WARNING + "You're running cookiecutter under Python 2, but the generated "
-            "project requires Python 3.7+. Do you want to proceed (y/n)? " + TERMINATOR
+            "project requires Python 3.8+. Do you want to proceed (y/n)? " + TERMINATOR
         )
         yes_options, no_options = frozenset(["y"]), frozenset(["n"])
         while True:
@@ -66,5 +66,17 @@ if (
 ):
     print(
         "You should either use Whitenoise or select a Cloud Provider to serve static files"
+    )
+    sys.exit(1)
+
+if (
+    "{{ cookiecutter.cloud_provider }}" == "GCP"
+    and "{{ cookiecutter.mail_service }}" == "Amazon SES"
+) or (
+    "{{ cookiecutter.cloud_provider }}" == "None"
+    and "{{ cookiecutter.mail_service }}" == "Amazon SES"
+):
+    print(
+        "You should either use AWS or select a different Mail Service for sending emails."
     )
     sys.exit(1)

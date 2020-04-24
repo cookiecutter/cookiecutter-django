@@ -70,6 +70,25 @@ cloud_provider:
 
     Note that if you choose no cloud provider, media files won't work.
 
+mail_service:
+    Select an email service that Django-Anymail provides
+
+    1. Mailgun_
+    2. `Amazon SES`_
+    3. Mailjet_
+    4. Mandrill_
+    5. Postmark_
+    6. SendGrid_
+    7. SendinBlue_
+    8. SparkPost_
+    9. `Other SMTP`_
+
+use_async:
+    Indicates whether the project should use web sockets with Uvicorn + Gunicorn.
+
+use_drf:
+    Indicates whether the project should be configured to use `Django Rest Framework`_.
+
 custom_bootstrap_compilation:
     Indicates whether the project should support Bootstrap recompilation
     via the selected JavaScript task runner's task. This can be useful
@@ -98,8 +117,8 @@ ci_tool:
     Select a CI tool for running tests. The choices are:
 
     1. None
-    2. Travis_
-    3. Gitlab_
+    2. `Travis CI`_
+    3. `Gitlab CI`_
 
 keep_local_envs_in_vcs:
     Indicates whether the project's ``.envs/.local/`` should be kept in VCS
@@ -128,6 +147,18 @@ debug:
 
 .. _AWS: https://aws.amazon.com/s3/
 .. _GCP: https://cloud.google.com/storage/
+
+.. _Amazon SES: https://aws.amazon.com/ses/
+.. _Mailgun: https://www.mailgun.com
+.. _Mailjet: https://www.mailjet.com
+.. _Mandrill: http://mandrill.com
+.. _Postmark: https://postmarkapp.com
+.. _SendGrid: https://sendgrid.com
+.. _SendinBlue: https://www.sendinblue.com
+.. _SparkPost: https://www.sparkpost.com
+.. _Other SMTP: https://anymail.readthedocs.io/en/stable/
+
+.. _Django Rest Framework: https://github.com/encode/django-rest-framework/
 
 .. _Django Compressor: https://github.com/django-compressor/django-compressor
 
