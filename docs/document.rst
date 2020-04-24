@@ -4,42 +4,26 @@ Document
 =========
 
 This project uses Sphinx_ documentation generator.
-After you have set up to `develop locally`_, run the following commands to generate the HTML documentation: ::
 
-    $ sphinx-build docs/ docs/_build/html/
+After you have set up to `develop locally`_, run the following command from the project directory to build and serve HTML documentation: ::
+
+    $ make -C docs livehtml
 
 If you set up your project to `develop locally with docker`_, run the following command: ::
 
-    $ docker-compose -f local.yml run --rm django sphinx-build docs/ docs/_build/html/
+    $ docker-compose -f local.yml up docs
+
+Navigate to port 7000 on your host to see the documentation. This will be opened automatically at `localhost`_ for local, non-docker development.
 
 Generate API documentation
 ----------------------------
 
-Sphinx can automatically generate documentation from docstrings, to enable this feature, follow these steps:
+Edit the docs/_source files and project application docstrings to create your documentation.
 
-1. Add Sphinx extension in ``docs/conf.py`` file, like below: ::
+Sphinx can automatically include class and function signatures and docstrings in generated documentation. 
+See the generated project documentation for more examples.
 
-    extensions = [
-        'sphinx.ext.autodoc',
-    ]
-
-2. Uncomment the following lines in the ``docs/conf.py`` file: ::
-
-    # import django
-    # sys.path.insert(0, os.path.abspath('..'))
-    # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
-    # django.setup()
-
-3. Run the following command: ::
-
-    $ sphinx-apidoc -f -o ./docs/modules/ ./tpub/ migrations/*
-
-   If you set up your project to `develop locally with docker`_, run the following command: ::
-
-    $ docker-compose -f local.yml run --rm django sphinx-apidoc -f -o ./docs/modules ./tpub/ migrations/*
-
-4. Regenerate HTML documentation as written above.
-
+.. _localhost: http://localhost:7000/
 .. _Sphinx: https://www.sphinx-doc.org/en/master/index.html
 .. _develop locally: ./developing-locally.html
 .. _develop locally with docker: ./developing-locally-docker.html
