@@ -145,6 +145,7 @@ Listed in alphabetical order.
   Jerome Leclanche         `@jleclanche`_                @Adys
   Jimmy Gitonga            `@afrowave`_                  @afrowave
   John Cass                `@jcass77`_                   @cass_john
+  Jonathan Thompson        `@nojanath`_
   Jules Cheron             `@jules-ch`_
   Julien Almarcha          `@sladinji`_
   Julio Castillo           `@juliocc`_
@@ -357,6 +358,7 @@ Listed in alphabetical order.
 .. _@myilmaz: https://github.com/myilmaz
 .. _@nicolas471: https://github.com/nicolas471
 .. _@noisy: https://github.com/noisy
+.. _@nojanath: https://github.com/nojanath
 .. _@originell: https://github.com/originell
 .. _@oubiga: https://github.com/oubiga
 .. _@parbhat: https://github.com/parbhat
