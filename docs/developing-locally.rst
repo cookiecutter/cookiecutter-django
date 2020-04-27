@@ -12,6 +12,7 @@ Make sure to have the following on your host:
 * Python 3.8
 * PostgreSQL_.
 * Redis_, if using Celery
+* Cookiecutter_
 
 First things first.
 
@@ -23,9 +24,14 @@ First things first.
 
     $ source <virtual env path>/bin/activate
 
+#. Install cookiecutter-django
+
+    $ cookiecutter gh:pydanny/cookiecutter-django ::
+
 #. Install development requirements: ::
 
     $ pip install -r requirements/local.txt
+    $ git init # A git repo is required for pre-commit to install
     $ pre-commit install
 
      .. note::
@@ -78,6 +84,7 @@ or if you're running asynchronously: ::
 
 .. _PostgreSQL: https://www.postgresql.org/download/
 .. _Redis: https://redis.io/download
+.. _CookieCutter: https://github.com/cookiecutter/cookiecutter
 .. _createdb: https://www.postgresql.org/docs/current/static/app-createdb.html
 .. _initial PostgreSQL set up: http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html
 .. _postgres documentation: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
