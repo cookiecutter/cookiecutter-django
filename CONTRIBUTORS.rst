@@ -313,6 +313,7 @@ Listed in alphabetical order.
 .. _@hackebrot: https://github.com/hackebrot
 .. _@hairychris: https://github.com/hairychris
 .. _@hanaquadara: https://github.com/hanaquadara
+.. _@hanhanhan: https://github.com/hanhanhan
 .. _@hendrikschneider: https://github.com/hendrikschneider
 .. _@highpost: https://github.com/highpost
 .. _@hjwp: https://github.com/hjwp
