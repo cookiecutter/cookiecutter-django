@@ -128,6 +128,7 @@ Listed in alphabetical order.
   Guilherme Guy            `@guilherme1guy`_
   Hamish Durkin            `@durkode`_
   Hana Quadara             `@hanaquadara`_
+  Hannah Lazarus           `@hanhanhan`_
   Harry Moreno             `@morenoh149`_                @morenoh149
   Harry Percival           `@hjwp`_
   Hendrik Schneider        `@hendrikschneider`_
