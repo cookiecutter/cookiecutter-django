@@ -1,7 +1,6 @@
 import pytest
 from django.test import RequestFactory
 
-from {{ cookiecutter.project_slug }}.users.api.serializers import UserSerializer
 from {{ cookiecutter.project_slug }}.users.api.views import UserViewSet
 from {{ cookiecutter.project_slug }}.users.models import User
 
@@ -28,8 +27,8 @@ class TestUserViewSet:
         response = view.me(request)
 
         assert response.data == {
-            "username": user.username, 
-            "email": user.email, 
-            "name": user.name, 
+            "username": user.username,
+            "email": user.email,
+            "name": user.name,
             "url": f"/api/users/{user.username}/",
         }
