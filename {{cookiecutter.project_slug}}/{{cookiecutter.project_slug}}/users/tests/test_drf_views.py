@@ -1,9 +1,9 @@
 import pytest
 from django.test import RequestFactory
 
-from {{ cookiecutter.project_slug }}.users.models import User
-from {{ cookiecutter.project_slug }}.users.api.views import UserViewSet
 from {{ cookiecutter.project_slug }}.users.api.serializers import UserSerializer
+from {{ cookiecutter.project_slug }}.users.api.views import UserViewSet
+from {{ cookiecutter.project_slug }}.users.models import User
 
 pytestmark = pytest.mark.django_db
 
