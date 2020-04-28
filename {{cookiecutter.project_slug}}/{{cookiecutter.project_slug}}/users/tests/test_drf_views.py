@@ -27,4 +27,9 @@ class TestUserViewSet:
 
         response = view.me(request)
 
-        assert response.data == UserSerializer(user, context={"request": request}).data
+        assert response.data == {
+            "username": user.username, 
+            "email": user.email, 
+            "name": user.name, 
+            "url": f"/api/users/{user.username}/",
+        }
