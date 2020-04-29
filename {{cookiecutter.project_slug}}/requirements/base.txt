@@ -18,7 +18,6 @@ flower==0.9.4  # https://github.com/mher/flower
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' %}
 uvicorn==0.11.5  # https://github.com/encode/uvicorn
-gunicorn==20.0.4  # https://github.com/benoitc/gunicorn
 {%- endif %}
 
 # Django
