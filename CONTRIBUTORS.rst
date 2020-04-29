@@ -161,6 +161,7 @@ Listed in alphabetical order.
   Krzysztof Żuraw          `@krzysztofzuraw`_
   Leo won                  `@leollon`_
   Leo Zhou                 `@glasslion`_
+  Leon Kim                 `@PilhwanKim`_
   Leonardo Jimenez         `@xpostudio4`_
   Lin Xianyi               `@iynaix`_
   Luis Nell                `@originell`_
@@ -365,6 +366,7 @@ Listed in alphabetical order.
 .. _@rjsnh1522: https://github.com/rjsnh1522
 .. _@pchiquet: https://github.com/pchiquet
 .. _@phiberjenz: https://github.com/phiberjenz
+.. _@PilhwanKim: https://github.com/PilhwanKim
 .. _@purplediane: https://github.com/purplediane
 .. _@raonyguimaraes: https://github.com/raonyguimaraes
 .. _@reggieriser: https://github.com/reggieriser
