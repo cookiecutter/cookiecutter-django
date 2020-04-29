@@ -47,16 +47,18 @@ services:
   {%- endif %}
   {%- if cookiecutter.use_celery == 'y' %}
 
-  redis:
-    image: redis:5.0
-    container_name: redis
+  rabbitmq:
+    image: 'bitnami/rabbitmq:latest'
+    container_name: rabbitmq
+    ports:
+      - '5672:5672'
 
   celeryworker:
     <<: *django
     image: {{ cookiecutter.project_slug }}_local_celeryworker
     container_name: celeryworker
     depends_on:
-      - redis
+      - rabbitmq
       - postgres
       {% if cookiecutter.use_mailhog == 'y' -%}
       - mailhog
@@ -69,7 +71,7 @@ services:
     image: {{ cookiecutter.project_slug }}_local_celerybeat
     container_name: celerybeat
     depends_on:
-      - redis
+      - rabbitmq
       - postgres
       {% if cookiecutter.use_mailhog == 'y' -%}
       - mailhog
@@ -81,6 +83,8 @@ services:
     <<: *django
     image: {{ cookiecutter.project_slug }}_local_flower
     container_name: flower
+    depends_on:
+      - rabbitmq
     ports:
       - "5555:5555"
     command: /start-flower

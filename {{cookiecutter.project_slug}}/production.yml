@@ -50,6 +50,11 @@ services:
     image: redis:5.0
   {%- if cookiecutter.use_celery == 'y' %}
 
+  rabbitmq:
+    image: 'bitnami/rabbitmq:latest'
+    ports:
+      - '5672:5672'
+
   celeryworker:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_celeryworker
