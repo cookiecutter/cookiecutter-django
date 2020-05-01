@@ -12,7 +12,7 @@ Collectfast==2.1.0  # https://github.com/antonagestam/collectfast
 {%- if cookiecutter.use_sentry == "y" %}
 sentry-sdk==0.14.3  # https://github.com/getsentry/sentry-python
 {%- endif %}
-{%- if cookiecutter.use_docker == "y" or cookiecutter.windows == "y" %}
+{%- if cookiecutter.use_docker == "n" and cookiecutter.windows == "y" %}
 hiredis==1.0.1  # https://github.com/redis/hiredis-py
 {%- endif %}
 
