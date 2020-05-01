@@ -3,18 +3,22 @@ default_stages: [commit]
 fail_fast: true
 
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: master
     hooks:
       - id: trailing-whitespace
-        files: (^|/).+\.(py|html|sh|css|js)$
+      - id: end-of-file-fixer
+      - id: check-yaml
 
--   repo: local
+  - repo: https://github.com/psf/black
+    rev: 19.10b0
+    hooks:
+      - id: black
+
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.7.9
     hooks:
       - id: flake8
-        name: flake8
-        entry: flake8
-        language: python
-        types: [python]
         args: ['--config=setup.cfg']
+        additional_dependencies: [flake8-isort]
 
