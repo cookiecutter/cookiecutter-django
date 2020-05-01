@@ -1,5 +1,3 @@
-dist: xenial
-
 services:
   - docker
 
