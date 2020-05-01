@@ -22,3 +22,16 @@ def test_accept_connection():
         is_open = loop.run_until_complete(open_connection(url))
         assert is_open
         loop.close()
+
+
+def test_ping():
+    async def ping(url):
+        async with connect(url) as websocket:
+            await websocket.send("ping")
+            return await websocket.recv()
+
+    with run_server() as url:
+        loop = new_event_loop()
+        received_message = loop.run_until_complete(ping(url))
+        assert received_message == "pong"
+        loop.close()
