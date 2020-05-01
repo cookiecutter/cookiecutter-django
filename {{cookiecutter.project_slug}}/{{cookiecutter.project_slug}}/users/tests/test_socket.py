@@ -4,15 +4,17 @@ https://github.com/encode/uvicorn/blob/master/tests/protocols/test_websocket.py
 
 """
 from asyncio import new_event_loop
+
 from websockets import connect
 
-from {{ cookiecutter.project_slug }}.users.tests.async_server import run_server
+from {{cookiecutter.project_slug}}.users.tests.async_server import run_server
 
 
 def test_accept_connection():
     """
     If you want to communicate over HTTP, add live_server fixture
     """
+
     async def open_connection(url):
         async with connect(url) as websocket:
             return websocket.open

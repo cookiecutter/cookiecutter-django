@@ -105,8 +105,12 @@ def remove_async_files():
     file_names = [
         os.path.join("config", "asgi.py"),
         os.path.join("{{cookiecutter.project_slug}}", "users", "websocket.py"),
-        os.path.join("{{cookiecutter.project_slug}}", "users", "tests", "async_server.py"),
-        os.path.join("{{cookiecutter.project_slug}}", "users", "tests", "test_socket.py"),
+        os.path.join(
+            "{{cookiecutter.project_slug}}", "users", "tests", "async_server.py"
+        ),
+        os.path.join(
+            "{{cookiecutter.project_slug}}", "users", "tests", "test_socket.py"
+        ),
     ]
     for file_name in file_names:
         os.remove(file_name)
