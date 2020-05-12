@@ -12,11 +12,3 @@ pin: True
 # requires private repo permissions, even on public repos
 # default: empty
 label_prs: update
-
-# Specify requirement files by hand, pyup seems to struggle to 
-# find the ones in the project_slug folder
-requirements:
-  - "requirements.txt"
-  - "{{cookiecutter.project_slug}}/requirements/base.txt"
-  - "{{cookiecutter.project_slug}}/requirements/local.txt"
-  - "{{cookiecutter.project_slug}}/requirements/production.txt"
