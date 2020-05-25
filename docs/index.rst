@@ -23,6 +23,7 @@ Contents:
    deployment-on-heroku
    deployment-with-docker
    docker-postgres-backups
+   websocket
    faq
    troubleshooting
 
