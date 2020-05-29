@@ -23,6 +23,7 @@ pytest:
   stage: test
   image: python:3.7
   {% if cookiecutter.use_docker == 'y' -%}
+  image: docker/compose:latest
   tags:
     - docker
   services:
