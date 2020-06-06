@@ -5,7 +5,7 @@
 gunicorn==20.0.4  # https://github.com/benoitc/gunicorn
 psycopg2==2.8.5 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
 {%- if cookiecutter.use_whitenoise == 'n' %}
-Collectfast==2.1.0  # https://github.com/antonagestam/collectfast
+Collectfast==2.2.0  # https://github.com/antonagestam/collectfast
 {%- endif %}
 {%- if cookiecutter.use_sentry == "y" %}
 sentry-sdk==0.14.4  # https://github.com/getsentry/sentry-python
