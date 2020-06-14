@@ -13,5 +13,5 @@ flake8-isort==3.0.0
 tox==3.15.1
 pytest==5.4.3
 pytest-cookies==0.5.1
-pytest-instafail==0.4.1.post0
+pytest-instafail==0.4.2
 pyyaml==5.3.1
