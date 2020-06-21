@@ -190,9 +190,7 @@ def test_travis_invokes_pytest(cookies, context):
             pytest.fail(str(e))
 
 
-def test_gitlab_invokes_flake8_and_pytest(
-    cookies, context
-):
+def test_gitlab_invokes_flake8_and_pytest(cookies, context):
     context.update({"ci_tool": "Gitlab"})
     result = cookies.bake(extra_context=context)
 
