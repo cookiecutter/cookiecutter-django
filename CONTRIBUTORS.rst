@@ -65,6 +65,7 @@ Listed in alphabetical order.
   Anuj Bansal              `@ahhda`_
   Arcuri Davide            `@dadokkio`_
   Areski Belaid            `@areski`_
+  AsheKR                   `@ashekr`_
   Ashley Camba
   Barclay Gauld            `@yunti`_
   Bartek                   `@btknu`_
