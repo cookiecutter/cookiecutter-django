@@ -80,7 +80,7 @@ First things first.
 
 or if you're running asynchronously: ::
 
-    $ gunicorn config.asgi --bind 0.0.0.0:8000 -k uvicorn.workers.UvicornWorker --reload
+    $ uvicorn config.asgi:application --host 0.0.0.0 --reload
 
 .. _PostgreSQL: https://www.postgresql.org/download/
 .. _Redis: https://redis.io/download

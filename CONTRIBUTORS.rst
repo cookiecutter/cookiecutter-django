@@ -65,6 +65,7 @@ Listed in alphabetical order.
   Anuj Bansal              `@ahhda`_
   Arcuri Davide            `@dadokkio`_
   Areski Belaid            `@areski`_
+  AsheKR                   `@ashekr`_
   Ashley Camba
   Barclay Gauld            `@yunti`_
   Bartek                   `@btknu`_
@@ -251,6 +252,7 @@ Listed in alphabetical order.
 .. _@archinal: https://github.com/archinal
 .. _@areski: https://github.com/areski
 .. _@arruda: https://github.com/arruda
+.. _@ashekr: https://github.com/ashekr
 .. _@bertdemiranda: https://github.com/bertdemiranda
 .. _@bittner: https://github.com/bittner
 .. _@blaxpy: https://github.com/blaxpy
