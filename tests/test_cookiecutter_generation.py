@@ -172,12 +172,8 @@ def test_black_passes(cookies, context_override):
         pytest.fail(e.stdout.decode())
 
 
-@pytest.mark.parametrize(
-    ["use_docker", "expected_test_script"],
-    [("n", "pytest"), ("y", "docker-compose -f local.yml run django pytest"),],
-)
-def test_travis_invokes_pytest(cookies, context, use_docker, expected_test_script):
-    context.update({"ci_tool": "Travis", "use_docker": use_docker})
+def test_travis_invokes_pytest(cookies, context):
+    context.update({"ci_tool": "Travis"})
     result = cookies.bake(extra_context=context)
 
     assert result.exit_code == 0
@@ -189,19 +185,15 @@ def test_travis_invokes_pytest(cookies, context, use_docker, expected_test_scrip
         try:
             yml = yaml.load(travis_yml, Loader=yaml.FullLoader)["jobs"]["include"]
             assert yml[0]["script"] == ["flake8"]
-            assert yml[1]["script"] == [expected_test_script]
+            assert yml[1]["script"] == ["pytest"]
         except yaml.YAMLError as e:
             pytest.fail(str(e))
 
 
-@pytest.mark.parametrize(
-    ["use_docker", "expected_test_script"],
-    [("n", "pytest"), ("y", "docker-compose -f local.yml run django pytest"),],
-)
 def test_gitlab_invokes_flake8_and_pytest(
-    cookies, context, use_docker, expected_test_script
+    cookies, context
 ):
-    context.update({"ci_tool": "Gitlab", "use_docker": use_docker})
+    context.update({"ci_tool": "Gitlab"})
     result = cookies.bake(extra_context=context)
 
     assert result.exit_code == 0
@@ -213,7 +205,7 @@ def test_gitlab_invokes_flake8_and_pytest(
         try:
             gitlab_config = yaml.load(gitlab_yml, Loader=yaml.FullLoader)
             assert gitlab_config["flake8"]["script"] == ["flake8"]
-            assert gitlab_config["pytest"]["script"] == [expected_test_script]
+            assert gitlab_config["pytest"]["script"] == ["pytest"]
         except yaml.YAMLError as e:
             pytest.fail(e)
 
