@@ -4,7 +4,7 @@
 Websocket
 =========
 
-You can enable web sockets if you select ``use_async`` option when creating a project. That indicates whether the project should use web sockets with Uvicorn + Gunicorn.
+You can enable web sockets if you select ``use_async`` option when creating a project. That indicates whether the project can use web sockets with Uvicorn + Gunicorn.
 
 Usage
 -----
@@ -19,14 +19,7 @@ JavaScript example: ::
     undefined
     pong!
 
-If you are using nGinx instead of Traefik, you should add these lines to nGinx config: ::
 
-    location /websocket/ {
-        proxy_pass http://backend;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_read_timeout 86400;
-    }
+If you don't use Traefik, you might have to configure your reverse proxy accordingly (example with Nginx_).
 
-Source: https://www.nginx.com/blog/websocket-nginx/
+.. _Nginx: https://www.nginx.com/blog/websocket-nginx/
