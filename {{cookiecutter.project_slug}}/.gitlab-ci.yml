@@ -46,7 +46,9 @@ pytest:
     - virtualenv venv
     - source venv/bin/activate
     - pip install -r requirements/local.txt
+    {% if cookiecutter.use_celery == 'y' -%}
     - celery multi start worker beat -A config.celery_app --pool=solo
+    {%- endif %}
 
   script:
     - pytest
