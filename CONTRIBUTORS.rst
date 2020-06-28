@@ -199,6 +199,7 @@ Listed in alphabetical order.
   Raphael Pierzina         `@hackebrot`_
   Reggie Riser             `@reggieriser`_
   René Muhl                `@rm--`_
+  Richard Hajdu            `@Tusky`_
   Roman Afanaskin          `@siauPatrick`_
   Roman Osipenko           `@romanosipenko`_
   Russell Davies
