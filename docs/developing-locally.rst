@@ -12,6 +12,7 @@ Make sure to have the following on your host:
 * Python 3.8
 * PostgreSQL_.
 * Redis_, if using Celery
+* Cookiecutter_
 
 First things first.
 
@@ -23,9 +24,14 @@ First things first.
 
     $ source <virtual env path>/bin/activate
 
+#. Install cookiecutter-django
+
+    $ cookiecutter gh:pydanny/cookiecutter-django ::
+
 #. Install development requirements: ::
 
     $ pip install -r requirements/local.txt
+    $ git init # A git repo is required for pre-commit to install
     $ pre-commit install
 
      .. note::
@@ -74,10 +80,11 @@ First things first.
 
 or if you're running asynchronously: ::
 
-    $ gunicorn config.asgi --bind 0.0.0.0:8000 -k uvicorn.workers.UvicornWorker --reload
+    $ uvicorn config.asgi:application --host 0.0.0.0 --reload
 
 .. _PostgreSQL: https://www.postgresql.org/download/
 .. _Redis: https://redis.io/download
+.. _CookieCutter: https://github.com/cookiecutter/cookiecutter
 .. _createdb: https://www.postgresql.org/docs/current/static/app-createdb.html
 .. _initial PostgreSQL set up: http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html
 .. _postgres documentation: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
