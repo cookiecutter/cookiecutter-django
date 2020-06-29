@@ -1,17 +1,17 @@
-cookiecutter==1.7.0
-sh==1.12.14
+cookiecutter==1.7.2
+sh==1.13.1
 binaryornot==0.4.4
 
 # Code quality
 # ------------------------------------------------------------------------------
 black==19.10b0
-flake8==3.7.9
+flake8==3.8.3
 flake8-isort==3.0.0
 
 # Testing
 # ------------------------------------------------------------------------------
-tox==3.14.6
-pytest==5.4.1
+tox==3.16.1
+pytest==5.4.3
 pytest-cookies==0.5.1
-pytest-instafail==0.4.1.post0
+pytest-instafail==0.4.2
 pyyaml==5.3.1

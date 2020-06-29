@@ -1,5 +1,3 @@
-dist: xenial
-
 services:
   - docker
 
@@ -19,8 +17,8 @@ matrix:
       script: tox -e black-template
     - name: Basic Docker
       script: sh tests/test_docker.sh
-    - name: Docker with Celery
-      script: sh tests/test_docker.sh use_celery=y
+    - name: Extended Docker
+      script: sh tests/test_docker.sh use_celery=y use_drf=y
     - name: Bare metal
       script: sh tests/test_bare.sh use_celery=y use_compressor=y
       services:
