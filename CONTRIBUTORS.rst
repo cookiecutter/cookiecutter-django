@@ -377,6 +377,7 @@ Listed in alphabetical order.
 .. _@reggieriser: https://github.com/reggieriser
 .. _@reyesvicente: https://github.com/reyesvicente
 .. _@rm--: https://github.com/rm--
+.. _@Tusky: https://github.com/Tusky
 .. _@rolep: https://github.com/rolep
 .. _@romanosipenko: https://github.com/romanosipenko
 .. _@saschalalala: https://github.com/saschalalala
