@@ -154,6 +154,15 @@ django-debug-toolbar
 In order for ``django-debug-toolbar`` to work designate your Docker Machine IP with ``INTERNAL_IPS`` in ``local.py``.
 
 
+docker
+""""""
+
+The ``container_name`` from the yml file can be used to check on containers with docker commands, for example: ::
+
+    $ docker logs worker
+    $ docker top worker
+
+
 Mailhog
 ~~~~~~~
 

@@ -13,8 +13,6 @@ pin: True
 # default: empty
 label_prs: update
 
-# Specify requirement files by hand, pyup seems to struggle to 
-# find the ones in the project_slug folder
 requirements:
   - "requirements.txt"
   - "{{cookiecutter.project_slug}}/requirements/base.txt"
