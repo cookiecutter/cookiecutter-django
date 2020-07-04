@@ -1,6 +1,6 @@
 pytz==2020.1  # https://github.com/stub42/pytz
-python-slugify==4.0.0  # https://github.com/un33k/python-slugify
-Pillow==7.1.2  # https://github.com/python-pillow/Pillow
+python-slugify==4.0.1  # https://github.com/un33k/python-slugify
+Pillow==7.2.0  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.use_compressor == "y" %}
 {%- if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %}
 rcssmin==1.0.6 --install-option="--without-c-extensions"  # https://github.com/ndparker/rcssmin
@@ -12,15 +12,15 @@ argon2-cffi==20.1.0  # https://github.com/hynek/argon2_cffi
 {%- if cookiecutter.use_whitenoise == 'y' %}
 whitenoise==5.1.0  # https://github.com/evansd/whitenoise
 {%- endif %}
-redis==3.5.0  # https://github.com/andymccurdy/redis-py
+redis==3.5.3  # https://github.com/andymccurdy/redis-py
 {%- if cookiecutter.use_docker == "y" or cookiecutter.windows == "n" %}
 hiredis==1.0.1  # https://github.com/redis/hiredis-py
 {%- endif %}
 {%- if cookiecutter.use_celery == "y" %}
-celery==4.4.5  # pyup: < 5.0  # https://github.com/celery/celery
+celery==4.4.6  # pyup: < 5.0  # https://github.com/celery/celery
 django-celery-beat==2.0.0  # https://github.com/celery/django-celery-beat
 {%- if cookiecutter.use_docker == 'y' %}
-flower==0.9.4  # https://github.com/mher/flower
+flower==0.9.5  # https://github.com/mher/flower
 {%- endif %}
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' %}
@@ -29,7 +29,7 @@ uvicorn==0.11.5  # https://github.com/encode/uvicorn
 
 # Django
 # ------------------------------------------------------------------------------
-django==3.0.7  # pyup: < 3.1  # https://www.djangoproject.com/
+django==3.0.8  # pyup: < 3.1  # https://www.djangoproject.com/
 django-environ==0.4.5  # https://github.com/joke2k/django-environ
 django-model-utils==4.0.0  # https://github.com/jazzband/django-model-utils
 django-allauth==0.42.0  # https://github.com/pennersr/django-allauth
