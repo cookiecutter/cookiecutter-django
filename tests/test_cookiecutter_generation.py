@@ -132,8 +132,7 @@ def check_paths(paths):
 
         for line in open(path, "r"):
             match = RE_OBJ.search(line)
-            msg = "cookiecutter variable not replaced in {}"
-            assert match is None, msg.format(path)
+            assert match is None, f"cookiecutter variable not replaced in {path}"
 
 
 @pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
@@ -189,7 +188,7 @@ def test_travis_invokes_pytest(cookies, context, use_docker, expected_test_scrip
 
     with open(f"{result.project}/.travis.yml", "r") as travis_yml:
         try:
-            yml = yaml.load(travis_yml, Loader=yaml.FullLoader)["jobs"]["include"]
+            yml = yaml.safe_load(travis_yml)["jobs"]["include"]
             assert yml[0]["script"] == ["flake8"]
             assert yml[1]["script"] == [expected_test_script]
         except yaml.YAMLError as e:
@@ -213,7 +212,7 @@ def test_gitlab_invokes_flake8_and_pytest(
 
     with open(f"{result.project}/.gitlab-ci.yml", "r") as gitlab_yml:
         try:
-            gitlab_config = yaml.load(gitlab_yml, Loader=yaml.FullLoader)
+            gitlab_config = yaml.safe_load(gitlab_yml)
             assert gitlab_config["flake8"]["script"] == ["flake8"]
             assert gitlab_config["pytest"]["script"] == [expected_test_script]
         except yaml.YAMLError as e:
