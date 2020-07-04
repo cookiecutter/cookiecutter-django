@@ -2,7 +2,11 @@ pytz==2020.1  # https://github.com/stub42/pytz
 python-slugify==4.0.0  # https://github.com/un33k/python-slugify
 Pillow==7.1.2  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.use_compressor == "y" %}
-rcssmin==1.0.6{% if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %} --install-option="--without-c-extensions"{% endif %}  # https://github.com/ndparker/rcssmin
+{%- if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %}
+rcssmin==1.0.6 --install-option="--without-c-extensions"  # https://github.com/ndparker/rcssmin
+{%- else %}
+rcssmin==1.0.6  # https://github.com/ndparker/rcssmin
+{%- endif %}
 {%- endif %}
 argon2-cffi==20.1.0  # https://github.com/hynek/argon2_cffi
 {%- if cookiecutter.use_whitenoise == 'y' %}
