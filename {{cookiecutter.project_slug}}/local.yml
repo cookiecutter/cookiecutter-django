@@ -36,6 +36,22 @@ services:
       - local_postgres_data_backups:/backups
     env_file:
       - ./.envs/.local/.postgres
+
+  docs:
+    image: {{ cookiecutter.project_slug }}_local_docs
+    container_name: docs
+    build:
+      context: .
+      dockerfile: ./compose/local/docs/Dockerfile
+    env_file:
+      - ./.envs/.local/.django
+    volumes:
+      - ./docs:/docs
+      - ./config:/app/config
+      - ./{{ cookiecutter.project_slug }}:/app/{{ cookiecutter.project_slug }}
+    ports:
+      - "7000:7000"
+    
   {%- if cookiecutter.use_mailhog == 'y' %}
 
   mailhog:
