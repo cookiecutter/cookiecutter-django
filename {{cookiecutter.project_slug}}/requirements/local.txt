@@ -16,7 +16,7 @@ watchgod==0.6  # https://github.com/samuelcolvin/watchgod
 mypy==0.782  # https://github.com/python/mypy
 django-stubs==1.5.0  # https://github.com/typeddjango/django-stubs
 pytest==5.4.3  # https://github.com/pytest-dev/pytest
-pytest-sugar==0.9.3  # https://github.com/Frozenball/pytest-sugar
+pytest-sugar==0.9.4  # https://github.com/Frozenball/pytest-sugar
 
 # Documentation
 # ------------------------------------------------------------------------------
