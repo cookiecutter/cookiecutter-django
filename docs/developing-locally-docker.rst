@@ -178,8 +178,7 @@ When developing locally you can go with MailHog_ for email testing provided ``us
 
 Celery tasks in local development
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-When not using docker Celery tasks are set to run in Eager mode, so that a full stack is not needed. When using docker the task
-scheduler will be used by default.
+When not using docker Celery tasks are set to run in Eager mode, so that a full stack is not needed. When using docker the task scheduler will be used by default.
 
 If you need tasks to be executed on the main thread during development set CELERY_TASK_ALWAYS_EAGER = True in config/settings/local.py.
 
@@ -200,3 +199,93 @@ Prerequisites:
 By default, it's enabled both in local and production environments (``local.yml`` and ``production.yml`` Docker Compose configs, respectively) through a ``flower`` service. For added security, ``flower`` requires its clients to provide authentication credentials specified as the corresponding environments' ``.envs/.local/.django`` and ``.envs/.production/.django`` ``CELERY_FLOWER_USER`` and ``CELERY_FLOWER_PASSWORD`` environment variables. Check out ``localhost:5555`` and see for yourself.
 
 .. _`Flower`: https://github.com/mher/flower
+
+Developing locally with HTTPS
+-----------------------------
+
+Increasingly it is becoming necessary to develop software in a secure environment in order that there are very few changes when deploying to production. Recently Facebook changed their policies for apps/sites that use Facebook login which requires the use of an HTTPS URL for the OAuth redirect URL. So if you want to use the ``users`` application with a OAuth provider such as Facebook, securing your communication to the local development environment will be necessary.
+
+On order to create a secure environment, we need to have a trusted SSL certficate installed in our Docker application.
+
+#.  **Let's Encrypt**
+    
+    The official line from Let’s Encrypt is: 
+
+    [For local development section] ... The best option: Generate your own certificate, either self-signed or signed by a local root, and trust it in your operating system’s trust store. Then use that certificate in your local web server. See below for details. 
+
+    See `letsencrypt.org - certificates-for-localhost`_
+
+    .. _`letsencrypt.org - certificates-for-localhost`: https://letsencrypt.org/docs/certificates-for-localhost/
+
+#.  **mkcert: Valid Https Certificates For Localhost**
+    
+    `mkcert`_ is a simple by design tool that hides all the arcane knowledge required to generate valid TLS certificates. It works for any hostname or IP, including localhost. It supports macOS, Linux, and Windows, and Firefox, Chrome and Java. It even works on mobile devices with a couple manual steps.
+
+    See https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/
+
+    .. _`mkcert`:  https://github.com/FiloSottile/mkcert/blob/master/README.md#supported-root-stores
+
+After installing a trusted TLS certificate, configure your docker installation. We are going to configure an ``nginx`` reverse-proxy server. This makes sure that it does not interfere with our ``traefik`` configuration that is reserved for production environements.
+
+These are the places that you should configure to secure your local environment.
+
+certs
+~~~~~
+
+Take the certificates that you generated and place them in a folder called ``certs`` on the projects root folder. Assuming that you registered your local hostname as ``my-dev-env.local``, the certificates you will put in the folder should have the names ``my-dev-env.local.crt`` and ``my-dev-env.local.key``.
+
+local.yml
+~~~~~~~~~
+
+#. Add the ``nginx-proxy`` service. ::
+
+    ...
+
+    nginx-proxy:
+      image: jwilder/nginx-proxy:alpine
+      container_name: nginx-proxy
+      ports:
+        - "80:80"
+        - "443:443"
+      volumes:
+        - /var/run/docker.sock:/tmp/docker.sock:ro
+        - ./certs:/etc/nginx/certs
+      restart: always
+      depends_on:
+        - django
+    
+    ...
+
+#. Link the ``nginx-proxy`` to ``django`` through environmental variables.
+   
+   ``django`` already has an ``.env`` file connected to it. Add the following variables. You should do this especially if you are working with a team and you want to keep your local environment details to yourself.
+
+   ::
+
+      # HTTPS
+      # ------------------------------------------------------------------------------
+      VIRTUAL_HOST=my-dev-env.local
+      VIRTUAL_PORT=8000
+
+   The services run behind the reverse proxy.
+
+config/settings/local.py
+~~~~~~~~~~~~~~~~~~~~~~~
+
+You should allow the new hostname. ::
+
+  ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "my-dev-env.local"]
+
+Rebuild your ``docker`` application. ::
+
+  $ docker-compose -f local.yml up -d --build
+
+Go to your browser and type in your usrl, ``
+
+See `https with nginx`_ for more information on this configuration.
+
+  .. _`https with nginx`: https://codewithhugo.com/docker-compose-local-https/
+
+
+
+*This configuration is for local development environments only. Do not use this for production since you might expose your local* ``rootCA-key.pem``.
