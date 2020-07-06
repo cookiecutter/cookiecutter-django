@@ -199,6 +199,7 @@ Listed in alphabetical order.
   Raphael Pierzina         `@hackebrot`_
   Reggie Riser             `@reggieriser`_
   René Muhl                `@rm--`_
+  Richard Hajdu            `@Tusky`_
   Roman Afanaskin          `@siauPatrick`_
   Roman Osipenko           `@romanosipenko`_
   Russell Davies
@@ -376,6 +377,7 @@ Listed in alphabetical order.
 .. _@reggieriser: https://github.com/reggieriser
 .. _@reyesvicente: https://github.com/reyesvicente
 .. _@rm--: https://github.com/rm--
+.. _@Tusky: https://github.com/Tusky
 .. _@rolep: https://github.com/rolep
 .. _@romanosipenko: https://github.com/romanosipenko
 .. _@saschalalala: https://github.com/saschalalala
