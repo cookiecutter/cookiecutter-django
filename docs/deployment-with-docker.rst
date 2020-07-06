@@ -82,7 +82,7 @@ The Traefik reverse proxy used in the default configuration will get you a valid
 
 You can read more about this feature and how to configure it, at `Automatic HTTPS`_ in the Traefik docs.
 
-.. _Automatic HTTPS: https://docs.traefik.io/configuration/acme/
+.. _Automatic HTTPS: https://docs.traefik.io/https/acme/
 
 
 (Optional) Postgres Data Volume Modifications
