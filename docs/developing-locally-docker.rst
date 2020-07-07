@@ -286,6 +286,9 @@ See `https with nginx`_ for more information on this configuration.
 
   .. _`https with nginx`: https://codewithhugo.com/docker-compose-local-https/
 
+.gitignore
+~~~~~~~~~~
 
+Add ``certs/*`` to the ``.gitignore`` file. This allows the folder to be included in the repo but its contents to be ignored.
 
 *This configuration is for local development environments only. Do not use this for production since you might expose your local* ``rootCA-key.pem``.
