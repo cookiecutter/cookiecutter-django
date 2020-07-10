@@ -45,6 +45,7 @@ services:
       dockerfile: ./compose/local/docs/Dockerfile
     env_file:
       - ./.envs/.local/.django
+      - ./.envs/.local/.postgres
     volumes:
       - ./docs:/docs
       - ./config:/app/config
