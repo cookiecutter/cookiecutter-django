@@ -24,6 +24,12 @@ COPY ./requirements /requirements
 # All imports needed for autodoc.
 RUN pip install -r /requirements/local.txt -r /requirements/production.txt
 
+COPY ./compose/production/django/entrypoint /entrypoint
+RUN sed -i 's/\r$//g' /entrypoint
+RUN chmod +x /entrypoint
+
 WORKDIR /docs
+
+ENTRYPOINT ["/entrypoint"]
 
 CMD make livehtml
