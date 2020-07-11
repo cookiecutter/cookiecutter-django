@@ -6,14 +6,6 @@ cache: pip
 python:
   - "3.8"
 
-env:
-  global:
-    - USE_DOCKER="no"
-    - DATABASE_URL="postgres:///{{ cookiecutter.project_slug }}"
-    {% if cookiecutter.use_celery == 'y' -%}
-    - CELERY_BROKER_URL="redis://localhost:6379/0"
-    {%- endif %}
-
 jobs:
   include:
     - name: "Linter"
@@ -23,6 +15,12 @@ jobs:
         - "flake8"
 
     - name: "Django Test"
+      env:
+        - USE_DOCKER="no"
+        - DATABASE_URL="postgres:///{{ cookiecutter.project_slug }}"
+        {% if cookiecutter.use_celery == 'y' -%}
+        - CELERY_BROKER_URL="redis://localhost:6379/0"
+        {%- endif %}
       services:
         - postgresql
         {% if cookiecutter.use_celery == 'y' -%}
