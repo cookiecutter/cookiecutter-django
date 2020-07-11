@@ -6,6 +6,14 @@ cache: pip
 python:
   - "3.8"
 
+env:
+  global:
+    - USE_DOCKER="no"
+    - DATABASE_URL="postgres:///{{ cookiecutter.project_slug }}"
+    {% if cookiecutter.use_celery == 'y' -%}
+    - CELERY_BROKER_URL="redis://localhost:6379/0"
+    {%- endif %}
+
 jobs:
   include:
     - name: "Linter"
@@ -15,13 +23,6 @@ jobs:
         - "flake8"
 
     - name: "Django Test"
-      env:
-        global:
-          - USE_DOCKER="no"
-          - DATABASE_URL="postgres:///{{ cookiecutter.project_slug }}"
-          {% if cookiecutter.use_celery == 'y' -%}
-          - CELERY_BROKER_URL="redis://localhost:6379/0"
-          {%- endif %}
       services:
         - postgresql
         {% if cookiecutter.use_celery == 'y' -%}
@@ -30,6 +31,10 @@ jobs:
       install:
         - pip install -r requirements/local.txt
       before_script:
+      {% if cookiecutter.use_celery == 'y' -%}
+        - sudo mkdir /var/run/celery
+        - sudo mkdir /var/log/celery
         - celery multi start worker beat -A config.celery_app --pool=solo
+      {%- endif %}
       script:
         - "pytest"
