@@ -28,7 +28,7 @@ This project utilizes a different approach, melding these two technologies more 
 Features
 ---------
 
-* All the features of the wonderful cookiecutter-django_ 
+* All the features of the amazing cookiecutter-django_ 
 * Harmonious coexistence of Django templates and Vue components
 * Vue Single File Components (SFCs)
 * Multi-page App (MPA) layout
