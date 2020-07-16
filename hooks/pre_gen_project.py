@@ -80,3 +80,14 @@ if (
         "You should either use AWS or select a different Mail Service for sending emails."
     )
     sys.exit(1)
+
+if "{{ cookiecutter.use_vue }}".lower() == "n" and "{{ cookiecutter.use_vuex }}" == "y":
+    print("Use of Vuex requires use of Vue.")
+    sys.exit(1)
+
+if (
+    "{{ cookiecutter.use_vuex }}".lower() == "n"
+    or "{{ cookiecutter.use_vue }}".lower() == "n"
+) and "{{ cookiecutter.use_fruit_demo }}" == "y":
+    print("The fruit demo app requires use of Vue, Vuex, and DRF.")
+    sys.exit(1)

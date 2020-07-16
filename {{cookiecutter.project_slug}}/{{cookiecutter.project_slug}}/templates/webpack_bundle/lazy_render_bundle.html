@@ -1,0 +1,10 @@
+{% raw %}{% load get_files from webpack_loader %}
+
+{% get_files bundle as bundle_files %}
+{% for f in bundle_files %}
+    {% if f.url|default:""|slice:"-2:" == "js" %}
+        load_bundle_file("{{ f.url }}", "js");
+    {% else %}
+        load_bundle_file("{{ f.url }}", "css");
+    {% endif %}
+{% endfor %}{% endraw %}

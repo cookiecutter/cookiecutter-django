@@ -53,6 +53,12 @@ coverage.xml
 # Django stuff:
 staticfiles/
 
+{% if cookiecutter.use_vue == 'y' -%}
+# Vue stuff:
+!/{{ cookiecutter.project_slug }}/static/vue/
+
+{% endif -%}
+
 # Sphinx documentation
 docs/_build/
 

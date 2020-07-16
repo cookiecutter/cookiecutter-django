@@ -1,0 +1,23 @@
+{% raw %}{% extends "base.html" %}
+{% load render_bundle from webpack_loader %}
+
+
+{% block content %}
+    <div class="row justify-content-around mt-5">
+        <div class="col-9 text-center">
+            <div id="app">
+                <counter msg="{{ counter_message }}"></counter>
+            </div>
+        </div>
+        <div class="col-9 text-center">
+            <div id="counter_banner">
+                <counter-banner></counter-banner>
+            </div>
+        </div>
+    </div>
+
+    {% render_bundle 'chunk-common' %}
+    {% render_bundle 'chunk-state' %}
+    {% render_bundle 'fruit-counter' %}
+
+{% endblock content %}{% endraw %}

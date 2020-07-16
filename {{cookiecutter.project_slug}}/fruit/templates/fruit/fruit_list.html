@@ -1,0 +1,36 @@
+{% raw %}{% extends "base.html" %}
+{% load lazy_render_bundle from webpack_bundle %}
+
+{% block content %}
+    <h2>Directory of Fruits</h2>
+    <p>The directory contains {{ object_list.count }} fruit{{ object_list.count|pluralize }}.</p>
+    {% if object_list %}
+        <ul>
+            {% for fruit in object_list %}
+                <li>{{ fruit.name }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div class="row justify-content-around mt-5">
+        <div id="button_loader" class="col-9 text-center">
+            <input class="btn btn-primary" id="z_button_loader" type="button" value="Load Fruit Inspector">
+        </div>
+        <div class="col-9">
+            <div id="app">
+                <fruit-inspector title="{{ title }}"></fruit-inspector>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let loaderBtn = document.getElementById('button_loader');
+        loaderBtn.addEventListener('click', function (e) {
+            loaderBtn.style.display = "none";
+            {% lazy_render_bundle 'chunk-common' %}
+            {% lazy_render_bundle 'chunk-state' %}
+            {% lazy_render_bundle 'fruit-list' %}
+        });
+    </script>
+
+{% endblock %}{% endraw %}

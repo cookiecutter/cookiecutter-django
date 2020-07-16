@@ -115,6 +115,49 @@ def remove_async_files():
         os.remove(file_name)
 
 
+def remove_fruit_files():
+    shutil.rmtree("fruit")
+    shutil.rmtree("vue_frontend/src/fruit")
+
+
+def remove_vuex_files():
+    shutil.rmtree("vue_frontend/src/store")
+    shutil.rmtree("vue_frontend/src/rest")
+
+
+def remove_vue_drf_files():
+    shutil.rmtree("vue_frontend/src/rest")
+    file_names = [
+        os.path.join(
+            "vue_frontend", "src", "fruit", "components", "FruitInspector.vue"
+        ),
+        os.path.join("vue_frontend", "src", "fruit", "entry", "fruit_list.js"),
+        os.path.join("fruit", "templates", "fruit", "fruit_list.html"),
+    ]
+    for file_name in file_names:
+        os.remove(file_name)
+
+
+def remove_vue_files():
+    shutil.rmtree("vue_frontend")
+    shutil.rmtree("{{ cookiecutter.project_slug }}/templates/webpack_bundle")
+    shutil.rmtree("{{ cookiecutter.project_slug }}/webpack_bundle")
+    os.remove(
+        os.path.join(
+            "{{ cookiecutter.project_slug }}", "static", "images", "django_logo.png"
+        )
+    )
+
+
+def remove_vue_pycharm_files():
+    file_names = [
+        os.path.join(".idea", "runConfigurations", "vue_build.xml"),
+        os.path.join(".idea", "runConfigurations", "vue_serve.xml"),
+    ]
+    for file_name in file_names:
+        os.remove(file_name)
+
+
 def remove_dottravisyml_file():
     os.remove(".travis.yml")
 
@@ -397,9 +440,25 @@ def main():
 
     if "{{ cookiecutter.use_drf }}".lower() == "n":
         remove_drf_starter_files()
+        remove_vue_drf_files()
 
     if "{{ cookiecutter.use_async }}".lower() == "n":
         remove_async_files()
+
+    if "{{ cookiecutter.use_fruit_demo }}".lower() == "n":
+        remove_fruit_files()
+
+    if "{{ cookiecutter.use_vuex }}".lower() == "n":
+        remove_vuex_files()
+
+    if "{{ cookiecutter.use_vue }}".lower() == "n":
+        remove_vue_files()
+
+    if (
+        "{{ cookiecutter.use_vue }}".lower() == "n"
+        and "{{cookiecutter.use_pycharm }}".lower() == "y"
+    ):
+        remove_vue_pycharm_files()
 
     print(SUCCESS + "Project initialized, keep up the good work!" + TERMINATOR)
 

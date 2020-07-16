@@ -77,6 +77,9 @@ SUPPORTED_COMBINATIONS = [
     {"use_async": "n"},
     {"use_drf": "y"},
     {"use_drf": "n"},
+    {"use_vue": "y", "use_vuex": "y", "use_fruit_demo": "y"},
+    {"use_vue": "y", "use_vuex": "y", "use_fruit_demo": "n"},
+    {"use_vue": "y", "use_vuex": "n", "use_fruit_demo": "n"},
     {"js_task_runner": "None"},
     {"js_task_runner": "Gulp"},
     {"custom_bootstrap_compilation": "y"},
@@ -106,6 +109,8 @@ UNSUPPORTED_COMBINATIONS = [
     {"cloud_provider": "None", "use_whitenoise": "n"},
     {"cloud_provider": "GCP", "mail_service": "Amazon SES"},
     {"cloud_provider": "None", "mail_service": "Amazon SES"},
+    {"use_vue": "n", "use_vuex": "y", "use_fruit_demo": "y"},
+    {"use_vuex": "n", "use_fruit_demo": "y"},
 ]
 
 

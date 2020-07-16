@@ -171,3 +171,26 @@ Bootstrap's javascript as well as its dependencies is concatenated into a single
 .. _Bootstrap docs: https://getbootstrap.com/docs/4.1/getting-started/theming/
 
 {% endif %}
+{% if cookiecutter.use_vue == "y" %}
+Vue
+^^^
+
+This app integrates with a Vue multi-page app (MPA) located in ``vue_frontend``.  
+
+To initialize the frontend, from the ``vue_frontend`` directory, run::
+
+    $ npm install
+
+To serve the Vue frontend in hot-reloading development mode::
+
+    $ npm run serve
+
+And to build for deployment::
+
+
+    $ npm run serve
+
+For more information, see ``vue_frontend/README.md``.
+
+
+{% endif %}

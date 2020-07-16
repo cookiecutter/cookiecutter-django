@@ -81,10 +81,19 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
 {%- endif %}
+{%- if cookiecutter.use_vue == "y" %}
+    "webpack_loader",
+{%- endif %}
 ]
 
 LOCAL_APPS = [
     "{{ cookiecutter.project_slug }}.users.apps.UsersConfig",
+    {%- if cookiecutter.use_vue == "y" %}
+    "{{ cookiecutter.project_slug }}.webpack_bundle.apps.WebpackBundleConfig",
+    {%- endif %}
+    {%- if cookiecutter.use_fruit_demo == "y" %}
+    "fruit.apps.FruitConfig",
+    {%- endif %}
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -322,5 +331,22 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
 }
 {%- endif %}
+{% if cookiecutter.use_vue == "y" -%}
+
+# Vue
+# -------------------------------------------------------------------------------
+VUE_FRONTEND_DIR = Path(ROOT_DIR, "vue_frontend")
+WEBPACK_LOADER = {
+    "DEFAULT": {
+        "CACHE": not DEBUG,
+        "BUNDLE_DIR_NAME": "vue/",  # must end with slash
+        "STATS_FILE": Path(VUE_FRONTEND_DIR, "webpack-stats.json"),
+        "POLL_INTERVAL": 0.1,
+        "TIMEOUT": None,
+        "IGNORE": [r".+\.hot-update.js", r".+\.map"],
+    }
+}
+
+{% endif -%}
 # Your stuff...
 # ------------------------------------------------------------------------------

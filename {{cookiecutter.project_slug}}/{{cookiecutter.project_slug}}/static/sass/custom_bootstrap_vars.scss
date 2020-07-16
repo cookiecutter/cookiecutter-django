@@ -1,0 +1,4 @@
+{%- if cookiecutter.use_vue == 'y' -%}
+$vue-blue: #34495E;
+$vue-green: #41B883;
+{% endif -%}

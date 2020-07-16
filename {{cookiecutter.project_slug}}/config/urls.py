@@ -16,6 +16,10 @@ urlpatterns = [
     path(
         "about/", TemplateView.as_view(template_name="pages/about.html"), name="about"
     ),
+    {%- if cookiecutter.use_fruit_demo == 'y' %}
+    # Fruit demo
+    path("fruits/", include("fruit.urls", namespace="fruits")),
+    {%- endif %}
     # Django Admin, use {% raw %}{% url 'admin:index' %}{% endraw %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
