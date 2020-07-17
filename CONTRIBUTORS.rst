@@ -44,6 +44,7 @@ Listed in alphabetical order.
   18                       `@dezoito`_
   2O4                      `@2O4`_
   a7p                      `@a7p`_
+  Aadith PM                `@aadithpm`_
   Aaron Eikenberry         `@aeikenberry`_
   Adam Bogdał              `@bogdal`_
   Adam Dobrawy             `@ad-m`_
