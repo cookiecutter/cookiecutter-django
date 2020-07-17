@@ -15,7 +15,7 @@ Cookiecutter Vue Django
 
 Vue + Django with no compromise. 
 
-Cookiecutter Vue Django is a framework for jumpstarting production-ready Django + Vue projects quickly.  Expanding on the the wonderful Cookiecutter Django, this project template allows the intermingling of both Django Templates and Vue, even on the same page, without compromising the full power of either. 
+Cookiecutter Vue Django is a framework for jumpstarting production-ready Django + Vue projects quickly.  Expanding on the wonderful Cookiecutter Django, this project template allows the intermingling of both Django Templates and Vue, even on the same page, without compromising the full power of either. 
 
 Typical solutions to integrating Django and Vue forgo much of the strengths of one lieu of the other. For example, a common approach is using Django Rest Framework as backend and writing the entire front end in Vue, making it difficult to utilize Django templates in places it could be expedient. A second approach is to use Vue within Django templates using browser `<script>` includes, but then lost is the ability to use Vue's Single File Components.
 
