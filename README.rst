@@ -77,8 +77,8 @@ Articles
 This cookiecutter is based on the methods described in the following articles
 
 * `Vue + Django — Best of Both Frontends`_ - 26 May 2019 by Mike Hoolehan
-* `Vue + Django — Best of Both Frontends, Part 2`_ - 4 Dec 2019 by Mike Hoolehan
-* `Django + Vue — Blazing Content, Rich Interactivity`_ - 23 Apr 2020 by Mike Hoolehan
+* `Vue + Django — Best of Both Frontends, Part 2`_ - 4 Dec 2019, id
+* `Django + Vue — Blazing Content, Rich Interactivity`_ - 23 Apr 2020, id
 
 .. _`Vue + Django — Best of Both Frontends`: https://medium.com/js-dojo/vue-django-best-of-both-frontends-701307871478
 .. _`Vue + Django — Best of Both Frontends, Part 2`: https://medium.com/js-dojo/django-vue-vuex-best-of-both-frontends-part-2-1dcb78215575
