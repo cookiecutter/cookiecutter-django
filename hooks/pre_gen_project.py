@@ -89,5 +89,5 @@ if (
     "{{ cookiecutter.use_vuex }}".lower() == "n"
     or "{{ cookiecutter.use_vue }}".lower() == "n"
 ) and "{{ cookiecutter.use_fruit_demo }}" == "y":
-    print("The fruit demo app requires use of Vue, Vuex, and DRF.")
+    print("The fruit demo app requires use of Vue and Vuex.")
     sys.exit(1)
