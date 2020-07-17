@@ -236,6 +236,7 @@ Listed in alphabetical order.
   Yuchen Xie               `@mapx`_
 ========================== ============================ ==============
 
+.. _@aadithpm: https://github.com/aadithpm
 .. _@a7p: https://github.com/a7p
 .. _@2O4: https://github.com/2O4
 .. _@ad-m: https://github.com/ad-m
