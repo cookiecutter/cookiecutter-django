@@ -1,7 +1,6 @@
 import Vue from "vue/dist/vue.js";
 import {VuexAsPlugin, registerModules} from "../../store/vuex_usage_utils";
 import FruitModule from "../store/module_fruit"
-import TestModule from "../store/module_test"
 const Counter = () => import( /* webpackChunkName: "chunk-counter" */ "../components/Counter.vue");
 const CounterBanner = () => import( /* webpackChunkName: "chunk-counter-banner" */ "../components/CounterBanner.vue");
 
@@ -14,9 +13,6 @@ registerModules( {
         module: FruitModule,
         persistedPaths: ['count', 'activeFruit']
     },
-    'test' : {
-        store: TestModule
-    }
 })
 
 // Mount top level components
