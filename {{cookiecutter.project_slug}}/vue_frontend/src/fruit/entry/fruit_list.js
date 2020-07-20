@@ -1,5 +1,5 @@
 import Vue from "vue/dist/vue.js";
-import {registerModules, VuexAsPlugin} from "../../store/vuex_usage_utils";
+import {VuexAsPlugin, registerModules} from "../../store/vuex_usage_utils";
 import FruitModule from "../store/module_fruit"
 const FruitInspector = () => import( /* webpackChunkName: "chunk-fruit-inspector" */ "../components/FruitInspector.vue");
 
