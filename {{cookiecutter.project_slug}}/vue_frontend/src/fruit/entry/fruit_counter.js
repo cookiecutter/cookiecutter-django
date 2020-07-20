@@ -8,6 +8,7 @@ Vue.config.productionTip = false
 
 // Vuex state will be used in this entry point
 Vue.use(VuexAsPlugin);
+
 registerModules( {
     'fruit' : {
         module: FruitModule,
