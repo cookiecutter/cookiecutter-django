@@ -1,7 +1,7 @@
 {%- if cookiecutter.use_drf == 'y' -%}
 import api from "../../rest/rest";
     
-{%- endif -%}
+{% endif -%}
 export const MAX_COUNT = 42
 export const MIN_COUNT = 0
 
@@ -20,6 +20,7 @@ const MUTATION_INCREMENT_COUNTER = 'MUT_INC_COUNT'
 const MUTATION_DECREMENT_COUNTER = 'MUT_DEC_COUNT'
 
 export default {
+    namespaced: false,
     state: {
         count: 0,
         {%- if cookiecutter.use_drf == 'y' %}

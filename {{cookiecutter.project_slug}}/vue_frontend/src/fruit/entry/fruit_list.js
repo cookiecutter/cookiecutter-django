@@ -1,30 +1,22 @@
 import Vue from "vue/dist/vue.js";
-import storePlugin from "../../store/vuex_store_as_plugin";
-import createPersistedState from "vuex-persistedstate";
+import {registerModules, VuexAsPlugin} from "../../store/vuex_usage_utils";
 import FruitModule from "../store/module_fruit"
 const FruitInspector = () => import( /* webpackChunkName: "chunk-fruit-inspector" */ "../components/FruitInspector.vue");
 
 Vue.config.productionTip = false
 
-// Vuex state will be used in this entry point
-Vue.use(storePlugin);
+Vue.use(VuexAsPlugin);
 
-// Include Vuex modules as needed for this entry point
-Vue.prototype.$store.registerModule('fruit', FruitModule);
-
-
-// Designate what state should persist across page loads
-createPersistedState({
-      paths: [
-        "fruit.count",
-        "fruit.activeFruit",
-      ]
-    }
-)(Vue.prototype.$store);
+registerModules( {
+    'fruit' : {
+        module: FruitModule,
+        persistedPaths: ['count', 'activeFruit']
+    },
+})
 
 // Mount top level components
 new Vue({
-  el: "#app",
-  components: {FruitInspector}
+    el: "#app",
+    components: {FruitInspector}
 });
 
