@@ -134,6 +134,7 @@ Listed in alphabetical order.
   Harry Percival           `@hjwp`_
   Hendrik Schneider        `@hendrikschneider`_
   Henrique G. G. Pereira   `@ikkebr`_
+  Haseeb Ur Rehman         `@professorhaseeb`_           @professorhaseeb
   Howie Zhao               `@howiezhao`_
   Ian Lee                  `@IanLee1521`_
   Irfan Ahmad              `@erfaan`_                    @erfaan
