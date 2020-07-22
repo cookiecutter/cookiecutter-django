@@ -29,7 +29,7 @@ flake8==3.8.3  # https://github.com/PyCQA/flake8
 flake8-isort==3.0.1  # https://github.com/gforcada/flake8-isort
 coverage==5.2  # https://github.com/nedbat/coveragepy
 black==19.10b0  # https://github.com/ambv/black
-pylint-django==2.1.0  # https://github.com/PyCQA/pylint-django
+pylint-django==2.2.0  # https://github.com/PyCQA/pylint-django
 {%- if cookiecutter.use_celery == 'y' %}
 pylint-celery==0.3  # https://github.com/PyCQA/pylint-celery
 {%- endif %}
