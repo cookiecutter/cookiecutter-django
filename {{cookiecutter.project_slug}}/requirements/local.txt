@@ -1,4 +1,4 @@
--r ./base.txt
+-r base.txt
 
 Werkzeug==1.0.1 # https://github.com/pallets/werkzeug
 ipdb==0.13.3  # https://github.com/gotcha/ipdb
