@@ -44,6 +44,7 @@ Listed in alphabetical order.
   18                       `@dezoito`_
   2O4                      `@2O4`_
   a7p                      `@a7p`_
+  Aadith PM                `@aadithpm`_
   Aaron Eikenberry         `@aeikenberry`_
   Adam Bogdał              `@bogdal`_
   Adam Dobrawy             `@ad-m`_
@@ -235,6 +236,7 @@ Listed in alphabetical order.
   Yuchen Xie               `@mapx`_
 ========================== ============================ ==============
 
+.. _@aadithpm: https://github.com/aadithpm
 .. _@a7p: https://github.com/a7p
 .. _@2O4: https://github.com/2O4
 .. _@ad-m: https://github.com/ad-m
