@@ -28,8 +28,10 @@ COPY ./compose/production/django/entrypoint /entrypoint
 RUN sed -i 's/\r$//g' /entrypoint
 RUN chmod +x /entrypoint
 
+COPY ./compose/local/docs/start /start-docs
+RUN sed -i 's/\r$//g' /start-docs
+RUN chmod +x /start-docs
+
 WORKDIR /docs
 
 ENTRYPOINT ["/entrypoint"]
-
-CMD make livehtml
