@@ -11,7 +11,7 @@ Collectfast==2.2.0  # https://github.com/antonagestam/collectfast
 sentry-sdk==0.16.2  # https://github.com/getsentry/sentry-python
 {%- endif %}
 {%- if cookiecutter.use_docker == "n" and cookiecutter.windows == "y" %}
-hiredis==1.0.1  # https://github.com/redis/hiredis-py
+hiredis==1.1.0  # https://github.com/redis/hiredis-py
 {%- endif %}
 
 # Django
