@@ -2,4 +2,5 @@ from django.conf import settings
 
 
 def settings_context(_request):
-    return {"settings": settings}
+    # Be explicit
+    return {"DEBUG": settings.DEBUG}
