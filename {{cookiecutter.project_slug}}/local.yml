@@ -43,6 +43,8 @@ services:
     build:
       context: .
       dockerfile: ./compose/local/docs/Dockerfile
+    depends_on:
+      - postgres
     env_file:
       - ./.envs/.local/.django
       - ./.envs/.local/.postgres
