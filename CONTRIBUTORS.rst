@@ -181,6 +181,7 @@ Listed in alphabetical order.
   Matt Menzenski           `@menzenski`_
   Matt Warren              `@mfwarren`_
   Matthew Sisley           `@mjsisley`_
+  Matthias Sieber          `@manonthemat`                @MatzeOne
   Meghan Heintz            `@dot2dotseurat`_
   Mesut Yılmaz             `@myilmaz`_
   Michael Gecht            `@mimischi`_                  @_mischi
