@@ -14,7 +14,7 @@ whitenoise==5.1.0  # https://github.com/evansd/whitenoise
 {%- endif %}
 redis==3.5.3  # https://github.com/andymccurdy/redis-py
 {%- if cookiecutter.use_docker == "y" or cookiecutter.windows == "n" %}
-hiredis==1.0.1  # https://github.com/redis/hiredis-py
+hiredis==1.1.0  # https://github.com/redis/hiredis-py
 {%- endif %}
 {%- if cookiecutter.use_celery == "y" %}
 celery==4.4.6  # pyup: < 5.0  # https://github.com/celery/celery
@@ -24,7 +24,7 @@ flower==0.9.5  # https://github.com/mher/flower
 {%- endif %}
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' %}
-uvicorn==0.11.5  # https://github.com/encode/uvicorn
+uvicorn==0.11.6  # https://github.com/encode/uvicorn
 {%- endif %}
 
 # Django
@@ -33,7 +33,7 @@ django==3.0.8  # pyup: < 3.1  # https://www.djangoproject.com/
 django-environ==0.4.5  # https://github.com/joke2k/django-environ
 django-model-utils==4.0.0  # https://github.com/jazzband/django-model-utils
 django-allauth==0.42.0  # https://github.com/pennersr/django-allauth
-django-crispy-forms==1.9.1  # https://github.com/django-crispy-forms/django-crispy-forms
+django-crispy-forms==1.9.2  # https://github.com/django-crispy-forms/django-crispy-forms
 {%- if cookiecutter.use_compressor == "y" %}
 django-compressor==2.4  # https://github.com/django-compressor/django-compressor
 {%- endif %}
@@ -41,6 +41,7 @@ django-redis==4.12.1  # https://github.com/jazzband/django-redis
 {%- if cookiecutter.use_drf == "y" %}
 # Django REST Framework
 djangorestframework==3.11.0  # https://github.com/encode/django-rest-framework
+django-cors-headers==3.4.0 # https://github.com/adamchainz/django-cors-headers
 {%- endif %}
 {%- if cookiecutter.use_vue == "y" %}
 django-webpack-loader==0.6.0  # https://github.com/owais/django-webpack-loader

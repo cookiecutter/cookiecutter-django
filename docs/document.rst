@@ -18,7 +18,7 @@ Navigate to port 7000 on your host to see the documentation. This will be opened
 Generate API documentation
 ----------------------------
 
-Edit the docs/_source files and project application docstrings to create your documentation.
+Edit the ``docs/_source`` files and project application docstrings to create your documentation.
 
 Sphinx can automatically include class and function signatures and docstrings in generated documentation. 
 See the generated project documentation for more examples.
