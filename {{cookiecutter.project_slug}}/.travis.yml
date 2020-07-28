@@ -32,6 +32,8 @@ jobs:
       {% if cookiecutter.use_celery == 'y' -%}
         - sudo mkdir /var/run/celery
         - sudo mkdir /var/log/celery
+        - sudo chown travis /var/log/celery
+        - sudo chown travis /var/run/celery
         - celery multi start worker beat -A config.celery_app --pool=solo
       {%- endif %}
       script:
