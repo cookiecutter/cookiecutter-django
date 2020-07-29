@@ -181,7 +181,7 @@ Listed in alphabetical order.
   Matt Menzenski           `@menzenski`_
   Matt Warren              `@mfwarren`_
   Matthew Sisley           `@mjsisley`_
-  Matthias Sieber          `@manonthemat`                @MatzeOne
+  Matthias Sieber          `@manonthemat`_               @MatzeOne
   Meghan Heintz            `@dot2dotseurat`_
   Mesut Yılmaz             `@myilmaz`_
   Michael Gecht            `@mimischi`_                  @_mischi
@@ -350,6 +350,7 @@ Listed in alphabetical order.
 .. _@leollon: https://github.com/leollon
 .. _@MathijsHoogland: https://github.com/MathijsHoogland
 .. _@mapx: https://github.com/mapx
+.. _@manonthemat: https://github.com/manonthemat
 .. _@mattayes: https://github.com/mattayes
 .. _@menzenski: https://github.com/menzenski
 .. _@mfwarren: https://github.com/mfwarren
