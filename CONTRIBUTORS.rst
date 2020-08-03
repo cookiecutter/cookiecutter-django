@@ -17,7 +17,7 @@ Saurabh Kumar               `@theskumar`_      @_theskumar
 Jannis Gebauer              `@jayfk`_
 Burhan Khalid               `@burhan`_         @burhan
 Nikita Shupeyko             `@webyneter`_      @webyneter
-Bruno Alla                  `@browniebroke`_   @_BrunoAlla
+Bruno Alla                  `@browniebroke`_   @_BrunoAlla
 Wan Liuyang                 `@sfdye`_          @sfdye
 =========================== ================= ===========
 
@@ -29,6 +29,7 @@ Daniel are on the Cookiecutter core team.*
 .. _@theskumar: https://github.com/theskumar
 .. _@audreyr: https://github.com/audreyr
 .. _@jayfk: https://github.com/jayfk
+.. _@burhan: https://github.com/burhan
 .. _@webyneter: https://github.com/webyneter
 .. _@browniebroke: https://github.com/browniebroke
 .. _@sfdye: https://github.com/sfdye
@@ -267,7 +268,6 @@ Listed in alphabetical order.
 .. _@BoPeng: https://github.com/BoPeng
 .. _@brentpayne: https://github.com/brentpayne
 .. _@btknu: https://github.com/btknu
-.. _@burhan: https://github.com/burhan
 .. _@bwarren2: https://github.com/bwarren2
 .. _@c-rhodes: https://github.com/c-rhodes
 .. _@caffodian: https://github.com/caffodian
