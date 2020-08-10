@@ -122,18 +122,18 @@ class ContributorsJSONFile:
         self.content.extend(contributor_data)
 
     def save(self):
-        self.file_path.write_text(json.dumps(self.content, indent=2))
+        text_content = json.dumps(self.content, indent=2, ensure_ascii=False)
+        self.file_path.write_text(text_content)
 
 
 def write_md_file(contributors):
     template = Template(CONTRIBUTORS_TEMPLATE, autoescape=True)
-    core_contributors = [
-        c for c in contributors if c.get("is_core", False)
-    ]
-    other_contributors = sorted(
-        c for c in contributors if not c.get("is_core", False)
+    core_contributors = [c for c in contributors if c.get("is_core", False)]
+    other_contributors = (c for c in contributors if not c.get("is_core", False))
+    other_contributors = sorted(other_contributors, key=lambda c: c["name"])
+    content = template.render(
+        core_contributors=core_contributors, other_contributors=other_contributors
     )
-    content = template.render(core_contributors=core_contributors, other_contributors=other_contributors)
 
     file_path = ROOT / "CONTRIBUTORS.md"
     file_path.write_text(content)
