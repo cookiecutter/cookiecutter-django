@@ -8,66 +8,6 @@ CURRENT_FILE = Path(__file__)
 ROOT = CURRENT_FILE.parents[1]
 BOT_LOGINS = ["pyup-bot"]
 
-# Jinja template for CONTRIBUTORS.md
-CONTRIBUTORS_TEMPLATE = """
-# Contributors
-
-## Core Developers
-
-These contributors have commit flags for the repository, and are able to
-accept and merge pull requests.
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Github</th>
-    <th>Twitter</th>
-  </tr>
-  {%- for contributor in core_contributors %}
-  <tr>
-    <td>{{ contributor.name }}</td>
-    <td>
-      <a href="https://github.com/{{ contributor.github_login }}">{{ contributor.github_login }}</a>
-    </td>
-    <td>{{ contributor.twitter_username }}</td>
-  </tr>
-  {%- endfor %}
-</table>
-
-*Audrey is also the creator of Cookiecutter. Audrey and Daniel are on
-the Cookiecutter core team.*
-
-## Other Contributors
-
-Listed in alphabetical order.
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Github</th>
-    <th>Twitter</th>
-  </tr>
-  {%- for contributor in other_contributors %}
-  <tr>
-    <td>{{ contributor.name }}</td>
-    <td>
-      <a href="https://github.com/{{ contributor.github_login }}">{{ contributor.github_login }}</a>
-    </td>
-    <td>{{ contributor.twitter_username }}</td>
-  </tr>
-  {%- endfor %}
-</table>
-
-### Special Thanks
-
-The following haven't provided code directly, but have provided
-guidance and advice.
-
--   Jannis Leidel
--   Nate Aune
--   Barry Morrison
-"""
-
 
 def main() -> None:
     """
@@ -151,7 +91,8 @@ class ContributorsJSONFile:
 
 def write_md_file(contributors):
     """Generate markdown file from Jinja template."""
-    template = Template(CONTRIBUTORS_TEMPLATE, autoescape=True)
+    contributors_template = ROOT / ".github" / "CONTRIBUTORS-template.md"
+    template = Template(contributors_template.read_text(), autoescape=True)
     core_contributors = [c for c in contributors if c.get("is_core", False)]
     other_contributors = (c for c in contributors if not c.get("is_core", False))
     other_contributors = sorted(other_contributors, key=lambda c: c["name"].lower())
