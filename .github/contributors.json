@@ -1,5 +1,59 @@
 [
   {
+    "name": "Daniel Roy Greenfeld",
+    "github_login": "pydanny",
+    "twitter_username": "pydanny",
+    "is_core": true
+  },
+  {
+    "name": "Audrey Roy Greenfeld",
+    "github_login": "audreyr",
+    "twitter_username": "audreyr",
+    "is_core": true
+  },
+  {
+    "name": "Fábio C. Barrionuevo da Luz",
+    "github_login": "luzfcb",
+    "twitter_username": "luzfcb",
+    "is_core": true
+  },
+  {
+    "name": "Saurabh Kumar",
+    "github_login": "theskumar",
+    "twitter_username": "_theskumar",
+    "is_core": true
+  },
+  {
+    "name": "Jannis Gebauer",
+    "github_login": "jayfk",
+    "twitter_username": "",
+    "is_core": true
+  },
+  {
+    "name": "Burhan Khalid",
+    "github_login": "burhan",
+    "twitter_username": "burhan",
+    "is_core": true
+  },
+  {
+    "name": "Shupeyko Nikita",
+    "github_login": "webyneter",
+    "twitter_username": "webyneter",
+    "is_core": true
+  },
+  {
+    "name": "Bruno Alla",
+    "github_login": "browniebroke",
+    "twitter_username": "_BrunoAlla",
+    "is_core": true
+  },
+  {
+    "name": "Wan Liuyang",
+    "github_login": "sfdye",
+    "twitter_username": "sfdye",
+    "is_core": true
+  },
+  {
     "name": "18",
     "github_login": "dezoito",
     "twitter_username": ""
@@ -125,12 +179,6 @@
     "twitter_username": ""
   },
   {
-    "name": "Audrey Roy Greenfeld",
-    "github_login": "audreyr",
-    "twitter_username": "audreyr",
-    "is_core": true
-  },
-  {
     "name": "Barclay Gauld",
     "github_login": "yunti",
     "twitter_username": ""
@@ -184,18 +232,6 @@
     "name": "Bruce Olivier",
     "github_login": "bolivierjr",
     "twitter_username": ""
-  },
-  {
-    "name": "Bruno Alla",
-    "github_login": "browniebroke",
-    "twitter_username": "_BrunoAlla",
-    "is_core": true
-  },
-  {
-    "name": "Burhan Khalid",
-    "github_login": "burhan",
-    "twitter_username": "burhan",
-    "is_core": true
   },
   {
     "name": "Caio Ariede",
@@ -303,12 +339,6 @@
     "twitter_username": ""
   },
   {
-    "name": "Daniel Roy Greenfeld",
-    "github_login": "pydanny",
-    "twitter_username": "pydanny",
-    "is_core": true
-  },
-  {
     "name": "Daniel Sears",
     "github_login": "highpost",
     "twitter_username": "highpost"
@@ -402,12 +432,6 @@
     "name": "Eyad Al Sibai",
     "github_login": "eyadsibai",
     "twitter_username": ""
-  },
-  {
-    "name": "Fábio C. Barrionuevo da Luz",
-    "github_login": "luzfcb",
-    "twitter_username": "luzfcb",
-    "is_core": true
   },
   {
     "name": "Felipe Arruda",
@@ -518,12 +542,6 @@
     "name": "Jan Van Bruggen",
     "github_login": "jvanbrug",
     "twitter_username": ""
-  },
-  {
-    "name": "Jannis Gebauer",
-    "github_login": "jayfk",
-    "twitter_username": "",
-    "is_core": true
   },
   {
     "name": "Jelmer Draaijer",
@@ -831,21 +849,9 @@
     "twitter_username": ""
   },
   {
-    "name": "Saurabh Kumar",
-    "github_login": "theskumar",
-    "twitter_username": "_theskumar",
-    "is_core": true
-  },
-  {
     "name": "Sascha",
     "github_login": "saschalalala",
     "twitter_username": "saschalalala"
-  },
-  {
-    "name": "Shupeyko Nikita",
-    "github_login": "webyneter",
-    "twitter_username": "",
-    "is_core": true
   },
   {
     "name": "Sławek Ehlert",
@@ -966,12 +972,6 @@
     "name": "William Archinal",
     "github_login": "archinal",
     "twitter_username": ""
-  },
-  {
-    "name": "Wan Liuyang",
-    "github_login": "sfdye",
-    "twitter_username": "sfdye",
-    "is_core": true
   },
   {
     "name": "Xaver Y.R. Chen",
