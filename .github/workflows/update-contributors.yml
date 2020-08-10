@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - auto-generate-contributors
 
 jobs:
   build:
@@ -11,8 +12,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
 
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -23,4 +22,4 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Update list
-      run: python scripts/update_contributors.py $GITHUB_EVENT_PATH
+      run: python scripts/update_contributors.py
