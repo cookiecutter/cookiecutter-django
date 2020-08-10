@@ -93,10 +93,7 @@ def main():
         profiles_list.append(profile)
 
     output_file_path = ROOT / ".github" / "contributors.json"
-    output_file_path.write_text(
-        json.dumps(profiles_list, indent=2, ensure_ascii=False)
-    )
-
+    output_file_path.write_text(json.dumps(profiles_list, indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":

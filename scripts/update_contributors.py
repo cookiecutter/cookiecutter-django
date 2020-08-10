@@ -71,11 +71,14 @@ guidance and advice.
 def main() -> None:
     gh = GitHub()
     recent_authors = set(gh.iter_recent_authors())
+
     contrib_file = ContributorsJSONFile()
     for username in recent_authors:
+        print(f"Checking if {username} should be added")
         if username not in contrib_file and username not in BOT_LOGINS:
             user_data = gh.fetch_user_info(username)
             contrib_file.add_contributor(user_data)
+            print(f"Added {username} to contributors")
     contrib_file.save()
 
     write_md_file(contrib_file.content)
