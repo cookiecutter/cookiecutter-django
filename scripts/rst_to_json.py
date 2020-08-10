@@ -7,37 +7,24 @@ ROOT = CURRENT_FILE.parents[1]
 
 def main():
     input_file_path = ROOT / "CONTRIBUTORS.rst"
-    with input_file_path.open() as ifd:
-        content = ifd.read()
+    content = input_file_path.read_text()
 
     table_separator = (
-        "============================= ========================== =================="
+        "========================== ============================ =============="
     )
     table_content = content.split(table_separator)[2]
 
     profiles_list = [
         {
-            "name": "Audrey Roy Greenfeld",
-            "github_login": "audreyr",
-            "twitter_username": "audreyr",
-            "is_core": True,
-        },
-        {
-            "name": "Bruno Alla",
-            "github_login": "browniebroke",
-            "twitter_username": "_BrunoAlla",
-            "is_core": True,
-        },
-        {
-            "name": "Burhan Khalid",
-            "github_login": "burhan",
-            "twitter_username": "burhan",
-            "is_core": True,
-        },
-        {
             "name": "Daniel Roy Greenfeld",
             "github_login": "pydanny",
             "twitter_username": "pydanny",
+            "is_core": True,
+        },
+        {
+            "name": "Audrey Roy Greenfeld",
+            "github_login": "audreyr",
+            "twitter_username": "audreyr",
             "is_core": True,
         },
         {
@@ -47,21 +34,33 @@ def main():
             "is_core": True,
         },
         {
-            "name": "Jannis Gebauer",
-            "github_login": "jayfk",
-            "twitter_username": "",
-            "is_core": True,
-        },
-        {
             "name": "Saurabh Kumar",
             "github_login": "theskumar",
             "twitter_username": "_theskumar",
             "is_core": True,
         },
         {
+            "name": "Jannis Gebauer",
+            "github_login": "jayfk",
+            "twitter_username": "",
+            "is_core": True,
+        },
+        {
+            "name": "Burhan Khalid",
+            "github_login": "burhan",
+            "twitter_username": "burhan",
+            "is_core": True,
+        },
+        {
             "name": "Shupeyko Nikita",
             "github_login": "webyneter",
-            "twitter_username": "",
+            "twitter_username": "webyneter",
+            "is_core": True,
+        },
+        {
+            "name": "Bruno Alla",
+            "github_login": "browniebroke",
+            "twitter_username": "_BrunoAlla",
             "is_core": True,
         },
         {
@@ -94,8 +93,10 @@ def main():
         profiles_list.append(profile)
 
     output_file_path = ROOT / ".github" / "contributors.json"
-    with output_file_path.open("w") as ofd:
-        json.dump(profiles_list, ofd, indent=2, ensure_ascii=False)
+    output_file_path.write_text(
+        json.dumps(profiles_list, indent=2, ensure_ascii=False)
+    )
+
 
 
 if __name__ == "__main__":
