@@ -133,7 +133,7 @@ def write_md_file(contributors):
     template = Template(CONTRIBUTORS_TEMPLATE, autoescape=True)
     core_contributors = [c for c in contributors if c.get("is_core", False)]
     other_contributors = (c for c in contributors if not c.get("is_core", False))
-    other_contributors = sorted(other_contributors, key=lambda c: c["name"])
+    other_contributors = sorted(other_contributors, key=lambda c: c["name"].lower())
     content = template.render(
         core_contributors=core_contributors, other_contributors=other_contributors
     )
