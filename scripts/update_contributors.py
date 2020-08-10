@@ -7,16 +7,22 @@ from jinja2 import Template
 CURRENT_FILE = Path(__file__)
 ROOT = CURRENT_FILE.parents[1]
 BOT_LOGINS = ["pyup-bot"]
-OUTPUT_FILE_PATH = ROOT / "CONTRIBUTORS.rst"
 
-CONTRIBUTORS_TABLE_TEMPLATE = """
+CONTRIBUTORS_TEMPLATE = """
+# Contributors
+
+## Core Developers
+
+These contributors have commit flags for the repository, and are able to
+accept and merge pull requests.
+
 <table>
   <tr>
     <th>Name</th>
     <th>Github</th>
     <th>Twitter</th>
   </tr>
-  {%- for contributor in contributors %}
+  {%- for contributor in core_contributors %}
   <tr>
     <td>{{ contributor.name }}</td>
     <td>
@@ -26,6 +32,39 @@ CONTRIBUTORS_TABLE_TEMPLATE = """
   </tr>
   {%- endfor %}
 </table>
+
+*Audrey is also the creator of Cookiecutter. Audrey and Daniel are on
+the Cookiecutter core team.*
+
+## Other Contributors
+
+Listed in alphabetical order.
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Github</th>
+    <th>Twitter</th>
+  </tr>
+  {%- for contributor in other_contributors %}
+  <tr>
+    <td>{{ contributor.name }}</td>
+    <td>
+      <a href="https://github.com/{{ contributor.github_login }}">{{ contributor.github_login }}</a>
+    </td>
+    <td>{{ contributor.twitter_username }}</td>
+  </tr>
+  {%- endfor %}
+</table>
+
+### Special Thanks
+
+The following haven't provided code directly, but have provided
+guidance and advice.
+
+-   Jannis Leidel
+-   Nate Aune
+-   Barry Morrison
 """
 
 
@@ -34,14 +73,12 @@ def main() -> None:
     recent_authors = set(gh.iter_recent_authors())
     contrib_file = ContributorsJSONFile()
     for username in recent_authors:
-        if username not in contrib_file:
+        if username not in contrib_file and username not in BOT_LOGINS:
             user_data = gh.fetch_user_info(username)
             contrib_file.add_contributor(user_data)
     contrib_file.save()
 
-    rst_file = ContributorsRSTFile()
-    rst_file.generate_table(contrib_file.content)
-    rst_file.save()
+    write_md_file(contrib_file.content)
 
 
 class GitHub:
@@ -71,8 +108,7 @@ class ContributorsJSONFile:
     content = None
 
     def __init__(self) -> None:
-        with self.file_path.open() as fd:
-            self.content = json.load(fd)
+        self.content = json.loads(self.file_path.read_text())
 
     def __contains__(self, github_login: str):
         return any(github_login == contrib["github_login"] for contrib in self.content)
@@ -83,48 +119,25 @@ class ContributorsJSONFile:
             "github_login": user_data["login"],
             "twitter_username": user_data["twitter_username"],
         }
-        new_content = self.content + [contributor_data]
-        self.content = sorted(new_content, key=lambda user: user["name"])
+        self.content.extend(contributor_data)
 
     def save(self):
-        with self.file_path.open("w") as fd:
-            json.dump(self.content, fd, indent=2)
+        self.file_path.write_text(json.dumps(self.content, indent=2))
 
 
-class ContributorsRSTFile:
+def write_md_file(contributors):
+    template = Template(CONTRIBUTORS_TEMPLATE, autoescape=True)
+    core_contributors = [
+        c for c in contributors if c.get("is_core", False)
+    ]
+    other_contributors = sorted(
+        c for c in contributors if not c.get("is_core", False)
+    )
+    content = template.render(core_contributors=core_contributors, other_contributors=other_contributors)
+
     file_path = ROOT / "CONTRIBUTORS.md"
-    content = None
-    marker_start = "<!-- BEGIN-GENERATED-CONTENT -->"
-    marker_end = "<!-- END-GENERATED-CONTENT -->"
-
-    def __init__(self) -> None:
-        with self.file_path.open() as fd:
-            content = fd.read()
-        self.before, rest_initial = content.split(f"{self.marker_start}")
-        self.middle, self.after = rest_initial.split(f"{self.marker_end}")
-
-    def generate_table(self, profiles_list):
-        template = Template(CONTRIBUTORS_TABLE_TEMPLATE, autoescape=True)
-        contributors = [profile for profile in profiles_list if not profile.get("is_core", False)]
-        self.middle = template.render(contributors=contributors)
-
-    def save(self):
-        with self.file_path.open("w") as fd:
-            new_content = "\n".join(
-                [
-                    self.before,
-                    self.marker_start,
-                    self.middle,
-                    self.marker_end,
-                    self.after,
-                ]
-            )
-
-            fd.write(new_content)
+    file_path.write_text(content)
 
 
 if __name__ == "__main__":
-    template = Template(CONTRIBUTORS_TABLE_TEMPLATE, autoescape=True)
-    contrib_file = ContributorsJSONFile()
-    contributors = [profile for profile in contrib_file.content if profile.get("is_core", False)]
-    print(template.render(contributors=contributors))
+    main()
