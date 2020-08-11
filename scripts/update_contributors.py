@@ -1,8 +1,7 @@
 import json
 from pathlib import Path
-from urllib.parse import urlencode
-
-import requests
+from github import Github
+from github.NamedUser import NamedUser
 from jinja2 import Template
 
 CURRENT_FILE = Path(__file__)
@@ -18,50 +17,35 @@ def main() -> None:
     2. Add missing ones to the JSON file
     3. Generate Markdown from JSON file
     """
-    # Use Github API to fetch recent authors rather than
-    # git CLI because we need to know their GH username
-    gh = GitHub()
-    recent_authors = set(gh.iter_recent_authors())
+    recent_authors = set(iter_recent_authors())
 
     # Add missing users to the JSON file
     contrib_file = ContributorsJSONFile()
-    for username in recent_authors:
-        print(f"Checking if {username} should be added")
-        if username not in contrib_file:
-            user_data = gh.fetch_user_info(username)
-            contrib_file.add_contributor(user_data)
-            print(f"Added {username} to contributors")
+    for author in recent_authors:
+        print(f"Checking if {author.login} should be added")
+        if author.login not in contrib_file:
+            contrib_file.add_contributor(author)
+            print(f"Added {author.login} to contributors")
     contrib_file.save()
 
     # Generate MD file from JSON file
     write_md_file(contrib_file.content)
 
 
-class GitHub:
-    """Small wrapper around Github REST API."""
+def iter_recent_authors():
+    """
+    Fetch users who opened recently merged pull requests.
 
-    base_url = "https://api.github.com"
-
-    def __init__(self) -> None:
-        self.session = requests.Session()
-
-    def request(self, endpoint):
-        response = self.session.get(f"{self.base_url}{endpoint}")
-        response.raise_for_status()
-        return response.json()
-
-    def iter_recent_authors(self):
-        query_params = urlencode(
-            {"state": "closed", "sort": "updated", "direction": "desc"}
-        )
-        pulls = self.request(f"/repos/pydanny/cookiecutter-django/pulls?{query_params}")
-        for pull_request in pulls:
-            login = pull_request["user"]["login"]
-            if pull_request["merged_at"] and login not in BOT_LOGINS:
-                yield login
-
-    def fetch_user_info(self, username):
-        return self.request(f"/users/{username}")
+    Use Github API to fetch recent authors rather than
+    git CLI to work with Github usernames.
+    """
+    repo = Github().get_repo("pydanny/cookiecutter-django")
+    recent_pulls = repo.get_pulls(
+        state="closed", sort="updated", direction="desc"
+    ).get_page(0)
+    for pull in recent_pulls:
+        if pull.merged and pull.user.login not in BOT_LOGINS:
+            yield pull.user
 
 
 class ContributorsJSONFile:
@@ -78,12 +62,12 @@ class ContributorsJSONFile:
         """Provide a nice API to do: `username in file`."""
         return any(github_login == contrib["github_login"] for contrib in self.content)
 
-    def add_contributor(self, user_data):
+    def add_contributor(self, user: NamedUser):
         """Append the contributor data we care about at the end."""
         contributor_data = {
-            "name": user_data.get("name", user_data["login"]),
-            "github_login": user_data["login"],
-            "twitter_username": user_data.get("twitter_username", ""),
+            "name": user.name or user.login,
+            "github_login": user.login,
+            "twitter_username": user.twitter_username or "",
         }
         self.content.append(contributor_data)
 
