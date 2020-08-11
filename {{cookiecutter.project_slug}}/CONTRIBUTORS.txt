@@ -1,1 +1,1 @@
-enchance
+{{ cookiecutter.author_name }}
