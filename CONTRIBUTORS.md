@@ -608,6 +608,13 @@ Listed in alphabetical order.
     <td>bloodpet</td>
   </tr>
   <tr>
+    <td>enchance</td>
+    <td>
+      <a href="https://github.com/enchance">enchance</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Eraldo Energy</td>
     <td>
       <a href="https://github.com/eraldo">eraldo</a>
