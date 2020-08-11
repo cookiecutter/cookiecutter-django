@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from urllib.parse import urlencode
 
 import requests
 from jinja2 import Template
@@ -50,10 +51,13 @@ class GitHub:
         return response.json()
 
     def iter_recent_authors(self):
-        commits = self.request("/repos/pydanny/cookiecutter-django/commits")
-        for commit in commits:
-            login = commit["author"]["login"]
-            if login not in BOT_LOGINS:
+        query_params = urlencode(
+            {"state": "closed", "sort": "updated", "direction": "desc"}
+        )
+        pulls = self.request(f"/repos/pydanny/cookiecutter-django/pulls?{query_params}")
+        for pull_request in pulls:
+            login = pull_request["user"]["login"]
+            if pull_request["merged_at"] and login not in BOT_LOGINS:
                 yield login
 
     def fetch_user_info(self, username):
