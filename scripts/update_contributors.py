@@ -81,9 +81,9 @@ class ContributorsJSONFile:
     def add_contributor(self, user_data):
         """Append the contributor data we care about at the end."""
         contributor_data = {
-            "name": user_data["name"],
+            "name": user_data.get("name", user_data["login"]),
             "github_login": user_data["login"],
-            "twitter_username": user_data["twitter_username"],
+            "twitter_username": user_data.get("twitter_username", ""),
         }
         self.content.append(contributor_data)
 
