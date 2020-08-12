@@ -790,6 +790,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Jan Fabry</td>
+    <td>
+      <a href="https://github.com/janfabry">janfabry</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Jan Van Bruggen</td>
     <td>
       <a href="https://github.com/jvanbrug">jvanbrug</a>
