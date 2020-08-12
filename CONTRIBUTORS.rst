@@ -141,6 +141,7 @@ Listed in alphabetical order.
   Isaac12x                 `@Isaac12x`_
   Ivan Khomutov            `@ikhomutov`_
   James Williams           `@jameswilliams1`_
+  Jan Fabry                `@janfabry`_
   Jan Van Bruggen          `@jvanbrug`_
   Jelmer Draaijer          `@foarsitter`_
   Jerome Caisip            `@jeromecaisip`_
@@ -331,6 +332,7 @@ Listed in alphabetical order.
 .. _@ikkebr: https://github.com/ikkebr
 .. _@Isaac12x: https://github.com/Isaac12x
 .. _@iynaix: https://github.com/iynaix
+.. _@janfabry: https://github.com/janfabry
 .. _@jangeador: https://github.com/jangeador
 .. _@jazztpt: https://github.com/jazztpt
 .. _@jcass77: https://github.com/jcass77
@@ -392,7 +394,7 @@ Listed in alphabetical order.
 .. _@siauPatrick: https://github.com/siauPatrick
 .. _@sladinji: https://github.com/sladinji
 .. _@slafs: https://github.com/slafs
-.. _@sorasful:: https://github.com/sorasful
+.. _@sorasful: https://github.com/sorasful
 .. _@ssteinerX: https://github.com/ssteinerx
 .. _@step21: https://github.com/step21
 .. _@stepmr: https://github.com/stepmr
