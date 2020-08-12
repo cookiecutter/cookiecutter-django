@@ -39,7 +39,7 @@ def iter_recent_authors():
     Use Github API to fetch recent authors rather than
     git CLI to work with Github usernames.
     """
-    repo = Github().get_repo("pydanny/cookiecutter-django")
+    repo = Github(per_page=5).get_repo("pydanny/cookiecutter-django")
     recent_pulls = repo.get_pulls(
         state="closed", sort="updated", direction="desc"
     ).get_page(0)
