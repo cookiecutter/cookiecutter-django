@@ -44,7 +44,11 @@ def iter_recent_authors():
         state="closed", sort="updated", direction="desc"
     ).get_page(0)
     for pull in recent_pulls:
-        if pull.merged and pull.user.login not in BOT_LOGINS:
+        if (
+            pull.merged
+            and pull.user.type == "User"
+            and pull.user.login not in BOT_LOGINS
+        ):
             yield pull.user
 
 
