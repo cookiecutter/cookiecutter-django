@@ -270,7 +270,7 @@ local.yml
    The services run behind the reverse proxy.
 
 config/settings/local.py
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 You should allow the new hostname. ::
 
