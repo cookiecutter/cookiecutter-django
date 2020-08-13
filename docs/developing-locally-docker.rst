@@ -280,7 +280,7 @@ Rebuild your ``docker`` application. ::
 
   $ docker-compose -f local.yml up -d --build
 
-Go to your browser and type in your usrl, ``
+Go to your browser and type in your URL bar ``https://my-dev-env.local``
 
 See `https with nginx`_ for more information on this configuration.
 
