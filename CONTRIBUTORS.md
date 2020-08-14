@@ -834,16 +834,9 @@ Listed in alphabetical order.
   <tr>
     <td>Jimmy Gitonga</td>
     <td>
-      <a href="https://github.com/afrowave">afrowave</a>
-    </td>
-    <td>afrowave</td>
-  </tr>
-  <tr>
-    <td>Jimmy Gitonga</td>
-    <td>
       <a href="https://github.com/Afrowave">Afrowave</a>
     </td>
-    <td></td>
+    <td>afrowave</td>
   </tr>
   <tr>
     <td>John Cass</td>
