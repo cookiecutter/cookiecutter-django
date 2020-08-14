@@ -20,7 +20,7 @@ pytest-sugar==0.9.4  # https://github.com/Frozenball/pytest-sugar
 
 # Documentation
 # ------------------------------------------------------------------------------
-sphinx==3.2.0  # https://github.com/sphinx-doc/sphinx
+sphinx==3.2.1  # https://github.com/sphinx-doc/sphinx
 sphinx-autobuild==0.7.1 # https://github.com/GaretJax/sphinx-autobuild
 
 # Code quality
@@ -37,7 +37,7 @@ pre-commit==2.6.0  # https://github.com/pre-commit/pre-commit
 
 # Django
 # ------------------------------------------------------------------------------
-factory-boy==2.12.0  # https://github.com/FactoryBoy/factory_boy
+factory-boy==3.0.1  # https://github.com/FactoryBoy/factory_boy
 
 django-debug-toolbar==2.2  # https://github.com/jazzband/django-debug-toolbar
 django-extensions==3.0.5  # https://github.com/django-extensions/django-extensions
