@@ -4,7 +4,7 @@ fail_fast: true
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: master
+    rev: v3.2.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -16,7 +16,7 @@ repos:
       - id: black
 
   - repo: https://github.com/timothycrosley/isort
-    rev: 4.3.21
+    rev: 5.3.2
     hooks:
       - id: isort
 
