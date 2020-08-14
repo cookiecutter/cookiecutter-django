@@ -64,7 +64,11 @@ class ContributorsJSONFile:
 
     def __contains__(self, github_login: str):
         """Provide a nice API to do: `username in file`."""
-        return any(github_login == contrib["github_login"] for contrib in self.content)
+        return any(
+            # Github usernames are case insensitive
+            github_login.lower() == contrib["github_login"].lower()
+            for contrib in self.content
+        )
 
     def add_contributor(self, user: NamedUser):
         """Append the contributor data we care about at the end."""
