@@ -14,11 +14,20 @@ import os
 import sys
 import django
 
+if os.getenv("READTHEDOCS", default=False) == "True":
+    sys.path.insert(0, os.path.abspath(".."))
+    os.environ["DJANGO_READ_DOT_ENV_FILE"] = "True"
+    {% if cookiecutter.use_celery == 'y' -%}
+    os.environ["CELERY_BROKER_URL"] = os.getenv("REDIS_URL", "redis://redis:6379")
+    {%- endif %}
+    os.environ["USE_DOCKER"] = "no"
+    master_doc = "_source/index"
+else:
 {% if cookiecutter.use_docker == 'y' %}
-sys.path.insert(0, os.path.abspath("/app"))
-os.environ.setdefault("DATABASE_URL", "")
+    sys.path.insert(0, os.path.abspath("/app"))
+    os.environ.setdefault("DATABASE_URL", "")
 {% else %}
-sys.path.insert(0, os.path.abspath(".."))
+    sys.path.insert(0, os.path.abspath(".."))
 {%- endif %}
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
 django.setup()
