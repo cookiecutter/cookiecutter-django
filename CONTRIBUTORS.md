@@ -440,6 +440,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Corey Garvey</td>
+    <td>
+      <a href="https://github.com/coreygarvey">coreygarvey</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Craig Margieson</td>
     <td>
       <a href="https://github.com/cmargieson">cmargieson</a>
