@@ -93,6 +93,7 @@ Listed in alphabetical order.
   Cole Mackenzie           `@cmackenzie1`_
   Cole Maclean             `@cole`_                      @cole
   Collederas               `@Collederas`_
+  Corey Garvey             `@coreygarvey`_
   Craig Margieson          `@cmargieson`_
   Cristian Vargas          `@cdvv7788`_
   Cullen Rhodes            `@c-rhodes`_
