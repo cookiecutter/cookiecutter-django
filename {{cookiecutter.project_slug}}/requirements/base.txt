@@ -41,5 +41,5 @@ django-redis==4.12.1  # https://github.com/jazzband/django-redis
 {%- if cookiecutter.use_drf == "y" %}
 # Django REST Framework
 djangorestframework==3.11.1  # https://github.com/encode/django-rest-framework
-django-cors-headers==3.4.0 # https://github.com/adamchainz/django-cors-headers
+django-cors-headers==3.5.0 # https://github.com/adamchainz/django-cors-headers
 {%- endif %}
