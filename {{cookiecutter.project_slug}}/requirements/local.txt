@@ -28,7 +28,7 @@ sphinx-autobuild==0.7.1 # https://github.com/GaretJax/sphinx-autobuild
 flake8==3.8.3  # https://github.com/PyCQA/flake8
 flake8-isort==4.0.0  # https://github.com/gforcada/flake8-isort
 coverage==5.2.1  # https://github.com/nedbat/coveragepy
-black==19.10b0  # https://github.com/ambv/black
+black==20.8b1  # https://github.com/ambv/black
 pylint-django==2.3.0  # https://github.com/PyCQA/pylint-django
 {%- if cookiecutter.use_celery == 'y' %}
 pylint-celery==0.3  # https://github.com/PyCQA/pylint-celery
