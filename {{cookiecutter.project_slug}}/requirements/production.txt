@@ -17,7 +17,7 @@ hiredis==1.1.0  # https://github.com/redis/hiredis-py
 # Django
 # ------------------------------------------------------------------------------
 {%- if cookiecutter.cloud_provider == 'AWS' %}
-django-storages[boto3]==1.9.1  # https://github.com/jschneier/django-storages
+django-storages[boto3]==1.10  # https://github.com/jschneier/django-storages
 {%- elif cookiecutter.cloud_provider == 'GCP' %}
 django-storages[google]==1.9.1  # https://github.com/jschneier/django-storages
 {%- endif %}
