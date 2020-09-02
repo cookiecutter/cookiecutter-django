@@ -351,13 +351,17 @@ sentry_logging = LoggingIntegration(
 )
 
 {%- if cookiecutter.use_celery == 'y' %}
+integrations = [sentry_logging, DjangoIntegration(), CeleryIntegration()]
+{% else %}
+integrations = [sentry_logging, DjangoIntegration()]
+{% endif -%}
+
 sentry_sdk.init(
     dsn=SENTRY_DSN,
-    integrations=[sentry_logging, DjangoIntegration(), CeleryIntegration()],
+    integrations=integrations,
+    environment=env("SENTRY_ENVIRONMENT", default="production"),
+    traces_sample_rate=env.float("SENTRY_TRACES_SAMPLE_RATE", default=0.0),
 )
-{% else %}
-sentry_sdk.init(dsn=SENTRY_DSN, integrations=[sentry_logging, DjangoIntegration()])
-{% endif -%}
 {% endif %}
 # Your stuff...
 # ------------------------------------------------------------------------------
