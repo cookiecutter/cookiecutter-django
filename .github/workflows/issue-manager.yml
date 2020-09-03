@@ -13,8 +13,11 @@
 name: Issue Manager
 
 on:
+  # Every day at midnight
   schedule:
   - cron: "0 0 * * *"
+  # Manual trigger
+  workflow_dispatch:
 
 jobs:
   issue-manager:
@@ -38,7 +41,7 @@ jobs:
                "burhan",
                "webyneter",
                "browniebroke",
-               "sfdye",
+               "sfdye"
               ]
             },
             "waiting": {
@@ -53,7 +56,7 @@ jobs:
                 "burhan",
                 "webyneter",
                 "browniebroke",
-                "sfdye",
+                "sfdye"
               ]
             }
           }
