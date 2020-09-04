@@ -46,9 +46,9 @@ services:
     env_file:
       - ./.envs/.local/.django
     volumes:
-      - ./docs:/docs
-      - ./config:/app/config
-      - ./{{ cookiecutter.project_slug }}:/app/{{ cookiecutter.project_slug }}
+      - ./docs:/docs:z
+      - ./config:/app/config:z
+      - ./{{ cookiecutter.project_slug }}:/app/{{ cookiecutter.project_slug }}:z
     ports:
       - "7000:7000"
     
