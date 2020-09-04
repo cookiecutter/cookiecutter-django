@@ -13,7 +13,7 @@ def main() -> None:
     """
     Script entry point.
 
-    1. Fetch recent contribtors from the Github API
+    1. Fetch recent contributors from the Github API
     2. Add missing ones to the JSON file
     3. Generate Markdown from JSON file
     """
