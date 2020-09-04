@@ -2,8 +2,8 @@
 
 [//]: # (Before you proceed:)
 
-[//]: # (1. Make sure to add yourself to `CONTRIBUTORS.rst` through this PR provided you're contributing here for the first time)
-[//]: # (2. Don't forget to update the `docs/` presuming others would benefit from a concise description of whatever that you're proposing)
+[//]: # (- Don't forget to update the `docs/` presuming others would benefit from a concise description of whatever that you're proposing)
+[//]: # (- If you're adding a new option, please make sure that tests/test_cookiecutter_generation.py is updated accordingly)
 
 
 ## Description
@@ -11,13 +11,9 @@
 [//]: # (What's it you're proposing?)
 
 
-
-
 ## Rationale
 
 [//]: # (Why does the project need that?)
-
-
 
 
 ## Use case(s) / visualization(s)

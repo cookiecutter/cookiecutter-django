@@ -37,11 +37,11 @@ SUPPORTED_COMBINATIONS = [
     {"use_pycharm": "n"},
     {"use_docker": "y"},
     {"use_docker": "n"},
-    {"postgresql_version": "11.3"},
+    {"postgresql_version": "12.3"},
+    {"postgresql_version": "11.8"},
     {"postgresql_version": "10.8"},
     {"postgresql_version": "9.6"},
     {"postgresql_version": "9.5"},
-    {"postgresql_version": "9.4"},
     {"cloud_provider": "AWS", "use_whitenoise": "y"},
     {"cloud_provider": "AWS", "use_whitenoise": "n"},
     {"cloud_provider": "GCP", "use_whitenoise": "y"},
@@ -175,7 +175,10 @@ def test_black_passes(cookies, context_override):
 
 @pytest.mark.parametrize(
     ["use_docker", "expected_test_script"],
-    [("n", "pytest"), ("y", "docker-compose -f local.yml run django pytest"),],
+    [
+        ("n", "pytest"),
+        ("y", "docker-compose -f local.yml run django pytest"),
+    ],
 )
 def test_travis_invokes_pytest(cookies, context, use_docker, expected_test_script):
     context.update({"ci_tool": "Travis", "use_docker": use_docker})
@@ -197,7 +200,10 @@ def test_travis_invokes_pytest(cookies, context, use_docker, expected_test_scrip
 
 @pytest.mark.parametrize(
     ["use_docker", "expected_test_script"],
-    [("n", "pytest"), ("y", "docker-compose -f local.yml run django pytest"),],
+    [
+        ("n", "pytest"),
+        ("y", "docker-compose -f local.yml run django pytest"),
+    ],
 )
 def test_gitlab_invokes_flake8_and_pytest(
     cookies, context, use_docker, expected_test_script
