@@ -1,6 +1,31 @@
 # Change Log
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 
+<!-- GENERATOR_PLACEHOLDER -->
+
+## [2020-09-02]
+### Changed
+- Add environment and traces_sample_rate keyword to sentry_sdk.init ([#2777](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2777))
+### Updated
+- Update sentry-sdk to 0.17.3 ([#2788](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2788))
+- Update django-extensions to 3.0.7 ([#2787](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2787))
+
+## [2020-09-01]
+### Changed
+- Exclude venv directory and update document link ([#2780](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2780))
+### Updated
+- Update tox to 3.20.0 ([#2786](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2786))
+- Update django-storages to 1.10 ([#2781](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2781))
+- Update sentry-sdk to 0.17.2 ([#2784](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2784))
+- Update django to 3.0.10 ([#2785](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2785))
+- Update sphinx-autobuild to 2020.9.1 ([#2782](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2782))
+- Update django-extensions to 3.0.6 ([#2783](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2783))
+
+## [2020-08-31]
+### Updated
+- Update sh to 1.14.0 ([#2779](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2779))
+- Update sentry-sdk to 0.17.1 ([#2778](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2778))
+
 ## [2020-04-13]
 ### Changed
 - Updated to Python 3.8 (@codnee)
