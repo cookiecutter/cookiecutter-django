@@ -1,6 +1,8 @@
 # Change Log
 All enhancements and patches to Cookiecutter Django will be documented in this file.
 
+<!-- GENERATOR_PLACEHOLDER -->
+
 ## [2020-04-13]
 ### Changed
 - Updated to Python 3.8 (@codnee)
