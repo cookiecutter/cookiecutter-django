@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-09-04]
+### Updated
+- Update django-extensions to 3.0.8 ([#2792](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2792))
+- Update isort to 5.5.1 ([#2791](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2791))
+- Auto-update pre-commit hooks ([#2790](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2790))
+- Update isort to 5.5.0 ([#2789](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2789))
+
 ## [2020-09-02]
 ### Changed
 - Add environment and traces_sample_rate keyword to sentry_sdk.init ([#2777](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2777))
