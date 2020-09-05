@@ -39,7 +39,7 @@ pytest:
   tags:
     - python
   services:
-    - postgres:11
+    - postgres:{{ cookiecutter.postgresql_version }}
   variables:
     DATABASE_URL: pgsql://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
 
