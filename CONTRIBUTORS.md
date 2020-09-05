@@ -265,6 +265,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Arnav Choudhury</td>
+    <td>
+      <a href="https://github.com/arnav13081994">arnav13081994</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>AsheKR</td>
     <td>
       <a href="https://github.com/ashekr">ashekr</a>
