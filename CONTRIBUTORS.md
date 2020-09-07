@@ -265,6 +265,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Arnav Choudhury</td>
+    <td>
+      <a href="https://github.com/arnav13081994">arnav13081994</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>AsheKR</td>
     <td>
       <a href="https://github.com/ashekr">ashekr</a>
@@ -1418,6 +1425,13 @@ Listed in alphabetical order.
       <a href="https://github.com/vladdoster">vladdoster</a>
     </td>
     <td></td>
+  </tr>
+  <tr>
+    <td>Wes Turner</td>
+    <td>
+      <a href="https://github.com/westurner">westurner</a>
+    </td>
+    <td>westurner</td>
   </tr>
   <tr>
     <td>Will Farley</td>

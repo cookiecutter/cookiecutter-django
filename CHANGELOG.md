@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-09-05]
+### Updated
+- Auto-update pre-commit hooks ([#2793](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2793))
+
 ## [2020-09-04]
 ### Updated
 - Update django-extensions to 3.0.8 ([#2792](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2792))
