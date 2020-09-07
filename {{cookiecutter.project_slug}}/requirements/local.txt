@@ -5,7 +5,7 @@ ipdb==0.13.3  # https://github.com/gotcha/ipdb
 {%- if cookiecutter.use_docker == 'y' %}
 psycopg2==2.8.5 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
 {%- else %}
-psycopg2-binary==2.8.5  # https://github.com/psycopg/psycopg2
+psycopg2-binary==2.8.6  # https://github.com/psycopg/psycopg2
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' %}
 watchgod==0.6  # https://github.com/samuelcolvin/watchgod
