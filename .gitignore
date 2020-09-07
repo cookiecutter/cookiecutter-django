@@ -208,16 +208,6 @@ Session.vim
 tags
 
 
-### VirtualEnv template
-# Virtualenv
-# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
-[Ii]nclude
-[Ll]ib
-[Ll]ib64
-pyvenv.cfg
-pip-selfcheck.json
-
-
 # Even though the project might be opened and edited
 # in any of the JetBrains IDEs, it makes no sence whatsoever
 # to 'run' anything within it since any particular cookiecutter
