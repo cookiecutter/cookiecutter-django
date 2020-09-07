@@ -1427,6 +1427,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Wes Turner</td>
+    <td>
+      <a href="https://github.com/westurner">westurner</a>
+    </td>
+    <td>westurner</td>
+  </tr>
+  <tr>
     <td>Will Farley</td>
     <td>
       <a href="https://github.com/goldhand">goldhand</a>
