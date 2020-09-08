@@ -3,6 +3,16 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-09-07]
+### Changed
+- Add :z/:Z to mounted volumes in {local,production}.yml ([#2663](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2663))
+- Remove --no-binary option for psycopg2 ([#2798](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2798))
+- Updated Gitlab CI to use Python 3.8 instead of Python 3.7 ([#2794](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2794))
+### Fixed
+- Fix options for sphinx-autobuild in docs Makefile ([#2799](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2799))
+### Updated
+- Update psycopg2-binary to 2.8.6 ([#2797](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2797))
+
 ## [2020-09-05]
 ### Updated
 - Auto-update pre-commit hooks ([#2793](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2793))
