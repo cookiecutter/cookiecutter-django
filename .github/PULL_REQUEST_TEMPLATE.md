@@ -1,23 +1,18 @@
-[//]: # (Thank you for helping us out: your efforts mean great deal to the project and the community as a whole!)
-
-[//]: # (Before you proceed:)
-
-[//]: # (- Don't forget to update the `docs/` presuming others would benefit from a concise description of whatever that you're proposing)
-[//]: # (- If you're adding a new option, please make sure that tests/test_cookiecutter_generation.py is updated accordingly)
+<!-- Thank you for helping us out: your efforts mean a great deal to the project and the community as a whole! -->
 
 
 ## Description
 
-[//]: # (What's it you're proposing?)
+<!-- What's it you're proposing? -->
 
+Checklist:
+
+- [ ] I've made sure that `tests/test_cookiecutter_generation.py` is updated accordingly (especially if adding or updating a template option)
+- [ ] I've updated the documentation or confirm that my change doesn't require any updates
 
 ## Rationale
 
-[//]: # (Why does the project need that?)
-
-
-## Use case(s) / visualization(s)
-
-[//]: # ("Better to see something once than to hear about it a thousand times.")
-
-
+<!-- 
+Why does this project need the change you're proposing? 
+If this pull request fixes an open issue, don't forget to link it with `Fix #NNNN` 
+-->
