@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-09-08]
+### Changed
+- Traeffik and Django dockerfile changes ([#2801](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2801))
+
 ## [2020-09-07]
 ### Changed
 - Add :z/:Z to mounted volumes in {local,production}.yml ([#2663](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2663))
