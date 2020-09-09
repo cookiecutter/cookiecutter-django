@@ -25,8 +25,8 @@ services:
       dockerfile: ./compose/production/postgres/Dockerfile
     image: {{ cookiecutter.project_slug }}_production_postgres
     volumes:
-      - production_postgres_data:/var/lib/postgresql/data
-      - production_postgres_data_backups:/backups
+      - production_postgres_data:/var/lib/postgresql/data:Z
+      - production_postgres_data_backups:/backups:z
     env_file:
       - ./.envs/.production/.postgres
 
@@ -38,7 +38,7 @@ services:
     depends_on:
       - django
     volumes:
-      - production_traefik:/etc/traefik/acme
+      - production_traefik:/etc/traefik/acme:z
     ports:
       - "0.0.0.0:80:80"
       - "0.0.0.0:443:443"
@@ -75,5 +75,5 @@ services:
     env_file:
       - ./.envs/.production/.django
     volumes:
-      - production_postgres_data_backups:/backups
+      - production_postgres_data_backups:/backups:z
   {%- endif %}
