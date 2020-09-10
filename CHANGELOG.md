@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-09-09]
+### Changed
+- Update actions/setup-python requirement to v2.1.2 ([#2804](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2804))
+- Clean up nested venv files from `.gitignore` ([#2800](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2800))
+
 ## [2020-09-08]
 ### Changed
 - Traeffik and Django dockerfile changes ([#2801](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2801))
