@@ -8,7 +8,7 @@ psycopg2==2.8.6  # https://github.com/psycopg/psycopg2
 Collectfast==2.2.0  # https://github.com/antonagestam/collectfast
 {%- endif %}
 {%- if cookiecutter.use_sentry == "y" %}
-sentry-sdk==0.17.3  # https://github.com/getsentry/sentry-python
+sentry-sdk==0.17.4  # https://github.com/getsentry/sentry-python
 {%- endif %}
 {%- if cookiecutter.use_docker == "n" and cookiecutter.windows == "y" %}
 hiredis==1.1.0  # https://github.com/redis/hiredis-py
