@@ -7,30 +7,37 @@ RUN npm install && npm cache clean --force
 COPY . /app
 RUN npm run build
 
-# Python build stage
 {%- endif %}
+
+# Python build stage
+FROM python:3.8-slim-buster as python-build-stage
+
+
+# Requirements are installed here to ensure they will be cached.
+COPY ./requirements /requirements
+
+RUN apt-get update && apt-get install --no-install-recommends -y \
+  # dependencies for building Python packages
+  build-essential \
+  # psycopg2 dependencies
+  libpq-dev \
+  # Translations dependencies
+  gettext \
+  # cleaning up unused files
+  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
+  && rm -rf /var/lib/apt/lists/* \
+  # create python dependency wheels
+  && pip wheel --no-cache-dir --no-deps --use-feature=2020-resolver --wheel-dir /usr/src/app/wheels -r /requirements/production.txt \
+  && rm -rf /requirements
+
+
+# Python 'run' stage
 FROM python:3.8-slim-buster
 
 ENV PYTHONUNBUFFERED 1
 
-RUN apt-get update \
-  # dependencies for building Python packages
-  && apt-get install -y build-essential \
-  # psycopg2 dependencies
-  && apt-get install -y libpq-dev \
-  # Translations dependencies
-  && apt-get install -y gettext \
-  # cleaning up unused files
-  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
-  && rm -rf /var/lib/apt/lists/*
-
 RUN addgroup --system django \
     && adduser --system --ingroup django django
-
-# Requirements are installed here to ensure they will be cached.
-COPY ./requirements /requirements
-RUN pip install --no-cache-dir -r /requirements/production.txt \
-    && rm -rf /requirements
 
 COPY --chown=django:django ./compose/production/django/entrypoint /entrypoint
 RUN sed -i 's/\r$//g' /entrypoint
@@ -57,6 +64,23 @@ COPY ./compose/production/django/celery/flower/start /start-flower
 RUN sed -i 's/\r$//g' /start-flower
 RUN chmod +x /start-flower
 {%- endif %}
+
+# installing required system dependencies
+RUN apt-get update && apt-get install --no-install-recommends -y \
+  # psycopg2 dependencies
+  libpq-dev \
+  # Translations dependencies
+  gettext \
+  # cleaning up unused files
+  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
+  && rm -rf /var/lib/apt/lists/*
+
+
+# copy python dependency wheels from python-build-stage
+COPY --from=python-build-stage /usr/src/app/wheels /wheels
+
+# install python dependencies
+RUN pip install --no-cache /wheels/*
 
 {%- if cookiecutter.js_task_runner == 'Gulp' %}
 COPY --from=client-builder --chown=django:django /app /app
