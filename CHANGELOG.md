@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-09-10]
+### Updated
+- Update isort to 5.5.2 ([#2807](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2807))
+- Update sentry-sdk to 0.17.4 ([#2805](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2805))
+
 ## [2020-09-09]
 ### Changed
 - Update actions/setup-python requirement to v2.1.2 ([#2804](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2804))
