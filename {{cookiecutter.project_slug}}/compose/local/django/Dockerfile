@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/* \
   # create python dependency wheels
-  && pip wheel --no-cache-dir --no-deps --use-feature=2020-resolver --wheel-dir /usr/src/app/wheels -r /requirements/production.txt \
+  && pip wheel --no-cache-dir --no-deps --use-feature=2020-resolver --wheel-dir /usr/src/app/wheels -r /requirements/local.txt \
   && rm -rf /requirements
 
 
