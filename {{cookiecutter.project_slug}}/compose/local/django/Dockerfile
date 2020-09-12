@@ -15,8 +15,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   # cleaning up unused files
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/* \
-  # create python dependency wheels
-  && pip wheel --no-cache-dir --no-deps --use-feature=2020-resolver --wheel-dir /usr/src/app/wheels -r /requirements/local.txt \
+  # install python dependencies
+  && pip install --no-cache-dir --use-feature=2020-resolver -r /requirements/local.txt \
   && rm -rf /requirements
 
 
@@ -61,11 +61,10 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   && rm -rf /var/lib/apt/lists/*
 
 
-# copy python dependency wheels from python-build-stage
-COPY --from=python-build-stage /usr/src/app/wheels /wheels
 
-# install python dependencies
-RUN pip install --no-cache /wheels/*
+# copy python dependencies from python-build-stage
+COPY --from=build_stage /usr/local/lib/python3.8/site-packages/ /usr/local/lib/python3.8/site-packages/
+COPY --from=build_stage /usr/local/bin/ /usr/local/bin/
 
 
 
