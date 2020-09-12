@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-09-11]
+### Updated
+- Auto-update pre-commit hooks ([#2809](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2809))
+
 ## [2020-09-10]
 ### Updated
 - Update isort to 5.5.2 ([#2807](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2807))
