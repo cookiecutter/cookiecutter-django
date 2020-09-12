@@ -63,8 +63,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 
 # copy python dependencies from python-build-stage
-COPY --from=build_stage /usr/local/lib/python3.8/site-packages/ /usr/local/lib/python3.8/site-packages/
-COPY --from=build_stage /usr/local/bin/ /usr/local/bin/
+COPY --from=python-build-stage /usr/local/lib/python3.8/site-packages/ /usr/local/lib/python3.8/site-packages/
+COPY --from=python-build-stage /usr/local/bin/ /usr/local/bin/
 
 
 
