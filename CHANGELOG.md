@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-09-12]
+### Updated
+- Updating Traefik version from 2.0 to 2.2.11 ([#2814](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2814))
+- Update pytest to 6.0.2 ([#2819](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2819))
+- Update django-anymail to 8.0 ([#2818](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2818))
+
 ## [2020-09-11]
 ### Updated
 - Auto-update pre-commit hooks ([#2809](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2809))
