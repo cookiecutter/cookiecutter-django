@@ -13,9 +13,6 @@ RUN npm run build
 FROM python:3.8-slim-buster as python-build-stage
 ENV PYTHONDONTWRITEBYTECODE 1
 
-# Requirements are installed here to ensure they will be cached.
-COPY ./requirements /requirements
-
 RUN apt-get update && apt-get install --no-install-recommends -y \
   # dependencies for building Python packages
   build-essential \
@@ -25,14 +22,17 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   gettext \
   # cleaning up unused files
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
-  && rm -rf /var/lib/apt/lists/* \
-  # install python dependencies
-  && pip install --no-cache-dir --use-feature=2020-resolver -r /requirements/production.txt \
-  && rm -rf /requirements
+  && rm -rf /var/lib/apt/lists/*
 
+# Requirements are installed here to ensure they will be cached.
+COPY ./requirements /requirements
+
+# install python dependencies
+Run pip install --no-cache-dir --use-feature=2020-resolver -r /requirements/production.txt \
+    && rm -rf /requirements
 
 # Python 'run' stage
-FROM python:3.8-slim-buster
+FROM python:3.8-slim-buster as python-run-stage
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
