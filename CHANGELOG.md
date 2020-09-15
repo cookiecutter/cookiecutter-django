@@ -3,6 +3,14 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-09-14]
+### Fixed
+- Downgrade Celery to 4.4.6 ([#2829](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2829))
+### Updated
+- Update sentry-sdk to 0.17.5 ([#2828](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2828))
+- Update coverage to 5.3 ([#2826](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2826))
+- Update django-storages to 1.10.1 ([#2825](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2825))
+
 ## [2020-09-12]
 ### Updated
 - Updating Traefik version from 2.0 to 2.2.11 ([#2814](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2814))
