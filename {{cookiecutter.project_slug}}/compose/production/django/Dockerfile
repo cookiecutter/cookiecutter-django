@@ -11,25 +11,28 @@ RUN npm run build
 
 # Python build stage
 FROM python:3.8-slim-buster as python-build-stage
+
 ENV PYTHONDONTWRITEBYTECODE 1
+ARG BUILD_ENVIRONMENT
+
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
   # dependencies for building Python packages
   build-essential \
   # psycopg2 dependencies
   libpq-dev \
-  # Translations dependencies
-  gettext \
   # cleaning up unused files
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*
 
+
 # Requirements are installed here to ensure they will be cached.
 COPY ./requirements /requirements
 
-# install python dependencies
-Run pip install --no-cache-dir --use-feature=2020-resolver -r /requirements/production.txt \
-    && rm -rf /requirements
+# create python dependency wheels
+RUN pip wheel --no-cache-dir --no-deps --use-feature=2020-resolver --wheel-dir /usr/src/app/wheels  \
+  -r /requirements/production.txt \
+  && rm -rf /requirements
 
 # Python 'run' stage
 FROM python:3.8-slim-buster as python-run-stage
@@ -77,9 +80,12 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   && rm -rf /var/lib/apt/lists/*
 
 
-# copy python dependencies from python-build-stage
-COPY --from=python-build-stage /usr/local/lib/python3.8/site-packages/ /usr/local/lib/python3.8/site-packages/
-COPY --from=python-build-stage /usr/local/bin/ /usr/local/bin/
+# copy python dependency wheels from python-build-stage
+COPY --from=python-build-stage /usr/src/app/wheels  /wheels
+
+# use wheels to install python dependencies
+RUN pip install --no-cache /wheels/* \
+	&& rm -rf /wheels
 
 {%- if cookiecutter.js_task_runner == 'Gulp' %}
 COPY --from=client-builder --chown=django:django /app /app
