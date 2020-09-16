@@ -1,28 +1,62 @@
-FROM python:3.8-slim-buster
+# Python build stage
+FROM python:3.8-slim-buster as python-build-stage
 
-ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 
-RUN apt-get update \
-    # dependencies for building Python packages
-    && apt-get install -y build-essential \
-    # psycopg2 dependencies
-    && apt-get install -y libpq-dev \
-    # Translations dependencies
-    && apt-get install -y gettext \
-    # Uncomment below lines to enable Sphinx output to latex and pdf
-    # && apt-get install -y texlive-latex-recommended \
-    # && apt-get install -y texlive-fonts-recommended \
-    # && apt-get install -y texlive-latex-extra \
-    # && apt-get install -y latexmk \
-    # cleaning up unused files
-    && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
-    && rm -rf /var/lib/apt/lists/*
+
+
+RUN apt-get update && apt-get install --no-install-recommends -y \
+  # dependencies for building Python packages
+  build-essential \
+  # psycopg2 dependencies
+  libpq-dev \
+  # cleaning up unused files
+  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
+  && rm -rf /var/lib/apt/lists/*
+
 
 # Requirements are installed here to ensure they will be cached.
 COPY ./requirements /requirements
-# All imports needed for autodoc.
-RUN pip install -r /requirements/local.txt -r /requirements/production.txt
+
+# create python dependency wheels
+RUN pip wheel --no-cache-dir --no-deps --use-feature=2020-resolver --wheel-dir /usr/src/app/wheels  \
+  -r /requirements/local.txt -r /requirements/production.txt \
+  && rm -rf /requirements
+
+
+# Python 'run' stage
+FROM python:3.8-slim-buster as python-run-stage
+
+ARG BUILD_ENVIRONMENT
+ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
+
+
+
+RUN apt-get update && apt-get install --no-install-recommends -y \
+  # dependencies for building Python packages
+  build-essential \
+  # psycopg2 dependencies
+  libpq-dev \
+  # Translations dependencies
+  gettext \
+  # Uncomment below lines to enable Sphinx output to latex and pdf
+  # texlive-latex-recommended \
+  # texlive-fonts-recommended \
+  # texlive-latex-extra \
+  # latexmk \
+  # cleaning up unused files
+  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
+  && rm -rf /var/lib/apt/lists/*
+
+
+# copy python dependency wheels from python-build-stage
+COPY --from=python-build-stage /usr/src/app/wheels  /wheels
+
+# use wheels to install python dependencies
+RUN pip install --no-cache /wheels/* \
+	&& rm -rf /wheels
+
 
 WORKDIR /docs
 
