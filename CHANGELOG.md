@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-09-16]
+### Updated
+- Update sentry-sdk to 0.17.6 ([#2833](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2833))
+- Update pytest-django to 3.10.0 ([#2832](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2832))
+
 ## [2020-09-14]
 ### Fixed
 - Downgrade Celery to 4.4.6 ([#2829](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2829))
