@@ -1,5 +1,10 @@
+ARG PYTHON_VERSION=3.8-slim-buster
+
+# define an alias for the specfic python version used in this file.
+FROM python:${PYTHON_VERSION} as python
+
 # Python build stage
-FROM python:3.8-slim-buster as python-build-stage
+FROM python as python-build-stage
 
 ENV PYTHONDONTWRITEBYTECODE 1
 
@@ -25,7 +30,7 @@ RUN pip wheel --no-cache-dir --no-deps --use-feature=2020-resolver --wheel-dir /
 
 
 # Python 'run' stage
-FROM python:3.8-slim-buster as python-run-stage
+FROM python as python-run-stage
 
 ARG BUILD_ENVIRONMENT
 ENV PYTHONUNBUFFERED 1
