@@ -96,6 +96,7 @@ SUPPORTED_COMBINATIONS = [
     {"ci_tool": "None"},
     {"ci_tool": "Travis"},
     {"ci_tool": "Gitlab"},
+    {"ci_tool": "Github"},
     {"keep_local_envs_in_vcs": "y"},
     {"keep_local_envs_in_vcs": "n"},
     {"debug": "y"},
@@ -221,6 +222,34 @@ def test_gitlab_invokes_flake8_and_pytest(
             gitlab_config = yaml.safe_load(gitlab_yml)
             assert gitlab_config["flake8"]["script"] == ["flake8"]
             assert gitlab_config["pytest"]["script"] == [expected_test_script]
+        except yaml.YAMLError as e:
+            pytest.fail(e)
+
+
+
+@pytest.mark.parametrize(
+    ["use_docker", "expected_test_script"],
+    [
+        ("n", "pytest"),
+        ("y", "docker-compose -f local.yml run django pytest"),
+    ],
+)
+def test_github_invokes_flake8_and_pytest(
+    cookies, context, use_docker, expected_test_script
+):
+    context.update({"ci_tool": "Github", "use_docker": use_docker})
+    result = cookies.bake(extra_context=context)
+
+    assert result.exit_code == 0
+    assert result.exception is None
+    assert result.project.basename == context["project_slug"]
+    assert result.project.isdir()
+
+    with open(f"{result.project}/.github/workflows/.github-ci.yml", "r") as github_yml:
+        try:
+            github_config = yaml.safe_load(github_yml)
+            assert github_config["flake8"]["script"] == ["flake8"]
+            assert github_config["pytest"]["script"] == [expected_test_script]
         except yaml.YAMLError as e:
             pytest.fail(e)
 
