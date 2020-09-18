@@ -250,13 +250,13 @@ def test_github_invokes_flake8_and_pytest(
             github_config = yaml.safe_load(github_yml)
             flake8_present = False
             for action_step in github_config["jobs"]["flake8"]["steps"]:
-                if action_step.get('run') == 'flake8':
+                if action_step.get("run") == "flake8":
                     flake8_present = True
             assert flake8_present
 
             expected_test_script_present = False
             for action_step in github_config["jobs"]["pytest"]["steps"]:
-                if action_step.get('run') == expected_test_script:
+                if action_step.get("run") == expected_test_script:
                     expected_test_script_present = True
             assert expected_test_script_present
         except yaml.YAMLError as e:
