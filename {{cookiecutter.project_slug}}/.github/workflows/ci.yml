@@ -16,7 +16,7 @@ on:
 
 
 jobs:
-  lint:
+  flake8:
     runs-on: ubuntu-latest
     steps:
 
@@ -43,7 +43,7 @@ jobs:
 
       - name: Checkout Code Repository
         uses: actions/checkout@v2
-    {% if cookiecutter.use_docker == 'y' -%}
+      {% if cookiecutter.use_docker == 'y' -%}
 
       - name: Build the Stack
         run:  docker-compose -f local.yml build
@@ -55,12 +55,12 @@ jobs:
         run:  docker-compose -f local.yml up -d
 
       - name: Run Django Tests
-        run:  docker-compose exec -T django pytest
+        run:  docker-compose -f local.yml exec -T django pytest
 
       - name: Tear down the Stack
         run:  docker-compose down
 
-    {%- else %}
+      {%- else %}
 
       - name: Set up Python 3.8
         uses: actions/setup-python@v2
@@ -72,7 +72,7 @@ jobs:
         run: |
           echo "::set-output name=dir::$(pip cache dir)"
 
-    {% raw %}
+      {% raw %}
       - name: Cache pip Project Dependencies
         uses: actions/cache@v2
         with:
@@ -82,7 +82,7 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('**/local.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
-    {% endraw %}
+      {% endraw %}
 
       - name: Install Dependencies
         run: |
@@ -92,4 +92,4 @@ jobs:
       - name: Test with pytest
         run:  pytest
 
-    {%- endif %}
+      {%- endif %}

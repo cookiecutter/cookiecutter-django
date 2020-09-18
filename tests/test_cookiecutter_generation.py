@@ -10,6 +10,7 @@ from binaryornot.check import is_binary
 PATTERN = r"{{(\s?cookiecutter)[.](.*?)}}"
 RE_OBJ = re.compile(PATTERN)
 
+
 @pytest.fixture
 def context():
     return {
@@ -226,12 +227,11 @@ def test_gitlab_invokes_flake8_and_pytest(
             pytest.fail(e)
 
 
-
 @pytest.mark.parametrize(
     ["use_docker", "expected_test_script"],
     [
         ("n", "pytest"),
-        ("y", "docker-compose -f local.yml run django pytest"),
+        ("y", "docker-compose -f local.yml exec -T django pytest"),
     ],
 )
 def test_github_invokes_flake8_and_pytest(
@@ -245,12 +245,20 @@ def test_github_invokes_flake8_and_pytest(
     assert result.project.basename == context["project_slug"]
     assert result.project.isdir()
 
-
     with open(f"{result.project}/.github/workflows/ci.yml", "r") as github_yml:
         try:
             github_config = yaml.safe_load(github_yml)
-            assert github_config["flake8"]["script"] == ["flake8"]
-            assert github_config["pytest"]["script"] == [expected_test_script]
+            flake8_present = False
+            for action_step in github_config["jobs"]["flake8"]["steps"]:
+                if action_step.get('run') == 'flake8':
+                    flake8_present = True
+            assert flake8_present
+
+            expected_test_script_present = False
+            for action_step in github_config["jobs"]["pytest"]["steps"]:
+                if action_step.get('run') == expected_test_script:
+                    expected_test_script_present = True
+            assert expected_test_script_present
         except yaml.YAMLError as e:
             pytest.fail(e)
 
