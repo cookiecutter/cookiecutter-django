@@ -10,7 +10,6 @@ from binaryornot.check import is_binary
 PATTERN = r"{{(\s?cookiecutter)[.](.*?)}}"
 RE_OBJ = re.compile(PATTERN)
 
-
 @pytest.fixture
 def context():
     return {
@@ -139,6 +138,7 @@ def check_paths(paths):
 @pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
 def test_project_generation(cookies, context, context_override):
     """Test that project is generated and fully rendered."""
+
     result = cookies.bake(extra_context={**context, **context_override})
     assert result.exit_code == 0
     assert result.exception is None
@@ -244,6 +244,7 @@ def test_github_invokes_flake8_and_pytest(
     assert result.exception is None
     assert result.project.basename == context["project_slug"]
     assert result.project.isdir()
+
 
     with open(f"{result.project}/.github/workflows/ci.yml", "r") as github_yml:
         try:
