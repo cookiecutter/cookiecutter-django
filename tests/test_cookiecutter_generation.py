@@ -245,7 +245,7 @@ def test_github_invokes_flake8_and_pytest(
     assert result.project.basename == context["project_slug"]
     assert result.project.isdir()
 
-    with open(f"{result.project}/.github/workflows/.github-ci.yml", "r") as github_yml:
+    with open(f"{result.project}/.github/workflows/ci.yml", "r") as github_yml:
         try:
             github_config = yaml.safe_load(github_yml)
             assert github_config["flake8"]["script"] == ["flake8"]

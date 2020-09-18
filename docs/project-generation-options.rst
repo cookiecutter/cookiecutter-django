@@ -177,4 +177,4 @@ debug:
 
 .. _GitLab CI: https://docs.gitlab.com/ee/ci/
 
-.. _Github CI: https://docs.github.com/en/actions
+.. _Github Actions: https://docs.github.com/en/actions
