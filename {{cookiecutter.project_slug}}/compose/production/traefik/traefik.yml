@@ -6,10 +6,10 @@ entryPoints:
     # http
     address: ":80"
     http:
+      # https://docs.traefik.io/routing/entrypoints/#entrypoint
       redirections:
         entryPoint:
           to: web-secure
-          scheme: https
 
   web-secure:
     # https
