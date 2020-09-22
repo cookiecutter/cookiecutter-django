@@ -3,6 +3,14 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-09-21]
+### Changed
+- Adding GitHub-Action CI Option ([#2837](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2837))
+### Updated
+- Update django-debug-toolbar to 3.0 ([#2842](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2842))
+- Auto-update pre-commit hooks ([#2843](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2843))
+- Update isort to 5.5.3 ([#2844](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2844))
+
 ## [2020-09-18]
 ### Updated
 - Update django-extensions to 3.0.9 ([#2839](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2839))
