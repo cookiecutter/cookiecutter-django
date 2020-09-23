@@ -1,3 +1,4 @@
+---
 log:
   level: INFO
 
@@ -30,6 +31,20 @@ certificatesResolvers:
       httpChallenge:
         entryPoint: web
 
+tls:
+  # https://docs.traefik.io/https/tls/#tls-options
+  options:
+    default:
+      # see https://caniuse.com/tls1-2 for browsers that support TLS 1.2
+      minVersion: VersionTLS12
+      # see https://caniuse.com/sni for browsers that support SNI
+      sniStrict: true
+      # https://wiki.mozilla.org/Security/Server_Side_TLS
+      cipherSuites: # use only elliptic curve (the strongest) ciphers
+        - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+        - TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+
 http:
   routers:
     web-secure-router:
@@ -42,6 +57,7 @@ http:
         - web-secure
       middlewares:
         - csrf
+        - security-headers
       service: django
       tls:
         # https://docs.traefik.io/master/routing/routers/#certresolver
@@ -52,6 +68,8 @@ http:
       rule: "Host(`{{ cookiecutter.domain_name }}`)"
       entryPoints:
         - flower
+      middlewares:
+        - security-headers
       service: flower
       tls:
         # https://docs.traefik.io/master/routing/routers/#certresolver
@@ -64,6 +82,19 @@ http:
       # https://docs.djangoproject.com/en/dev/ref/csrf/#ajax
       headers:
         hostsProxyHeaders: ["X-CSRFToken"]
+    security-headers:
+      # https://docs.traefik.io/middlewares/headers/#general
+      headers:
+        # TODO increase stsSeconds to *at least* 31536000 (1 year) once HTTPS works
+        stsSeconds: 60
+        stsIncludeSubdomains: true
+        stsPreload: true
+        frameDeny: true
+        contentTypeNosniff: true
+        browserXssFilter: true
+        customResponseHeaders:
+          # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server
+          server: {{ random_ascii_string(10) }} # hide server version
 
   services:
     django:
