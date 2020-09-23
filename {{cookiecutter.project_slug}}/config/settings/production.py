@@ -43,9 +43,9 @@ CACHES = {
 
 # SECURITY
 # ------------------------------------------------------------------------------
-{%- if cookiecutter.use_docker -%}
+{% if cookiecutter.use_docker -%}
 # NOTE headers are managed by the security-headers middleware in traefik.yml
-{%- else -%}
+{% else -%}
 # TODO set security headers in your load balancer if possible and remove these
 # https://docs.djangoproject.com/en/dev/ref/settings/#secure-ssl-redirect
 SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)
@@ -62,7 +62,7 @@ SECURE_HSTS_PRELOAD = env.bool("DJANGO_SECURE_HSTS_PRELOAD", default=True)
 SECURE_CONTENT_TYPE_NOSNIFF = env.bool(
     "DJANGO_SECURE_CONTENT_TYPE_NOSNIFF", default=True
 )
-{%- endif -%}
+{% endif -%}
 # https://docs.djangoproject.com/en/dev/topics/security/#ssl-https
 # https://docs.djangoproject.com/en/dev/ref/settings/#secure-proxy-ssl-header
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
