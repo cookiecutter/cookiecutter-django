@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-09-23]
+### Updated
+- Update sentry-sdk to 0.17.7 ([#2847](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2847))
+- Update django-debug-toolbar to 3.1 ([#2846](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2846))
+
 ## [2020-09-21]
 ### Changed
 - Adding GitHub-Action CI Option ([#2837](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2837))
