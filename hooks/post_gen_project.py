@@ -123,6 +123,10 @@ def remove_dotgitlabciyml_file():
     os.remove(".gitlab-ci.yml")
 
 
+def remove_dotgithub_folder():
+    shutil.rmtree(".github")
+
+
 def append_to_project_gitignore(path):
     gitignore_file_path = ".gitignore"
     with open(gitignore_file_path, "a") as gitignore_file:
@@ -394,6 +398,9 @@ def main():
 
     if "{{ cookiecutter.ci_tool }}".lower() != "gitlab":
         remove_dotgitlabciyml_file()
+
+    if "{{ cookiecutter.ci_tool }}".lower() != "github":
+        remove_dotgithub_folder()
 
     if "{{ cookiecutter.use_drf }}".lower() == "n":
         remove_drf_starter_files()

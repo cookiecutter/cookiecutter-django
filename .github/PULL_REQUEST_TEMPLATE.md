@@ -1,27 +1,18 @@
-[//]: # (Thank you for helping us out: your efforts mean great deal to the project and the community as a whole!)
-
-[//]: # (Before you proceed:)
-
-[//]: # (1. Make sure to add yourself to `CONTRIBUTORS.rst` through this PR provided you're contributing here for the first time)
-[//]: # (2. Don't forget to update the `docs/` presuming others would benefit from a concise description of whatever that you're proposing)
+<!-- Thank you for helping us out: your efforts mean a great deal to the project and the community as a whole! -->
 
 
 ## Description
 
-[//]: # (What's it you're proposing?)
+<!-- What's it you're proposing? -->
 
+Checklist:
 
-
+- [ ] I've made sure that `tests/test_cookiecutter_generation.py` is updated accordingly (especially if adding or updating a template option)
+- [ ] I've updated the documentation or confirm that my change doesn't require any updates
 
 ## Rationale
 
-[//]: # (Why does the project need that?)
-
-
-
-
-## Use case(s) / visualization(s)
-
-[//]: # ("Better to see something once than to hear about it a thousand times.")
-
-
+<!-- 
+Why does this project need the change you're proposing? 
+If this pull request fixes an open issue, don't forget to link it with `Fix #NNNN` 
+-->

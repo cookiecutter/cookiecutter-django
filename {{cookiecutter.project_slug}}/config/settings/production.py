@@ -34,7 +34,7 @@ CACHES = {
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
             # Mimicing memcache behavior.
-            # http://jazzband.github.io/django-redis/latest/#_memcached_exceptions_behavior
+            # https://github.com/jazzband/django-redis#memcached-exceptions-behavior
             "IGNORE_EXCEPTIONS": True,
         },
     }
@@ -86,8 +86,6 @@ _AWS_EXPIRY = 60 * 60 * 24 * 7
 AWS_S3_OBJECT_PARAMETERS = {
     "CacheControl": f"max-age={_AWS_EXPIRY}, s-maxage={_AWS_EXPIRY}, must-revalidate"
 }
-#  https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
-AWS_DEFAULT_ACL = None
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
 AWS_S3_REGION_NAME = env("DJANGO_AWS_S3_REGION_NAME", default=None)
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#cloudfront
@@ -235,13 +233,12 @@ ANYMAIL = {}
 # ------------------------------------------------------------------------------
 # https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_ENABLED
 COMPRESS_ENABLED = env.bool("COMPRESS_ENABLED", default=True)
+{%- if cookiecutter.cloud_provider == 'None' %}
 # https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_STORAGE
-{%- if cookiecutter.cloud_provider == 'AWS' %}
-COMPRESS_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-{%- elif cookiecutter.cloud_provider == 'GCP' %}
-COMPRESS_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
-{%- elif cookiecutter.cloud_provider == 'None' %}
 COMPRESS_STORAGE = "compressor.storage.GzipCompressorFileStorage"
+{%- elif cookiecutter.cloud_provider in ('AWS', 'GCP') and cookiecutter.use_whitenoise == 'n' %}
+# https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_STORAGE
+COMPRESS_STORAGE = STATICFILES_STORAGE
 {%- endif %}
 # https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_URL
 COMPRESS_URL = STATIC_URL{% if cookiecutter.use_whitenoise == 'y' or cookiecutter.cloud_provider == 'None' %}  # noqa F405{% endif %}
@@ -354,13 +351,17 @@ sentry_logging = LoggingIntegration(
 )
 
 {%- if cookiecutter.use_celery == 'y' %}
+integrations = [sentry_logging, DjangoIntegration(), CeleryIntegration()]
+{% else %}
+integrations = [sentry_logging, DjangoIntegration()]
+{% endif -%}
+
 sentry_sdk.init(
     dsn=SENTRY_DSN,
-    integrations=[sentry_logging, DjangoIntegration(), CeleryIntegration()],
+    integrations=integrations,
+    environment=env("SENTRY_ENVIRONMENT", default="production"),
+    traces_sample_rate=env.float("SENTRY_TRACES_SAMPLE_RATE", default=0.0),
 )
-{% else %}
-sentry_sdk.init(dsn=SENTRY_DSN, integrations=[sentry_logging, DjangoIntegration()])
-{% endif -%}
 {% endif %}
 # Your stuff...
 # ------------------------------------------------------------------------------
