@@ -19,7 +19,7 @@ cache:
 
 flake8:
   stage: lint
-  image: python:3.7-alpine
+  image: python:3.8-alpine
   before_script:
     - pip install -q flake8
   script:
@@ -27,11 +27,11 @@ flake8:
 
 pytest:
   stage: test
-  image: python:3.7
+  image: python:3.8
   tags:
     - python
   services:
-    - postgres:11
+    - postgres:{{ cookiecutter.postgresql_version }}
     {% if cookiecutter.use_celery == 'y' -%}
     - redis:latest
     {%- endif %}

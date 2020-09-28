@@ -75,6 +75,11 @@ def remove_heroku_files():
             # don't remove the file if we are using travisci but not using heroku
             continue
         os.remove(file_name)
+    remove_heroku_build_hooks()
+
+
+def remove_heroku_build_hooks():
+    shutil.rmtree("bin")
 
 
 def remove_gulp_files():
@@ -116,6 +121,10 @@ def remove_dottravisyml_file():
 
 def remove_dotgitlabciyml_file():
     os.remove(".gitlab-ci.yml")
+
+
+def remove_dotgithub_folder():
+    shutil.rmtree(".github")
 
 
 def append_to_project_gitignore(path):
@@ -346,6 +355,8 @@ def main():
 
     if "{{ cookiecutter.use_heroku }}".lower() == "n":
         remove_heroku_files()
+    elif "{{ cookiecutter.use_compressor }}".lower() == "n":
+        remove_heroku_build_hooks()
 
     if (
         "{{ cookiecutter.use_docker }}".lower() == "n"
@@ -387,6 +398,9 @@ def main():
 
     if "{{ cookiecutter.ci_tool }}".lower() != "gitlab":
         remove_dotgitlabciyml_file()
+
+    if "{{ cookiecutter.ci_tool }}".lower() != "github":
+        remove_dotgithub_folder()
 
     if "{{ cookiecutter.use_drf }}".lower() == "n":
         remove_drf_starter_files()

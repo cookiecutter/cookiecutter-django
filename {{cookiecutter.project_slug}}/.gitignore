@@ -321,19 +321,6 @@ Session.vim
 
 # Auto-generated tag files
 tags
-{% if cookiecutter.use_docker == 'n' %}
-
-### VirtualEnv template
-# Virtualenv
-[Bb]in
-[Ii]nclude
-[Ll]ib
-[Ll]ib64
-[Ss]cripts
-pyvenv.cfg
-pip-selfcheck.json
-.env
-{% endif %}
 
 ### Project template
 {% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' %}
