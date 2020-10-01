@@ -8,3 +8,11 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: daily
+  - package-ecosystem: pip
+    directory: "/{{ cookiecutter.project_slug }}/requirements"
+    schedule:
+      interval: daily
