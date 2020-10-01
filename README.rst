@@ -120,7 +120,7 @@ Projects that provide financial support to the maintainers:
    :alt: Two Scoops of Django
    :target: https://www.feldroy.com/products//two-scoops-of-django-3-x
 
-Django Crash Course for Django 3.0 and Python 3.8 is the best cheese-themed Django reference in the universe!
+Two Scoops of Django 3.x is the best ice cream-themed Django reference in the universe!
 
 pyup
 ~~~~~~~~~~~~~~~~~~
