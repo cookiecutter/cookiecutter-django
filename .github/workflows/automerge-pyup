@@ -1,0 +1,37 @@
+name: "pyup Automerge"
+
+on:
+  pull_request:
+
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    
+    if: github.actor == 'pyup-bot'
+    steps:
+      - name: 'Wait for status checks'
+        id: waitforstatuschecks
+        uses: "WyriHaximus/github-action-wait-for-status@master"
+        with:
+          ignoreActions: automerge,WIP
+          checkInterval: 300
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+
+      - name: 'automerge'
+        uses: actions/github-script@0.2.0
+        if: steps.waitforstatuschecks.outputs.status == 'success'
+        with:
+          script: |
+            github.pullRequests.createReview({
+              owner: context.payload.repository.owner.login,
+              repo: context.payload.repository.name,
+              pull_number: context.payload.pull_request.number,
+              event: 'APPROVE'
+            })
+            github.pullRequests.merge({
+              owner: context.payload.repository.owner.login,
+              repo: context.payload.repository.name,
+              pull_number: context.payload.pull_request.number
+            })
+          github-token: ${{github.token}}
