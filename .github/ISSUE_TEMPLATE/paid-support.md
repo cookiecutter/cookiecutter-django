@@ -1,10 +1,6 @@
 ---
 name: Paid Support Request
 about: Ask Core Team members to help you out
-title: ''
-labels: ''
-assignees: ''
-
 ---
 
 Provided your question goes beyond [regular support](https://github.com/pydanny/cookiecutter-django/issues/new?template=question.md), and/or the task at hand is of timely/high priority nature use the below information to reach out for contributors directly.
