@@ -1,4 +1,4 @@
-name: "pyup Automerge"
+name: "Automerge"
 
 on:
   pull_request:
@@ -16,22 +16,11 @@ jobs:
           ignoreActions: automerge,WIP
           checkInterval: 300
         env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 'automerge'
-        uses: actions/github-script@0.2.0
+      - name: 'Automerge'
+        uses: pascalgn/automerge-action@v0.11.0
         if: steps.waitforstatuschecks.outputs.status == 'success'
-        with:
-          script: |
-            github.pullRequests.createReview({
-              owner: context.payload.repository.owner.login,
-              repo: context.payload.repository.name,
-              pull_number: context.payload.pull_request.number,
-              event: 'APPROVE'
-            })
-            github.pullRequests.merge({
-              owner: context.payload.repository.owner.login,
-              repo: context.payload.repository.name,
-              pull_number: context.payload.pull_request.number
-            })
-          github-token: ${{github.token}}
+        env:
+          MERGE_LABELS: "update"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
