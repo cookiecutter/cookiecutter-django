@@ -17,6 +17,9 @@ import django
 {% if cookiecutter.use_docker == 'y' %}
 sys.path.insert(0, os.path.abspath("/app"))
 os.environ.setdefault("DATABASE_URL", "")
+{% if cookiecutter.use_celery == 'y' -%}
+os.environ.setdefault("CELERY_BROKER_URL", "")
+{%- endif %}
 {% else %}
 sys.path.insert(0, os.path.abspath(".."))
 {%- endif %}
