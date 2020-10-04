@@ -110,16 +110,17 @@ This project is run by volunteers. Please support them in their efforts to maint
 
 Projects that provide financial support to the maintainers:
 
-Django Crash Course
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: https://cdn.shopify.com/s/files/1/0304/6901/files/Django-Crash-Course-300x436.jpg
-   :name: Django Crash Course: Covers Django 3.0 and Python 3.8
+.. image:: https://cdn.shopify.com/s/files/1/0304/6901/products/Two-Scoops-of-Django-3-Alpha-Cover_540x_26507b15-e489-470b-8a97-02773dd498d1_1080x.jpg
+   :name: Two Scoops of Django 3.x
    :align: center
-   :alt: Django Crash Course
-   :target: https://www.roygreenfeld.com/products/django-crash-course
+   :alt: Two Scoops of Django
+   :target: https://www.feldroy.com/products//two-scoops-of-django-3-x
 
-Django Crash Course for Django 3.0 and Python 3.8 is the best cheese-themed Django reference in the universe!
+Two Scoops of Django 3.x is the best ice cream-themed Django reference in the universe!
 
 pyup
 ~~~~~~~~~~~~~~~~~~

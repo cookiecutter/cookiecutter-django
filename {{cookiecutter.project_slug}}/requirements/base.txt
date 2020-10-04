@@ -24,7 +24,7 @@ flower==0.9.5  # https://github.com/mher/flower
 {%- endif %}
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' %}
-uvicorn==0.11.8  # https://github.com/encode/uvicorn
+uvicorn==0.12.1  # https://github.com/encode/uvicorn
 {%- endif %}
 
 # Django
@@ -40,6 +40,6 @@ django-compressor==2.4  # https://github.com/django-compressor/django-compressor
 django-redis==4.12.1  # https://github.com/jazzband/django-redis
 {%- if cookiecutter.use_drf == "y" %}
 # Django REST Framework
-djangorestframework==3.11.1  # https://github.com/encode/django-rest-framework
+djangorestframework==3.12.1  # https://github.com/encode/django-rest-framework
 django-cors-headers==3.5.0 # https://github.com/adamchainz/django-cors-headers
 {%- endif %}

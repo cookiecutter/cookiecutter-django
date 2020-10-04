@@ -1,7 +1,6 @@
 ---
 name: Question
 about: Please consider asking your question on StackOverflow or Slack
-title: '[question]'
 labels: question
 ---
 

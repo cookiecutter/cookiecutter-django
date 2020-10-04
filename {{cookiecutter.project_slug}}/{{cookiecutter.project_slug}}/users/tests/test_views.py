@@ -64,7 +64,7 @@ class TestUserDetailView:
 
     def test_not_authenticated(self, user: User, rf: RequestFactory):
         request = rf.get("/fake-url/")
-        request.user = AnonymousUser()  # type: ignore
+        request.user = AnonymousUser()
 
         response = user_detail_view(request, username=user.username)
 
