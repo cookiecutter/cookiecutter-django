@@ -4,6 +4,7 @@
 # sh tests/test_docker.sh
 
 set -o errexit
+set -x
 
 # install test requirements
 pip install -r requirements.txt

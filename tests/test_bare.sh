@@ -4,6 +4,7 @@
 # sh tests/test_bare.sh
 
 set -o errexit
+set -x
 
 # Install modern pip to use new resolver:
 # https://blog.python.org/2020/07/upgrade-pip-20-2-changes-20-3.html
