@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-10-04]
+### Updated
+- Update pytest to 6.1.1 ([#2880](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2880))
+- Update mypy and django-stubs ([#2874](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2874))
+- Auto-update pre-commit hooks ([#2876](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2876))
+- Update flake8 to 3.8.4 ([#2877](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2877))
+
 ## [2020-10-01]
 ### Changed
 - Bump actions/setup-python from v2.1.2 to v2.1.3 ([#2869](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2869))
