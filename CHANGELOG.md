@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-10-08]
+### Changed
+- Add dedicated websockets package ([#2881](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2881))
+### Updated
+- Update isort to 5.6.0 ([#2882](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2882))
+
 ## [2020-10-04]
 ### Updated
 - Update pytest to 6.1.1 ([#2880](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2880))
