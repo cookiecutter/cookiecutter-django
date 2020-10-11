@@ -16,7 +16,7 @@ repos:
       - id: black
 
   - repo: https://github.com/timothycrosley/isort
-    rev: 5.6.1
+    rev: 5.6.2
     hooks:
       - id: isort
 
