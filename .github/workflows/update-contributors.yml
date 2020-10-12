@@ -24,7 +24,7 @@ jobs:
       run: python scripts/update_contributors.py
 
     - name: Commit changes
-      uses: stefanzweifel/git-auto-commit-action@v4.5.1
+      uses: stefanzweifel/git-auto-commit-action@v4.6.0
       with:
         commit_message: Update Contributors
         file_pattern: CONTRIBUTORS.md .github/contributors.json
