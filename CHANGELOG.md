@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-10-13]
+### Updated
+- Update isort to 5.6.4 ([#2895](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2895))
+
 ## [2020-10-12]
 ### Changed
 - Bump stefanzweifel/git-auto-commit-action from v4.5.1 to v4.6.0 ([#2893](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2893))
