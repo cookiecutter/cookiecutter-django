@@ -327,6 +327,8 @@ tags
 MailHog
 {%- endif %}
 {{ cookiecutter.project_slug }}/media/
+{{ cookiecutter.project_slug }}/static/
+
 
 .pytest_cache/
 
