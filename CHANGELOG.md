@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-10-15]
+### Updated
+- Update pillow to 8.0.0 ([#2898](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2898))
+
 ## [2020-10-14]
 ### Updated
 - Auto-update pre-commit hooks ([#2897](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2897))
