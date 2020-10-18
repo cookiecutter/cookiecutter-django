@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-10-17]
+### Updated
+- Update django-allauth to 0.43.0 ([#2901](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2901))
+- Update pytest-django to 4.0.0 ([#2903](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2903))
+
 ## [2020-10-15]
 ### Updated
 - Update pillow to 8.0.0 ([#2898](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2898))
