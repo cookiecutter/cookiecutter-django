@@ -240,6 +240,8 @@ EMAIL_TIMEOUT = 5
 # Django Admin URL.
 ADMIN_URL = "admin/"
 # https://docs.djangoproject.com/en/dev/ref/settings/#admins
+# When more than one admin address is inserted, we need to create two tuples with 
+# the addresses looking like they should.
 ADMINS = [("""{{cookiecutter.author_name}}""", "{{cookiecutter.email}}")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
