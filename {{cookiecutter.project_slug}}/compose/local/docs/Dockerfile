@@ -24,6 +24,8 @@ COPY ./requirements /requirements
 # All imports needed for autodoc.
 RUN pip install -r /requirements/local.txt -r /requirements/production.txt
 
-WORKDIR /docs
+COPY ./compose/local/docs/start /start-docs
+RUN sed -i 's/\r$//g' /start-docs
+RUN chmod +x /start-docs
 
-CMD make livehtml
+WORKDIR /docs

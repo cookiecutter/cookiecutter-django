@@ -51,7 +51,8 @@ services:
       - ./{{ cookiecutter.project_slug }}:/app/{{ cookiecutter.project_slug }}:z
     ports:
       - "7000:7000"
-    
+    command: /start-docs
+
   {%- if cookiecutter.use_mailhog == 'y' %}
 
   mailhog:
