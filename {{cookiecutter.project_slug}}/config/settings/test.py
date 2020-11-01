@@ -15,6 +15,11 @@ SECRET_KEY = env(
 # https://docs.djangoproject.com/en/dev/ref/settings/#test-runner
 TEST_RUNNER = "django.test.runner.DiscoverRunner"
 
+{%- if cookiecutter.use_async == 'y' %}
+# Needed for socket testing that also needs HTTP to go along with it
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+{%- endif %}
+
 # PASSWORDS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#password-hashers
