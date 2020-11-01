@@ -1,6 +1,6 @@
 pytz==2020.1  # https://github.com/stub42/pytz
 python-slugify==4.0.1  # https://github.com/un33k/python-slugify
-Pillow==7.2.0  # https://github.com/python-pillow/Pillow
+Pillow==8.0.0  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.use_compressor == "y" %}
 {%- if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %}
 rcssmin==1.0.6 --install-option="--without-c-extensions"  # https://github.com/ndparker/rcssmin
@@ -24,7 +24,8 @@ flower==0.9.5  # https://github.com/mher/flower
 {%- endif %}
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' %}
-uvicorn==0.11.8  # https://github.com/encode/uvicorn
+uvicorn==0.12.1  # https://github.com/encode/uvicorn
+wsproto==0.15.0  # https://github.com/python-hyper/wsproto/
 {%- endif %}
 
 # Django
@@ -32,7 +33,7 @@ uvicorn==0.11.8  # https://github.com/encode/uvicorn
 django==3.0.10  # pyup: < 3.1  # https://www.djangoproject.com/
 django-environ==0.4.5  # https://github.com/joke2k/django-environ
 django-model-utils==4.0.0  # https://github.com/jazzband/django-model-utils
-django-allauth==0.42.0  # https://github.com/pennersr/django-allauth
+django-allauth==0.43.0  # https://github.com/pennersr/django-allauth
 django-crispy-forms==1.9.2  # https://github.com/django-crispy-forms/django-crispy-forms
 {%- if cookiecutter.use_compressor == "y" %}
 django-compressor==2.4  # https://github.com/django-compressor/django-compressor
@@ -40,6 +41,6 @@ django-compressor==2.4  # https://github.com/django-compressor/django-compressor
 django-redis==4.12.1  # https://github.com/jazzband/django-redis
 {%- if cookiecutter.use_drf == "y" %}
 # Django REST Framework
-djangorestframework==3.11.1  # https://github.com/encode/django-rest-framework
+djangorestframework==3.12.1  # https://github.com/encode/django-rest-framework
 django-cors-headers==3.5.0 # https://github.com/adamchainz/django-cors-headers
 {%- endif %}
