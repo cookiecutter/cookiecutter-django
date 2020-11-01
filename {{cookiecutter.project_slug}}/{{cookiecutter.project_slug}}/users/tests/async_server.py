@@ -23,7 +23,7 @@ def run_server(app, path="/"):
     server_state = ServerState()
     protocol = functools.partial(H11Protocol, config=config, server_state=server_state)
     create_server_task = loop.create_server(protocol, host="127.0.0.1")
-    server = loop.run_until_complete(create_server_task)
+    server = loop.run_until_complete(create_server_task)  # type: ignore 
     port = server.sockets[0].getsockname()[1]
     url = "ws://127.0.0.1:{port}{path}".format(port=port, path=path)
     try:
