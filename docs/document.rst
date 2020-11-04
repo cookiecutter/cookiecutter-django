@@ -15,12 +15,12 @@ If you set up your project to `develop locally with docker`_, run the following 
 
 Navigate to port 7000 on your host to see the documentation. This will be opened automatically at `localhost`_ for local, non-docker development.
 
-Note: using Docker for documentation sets up a temporary SQLite file by setting the environment variable ``DATABASE_URL=sqlite:///readthedocs.db`` in ``docs/_sources/conf.py`` to avoid a dependency on PostgreSQL.
+Note: using Docker for documentation sets up a temporary SQLite file by setting the environment variable ``DATABASE_URL=sqlite:///readthedocs.db`` in ``docs/conf.py`` to avoid a dependency on PostgreSQL.
 
 Generate API documentation
 ----------------------------
 
-Edit the ``docs/_source`` files and project application docstrings to create your documentation.
+Edit the ``docs`` files and project application docstrings to create your documentation.
 
 Sphinx can automatically include class and function signatures and docstrings in generated documentation.
 See the generated project documentation for more examples.
