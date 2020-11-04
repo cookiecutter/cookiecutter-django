@@ -1,0 +1,9 @@
+version: 2
+
+sphinx:
+  configuration: docs/conf.py
+
+python:
+  version: 3.8
+  install:
+    - requirements: requirements/local.txt
