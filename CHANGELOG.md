@@ -3,6 +3,20 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-11-03]
+### Updated
+- Update sentry-sdk to 0.19.2 ([#2926](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2926))
+- Update sphinx to 3.3.0 ([#2925](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2925))
+- Update django to 3.0.11 ([#2924](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2924))
+- Update pytz to 2020.4 ([#2923](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2923))
+- Update pre-commit to 2.8.2 ([#2919](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2919))
+- Update pytest to 6.1.2 ([#2917](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2917))
+- Update sh to 1.14.1 ([#2912](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2912))
+- Update pytest-django to 4.1.0 ([#2911](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2911))
+- Update pillow to 8.0.1 ([#2910](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2910))
+- Update django-celery-beat to 2.1.0 ([#2907](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2907))
+- Update uvicorn to 0.12.2 ([#2906](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2906))
+
 ## [2020-10-19]
 ### Updated
 - Update sentry-sdk to 0.19.1 ([#2905](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2905))
