@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-11-04]
+### Changed
+- Fix docs service and add RTD support ([#2920](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2920))
+- Bump stefanzweifel/git-auto-commit-action from v4.6.0 to v4.7.2 ([#2914](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2914))
+### Updated
+- Auto-update pre-commit hooks ([#2908](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2908))
+- Update mypy to 0.790 ([#2886](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2886))
+- Update django-stubs to 1.7.0 ([#2916](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2916))
+
 ## [2020-11-03]
 ### Updated
 - Update sentry-sdk to 0.19.2 ([#2926](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2926))
