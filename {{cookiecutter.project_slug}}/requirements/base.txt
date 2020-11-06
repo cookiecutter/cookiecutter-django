@@ -41,6 +41,6 @@ django-compressor==2.4  # https://github.com/django-compressor/django-compressor
 django-redis==4.12.1  # https://github.com/jazzband/django-redis
 {%- if cookiecutter.use_drf == "y" %}
 # Django REST Framework
-djangorestframework==3.12.1  # https://github.com/encode/django-rest-framework
+djangorestframework==3.12.2  # https://github.com/encode/django-rest-framework
 django-cors-headers==3.5.0 # https://github.com/adamchainz/django-cors-headers
 {%- endif %}
