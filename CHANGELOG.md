@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-11-06]
+### Updated
+- Update djangorestframework to 3.12.2 ([#2930](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2930))
+
 ## [2020-11-04]
 ### Changed
 - Fix docs service and add RTD support ([#2920](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2920))
