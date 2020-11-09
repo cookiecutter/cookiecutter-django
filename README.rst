@@ -1,8 +1,8 @@
 Cookiecutter Django
-=======================
+===================
 
-.. image:: https://travis-ci.org/pydanny/cookiecutter-django.svg?branch=master
-    :target: https://travis-ci.org/pydanny/cookiecutter-django?branch=master
+.. image:: https://img.shields.io/github/workflow/status/pydanny/cookiecutter-django/CI/master
+    :target: https://github.com/pydanny/cookiecutter-django/actions?query=workflow%3ACI
     :alt: Build Status
 
 .. image:: https://readthedocs.org/projects/cookiecutter-django/badge/?version=latest
