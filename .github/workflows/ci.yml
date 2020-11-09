@@ -65,10 +65,13 @@ jobs:
         image: postgres:12
         ports:
           - 5432:5432
+        env:
+          POSTGRES_PASSWORD: postgres
 
     env:
       CELERY_BROKER_URL: "redis://localhost:6379/0"
-      DATABASE_URL: "postgres://postgres"
+      # postgres://user:password@host:port/database
+      DATABASE_URL: "postgres://postgres:postgres@postgres:5432/postgres"
 
     steps:
       - uses: actions/checkout@v2
