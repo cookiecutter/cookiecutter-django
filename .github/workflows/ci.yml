@@ -71,7 +71,7 @@ jobs:
     env:
       CELERY_BROKER_URL: "redis://localhost:6379/0"
       # postgres://user:password@host:port/database
-      DATABASE_URL: "postgres://postgres:postgres@postgres:5432/postgres"
+      DATABASE_URL: "postgres://postgres:postgres@localhost:5432/postgres"
 
     steps:
       - uses: actions/checkout@v2
