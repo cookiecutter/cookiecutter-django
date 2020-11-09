@@ -54,13 +54,13 @@ jobs:
 
     services:
       redis:
-        image: redis
+        image: redis:5.0
         ports:
           - 6379:6379
       postgres:
-        image: postgres
-        env:
-          POSTGRES_PASSWORD: postgres
+        image: postgres:12
+        ports:
+          - 5432:5432
 
     env:
       CELERY_BROKER_URL: "redis://localhost:6379/0"
