@@ -35,6 +35,10 @@ jobs:
           - name: Extended
             args: "use_celery=y use_drf=y js_task_runner=Gulp"
 
+    env:
+      DOCKER_BUILDKIT: 1
+      COMPOSE_DOCKER_CLI_BUILD: 1
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -64,6 +68,7 @@ jobs:
 
     env:
       CELERY_BROKER_URL: "redis://localhost:6379/0"
+      DATABASE_URL: "postgres://postgres"
 
     steps:
       - uses: actions/checkout@v2
