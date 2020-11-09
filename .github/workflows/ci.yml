@@ -3,22 +3,14 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  test:
+  tox:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        script:
-          - name: Test results
-            run: tox -e py38
-          - name: Black template
-            run: tox -e black-template
-          - name: Basic Docker
-            run: sh tests/test_docker.sh
-          - name: Extended Docker
-            run: sh tests/test_docker.sh use_celery=y use_drf=y js_task_runner=Gulp
-          - name: Bare metal
-            run: sh tests/test_bare.sh use_celery=y use_compressor=y
+        tox-env:
+          - py38
+          - black-template
 
     steps:
       - uses: actions/checkout@v2
@@ -29,5 +21,54 @@ jobs:
         run: |
           python -m pip install -U pip
           python -m pip install -U tox
-      - name: ${{ matrix.script.name }}
-        run: ${{ matrix.script.run }}
+      - name: Tox ${{ matrix.tox-env }}
+        run: tox -e ${{ matrix.tox-env }}
+
+  docker:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        script:
+          - name: Basic
+            args: ""
+          - name: Extended
+            args: "use_celery=y use_drf=y js_task_runner=Gulp"
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Docker ${{ matrix.script.name }}
+        run: sh tests/test_docker.sh ${{ matrix.script.args }}
+
+  bare:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        script:
+          - name: With Celery
+            args: "use_celery=y use_compressor=y"
+
+    services:
+      redis:
+        image: redis
+        ports:
+          - 6379:6379
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+
+    env:
+      CELERY_BROKER_URL: "redis://localhost:6379/0"
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Bare Metal ${{ matrix.script.name }}
+        run: sh tests/test_bare.sh ${{ matrix.script.args }}
