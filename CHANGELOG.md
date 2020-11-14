@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-11-13]
+### Changed
+- Upgrade factory-boy to 3.1.0 ([#2932](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2932))
+### Updated
+- Update sentry-sdk to 0.19.3 ([#2933](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2933))
+- Update sphinx to 3.3.1 ([#2934](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2934))
+
 ## [2020-11-12]
 ### Changed
 - Migrate CI to Github Actions ([#2931](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2931))
