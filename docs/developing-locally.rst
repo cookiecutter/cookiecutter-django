@@ -34,10 +34,10 @@ First things first.
     $ git init # A git repo is required for pre-commit to install
     $ pre-commit install
 
-     .. note::
+   .. note::
 
-        the `pre-commit` exists in the generated project as default.
-        for the details of `pre-commit`, follow the [site of pre-commit](https://pre-commit.com/).
+       the `pre-commit` exists in the generated project as default.
+       for the details of `pre-commit`, follow the [site of pre-commit](https://pre-commit.com/).
 
 #. Create a new PostgreSQL database using createdb_: ::
 
