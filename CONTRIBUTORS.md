@@ -657,6 +657,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Fabian Affolter</td>
+    <td>
+      <a href="https://github.com/fabaff">fabaff</a>
+    </td>
+    <td>fabaff</td>
+  </tr>
+  <tr>
     <td>Felipe Arruda</td>
     <td>
       <a href="https://github.com/arruda">arruda</a>
