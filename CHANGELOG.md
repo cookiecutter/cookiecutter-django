@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-11-15]
+### Changed
+- Fix formatting in docs ([#2935](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2935))
+
 ## [2020-11-13]
 ### Changed
 - Upgrade factory-boy to 3.1.0 ([#2932](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2932))
