@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-11-19]
+### Updated
+- Update django-crispy-forms to 1.10.0 ([#2937](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2937))
+
 ## [2020-11-17]
 ### Changed
 - Bump peter-evans/create-pull-request from v2 to v3.5.0 ([#2936](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2936))
