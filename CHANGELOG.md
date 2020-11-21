@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-11-20]
+### Updated
+- Update sentry-sdk to 0.19.4 ([#2938](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2938))
+
 ## [2020-11-19]
 ### Updated
 - Update django-crispy-forms to 1.10.0 ([#2937](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2937))
