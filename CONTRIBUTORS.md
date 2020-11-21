@@ -1287,6 +1287,13 @@ Listed in alphabetical order.
     <td>saschalalala</td>
   </tr>
   <tr>
+    <td>Simon Rey</td>
+    <td>
+      <a href="https://github.com/eqqe">eqqe</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Sorasful</td>
     <td>
       <a href="https://github.com/sorasful">sorasful</a>
