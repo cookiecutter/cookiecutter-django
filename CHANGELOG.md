@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-11-21]
+### Changed
+- Fix after uvicorn 0.12.0 - Ship extra dependencies ([#2939](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2939))
+
 ## [2020-11-20]
 ### Updated
 - Update sentry-sdk to 0.19.4 ([#2938](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2938))
