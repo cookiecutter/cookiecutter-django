@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-11-25]
+### Changed
+- Bump peter-evans/create-pull-request from v3.5.0 to v3.5.1 ([#2944](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2944))
+
 ## [2020-11-23]
 ### Updated
 - Update uvicorn to 0.12.3 ([#2943](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2943))
