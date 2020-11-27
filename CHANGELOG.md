@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-11-26]
+### Updated
+- Update django-extensions to 3.1.0 ([#2947](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2947))
+- Update pre-commit to 2.9.2 ([#2948](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2948))
+- Update django-allauth to 0.44.0 ([#2945](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2945))
+
 ## [2020-11-25]
 ### Changed
 - Bump peter-evans/create-pull-request from v3.5.0 to v3.5.1 ([#2944](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2944))
