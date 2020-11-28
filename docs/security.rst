@@ -46,7 +46,7 @@ Useful Links
 - `Content Security Policy (CSP) Quick Reference Guide`_
 - `Mozilla Web Security Cheat Sheet`_
 
-.. _`Django Deployment Checklist`: https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
+.. _`Django Deployment Checklist`: https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 .. _`SSL and TLS Deployment Best Practices`: https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices
 .. _`Content Security Policy (CSP) Quick Reference Guide`: https://content-security-policy.com/
 .. _`Mozilla Web Security Cheat Sheet`: https://infosec.mozilla.org/guidelines/web_security.html#web-security-cheat-sheet
