@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-12-04]
+### Updated
+- Update django-debug-toolbar to 3.2 ([#2959](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2959))
+
 ## [2020-12-02]
 ### Updated
 - Update django-model-utils to 4.1.1 ([#2957](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2957))
