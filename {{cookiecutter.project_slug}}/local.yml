@@ -17,7 +17,7 @@ services:
       - mailhog
       {%- endif %}
     volumes:
-      - .:/app
+      - .:/app:z
     env_file:
       - ./.envs/.local/.django
       - ./.envs/.local/.postgres
@@ -32,10 +32,27 @@ services:
     image: {{ cookiecutter.project_slug }}_production_postgres
     container_name: postgres
     volumes:
-      - local_postgres_data:/var/lib/postgresql/data
-      - local_postgres_data_backups:/backups
+      - local_postgres_data:/var/lib/postgresql/data:Z
+      - local_postgres_data_backups:/backups:z
     env_file:
       - ./.envs/.local/.postgres
+
+  docs:
+    image: {{ cookiecutter.project_slug }}_local_docs
+    container_name: docs
+    build:
+      context: .
+      dockerfile: ./compose/local/docs/Dockerfile
+    env_file:
+      - ./.envs/.local/.django
+    volumes:
+      - ./docs:/docs:z
+      - ./config:/app/config:z
+      - ./{{ cookiecutter.project_slug }}:/app/{{ cookiecutter.project_slug }}:z
+    ports:
+      - "7000:7000"
+    command: /start-docs
+
   {%- if cookiecutter.use_mailhog == 'y' %}
 
   mailhog:
@@ -97,7 +114,7 @@ services:
     depends_on:
       - django
     volumes:
-      - .:/app
+      - .:/app:z
       # http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html
       - /app/node_modules
     command: npm run dev

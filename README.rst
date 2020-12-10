@@ -1,8 +1,8 @@
 Cookiecutter Django
-=======================
+===================
 
-.. image:: https://travis-ci.org/pydanny/cookiecutter-django.svg?branch=master
-    :target: https://travis-ci.org/pydanny/cookiecutter-django?branch=master
+.. image:: https://img.shields.io/github/workflow/status/pydanny/cookiecutter-django/CI/master
+    :target: https://github.com/pydanny/cookiecutter-django/actions?query=workflow%3ACI
     :alt: Build Status
 
 .. image:: https://readthedocs.org/projects/cookiecutter-django/badge/?version=latest
@@ -96,7 +96,7 @@ Constraints
 -----------
 
 * Only maintained 3rd party libraries are used.
-* Uses PostgreSQL everywhere (9.4 - 11.3)
+* Uses PostgreSQL everywhere (9.4 - 12.3)
 * Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
 Support this Project!
@@ -110,16 +110,17 @@ This project is run by volunteers. Please support them in their efforts to maint
 
 Projects that provide financial support to the maintainers:
 
-Django Crash Course
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: https://cdn.shopify.com/s/files/1/0304/6901/files/Django-Crash-Course-300x436.jpg
-   :name: Django Crash Course: Covers Django 3.0 and Python 3.8
+.. image:: https://cdn.shopify.com/s/files/1/0304/6901/products/Two-Scoops-of-Django-3-Alpha-Cover_540x_26507b15-e489-470b-8a97-02773dd498d1_1080x.jpg
+   :name: Two Scoops of Django 3.x
    :align: center
-   :alt: Django Crash Course
-   :target: https://www.roygreenfeld.com/products/django-crash-course
+   :alt: Two Scoops of Django
+   :target: https://www.feldroy.com/products//two-scoops-of-django-3-x
 
-Django Crash Course for Django 3.0 and Python 3.8 is the best cheese-themed Django reference in the universe!
+Two Scoops of Django 3.x is the best ice cream-themed Django reference in the universe!
 
 pyup
 ~~~~~~~~~~~~~~~~~~
@@ -176,11 +177,11 @@ Answer the prompts with your own desired options_. For example::
     use_heroku [n]: y
     use_compressor [n]: y
     Select postgresql_version:
-    1 - 11.3
-    2 - 10.8
-    3 - 9.6
-    4 - 9.5
-    5 - 9.4
+    1 - 12.3
+    2 - 11.8
+    3 - 10.8
+    4 - 9.6
+    5 - 9.5
     Choose from 1, 2, 3, 4, 5 [1]: 1
     Select js_task_runner:
     1 - None

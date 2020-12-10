@@ -49,11 +49,11 @@ use_docker:
 postgresql_version:
     Select a PostgreSQL_ version to use. The choices are:
 
-    1. 11.3
-    2. 10.8
-    3. 9.6
-    4. 9.5
-    5. 9.4
+    1. 12.3
+    2. 11.8
+    3. 10.8
+    4. 9.6
+    5. 9.5
 
 js_task_runner:
     Select a JavaScript task runner. The choices are:
@@ -119,6 +119,7 @@ ci_tool:
     1. None
     2. `Travis CI`_
     3. `Gitlab CI`_
+    4. `Github Actions`_
 
 keep_local_envs_in_vcs:
     Indicates whether the project's ``.envs/.local/`` should be kept in VCS
@@ -176,3 +177,4 @@ debug:
 
 .. _GitLab CI: https://docs.gitlab.com/ee/ci/
 
+.. _Github Actions: https://docs.github.com/en/actions
