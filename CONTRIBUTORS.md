@@ -1483,6 +1483,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Yotam Tal</td>
+    <td>
+      <a href="https://github.com/yotamtal">yotamtal</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Yuchen Xie</td>
     <td>
       <a href="https://github.com/mapx">mapx</a>
