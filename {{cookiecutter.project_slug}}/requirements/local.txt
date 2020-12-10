@@ -7,7 +7,7 @@ psycopg2==2.8.6  # https://github.com/psycopg/psycopg2
 {%- else %}
 psycopg2-binary==2.8.6  # https://github.com/psycopg/psycopg2
 {%- endif %}
-{%- if cookiecutter.use_async == 'y' %}
+{%- if cookiecutter.use_async == 'y' or cookiecutter.use_celery == 'y' %}
 watchgod==0.6  # https://github.com/samuelcolvin/watchgod
 {%- endif %}
 
