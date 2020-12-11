@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-12-10]
+### Changed
+- Hot-reload support to celery ([#2554](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2554))
+### Updated
+- Update uvicorn to 0.13.0 ([#2962](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2962))
+- Update sentry-sdk to 0.19.5 ([#2965](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2965))
+
 ## [2020-12-09]
 ### Changed
 - Bump peter-evans/create-pull-request from v3.5.1 to v3.5.2 ([#2964](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2964))
