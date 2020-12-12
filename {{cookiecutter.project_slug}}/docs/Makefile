@@ -3,7 +3,7 @@
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
-SPHINXOPTS    ?= 
+SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build -c .
 SOURCEDIR     = .
 BUILDDIR      = ./_build
@@ -21,9 +21,9 @@ help:
 
 # Build, watch and serve docs with live reload
 livehtml:
-	sphinx-autobuild -b html 
-	{%- if cookiecutter.use_docker == 'y' %} --host 0.0.0.0
-	{%- else %} --open-browser 
+	sphinx-autobuild -b html
+	{%- if cookiecutter.use_docker == 'y' %} --host 127.0.0.1
+	{%- else %} --open-browser
 	{%- endif %} --port 7000 --watch $(APP) -c . $(SOURCEDIR) $(BUILDDIR)/html
 
 # Outputs rst files from django application code

@@ -208,17 +208,17 @@ Increasingly it is becoming necessary to develop software in a secure environmen
 On order to create a secure environment, we need to have a trusted SSL certficate installed in our Docker application.
 
 #.  **Let's Encrypt**
-    
-    The official line from Let’s Encrypt is: 
 
-    [For local development section] ... The best option: Generate your own certificate, either self-signed or signed by a local root, and trust it in your operating system’s trust store. Then use that certificate in your local web server. See below for details. 
+    The official line from Let’s Encrypt is:
+
+    [For local development section] ... The best option: Generate your own certificate, either self-signed or signed by a local root, and trust it in your operating system’s trust store. Then use that certificate in your local web server. See below for details.
 
     See `letsencrypt.org - certificates-for-localhost`_
 
     .. _`letsencrypt.org - certificates-for-localhost`: https://letsencrypt.org/docs/certificates-for-localhost/
 
 #.  **mkcert: Valid Https Certificates For Localhost**
-    
+
     `mkcert`_ is a simple by design tool that hides all the arcane knowledge required to generate valid TLS certificates. It works for any hostname or IP, including localhost. It supports macOS, Linux, and Windows, and Firefox, Chrome and Java. It even works on mobile devices with a couple manual steps.
 
     See https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/
@@ -253,11 +253,11 @@ local.yml
       restart: always
       depends_on:
         - django
-    
+
     ...
 
 #. Link the ``nginx-proxy`` to ``django`` through environmental variables.
-   
+
    ``django`` already has an ``.env`` file connected to it. Add the following variables. You should do this especially if you are working with a team and you want to keep your local environment details to yourself.
 
    ::
@@ -274,7 +274,7 @@ config/settings/local.py
 
 You should allow the new hostname. ::
 
-  ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "my-dev-env.local"]
+  ALLOWED_HOSTS = ["localhost", "127.0.0.1", "my-dev-env.local"]
 
 Rebuild your ``docker`` application. ::
 

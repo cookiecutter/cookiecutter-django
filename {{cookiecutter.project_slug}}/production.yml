@@ -40,10 +40,10 @@ services:
     volumes:
       - production_traefik:/etc/traefik/acme:z
     ports:
-      - "0.0.0.0:80:80"
-      - "0.0.0.0:443:443"
+      - "80:80"
+      - "443:443"
       {%- if cookiecutter.use_celery == 'y' %}
-      - "0.0.0.0:5555:5555"
+      - "5555:5555"
       {%- endif %}
 
   redis:

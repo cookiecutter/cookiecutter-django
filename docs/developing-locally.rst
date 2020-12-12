@@ -76,11 +76,11 @@ First things first.
 
 #. If you're running synchronously, see the application being served through Django development server: ::
 
-    $ python manage.py runserver 0.0.0.0:8000
+    $ python manage.py runserver 127.0.0.1:8000
 
 or if you're running asynchronously: ::
 
-    $ uvicorn config.asgi:application --host 0.0.0.0 --reload
+    $ uvicorn config.asgi:application --host 127.0.0.1 --reload
 
 .. _PostgreSQL: https://www.postgresql.org/download/
 .. _Redis: https://redis.io/download
