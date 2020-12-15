@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-12-14]
+### Updated
+- Update pytest to 6.2.0 ([#2968](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2968))
+- Update django-cors-headers to 3.6.0 ([#2967](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2967))
+- Update uvicorn to 0.13.1 ([#2966](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2966))
+
 ## [2020-12-10]
 ### Changed
 - Hot-reload support to celery ([#2554](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2554))
