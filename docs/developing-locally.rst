@@ -24,8 +24,9 @@ First things first.
 
     $ source <virtual env path>/bin/activate
 
-#. Install cookiecutter-django: ::
+#. Install cookiecutter and cookiecutter--django: ::
 
+    $ pip install cookiecutter
     $ cookiecutter gh:pydanny/cookiecutter-django
 
 #. Install development requirements: ::
