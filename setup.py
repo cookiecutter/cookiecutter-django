@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
-import os
+import shlex
+import subprocess  # nosec
 import sys
 
 try:
@@ -12,10 +13,16 @@ except ImportError:
 # If Django has a new release, we branch, tag, then update this setting after the tag.
 version = "3.0.11"
 
+
+def run_command(command):
+    args = shlex.split(command, posix=False)
+    return subprocess.check_output(args, shell=False)  # nosec
+
+
 if sys.argv[-1] == "tag":
-    os.system(f'git tag -a {version} -m "version {version}"')
-    os.system("git push --tags")
-    sys.exit()
+    run_command('git tag -a {version} -m "version {version}"'.format(version=version))
+    run_command("git push --tags")
+    sys.exit(0)
 
 with open("README.rst") as readme_file:
     long_description = readme_file.read()

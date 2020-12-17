@@ -156,7 +156,7 @@ def generate_random_string(
         unsuitable = {"'", '"', "\\", "$"}
         suitable = all_punctuation.difference(unsuitable)
         symbols += "".join(suitable)
-    return "".join([random.choice(symbols) for _ in range(length)])
+    return "".join([random.choice(symbols) for _ in range(length)])  # nosec
 
 
 def set_flag(file_path, flag, value=None, formatted=None, *args, **kwargs):

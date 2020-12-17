@@ -1,0 +1,3 @@
+[bandit]
+skips: B101
+exclude: {{cookiecutter.project_slug}}

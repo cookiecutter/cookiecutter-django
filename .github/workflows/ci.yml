@@ -6,6 +6,13 @@ on:
   pull_request:
 
 jobs:
+  bandit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run bandit
+        uses: tj-actions/bandit@v1.2
+
   tox:
     runs-on: ubuntu-latest
     strategy:
