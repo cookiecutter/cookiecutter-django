@@ -3,6 +3,14 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-12-18]
+### Changed
+- Bump stefanzweifel/git-auto-commit-action from v4.7.2 to v4.8.0 ([#2972](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2972))
+### Updated
+- Update django-storages to 1.11 ([#2973](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2973))
+- Update pytest to 6.2.1 ([#2971](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2971))
+- Auto-update pre-commit hooks ([#2970](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2970))
+
 ## [2020-12-14]
 ### Updated
 - Update pytest to 6.2.0 ([#2968](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2968))
