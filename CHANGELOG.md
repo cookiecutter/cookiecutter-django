@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-12-23]
+### Changed
+- Bump peter-evans/create-pull-request from v3.5.2 to v3.6.0 ([#2980](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2980))
+### Updated
+- Update flower to 0.9.7 ([#2979](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2979))
+- Update sphinx to 3.4.0 ([#2978](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2978))
+- Update coverage to 5.3.1 ([#2977](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2977))
+- Update uvicorn to 0.13.2 ([#2976](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2976))
+
 ## [2020-12-18]
 ### Changed
 - Bump stefanzweifel/git-auto-commit-action from v4.7.2 to v4.8.0 ([#2972](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2972))
