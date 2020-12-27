@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-12-26]
+### Updated
+- Update sphinx to 3.4.1 ([#2985](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2985))
+- Update pytz to 2020.5 ([#2984](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2984))
+
 ## [2020-12-23]
 ### Changed
 - Bump peter-evans/create-pull-request from v3.5.2 to v3.6.0 ([#2980](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2980))
