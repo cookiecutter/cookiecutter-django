@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2020-12-29]
+### Updated
+- Update pygithub to 1.54.1 ([#2982](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2982))
+- Update django-storages to 1.11.1 ([#2981](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2981))
+
 ## [2020-12-26]
 ### Updated
 - Update sphinx to 3.4.1 ([#2985](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2985))
