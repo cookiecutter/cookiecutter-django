@@ -3,6 +3,14 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-01-04]
+### Updated
+- Update isort to 5.7.0 ([#2988](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2988))
+- Update uvicorn to 0.13.3 ([#2987](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2987))
+- Auto-update pre-commit hooks ([#2990](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2990))
+- Update sphinx to 3.4.2 ([#2995](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2995))
+- Update pillow to 8.1.0 ([#2993](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2993))
+
 ## [2020-12-29]
 ### Updated
 - Update pygithub to 1.54.1 ([#2982](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2982))
