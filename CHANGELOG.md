@@ -3,6 +3,14 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-01-08]
+### Changed
+- Upgrade Travis to Focal ([#2999](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2999))
+### Updated
+- Update pylint-django to 2.4.1 ([#3001](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3001))
+- Update sphinx to 3.4.3 ([#3000](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3000))
+- Update pylint-django to 2.4.0 ([#2996](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2996))
+
 ## [2021-01-04]
 ### Updated
 - Update isort to 5.7.0 ([#2988](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2988))
