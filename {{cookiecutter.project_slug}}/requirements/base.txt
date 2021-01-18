@@ -27,6 +27,9 @@ flower==0.9.7  # https://github.com/mher/flower
 {%- if cookiecutter.use_async == 'y' %}
 uvicorn[standard]==0.13.3  # https://github.com/encode/uvicorn
 {%- endif %}
+{%- if cookiecutter.use_sentry == "y" %}
+sentry-sdk==0.19.5  # https://github.com/getsentry/sentry-python
+{%- endif %}
 
 # Django
 # ------------------------------------------------------------------------------
