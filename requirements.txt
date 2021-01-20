@@ -15,7 +15,7 @@ tox==3.21.1
 pytest==5.4.3  # pyup: <6  # https://github.com/hackebrot/pytest-cookies/issues/51
 pytest-cookies==0.5.1
 pytest-instafail==0.4.2
-pyyaml==5.3.1
+pyyaml==5.4.1
 
 # Scripting
 # ------------------------------------------------------------------------------
