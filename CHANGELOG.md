@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-01-22]
+### Changed
+- Use self.request.user instead of second query ([#3012](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3012))
+
 ## [2021-01-14]
 ### Updated
 - Update tox to 3.21.1 ([#3006](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3006))
