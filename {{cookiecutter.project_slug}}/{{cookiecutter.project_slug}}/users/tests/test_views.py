@@ -1,8 +1,12 @@
 import pytest
+from django.contrib import messages
 from django.contrib.auth.models import AnonymousUser
+from django.contrib.messages.middleware import MessageMiddleware
+from django.contrib.sessions.middleware import SessionMiddleware
 from django.http.response import Http404
 from django.test import RequestFactory
 
+from {{ cookiecutter.project_slug }}.users.forms import UserChangeForm
 from {{ cookiecutter.project_slug }}.users.models import User
 from {{ cookiecutter.project_slug }}.users.tests.factories import UserFactory
 from {{ cookiecutter.project_slug }}.users.views import (
@@ -41,6 +45,25 @@ class TestUserUpdateView:
 
         assert view.get_object() == user
 
+    def test_form_valid(self, user: User, rf: RequestFactory):
+        view = UserUpdateView()
+        request = rf.get("/fake-url/")
+
+        # Add the session/message middleware to the request
+        SessionMiddleware().process_request(request)
+        MessageMiddleware().process_request(request)
+        request.user = user
+
+        view.request = request
+
+        # Initialize the form
+        form = UserChangeForm()
+        form.cleaned_data = []
+        view.form_valid(form)
+
+        messages_sent = [m.message for m in messages.get_messages(request)]
+        assert messages_sent == ["Information successfully updated"]
+
 
 class TestUserRedirectView:
     def test_get_redirect_url(self, user: User, rf: RequestFactory):
@@ -64,7 +87,7 @@ class TestUserDetailView:
 
     def test_not_authenticated(self, user: User, rf: RequestFactory):
         request = rf.get("/fake-url/")
-        request.user = AnonymousUser()  # type: ignore
+        request.user = AnonymousUser()
 
         response = user_detail_view(request, username=user.username)
 

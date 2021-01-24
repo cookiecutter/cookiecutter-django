@@ -657,6 +657,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Fabian Affolter</td>
+    <td>
+      <a href="https://github.com/fabaff">fabaff</a>
+    </td>
+    <td>fabaff</td>
+  </tr>
+  <tr>
     <td>Felipe Arruda</td>
     <td>
       <a href="https://github.com/arruda">arruda</a>
@@ -797,6 +804,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Jakub Musko</td>
+    <td>
+      <a href="https://github.com/umgelurgel">umgelurgel</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>James Williams</td>
     <td>
       <a href="https://github.com/jameswilliams1">jameswilliams1</a>
@@ -851,6 +865,13 @@ Listed in alphabetical order.
       <a href="https://github.com/Afrowave">Afrowave</a>
     </td>
     <td>afrowave</td>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>
+      <a href="https://github.com/thorrak">thorrak</a>
+    </td>
+    <td></td>
   </tr>
   <tr>
     <td>John Cass</td>
@@ -1273,6 +1294,13 @@ Listed in alphabetical order.
     <td>saschalalala</td>
   </tr>
   <tr>
+    <td>Simon Rey</td>
+    <td>
+      <a href="https://github.com/eqqe">eqqe</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Sorasful</td>
     <td>
       <a href="https://github.com/sorasful">sorasful</a>
@@ -1399,6 +1427,13 @@ Listed in alphabetical order.
     <td>egregors</td>
   </tr>
   <tr>
+    <td>vascop</td>
+    <td>
+      <a href="https://github.com/vascop">vascop</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Vicente G. Reyes</td>
     <td>
       <a href="https://github.com/reyesvicente">reyesvicente</a>
@@ -1458,6 +1493,13 @@ Listed in alphabetical order.
     <td>Yaroslav Halchenko</td>
     <td>
       <a href="https://github.com/"></a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Yotam Tal</td>
+    <td>
+      <a href="https://github.com/yotamtal">yotamtal</a>
     </td>
     <td></td>
   </tr>

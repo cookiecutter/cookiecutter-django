@@ -13,9 +13,9 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Set up Python
-      uses: actions/setup-python@v2.1.2
+      uses: actions/setup-python@v2
       with:
-        python-version: "3.8"
+        python-version: 3.8
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -24,7 +24,7 @@ jobs:
       run: python scripts/update_contributors.py
 
     - name: Commit changes
-      uses: stefanzweifel/git-auto-commit-action@v4.5.1
+      uses: stefanzweifel/git-auto-commit-action@v4.8.0
       with:
         commit_message: Update Contributors
         file_pattern: CONTRIBUTORS.md .github/contributors.json
