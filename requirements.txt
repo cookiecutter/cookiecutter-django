@@ -11,7 +11,7 @@ flake8-isort==4.0.0
 
 # Testing
 # ------------------------------------------------------------------------------
-tox==3.21.1
+tox==3.21.2
 pytest==5.4.3  # pyup: <6  # https://github.com/hackebrot/pytest-cookies/issues/51
 pytest-cookies==0.5.1
 pytest-instafail==0.4.2
