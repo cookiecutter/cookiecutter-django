@@ -1,0 +1,32 @@
+{
+  "name": "{{cookiecutter.project_slug}}",
+  "version": "{{ cookiecutter.version }}",
+  "dependencies": {},
+  "devDependencies": {
+    "bootstrap": "4.3.1",
+    "gulp-concat": "^2.6.1",
+    "jquery": "3.3.1",
+    "popper.js": "1.14.3",
+    "autoprefixer": "^9.4.7",
+    "browser-sync": "^2.14.0",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.0",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify-es": "^1.0.4",
+    "pixrem": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ],
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp generate-assets"
+  }
+}

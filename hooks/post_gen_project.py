@@ -88,10 +88,15 @@ def remove_gulp_files():
         os.remove(file_name)
 
 
-def remove_packagejson_file():
-    file_names = ["package.json"]
-    for file_name in file_names:
-        os.remove(file_name)
+def remove_packages_json_dir():
+    shutil.rmtree("packages-json")
+
+
+def copy_package_json(directory):
+    shutil.copy(
+        os.path.join("packages-json", directory, "package.json"),
+        "package.json",
+    )
 
 
 def remove_celery_files():
@@ -377,9 +382,14 @@ def main():
 
     if "{{ cookiecutter.js_task_runner}}".lower() == "none":
         remove_gulp_files()
-        remove_packagejson_file()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_node_dockerfile()
+    else:
+        if "{{ cookiecutter.custom_bootstrap_compilation }}".lower() == "y":
+            copy_package_json("custom-bs")
+        else:
+            copy_package_json("gulp")
+    remove_packages_json_dir()
 
     if "{{ cookiecutter.cloud_provider}}".lower() == "none":
         print(

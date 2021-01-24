@@ -8,3 +8,12 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    labels:
+      - "update"
+  # Update NPM dependencies in packages.json
+  - package-ecosystem: "npm"
+    directory: "/{{cookiecutter.project_slug}}/packages-json/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "update"
