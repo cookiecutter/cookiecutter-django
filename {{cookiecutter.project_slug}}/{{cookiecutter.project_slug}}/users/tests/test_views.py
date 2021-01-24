@@ -61,11 +61,8 @@ class TestUserUpdateView:
         form.cleaned_data = []
         view.form_valid(form)
 
-        found_message = False
-        for message in messages.get_messages(request):
-            assert message.message == "Information successfully updated"
-            found_message = True
-        assert found_message
+        messages_sent = [m.message for m in messages.get_messages(request)]
+        assert messages_sent == ["Information successfully updated"]
 
 
 class TestUserRedirectView:
