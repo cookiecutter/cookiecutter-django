@@ -1427,6 +1427,13 @@ Listed in alphabetical order.
     <td>egregors</td>
   </tr>
   <tr>
+    <td>vascop</td>
+    <td>
+      <a href="https://github.com/vascop">vascop</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Vicente G. Reyes</td>
     <td>
       <a href="https://github.com/reyesvicente">reyesvicente</a>
