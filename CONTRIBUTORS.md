@@ -867,6 +867,13 @@ Listed in alphabetical order.
     <td>afrowave</td>
   </tr>
   <tr>
+    <td>John</td>
+    <td>
+      <a href="https://github.com/thorrak">thorrak</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>John Cass</td>
     <td>
       <a href="https://github.com/jcass77">jcass77</a>

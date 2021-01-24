@@ -23,7 +23,7 @@ class UserFactory(DjangoModelFactory):
                 digits=True,
                 upper_case=True,
                 lower_case=True,
-            ).generate(params={"locale": None})
+            ).evaluate(None, None, extra={"locale": None})
         )
         self.set_password(password)
 

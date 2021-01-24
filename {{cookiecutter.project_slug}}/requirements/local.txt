@@ -13,7 +13,7 @@ watchgod==0.6  # https://github.com/samuelcolvin/watchgod
 
 # Testing
 # ------------------------------------------------------------------------------
-mypy==0.790  # https://github.com/python/mypy
+mypy==0.800  # https://github.com/python/mypy
 django-stubs==1.7.0  # https://github.com/typeddjango/django-stubs
 pytest==6.2.1  # https://github.com/pytest-dev/pytest
 pytest-sugar==0.9.4  # https://github.com/Frozenball/pytest-sugar
@@ -37,7 +37,7 @@ pre-commit==2.9.3  # https://github.com/pre-commit/pre-commit
 
 # Django
 # ------------------------------------------------------------------------------
-factory-boy==3.1.0  # https://github.com/FactoryBoy/factory_boy
+factory-boy==3.2.0  # https://github.com/FactoryBoy/factory_boy
 
 django-debug-toolbar==3.2  # https://github.com/jazzband/django-debug-toolbar
 django-extensions==3.1.0  # https://github.com/django-extensions/django-extensions
