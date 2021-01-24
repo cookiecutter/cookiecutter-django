@@ -1,0 +1,85 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+
+jobs:
+  tox:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        tox-env:
+          - py38
+          - black-template
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: |
+          python -m pip install -U pip
+          python -m pip install -U tox
+      - name: Tox ${{ matrix.tox-env }}
+        run: tox -e ${{ matrix.tox-env }}
+
+  docker:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        script:
+          - name: Basic
+            args: ""
+          - name: Extended
+            args: "use_celery=y use_drf=y js_task_runner=Gulp"
+
+    env:
+      DOCKER_BUILDKIT: 1
+      COMPOSE_DOCKER_CLI_BUILD: 1
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Docker ${{ matrix.script.name }}
+        run: sh tests/test_docker.sh ${{ matrix.script.args }}
+
+  bare:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        script:
+          - name: With Celery
+            args: "use_celery=y use_compressor=y"
+
+    services:
+      redis:
+        image: redis:5.0
+        ports:
+          - 6379:6379
+      postgres:
+        image: postgres:12
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_PASSWORD: postgres
+
+    env:
+      CELERY_BROKER_URL: "redis://localhost:6379/0"
+      # postgres://user:password@host:port/database
+      DATABASE_URL: "postgres://postgres:postgres@localhost:5432/postgres"
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Bare Metal ${{ matrix.script.name }}
+        run: sh tests/test_bare.sh ${{ matrix.script.args }}

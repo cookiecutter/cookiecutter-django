@@ -5,6 +5,11 @@ entryPoints:
   web:
     # http
     address: ":80"
+    http:
+      # https://docs.traefik.io/routing/entrypoints/#entrypoint
+      redirections:
+        entryPoint:
+          to: web-secure
 
   web-secure:
     # https
@@ -27,19 +32,6 @@ certificatesResolvers:
 
 http:
   routers:
-    web-router:
-      {%- if cookiecutter.domain_name.count('.') == 1 %}
-      rule: "Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)"
-      {% else %}
-      rule: "Host(`{{ cookiecutter.domain_name }}`)"
-      {%- endif %}
-      entryPoints:
-        - web
-      middlewares:
-        - redirect
-        - csrf
-      service: django
-
     web-secure-router:
       {%- if cookiecutter.domain_name.count('.') == 1 %}
       rule: "Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)"
@@ -67,11 +59,6 @@ http:
     {%- endif %}
 
   middlewares:
-    redirect:
-      # https://docs.traefik.io/master/middlewares/redirectscheme/
-      redirectScheme:
-        scheme: https
-        permanent: true
     csrf:
       # https://docs.traefik.io/master/middlewares/headers/#hostsproxyheaders
       # https://docs.djangoproject.com/en/dev/ref/csrf/#ajax
