@@ -3,6 +3,21 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-01-24]
+### Changed
+- Use defer for script tags (Fix #2922) ([#2927](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2927))
+- Made Traefik conf much easier to understand and improved redirect res… ([#2838](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2838))
+- Sentry Redis integration enabled by default in production. ([#2989](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2989))
+- Add test for UserUpdateView.form_valid() ([#2949](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2949))
+### Fixed
+- Omit first_name and last_name in User model ([#2998](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2998))
+### Updated
+- Update django-celery-beat to 2.2.0 ([#3009](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3009))
+- Update pyyaml to 5.4.1 ([#3011](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3011))
+- Update mypy to 0.800 ([#3013](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3013))
+- Update factory-boy to 3.2.0 ([#2986](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2986))
+- Update tox to 3.21.2 ([#3010](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3010))
+
 ## [2021-01-22]
 ### Changed
 - Use self.request.user instead of second query ([#3012](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3012))
