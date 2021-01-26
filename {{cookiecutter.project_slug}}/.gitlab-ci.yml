@@ -13,7 +13,7 @@ variables:
 
 flake8:
   stage: lint
-  image: python:3.8-alpine
+  image: python:3.9-alpine
   before_script:
     - pip install -q flake8
   script:
@@ -21,7 +21,7 @@ flake8:
 
 pytest:
   stage: test
-  image: python:3.8
+  image: python:3.9
   {% if cookiecutter.use_docker == 'y' -%}
   image: docker/compose:latest
   tags:

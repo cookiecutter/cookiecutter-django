@@ -35,7 +35,7 @@ if "{{ cookiecutter.use_docker }}".lower() == "n":
     if python_major_version == 2:
         print(
             WARNING + "You're running cookiecutter under Python 2, but the generated "
-            "project requires Python 3.8+. Do you want to proceed (y/n)? " + TERMINATOR
+            "project requires Python 3.9+. Do you want to proceed (y/n)? " + TERMINATOR
         )
         yes_options, no_options = frozenset(["y"]), frozenset(["n"])
         while True:

@@ -9,7 +9,7 @@ RUN npm run build
 
 # Python build stage
 {%- endif %}
-FROM python:3.8-slim-buster
+FROM python:3.9-slim-buster
 
 ENV PYTHONUNBUFFERED 1
 
