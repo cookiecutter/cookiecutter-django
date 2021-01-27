@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-01-26]
+### Changed
+- Bump peter-evans/create-pull-request from v3.6.0 to v3.7.0 ([#3022](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3022))
+- Using SuccessMessageMixin to send success message to django template ([#3021](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3021))
+### Fixed
+- Update admin to ignore *_name User attributes ([#3018](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3018))
+### Updated
+- Update coverage to 5.4 ([#3024](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3024))
+- Update pytest to 6.2.2 ([#3020](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3020))
+- Update django-cors-headers to 3.7.0 ([#3019](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3019))
+
 ## [2021-01-24]
 ### Changed
 - Use defer for script tags (Fix #2922) ([#2927](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2927))
