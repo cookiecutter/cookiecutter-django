@@ -22,7 +22,7 @@ django-storages[boto3]==1.11.1  # https://github.com/jschneier/django-storages
 django-storages[google]==1.11.1  # https://github.com/jschneier/django-storages
 {%- endif %}
 {%- if cookiecutter.mail_service == 'Mailgun' %}
-django-anymail[mailgun]==8.1  # https://github.com/anymail/django-anymail
+django-anymail[mailgun]==8.2  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Amazon SES' %}
 django-anymail[amazon_ses]==8.1  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Mailjet' %}
