@@ -20,7 +20,6 @@ class TestUserCreationForm:
         )
 
         assert form.is_valid()
-        assert form.clean_username() == proto_user.username
 
         # Creating a user.
         form.save()
