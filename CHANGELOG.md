@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-01-28]
+### Updated
+- Update pre-commit to 2.10.0 ([#3028](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3028))
+- Update django-anymail to 8.2 ([#3027](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3027))
+- Update tox to 3.21.3 ([#3026](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3026))
+
 ## [2021-01-26]
 ### Changed
 - Bump peter-evans/create-pull-request from v3.6.0 to v3.7.0 ([#3022](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3022))
