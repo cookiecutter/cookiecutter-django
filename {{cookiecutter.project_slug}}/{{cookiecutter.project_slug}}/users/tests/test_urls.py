@@ -1,9 +1,9 @@
 import pytest
+from django.contrib.auth import get_user_model
 from django.urls import resolve, reverse
 
-from {{ cookiecutter.project_slug }}.users.models import User
-
 pytestmark = pytest.mark.django_db
+User = get_user_model()
 
 
 def test_detail(user: User):

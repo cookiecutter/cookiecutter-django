@@ -1,8 +1,8 @@
 import pytest
-
-from {{ cookiecutter.project_slug }}.users.models import User
+from django.contrib.auth import get_user_model
 
 pytestmark = pytest.mark.django_db
+User = get_user_model()
 
 
 def test_user_get_absolute_url(user: User):
