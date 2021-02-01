@@ -1,4 +1,4 @@
-pytz==2020.5  # https://github.com/stub42/pytz
+pytz==2021.1  # https://github.com/stub42/pytz
 python-slugify==4.0.1  # https://github.com/un33k/python-slugify
 Pillow==8.1.0  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.use_compressor == "y" %}
