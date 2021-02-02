@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-02-01]
+### Updated
+- Update pytz to 2021.1 ([#3035](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3035))
+- Update jinja2 to 2.11.3 ([#3033](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3033))
+- Bump peter-evans/create-pull-request from v3.7.0 to v3.8.0 ([#3034](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3034))
+
 ## [2021-01-31]
 ### Changed
 - Adding local celery instructions to developing-locally ([#3031](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3031))
