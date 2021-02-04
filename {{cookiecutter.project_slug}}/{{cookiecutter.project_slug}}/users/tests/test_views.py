@@ -4,7 +4,6 @@ from django.contrib import messages
 from django.contrib.auth.models import AnonymousUser
 from django.contrib.messages.middleware import MessageMiddleware
 from django.contrib.sessions.middleware import SessionMiddleware
-from django.http.response import Http404
 from django.test import RequestFactory
 from django.urls import reverse
 
