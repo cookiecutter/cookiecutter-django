@@ -1,37 +1,33 @@
+"""
+Module for all Form Tests.
+"""
 import pytest
 from django.utils.translation import ugettext_lazy as _
 
 from {{ cookiecutter.project_slug }}.users.forms import UserCreationForm
-from {{ cookiecutter.project_slug }}.users.tests.factories import UserFactory
+from {{ cookiecutter.project_slug }}.users.models import User
 
 pytestmark = pytest.mark.django_db
 
 
 class TestUserCreationForm:
-    def test_clean_username(self):
-        # A user with proto_user params does not exist yet.
-        proto_user = UserFactory.build()
+    """
+    Test class for all tests related to the UserCreationForm
+    """
+    def test_username_validation_error_msg(self, user: User):
+        """
+        Tests UserCreation Form's unique validator functions correctly by testing:
+            1) Only 1 error is raised by the UserCreation Form
+            2) The desired error message is raised
+        """
 
-        form = UserCreationForm(
-            {
-                "username": proto_user.username,
-                "password1": proto_user._password,
-                "password2": proto_user._password,
-            }
-        )
-
-        assert form.is_valid()
-
-        # Creating a user.
-        form.save()
-
-        # The user with proto_user params already exists,
+        # The user already exists,
         # hence cannot be created.
         form = UserCreationForm(
             {
-                "username": proto_user.username,
-                "password1": proto_user._password,
-                "password2": proto_user._password,
+                "username": user.username,
+                "password1": user.password,
+                "password2": user.password,
             }
         )
 
