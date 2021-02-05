@@ -1224,6 +1224,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>PJ Hoberman</td>
+    <td>
+      <a href="https://github.com/pjhoberman">pjhoberman</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Raony Guimarães Corrêa</td>
     <td>
       <a href="https://github.com/raonyguimaraes">raonyguimaraes</a>
