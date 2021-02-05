@@ -14,11 +14,13 @@ class TestUserCreationForm:
     """
     Test class for all tests related to the UserCreationForm
     """
+
     def test_username_validation_error_msg(self, user: User):
         """
         Tests UserCreation Form's unique validator functions correctly by testing:
-            1) Only 1 error is raised by the UserCreation Form
-            2) The desired error message is raised
+            1) A new user with an existing username cannot be added.
+            2) Only 1 error is raised by the UserCreation Form
+            3) The desired error message is raised
         """
 
         # The user already exists,
