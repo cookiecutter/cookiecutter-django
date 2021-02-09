@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-02-08]
+### Updated
+- Update django-extensions to 3.1.1 ([#3047](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3047))
+- Bump peter-evans/create-pull-request from v3.8.0 to v3.8.1 ([#3046](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3046))
+
 ## [2021-02-06]
 ### Changed
 - Removed Redundant test_case_sensitivity() and made test_not_authenticated() get the LOGIN_URL dynamically. ([#3041](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3041))
