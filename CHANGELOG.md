@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-02-10]
+### Updated
+- Bump peter-evans/create-pull-request from v3.8.1 to v3.8.2 ([#3049](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3049))
+
 ## [2021-02-08]
 ### Updated
 - Update django-extensions to 3.1.1 ([#3047](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3047))
