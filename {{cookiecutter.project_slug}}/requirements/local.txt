@@ -20,7 +20,7 @@ pytest-sugar==0.9.4  # https://github.com/Frozenball/pytest-sugar
 
 # Documentation
 # ------------------------------------------------------------------------------
-sphinx==3.4.3  # https://github.com/sphinx-doc/sphinx
+sphinx==3.5.0  # https://github.com/sphinx-doc/sphinx
 sphinx-autobuild==2020.9.1 # https://github.com/GaretJax/sphinx-autobuild
 
 # Code quality
