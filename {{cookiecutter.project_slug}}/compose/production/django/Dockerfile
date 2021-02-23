@@ -85,7 +85,7 @@ COPY --from=python-build-stage /usr/src/app/wheels  /wheels
 
 # use wheels to install python dependencies
 RUN pip install --no-cache /wheels/* \
-	&& rm -rf /wheels
+  && rm -rf /wheels
 
 {%- if cookiecutter.js_task_runner == 'Gulp' %}
 COPY --from=client-builder --chown=django:django /app /app
