@@ -13,14 +13,14 @@ watchgod==0.6  # https://github.com/samuelcolvin/watchgod
 
 # Testing
 # ------------------------------------------------------------------------------
-mypy==0.800  # https://github.com/python/mypy
+mypy==0.812  # https://github.com/python/mypy
 django-stubs==1.7.0  # https://github.com/typeddjango/django-stubs
 pytest==6.2.2  # https://github.com/pytest-dev/pytest
 pytest-sugar==0.9.4  # https://github.com/Frozenball/pytest-sugar
 
 # Documentation
 # ------------------------------------------------------------------------------
-sphinx==3.5.0  # https://github.com/sphinx-doc/sphinx
+sphinx==3.5.1  # https://github.com/sphinx-doc/sphinx
 sphinx-autobuild==2020.9.1 # https://github.com/GaretJax/sphinx-autobuild
 
 # Code quality
