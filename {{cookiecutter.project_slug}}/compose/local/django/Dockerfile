@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 COPY ./requirements /requirements
 
 # create python dependency wheels
-RUN pip wheel --no-cache-dir --no-deps --use-feature=2020-resolver --wheel-dir /usr/src/app/wheels  \
+RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/app/wheels  \
   -r /requirements/local.txt \
   && rm -rf /requirements
 
