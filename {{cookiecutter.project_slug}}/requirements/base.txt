@@ -1,6 +1,6 @@
-pytz==2020.1  # https://github.com/stub42/pytz
+pytz==2021.1  # https://github.com/stub42/pytz
 python-slugify==4.0.1  # https://github.com/un33k/python-slugify
-Pillow==7.2.0  # https://github.com/python-pillow/Pillow
+Pillow==8.1.0  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.use_compressor == "y" %}
 {%- if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %}
 rcssmin==1.0.6 --install-option="--without-c-extensions"  # https://github.com/ndparker/rcssmin
@@ -17,29 +17,29 @@ redis==3.5.3  # https://github.com/andymccurdy/redis-py
 hiredis==1.1.0  # https://github.com/redis/hiredis-py
 {%- endif %}
 {%- if cookiecutter.use_celery == "y" %}
-celery==4.4.7  # pyup: < 5.0  # https://github.com/celery/celery
-django-celery-beat==2.0.0  # https://github.com/celery/django-celery-beat
+celery==4.4.6  # pyup: < 5.0,!=4.4.7  # https://github.com/celery/celery
+django-celery-beat==2.2.0  # https://github.com/celery/django-celery-beat
 {%- if cookiecutter.use_docker == 'y' %}
-flower==0.9.5  # https://github.com/mher/flower
+flower==0.9.7  # https://github.com/mher/flower
 {%- endif %}
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' %}
-uvicorn==0.11.8  # https://github.com/encode/uvicorn
+uvicorn[standard]==0.13.4  # https://github.com/encode/uvicorn
 {%- endif %}
 
 # Django
 # ------------------------------------------------------------------------------
-django==3.0.10  # pyup: < 3.1  # https://www.djangoproject.com/
+django==3.1.7  # pyup: < 3.2  # https://www.djangoproject.com/
 django-environ==0.4.5  # https://github.com/joke2k/django-environ
-django-model-utils==4.0.0  # https://github.com/jazzband/django-model-utils
-django-allauth==0.42.0  # https://github.com/pennersr/django-allauth
-django-crispy-forms==1.9.2  # https://github.com/django-crispy-forms/django-crispy-forms
+django-model-utils==4.1.1  # https://github.com/jazzband/django-model-utils
+django-allauth==0.44.0  # https://github.com/pennersr/django-allauth
+django-crispy-forms==1.11.1  # https://github.com/django-crispy-forms/django-crispy-forms
 {%- if cookiecutter.use_compressor == "y" %}
 django-compressor==2.4  # https://github.com/django-compressor/django-compressor
 {%- endif %}
 django-redis==4.12.1  # https://github.com/jazzband/django-redis
 {%- if cookiecutter.use_drf == "y" %}
 # Django REST Framework
-djangorestframework==3.11.1  # https://github.com/encode/django-rest-framework
-django-cors-headers==3.5.0 # https://github.com/adamchainz/django-cors-headers
+djangorestframework==3.12.2  # https://github.com/encode/django-rest-framework
+django-cors-headers==3.7.0 # https://github.com/adamchainz/django-cors-headers
 {%- endif %}

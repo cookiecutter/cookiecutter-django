@@ -34,10 +34,10 @@ First things first.
     $ git init # A git repo is required for pre-commit to install
     $ pre-commit install
 
-     .. note::
+   .. note::
 
-        the `pre-commit` exists in the generated project as default.
-        for the details of `pre-commit`, follow the [site of pre-commit](https://pre-commit.com/).
+       the `pre-commit` exists in the generated project as default.
+       for the details of `pre-commit`, follow the [site of pre-commit](https://pre-commit.com/).
 
 #. Create a new PostgreSQL database using createdb_: ::
 
@@ -143,6 +143,10 @@ when developing locally. If you have the appropriate setup on your local machine
 in ``config/settings/local.py``::
 
     CELERY_TASK_ALWAYS_EAGER = False
+    
+To run Celery locally, make sure redis-server is installed (instructions are available at https://redis.io/topics/quickstart), run the server in one terminal with `redis-server`, and then start celery in another terminal with the following command::
+    
+    celery -A config.celery_app worker --loglevel=info
 
 
 Sass Compilation & Live Reloading

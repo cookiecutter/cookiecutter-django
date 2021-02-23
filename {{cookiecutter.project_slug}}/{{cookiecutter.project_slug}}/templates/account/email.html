@@ -59,20 +59,20 @@
 {% endblock %}
 
 
-{% block javascript %}
+{% block inline_javascript %}
 {{ block.super }}
 <script type="text/javascript">
-(function() {
-  var message = "{% trans 'Do you really want to remove the selected e-mail address?' %}";
-  var actions = document.getElementsByName('action_remove');
+window.addEventListener('DOMContentLoaded',function() {
+  const message = "{% trans 'Do you really want to remove the selected e-mail address?' %}";
+  const actions = document.getElementsByName('action_remove');
   if (actions.length) {
     actions[0].addEventListener("click", function(e) {
-      if (! confirm(message)) {
+      if (!confirm(message)) {
         e.preventDefault();
       }
     });
   }
-})();
+});
 
 $('.form-group').removeClass('row');
 </script>
