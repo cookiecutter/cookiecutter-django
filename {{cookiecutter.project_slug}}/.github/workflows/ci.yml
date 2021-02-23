@@ -33,6 +33,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 flake8-isort black
 
+      # Run all pre-commit hooks on all the files.
+      # Getting only staged files can be tricky in case a new PR is opened
+      # since the action is run on a branch in detached head state
       - name: Install and Run Pre-commit 
         uses: pre-commit/action@v2.0.0
 
