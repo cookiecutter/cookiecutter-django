@@ -250,7 +250,7 @@ def test_github_invokes_linter_and_pytest(
             github_config = yaml.safe_load(github_yml)
             linter_present = False
             for action_step in github_config["jobs"]["linter"]["steps"]:
-                if action_step.get("run") == "linter":
+                if action_step.get("uses", "NA").startswith("pre-commit"):
                     linter_present = True
             assert linter_present
 
