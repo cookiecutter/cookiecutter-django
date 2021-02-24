@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-02-23]
+### Changed
+- Update to Django 3.1 ([#3043](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3043))
+- Lint with pre-commit on CI with Github actions ([#3066](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3066))
+- Use exception var in status code pages if available ([#2992](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2992))
+
 ## [2021-02-22]
 ### Changed
 - refactor: remove default cache settings in test.py ([#3064](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3064))
