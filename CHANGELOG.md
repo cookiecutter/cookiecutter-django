@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-02-24]
+### Updated
+- Bump stefanzweifel/git-auto-commit-action from v4.9.0 to v4.9.1 ([#3069](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3069))
+
 ## [2021-02-23]
 ### Changed
 - Update to Django 3.1 ([#3043](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3043))
