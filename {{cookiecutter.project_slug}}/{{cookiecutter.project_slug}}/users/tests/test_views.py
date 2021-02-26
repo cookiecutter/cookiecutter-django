@@ -77,13 +77,11 @@ class TestUserUpdateView:
         UserUpdateView.as_view()(request)
 
         # Get the updated user by name
-        updated_user = get_user_model().objects.filter(
-            name=self.form_data["name"]
-        )
+        new_user = get_user_model().objects.filter(name=self.form_data["name"])
 
         # assert that the name matches
-        assert updated_user != []
-        assert updated_user.first().name == self.form_data["name"]  # type: ignore [union-attr]
+        assert new_user != []
+        assert new_user.first().name == self.form_data["name"]  # type: ignore [union-attr]
 
         messages_sent = [m.message for m in messages.get_messages(request)]
         assert messages_sent == [_("Information successfully updated")]
