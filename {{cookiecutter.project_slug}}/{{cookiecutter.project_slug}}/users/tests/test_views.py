@@ -58,7 +58,7 @@ class TestUserUpdateView:
         # Process request and get response
         response = UserUpdateView.as_view()(request)
 
-        assert response.context_data["object"] == user
+        assert response.context_data["object"] == user  # type: ignore [attr-defined]
 
     def test_form_valid(self, user: User, rf: RequestFactory):
         url = reverse("users:update")
@@ -83,7 +83,7 @@ class TestUserUpdateView:
 
         # assert that the name matches
         assert updated_user != []
-        assert updated_user.first().name == self.form_data["name"]
+        assert updated_user.first().name == self.form_data["name"]  # type: ignore [union-attr]
 
         messages_sent = [m.message for m in messages.get_messages(request)]
         assert messages_sent == [_("Information successfully updated")]
