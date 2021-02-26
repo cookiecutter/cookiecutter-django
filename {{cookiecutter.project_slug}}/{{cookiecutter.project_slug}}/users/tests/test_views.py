@@ -28,6 +28,8 @@ class TestUserUpdateView:
         https://github.com/pytest-dev/pytest-django/pull/258
     """
 
+    form_data = {"name": "Updated Name"}
+
     def test_get_success_url(self, user: User, rf: RequestFactory):
         url = reverse("users:update")
         request = rf.post(url, self.form_data)
