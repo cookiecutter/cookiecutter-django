@@ -319,18 +319,23 @@ def handle_licenses():
         "GNU Lesser General Public License v3.0": "COPYING.LESSER",
         "The Unlicense": "UNLICENSE",
     }
+    with open(os.path.join("licenses", "-temporary-placeholder.txt")) as f:
+        selected_title = f.readline()
     for filename in os.listdir("licenses"):
+        if filename == "-temporary-placeholder.txt":
+            continue
         # You'll always see: '---\n' marking beginning + end of Jekyll format
         with open(os.path.join("licenses", filename)) as f:
             contents = f.readlines()
-        title = contents[1].replace("title: ", "").replace("\n", "")
-        if title != "{{ cookiecutter.open_source_license }}":
+        title = contents[1].replace("title: ", "").rstrip()
+        if title != selected_title:
             continue
         with open(special_license_files.get(title, "LICENSE"), "w") as f:
             # +2 to get rid of the --- and and an extra new line
             f.writelines(contents[contents.index("---\n", 1) + 2 :])
         break
-    if "{{ cookiecutter.open_source_license }}" == "Not open source":
+
+    if selected_title == "Not open source":
         os.remove("CONTRIBUTORS.txt")
     shutil.rmtree("licenses")
 

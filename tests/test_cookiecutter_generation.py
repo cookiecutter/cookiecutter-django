@@ -29,6 +29,8 @@ def generate_license_file_titles():
     directory = os.path.join("{{cookiecutter.project_slug}}", "licenses")
     titles = []
     for file in os.listdir(directory):
+        if file == "-temporary-placeholder.txt":
+            continue
         with open(os.path.join(directory, file)) as f:
             titles.append(f.readlines()[1].replace("title: ", "").replace("\n", ""))
     return titles
