@@ -313,30 +313,26 @@ def remove_storages_module():
 
 
 def handle_licenses():
-    dir_path = os.path.join("{{cookiecutter.project_slug}}", "licenses")
     special_license_files = {
         "European Union Public License 1.1": "COPYING",
         "GNU General Public License v3.0": "COPYING",
         "GNU Lesser General Public License v3.0": "COPYING.LESSER",
         "The Unlicense": "UNLICENSE",
     }
-    for filename in os.listdir(dir_path):
+    for filename in os.listdir("licenses"):
         # You'll always see: '---\n' marking beginning + end of Jekyll format
-        with open(os.path.join(dir_path, filename)) as f:
+        with open(os.path.join("licenses", filename)) as f:
             contents = f.readlines()
         title = contents[1].replace("title: ", "").replace("\n", "")
         if title != "{{ cookiecutter.open_source_license }}":
             continue
-        new_file = os.path.join(
-            "{{cookiecutter.project_slug}}", special_license_files.get(title, "LICENSE")
-        )
-        with open(new_file, "w") as f:
+        with open(special_license_files.get(title, "LICENSE"), "w") as f:
             # +2 to get rid of the --- and and an extra new line
             f.writelines(contents[contents.index("---\n", 1) + 2 :])
         break
     if "{{ cookiecutter.open_source_license }}" == "Not open source":
         os.remove("CONTRIBUTORS.txt")
-    os.rmdir(dir_path)
+    shutil.rmtree("licenses")
 
 
 def main():
