@@ -1,5 +1,6 @@
 import json
 import os
+import re
 from pathlib import Path
 from github import Github
 
@@ -18,9 +19,32 @@ def main() -> None:
     for file in repo.get_contents("_licenses", "gh-pages"):
         content = file.decoded_content.decode(file.encoding)
         titles.append(content.split("\n", maxsplit=2)[1].replace("title: ", ""))
-        (license_dir / file.name).write_text(content)
+        path = license_dir / file.name
+        if not path.is_file():
+            (license_dir / file.name).write_text(replace_content_options(content))
     # Put "Not open source" at front so people know it's an option
-    update_cookiecutter(["Not open source"] + sorted(titles))
+    front_options = [
+        "Not open source",
+        "MIT License",
+        'BSD 3-Clause "New" or "Revised" License',
+        "GNU General Public License v3.0",
+        "Apache License 2.0",
+    ]
+    titles = [x for x in sorted(titles) if x not in front_options]
+    update_cookiecutter(front_options + titles)
+
+
+year = (re.compile(r"\[year]"), "{% now 'utc', '%Y' %}")
+email = (re.compile(r"\[email]"), "{{ cookiecutter.email }}")
+fullname = (re.compile(r"\[fullname]"), "{{ cookiecutter.author_name }}")
+project = (re.compile(r"\[project]"), "{{ cookiecutter.project_name }}")
+projecturl = (re.compile(r"\[projecturl]"), "{{ cookiecutter.domain_name }}")
+
+
+def replace_content_options(content) -> str:
+    for compiled, replace in (year, email, fullname, project, projecturl):
+        content = compiled.sub(replace, content)
+    return content
 
 
 def update_cookiecutter(titles: list):
