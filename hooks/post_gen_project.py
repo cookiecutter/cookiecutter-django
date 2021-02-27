@@ -31,18 +31,6 @@ SUCCESS = "\x1b[1;32m [SUCCESS]: "
 DEBUG_VALUE = "debug"
 
 
-def remove_open_source_files():
-    file_names = ["CONTRIBUTORS.txt", "LICENSE"]
-    for file_name in file_names:
-        os.remove(file_name)
-
-
-def remove_gplv3_files():
-    file_names = ["COPYING"]
-    for file_name in file_names:
-        os.remove(file_name)
-
-
 def remove_pycharm_files():
     idea_dir_path = ".idea"
     if os.path.exists(idea_dir_path):
@@ -324,6 +312,33 @@ def remove_storages_module():
     os.remove(os.path.join("{{cookiecutter.project_slug}}", "utils", "storages.py"))
 
 
+def handle_licenses():
+    dir_path = os.path.join("{{cookiecutter.project_slug}}", "licenses")
+    special_license_files = {
+        "European Union Public License 1.1": "COPYING",
+        "GNU General Public License v3.0": "COPYING",
+        "GNU Lesser General Public License v3.0": "COPYING.LESSER",
+        "The Unlicense": "UNLICENSE",
+    }
+    for filename in os.listdir(dir_path):
+        # You'll always see: '---\n' marking beginning + end of Jekyll format
+        with open(os.path.join(dir_path, filename)) as f:
+            contents = f.readlines()
+        title = contents[1].replace("title: ", "").replace("\n", "")
+        if title != "{{ cookiecutter.open_source_license }}":
+            continue
+        new_file = os.path.join(
+            "{{cookiecutter.project_slug}}", special_license_files.get(title, "LICENSE")
+        )
+        with open(new_file, "w") as f:
+            # +2 to get rid of the --- and and an extra new line
+            f.writelines(contents[contents.index("---\n", 1) + 2 :])
+        break
+    if "{{ cookiecutter.open_source_license }}" == "Not open source":
+        os.remove("CONTRIBUTORS.txt")
+    os.rmdir(dir_path)
+
+
 def main():
     debug = "{{ cookiecutter.debug }}".lower() == "y"
 
@@ -334,10 +349,7 @@ def main():
     )
     set_flags_in_settings_files()
 
-    if "{{ cookiecutter.open_source_license }}" == "Not open source":
-        remove_open_source_files()
-    if "{{ cookiecutter.open_source_license}}" != "GPLv3":
-        remove_gplv3_files()
+    handle_licenses()
 
     if "{{ cookiecutter.use_pycharm }}".lower() == "n":
         remove_pycharm_files()
