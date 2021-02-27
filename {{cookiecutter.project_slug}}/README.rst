@@ -172,7 +172,7 @@ Bootstrap's javascript as well as its dependencies is concatenated into a single
 
 {% endif %}
 
-{% if cookiecutter.license != "Not open source" %}
+{% if cookiecutter.open_source_license != "Not open source" %}
 License
 ^^^^^^
 
