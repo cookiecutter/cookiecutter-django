@@ -37,6 +37,30 @@ jobs:
 # With no caching at all the entire ci process takes 4m 30s to complete!
   pytest:
     runs-on: ubuntu-latest
+    {%- if cookiecutter.use_docker == 'n' %}
+
+    services:
+      {%- if cookiecutter.use_celery == 'y' %}
+      redis:
+        image: redis:5.0
+        ports:
+          - 6379:6379
+      {%- endif %}
+      postgres:
+        image: postgres:12
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_PASSWORD: postgres
+
+    env:
+      {%- if cookiecutter.use_celery == 'y' %}
+      CELERY_BROKER_URL: "redis://localhost:6379/0"
+      {%- endif %}
+      # postgres://user:password@host:port/database
+      DATABASE_URL: "postgres://postgres:postgres@localhost:5432/postgres"
+    {%- endif %}
+
     steps:
 
       - name: Checkout Code Repository
