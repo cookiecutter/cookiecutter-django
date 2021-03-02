@@ -34,7 +34,7 @@ jobs:
       - name: Install and Run Pre-commit 
         uses: pre-commit/action@v2.0.0
 
-# With no caching at all the entire ci process takes 4m 30s to complete!
+  # With no caching at all the entire ci process takes 4m 30s to complete!
   pytest:
     runs-on: ubuntu-latest
     {%- if cookiecutter.use_docker == 'n' %}
@@ -65,7 +65,7 @@ jobs:
 
       - name: Checkout Code Repository
         uses: actions/checkout@v2
-      {% if cookiecutter.use_docker == 'y' -%}
+      {%- if cookiecutter.use_docker == 'y' %}
 
       - name: Build the Stack
         run:  docker-compose -f local.yml build
@@ -81,7 +81,6 @@ jobs:
 
       - name: Tear down the Stack
         run:  docker-compose -f local.yml down
-
       {%- else %}
 
       - name: Set up Python 3.8
@@ -93,8 +92,8 @@ jobs:
         id: pip-cache-location
         run: |
           echo "::set-output name=dir::$(pip cache dir)"
+      {%- raw %}
 
-      {% raw %}
       - name: Cache pip Project Dependencies
         uses: actions/cache@v2
         with:
@@ -104,7 +103,7 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('**/local.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
-      {% endraw %}
+      {%- endraw %}
 
       - name: Install Dependencies
         run: |
@@ -113,5 +112,4 @@ jobs:
 
       - name: Test with pytest
         run:  pytest
-
       {%- endif %}
