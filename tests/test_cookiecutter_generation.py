@@ -231,7 +231,7 @@ def test_gitlab_invokes_flake8_and_pytest(
     ["use_docker", "expected_test_script"],
     [
         ("n", "pytest"),
-        ("y", "docker-compose -f local.yml exec -T django pytest"),
+        ("y", "docker-compose -f local.yml run django pytest"),
     ],
 )
 def test_github_invokes_linter_and_pytest(
