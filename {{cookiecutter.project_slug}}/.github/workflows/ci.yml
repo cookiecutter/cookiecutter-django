@@ -7,11 +7,11 @@ env:
 
 on:
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master", "main" ]
     paths-ignore: [ "docs/**" ]
 
   push:
-    branches: [ "master" ]
+    branches: [ "master", "main" ]
     paths-ignore: [ "docs/**" ]
 
 
