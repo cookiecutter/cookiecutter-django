@@ -70,14 +70,11 @@ jobs:
       - name: Build the Stack
         run:  docker-compose -f local.yml build
 
-      - name: Make DB Migrations
+      - name: Run DB Migrations
         run:  docker-compose -f local.yml run --rm django python manage.py migrate
 
-      - name: Run the Stack
-        run:  docker-compose -f local.yml up -d
-
       - name: Run Django Tests
-        run:  docker-compose -f local.yml exec -T django pytest
+        run:  docker-compose -f local.yml run django pytest
 
       - name: Tear down the Stack
         run:  docker-compose -f local.yml down
