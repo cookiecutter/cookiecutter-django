@@ -1,5 +1,5 @@
 [MASTER]
-load-plugins=pylint_django{% if cookiecutter.use_celery == "y" %}, pylint_celery {% endif %}
+load-plugins=pylint_django{% if cookiecutter.use_celery == "y" %}, pylint_celery{% endif %}
 
 [FORMAT]
 max-line-length=120

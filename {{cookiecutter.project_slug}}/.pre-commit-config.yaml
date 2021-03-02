@@ -26,4 +26,3 @@ repos:
       - id: flake8
         args: ['--config=setup.cfg']
         additional_dependencies: [flake8-isort]
-

@@ -9,10 +9,10 @@
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
      :target: https://github.com/ambv/black
      :alt: Black code style
-{% if cookiecutter.open_source_license != "Not open source" %}
+{%- if cookiecutter.open_source_license != "Not open source" %}
 
 :License: {{cookiecutter.open_source_license}}
-{% endif %}
+{%- endif %}
 
 Settings
 --------
@@ -67,7 +67,7 @@ Moved to `Live reloading and SASS compilation`_.
 
 .. _`Live reloading and SASS compilation`: http://cookiecutter-django.readthedocs.io/en/latest/live-reloading-and-sass-compilation.html
 
-{% if cookiecutter.use_celery == "y" %}
+{%- if cookiecutter.use_celery == "y" %}
 
 Celery
 ^^^^^^
@@ -83,19 +83,21 @@ To run a celery worker:
 
 Please note: For Celery's import magic to work, it is important *where* the celery commands are run. If you are in the same folder with *manage.py*, you should be right.
 
-{% endif %}
-{% if cookiecutter.use_mailhog == "y" %}
+{%- endif %}
+{%- if cookiecutter.use_mailhog == "y" %}
 
 Email Server
 ^^^^^^^^^^^^
-{% if cookiecutter.use_docker == 'y' %}
+{%- if cookiecutter.use_docker == 'y' %}
+
 In development, it is often nice to be able to see emails that are being sent from your application. For that reason local SMTP server `MailHog`_ with a web interface is available as docker container.
 
 Container mailhog will start automatically when you will run all docker containers.
 Please check `cookiecutter-django Docker documentation`_ for more details how to start all containers.
 
 With MailHog running, to view messages that are sent by your application, open your browser and go to ``http://127.0.0.1:8025``
-{% else %}
+{%- else %}
+
 In development, it is often nice to be able to see emails that are being sent from your application. If you choose to use `MailHog`_ when generating the project a local SMTP server with a web interface will be available.
 
 #. `Download the latest MailHog release`_ for your OS.
@@ -117,10 +119,10 @@ In development, it is often nice to be able to see emails that are being sent fr
 Now you have your own mail server running locally, ready to receive whatever you send it.
 
 .. _`Download the latest MailHog release`: https://github.com/mailhog/MailHog/releases
-{% endif %}
+{%- endif %}
 .. _mailhog: https://github.com/mailhog/MailHog
-{% endif %}
-{% if cookiecutter.use_sentry == "y" %}
+{%- endif %}
+{%- if cookiecutter.use_sentry == "y" %}
 
 Sentry
 ^^^^^^
@@ -129,13 +131,13 @@ Sentry is an error logging aggregator service. You can sign up for a free accoun
 The system is setup with reasonable defaults, including 404 logging and integration with the WSGI application.
 
 You must set the DSN url in production.
-{% endif %}
+{%- endif %}
 
 Deployment
 ----------
 
 The following details how to deploy this application.
-{% if cookiecutter.use_heroku.lower() == "y" %}
+{%- if cookiecutter.use_heroku.lower() == "y" %}
 
 Heroku
 ^^^^^^
@@ -143,8 +145,8 @@ Heroku
 See detailed `cookiecutter-django Heroku documentation`_.
 
 .. _`cookiecutter-django Heroku documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-on-heroku.html
-{% endif %}
-{% if cookiecutter.use_docker.lower() == "y" %}
+{%- endif %}
+{%- if cookiecutter.use_docker.lower() == "y" %}
 
 Docker
 ^^^^^^
@@ -152,9 +154,8 @@ Docker
 See detailed `cookiecutter-django Docker documentation`_.
 
 .. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html
-{% endif %}
-
-{% if cookiecutter.custom_bootstrap_compilation == "y" %}
+{%- endif %}
+{%- if cookiecutter.custom_bootstrap_compilation == "y" %}
 Custom Bootstrap Compilation
 ^^^^^^
 
@@ -163,11 +164,11 @@ Bootstrap v4 is installed using npm and customised by tweaking your variables in
 
 You can find a list of available variables `in the bootstrap source`_, or get explanations on them in the `Bootstrap docs`_.
 
-{% if cookiecutter.js_task_runner == 'Gulp' %}
+{%- if cookiecutter.js_task_runner == 'Gulp' %}
 Bootstrap's javascript as well as its dependencies is concatenated into a single file: ``static/js/vendors.js``.
-{% endif %}
+{%- endif %}
 
 .. _in the bootstrap source: https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss
 .. _Bootstrap docs: https://getbootstrap.com/docs/4.1/getting-started/theming/
 
-{% endif %}
+{%- endif %}
