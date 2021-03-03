@@ -17,11 +17,15 @@ cd .cache/docker
 cookiecutter ../../ --no-input --overwrite-if-exists use_docker=y $@
 cd my_awesome_project
 
+# Lint by running pre-commit on all files
+# Needs a git repo to find the project root
+# We don't have git inside Docker, so run it outside
+git init
+git add .
+pre-commit run --show-diff-on-failure -a
+
 # run the project's type checks
 docker-compose -f local.yml run django mypy my_awesome_project
-
-# Run black with --check option
-docker-compose -f local.yml run django black --check --diff  --exclude 'migrations' ./
 
 # run the project's tests
 docker-compose -f local.yml run django pytest
