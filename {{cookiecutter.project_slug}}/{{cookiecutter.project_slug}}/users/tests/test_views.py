@@ -1,13 +1,13 @@
 import pytest
 from django.conf import settings
 from django.contrib import messages
-from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
 from django.contrib.messages.middleware import MessageMiddleware
 from django.contrib.sessions.middleware import SessionMiddleware
-from django.test import RequestFactory
+from django.test import Client, RequestFactory
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
+from pytest_django.asserts import assertContains, assertRedirects
 
 from {{ cookiecutter.project_slug }}.users.models import User
 from {{ cookiecutter.project_slug }}.users.views import (
@@ -30,7 +30,7 @@ class TestUserUpdateView:
 
     form_data = {"name": "Updated Name"}
 
-    def test_get_success_url(self, user: User, rf: RequestFactory):
+    def test_get_success_url(self, user: User, rf: RequestFactory, client: Client):
         url = reverse("users:update")
         request = rf.post(url, self.form_data)
 
@@ -46,8 +46,16 @@ class TestUserUpdateView:
         # Process request and get response
         response = UserUpdateView.as_view()(request)
 
-        assert response.url == f"/users/{user.username}/"
-        assert response.status_code == 302
+        # Add client attribute to response object
+        # required for assertRedirects
+        response.client = client
+
+        # Make User login
+        response.client.force_login(user)
+
+        # Make sure the correct url is returned with status_code 302
+        # and the final constructed url page can be loaded with status_code 200
+        assertRedirects(response, expected_url=f"/users/{user.username}/")
 
     def test_get_object(self, user: User, rf: RequestFactory):
         url = reverse("users:update")
@@ -76,12 +84,9 @@ class TestUserUpdateView:
         # Process request and get response
         UserUpdateView.as_view()(request)
 
-        # Get the updated user by name
-        new_user = get_user_model().objects.filter(name=self.form_data["name"])
-
-        # assert that the name matches
-        assert new_user != []
-        assert new_user.first().name == self.form_data["name"]  # type: ignore [union-attr]
+        # Get the updated user
+        user.refresh_from_db()
+        assert user.name == self.form_data["name"]
 
         messages_sent = [m.message for m in messages.get_messages(request)]
         assert messages_sent == [_("Information successfully updated")]
@@ -101,7 +106,7 @@ class TestUserRedirectView:
 
 
 class TestUserDetailView:
-    def test_authenticated(self, user: User, rf: RequestFactory):
+    def test_authenticated(self, user: User, rf: RequestFactory, client: Client):
         url = reverse("users:detail", kwargs={"username": user.username})
         request = rf.get(url)
 
@@ -111,9 +116,22 @@ class TestUserDetailView:
         # Process request and get response
         response = UserDetailView.as_view()(request, username=user.username)
 
-        assert response.status_code == 200
+        # Add client attribute to response object
+        # required for assertRedirects
+        # by default this will assume the user is not logged-in
+        response.client = client
 
-    def test_not_authenticated(self, user: User, rf: RequestFactory):
+        # Make User login
+        response.client.force_login(user)
+
+        # Make sure status_code 200 is returned
+        # and that the user's username appears in the response content
+        assertContains(response, text=user.username)
+
+    def test_not_authenticated(self, user: User, rf: RequestFactory, client: Client):
+        # Get Login Url
+        login_url = reverse(settings.LOGIN_URL)
+
         url = reverse("users:detail", kwargs={"username": user.username})
         request = rf.get(url)
 
@@ -123,6 +141,11 @@ class TestUserDetailView:
         # Process request and get response
         response = UserDetailView.as_view()(request, username=user.username)
 
-        login_url = reverse(settings.LOGIN_URL)
-        assert response.status_code == 302
-        assert response.url == f"{login_url}?next={url}"
+        # Add client attribute to response object
+        # required for assertRedirects
+        # by default this will assume the user is not logged-in
+        response.client = client
+
+        # Make sure the correct url is returned with status_code 302
+        # and the final constructed url page can be loaded with status_code 200
+        assertRedirects(response, expected_url=f"{login_url}?next={url}")
