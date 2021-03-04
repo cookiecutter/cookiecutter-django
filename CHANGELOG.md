@@ -3,6 +3,18 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-03-03]
+### Updated
+- Update tox to 3.23.0 ([#3079](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3079))
+- Update ipdb to 0.13.5 ([#3078](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3078))
+
+## [2021-03-02]
+### Fixed
+- Fixes for pytest job in Github CI workflow ([#3076](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3076))
+### Updated
+- Update pillow to 8.1.1 ([#3075](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3075))
+- Update coverage to 5.5 ([#3074](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3074))
+
 ## [2021-02-24]
 ### Updated
 - Bump stefanzweifel/git-auto-commit-action from v4.9.0 to v4.9.1 ([#3069](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3069))
