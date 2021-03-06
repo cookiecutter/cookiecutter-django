@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-03-05]
+### Changed
+- Updated test_urls.py and views.py to re-use User.get_absolute_url() ([#3070](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3070))
+### Updated
+- Bump stefanzweifel/git-auto-commit-action from v4.9.1 to v4.9.2 ([#3082](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3082))
+
 ## [2021-03-03]
 ### Updated
 - Update tox to 3.23.0 ([#3079](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3079))
