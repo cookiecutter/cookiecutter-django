@@ -16,12 +16,12 @@ repos:
       - id: black
 
   - repo: https://github.com/timothycrosley/isort
-    rev: 5.7.0
+    rev: 5.8.0
     hooks:
       - id: isort
 
   - repo: https://gitlab.com/pycqa/flake8
-    rev: 3.8.4
+    rev: 3.9.0
     hooks:
       - id: flake8
         args: ['--config=setup.cfg']
