@@ -3,6 +3,18 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-03-22]
+### Updated
+- Update django-crispy-forms to 1.11.2 ([#3104](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3104))
+- Update sphinx to 3.5.3 ([#3103](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3103))
+- Update ipdb to 0.13.7 ([#3102](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3102))
+- Update sphinx-autobuild to 2021.3.14 ([#3101](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3101))
+- Update isort to 5.8.0 ([#3100](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3100))
+- Update pre-commit to 2.11.1 ([#3089](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3089))
+- Update flake8 to 3.9.0 ([#3096](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3096))
+- Update pillow to 8.1.2 ([#3084](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3084))
+- Auto-update pre-commit hooks ([#3095](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3095))
+
 ## [2021-03-05]
 ### Changed
 - Updated test_urls.py and views.py to re-use User.get_absolute_url() ([#3070](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3070))
