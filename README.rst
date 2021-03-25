@@ -50,7 +50,7 @@ Features
 * Registration via django-allauth_
 * Comes with custom user model ready to go
 * Optional basic ASGI setup for Websockets
-* Optional custom static build using Gulp and livereload
+* Optional custom static build using Webpack
 * Send emails via Anymail_ (using Mailgun_ by default or Amazon SES if AWS is selected cloud provider, but switchable)
 * Media storage using Amazon S3 or Google Cloud Storage
 * Docker support using docker-compose_ for development and production (using Traefik_ with LetsEncrypt_ support)
@@ -184,8 +184,8 @@ Answer the prompts with your own desired options_. For example::
     5 - 9.5
     Choose from 1, 2, 3, 4, 5 [1]: 1
     Select js_task_runner:
-    1 - None
-    2 - Gulp
+    1 - Webpack
+    2 - None
     Choose from 1, 2 [1]: 1
     Select cloud_provider:
     1 - AWS
