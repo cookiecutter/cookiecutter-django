@@ -175,7 +175,7 @@ STATICFILES_FINDERS = [
 
 {%- if cookiecutter.js_task_runner == "Webpack" %}
 WEBPACK_LOADER = {
-    'MANIFEST_FILE': str(ROOT_DIR / "frontend/build/manifest.json"),
+    "MANIFEST_FILE": str(ROOT_DIR / "frontend/build/manifest.json"),
 }
 {%- endif %}
 
