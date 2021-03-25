@@ -78,7 +78,7 @@ SUPPORTED_COMBINATIONS = [
     {"use_drf": "y"},
     {"use_drf": "n"},
     {"js_task_runner": "None"},
-    {"js_task_runner": "Gulp"},
+    {"js_task_runner": "Webpack"},
     {"custom_bootstrap_compilation": "y"},
     {"custom_bootstrap_compilation": "n"},
     {"use_compressor": "y"},

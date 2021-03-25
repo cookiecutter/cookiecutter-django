@@ -82,18 +82,6 @@ def remove_heroku_build_hooks():
     shutil.rmtree("bin")
 
 
-def remove_gulp_files():
-    file_names = ["gulpfile.js"]
-    for file_name in file_names:
-        os.remove(file_name)
-
-
-def remove_packagejson_file():
-    file_names = ["package.json"]
-    for file_name in file_names:
-        os.remove(file_name)
-
-
 def remove_celery_files():
     file_names = [
         os.path.join("config", "celery_app.py"),
@@ -324,6 +312,16 @@ def remove_storages_module():
     os.remove(os.path.join("{{cookiecutter.project_slug}}", "utils", "storages.py"))
 
 
+def create_webpack_project():
+    from cookiecutter.main import cookiecutter
+
+    cookiecutter(
+        "https://github.com/AccordBox/python-webpack-boilerplate",
+        directory="frontend_template",
+        no_input=True,
+    )
+
+
 def main():
     debug = "{{ cookiecutter.debug }}".lower() == "y"
 
@@ -376,10 +374,11 @@ def main():
             append_to_gitignore_file("!.envs/.local/")
 
     if "{{ cookiecutter.js_task_runner}}".lower() == "none":
-        remove_gulp_files()
-        remove_packagejson_file()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_node_dockerfile()
+
+    if "{{ cookiecutter.js_task_runner }}".lower() == "webpack":
+        create_webpack_project()
 
     if "{{ cookiecutter.cloud_provider}}".lower() == "none":
         print(

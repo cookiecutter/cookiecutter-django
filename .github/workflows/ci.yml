@@ -36,7 +36,7 @@ jobs:
           - name: Basic
             args: ""
           - name: Extended
-            args: "use_celery=y use_drf=y js_task_runner=Gulp"
+            args: "use_celery=y use_drf=y js_task_runner=Webpack"
 
     env:
       DOCKER_BUILDKIT: 1

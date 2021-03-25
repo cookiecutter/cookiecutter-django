@@ -1,10 +1,10 @@
-{% if cookiecutter.js_task_runner == 'Gulp' -%}
+{% if cookiecutter.js_task_runner == 'Webpack' -%}
 FROM node:10-stretch-slim as client-builder
 
-WORKDIR /app
-COPY ./package.json /app
+WORKDIR /app/frontend
+COPY ./frontend/package.json ./frontend/package-lock.json ./
 RUN npm install && npm cache clean --force
-COPY . /app
+COPY ./frontend/ ./
 RUN npm run build
 
 # Python build stage
@@ -58,11 +58,11 @@ RUN sed -i 's/\r$//g' /start-flower
 RUN chmod +x /start-flower
 {%- endif %}
 
-{%- if cookiecutter.js_task_runner == 'Gulp' %}
-COPY --from=client-builder --chown=django:django /app /app
-{% else %}
-COPY --chown=django:django . /app
+{%- if cookiecutter.js_task_runner == 'Webpack' %}
+COPY --from=client-builder --chown=django:django /app/frontend/build /app/frontend/build
 {%- endif %}
+
+COPY --chown=django:django . /app
 
 USER django
 

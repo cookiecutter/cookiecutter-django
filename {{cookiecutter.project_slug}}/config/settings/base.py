@@ -82,6 +82,9 @@ THIRD_PARTY_APPS = [
     "rest_framework.authtoken",
     "corsheaders",
 {%- endif %}
+{%- if cookiecutter.js_task_runner == "Webpack" %}
+    "webpack_loader",
+{%- endif %}
 ]
 
 LOCAL_APPS = [
@@ -158,12 +161,23 @@ STATIC_ROOT = str(ROOT_DIR / "staticfiles")
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
-STATICFILES_DIRS = [str(APPS_DIR / "static")]
+STATICFILES_DIRS = [
+    str(APPS_DIR / "static"),
+    {%- if cookiecutter.js_task_runner == "Webpack" %}
+    str(ROOT_DIR / "frontend/build"),
+    {%- endif %}
+]
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
+
+{%- if cookiecutter.js_task_runner == "Webpack" %}
+WEBPACK_LOADER = {
+    'MANIFEST_FILE': str(ROOT_DIR / "frontend/build/manifest.json"),
+}
+{%- endif %}
 
 # MEDIA
 # ------------------------------------------------------------------------------
