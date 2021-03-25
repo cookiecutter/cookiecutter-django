@@ -154,20 +154,18 @@ See detailed `cookiecutter-django Docker documentation`_.
 .. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html
 {% endif %}
 
-{% if cookiecutter.custom_bootstrap_compilation == "y" %}
-Custom Bootstrap Compilation
-^^^^^^
+{% if cookiecutter.js_task_runner == "Webpack" %}
+Webpack
+^^^^^^^
 
-The generated CSS is set up with automatic Bootstrap recompilation with variables of your choice.
-Bootstrap v4 is installed using npm and customised by tweaking your variables in ``static/sass/custom_bootstrap_vars``.
+To run Webpack::
 
-You can find a list of available variables `in the bootstrap source`_, or get explanations on them in the `Bootstrap docs`_.
+    $ cd frontend
+    $ npm install
+    $ npm run watch
 
-{% if cookiecutter.js_task_runner == 'Gulp' %}
-Bootstrap's javascript as well as its dependencies is concatenated into a single file: ``static/js/vendors.js``.
-{% endif %}
+See detailed `python-webpack-boilerplate documentation`_.
 
-.. _in the bootstrap source: https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss
-.. _Bootstrap docs: https://getbootstrap.com/docs/4.1/getting-started/theming/
+.. _`python-webpack-boilerplate documentation`: https://python-webpack-boilerplate.rtfd.io/
 
 {% endif %}

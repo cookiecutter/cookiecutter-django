@@ -46,7 +46,6 @@
   ],
   "use_async": "n",
   "use_drf": "n",
-  "custom_bootstrap_compilation": "n",
   "use_compressor": "n",
   "use_celery": "n",
   "use_mailhog": "n",

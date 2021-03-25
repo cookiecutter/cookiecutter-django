@@ -192,7 +192,6 @@ Answer the prompts with your own desired options_. For example::
     2 - GCP
     3 - None
     Choose from 1, 2, 3 [1]: 1
-    custom_bootstrap_compilation [n]: n
     Select open_source_license:
     1 - MIT
     2 - BSD
