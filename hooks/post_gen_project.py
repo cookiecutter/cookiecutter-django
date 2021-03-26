@@ -321,6 +321,11 @@ def create_webpack_project():
         no_input=True,
     )
 
+    # create empty directory to avoid warning from django-debug-toolbar
+    os.mkdir(
+        os.path.join("frontend", "build")
+    )
+
 
 def main():
     debug = "{{ cookiecutter.debug }}".lower() == "y"
