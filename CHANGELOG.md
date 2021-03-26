@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-03-25]
+### Updated
+- Update djangorestframework to 3.12.3 ([#3105](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3105))
+
 ## [2021-03-22]
 ### Updated
 - Update django-crispy-forms to 1.11.2 ([#3104](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3104))
