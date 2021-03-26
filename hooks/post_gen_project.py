@@ -322,9 +322,7 @@ def create_webpack_project():
     )
 
     # create empty directory to avoid warning from django-debug-toolbar
-    os.mkdir(
-        os.path.join("frontend", "build")
-    )
+    os.mkdir(os.path.join("frontend", "build"))
 
 
 def main():
