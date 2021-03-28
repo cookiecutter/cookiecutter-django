@@ -148,6 +148,25 @@ To run Celery locally, make sure redis-server is installed (instructions are ava
     
     celery -A config.celery_app worker --loglevel=info
 
+(Optional) watchman
+~~~~~~~~~~~~~~~~~~~
+
+Django runserver can use WatchmanReloader that integrates with watchman_.
+Compared to the default StatReloader, it reduces baseline CPU usage
+significantly.
+
+If you want to use watchman file watcher locally, you'll need to install it
+manually. Please follow instructions on watchman_ page. The pywatchman version
+on pypi is old, but appears to work. If you want a newer version of pywatchman,
+you'll need to build it manually. To do that clone latest version of watchman
+from GitHub, then::
+
+    git clone --depth 1 https://github.com/facebook/watchman/ && \
+        cd watchman/python && python setup.py bdist_wheel && \
+        pip install dist/pywatchman*whl
+
+.. _watchman: https://facebook.github.io/watchman/
+
 
 Sass Compilation & Live Reloading
 ---------------------------------

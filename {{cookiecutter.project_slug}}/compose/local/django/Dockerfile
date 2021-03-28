@@ -10,9 +10,30 @@ RUN apt-get update \
   && apt-get install -y libpq-dev \
   # Translations dependencies
   && apt-get install -y gettext \
+{%- if cookiecutter.use_watchman == "y" %}
+  # needed to download watchman
+  && apt-get install -y curl unzip subversion \
+{%- endif %}
   # cleaning up unused files
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*
+
+{%- if cookiecutter.use_watchman == "y" %}
+ARG WATCHMAN_VERSION
+WORKDIR /watchman-build
+RUN curl -sSLO https://github.com/facebook/watchman/releases/download/${WATCHMAN_VERSION}/watchman-${WATCHMAN_VERSION}-linux.zip && \
+    unzip watchman-${WATCHMAN_VERSION}-linux.zip && \
+    chmod +x watchman-${WATCHMAN_VERSION}-linux/bin/* \
+      watchman-${WATCHMAN_VERSION}-linux/lib/* && \
+    cp -rp watchman-${WATCHMAN_VERSION}-linux/bin/* /usr/local/bin/ && \
+    cp -rp watchman-${WATCHMAN_VERSION}-linux/lib/* /usr/local/lib/ && \
+    mkdir -p /usr/local/var/run/watchman && chown 2777 /usr/local/var/run/watchman
+# The pywatchman version on pypi is really outdated, build from source
+RUN svn export https://github.com/facebook/watchman/tags/${WATCHMAN_VERSION}/python
+RUN cd python && python setup.py bdist_wheel && pip install dist/pywatchman*whl
+WORKDIR /
+RUN rm -rf /watchman-build
+{%- endif %}
 
 # Requirements are installed here to ensure they will be cached.
 COPY ./requirements /requirements

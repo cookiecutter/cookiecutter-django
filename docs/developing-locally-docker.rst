@@ -292,3 +292,16 @@ See `https with nginx`_ for more information on this configuration.
 Add ``certs/*`` to the ``.gitignore`` file. This allows the folder to be included in the repo but its contents to be ignored.
 
 *This configuration is for local development environments only. Do not use this for production since you might expose your local* ``rootCA-key.pem``.
+
+(Optional) watchman
+~~~~~~~~~~~~~~~~~~~
+
+`Django runserver`_ can use WatchmanReloader that integrates with watchman_.
+Compared to the default StatReloader, it reduces baseline CPU usage
+significantly.
+
+Watchman is automatically installed in Docker for local use if selected during
+project generation.
+
+  .. _watchman: https://facebook.github.io/watchman/
+  .. _Django runserver: https://docs.djangoproject.com/en/3.1/ref/django-admin/#runserver

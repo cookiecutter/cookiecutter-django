@@ -113,6 +113,11 @@ use_heroku:
     Indicates whether the project should be configured so as to be deployable
     to Heroku_.
 
+use_watchman:
+    Indicates whether to use watchman_ as file watcher. `Django runserver`_ has
+    builtin support for watchman . Adds automatic watchman installation in Docker_,
+    but needs manual installation otherwise.
+
 ci_tool:
     Select a CI tool for running tests. The choices are:
 
@@ -178,3 +183,6 @@ debug:
 .. _GitLab CI: https://docs.gitlab.com/ee/ci/
 
 .. _Github Actions: https://docs.github.com/en/actions
+
+.. _watchman: https://facebook.github.io/watchman/
+.. _Django runserver: https://docs.djangoproject.com/en/3.1/ref/django-admin/#runserver

@@ -324,6 +324,10 @@ def remove_storages_module():
     os.remove(os.path.join("{{cookiecutter.project_slug}}", "utils", "storages.py"))
 
 
+def remove_watchman_files():
+    os.remove(".watchmanconfig")
+
+
 def main():
     debug = "{{ cookiecutter.debug }}".lower() == "y"
 
@@ -407,6 +411,9 @@ def main():
 
     if "{{ cookiecutter.use_async }}".lower() == "n":
         remove_async_files()
+
+    if "{{ cookiecutter.use_watchman }}".lower() == "n":
+        remove_watchman_files()
 
     print(SUCCESS + "Project initialized, keep up the good work!" + TERMINATOR)
 

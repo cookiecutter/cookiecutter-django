@@ -15,3 +15,9 @@ REDIS_URL=redis://redis:6379/0
 CELERY_FLOWER_USER=!!!SET CELERY_FLOWER_USER!!!
 CELERY_FLOWER_PASSWORD=!!!SET CELERY_FLOWER_PASSWORD!!!
 {% endif %}
+
+{%- if cookiecutter.use_watchman == 'y' %}
+# Watchman
+# ------------------------------------------------------------------------------
+DJANGO_WATCHMAN_TIMEOUT=30
+{% endif %}

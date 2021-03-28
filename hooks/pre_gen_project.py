@@ -80,3 +80,12 @@ if (
         "You should either use AWS or select a different Mail Service for sending emails."
     )
     sys.exit(1)
+
+if (
+    "{{ cookiecutter.use_docker }}".lower() == "n"
+    and "{{ cookiecutter.use_watchman }}".lower() == "y"
+):
+    print(
+        "Automatic watchman installation is only setup in Docker for now. You can install "
+        "watchman from https://github.com/facebook/watchman/releases and pywatchman from pypi."
+    )
