@@ -97,8 +97,8 @@ The most important thing for us here now is ``env_file`` section enlisting ``./.
 
     .envs
     ├── .local
-    │   ├── .django
-    │   └── .postgres
+         ├── .django
+         └── .postgres
     └── .production
         ├── .django
         └── .postgres
@@ -200,12 +200,14 @@ By default, it's enabled both in local and production environments (``local.yml`
 
 .. _`Flower`: https://github.com/mher/flower
 
-Developing locally with HTTPS
------------------------------
+**Developing locally with HTTPS**
+---------------------------------
 
-Increasingly it is becoming necessary to develop software in a secure environment in order that there are very few changes when deploying to production. Recently Facebook changed their policies for apps/sites that use Facebook login which requires the use of an HTTPS URL for the OAuth redirect URL. So if you want to use the ``users`` application with a OAuth provider such as Facebook, securing your communication to the local development environment will be necessary.
+It is becoming increasingly necessary to develop software in a secure environment so that there are very few changes when deploying to production. Many social media sites changed their policies for apps/sites that use their OAuth login features. They are now required the use of an HTTPS URL for the redirect URL even for ``localhost`` devloping and testing purposes.
 
-On order to create a secure environment, we need to have a trusted SSL certficate installed in our Docker application.
+So if you want to use the ``users`` application with a OAuth provider such as Facebook, securing your communication to the local development environment will be necessary.
+
+On order to create a secure environment, we need to have a trusted SSL certficate installed in our development environment.
 
 #.  **Let's Encrypt**
     
@@ -219,20 +221,61 @@ On order to create a secure environment, we need to have a trusted SSL certficat
 
 #.  **mkcert: Valid Https Certificates For Localhost**
     
-    `mkcert`_ is a simple by design tool that hides all the arcane knowledge required to generate valid TLS certificates. It works for any hostname or IP, including localhost. It supports macOS, Linux, and Windows, and Firefox, Chrome and Java. It even works on mobile devices with a couple manual steps.
+    `mkcert`_ is a simple by design tool that hides all the arcane knowledge required to generate valid TLS certificates. It works for any hostname or IP, including ``localhost``. It supports macOS, Linux, and Windows, and Firefox, Chrome and Java. It even works on mobile devices with a couple manual steps.
 
     See https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/
 
     .. _`mkcert`:  https://github.com/FiloSottile/mkcert/blob/master/README.md#supported-root-stores
 
-After installing a trusted TLS certificate, configure your docker installation. We are going to configure an ``nginx`` reverse-proxy server. This makes sure that it does not interfere with our ``traefik`` configuration that is reserved for production environements.
-
-These are the places that you should configure to secure your local environment.
-
 certs
 ~~~~~
 
-Take the certificates that you generated and place them in a folder called ``certs`` on the projects root folder. Assuming that you registered your local hostname as ``my-dev-env.local``, the certificates you will put in the folder should have the names ``my-dev-env.local.crt`` and ``my-dev-env.local.key``.
+#. Generate TLS certificates with ``mkcert`` and place the certificates them in a folder in the django project root. We will call our folder ``certs``. 
+
+Assuming that you registered your local hostname as ``my-dev-env``, the certificates you will put in the folder should have the names ``my-dev-env.pem`` and ``my-dev-env-key.pem`` for the certificate and key respectively.
+
+2. **NOTE:** Modify your ``/etc/hosts`` file to have ``my-dev-env`` as the domain you are serving traffic over HTTPS for. The entry should look something like this: ::
+
+    ...
+    # Local HTTPS domain testing
+    127.0.0.1   my-dev-env
+    ...
+
+HTTPS on the local Python install
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Django SSL Server**
+
+`django-sslserver`_ is a small library which adds the ability to run a secure debug server with the certificates we just created with ``mkcert``. 
+
+``pip install django-sslserver``
+
+Update your ``config/settings/local.py``. ::
+
+    INSTALLED_APPS = (
+        ...
+        'sslserver',
+        ...
+    )
+    ...
+    ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "my-dev-env"]
+
+For a particular port choice (ours is ``:8800``), in your terminal, run::
+
+    python manage.py runsslserver 0.0.0.0:8800 --certificate certs/my-dev-env.pem --key certs/my-dev-env-key.pem
+
+You should see the secure connection *padlock* on the url ``https://my-dev-env:8800``. 
+
+For more information on this, visit `https://github.com/teddziuba/django-sslserver <https://github.com/teddziuba/django-sslserver>`_.
+
+.. _`django-sslserver`: https://github.com/teddziuba/django-sslserver
+
+HTTPS on the local Docker installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Start by placing the ``certs`` folder in the project root. We will then configure an ``nginx`` container so as not to interfere with our ``traefik`` configuration that is reserved for the production environment. The plan is to copy the certificates into the ``nginx`` container that will then be the *reverse-proxy* to our django application.
+
+These are the places that you should configure to secure your local environment.
 
 local.yml
 ~~~~~~~~~
@@ -255,32 +298,39 @@ local.yml
         - django
     
     ...
+#. On the django service, confirm that you are connected to the ``envs`` files and remove/comment out the ``ports``. ::
+
+    ...
+    env_file:
+      - ./.envs/.local/.django
+    ...
+    # ports:
+    #  - 8000:8000
+    ...
 
 #. Link the ``nginx-proxy`` to ``django`` through environmental variables.
    
-   ``django`` already has an ``.env`` file connected to it. Add the following variables. You should do this especially if you are working with a team and you want to keep your local environment details to yourself.
-
-   ::
+   ``django`` already has an ``.envs/.local`` file connected to it. Add the following variables. You should do this especially if you are working with a team and you want to keep your local environment details to yourself. ::
 
       # HTTPS
-      # ------------------------------------------------------------------------------
-      VIRTUAL_HOST=my-dev-env.local
+      # ----------------------
+      VIRTUAL_HOST=my-dev-env
       VIRTUAL_PORT=8000
 
-   The services run behind the reverse proxy.
+   The django application and other services will now run behind the reverse proxy.
 
 config/settings/local.py
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-You should allow the new hostname. ::
+You should *allow* the new hostname . ::
 
-  ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "my-dev-env.local"]
+  ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "my-dev-env"]
 
 Rebuild your ``docker`` application. ::
 
   $ docker-compose -f local.yml up -d --build
 
-Go to your browser and type in your URL bar ``https://my-dev-env.local``
+Go to your browser and type in your URL bar ``https://my-dev-env:8800``.
 
 See `https with nginx`_ for more information on this configuration.
 

@@ -155,6 +155,14 @@ Sass Compilation & Live Reloading
 If you’d like to take advantage of live reloading and Sass compilation you can do so with a little
 bit of preparation, see :ref:`sass-compilation-live-reload`.
 
+Use HTTPS on the local development environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you are interested in securing your development evnvironment using TLS certificates, click `here`_ for the instructions.
+
+.. _`here`: ../developing-locally-docker.rst#HTTPS on the local Docker installation
+
+
 Summary
 -------
 
