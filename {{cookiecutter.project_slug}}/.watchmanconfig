@@ -10,5 +10,8 @@
     "templates",
     "static",
     "static_assets"
+    {%-if cookiecutter.use_docker %}
+    "compose"
+    {%- endif %}
   ]
 }

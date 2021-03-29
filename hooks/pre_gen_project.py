@@ -86,6 +86,16 @@ if (
     and "{{ cookiecutter.use_watchman }}".lower() == "y"
 ):
     print(
-        "Automatic watchman installation is only setup in Docker for now. You can install "
-        "watchman from https://github.com/facebook/watchman/releases and pywatchman from pypi."
+        "Automatic watchman installation is only setup in Docker for now. Please see "
+        '"Getting Up and Running Locally" section of cookiecutter-django docs for details '
+        "on local installation"
     )
+
+if (
+    "{{ cookiecutter.use_async }}".lower() == "y"
+    and "{{ cookiecutter.use_watchman }}".lower() == "y"
+):
+    print(
+        "Async and watchman don't work together "
+    )
+    sys.exit(1)

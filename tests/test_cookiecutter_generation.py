@@ -74,7 +74,8 @@ SUPPORTED_COMBINATIONS = [
     {"cloud_provider": "GCP", "mail_service": "Other SMTP"},
     # Note: cloud_providers GCP and None with mail_service Amazon SES is not supported
     {"use_async": "y"},
-    {"use_async": "n"},
+    {"use_async": "n", "use_watchman": "y"},
+    {"use_async": "n", "use_watchman": "n"},
     {"use_drf": "y"},
     {"use_drf": "n"},
     {"js_task_runner": "None"},
@@ -93,8 +94,6 @@ SUPPORTED_COMBINATIONS = [
     {"use_whitenoise": "n"},
     {"use_heroku": "y"},
     {"use_heroku": "n"},
-    {"use_watchman": "y"},
-    {"use_watchman": "n"},
     {"ci_tool": "None"},
     {"ci_tool": "Travis"},
     {"ci_tool": "Gitlab"},

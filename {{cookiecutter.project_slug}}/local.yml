@@ -9,10 +9,6 @@ services:
     build:
       context: .
       dockerfile: ./compose/local/django/Dockerfile
-      {%- if cookiecutter.use_watchman == 'y' %}
-      args:
-        WATCHMAN_VERSION: v2021.03.01.00
-      {%- endif %}
     image: {{ cookiecutter.project_slug }}_local_django
     container_name: django
     depends_on:

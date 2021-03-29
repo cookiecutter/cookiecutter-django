@@ -12,14 +12,14 @@ RUN apt-get update \
   && apt-get install -y gettext \
 {%- if cookiecutter.use_watchman == "y" %}
   # needed to download watchman
-  && apt-get install -y curl unzip subversion \
+  && apt-get install -y curl unzip git \
 {%- endif %}
   # cleaning up unused files
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*
 
 {%- if cookiecutter.use_watchman == "y" %}
-ARG WATCHMAN_VERSION
+ARG WATCHMAN_VERSION=v2021.03.01.00
 WORKDIR /watchman-build
 RUN curl -sSLO https://github.com/facebook/watchman/releases/download/${WATCHMAN_VERSION}/watchman-${WATCHMAN_VERSION}-linux.zip && \
     unzip watchman-${WATCHMAN_VERSION}-linux.zip && \
@@ -29,8 +29,8 @@ RUN curl -sSLO https://github.com/facebook/watchman/releases/download/${WATCHMAN
     cp -rp watchman-${WATCHMAN_VERSION}-linux/lib/* /usr/local/lib/ && \
     mkdir -p /usr/local/var/run/watchman && chown 2777 /usr/local/var/run/watchman
 # The pywatchman version on pypi is really outdated, build from source
-RUN svn export https://github.com/facebook/watchman/tags/${WATCHMAN_VERSION}/python
-RUN cd python && python setup.py bdist_wheel && pip install dist/pywatchman*whl
+RUN git clone --branch ${WATCHMAN_VERSION} --depth 1 https://github.com/facebook/watchman/
+RUN cd watchman/python && python setup.py bdist_wheel && pip install dist/pywatchman*whl
 WORKDIR /
 RUN rm -rf /watchman-build
 {%- endif %}

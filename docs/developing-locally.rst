@@ -152,8 +152,8 @@ To run Celery locally, make sure redis-server is installed (instructions are ava
 ~~~~~~~~~~~~~~~~~~~
 
 Django runserver can use WatchmanReloader that integrates with watchman_.
-Compared to the default StatReloader, it reduces baseline CPU usage
-significantly.
+Compared to the default StatReloader, it reduces baseline CPU usage for large
+projects.
 
 If you want to use watchman file watcher locally, you'll need to install it
 manually. Please follow instructions on watchman_ page. The pywatchman version
