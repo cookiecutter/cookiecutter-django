@@ -12,7 +12,7 @@ RUN apt-get update \
   && apt-get install -y gettext \
 {%- if cookiecutter.use_watchman == "y" %}
   # needed to download watchman
-  && apt-get install -y curl unzip git \
+  && apt-get install -y curl unzip \
 {%- endif %}
   # cleaning up unused files
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
@@ -29,8 +29,10 @@ RUN curl -sSLO https://github.com/facebook/watchman/releases/download/${WATCHMAN
     cp -rp watchman-${WATCHMAN_VERSION}-linux/lib/* /usr/local/lib/ && \
     mkdir -p /usr/local/var/run/watchman && chown 2777 /usr/local/var/run/watchman
 # The pywatchman version on pypi is really outdated, build from source
-RUN git clone --branch ${WATCHMAN_VERSION} --depth 1 https://github.com/facebook/watchman/
-RUN cd watchman/python && python setup.py bdist_wheel && pip install dist/pywatchman*whl
+RUN curl -sSLO https://github.com/facebook/watchman/archive/refs/tags/${WATCHMAN_VERSION}.zip && \
+    unzip ${WATCHMAN_VERSION}.zip && cd watchman-*/python && \
+    python setup.py bdist_wheel && \
+    pip install dist/pywatchman*whl
 WORKDIR /
 RUN rm -rf /watchman-build
 {%- endif %}
