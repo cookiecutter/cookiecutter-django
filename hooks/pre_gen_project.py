@@ -95,7 +95,5 @@ if (
     "{{ cookiecutter.use_async }}".lower() == "y"
     and "{{ cookiecutter.use_watchman }}".lower() == "y"
 ):
-    print(
-        "Async and watchman don't work together "
-    )
+    print("Async and watchman don't work together ")
     sys.exit(1)
