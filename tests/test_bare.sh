@@ -27,5 +27,11 @@ sudo utility/install_os_dependencies.sh install
 # Install Python deps
 pip install -r requirements/local.txt
 
+# Lint by running pre-commit on all files
+# Needs a git repo to find the project root
+git init
+git add .
+pre-commit run --show-diff-on-failure -a
+
 # run the project's tests
 pytest

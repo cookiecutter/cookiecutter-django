@@ -64,10 +64,9 @@ services:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_flower
     command: /start-flower
-
   {%- endif %}
+  {%- if cookiecutter.cloud_provider == 'AWS' %}
 
-  {% if cookiecutter.cloud_provider == 'AWS' %}
   awscli:
     build:
       context: .
