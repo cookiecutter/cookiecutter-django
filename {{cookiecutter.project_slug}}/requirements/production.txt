@@ -2,7 +2,7 @@
 
 -r base.txt
 
-gunicorn==20.0.4  # https://github.com/benoitc/gunicorn
+gunicorn==20.1.0  # https://github.com/benoitc/gunicorn
 psycopg2==2.8.6  # https://github.com/psycopg/psycopg2
 {%- if cookiecutter.use_whitenoise == 'n' %}
 Collectfast==2.2.0  # https://github.com/antonagestam/collectfast
