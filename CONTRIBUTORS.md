@@ -1364,6 +1364,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Tames McTigue</td>
+    <td>
+      <a href="https://github.com/Tamerz">Tamerz</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Tano Abeleyra</td>
     <td>
       <a href="https://github.com/tanoabeleyra">tanoabeleyra</a>
