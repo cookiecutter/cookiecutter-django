@@ -7,11 +7,11 @@ env:
 
 on:
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master", "main" ]
     paths-ignore: [ "docs/**" ]
 
   push:
-    branches: [ "master" ]
+    branches: [ "master", "main" ]
     paths-ignore: [ "docs/**" ]
 
 
@@ -34,30 +34,50 @@ jobs:
       - name: Install and Run Pre-commit 
         uses: pre-commit/action@v2.0.0
 
-# With no caching at all the entire ci process takes 4m 30s to complete!
+  # With no caching at all the entire ci process takes 4m 30s to complete!
   pytest:
     runs-on: ubuntu-latest
+    {%- if cookiecutter.use_docker == 'n' %}
+
+    services:
+      {%- if cookiecutter.use_celery == 'y' %}
+      redis:
+        image: redis:5.0
+        ports:
+          - 6379:6379
+      {%- endif %}
+      postgres:
+        image: postgres:12
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_PASSWORD: postgres
+
+    env:
+      {%- if cookiecutter.use_celery == 'y' %}
+      CELERY_BROKER_URL: "redis://localhost:6379/0"
+      {%- endif %}
+      # postgres://user:password@host:port/database
+      DATABASE_URL: "postgres://postgres:postgres@localhost:5432/postgres"
+    {%- endif %}
+
     steps:
 
       - name: Checkout Code Repository
         uses: actions/checkout@v2
-      {% if cookiecutter.use_docker == 'y' -%}
+      {%- if cookiecutter.use_docker == 'y' %}
 
       - name: Build the Stack
         run:  docker-compose -f local.yml build
 
-      - name: Make DB Migrations
+      - name: Run DB Migrations
         run:  docker-compose -f local.yml run --rm django python manage.py migrate
 
-      - name: Run the Stack
-        run:  docker-compose -f local.yml up -d
-
       - name: Run Django Tests
-        run:  docker-compose -f local.yml exec -T django pytest
+        run:  docker-compose -f local.yml run django pytest
 
       - name: Tear down the Stack
         run:  docker-compose -f local.yml down
-
       {%- else %}
 
       - name: Set up Python 3.8
@@ -69,8 +89,8 @@ jobs:
         id: pip-cache-location
         run: |
           echo "::set-output name=dir::$(pip cache dir)"
+      {%- raw %}
 
-      {% raw %}
       - name: Cache pip Project Dependencies
         uses: actions/cache@v2
         with:
@@ -80,7 +100,7 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('**/local.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
-      {% endraw %}
+      {%- endraw %}
 
       - name: Install Dependencies
         run: |
@@ -89,5 +109,4 @@ jobs:
 
       - name: Test with pytest
         run:  pytest
-
       {%- endif %}

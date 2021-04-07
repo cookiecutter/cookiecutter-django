@@ -52,7 +52,6 @@ services:
     ports:
       - "7000:7000"
     command: /start-docs
-
   {%- if cookiecutter.use_mailhog == 'y' %}
 
   mailhog:
@@ -75,7 +74,7 @@ services:
     depends_on:
       - redis
       - postgres
-      {% if cookiecutter.use_mailhog == 'y' -%}
+      {%- if cookiecutter.use_mailhog == 'y' %}
       - mailhog
       {%- endif %}
     ports: []
@@ -88,7 +87,7 @@ services:
     depends_on:
       - redis
       - postgres
-      {% if cookiecutter.use_mailhog == 'y' -%}
+      {%- if cookiecutter.use_mailhog == 'y' %}
       - mailhog
       {%- endif %}
     ports: []

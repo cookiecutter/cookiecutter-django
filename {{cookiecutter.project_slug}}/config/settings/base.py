@@ -44,7 +44,7 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 DATABASES = {"default": env.db("DATABASE_URL")}
 {%- else %}
 DATABASES = {
-    "default": env.db("DATABASE_URL", default="postgres://{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.project_slug}}")
+    "default": env.db("DATABASE_URL", default="postgres://{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.project_slug}}"),
 }
 {%- endif %}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
@@ -230,7 +230,8 @@ X_FRAME_OPTIONS = "DENY"
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
 EMAIL_BACKEND = env(
-    "DJANGO_EMAIL_BACKEND", default="django.core.mail.backends.smtp.EmailBackend"
+    "DJANGO_EMAIL_BACKEND",
+    default="django.core.mail.backends.smtp.EmailBackend",
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-timeout
 EMAIL_TIMEOUT = 5
