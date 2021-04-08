@@ -231,10 +231,10 @@ def test_gitlab_invokes_flake8_and_pytest(
     ["use_docker", "expected_test_script"],
     [
         ("n", "pytest"),
-        ("y", "docker-compose -f local.yml exec -T django pytest"),
+        ("y", "docker-compose -f local.yml run django pytest"),
     ],
 )
-def test_github_invokes_flake8_and_pytest(
+def test_github_invokes_linter_and_pytest(
     cookies, context, use_docker, expected_test_script
 ):
     context.update({"ci_tool": "Github", "use_docker": use_docker})
@@ -248,11 +248,11 @@ def test_github_invokes_flake8_and_pytest(
     with open(f"{result.project}/.github/workflows/ci.yml", "r") as github_yml:
         try:
             github_config = yaml.safe_load(github_yml)
-            flake8_present = False
-            for action_step in github_config["jobs"]["flake8"]["steps"]:
-                if action_step.get("run") == "flake8":
-                    flake8_present = True
-            assert flake8_present
+            linter_present = False
+            for action_step in github_config["jobs"]["linter"]["steps"]:
+                if action_step.get("uses", "NA").startswith("pre-commit"):
+                    linter_present = True
+            assert linter_present
 
             expected_test_script_present = False
             for action_step in github_config["jobs"]["pytest"]["steps"]:

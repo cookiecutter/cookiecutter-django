@@ -35,7 +35,7 @@ http:
     web-secure-router:
       {%- if cookiecutter.domain_name.count('.') == 1 %}
       rule: "Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)"
-      {% else %}
+      {%- else %}
       rule: "Host(`{{ cookiecutter.domain_name }}`)"
       {%- endif %}
       entryPoints:

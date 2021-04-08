@@ -979,6 +979,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>lcd1232</td>
+    <td>
+      <a href="https://github.com/lcd1232">lcd1232</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Leo won</td>
     <td>
       <a href="https://github.com/leollon">leollon</a>
@@ -1353,6 +1360,13 @@ Listed in alphabetical order.
     <td>Sławek Ehlert</td>
     <td>
       <a href="https://github.com/slafs">slafs</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Tames McTigue</td>
+    <td>
+      <a href="https://github.com/Tamerz">Tamerz</a>
     </td>
     <td></td>
   </tr>
