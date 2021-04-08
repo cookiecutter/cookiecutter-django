@@ -124,8 +124,8 @@ To check the logs out, run::
 
 If you want to scale your application, run::
 
-   docker-compose -f production.yml scale django=4
-   docker-compose -f production.yml scale celeryworker=2
+   docker-compose -f production.yml up --scale django=4
+   docker-compose -f production.yml up --scale celeryworker=2
 
 .. warning:: don't try to scale ``postgres``, ``celerybeat``, or ``traefik``.
 

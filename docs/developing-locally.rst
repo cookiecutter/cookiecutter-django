@@ -143,6 +143,10 @@ when developing locally. If you have the appropriate setup on your local machine
 in ``config/settings/local.py``::
 
     CELERY_TASK_ALWAYS_EAGER = False
+    
+To run Celery locally, make sure redis-server is installed (instructions are available at https://redis.io/topics/quickstart), run the server in one terminal with `redis-server`, and then start celery in another terminal with the following command::
+    
+    celery -A config.celery_app worker --loglevel=info
 
 
 Sass Compilation & Live Reloading
