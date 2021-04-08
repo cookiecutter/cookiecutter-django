@@ -3,6 +3,20 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-04-07]
+### Changed
+- Update django to 3.1.8 ([#3117](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3117))
+### Fixed
+- Fix linting via pre-commit on Github CI ([#3077](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3077))
+- Fix gitlab-ci using duplicate key name for image ([#3112](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3112))
+### Updated
+- Update sentry-sdk to 1.0.0 ([#3080](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3080))
+- Update gunicorn to 20.1.0 ([#3108](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3108))
+- Update pre-commit to 2.12.0 ([#3118](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3118))
+- Update django-extensions to 3.1.2 ([#3116](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3116))
+- Update pillow to 8.2.0 ([#3113](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3113))
+- Update pytest to 6.2.3 ([#3115](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3115))
+
 ## [2021-03-26]
 ### Updated
 - Update djangorestframework to 3.12.4 ([#3107](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3107))
