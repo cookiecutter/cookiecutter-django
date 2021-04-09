@@ -3,6 +3,14 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-04-08]
+### Changed
+- Switch .dockerignore to explicit list ([#3121](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3121))
+- Change Docker image to multi-stage build for Django ([#2815](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/2815))
+- Fix deprecated warning in middleware tests ([#3038](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3038))
+### Updated
+- Update pre-commit to 2.12.0 ([#3120](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3120))
+
 ## [2021-04-07]
 ### Changed
 - Update django to 3.1.8 ([#3117](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3117))
