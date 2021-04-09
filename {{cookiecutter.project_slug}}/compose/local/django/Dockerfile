@@ -1,4 +1,4 @@
-ARG PYTHON_VERSION=3.8-slim-buster
+ARG PYTHON_VERSION=3.9-slim-buster
 
 # define an alias for the specfic python version used in this file.
 FROM python:${PYTHON_VERSION} as python
