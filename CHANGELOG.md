@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-04-09]
+### Changed
+- Update from Python 3.8 to Python 3.9 ([#3023](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3023))
+
 ## [2021-04-08]
 ### Changed
 - Switch .dockerignore to explicit list ([#3121](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3121))
