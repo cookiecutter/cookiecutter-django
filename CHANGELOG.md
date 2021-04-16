@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-04-15]
+### Updated
+- Update django-debug-toolbar to 3.2.1 ([#3129](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3129))
+
 ## [2021-04-14]
 ### Updated
 - Bump stefanzweifel/git-auto-commit-action from v4.9.2 to v4.10.0 ([#3128](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3128))
