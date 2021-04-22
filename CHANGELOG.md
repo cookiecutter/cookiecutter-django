@@ -3,6 +3,16 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-04-21]
+### Updated
+- Auto-update pre-commit hooks ([#3133](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3133))
+- Update django-extensions to 3.1.3 ([#3136](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3136))
+- Update django-compressor to 2.4.1 ([#3135](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3135))
+- Update pre-commit to 2.12.1 ([#3134](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3134))
+- Update flake8 to 3.9.1 ([#3131](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3131))
+- Update django-stubs to 1.8.0 ([#3127](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3127))
+- Update sphinx to 3.5.4 ([#3126](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3126))
+
 ## [2021-04-15]
 ### Updated
 - Update django-debug-toolbar to 3.2.1 ([#3129](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3129))
