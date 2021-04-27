@@ -120,6 +120,7 @@ Now you have your own mail server running locally, ready to receive whatever you
 
 .. _`Download the latest MailHog release`: https://github.com/mailhog/MailHog/releases
 {%- endif %}
+
 .. _mailhog: https://github.com/mailhog/MailHog
 {%- endif %}
 {%- if cookiecutter.use_sentry == "y" %}
