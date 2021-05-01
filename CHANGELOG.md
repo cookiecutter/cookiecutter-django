@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-04-30]
+### Fixed
+- Fix linting error in production.py ([#3148](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3148))
+
 ## [2021-04-29]
 ### Updated
 - Update black to 21.4b2 ([#3147](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3147))
