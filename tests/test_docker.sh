@@ -6,6 +6,10 @@
 set -o errexit
 set -x
 
+# Install modern pip with new resolver:
+# https://blog.python.org/2020/11/pip-20-3-release-new-resolver.html
+pip install 'pip>=20.3'
+
 # install test requirements
 pip install -r requirements.txt
 
@@ -14,8 +18,11 @@ mkdir -p .cache/docker
 cd .cache/docker
 
 # create the project using the default settings in cookiecutter.json
-cookiecutter ../../ --no-input --overwrite-if-exists use_docker=y $@
+cookiecutter ../../ --no-input --overwrite-if-exists use_docker=y "$@"
 cd my_awesome_project
+
+# install project requirements (for mypy)
+pip install -r requirements/local.txt
 
 # Lint by running pre-commit on all files
 # Needs a git repo to find the project root
@@ -35,3 +42,10 @@ docker-compose -f local.yml run django python manage.py makemigrations --dry-run
 
 # Test support for translations
 docker-compose -f local.yml run django python manage.py makemessages --all
+
+#### Cleanup (Relevant for Local Development)
+# Bring the services down
+docker-compose -f local.yml down
+
+# Remove the persistent Volume Drivers
+docker volume rm my_awesome_project_local_postgres_data my_awesome_project_local_postgres_data_backups

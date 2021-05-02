@@ -71,7 +71,7 @@ if env("USE_DOCKER") == "yes":
     INTERNAL_IPS += [".".join(ip.split(".")[:-1] + ["1"]) for ip in ips]
     {%- if cookiecutter.js_task_runner == 'Gulp' %}
     try:
-        _, _, ips = socket.gethostbyname_ex("node")
+        _h, _, ips = socket.gethostbyname_ex("node")
         INTERNAL_IPS.extend(ips)
     except socket.gaierror:
         # The node container isn't started (yet?)

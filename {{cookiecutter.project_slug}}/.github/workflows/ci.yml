@@ -28,6 +28,11 @@ jobs:
         with:
           python-version: 3.9
 
+      - name: Install All Project Dependencies for pylint and mypy to check
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements/local.txt
+
       # Run all pre-commit hooks on all the files.
       # Getting only staged files can be tricky in case a new PR is opened
       # since the action is run on a branch in detached head state
