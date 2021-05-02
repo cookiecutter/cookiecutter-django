@@ -3,8 +3,9 @@ from django.conf import settings
 from django.contrib import messages
 from django.test import Client
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
+from pytest_django.asserts import assertContains, assertRedirects
 
-from {{ cookiecutter.project_slug }}.users.forms import UserChangeForm
 from {{ cookiecutter.project_slug }}.users.models import User
 
 pytestmark = pytest.mark.django_db
@@ -15,8 +16,7 @@ class TestUserUpdateView:
     Test class for all tests related to the User Update View
     """
 
-    def dummy_get_response(self, request: HttpRequest):
-        return None
+    form_data = {"name": "Updated Name"}
 
     def test_get_success_url(
         self,
@@ -33,7 +33,7 @@ class TestUserUpdateView:
         # Make User login
         client.force_login(user)
 
-        response = client.post(path=url, data=self.form_data)
+        response = client.post(path=url, data=self.form_data, secure=True)
 
         # Make sure the correct url is returned with status_code 302
         # and the final constructed url page can be loaded with status_code 200
@@ -49,7 +49,7 @@ class TestUserUpdateView:
         # make client login
         client.force_login(user)
 
-        response = client.get(path=url)
+        response = client.get(path=url, secure=True)
 
         assert response.context["view"].get_object() == user
 
@@ -63,12 +63,11 @@ class TestUserUpdateView:
         # Make User login
         client.force_login(user)
 
-        response = client.post(path=url, data=self.form_data)
+        response = client.post(path=url, data=self.form_data, secure=True)
 
-        # Initialize the form
-        form = UserChangeForm()
-        form.cleaned_data = []
-        view.form_valid(form)
+        # Get the updated user
+        user.refresh_from_db()
+        assert user.name == self.form_data["name"]
 
         # assert correct success message is emmitted
         messages_sent = [
@@ -77,6 +76,7 @@ class TestUserUpdateView:
         ]
         assert messages_sent == [(_("Information successfully updated"), "success")]
 
+
 class TestUserRedirectView:
     def test_get_redirect_url(self, user: User, client: Client):
         """
@@ -84,7 +84,7 @@ class TestUserRedirectView:
         detail view page
         """
         url = reverse("users:redirect")
-        
+
         # Make User login
         client.force_login(user)
 
@@ -111,9 +111,11 @@ class TestUserDetailView:
         # Make User login
         client.force_login(user)
 
-        response = client.get(path=url)
+        response = client.get(path=url, secure=True)
 
-        response = user_detail_view(request, username=user.username)
+        # Make sure status_code 200 is returned
+        # and that the user's username appears in the response content
+        assertContains(response, text=user.username)
 
     def test_not_authenticated(self, user: User, client: Client):
         """
@@ -126,7 +128,8 @@ class TestUserDetailView:
 
         url = reverse("users:detail", kwargs={"username": user.username})
 
-        response = client.get(path=url)
+        response = client.get(path=url, secure=True)
 
-        assert response.status_code == 302
-        assert response.url == f"{login_url}?next=/fake-url/"
+        # Make sure the correct url is returned with status_code 302
+        # and the final constructed url page can be loaded with status_code 200
+        assertRedirects(response, expected_url=f"{login_url}?next={url}")
