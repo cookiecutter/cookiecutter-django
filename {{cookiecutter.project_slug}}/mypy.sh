@@ -7,10 +7,11 @@ main() {
 # variables defined from now on will automatically get exported in Bourne-like shells
 set -a
 
+# read key=val pairs from .env files
 source ./.envs/.local/.django
-
 source ./.envs/.local/.postgres
 
+# Stop automatic variable export
 set +a
 
 # Mnaually create and export the DATABASE_URL
