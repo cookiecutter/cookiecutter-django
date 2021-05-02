@@ -4,6 +4,7 @@ set -eou pipefail
 
 main() {
 
+# check if both the files exist
 if [[ -f ./.envs/.local/.django && -f ./.envs/.local/.postgres ]]; then
     echo "Both .env files exist"
 
@@ -23,6 +24,7 @@ if [[ -f ./.envs/.local/.django && -f ./.envs/.local/.postgres ]]; then
 
     # If REDIS_URL exists
     if [[ "${REDIS_URL-default}" != "default" ]]; then
+        echo "REDIS_URL exists"
         # export CELERY_BROKER_URL
         export CELERY_BROKER_URL="${REDIS_URL}"
     fi
