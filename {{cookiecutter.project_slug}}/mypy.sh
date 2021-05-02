@@ -4,24 +4,28 @@ set -eou pipefail
 
 main() {
 
-# variables defined from now on will automatically get exported in Bourne-like shells
-set -a
+if [[ -f ./.envs/.local/.django && -f ./.envs/.local/.postgres ]]; then
+    echo "Both .env files exist"
 
-# read key=val pairs from .env files
-source ./.envs/.local/.django
-source ./.envs/.local/.postgres
+    # variables defined from now on will automatically get exported in Bourne-like shells
+    set -a
 
-# Stop automatic variable export
-set +a
+    # read key=val pairs from .env files
+    source ./.envs/.local/.django
+    source ./.envs/.local/.postgres
 
-# Mnaually create and export the DATABASE_URL
-# as it is being created and exported by the ./compose/production/django/entrypoint script
-export DATABASE_URL="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}"
+    # Stop automatic variable export
+    set +a
 
-# If REDIS_URL exists
-if [ "${REDIS_URL-default}" != "default" ]; then
-    # export CELERY_BROKER_URL
-    export CELERY_BROKER_URL="${REDIS_URL}"
+    # Mnaually create and export the DATABASE_URL
+    # as it is being created and exported by the ./compose/production/django/entrypoint script
+    export DATABASE_URL="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}"
+
+    # If REDIS_URL exists
+    if [[ "${REDIS_URL-default}" != "default" ]]; then
+        # export CELERY_BROKER_URL
+        export CELERY_BROKER_URL="${REDIS_URL}"
+    fi
 fi
 
 # exporting a bash variable makes it available to all child processes in the same shell
