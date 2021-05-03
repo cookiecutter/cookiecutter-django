@@ -35,7 +35,7 @@ fi
 # which is what we want since we want mypy to get these
 # (mypy would be a seperate exec in the current bash session for example)
 
-mypy --show-error-codes "$@"
+mypy "$@"
 
 }
 
