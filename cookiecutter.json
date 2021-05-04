@@ -18,11 +18,10 @@
   "use_pycharm": "n",
   "use_docker": "n",
   "postgresql_version": [
-    "12.3",
-    "11.8",
-    "10.8",
-    "9.6",
-    "9.5"
+    "13.2",
+    "12.6",
+    "11.11",
+    "10.16"
   ],
   "js_task_runner": [
     "None",
