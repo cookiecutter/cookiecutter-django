@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-05-06]
+### Updated
+- Update django to 3.1.10 ([#3162](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3162))
+
 ## [2021-05-04]
 ### Updated
 - Update django to 3.1.9 ([#3155](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3155))
