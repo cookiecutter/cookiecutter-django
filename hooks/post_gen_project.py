@@ -115,6 +115,12 @@ def remove_async_files():
         os.remove(file_name)
 
 
+def remove_async_docker_files():
+    file_names = [os.path.join("compose", "local", "django", "run.py")]
+    for file_name in file_names:
+        os.remove(file_name)
+
+
 def remove_dottravisyml_file():
     os.remove(".travis.yml")
 
@@ -407,6 +413,8 @@ def main():
 
     if "{{ cookiecutter.use_async }}".lower() == "n":
         remove_async_files()
+        if "{{ cookiecutter.use_docker }}".lower() == "y":
+            remove_async_docker_files()
 
     print(SUCCESS + "Project initialized, keep up the good work!" + TERMINATOR)
 
