@@ -1,4 +1,4 @@
-cookiecutter==1.7.2
+cookiecutter==1.7.3
 sh==1.14.1
 binaryornot==0.4.4
 
