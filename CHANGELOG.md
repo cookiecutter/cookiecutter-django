@@ -3,6 +3,26 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-05-15]
+### Changed
+- Update watchgod to 0.7 ([#3177](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3177))
+### Updated
+- Auto-update pre-commit hooks ([#3184](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3184))
+- Update black to 21.5b1 ([#3167](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3167))
+- Update flake8 to 3.9.2 ([#3164](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3164))
+- Update pytest-django to 4.3.0 ([#3182](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3182))
+- Auto-update pre-commit hooks ([#3157](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3157))
+- Update python-slugify to 5.0.2 ([#3161](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3161))
+- Bump stefanzweifel/git-auto-commit-action from 4.10.0 to 4.11.0 ([#3171](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3171))
+- Update sentry-sdk to 1.1.0 ([#3163](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3163))
+- Bump actions/setup-python from 2 to 2.2.2 ([#3173](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3173))
+- Update tox to 3.23.1 ([#3160](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3160))
+- Update pytest to 6.2.4 ([#3156](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3156))
+- Bump peter-evans/create-pull-request from 3.8.2 to 3.9.2 ([#3179](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3179))
+- Update sphinx to 4.0.1 ([#3169](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3169))
+- Update cookiecutter to 1.7.3 ([#3180](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3180))
+- Update django to 3.1.11 ([#3178](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3178))
+
 ## [2021-05-06]
 ### Updated
 - Update django to 3.1.10 ([#3162](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3162))
