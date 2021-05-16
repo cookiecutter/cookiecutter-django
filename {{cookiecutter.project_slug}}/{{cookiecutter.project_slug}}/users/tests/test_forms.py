@@ -2,7 +2,7 @@
 Module for all Form Tests.
 """
 import pytest
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from {{ cookiecutter.project_slug }}.users.forms import UserCreationForm
 from {{ cookiecutter.project_slug }}.users.models import User
