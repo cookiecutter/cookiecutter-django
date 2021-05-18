@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-05-17]
+### Updated
+- Bump tiangolo/issue-manager from 0.3.0 to 0.4.0 ([#3186](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3186))
+- Auto-update pre-commit hooks ([#3185](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3185))
+
 ## [2021-05-15]
 ### Changed
 - Update watchgod to 0.7 ([#3177](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3177))
