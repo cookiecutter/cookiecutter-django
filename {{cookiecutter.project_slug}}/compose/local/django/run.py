@@ -5,9 +5,26 @@ import uvicorn
 from uvicorn.supervisors.watchgodreload import CustomWatcher
 
 
+ignored = {
+    "templates",
+    "static",
+    "staticfiles",
+    "compose",
+    ".ipython",
+    "bin",
+    ".pytest_cache",
+    ".idea",
+    "media",
+    "htmlcov",
+    "docs",
+    "locale",
+    "requirements",
+}
+
+
 class WatchgodWatcher(CustomWatcher):
     def __init__(self, *args, **kwargs):
-        self.ignored_dirs.update({"templates", "static", "compose"})
+        self.ignored_dirs.update(ignored)
         super(WatchgodWatcher, self).__init__(*args, **kwargs)
 
 
