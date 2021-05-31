@@ -37,7 +37,7 @@ django-crispy-forms==1.11.2  # https://github.com/django-crispy-forms/django-cri
 {%- if cookiecutter.use_compressor == "y" %}
 django-compressor==2.4.1  # https://github.com/django-compressor/django-compressor
 {%- endif %}
-django-redis==4.12.1  # https://github.com/jazzband/django-redis
+django-redis==5.0.0  # https://github.com/jazzband/django-redis
 {%- if cookiecutter.use_drf == "y" %}
 # Django REST Framework
 djangorestframework==3.12.4  # https://github.com/encode/django-rest-framework
