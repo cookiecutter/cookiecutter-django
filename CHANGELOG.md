@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-06-02]
+### Updated
+- Update django to 3.1.12 ([#3209](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3209))
+
 ## [2021-05-18]
 ### Changed
 - Move ARG PYTHON_VERSION=3.9-slim-buster to the global scope ([#3188](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3188))
