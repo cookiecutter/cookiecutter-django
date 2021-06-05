@@ -1252,6 +1252,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Ray Besiga</td>
+    <td>
+      <a href="https://github.com/raybesiga">raybesiga</a>
+    </td>
+    <td>raybesiga</td>
+  </tr>
+  <tr>
     <td>Reggie Riser</td>
     <td>
       <a href="https://github.com/reggieriser">reggieriser</a>
