@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-06-05]
+### Changed
+- Shorthand for the officially supported buildpack ([#3211](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3211))
+
 ## [2021-06-02]
 ### Updated
 - Update django to 3.1.12 ([#3209](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3209))
