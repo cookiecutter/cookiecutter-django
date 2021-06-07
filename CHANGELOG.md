@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-06-06]
+### Changed
+- Updated .pre-commit-config.yaml to self-update its dependencies ([#3208](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3208))
+
 ## [2021-06-05]
 ### Changed
 - Shorthand for the officially supported buildpack ([#3211](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3211))
