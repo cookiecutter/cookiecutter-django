@@ -37,7 +37,7 @@ First things first.
    .. note::
 
        the `pre-commit` exists in the generated project as default.
-       for the details of `pre-commit`, follow the [site of pre-commit](https://pre-commit.com/).
+       for the details of `pre-commit`, follow the `site of pre-commit <https://pre-commit.com/>`_.
 
 #. Create a new PostgreSQL database using createdb_: ::
 
