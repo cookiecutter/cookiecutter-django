@@ -713,6 +713,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Grant McLean</td>
+    <td>
+      <a href="https://github.com/grantm">grantm</a>
+    </td>
+    <td>grantmnz</td>
+  </tr>
+  <tr>
     <td>Guilherme Guy</td>
     <td>
       <a href="https://github.com/guilherme1guy">guilherme1guy</a>
