@@ -36,8 +36,8 @@ First things first.
 
    .. note::
 
-       the `pre-commit` exists in the generated project as default.
-       for the details of `pre-commit`, follow the `site of pre-commit <https://pre-commit.com/>`_.
+       the `pre-commit` hook exists in the generated project as default.
+       For the details of `pre-commit`, follow the `pre-commit`_ site.
 
 #. Create a new PostgreSQL database using createdb_: ::
 
@@ -88,6 +88,7 @@ or if you're running asynchronously: ::
 .. _createdb: https://www.postgresql.org/docs/current/static/app-createdb.html
 .. _initial PostgreSQL set up: http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html
 .. _postgres documentation: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
+.. _pre-commit: https://pre-commit.com/
 .. _direnv: https://direnv.net/
 
 
