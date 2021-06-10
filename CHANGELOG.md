@@ -3,6 +3,16 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-06-09]
+### Changed
+- Fix link format in developing-locally.rst ([#3214](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3214))
+### Updated
+- Update pre-commit to 2.13.0 ([#3195](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3195))
+- Update pytest-django to 4.4.0 ([#3212](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3212))
+- Update mypy to 0.901 ([#3215](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3215))
+- Auto-update pre-commit hooks ([#3206](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3206))
+- Update black to 21.5b2 ([#3204](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3204))
+
 ## [2021-06-06]
 ### Changed
 - Updated .pre-commit-config.yaml to self-update its dependencies ([#3208](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3208))
