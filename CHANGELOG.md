@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-06-14]
+### Changed
+- Update black GitHub link in requirements ([#3222](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3222))
+
 ## [2021-06-09]
 ### Changed
 - Fix link format in developing-locally.rst ([#3214](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3214))
