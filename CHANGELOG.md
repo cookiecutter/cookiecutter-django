@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-06-19]
+### Updated
+- Update psycopg2 to 2.9.1 ([#3227](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3227))
+- Update psycopg2-binary to 2.9.1 ([#3228](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3228))
+
 ## [2021-06-14]
 ### Changed
 - Update black GitHub link in requirements ([#3222](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3222))
