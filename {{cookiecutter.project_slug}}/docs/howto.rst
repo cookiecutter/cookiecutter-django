@@ -4,20 +4,19 @@ How To - Project Documentation
 Get Started
 ----------------------------------------------------------------------
 
-Documentation can be written as rst files in the `{{cookiecutter.project_slug}}/docs/_source`.
+Documentation can be written as rst files in `{{cookiecutter.project_slug}}/docs`.
 
 {% if cookiecutter.use_docker == 'n' %}
-To build and serve docs, use the command:
-    ::
+To build and serve docs, use the command::
     
-        make livehtml 
+    make livehtml 
     
 from inside the `{{cookiecutter.project_slug}}/docs` directory. 
 {% else %}
-To build and serve docs, use the commands:
-    ::
+To build and serve docs, use the commands::
     
-        docker-compose -f local.yml up docs
+    docker-compose -f local.yml up docs
+
 {% endif %}
 
 Changes to files in `docs/_source` will be picked up and reloaded automatically.
