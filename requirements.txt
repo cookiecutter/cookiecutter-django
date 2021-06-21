@@ -13,7 +13,7 @@ pre-commit==2.13.0
 # Testing
 # ------------------------------------------------------------------------------
 tox==3.23.1
-pytest==5.4.3  # pyup: <6  # https://github.com/hackebrot/pytest-cookies/issues/51
+pytest==5.4.3
 pytest-cookies==0.6.1
 pytest-instafail==0.4.2
 pyyaml==5.4.1
