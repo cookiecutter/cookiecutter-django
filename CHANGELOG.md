@@ -3,6 +3,25 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-06-21]
+### Updated
+- Update isort to 5.9.0 ([#3234](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3234))
+- Update django-anymail to 8.4 ([#3225](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3225))
+- Update django-redis to 5.0.0 ([#3205](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3205))
+- Update pylint-django to 2.4.4 ([#3233](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3233))
+- Auto-update pre-commit hooks ([#3220](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3220))
+- Bump peter-evans/create-pull-request from 3.9.2 to 3.10.0 ([#3197](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3197))
+- Update black to 21.6b0 ([#3232](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3232))
+- Update pytest to 6.2.4 ([#3231](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3231))
+- Update django-crispy-forms to 1.12.0 ([#3221](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3221))
+- Update mypy to 0.902 ([#3219](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3219))
+- Update django-coverage-plugin to 2.0.0 ([#3217](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3217))
+- Update ipdb to 0.13.9 ([#3210](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3210))
+- Update uvicorn to 0.14.0 ([#3207](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3207))
+- Update pytest-cookies to 0.6.1 ([#3196](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3196))
+- Update sphinx to 4.0.2 ([#3193](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3193))
+- Update jinja2 to 3.0.1 ([#3189](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3189))
+
 ## [2021-06-19]
 ### Updated
 - Update psycopg2 to 2.9.1 ([#3227](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3227))
