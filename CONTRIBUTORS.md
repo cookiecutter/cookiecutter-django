@@ -986,6 +986,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Kuo Chao Cheng</td>
+    <td>
+      <a href="https://github.com/wwwtony5488">wwwtony5488</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>lcd1232</td>
     <td>
       <a href="https://github.com/lcd1232">lcd1232</a>
