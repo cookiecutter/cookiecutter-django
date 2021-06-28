@@ -762,6 +762,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Haseeb ur Rehman</td>
+    <td>
+      <a href="https://github.com/professorhaseeb">professorhaseeb</a>
+    </td>
+    <td>professorhaseeb</td>
+  </tr>
+  <tr>
     <td>Hendrik Schneider</td>
     <td>
       <a href="https://github.com/hendrikschneider">hendrikschneider</a>
