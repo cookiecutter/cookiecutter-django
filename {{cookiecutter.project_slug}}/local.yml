@@ -77,6 +77,7 @@ services:
       {%- if cookiecutter.use_mailhog == 'y' %}
       - mailhog
       {%- endif %}
+    ports: []
     command: /start-celeryworker
 
   celerybeat:
@@ -89,6 +90,7 @@ services:
       {%- if cookiecutter.use_mailhog == 'y' %}
       - mailhog
       {%- endif %}
+    ports: []
     command: /start-celerybeat
 
   flower:
