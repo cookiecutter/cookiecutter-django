@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-06-29]
+### Changed
+- Improve github bug report template ([#3243](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3243))
+
 ## [2021-06-28]
 ### Changed
 - Revert &#34;Fix Celery ports error on local Docker&#34; ([#3242](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3242))
