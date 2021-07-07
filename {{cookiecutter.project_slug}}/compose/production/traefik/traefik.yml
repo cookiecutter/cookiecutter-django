@@ -43,6 +43,9 @@ http:
       middlewares:
         - csrf
       service: django
+    {%- if cookiecutter.use_nginx_for_serve_media_files == 'y' %}
+      priority: 1
+    {%- endif %}
       tls:
         # https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
@@ -53,6 +56,17 @@ http:
       entryPoints:
         - flower
       service: flower
+      tls:
+        # https://docs.traefik.io/master/routing/routers/#certresolver
+        certResolver: letsencrypt
+    {%- endif %}
+    {%- if cookiecutter.use_nginx_for_serve_media_files == 'y' %}
+    media-router:
+      rule: "Host(`{{ cookiecutter.domain_name }}`) && PathPrefix(`/media`)"
+      entryPoints:
+        - web-secure
+      service: nginx-media
+      priority: 3
       tls:
         # https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
@@ -77,7 +91,13 @@ http:
         servers:
           - url: http://flower:5555
     {%- endif %}
-
+    {%- if cookiecutter.use_nginx_for_serve_media_files == 'y' %}
+    
+    nginx-media:
+      loadBalancer:
+        servers:
+          - url: http://nginx-media
+    {%- endif %}
 providers:
   # https://docs.traefik.io/master/providers/file/
   file:
