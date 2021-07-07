@@ -31,6 +31,12 @@ assert (
 ), "Don't include backslashes in author name."
 
 if "{{ cookiecutter.use_docker }}".lower() == "n":
+    if "{{ cookiecutter.use_nginx_for_serve_media_files }}" == "y":
+        print(
+            "You should either use docker or select a Cloud Provider to serve media files"
+        )
+        sys.exit(1)
+
     python_major_version = sys.version_info[0]
     if python_major_version == 2:
         print(
@@ -66,6 +72,15 @@ if (
 ):
     print(
         "You should either use Whitenoise or select a Cloud Provider to serve static files"
+    )
+    sys.exit(1)
+
+if (
+    "{{ cookiecutter.cloud_provider }}" != "None"
+    and "{{ cookiecutter.use_nginx_for_serve_media_files }}".lower() == "y"
+):
+    print(
+        "You should either use AWS, GCP or local docker nginx instance for serve media files."
     )
     sys.exit(1)
 

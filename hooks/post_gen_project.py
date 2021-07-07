@@ -381,10 +381,16 @@ def main():
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_node_dockerfile()
 
-    if "{{ cookiecutter.cloud_provider}}".lower() == "none":
+    if (
+        "{{ cookiecutter.cloud_provider}}".lower() == "none"
+    ) and (
+        "{{ cookiecutter.use_nginx_for_serve_media_files}}".lower() == "n"
+    ):
         print(
             WARNING + "You chose not to use a cloud provider, "
-            "media files won't be served in production." + TERMINATOR
+            "media files won't be served in production. "
+            "Choose 'use_nginx_for_serve_media_files'=='y' "
+            "if you want serve media files with local docker nginx instance." + TERMINATOR
         )
         remove_storages_module()
 
