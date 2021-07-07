@@ -76,3 +76,13 @@ services:
     volumes:
       - production_postgres_data_backups:/backups:z
   {%- endif %}
+  {%- if cookiecutter.use_nginx_for_serve_media_files == 'y' %}
+
+  nginx-media:
+    image: "nginx:latest"
+    depends_on:
+      - django
+    volumes:
+      - ./{{ cookiecutter.project_slug }}/media:/usr/share/nginx/html/media:ro
+      
+  {%- endif %}
