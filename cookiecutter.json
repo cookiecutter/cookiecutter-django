@@ -32,6 +32,7 @@
     "GCP",
     "None"
   ],
+  "use_nginx_for_serve_media_files": "n",
   "mail_service": [
     "Mailgun",
     "Amazon SES",
