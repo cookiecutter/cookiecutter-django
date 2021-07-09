@@ -11,6 +11,10 @@ services:
       context: .
       dockerfile: ./compose/production/django/Dockerfile
     image: {{ cookiecutter.project_slug }}_production_django
+    {%- if cookiecutter.use_nginx_for_serve_media_files == 'y' %}
+    volumes:
+        ./{{ cookiecutter.project_slug }}/media:/app/{{ cookiecutter.project_slug }}/media:z
+    {% endif %}
     depends_on:
       - postgres
       - redis
