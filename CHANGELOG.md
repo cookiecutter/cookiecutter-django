@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-07-08]
+### Updated
+- Update django to 3.1.13 ([#3247](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3247))
+
 ## [2021-06-29]
 ### Changed
 - Improve github bug report template ([#3243](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3243))
