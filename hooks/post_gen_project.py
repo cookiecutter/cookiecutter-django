@@ -321,7 +321,14 @@ def remove_drf_starter_files():
 
 
 def remove_storages_module():
-    os.remove(os.path.join("{{cookiecutter.project_slug}}", "utils", "storages.py"))
+    os.remove(os.path.join(
+        "{{cookiecutter.project_slug}}", "utils", "storages.py"))
+
+
+def create_empty_media_dir():
+    os.mkdir(os.path.join(
+        "{{cookiecutter.project_slug}}", "media"), mode=0o777
+    )
 
 
 def main():
@@ -333,7 +340,8 @@ def main():
         debug=debug,
     )
     set_flags_in_settings_files()
-
+    if "{{ cookiecutter.use_nginx_for_serve_media_files }}" == "y":
+        create_empty_media_dir()
     if "{{ cookiecutter.open_source_license }}" == "Not open source":
         remove_open_source_files()
     if "{{ cookiecutter.open_source_license}}" != "GPLv3":
