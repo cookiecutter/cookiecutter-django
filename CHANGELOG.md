@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-07-12]
+### Changed
+- Define REMAP_SIGTERM=SIGQUIT on Profile of Celery on Heroku ([#3263](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3263))
+
 ## [2021-07-08]
 ### Updated
 - Update django to 3.1.13 ([#3247](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3247))
