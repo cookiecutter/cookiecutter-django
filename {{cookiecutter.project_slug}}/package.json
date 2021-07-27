@@ -7,7 +7,7 @@
     {% if cookiecutter.custom_bootstrap_compilation == 'y' -%}
     "bootstrap": "5.0.2",
     "gulp-concat": "^2.6.1",
-    "popper.js": "2.9.2",
+    "@popperjs/core": "2.9.2",
     {% endif -%}
     "autoprefixer": "^9.4.7",
     "browser-sync": "^2.14.0",

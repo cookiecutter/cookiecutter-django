@@ -32,7 +32,7 @@ function pathsConfig(appName) {
     {%- if cookiecutter.custom_bootstrap_compilation == 'y' %}
     bootstrapSass: `${vendorsRoot}/bootstrap/scss`,
     vendorsJs: [
-      `${vendorsRoot}/popper.js/dist/umd/popper.js`,
+      `${vendorsRoot}/@popperjs/core/dist/umd/popper.js`,
       `${vendorsRoot}/bootstrap/dist/js/bootstrap.js`,
     ],
     {%- endif %}
