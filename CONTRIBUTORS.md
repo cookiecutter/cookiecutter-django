@@ -713,6 +713,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Grant McLean</td>
+    <td>
+      <a href="https://github.com/grantm">grantm</a>
+    </td>
+    <td>grantmnz</td>
+  </tr>
+  <tr>
     <td>Guilherme Guy</td>
     <td>
       <a href="https://github.com/guilherme1guy">guilherme1guy</a>
@@ -753,6 +760,13 @@ Listed in alphabetical order.
       <a href="https://github.com/hjwp">hjwp</a>
     </td>
     <td></td>
+  </tr>
+  <tr>
+    <td>Haseeb ur Rehman</td>
+    <td>
+      <a href="https://github.com/professorhaseeb">professorhaseeb</a>
+    </td>
+    <td>professorhaseeb</td>
   </tr>
   <tr>
     <td>Hendrik Schneider</td>
@@ -979,9 +993,23 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Kuo Chao Cheng</td>
+    <td>
+      <a href="https://github.com/wwwtony5488">wwwtony5488</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>lcd1232</td>
     <td>
       <a href="https://github.com/lcd1232">lcd1232</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>LECbg</td>
+    <td>
+      <a href="https://github.com/LECbg">LECbg</a>
     </td>
     <td></td>
   </tr>
@@ -1250,6 +1278,13 @@ Listed in alphabetical order.
       <a href="https://github.com/hackebrot">hackebrot</a>
     </td>
     <td></td>
+  </tr>
+  <tr>
+    <td>Ray Besiga</td>
+    <td>
+      <a href="https://github.com/raybesiga">raybesiga</a>
+    </td>
+    <td>raybesiga</td>
   </tr>
   <tr>
     <td>Reggie Riser</td>

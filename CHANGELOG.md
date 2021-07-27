@@ -3,6 +3,117 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-07-12]
+### Changed
+- Define REMAP_SIGTERM=SIGQUIT on Profile of Celery on Heroku ([#3263](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3263))
+
+## [2021-07-08]
+### Updated
+- Update django to 3.1.13 ([#3247](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3247))
+
+## [2021-06-29]
+### Changed
+- Improve github bug report template ([#3243](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3243))
+
+## [2021-06-28]
+### Changed
+- Revert &#34;Fix Celery ports error on local Docker&#34; ([#3242](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3242))
+### Fixed
+- Fix Celery ports error on local Docker ([#3241](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3241))
+
+## [2021-06-25]
+### Changed
+- Update `.gitignore` file for VSCode ([#3238](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3238))
+### Fixed
+- Wrap jQuery call in `DOMContentLoaded` event listener on account email page ([#3239](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3239))
+
+## [2021-06-22]
+### Changed
+- Update docs/howto.rst ([#3230](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3230))
+- Add support for PG 13. Drop PG 9. Update all minor versions ([#3154](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3154))
+### Updated
+- Update isort to 5.9.1 ([#3236](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3236))
+- Auto-update pre-commit hooks ([#3235](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3235))
+
+## [2021-06-21]
+### Updated
+- Update isort to 5.9.0 ([#3234](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3234))
+- Update django-anymail to 8.4 ([#3225](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3225))
+- Update django-redis to 5.0.0 ([#3205](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3205))
+- Update pylint-django to 2.4.4 ([#3233](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3233))
+- Auto-update pre-commit hooks ([#3220](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3220))
+- Bump peter-evans/create-pull-request from 3.9.2 to 3.10.0 ([#3197](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3197))
+- Update black to 21.6b0 ([#3232](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3232))
+- Update pytest to 6.2.4 ([#3231](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3231))
+- Update django-crispy-forms to 1.12.0 ([#3221](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3221))
+- Update mypy to 0.902 ([#3219](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3219))
+- Update django-coverage-plugin to 2.0.0 ([#3217](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3217))
+- Update ipdb to 0.13.9 ([#3210](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3210))
+- Update uvicorn to 0.14.0 ([#3207](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3207))
+- Update pytest-cookies to 0.6.1 ([#3196](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3196))
+- Update sphinx to 4.0.2 ([#3193](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3193))
+- Update jinja2 to 3.0.1 ([#3189](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3189))
+
+## [2021-06-19]
+### Updated
+- Update psycopg2 to 2.9.1 ([#3227](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3227))
+- Update psycopg2-binary to 2.9.1 ([#3228](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3228))
+
+## [2021-06-14]
+### Changed
+- Update black GitHub link in requirements ([#3222](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3222))
+
+## [2021-06-09]
+### Changed
+- Fix link format in developing-locally.rst ([#3214](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3214))
+### Updated
+- Update pre-commit to 2.13.0 ([#3195](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3195))
+- Update pytest-django to 4.4.0 ([#3212](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3212))
+- Update mypy to 0.901 ([#3215](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3215))
+- Auto-update pre-commit hooks ([#3206](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3206))
+- Update black to 21.5b2 ([#3204](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3204))
+
+## [2021-06-06]
+### Changed
+- Updated .pre-commit-config.yaml to self-update its dependencies ([#3208](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3208))
+
+## [2021-06-05]
+### Changed
+- Shorthand for the officially supported buildpack ([#3211](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3211))
+
+## [2021-06-02]
+### Updated
+- Update django to 3.1.12 ([#3209](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3209))
+
+## [2021-05-18]
+### Changed
+- Move ARG PYTHON_VERSION=3.9-slim-buster to the global scope ([#3188](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3188))
+
+## [2021-05-17]
+### Updated
+- Bump tiangolo/issue-manager from 0.3.0 to 0.4.0 ([#3186](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3186))
+- Auto-update pre-commit hooks ([#3185](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3185))
+
+## [2021-05-15]
+### Changed
+- Update watchgod to 0.7 ([#3177](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3177))
+### Updated
+- Auto-update pre-commit hooks ([#3184](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3184))
+- Update black to 21.5b1 ([#3167](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3167))
+- Update flake8 to 3.9.2 ([#3164](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3164))
+- Update pytest-django to 4.3.0 ([#3182](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3182))
+- Auto-update pre-commit hooks ([#3157](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3157))
+- Update python-slugify to 5.0.2 ([#3161](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3161))
+- Bump stefanzweifel/git-auto-commit-action from 4.10.0 to 4.11.0 ([#3171](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3171))
+- Update sentry-sdk to 1.1.0 ([#3163](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3163))
+- Bump actions/setup-python from 2 to 2.2.2 ([#3173](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3173))
+- Update tox to 3.23.1 ([#3160](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3160))
+- Update pytest to 6.2.4 ([#3156](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3156))
+- Bump peter-evans/create-pull-request from 3.8.2 to 3.9.2 ([#3179](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3179))
+- Update sphinx to 4.0.1 ([#3169](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3169))
+- Update cookiecutter to 1.7.3 ([#3180](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3180))
+- Update django to 3.1.11 ([#3178](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3178))
+
 ## [2021-05-06]
 ### Updated
 - Update django to 3.1.10 ([#3162](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3162))
