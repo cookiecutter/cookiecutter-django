@@ -153,6 +153,8 @@ debug:
 .. _Mailgun: https://www.mailgun.com
 .. _Mailjet: https://www.mailjet.com
 .. _Mandrill: http://mandrill.com
+.. _Migomail: http://migomail.com
+.. _Mailcot: http://mailcot.com
 .. _Postmark: https://postmarkapp.com
 .. _SendGrid: https://sendgrid.com
 .. _SendinBlue: https://www.sendinblue.com
