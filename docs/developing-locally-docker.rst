@@ -32,6 +32,17 @@ This can take a while, especially the first time you run this particular command
 
 Generally, if you want to emulate production environment use ``production.yml`` instead. And this is true for any other actions you might need to perform: whenever a switch is required, just do it!
 
+Before doing any commit, pre-commit hooks are required on your local machine, outside of docker::
+
+    $ pip install -r requirements/local.txt # Advisable within a virtualenv if possible
+    $ git init # A git repo is required for pre-commit to install
+    $ pre-commit install
+
+   .. note::
+
+       the `pre-commit` hook exists in the generated project as default.
+       For the details of `pre-commit`, follow the `pre-commit`_ site.
+
 
 Run the Stack
 -------------
