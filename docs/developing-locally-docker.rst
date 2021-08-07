@@ -18,10 +18,11 @@ Prerequisites
 
 * Docker; if you don't have it yet, follow the `installation instructions`_;
 * Docker Compose; refer to the official documentation for the `installation guide`_.
+* Pre-commit; refer to the official documentation for the `installation guide`_.
 
 .. _`installation instructions`: https://docs.docker.com/install/#supported-platforms
 .. _`installation guide`: https://docs.docker.com/compose/install/
-
+.. _`pre-commit`: https://pre-commit.com/#install
 
 Build the Stack
 ---------------
@@ -32,16 +33,12 @@ This can take a while, especially the first time you run this particular command
 
 Generally, if you want to emulate production environment use ``production.yml`` instead. And this is true for any other actions you might need to perform: whenever a switch is required, just do it!
 
-Before doing any commit, pre-commit hooks are required on your local machine, outside of docker::
+Before doing any git commit, `pre-commit`_ should be installed globally on your local machine, and then::
 
-    $ pip install -r requirements/local.txt # Advisable within a virtualenv if possible
-    $ git init # A git repo is required for pre-commit to install
+    $ git init
     $ pre-commit install
 
-   .. note::
-
-       the `pre-commit` hook exists in the generated project as default.
-       For the details of `pre-commit`, follow the `pre-commit`_ site.
+Failing to do so will result with a bunch of CI and Linter errors that can be avoided with pre-commit.
 
 
 Run the Stack
