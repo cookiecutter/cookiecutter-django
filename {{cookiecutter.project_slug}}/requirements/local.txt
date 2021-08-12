@@ -13,14 +13,14 @@ watchgod==0.7  # https://github.com/samuelcolvin/watchgod
 
 # Testing
 # ------------------------------------------------------------------------------
-mypy==0.902  # https://github.com/python/mypy
+mypy==0.910  # https://github.com/python/mypy
 django-stubs==1.8.0  # https://github.com/typeddjango/django-stubs
 pytest==6.2.4  # https://github.com/pytest-dev/pytest
 pytest-sugar==0.9.4  # https://github.com/Frozenball/pytest-sugar
 
 # Documentation
 # ------------------------------------------------------------------------------
-sphinx==4.0.2  # https://github.com/sphinx-doc/sphinx
+sphinx==4.1.2  # https://github.com/sphinx-doc/sphinx
 sphinx-autobuild==2021.3.14 # https://github.com/GaretJax/sphinx-autobuild
 
 # Code quality
@@ -28,12 +28,12 @@ sphinx-autobuild==2021.3.14 # https://github.com/GaretJax/sphinx-autobuild
 flake8==3.9.2  # https://github.com/PyCQA/flake8
 flake8-isort==4.0.0  # https://github.com/gforcada/flake8-isort
 coverage==5.5  # https://github.com/nedbat/coveragepy
-black==21.6b0  # https://github.com/psf/black
+black==21.7b0  # https://github.com/psf/black
 pylint-django==2.4.4  # https://github.com/PyCQA/pylint-django
 {%- if cookiecutter.use_celery == 'y' %}
 pylint-celery==0.3  # https://github.com/PyCQA/pylint-celery
 {%- endif %}
-pre-commit==2.13.0  # https://github.com/pre-commit/pre-commit
+pre-commit==2.14.0  # https://github.com/pre-commit/pre-commit
 
 # Django
 # ------------------------------------------------------------------------------
