@@ -1175,6 +1175,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>mfosterw</td>
+    <td>
+      <a href="https://github.com/mfosterw">mfosterw</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Michael Gecht</td>
     <td>
       <a href="https://github.com/mimischi">mimischi</a>
