@@ -321,14 +321,11 @@ def remove_drf_starter_files():
 
 
 def remove_storages_module():
-    os.remove(os.path.join(
-        "{{cookiecutter.project_slug}}", "utils", "storages.py"))
+    os.remove(os.path.join("{{cookiecutter.project_slug}}", "utils", "storages.py"))
 
 
 def create_empty_media_dir():
-    os.mkdir(os.path.join(
-        "{{cookiecutter.project_slug}}", "media"), mode=0o777
-    )
+    os.mkdir(os.path.join("{{cookiecutter.project_slug}}", "media"), mode=0o777)
 
 
 def main():
@@ -389,16 +386,15 @@ def main():
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_node_dockerfile()
 
-    if (
-        "{{ cookiecutter.cloud_provider}}".lower() == "none"
-    ) and (
+    if ("{{ cookiecutter.cloud_provider}}".lower() == "none") and (
         "{{ cookiecutter.use_nginx_for_serve_media_files}}".lower() == "n"
     ):
         print(
             WARNING + "You chose not to use a cloud provider, "
             "media files won't be served in production. "
             "Choose 'use_nginx_for_serve_media_files'=='y' "
-            "if you want serve media files with local docker nginx instance." + TERMINATOR
+            "if you want serve media files with local docker nginx instance."
+            + TERMINATOR
         )
         remove_storages_module()
 
