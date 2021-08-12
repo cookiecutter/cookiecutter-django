@@ -3,7 +3,10 @@ version: 2
 sphinx:
   configuration: docs/conf.py
 
-python:
+build:
   image: testing
+
+python:
+  version: 3.9
   install:
     - requirements: requirements/local.txt
