@@ -80,7 +80,7 @@ if (
     and "{{ cookiecutter.use_nginx_for_serve_media_files }}".lower() == "y"
 ):
     print(
-        "You should either use AWS, GCP or local docker nginx instance for serve media files."
+        "You should either use AWS, GCP, or local docker nginx instance for serve media files."
     )
     sys.exit(1)
 
