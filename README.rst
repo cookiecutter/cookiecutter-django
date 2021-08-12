@@ -52,7 +52,7 @@ Features
 * Optional basic ASGI setup for Websockets
 * Optional custom static build using Gulp and livereload
 * Send emails via Anymail_ (using Mailgun_ by default or Amazon SES if AWS is selected cloud provider, but switchable)
-* Media storage using Amazon S3, Google Cloud Storage or a local nginx docker instance
+* Media storage using Amazon S3, Google Cloud Storage, or a local nginx docker instance
 * Docker support using docker-compose_ for development and production (using Traefik_ with LetsEncrypt_ support)
 * Procfile_ for deploying to Heroku
 * Instructions for deploying to PythonAnywhere_
