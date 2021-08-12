@@ -191,7 +191,8 @@ Answer the prompts with your own desired options_. For example::
     2 - GCP
     3 - nginx
     4 - None
-    Choose from 1, 2, 3 [1]: 1
+    Choose from 1, 2, 3, 4 [1]: 1
+    use_nginx_for_serve_media_files[n]: n
     custom_bootstrap_compilation [n]: n
     Select open_source_license:
     1 - MIT
