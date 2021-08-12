@@ -958,6 +958,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Keith Callenberg</td>
+    <td>
+      <a href="https://github.com/keithcallenberg">keithcallenberg</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Keith Webber</td>
     <td>
       <a href="https://github.com/townie">townie</a>
