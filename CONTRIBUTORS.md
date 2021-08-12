@@ -166,13 +166,6 @@ Listed in alphabetical order.
     </td>
     <td></td>
   </tr>
-  <tr>
-    <td>Aleksey Storin</td>
-    <td>
-      <a href="https://github.com/ghostforpy">ghostforpy</a>
-    </td>
-    <td></td>
-  </tr>
     <tr>
     <td>Alex Tsai</td>
     <td>
@@ -268,13 +261,6 @@ Listed in alphabetical order.
     <td>Areski Belaid</td>
     <td>
       <a href="https://github.com/areski">areski</a>
-    </td>
-    <td></td>
-  </tr>
-    <tr>
-    <td>Arkadiusz Michał Ryś</td>
-    <td>
-      <a href="https://github.com/ArkadiuszMichalRys">arkadiuszmichalrys</a>
     </td>
     <td></td>
   </tr>
