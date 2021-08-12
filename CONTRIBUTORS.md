@@ -125,6 +125,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Abdul Qoyyuum</td>
+    <td>
+      <a href="https://github.com/Qoyyuum">Qoyyuum</a>
+    </td>
+    <td>Qoyyuum</td>
+  </tr>
+  <tr>
     <td>Adam Bogdał</td>
     <td>
       <a href="https://github.com/bogdal">bogdal</a>
