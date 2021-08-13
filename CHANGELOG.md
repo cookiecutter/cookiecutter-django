@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-08-12]
+### Changed
+- Add documentation for automating backups ([#3268](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3268))
+- Add missing step to getting started locally in docs ([#3291](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3291))
+- Moved isort config from `.editorconfig` to `setup.cfg` ([#3290](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3290))
+- How to pre-commit in Docker Development ([#3287](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3287))
+### Updated
+- Update sentry-sdk to 1.3.1 ([#3281](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3281))
+- Update tox to 3.24.1 ([#3285](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3285))
+- Update pre-commit to 2.14.0 ([#3289](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3289))
+
 ## [2021-07-30]
 ### Updated
 - Auto-update pre-commit hooks ([#3283](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3283))
