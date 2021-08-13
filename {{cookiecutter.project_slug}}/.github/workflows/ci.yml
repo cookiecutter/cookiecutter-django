@@ -42,7 +42,7 @@ jobs:
     services:
       {%- if cookiecutter.use_celery == 'y' %}
       redis:
-        image: redis:5.0
+        image: redis:6
         ports:
           - 6379:6379
       {%- endif %}
