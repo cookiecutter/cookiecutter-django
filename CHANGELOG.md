@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-08-13]
+### Changed
+- Upgrade to Redis 6 ([#3255](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3255))
+### Fixed
+- Fix RTD build image to support Python 3.9 ([#3293](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3293))
+
 ## [2021-08-12]
 ### Changed
 - Add documentation for automating backups ([#3268](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3268))
