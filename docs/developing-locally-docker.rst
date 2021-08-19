@@ -213,7 +213,7 @@ Developing locally with HTTPS
 
 Increasingly it is becoming necessary to develop software in a secure environment in order that there are very few changes when deploying to production. Recently Facebook changed their policies for apps/sites that use Facebook login which requires the use of an HTTPS URL for the OAuth redirect URL. So if you want to use the ``users`` application with a OAuth provider such as Facebook, securing your communication to the local development environment will be necessary.
 
-On order to create a secure environment, we need to have a trusted SSL certficate installed in our Docker application.
+In order to create a secure environment, we need to have a trusted SSL certficate installed in our Docker application.
 
 #.  **Let's Encrypt**
     
@@ -233,14 +233,14 @@ On order to create a secure environment, we need to have a trusted SSL certficat
 
     .. _`mkcert`:  https://github.com/FiloSottile/mkcert/blob/master/README.md#supported-root-stores
 
-After installing a trusted TLS certificate, configure your docker installation. We are going to configure an ``nginx`` reverse-proxy server. This makes sure that it does not interfere with our ``traefik`` configuration that is reserved for production environements.
+After installing a trusted TLS certificate, configure your docker installation. We are going to configure an ``nginx`` reverse-proxy server. This makes sure that it does not interfere with our ``traefik`` configuration that is reserved for production environments.
 
 These are the places that you should configure to secure your local environment.
 
 certs
 ~~~~~
 
-Take the certificates that you generated and place them in a folder called ``certs`` on the projects root folder. Assuming that you registered your local hostname as ``my-dev-env.local``, the certificates you will put in the folder should have the names ``my-dev-env.local.crt`` and ``my-dev-env.local.key``.
+Take the certificates that you generated and place them in a folder called ``certs`` in the project's root folder. Assuming that you registered your local hostname as ``my-dev-env.local``, the certificates you will put in the folder should have the names ``my-dev-env.local.crt`` and ``my-dev-env.local.key``.
 
 local.yml
 ~~~~~~~~~
@@ -264,7 +264,7 @@ local.yml
     
     ...
 
-#. Link the ``nginx-proxy`` to ``django`` through environmental variables.
+#. Link the ``nginx-proxy`` to ``django`` through environment variables.
    
    ``django`` already has an ``.env`` file connected to it. Add the following variables. You should do this especially if you are working with a team and you want to keep your local environment details to yourself.
 
