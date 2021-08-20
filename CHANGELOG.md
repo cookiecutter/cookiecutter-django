@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-08-19]
+### Changed
+- Fix several minor typos ([#3301](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3301))
+
 ## [2021-08-13]
 ### Changed
 - Upgrade to Redis 6 ([#3255](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3255))
