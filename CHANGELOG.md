@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-08-20]
+### Changed
+- Fix Jinja2 break line control on Procfile ([#3300](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3300))
+
 ## [2021-08-19]
 ### Changed
 - Fix several minor typos ([#3301](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3301))
