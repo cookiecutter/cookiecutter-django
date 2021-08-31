@@ -42,4 +42,7 @@ django-redis==5.0.0  # https://github.com/jazzband/django-redis
 # Django REST Framework
 djangorestframework==3.12.4  # https://github.com/encode/django-rest-framework
 django-cors-headers==3.7.0 # https://github.com/adamchainz/django-cors-headers
+{%- if cookiecutter.use_drf_simplejwt == "y" %}
+djangorestframework-simplejwt # https://django-rest-framework-simplejwt.readthedocs.io/
+{%- endif %}
 {%- endif %}

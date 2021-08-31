@@ -76,6 +76,8 @@ SUPPORTED_COMBINATIONS = [
     {"use_async": "n"},
     {"use_drf": "y"},
     {"use_drf": "n"},
+    {"use_drf_simplejwt": "y"},
+    {"use_drf_simplejwt": "n"},
     {"js_task_runner": "None"},
     {"js_task_runner": "Gulp"},
     {"custom_bootstrap_compilation": "y"},
