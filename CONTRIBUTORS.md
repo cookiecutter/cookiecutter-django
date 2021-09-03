@@ -391,6 +391,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Charlie Macfarlane Brodie</td>
+    <td>
+      <a href="https://github.com/tannart">tannart</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Charlie Smith</td>
     <td>
       <a href="https://github.com/chuckus">chuckus</a>
