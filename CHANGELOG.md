@@ -3,6 +3,22 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-09-03]
+### Changed
+- Update available postgres versions ([#3297](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3297))
+### Updated
+- Update pre-commit to 2.15.0 ([#3313](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3313))
+- Auto-update pre-commit hooks ([#3307](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3307))
+- Update pillow to 8.3.2 ([#3312](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3312))
+- Update django-environ to 0.5.0 ([#3311](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3311))
+- Update pytest to 6.2.5 ([#3310](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3310))
+- Update black to 21.8b0 ([#3308](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3308))
+- Update argon2-cffi to 21.1.0 ([#3306](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3306))
+- Bump peter-evans/create-pull-request from 3.10.0 to 3.10.1 ([#3303](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3303))
+- Update django-debug-toolbar to 3.2.2 ([#3296](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3296))
+- Update django-cors-headers to 3.8.0 ([#3295](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3295))
+- Update uvicorn to 0.15.0 ([#3294](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3294))
+
 ## [2021-08-27]
 ### Updated
 - Update tox to 3.24.3 ([#3302](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3302))
