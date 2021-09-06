@@ -5,6 +5,6 @@ web: gunicorn config.asgi:application -k uvicorn.workers.UvicornWorker
 web: gunicorn config.wsgi:application
 {%- endif %}
 {% if cookiecutter.use_celery == "y" -%}
-worker: REMAP_SIGTERM=SIGQUIT celery worker --app=config.celery_app --loglevel=info
-beat: REMAP_SIGTERM=SIGQUIT celery beat --app=config.celery_app --loglevel=info
+worker: REMAP_SIGTERM=SIGQUIT celery -A config.celery_app worker --loglevel=info
+beat: REMAP_SIGTERM=SIGQUIT celery -A config.celery_app beat --loglevel=info
 {%- endif %}
