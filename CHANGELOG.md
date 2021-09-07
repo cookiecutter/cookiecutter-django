@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-09-06]
+### Changed
+- Update Celery to v5 ([#3280](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3280))
+
 ## [2021-09-05]
 ### Updated
 - Update django-environ to 0.6.0 ([#3314](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3314))
