@@ -281,3 +281,20 @@ def test_error_if_incompatible(cookies, context, invalid_context):
 
     assert result.exit_code != 0
     assert isinstance(result.exception, FailedHookException)
+
+
+@pytest.mark.parametrize(
+    ["use_pycharm", "pycharm_docs_exist"],
+    [
+        ("n", False),
+        ("y", True),
+    ],
+)
+def test_pycharm_docs_removed(cookies, context, use_pycharm, pycharm_docs_exist):
+    """."""
+    context.update({"use_pycharm": use_pycharm})
+    result = cookies.bake(extra_context=context)
+
+    with open(f"{result.project}/docs/index.rst", "r") as f:
+        has_pycharm_docs = "pycharm/configuration" in f.read()
+        assert has_pycharm_docs is pycharm_docs_exist

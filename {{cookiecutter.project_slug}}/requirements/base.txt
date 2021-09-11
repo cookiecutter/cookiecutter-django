@@ -1,6 +1,6 @@
 pytz==2021.1  # https://github.com/stub42/pytz
 python-slugify==5.0.2  # https://github.com/un33k/python-slugify
-Pillow==8.2.0  # https://github.com/python-pillow/Pillow
+Pillow==8.3.2  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.use_compressor == "y" %}
 {%- if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %}
 rcssmin==1.0.6 --install-option="--without-c-extensions"  # https://github.com/ndparker/rcssmin
@@ -8,31 +8,31 @@ rcssmin==1.0.6 --install-option="--without-c-extensions"  # https://github.com/n
 rcssmin==1.0.6  # https://github.com/ndparker/rcssmin
 {%- endif %}
 {%- endif %}
-argon2-cffi==20.1.0  # https://github.com/hynek/argon2_cffi
+argon2-cffi==21.1.0  # https://github.com/hynek/argon2_cffi
 {%- if cookiecutter.use_whitenoise == 'y' %}
-whitenoise==5.2.0  # https://github.com/evansd/whitenoise
+whitenoise==5.3.0  # https://github.com/evansd/whitenoise
 {%- endif %}
 redis==3.5.3  # https://github.com/andymccurdy/redis-py
 {%- if cookiecutter.use_docker == "y" or cookiecutter.windows == "n" %}
-hiredis==1.1.0  # https://github.com/redis/hiredis-py
+hiredis==2.0.0  # https://github.com/redis/hiredis-py
 {%- endif %}
 {%- if cookiecutter.use_celery == "y" %}
-celery==4.4.6  # pyup: < 5.0,!=4.4.7  # https://github.com/celery/celery
-django-celery-beat==2.2.0  # https://github.com/celery/django-celery-beat
+celery==5.1.2  # pyup: < 6.0  # https://github.com/celery/celery
+django-celery-beat==2.2.1  # https://github.com/celery/django-celery-beat
 {%- if cookiecutter.use_docker == 'y' %}
-flower==0.9.7  # https://github.com/mher/flower
+flower==1.0.0  # https://github.com/mher/flower
 {%- endif %}
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' %}
-uvicorn[standard]==0.14.0  # https://github.com/encode/uvicorn
+uvicorn[standard]==0.15.0  # https://github.com/encode/uvicorn
 {%- endif %}
 
 # Django
 # ------------------------------------------------------------------------------
 django==3.1.13  # pyup: < 3.2  # https://www.djangoproject.com/
-django-environ==0.4.5  # https://github.com/joke2k/django-environ
+django-environ==0.7.0  # https://github.com/joke2k/django-environ
 django-model-utils==4.1.1  # https://github.com/jazzband/django-model-utils
-django-allauth==0.44.0  # https://github.com/pennersr/django-allauth
+django-allauth==0.45.0  # https://github.com/pennersr/django-allauth
 django-crispy-forms==1.12.0  # https://github.com/django-crispy-forms/django-crispy-forms
 crispy-bootstrap5==0.4  # https://github.com/django-crispy-forms/crispy-bootstrap5
 {%- if cookiecutter.use_compressor == "y" %}
@@ -42,5 +42,5 @@ django-redis==5.0.0  # https://github.com/jazzband/django-redis
 {%- if cookiecutter.use_drf == "y" %}
 # Django REST Framework
 djangorestframework==3.12.4  # https://github.com/encode/django-rest-framework
-django-cors-headers==3.7.0 # https://github.com/adamchainz/django-cors-headers
+django-cors-headers==3.8.0 # https://github.com/adamchainz/django-cors-headers
 {%- endif %}
