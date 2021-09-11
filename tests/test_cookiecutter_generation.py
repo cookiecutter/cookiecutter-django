@@ -298,4 +298,4 @@ def test_pycharm_docs_removed(cookies, context, use_pycharm, pycharm_docs_exist)
 
     with open(f"{result.project}/docs/index.rst", "r") as f:
         has_pycharm_docs = "pycharm/configuration" in f.read()
-        assert has_pycharm_docs == pycharm_docs_exist
+        assert has_pycharm_docs is pycharm_docs_exist
