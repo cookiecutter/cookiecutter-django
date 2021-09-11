@@ -692,6 +692,13 @@ Listed in alphabetical order.
     <td>windrush</td>
   </tr>
   <tr>
+    <td>Floyd Hightower</td>
+    <td>
+      <a href="https://github.com/fhightower">fhightower</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Gabriel Mejia</td>
     <td>
       <a href="https://github.com/elgartoinf">elgartoinf</a>
