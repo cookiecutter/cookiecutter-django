@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-09-11]
+### Changed
+- Removing pycharm docs if app does not use pycharm ([#3139](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3139))
+### Updated
+- Update django-environ to 0.7.0 ([#3317](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3317))
+
 ## [2021-09-06]
 ### Changed
 - Update Celery to v5 ([#3280](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3280))
