@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-09-26]
+### Updated
+- Update django-crispy-forms to 1.13.0 ([#3327](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3327))
+
 ## [2021-09-24]
 ### Changed
 - Add django-settings-module to .pylintrc ([#3326](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3326))
