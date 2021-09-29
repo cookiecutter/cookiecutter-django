@@ -4,10 +4,12 @@
   color: black;
   background-color: white;
   border-color: #d6e9c6;
+  border-spacing: 0em;
+  
 }
 
 .alert-error {
   color: #b94a48;
-  background-color: #f2dede;
-  border-color: #eed3d7;
+  background-color: grey;
+  
 }
