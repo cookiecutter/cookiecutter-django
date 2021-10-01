@@ -25,7 +25,7 @@ Cookiecutter Django
     :alt: Code style: black
 
 Powered by Cookiecutter_, Cookiecutter Django is a framework for jumpstarting
-production-ready Django projects quickly.
+production-ready Django projects quickly.And it provides inbuilt server to test your app during development.
 
 * Documentation: https://cookiecutter-django.readthedocs.io/en/latest/
 * See Troubleshooting_ for common errors and obstacles
