@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-10-03]
+### Updated
+- Update pytz to 2021.3 ([#3340](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3340))
+
 ## [2021-10-01]
 ### Changed
 - Fix the wrong pre-commit hyperlink in Prerequisites section ([#3338](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3338))
