@@ -1,5 +1,6 @@
-# PostgreSQL
-# ------------------------------------------------------------------------------
+# ------------------------------------------------------
+# Define your PostgreSQL related environment variables.
+# ------------------------------------------------------
 POSTGRES_HOST=postgres
 POSTGRES_PORT=5432
 POSTGRES_DB={{ cookiecutter.project_slug }}

@@ -1,18 +1,21 @@
-# General
-# ------------------------------------------------------------------------------
+# ------------------------------------------------------------
+# Define your General project environment variables here.
+# ------------------------------------------------------------
 # DJANGO_READ_DOT_ENV_FILE=True
 DJANGO_SETTINGS_MODULE=config.settings.production
 DJANGO_SECRET_KEY=!!!SET DJANGO_SECRET_KEY!!!
 DJANGO_ADMIN_URL=!!!SET DJANGO_ADMIN_URL!!!
 DJANGO_ALLOWED_HOSTS=.{{ cookiecutter.domain_name }}
 
-# Security
-# ------------------------------------------------------------------------------
+# ------------------------------------------------------------
+# Define your Security related environment variables here.
+# ------------------------------------------------------------
 # TIP: better off using DNS, however, redirect is OK too
 DJANGO_SECURE_SSL_REDIRECT=False
 
-# Email
-# ------------------------------------------------------------------------------
+# ------------------------------------------------------------
+# Define your Email related environment variables here.
+# ------------------------------------------------------------
 DJANGO_SERVER_EMAIL=
 {% if cookiecutter.mail_service == 'Mailgun' %}
 MAILGUN_API_KEY=
@@ -33,39 +36,50 @@ SENDINBLUE_API_KEY=
 {% elif cookiecutter.mail_service == 'SparkPost' %}
 SPARKPOST_API_KEY=
 {% endif %}
+
 {% if cookiecutter.cloud_provider == 'AWS' %}
-# AWS
-# ------------------------------------------------------------------------------
+# ------------------------------------------------------------
+# Define your AWS related environment variables here.
+# ------------------------------------------------------------
 DJANGO_AWS_ACCESS_KEY_ID=
 DJANGO_AWS_SECRET_ACCESS_KEY=
 DJANGO_AWS_STORAGE_BUCKET_NAME=
+
 {% elif cookiecutter.cloud_provider == 'GCP' %}
-# GCP
-# ------------------------------------------------------------------------------
+# ------------------------------------------------------------
+# Define your GCP related environment variables here.
+# ------------------------------------------------------------
 GOOGLE_APPLICATION_CREDENTIALS=
 DJANGO_GCP_STORAGE_BUCKET_NAME=
 {% endif %}
-# django-allauth
-# ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------
+# Define your django-allauth related environment variables here.
+# ------------------------------------------------------------
 DJANGO_ACCOUNT_ALLOW_REGISTRATION=True
 
-# Gunicorn
-# ------------------------------------------------------------------------------
+# ------------------------------------------------------------
+# Define your Gunicorn related environment variables here.
+# ------------------------------------------------------------
 WEB_CONCURRENCY=4
+
 {% if cookiecutter.use_sentry == 'y' %}
-# Sentry
-# ------------------------------------------------------------------------------
+# ------------------------------------------------------------
+# Define your Sentry related environment variables here.
+# ------------------------------------------------------------
 SENTRY_DSN=
 {% endif %}
 
-# Redis
-# ------------------------------------------------------------------------------
+# ------------------------------------------------------------
+# Define your Redis related environment variables here.
+# ------------------------------------------------------------
 REDIS_URL=redis://redis:6379/0
-{% if cookiecutter.use_celery == 'y' %}
-# Celery
-# ------------------------------------------------------------------------------
 
-# Flower
+# ------------------------------------------------------------
+{% if cookiecutter.use_celery == 'y' %}
+# ------------------------------------------------------------
+# Define your Celery and Flower environment variables here.
+# ------------------------------------------------------------
 CELERY_FLOWER_USER=!!!SET CELERY_FLOWER_USER!!!
 CELERY_FLOWER_PASSWORD=!!!SET CELERY_FLOWER_PASSWORD!!!
 {% endif %}

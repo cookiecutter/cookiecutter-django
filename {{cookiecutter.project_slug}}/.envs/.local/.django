@@ -1,17 +1,18 @@
-# General
-# ------------------------------------------------------------------------------
+# -------------------------------------------------------------
+# Define your General project environment variables.
+# -------------------------------------------------------------
 USE_DOCKER=yes
 IPYTHONDIR=/app/.ipython
 
 {%- if cookiecutter.use_celery == 'y' %}
-# Redis
-# ------------------------------------------------------------------------------
+# -------------------------------------------------------------
+# Define your Redis related environment variables.
+# -------------------------------------------------------------
 REDIS_URL=redis://redis:6379/0
 
-# Celery
-# ------------------------------------------------------------------------------
-
-# Flower
+# -------------------------------------------------------------
+# Define your Celery and Flower related environment variables.
+# -------------------------------------------------------------
 CELERY_FLOWER_USER=!!!SET CELERY_FLOWER_USER!!!
 CELERY_FLOWER_PASSWORD=!!!SET CELERY_FLOWER_PASSWORD!!!
 {%- endif %}
