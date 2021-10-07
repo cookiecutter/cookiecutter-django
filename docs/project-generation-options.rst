@@ -49,10 +49,11 @@ use_docker:
 postgresql_version:
     Select a PostgreSQL_ version to use. The choices are:
 
-    1. 13.2
-    2. 12.6
-    3. 11.11
-    4. 10.16
+    1. 12.3
+    2. 11.8
+    3. 10.8
+    4. 9.6
+    5. 9.5
 
 js_task_runner:
     Select a JavaScript task runner. The choices are:

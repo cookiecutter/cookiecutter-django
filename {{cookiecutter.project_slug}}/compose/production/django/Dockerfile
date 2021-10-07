@@ -1,5 +1,3 @@
-ARG PYTHON_VERSION=3.9-slim-buster
-
 {% if cookiecutter.js_task_runner == 'Gulp' -%}
 FROM node:10-stretch-slim as client-builder
 
@@ -12,6 +10,8 @@ COPY . ${APP_HOME}
 RUN npm run build
 
 {%- endif %}
+
+ARG PYTHON_VERSION=3.9-slim-buster
 
 # define an alias for the specfic python version used in this file.
 FROM python:${PYTHON_VERSION} as python

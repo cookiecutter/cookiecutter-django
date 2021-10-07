@@ -353,12 +353,7 @@ sentry_logging = LoggingIntegration(
 )
 
 {%- if cookiecutter.use_celery == 'y' %}
-integrations = [
-    sentry_logging,
-    DjangoIntegration(),
-    CeleryIntegration(),
-    RedisIntegration(),
-]
+integrations = [sentry_logging, DjangoIntegration(), CeleryIntegration(), RedisIntegration()]
 {% else %}
 integrations = [sentry_logging, DjangoIntegration(), RedisIntegration()]
 {% endif -%}

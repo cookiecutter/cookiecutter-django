@@ -125,13 +125,6 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
-    <td>Abdul Qoyyuum</td>
-    <td>
-      <a href="https://github.com/Qoyyuum">Qoyyuum</a>
-    </td>
-    <td>Qoyyuum</td>
-  </tr>
-  <tr>
     <td>Adam Bogdał</td>
     <td>
       <a href="https://github.com/bogdal">bogdal</a>
@@ -387,13 +380,6 @@ Listed in alphabetical order.
     <td>Catherine Devlin</td>
     <td>
       <a href="https://github.com/catherinedevlin">catherinedevlin</a>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Charlie Macfarlane Brodie</td>
-    <td>
-      <a href="https://github.com/tannart">tannart</a>
     </td>
     <td></td>
   </tr>
@@ -692,13 +678,6 @@ Listed in alphabetical order.
     <td>windrush</td>
   </tr>
   <tr>
-    <td>Floyd Hightower</td>
-    <td>
-      <a href="https://github.com/fhightower">fhightower</a>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
     <td>Gabriel Mejia</td>
     <td>
       <a href="https://github.com/elgartoinf">elgartoinf</a>
@@ -732,13 +711,6 @@ Listed in alphabetical order.
       <a href="https://github.com/gwiskur">gwiskur</a>
     </td>
     <td></td>
-  </tr>
-  <tr>
-    <td>Grant McLean</td>
-    <td>
-      <a href="https://github.com/grantm">grantm</a>
-    </td>
-    <td>grantmnz</td>
   </tr>
   <tr>
     <td>Guilherme Guy</td>
@@ -781,13 +753,6 @@ Listed in alphabetical order.
       <a href="https://github.com/hjwp">hjwp</a>
     </td>
     <td></td>
-  </tr>
-  <tr>
-    <td>Haseeb ur Rehman</td>
-    <td>
-      <a href="https://github.com/professorhaseeb">professorhaseeb</a>
-    </td>
-    <td>professorhaseeb</td>
   </tr>
   <tr>
     <td>Hendrik Schneider</td>
@@ -972,13 +937,6 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
-    <td>Keith Callenberg</td>
-    <td>
-      <a href="https://github.com/keithcallenberg">keithcallenberg</a>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
     <td>Keith Webber</td>
     <td>
       <a href="https://github.com/townie">townie</a>
@@ -1021,23 +979,9 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
-    <td>Kuo Chao Cheng</td>
-    <td>
-      <a href="https://github.com/wwwtony5488">wwwtony5488</a>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
     <td>lcd1232</td>
     <td>
       <a href="https://github.com/lcd1232">lcd1232</a>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>LECbg</td>
-    <td>
-      <a href="https://github.com/LECbg">LECbg</a>
     </td>
     <td></td>
   </tr>
@@ -1103,13 +1047,6 @@ Listed in alphabetical order.
       <a href="https://github.com/flyudvik">flyudvik</a>
     </td>
     <td>flyudvik</td>
-  </tr>
-  <tr>
-    <td>Manjit Pardeshi</td>
-    <td>
-      <a href="https://github.com/Manjit2003">Manjit2003</a>
-    </td>
-    <td></td>
   </tr>
   <tr>
     <td>Martin Blech</td>
@@ -1196,23 +1133,9 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
-    <td>Meraj </td>
-    <td>
-      <a href="https://github.com/ichbinmeraj">ichbinmeraj</a>
-    </td>
-    <td>merajsafari</td>
-  </tr>
-  <tr>
     <td>Mesut Yılmaz</td>
     <td>
       <a href="https://github.com/myilmaz">myilmaz</a>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>mfosterw</td>
-    <td>
-      <a href="https://github.com/mfosterw">mfosterw</a>
     </td>
     <td></td>
   </tr>
@@ -1227,13 +1150,6 @@ Listed in alphabetical order.
     <td>Michael Samoylov</td>
     <td>
       <a href="https://github.com/msamoylov">msamoylov</a>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Mike97M</td>
-    <td>
-      <a href="https://github.com/Mike97M">Mike97M</a>
     </td>
     <td></td>
   </tr>
@@ -1334,13 +1250,6 @@ Listed in alphabetical order.
       <a href="https://github.com/hackebrot">hackebrot</a>
     </td>
     <td></td>
-  </tr>
-  <tr>
-    <td>Ray Besiga</td>
-    <td>
-      <a href="https://github.com/raybesiga">raybesiga</a>
-    </td>
-    <td>raybesiga</td>
   </tr>
   <tr>
     <td>Reggie Riser</td>
