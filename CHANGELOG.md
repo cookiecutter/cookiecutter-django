@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-10-11]
+### Updated
+- Update werkzeug to 2.0.2 ([#3344](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3344))
+- Update coverage to 6.0.1 ([#3348](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3348))
+- Update django-coverage-plugin to 2.0.1 ([#3349](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3349))
+- Update django-cors-headers to 3.10.0 ([#3345](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3345))
+- Update jinja2 to 3.0.2 ([#3343](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3343))
+- Update django-storages to 1.12.1 ([#3355](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3355))
+
 ## [2021-10-03]
 ### Updated
 - Update pytz to 2021.3 ([#3340](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3340))
