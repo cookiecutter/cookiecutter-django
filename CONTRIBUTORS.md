@@ -503,6 +503,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>dalrrard</td>
+    <td>
+      <a href="https://github.com/dalrrard">dalrrard</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Dan Shultz</td>
     <td>
       <a href="https://github.com/shultz">shultz</a>
