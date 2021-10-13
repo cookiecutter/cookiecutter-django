@@ -5,4 +5,3 @@ import pytest
 from django.utils.translation import gettext_lazy as _
 
 pytestmark = pytest.mark.django_db
-

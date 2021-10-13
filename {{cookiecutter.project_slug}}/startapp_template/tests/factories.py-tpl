@@ -3,4 +3,3 @@ from typing import Any, Sequence
 
 from factory import Faker, post_generation
 from factory.django import DjangoModelFactory
-
