@@ -101,6 +101,7 @@ def remove_celery_files():
         os.path.join(
             "{{ cookiecutter.project_slug }}", "users", "tests", "test_tasks.py"
         ),
+        os.path.join("startapp_template", "tasks.py-tpl"),
     ]
     for file_name in file_names:
         os.remove(file_name)
@@ -318,6 +319,9 @@ def remove_drf_starter_files():
             "{{cookiecutter.project_slug}}", "users", "tests", "test_drf_views.py"
         )
     )
+    shutil.rmtree(os.path.join("startapp_template", "api"))
+    os.remove(os.path.join("startapp_template", "tests", "test_drf_urls.py-tpl"))
+    os.remove(os.path.join("startapp_template", "tests", "test_drf_views.py-tpl"))
 
 
 def remove_storages_module():

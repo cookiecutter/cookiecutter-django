@@ -1,0 +1,5 @@
+"""Define {{ '{{' }} app_name {{ '}}' }} app views."""
+from django.shortcuts import render
+
+# Create your views here.
+

@@ -1,0 +1,5 @@
+"""Define {{ '{{' }} app_name {{ '}}' }} app forms."""
+from django.utils.translation import gettext_lazy as _
+
+# Create your forms here.
+

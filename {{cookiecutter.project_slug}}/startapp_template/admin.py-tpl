@@ -1,0 +1,5 @@
+"""Define and register {{ '{{' }} app_name {{ '}}' }} app admin models."""
+from django.contrib import admin
+
+# Register your models here.
+
