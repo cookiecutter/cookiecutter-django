@@ -807,7 +807,7 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 ## [2020-04-13]
 ### Changed
 - Updated to Python 3.8 (@codnee)
-- Moved converage config in setup.cfg (@danihodovic)
+- Moved coverage config in setup.cfg (@danihodovic)
 
 ## [2020-04-08]
 ### Fixed
@@ -815,7 +815,7 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 ## [2020-04-04]
 ### Fixed
-- Added compress command command with Django compressor (@gwiskur)
+- Added compress command with Django compressor (@gwiskur)
 
 ## [2020-03-23]
 ### Changed
