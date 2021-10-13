@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-10-12]
+### Updated
+- Update coverage to 6.0.2 ([#3356](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3356))
+
 ## [2021-10-11]
 ### Updated
 - Update werkzeug to 2.0.2 ([#3344](https://api.github.com/repos/pydanny/cookiecutter-django/pulls/3344))
