@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-10-13]
+### Changed
+- Add drf stubs ([#3353](https://github.com/pydanny/cookiecutter-django/pull/3353))
+
 ## [2021-10-12]
 ### Updated
 - Update coverage to 6.0.2 ([#3356](https://github.com/pydanny/cookiecutter-django/pull/3356))
