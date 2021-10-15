@@ -87,7 +87,7 @@ or if you're running asynchronously: ::
 .. _Redis: https://redis.io/download
 .. _CookieCutter: https://github.com/cookiecutter/cookiecutter
 .. _createdb: https://www.postgresql.org/docs/current/static/app-createdb.html
-.. _initial PostgreSQL set up: http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html
+.. _initial PostgreSQL set up: http://web.archive.org/web/20190303010033/http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html
 .. _postgres documentation: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
 .. _pre-commit: https://pre-commit.com/
 .. _direnv: https://direnv.net/
