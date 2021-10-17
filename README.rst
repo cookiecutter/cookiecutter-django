@@ -122,7 +122,7 @@ Projects that provide financial support to the maintainers:
 
 Two Scoops of Django 3.x is the best ice cream-themed Django reference in the universe!
 
-pyup
+Pyup
 ~~~~~~~~~~~~~~~~~~
 
 .. image:: https://pyup.io/static/images/logo.png
