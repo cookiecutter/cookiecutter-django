@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-10-22]
+### Changed
+- Move repo under cookiecutter organisation ([#3357](https://github.com/cookiecutter/cookiecutter-django/pull/3357))
+
 ## [2021-10-18]
 ### Updated
 - Update django-environ to 0.8.0 ([#3367](https://github.com/pydanny/cookiecutter-django/pull/3367))
