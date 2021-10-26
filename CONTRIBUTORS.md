@@ -1077,6 +1077,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Liam Brenner</td>
+    <td>
+      <a href="https://github.com/SableWalnut">SableWalnut</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Lin Xianyi</td>
     <td>
       <a href="https://github.com/iynaix">iynaix</a>
