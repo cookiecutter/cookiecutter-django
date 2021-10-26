@@ -1273,6 +1273,13 @@ Listed in alphabetical order.
     <td>moby_dick91</td>
   </tr>
   <tr>
+    <td>Noah H</td>
+    <td>
+      <a href="https://github.com/nthall">nthall</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Oleg Russkin</td>
     <td>
       <a href="https://github.com/rolep">rolep</a>
