@@ -29,9 +29,9 @@ livehtml:
 # Outputs rst files from django application code
 apidocs:
 	{%- if cookiecutter.use_docker == 'y' %}
-	sphinx-apidoc -o $(SOURCEDIR)/api /app
+	sphinx-apidoc -o $(SOURCEDIR)/api $(APP)
 	{%- else %}
-	sphinx-apidoc -o $(SOURCEDIR)/api ../{{cookiecutter.project_slug}}
+	sphinx-apidoc -o $(SOURCEDIR)/api $(APP)
 	{%- endif %}
 
 # Catch-all target: route all unknown targets to Sphinx using the new
