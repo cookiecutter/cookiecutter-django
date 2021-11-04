@@ -28,11 +28,7 @@ livehtml:
 
 # Outputs rst files from django application code
 apidocs:
-	{%- if cookiecutter.use_docker == 'y' %}
 	sphinx-apidoc -o $(SOURCEDIR)/api $(APP)
-	{%- else %}
-	sphinx-apidoc -o $(SOURCEDIR)/api $(APP)
-	{%- endif %}
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
