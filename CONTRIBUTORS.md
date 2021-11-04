@@ -615,6 +615,13 @@ Listed in alphabetical order.
     <td>purplediane88</td>
   </tr>
   <tr>
+    <td>Diego Montes</td>
+    <td>
+      <a href="https://github.com/d57montes">d57montes</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Dong Huynh</td>
     <td>
       <a href="https://github.com/trungdong">trungdong</a>
