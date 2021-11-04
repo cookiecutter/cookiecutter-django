@@ -13,8 +13,9 @@ Cookiecutter Django
     :target: https://pyup.io/repos/github/cookiecutter/cookiecutter-django/
     :alt: Updates
 
-.. image:: https://img.shields.io/badge/cookiecutter-Join%20on%20Slack-green?style=flat&logo=slack
-    :target: https://join.slack.com/t/cookie-cutter/shared_invite/enQtNzI0Mzg5NjE5Nzk5LTRlYWI2YTZhYmQ4YmU1Y2Q2NmE1ZjkwOGM0NDQyNTIwY2M4ZTgyNDVkNjMxMDdhZGI5ZGE5YmJjM2M3ODJlY2U
+.. image:: https://img.shields.io/badge/Discord-cookiecutter-5865F2?style=flat&logo=discord&logoColor=white
+    :target: https://discord.gg/bTfDa6Zz
+    :alt: Join our Discord
 
 .. image:: https://www.codetriage.com/cookiecutter/cookiecutter-django/badges/users.svg
     :target: https://www.codetriage.com/cookiecutter/cookiecutter-django
