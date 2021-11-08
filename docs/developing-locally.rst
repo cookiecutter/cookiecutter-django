@@ -30,6 +30,7 @@ First things first.
 
 #. Install development requirements: ::
 
+    $ cd <what you have entered as the project_slug at setup stage>
     $ pip install -r requirements/local.txt
     $ git init # A git repo is required for pre-commit to install
     $ pre-commit install

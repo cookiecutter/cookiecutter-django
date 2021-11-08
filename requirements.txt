@@ -4,16 +4,16 @@ binaryornot==0.4.4
 
 # Code quality
 # ------------------------------------------------------------------------------
-black==21.6b0
-isort==5.9.1
+black==21.8b0
+isort==5.9.3
 flake8==3.9.2
 flake8-isort==4.0.0
-pre-commit==2.13.0
+pre-commit==2.15.0
 
 # Testing
 # ------------------------------------------------------------------------------
-tox==3.23.1
-pytest==6.2.4
+tox==3.24.3
+pytest==6.2.5
 pytest-cookies==0.6.1
 pytest-instafail==0.4.2
 pyyaml==5.4.1
