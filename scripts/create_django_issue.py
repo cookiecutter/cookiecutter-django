@@ -65,30 +65,27 @@ def get_all_latest_django_versions() -> tuple[str, list[str]]:
             sys.exit(1)
 
     # Begin parsing and verification
-    base_django_version = get_name_and_version(line)[1].split(".")
-    django_versions = get_package_versions(get_package_info("django"), include_pre=True)
-    _needed_django_versions: set[tuple] = set()
-    actual_needed_django_versions: list[str] = []
-    for x in django_versions:
-        _version = x.split(".")
-        # Compare if major is higher or if minor is higher iff major is the same
-        if (_version[0] > base_django_version[0]) or (
-            _version[0] == base_django_version[0]
-            and _version[1] > base_django_version[1]
-        ):
-            will_add = (_version[0], _version[1])
-            if will_add not in _needed_django_versions:
-                _needed_django_versions.add(will_add)
-                actual_needed_django_versions.append(x)
+    _, current_version_str = get_name_and_version(line)
+    # Get a tuple of (major, minor) - ignoring patch version
+    current_minor_version = tuple(current_version_str.split(".")[:2])
+    all_django_versions = get_package_versions(get_package_info("django"))
+    newer_versions: set[tuple] = set()
+    for version_str in all_django_versions:
+        released_minor_version = tuple(version_str.split(".")[:2])
+        if released_minor_version > current_minor_version:
+            newer_versions.add(released_minor_version)
 
-    return line, actual_needed_django_versions
+    needed_versions_str = ['.'.join(v) for v in sorted(newer_versions)]
+    return line, needed_versions_str
 
 
 def get_first_digit(tokens) -> str:
     return next(item for item in tokens if item.isdigit())
 
 
-_TABLE_HEADER = """{file}.txt
+_TABLE_HEADER = """
+
+## {file}.txt
 
 | Name | Version in Master | {dj_version} Compatible Version | OK |
 | ---- | :---------------: | :-----------------------------: | :-: |
