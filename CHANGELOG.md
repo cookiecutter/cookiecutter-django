@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-11-07]
+### Updated
+- Update django-extensions to 3.1.5 ([#3383](https://github.com/cookiecutter/cookiecutter-django/pull/3383))
+
 ## [2021-11-04]
 ### Changed
 - change path in docs Makefile to use APP variable ([#3379](https://github.com/cookiecutter/cookiecutter-django/pull/3379))
