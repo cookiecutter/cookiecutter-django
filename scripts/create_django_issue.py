@@ -23,7 +23,7 @@ if TYPE_CHECKING:
 CURRENT_FILE = Path(__file__)
 ROOT = CURRENT_FILE.parents[1]
 REQUIREMENTS_DIR = ROOT / "{{cookiecutter.project_slug}}" / "requirements"
-GITHUB_REPO = "pydanny/cookiecutter-django"
+GITHUB_REPO = "cookiecutter/cookiecutter-django"
 
 
 def get_package_info(package: str) -> dict:
@@ -44,8 +44,10 @@ def get_package_versions(package_info: dict, reverse=True, *, include_pre=False)
     return sorted(releases, reverse=reverse)
 
 
-def get_name_and_version(requirements_line: str) -> list[str, str]:
-    return requirements_line.split(" ", 1)[0].split("==")
+def get_name_and_version(requirements_line: str) -> tuple[str, str]:
+    full_name, version = requirements_line.split(" ", 1)[0].split("==")
+    name_without_extras = full_name.split("[", 1)[0]
+    return name_without_extras, version
 
 
 def get_all_latest_django_versions() -> tuple[str, list[str]]:
@@ -124,7 +126,7 @@ class GitHubManager:
         for requirements_file in self.requirements_files:
             with (REQUIREMENTS_DIR / f"{requirements_file}.txt").open() as f:
                 for line in f.readlines():
-                    if "==" in line:
+                    if "==" in line and not line.startswith('{%'):
                         name, version = get_name_and_version(line)
                         self.requirements[requirements_file][name] = (
                             version, get_package_info(name)
@@ -248,7 +250,7 @@ class GitHubManager:
                 )
                 requirements += (
                     f"|{self._get_md_home_page_url(info).format(package_name)}"
-                    f"|{version}|{compat_version}|{icon}|"
+                    f"|{version}|{compat_version}|{icon}|\n"
                 )
         return requirements
 
@@ -262,7 +264,8 @@ class GitHubManager:
 
     def generate(self):
         for version in self.needed_dj_versions:
-            self.create_or_edit_issue(version, self.generate_markdown(version))
+            md_content = self.generate_markdown(version)
+            self.create_or_edit_issue(version, md_content)
 
 
 def main() -> None:
