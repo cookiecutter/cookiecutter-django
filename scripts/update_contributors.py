@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+
 from github import Github
 from github.NamedUser import NamedUser
 from jinja2 import Template
