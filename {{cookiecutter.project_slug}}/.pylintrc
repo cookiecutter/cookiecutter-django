@@ -1,6 +1,6 @@
 [MASTER]
 load-plugins=pylint_django{% if cookiecutter.use_celery == "y" %}, pylint_celery{% endif %}
-
+django-settings-module=config.settings.base
 [FORMAT]
 max-line-length=120
 

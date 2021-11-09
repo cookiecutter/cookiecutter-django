@@ -39,7 +39,9 @@ def main() -> None:
 
 def iter_pulls():
     """Fetch merged pull requests at the date we're interested in."""
-    repo = Github(login_or_token=GITHUB_TOKEN).get_repo("pydanny/cookiecutter-django")
+    repo = Github(login_or_token=GITHUB_TOKEN).get_repo(
+        "cookiecutter/cookiecutter-django"
+    )
     recent_pulls = repo.get_pulls(
         state="closed", sort="updated", direction="desc"
     ).get_page(0)
