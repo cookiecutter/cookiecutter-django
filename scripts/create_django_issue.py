@@ -24,7 +24,9 @@ if TYPE_CHECKING:
 CURRENT_FILE = Path(__file__)
 ROOT = CURRENT_FILE.parents[1]
 REQUIREMENTS_DIR = ROOT / "{{cookiecutter.project_slug}}" / "requirements"
-GITHUB_REPO = "cookiecutter/cookiecutter-django"
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", None)
+GITHUB_REPO = os.getenv("GITHUB_REPOSITORY", None)
+ISSUE_AUTHOR = os.getenv("GITHUB_ISSUE_AUTHOR", "actions-user")
 
 
 class Version(NamedTuple):
@@ -107,7 +109,7 @@ VITAL_BUT_UNKNOWN = [
 
 class GitHubManager:
     def __init__(self, base_dj_version: Version, needed_dj_versions: list[Version]):
-        self.github = Github(os.getenv("GITHUB_TOKEN", None))
+        self.github = Github(GITHUB_TOKEN)
         self.repo = self.github.get_repo(GITHUB_REPO)
 
         self.base_dj_version = base_dj_version
@@ -143,7 +145,7 @@ class GitHubManager:
         """Closes the issue if the base Django version is greater than the needed"""
         qualifiers = {
             "repo": GITHUB_REPO,
-            "author": "actions-user",
+            "author": ISSUE_AUTHOR,
             "state": "open",
             "is": "issue",
             "in": "title",
@@ -263,4 +265,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    if GITHUB_REPO is None:
+        raise RuntimeError(
+            "No github repo, please set the environment variable GITHUB_REPOSITORY"
+        )
     main()
