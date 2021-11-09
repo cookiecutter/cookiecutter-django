@@ -9,14 +9,12 @@ to keep up to date.
 from __future__ import annotations
 
 import os
-from typing import NamedTuple, Sequence, TYPE_CHECKING
-
-import requests
 import sys
 from pathlib import Path
+from typing import TYPE_CHECKING, Any, Iterable, NamedTuple
 
+import requests
 from github import Github
-
 
 if TYPE_CHECKING:
     from github.Issue import Issue
@@ -34,6 +32,7 @@ class DjVersion(NamedTuple):
 
     Only keeps track on (major, minor) versions, excluding patches and pre-releases.
     """
+
     major: int
     minor: int
 
@@ -49,6 +48,7 @@ class DjVersion(NamedTuple):
 
 
 def get_package_info(package: str) -> dict:
+    """Get package metadata using PyPI API."""
     # "django" converts to "Django" on redirect
     r = requests.get(f"https://pypi.org/pypi/{package}/json", allow_redirects=True)
     if not r.ok:
@@ -57,17 +57,18 @@ def get_package_info(package: str) -> dict:
     return r.json()
 
 
-def get_package_versions(package_info: dict, reverse=True, *, include_pre=False):
-    # Mostly used for the Django check really... to get the latest
-    # package version, you could simple do get_package_info()["info"]["version"]
-    releases: Sequence[str] = package_info["releases"].keys()
-    if not include_pre:
-        releases = [r for r in releases if r.replace(".", "").isdigit()]
-    return sorted(releases, reverse=reverse)
+def get_django_versions() -> Iterable[DjVersion]:
+    """List all django versions."""
+    django_package_info: dict[str, Any] = get_package_info("django")
+    releases = django_package_info["releases"].keys()
+    for release_str in releases:
+        if release_str.replace(".", "").isdigit():
+            # Exclude pre-releases with non-numeric characters in version
+            yield DjVersion.parse(release_str)
 
 
 def get_name_and_version(requirements_line: str) -> tuple[str, ...]:
-    """Get the name a verion of a package from a line in the requirement file."""
+    """Get the name a version of a package from a line in the requirement file."""
     full_name, version = requirements_line.split(" ", 1)[0].split("==")
     name_without_extras = full_name.split("[", 1)[0]
     return name_without_extras, version
@@ -92,12 +93,10 @@ def get_all_latest_django_versions() -> tuple[DjVersion, list[DjVersion]]:
     _, current_version_str = get_name_and_version(line)
     # Get a tuple of (major, minor) - ignoring patch version
     current_minor_version = DjVersion.parse(current_version_str)
-    all_django_versions = get_package_versions(get_package_info("django"))
     newer_versions: set[DjVersion] = set()
-    for version_str in all_django_versions:
-        released_minor_version = DjVersion.parse(version_str)
-        if released_minor_version > current_minor_version:
-            newer_versions.add(released_minor_version)
+    for django_version in get_django_versions():
+        if django_version > current_minor_version:
+            newer_versions.add(django_version)
 
     return current_minor_version, sorted(newer_versions, reverse=True)
 
