@@ -92,10 +92,6 @@ def get_all_latest_django_versions() -> tuple[Version, list[Version]]:
     return current_minor_version, sorted(newer_versions, reverse=True)
 
 
-def get_first_digit(tokens) -> str:
-    return next(item for item in tokens if item.isdigit())
-
-
 _TABLE_HEADER = """
 
 ## {file}.txt
