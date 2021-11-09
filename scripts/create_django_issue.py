@@ -60,6 +60,7 @@ def get_package_versions(package_info: dict, reverse=True, *, include_pre=False)
 
 
 def get_name_and_version(requirements_line: str) -> tuple[str, ...]:
+    """Get the name a verion of a package from a line in the requirement file."""
     full_name, version = requirements_line.split(" ", 1)[0].split("==")
     name_without_extras = full_name.split("[", 1)[0]
     return name_without_extras, version
@@ -67,8 +68,9 @@ def get_name_and_version(requirements_line: str) -> tuple[str, ...]:
 
 def get_all_latest_django_versions() -> tuple[Version, list[Version]]:
     """
-    Grabs all Django versions that are worthy of a GitHub issue. Depends on
-    if Django versions has higher major version or minor version
+    Grabs all Django versions that are worthy of a GitHub issue.
+
+    Depends on Django versions having higher major version or minor version.
     """
     base_txt = REQUIREMENTS_DIR / "base.txt"
     with base_txt.open() as f:
@@ -141,7 +143,7 @@ class GitHubManager:
                         )
 
     def load_existing_issues(self):
-        """Closes the issue if the base Django version is greater than the needed"""
+        """Closes the issue if the base Django version is greater than needed"""
         qualifiers = {
             "repo": GITHUB_REPO,
             "state": "open",
@@ -200,7 +202,7 @@ class GitHubManager:
             else:
                 return "", "❌"
 
-        # Django classifier DNE; assume it just isn't a Django lib
+        # Django classifier DNE; assume it isn't a Django lib
         # Great exceptions include pylint-django, where we need to do this manually...
         return "n/a", "✅"
 
