@@ -4,9 +4,8 @@
 name: Django Issue Checker
 
 on:
-  # Every day at midnight
   schedule:
-  - cron: "0 3 * * *"
+  - cron: "28 5 * * *"
   # Manual trigger
   workflow_dispatch:
 
