@@ -7,6 +7,7 @@ import datetime as dt
 CURRENT_FILE = Path(__file__)
 ROOT = CURRENT_FILE.parents[1]
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", None)
+GITHUB_REPO = os.getenv("GITHUB_REPOSITORY", None)
 
 # Generate changelog for PRs merged yesterday
 MERGED_DATE = dt.date.today() - dt.timedelta(days=1)
@@ -39,9 +40,7 @@ def main() -> None:
 
 def iter_pulls():
     """Fetch merged pull requests at the date we're interested in."""
-    repo = Github(login_or_token=GITHUB_TOKEN).get_repo(
-        "cookiecutter/cookiecutter-django"
-    )
+    repo = Github(login_or_token=GITHUB_TOKEN).get_repo(GITHUB_REPO)
     recent_pulls = repo.get_pulls(
         state="closed", sort="updated", direction="desc"
     ).get_page(0)
@@ -77,4 +76,8 @@ def generate_md(grouped_pulls):
 
 
 if __name__ == "__main__":
+    if GITHUB_REPO is None:
+        raise RuntimeError(
+            "No github repo, please set the environment variable GITHUB_REPOSITORY"
+        )
     main()

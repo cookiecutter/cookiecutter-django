@@ -1,4 +1,5 @@
 import json
+import os
 from pathlib import Path
 from github import Github
 from github.NamedUser import NamedUser
@@ -7,6 +8,8 @@ from jinja2 import Template
 CURRENT_FILE = Path(__file__)
 ROOT = CURRENT_FILE.parents[1]
 BOT_LOGINS = ["pyup-bot"]
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", None)
+GITHUB_REPO = os.getenv("GITHUB_REPOSITORY", None)
 
 
 def main() -> None:
@@ -39,7 +42,7 @@ def iter_recent_authors():
     Use Github API to fetch recent authors rather than
     git CLI to work with Github usernames.
     """
-    repo = Github(per_page=5).get_repo("cookiecutter/cookiecutter-django")
+    repo = Github(login_or_token=GITHUB_TOKEN, per_page=5).get_repo(GITHUB_REPO)
     recent_pulls = repo.get_pulls(
         state="closed", sort="updated", direction="desc"
     ).get_page(0)
@@ -101,4 +104,8 @@ def write_md_file(contributors):
 
 
 if __name__ == "__main__":
+    if GITHUB_REPO is None:
+        raise RuntimeError(
+            "No github repo, please set the environment variable GITHUB_REPOSITORY"
+        )
     main()
