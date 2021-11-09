@@ -28,17 +28,24 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", None)
 GITHUB_REPO = os.getenv("GITHUB_REPOSITORY", None)
 
 
-class Version(NamedTuple):
-    major: str
-    minor: str
+class DjVersion(NamedTuple):
+    """
+    Wrapper to parse, compare and render Django versions.
+
+    Only keeps track on (major, minor) versions, excluding patches and pre-releases.
+    """
+    major: int
+    minor: int
 
     def __str__(self) -> str:
+        """To render as string."""
         return f"{self.major}.{self.minor}"
 
     @classmethod
-    def parse(cls, version_str: str) -> Version:
+    def parse(cls, version_str: str) -> DjVersion:
+        """Parse interesting values from the version string."""
         major, minor, *_ = version_str.split(".")
-        return cls(major=major, minor=minor)
+        return cls(major=int(major), minor=int(minor))
 
 
 def get_package_info(package: str) -> dict:
@@ -66,7 +73,7 @@ def get_name_and_version(requirements_line: str) -> tuple[str, ...]:
     return name_without_extras, version
 
 
-def get_all_latest_django_versions() -> tuple[Version, list[Version]]:
+def get_all_latest_django_versions() -> tuple[DjVersion, list[DjVersion]]:
     """
     Grabs all Django versions that are worthy of a GitHub issue.
 
@@ -84,11 +91,11 @@ def get_all_latest_django_versions() -> tuple[Version, list[Version]]:
     # Begin parsing and verification
     _, current_version_str = get_name_and_version(line)
     # Get a tuple of (major, minor) - ignoring patch version
-    current_minor_version = Version.parse(current_version_str)
+    current_minor_version = DjVersion.parse(current_version_str)
     all_django_versions = get_package_versions(get_package_info("django"))
-    newer_versions: set[Version] = set()
+    newer_versions: set[DjVersion] = set()
     for version_str in all_django_versions:
-        released_minor_version = Version.parse(version_str)
+        released_minor_version = DjVersion.parse(version_str)
         if released_minor_version > current_minor_version:
             newer_versions.add(released_minor_version)
 
@@ -109,14 +116,14 @@ VITAL_BUT_UNKNOWN = [
 
 
 class GitHubManager:
-    def __init__(self, base_dj_version: Version, needed_dj_versions: list[Version]):
+    def __init__(self, base_dj_version: DjVersion, needed_dj_versions: list[DjVersion]):
         self.github = Github(GITHUB_TOKEN)
         self.repo = self.github.get_repo(GITHUB_REPO)
 
         self.base_dj_version = base_dj_version
         self.needed_dj_versions = needed_dj_versions
         # (major+minor) Version and description
-        self.existing_issues: dict[Version, Issue] = {}
+        self.existing_issues: dict[DjVersion, Issue] = {}
 
         # Load all requirements from our requirements files and preload their
         # package information like a cache:
@@ -157,7 +164,7 @@ class GitHubManager:
         )
         for issue in issues:
             issue_version_str = issue.title.split(" ")[-1]
-            issue_version = Version.parse(issue_version_str)
+            issue_version = DjVersion.parse(issue_version_str)
             if self.base_dj_version > issue_version:
                 issue.edit(state="closed")
                 print(f"Closed issue {issue.title} (ID: [{issue.id}]({issue.url}))")
@@ -165,7 +172,7 @@ class GitHubManager:
                 self.existing_issues[issue_version] = issue
 
     def get_compatibility(
-        self, package_name: str, package_info: dict, needed_dj_version: Version
+        self, package_name: str, package_info: dict, needed_dj_version: DjVersion
     ):
         """
         Verify compatibility via setup.py classifiers. If Django is not in the
@@ -187,12 +194,12 @@ class GitHubManager:
             return "", "❓"
 
         # Check classifiers if it includes Django
-        supported_dj_versions: list[Version] = []
+        supported_dj_versions: list[DjVersion] = []
         for classifier in package_info["info"]["classifiers"]:
             # Usually in the form of "Framework :: Django :: 3.2"
             tokens = classifier.split(" ")
             if len(tokens) >= 5 and tokens[2].lower() == "django":
-                version = Version.parse(tokens[4])
+                version = DjVersion.parse(tokens[4])
                 if len(version) == 2:
                     supported_dj_versions.append(version)
 
@@ -224,7 +231,7 @@ class GitHubManager:
         except StopIteration:
             return "{}"
 
-    def generate_markdown(self, needed_dj_version: Version):
+    def generate_markdown(self, needed_dj_version: DjVersion):
         requirements = f"{needed_dj_version} requirements tables\n\n"
         for _file in self.requirements_files:
             requirements += _TABLE_HEADER.format_map(
@@ -240,7 +247,7 @@ class GitHubManager:
                 )
         return requirements
 
-    def create_or_edit_issue(self, needed_dj_version: Version, description: str):
+    def create_or_edit_issue(self, needed_dj_version: DjVersion, description: str):
         if issue := self.existing_issues.get(needed_dj_version):
             issue.edit(body=description)
         else:
