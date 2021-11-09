@@ -26,7 +26,7 @@ ROOT = CURRENT_FILE.parents[1]
 REQUIREMENTS_DIR = ROOT / "{{cookiecutter.project_slug}}" / "requirements"
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", None)
 GITHUB_REPO = os.getenv("GITHUB_REPOSITORY", None)
-ISSUE_AUTHOR = os.getenv("GITHUB_ISSUE_AUTHOR", "actions-user")
+ISSUE_AUTHOR = os.getenv("GITHUB_ISSUE_AUTHOR", "actions-user[bot]")
 
 
 class Version(NamedTuple):
