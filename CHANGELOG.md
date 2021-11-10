@@ -3,6 +3,18 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-11-09]
+### Changed
+- refactor: remove user API methods parameter ([#3385](https://github.com/cookiecutter/cookiecutter-django/pull/3385))
+- Get GitHub repo from environment ([#3387](https://github.com/cookiecutter/cookiecutter-django/pull/3387))
+### Updated
+- Update celery to 5.2.0 ([#3384](https://github.com/cookiecutter/cookiecutter-django/pull/3384))
+- Update isort to 5.10.1 ([#3386](https://github.com/cookiecutter/cookiecutter-django/pull/3386))
+
+## [2021-11-08]
+### Changed
+- Update docker and non-docker configs to Debian 11 (bullseye) ([#3372](https://github.com/cookiecutter/cookiecutter-django/pull/3372))
+
 ## [2021-11-07]
 ### Updated
 - Update django-extensions to 3.1.5 ([#3383](https://github.com/cookiecutter/cookiecutter-django/pull/3383))
