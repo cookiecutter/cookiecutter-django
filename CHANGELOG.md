@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-11-10]
+### Changed
+- Update sphinx to 4.3.0 ([#3392](https://github.com/cookiecutter/cookiecutter-django/pull/3392))
+### Updated
+- Auto-update pre-commit hooks ([#3389](https://github.com/cookiecutter/cookiecutter-django/pull/3389))
+- Update jinja2 to 3.0.3 ([#3388](https://github.com/cookiecutter/cookiecutter-django/pull/3388))
+
 ## [2021-11-09]
 ### Changed
 - refactor: remove user API methods parameter ([#3385](https://github.com/cookiecutter/cookiecutter-django/pull/3385))
