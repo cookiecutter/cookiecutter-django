@@ -27,7 +27,7 @@ setup(
     long_description=long_description,
     author="Daniel Roy Greenfeld",
     author_email="pydanny@gmail.com",
-    url="https://github.com/pydanny/cookiecutter-django",
+    url="https://github.com/cookiecutter/cookiecutter-django",
     packages=[],
     license="BSD",
     zip_safe=False,
