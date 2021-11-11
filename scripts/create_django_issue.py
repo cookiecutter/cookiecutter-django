@@ -9,6 +9,7 @@ to keep up to date.
 from __future__ import annotations
 
 import os
+import re
 import sys
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Iterable, NamedTuple
@@ -155,6 +156,7 @@ class GitHubManager:
         print("Load existing issues from GitHub")
         qualifiers = {
             "repo": GITHUB_REPO,
+            "author": "app/github-actions",
             "state": "open",
             "is": "issue",
             "in": "title",
@@ -166,8 +168,10 @@ class GitHubManager:
         )
         print(f"Found {len(issues)} issues matching search")
         for issue in issues:
-            issue_version_str = issue.title.split(" ")[-1]
-            issue_version = DjVersion.parse(issue_version_str)
+            matches = re.match(r"\[Update Django] Django (\d+.\d+)$", issue.title)
+            if not matches:
+                continue
+            issue_version = DjVersion.parse(matches.group(1))
             if self.base_dj_version > issue_version:
                 issue.edit(state="closed")
                 print(f"Closed issue {issue.title} (ID: [{issue.id}]({issue.url}))")
