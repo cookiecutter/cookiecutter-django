@@ -1,6 +1,6 @@
-pytz==2021.1  # https://github.com/stub42/pytz
+pytz==2021.3  # https://github.com/stub42/pytz
 python-slugify==5.0.2  # https://github.com/un33k/python-slugify
-Pillow==8.3.2  # https://github.com/python-pillow/Pillow
+Pillow==8.4.0  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.use_compressor == "y" %}
 {%- if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %}
 rcssmin==1.0.6 --install-option="--without-c-extensions"  # https://github.com/ndparker/rcssmin
@@ -17,7 +17,7 @@ redis==3.5.3  # https://github.com/andymccurdy/redis-py
 hiredis==2.0.0  # https://github.com/redis/hiredis-py
 {%- endif %}
 {%- if cookiecutter.use_celery == "y" %}
-celery==5.1.2  # pyup: < 6.0  # https://github.com/celery/celery
+celery==5.2.0  # pyup: < 6.0  # https://github.com/celery/celery
 django-celery-beat==2.2.1  # https://github.com/celery/django-celery-beat
 {%- if cookiecutter.use_docker == 'y' %}
 flower==1.0.0  # https://github.com/mher/flower
@@ -30,8 +30,8 @@ uvicorn[standard]==0.15.0  # https://github.com/encode/uvicorn
 # Django
 # ------------------------------------------------------------------------------
 django==3.1.13  # pyup: < 3.2  # https://www.djangoproject.com/
-django-environ==0.7.0  # https://github.com/joke2k/django-environ
-django-model-utils==4.1.1  # https://github.com/jazzband/django-model-utils
+django-environ==0.8.1  # https://github.com/joke2k/django-environ
+django-model-utils==4.2.0  # https://github.com/jazzband/django-model-utils
 django-allauth==0.45.0  # https://github.com/pennersr/django-allauth
 django-crispy-forms==1.13.0  # https://github.com/django-crispy-forms/django-crispy-forms
 crispy-bootstrap5==0.5  # https://github.com/django-crispy-forms/crispy-bootstrap5
@@ -42,5 +42,5 @@ django-redis==5.0.0  # https://github.com/jazzband/django-redis
 {%- if cookiecutter.use_drf == "y" %}
 # Django REST Framework
 djangorestframework==3.12.4  # https://github.com/encode/django-rest-framework
-django-cors-headers==3.9.0 # https://github.com/adamchainz/django-cors-headers
+django-cors-headers==3.10.0 # https://github.com/adamchainz/django-cors-headers
 {%- endif %}

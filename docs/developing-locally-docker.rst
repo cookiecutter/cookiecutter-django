@@ -18,7 +18,7 @@ Prerequisites
 
 * Docker; if you don't have it yet, follow the `installation instructions`_;
 * Docker Compose; refer to the official documentation for the `installation guide`_.
-* Pre-commit; refer to the official documentation for the `installation guide`_.
+* Pre-commit; refer to the official documentation for the [pre-commit](https://pre-commit.com/#install).
 
 .. _`installation instructions`: https://docs.docker.com/install/#supported-platforms
 .. _`installation guide`: https://docs.docker.com/compose/install/
