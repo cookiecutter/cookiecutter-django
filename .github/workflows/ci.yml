@@ -15,6 +15,7 @@ jobs:
           - py39
           - black-template
 
+    name: "tox env ${{ matrix.tox-env }}"
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -38,6 +39,7 @@ jobs:
           - name: Extended
             args: "use_celery=y use_drf=y js_task_runner=Gulp"
 
+    name: "${{ matrix.script.name }} Docker"
     env:
       DOCKER_BUILDKIT: 1
       COMPOSE_DOCKER_CLI_BUILD: 1
@@ -59,6 +61,7 @@ jobs:
           - name: With Celery
             args: "use_celery=y use_compressor=y"
 
+    name: "${{ matrix.script.name }} Bare metal"
     services:
       redis:
         image: redis:5.0
