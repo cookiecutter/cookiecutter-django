@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-11-11]
+### Changed
+- Build all images on CI ([#3394](https://github.com/cookiecutter/cookiecutter-django/pull/3394))
+### Updated
+- Update coverage to 6.1.2 ([#3393](https://github.com/cookiecutter/cookiecutter-django/pull/3393))
+
 ## [2021-11-10]
 ### Changed
 - Update sphinx to 4.3.0 ([#3392](https://github.com/cookiecutter/cookiecutter-django/pull/3392))
