@@ -10,7 +10,7 @@ Run these commands to deploy the project to Heroku:
 
 .. code-block:: bash
 
-    heroku create --buildpack https://github.com/heroku/heroku-buildpack-python
+    heroku create --buildpack heroku/python 
 
     heroku addons:create heroku-postgresql:hobby-dev
     # On Windows use double quotes for the time zone, e.g.

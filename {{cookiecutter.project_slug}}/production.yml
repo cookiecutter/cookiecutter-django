@@ -47,7 +47,7 @@ services:
       {%- endif %}
 
   redis:
-    image: redis:5.0
+    image: redis:6
   {%- if cookiecutter.use_celery == 'y' %}
 
   celeryworker:
@@ -64,10 +64,9 @@ services:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_flower
     command: /start-flower
-
   {%- endif %}
+  {%- if cookiecutter.cloud_provider == 'AWS' %}
 
-  {% if cookiecutter.cloud_provider == 'AWS' %}
   awscli:
     build:
       context: .

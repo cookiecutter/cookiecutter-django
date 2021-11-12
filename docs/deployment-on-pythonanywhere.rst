@@ -35,7 +35,7 @@ Make sure your project is fully committed and pushed up to Bitbucket or Github o
 
     git clone <my-repo-url>  # you can also use hg
     cd my-project-name
-    mkvirtualenv --python=/usr/bin/python3.8 my-project-name
+    mkvirtualenv --python=/usr/bin/python3.9 my-project-name
     pip install -r requirements/production.txt  # may take a few minutes
 
 

@@ -13,7 +13,7 @@ variables:
 
 flake8:
   stage: lint
-  image: python:3.8-alpine
+  image: python:3.9-alpine
   before_script:
     - pip install -q flake8
   script:
@@ -21,7 +21,6 @@ flake8:
 
 pytest:
   stage: test
-  image: python:3.8
   {% if cookiecutter.use_docker == 'y' -%}
   image: docker/compose:latest
   tags:
@@ -35,7 +34,8 @@ pytest:
     - docker-compose -f local.yml up -d
   script:
     - docker-compose -f local.yml run django pytest
-  {%- else %}
+  {%- else -%}
+  image: python:3.9
   tags:
     - python
   services:

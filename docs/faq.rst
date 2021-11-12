@@ -10,7 +10,7 @@ It is there to add a migration so you don't have to manually change the ``sites.
 
 See `0003_set_site_domain_and_name.py`_.
 
-.. _`0003_set_site_domain_and_name.py`: https://github.com/pydanny/cookiecutter-django/blob/master/%7B%7Bcookiecutter.project_slug%7D%7D/%7B%7Bcookiecutter.project_slug%7D%7D/contrib/sites/migrations/0003_set_site_domain_and_name.py
+.. _`0003_set_site_domain_and_name.py`: https://github.com/cookiecutter/cookiecutter-django/blob/master/%7B%7Bcookiecutter.project_slug%7D%7D/%7B%7Bcookiecutter.project_slug%7D%7D/contrib/sites/migrations/0003_set_site_domain_and_name.py
 
 
 Why aren't you using just one configuration file (12-Factor App)
