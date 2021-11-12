@@ -1,8 +1,9 @@
+import datetime as dt
 import os
 from pathlib import Path
+
 from github import Github
 from jinja2 import Template
-import datetime as dt
 
 CURRENT_FILE = Path(__file__)
 ROOT = CURRENT_FILE.parents[1]
