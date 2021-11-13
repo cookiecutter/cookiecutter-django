@@ -20,7 +20,8 @@
     "gulp-sass": "^5.0.0",
     "gulp-uglify-es": "^3.0.0",
     "pixrem": "^5.0.0",
-    "postcss": "^8.3.11"
+    "postcss": "^8.3.11",
+    "sass": "^1.43.4"
     {%- endif %}
   },
   "engines": {
