@@ -25,7 +25,7 @@
     {%- endif %}
   },
   "engines": {
-    "node": "14"
+    "node": "16"
   },
   "browserslist": [
     "last 2 versions"
