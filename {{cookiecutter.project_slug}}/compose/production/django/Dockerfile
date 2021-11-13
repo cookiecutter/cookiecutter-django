@@ -3,12 +3,12 @@ ARG PYTHON_VERSION=3.9-slim-bullseye
 {% if cookiecutter.js_task_runner == 'Webpack' -%}
 FROM node:10-stretch-slim as client-builder
 
-ARG APP_HOME=/app/frontend/
-WORKDIR ${APP_HOME}
+ARG APP_HOME=/app
+WORKDIR ${APP_HOME}/frontend
 
-COPY ./package.json ${APP_HOME}
+COPY ./frontend/package.json ./frontend/package-lock.json ${APP_HOME}/frontend/
 RUN npm install && npm cache clean --force
-COPY . ${APP_HOME}
+COPY ./frontend/ ${APP_HOME}/frontend/
 RUN npm run build
 
 {%- endif %}
@@ -100,10 +100,10 @@ RUN chmod +x /start-flower
 
 # copy application code to WORKDIR
 {%- if cookiecutter.js_task_runner == 'Webpack' %}
-COPY --from=client-builder --chown=django:django /app/frontend/build /app/frontend/build
-{% else %}
-COPY --chown=django:django . ${APP_HOME}
+COPY --from=client-builder --chown=django:django ${APP_HOME}/frontend/build ${APP_HOME}/frontend/build
 {%- endif %}
+
+COPY --chown=django:django . ${APP_HOME}
 
 # make django owner of the WORKDIR directory as well.
 RUN chown django:django ${APP_HOME}

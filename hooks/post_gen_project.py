@@ -9,6 +9,7 @@ TODO: ? restrict Cookiecutter Django project initialization to Python 3.x enviro
 """
 from __future__ import print_function
 
+import re
 import os
 import random
 import shutil
@@ -315,9 +316,17 @@ def remove_storages_module():
 def create_webpack_project():
     from cookiecutter.main import cookiecutter
 
+    # get version from requirements file
+    with open('requirements/base.txt', "r") as f:
+        file_contents = f.read()
+        pkg_version = re.findall(r'python-webpack-boilerplate==(.+)? #', file_contents)[0]
+
+    # here we create the frontend app from Github repo directly
+    # so the project can run in docker compose successfully
     cookiecutter(
-        "https://github.com/AccordBox/python-webpack-boilerplate",
-        directory="frontend_template",
+        f"https://github.com/AccordBox/python-webpack-boilerplate/",
+        checkout=f"v{pkg_version}",
+        directory="webpack_boilerplate/frontend_template",
         no_input=True,
     )
 

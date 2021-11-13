@@ -83,7 +83,7 @@ THIRD_PARTY_APPS = [
     "corsheaders",
 {%- endif %}
 {%- if cookiecutter.js_task_runner == "Webpack" %}
-    "webpack_loader",
+    "webpack_boilerplate",
 {%- endif %}
 ]
 
