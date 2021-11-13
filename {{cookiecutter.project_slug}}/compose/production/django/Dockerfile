@@ -1,7 +1,7 @@
 ARG PYTHON_VERSION=3.9-slim-bullseye
 
 {% if cookiecutter.js_task_runner == 'Gulp' -%}
-FROM node:12-stretch-slim as client-builder
+FROM node:14-stretch-slim as client-builder
 
 ARG APP_HOME=/app
 WORKDIR ${APP_HOME}
