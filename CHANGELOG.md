@@ -3,6 +3,10 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-11-13]
+### Fixed
+- Fix incorrect node version in `package.json` ([#3399](https://github.com/cookiecutter/cookiecutter-django/pull/3399))
+
 ## [2021-11-12]
 ### Changed
 - Add Django major/minor release table maker in GitHub issues ([#3288](https://github.com/cookiecutter/cookiecutter-django/pull/3288))
