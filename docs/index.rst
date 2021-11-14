@@ -13,6 +13,7 @@ Contents:
    :maxdepth: 2
 
    project-generation-options
+   frontend
    developing-locally
    developing-locally-docker
    settings
