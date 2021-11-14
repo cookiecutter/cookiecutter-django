@@ -317,9 +317,11 @@ def create_webpack_project():
     from cookiecutter.main import cookiecutter
 
     # get version from requirements file
-    with open('requirements/base.txt', "r") as f:
+    with open("requirements/base.txt", "r") as f:
         file_contents = f.read()
-        pkg_version = re.findall(r'python-webpack-boilerplate==(.+)? #', file_contents)[0]
+        pkg_version = re.findall(r"python-webpack-boilerplate==(.+)? #", file_contents)[
+            0
+        ]
 
     # here we create the frontend app from Github repo directly
     # so the project can run in docker compose successfully
