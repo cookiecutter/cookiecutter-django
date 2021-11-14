@@ -13,8 +13,9 @@ updates:
 {%- if cookiecutter.use_docker == 'y' %}
 
   # Enable version updates for Docker
-  # As there is no way to use wildcards, each dockerfile has its own entry
-  # Check https://github.com/dependabot/dependabot-core/issues/2178 for updates to that...
+  # We need to specify each Dockerfile in a separate entry because Dependabot doesn't 
+  # support widlcards or recursively checking subdirectories. Check this issue for updates:
+  # https://github.com/dependabot/dependabot-core/issues/2178
   - package-ecosystem: "docker"
     # Look for a `Dockerfile` in the `compose/local/django` directory
     directory: "compose/local/django/"
