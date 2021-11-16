@@ -117,7 +117,7 @@ def update_version(file_path: Path, release: str) -> None:
     old_content = file_path.read_text()
     updated_content = re.sub(
         r'\nversion = "\d+\.\d+\.\d+"\n',
-        f'version = "{release}"',
+        f'\nversion = "{release}"\n',
         old_content,
     )
     file_path.write_text(updated_content)
