@@ -128,11 +128,12 @@ def update_git_repo(paths: list[Path], release: str) -> None:
     repo = git.Repo(ROOT)
     for path in paths:
         repo.git.add(path)
+    message = f"Release {release}"
     repo.git.commit(
-        m=f"Release {release}",
+        m=message,
         author="GitHub Actions <actions@github.com>",
     )
-    repo.git.tag("-a", release)
+    repo.git.tag("-a", release, m=message)
     server = f"https://{GITHUB_TOKEN}@github.com/{GITHUB_REPO}.git"
     repo.git.push(server, GIT_BRANCH)
     repo.git.push("--tags", server, GIT_BRANCH)
