@@ -125,7 +125,7 @@ def update_version(file_path: Path, release: str) -> None:
 
 def update_git_repo(paths: list[Path], release: str) -> None:
     """Commit, tag changes in git repo and push to origin."""
-    repo = git.Repo(".")
+    repo = git.Repo(ROOT)
     for path in paths:
         repo.git.add(path)
     repo.git.commit(
