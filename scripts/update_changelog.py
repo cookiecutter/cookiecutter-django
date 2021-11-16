@@ -46,17 +46,18 @@ def main() -> None:
     # Update version
     setup_py_path = ROOT / "setup.py"
     update_version(setup_py_path, release)
-    print(f"Update version in {setup_py_path}")
+    print(f"Updated version in {setup_py_path}")
 
     # Commit changes, create tag and push
     update_git_repo([changelog_path, setup_py_path], release)
 
     # Create GitHub release
-    repo.create_git_release(
+    github_release = repo.create_git_release(
         tag=release,
         name=release,
         message=release_changes_summary,
     )
+    print(f"Created release on GitHub {github_release}")
 
 
 def iter_pulls(
@@ -136,6 +137,7 @@ def update_git_repo(paths: list[Path], release: str) -> None:
     )
     repo.git.tag("-a", release, m=message)
     server = f"https://{GITHUB_TOKEN}@github.com/{GITHUB_REPO}.git"
+    print(f"Pushing changes to {GIT_BRANCH} branch of {GITHUB_REPO}")
     repo.git.push(server, GIT_BRANCH)
     repo.git.push("--tags", server, GIT_BRANCH)
 
