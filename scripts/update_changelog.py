@@ -16,17 +16,15 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 GITHUB_REPO = os.getenv("GITHUB_REPOSITORY")
 GIT_BRANCH = os.getenv("GITHUB_REF_NAME")
 
-# Generate changelog for PRs merged yesterday
-MERGED_DATE = dt.date.today()  # - dt.timedelta(days=1)
-RELEASE = f"{MERGED_DATE:%Y.%m.%d}"
-
 
 def main() -> None:
     """
     Script entry point.
     """
+    # Generate changelog for PRs merged yesterday
+    merged_date = dt.date.today() - dt.timedelta(days=1)
     repo = Github(login_or_token=GITHUB_TOKEN).get_repo(GITHUB_REPO)
-    merged_pulls = list(iter_pulls(repo))
+    merged_pulls = list(iter_pulls(repo, merged_date))
     print(f"Merged pull requests: {merged_pulls}")
     if not merged_pulls:
         print("Nothing was merged, existing.")
@@ -40,28 +38,30 @@ def main() -> None:
     print(f"Summary of changes: {release_changes_summary}")
 
     # Update CHANGELOG.md file
+    release = f"{merged_date:%Y.%m.%d}"
     changelog_path = ROOT / "CHANGELOG.md"
-    write_changelog(changelog_path, release_changes_summary)
+    write_changelog(changelog_path, release, release_changes_summary)
     print(f"Wrote {changelog_path}")
 
     # Update version
     setup_py_path = ROOT / "setup.py"
-    update_version(setup_py_path, RELEASE)
+    update_version(setup_py_path, release)
     print(f"Update version in {setup_py_path}")
 
     # Commit changes, create tag and push
-    update_git_repo([changelog_path, setup_py_path], RELEASE)
+    update_git_repo([changelog_path, setup_py_path], release)
 
     # Create GitHub release
     repo.create_git_release(
-        tag=RELEASE,
-        name=RELEASE,
+        tag=release,
+        name=release,
         message=release_changes_summary,
     )
 
 
 def iter_pulls(
     repo: github.Repository.Repository,
+    merged_date: dt.date,
 ) -> Iterable[github.PullRequest.PullRequest]:
     """Fetch merged pull requests at the date we're interested in."""
     recent_pulls = repo.get_pulls(
@@ -70,7 +70,7 @@ def iter_pulls(
         direction="desc",
     ).get_page(0)
     for pull in recent_pulls:
-        if pull.merged and pull.merged_at.date() == MERGED_DATE:
+        if pull.merged and pull.merged_at.date() == merged_date:
             yield pull
 
 
@@ -99,11 +99,12 @@ def generate_md(grouped_pulls: dict[str, list[github.PullRequest.PullRequest]]) 
     """Generate markdown file from Jinja template."""
     changelog_template = ROOT / ".github" / "changelog-template.md"
     template = Template(changelog_template.read_text(), autoescape=True)
-    return template.render(merge_date=MERGED_DATE, grouped_pulls=grouped_pulls)
+    return template.render(grouped_pulls=grouped_pulls)
 
 
-def write_changelog(file_path: Path, content: str) -> None:
+def write_changelog(file_path: Path, release: str, content: str) -> None:
     """Write Release details to the changelog file."""
+    content = f"## {release}\n{content}"
     old_content = file_path.read_text()
     updated_content = old_content.replace(
         "<!-- GENERATOR_PLACEHOLDER -->",
