@@ -17,7 +17,7 @@ GITHUB_REPO = os.getenv("GITHUB_REPOSITORY")
 GIT_BRANCH = os.getenv("GITHUB_REF_NAME")
 
 # Generate changelog for PRs merged yesterday
-MERGED_DATE = dt.date.today() - dt.timedelta(days=1)
+MERGED_DATE = dt.date.today()  # - dt.timedelta(days=1)
 RELEASE = f"{MERGED_DATE:%Y.%m.%d}"
 
 
@@ -27,6 +27,7 @@ def main() -> None:
     """
     repo = Github(login_or_token=GITHUB_TOKEN).get_repo(GITHUB_REPO)
     merged_pulls = list(iter_pulls(repo))
+    print(f"Merged pull requests: {merged_pulls}")
     if not merged_pulls:
         print("Nothing was merged, existing.")
         return
@@ -36,14 +37,17 @@ def main() -> None:
 
     # Generate portion of markdown
     release_changes_summary = generate_md(grouped_pulls)
+    print(f"Summary of changes: {release_changes_summary}")
 
     # Update CHANGELOG.md file
     changelog_path = ROOT / "CHANGELOG.md"
     write_changelog(changelog_path, release_changes_summary)
+    print(f"Wrote {changelog_path}")
 
     # Update version
     setup_py_path = ROOT / "setup.py"
     update_version(setup_py_path, RELEASE)
+    print(f"Update version in {setup_py_path}")
 
     # Commit changes, create tag and push
     update_git_repo([changelog_path, setup_py_path], RELEASE)
@@ -61,7 +65,9 @@ def iter_pulls(
 ) -> Iterable[github.PullRequest.PullRequest]:
     """Fetch merged pull requests at the date we're interested in."""
     recent_pulls = repo.get_pulls(
-        state="closed", sort="updated", direction="desc"
+        state="closed",
+        sort="updated",
+        direction="desc",
     ).get_page(0)
     for pull in recent_pulls:
         if pull.merged and pull.merged_at.date() == MERGED_DATE:
