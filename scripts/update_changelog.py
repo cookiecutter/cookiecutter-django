@@ -12,9 +12,9 @@ from jinja2 import Template
 
 CURRENT_FILE = Path(__file__)
 ROOT = CURRENT_FILE.parents[1]
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", None)
-GITHUB_REPO = os.getenv("GITHUB_REPOSITORY", None)
-DEFAULT_BRANCH = "master"
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+GITHUB_REPO = os.getenv("GITHUB_REPOSITORY")
+GIT_BRANCH = os.getenv("GITHUB_REF_NAME")
 
 # Generate changelog for PRs merged yesterday
 MERGED_DATE = dt.date.today() - dt.timedelta(days=1)
@@ -128,13 +128,17 @@ def update_git_repo(paths: list[Path], release: str) -> None:
     )
     repo.git.tag("-a", release)
     server = f"https://{GITHUB_TOKEN}@github.com/{GITHUB_REPO}.git"
-    repo.git.push(server, DEFAULT_BRANCH)
-    repo.git.push("--tags", server, DEFAULT_BRANCH)
+    repo.git.push(server, GIT_BRANCH)
+    repo.git.push("--tags", server, GIT_BRANCH)
 
 
 if __name__ == "__main__":
     if GITHUB_REPO is None:
         raise RuntimeError(
             "No github repo, please set the environment variable GITHUB_REPOSITORY"
+        )
+    if GIT_BRANCH is None:
+        raise RuntimeError(
+            "No git branch set, please set the GITHUB_REF_NAME environment variable"
         )
     main()
