@@ -1,8 +1,10 @@
 import datetime as dt
 import os
 from pathlib import Path
+from typing import Iterable
 
 from github import Github
+import github.PullRequest
 from jinja2 import Template
 
 CURRENT_FILE = Path(__file__)
@@ -39,7 +41,7 @@ def main() -> None:
     file_path.write_text(updated_content)
 
 
-def iter_pulls():
+def iter_pulls() -> Iterable[github.PullRequest.PullRequest]:
     """Fetch merged pull requests at the date we're interested in."""
     repo = Github(login_or_token=GITHUB_TOKEN).get_repo(GITHUB_REPO)
     recent_pulls = repo.get_pulls(
@@ -50,7 +52,9 @@ def iter_pulls():
             yield pull
 
 
-def group_pulls_by_change_type(pull_requests_list):
+def group_pulls_by_change_type(
+    pull_requests_list: list[github.PullRequest.PullRequest],
+) -> dict[str, list[github.PullRequest.PullRequest]]:
     """Group pull request by change type."""
     grouped_pulls = {
         "Changed": [],
@@ -69,7 +73,7 @@ def group_pulls_by_change_type(pull_requests_list):
     return grouped_pulls
 
 
-def generate_md(grouped_pulls):
+def generate_md(grouped_pulls: dict[str, list[github.PullRequest.PullRequest]]) -> str:
     """Generate markdown file from Jinja template."""
     changelog_template = ROOT / ".github" / "changelog-template.md"
     template = Template(changelog_template.read_text(), autoescape=True)
