@@ -26,10 +26,11 @@ First things first.
 
 #. Install cookiecutter-django: ::
 
-    $ cookiecutter gh:pydanny/cookiecutter-django
+    $ cookiecutter gh:cookiecutter/cookiecutter-django
 
 #. Install development requirements: ::
 
+    $ cd <what you have entered as the project_slug at setup stage>
     $ pip install -r requirements/local.txt
     $ git init # A git repo is required for pre-commit to install
     $ pre-commit install
@@ -86,7 +87,7 @@ or if you're running asynchronously: ::
 .. _Redis: https://redis.io/download
 .. _CookieCutter: https://github.com/cookiecutter/cookiecutter
 .. _createdb: https://www.postgresql.org/docs/current/static/app-createdb.html
-.. _initial PostgreSQL set up: http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html
+.. _initial PostgreSQL set up: https://web.archive.org/web/20190303010033/http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html
 .. _postgres documentation: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
 .. _pre-commit: https://pre-commit.com/
 .. _direnv: https://direnv.net/
@@ -144,9 +145,9 @@ when developing locally. If you have the appropriate setup on your local machine
 in ``config/settings/local.py``::
 
     CELERY_TASK_ALWAYS_EAGER = False
-    
+
 To run Celery locally, make sure redis-server is installed (instructions are available at https://redis.io/topics/quickstart), run the server in one terminal with `redis-server`, and then start celery in another terminal with the following command::
-    
+
     celery -A config.celery_app worker --loglevel=info
 
 
