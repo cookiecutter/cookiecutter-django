@@ -131,9 +131,13 @@ def update_git_repo(paths: list[Path], release: str) -> None:
     for path in paths:
         repo.git.add(path)
     message = f"Release {release}"
+
+    user = repo.git.config("--get", "user.name")
+    email = repo.git.config("--get", "user.email")
+
     repo.git.commit(
         m=message,
-        author="github-actions <action@github.com>",
+        author=f"{user} <{email}>",
     )
     repo.git.tag("-a", release, m=message)
     server = f"https://{GITHUB_TOKEN}@github.com/{GITHUB_REPO}.git"
