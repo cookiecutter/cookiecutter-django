@@ -133,7 +133,7 @@ def update_git_repo(paths: list[Path], release: str) -> None:
     message = f"Release {release}"
     repo.git.commit(
         m=message,
-        author="GitHub Actions <actions@github.com>",
+        author="github-actions <action@github.com>",
     )
     repo.git.tag("-a", release, m=message)
     server = f"https://{GITHUB_TOKEN}@github.com/{GITHUB_REPO}.git"
