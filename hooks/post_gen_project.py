@@ -9,10 +9,17 @@ TODO: ? restrict Cookiecutter Django project initialization to Python 3.x enviro
 """
 from __future__ import print_function
 
+import json
 import os
 import random
 import shutil
 import string
+
+try:
+    from urllib.error import HTTPError, URLError
+    from urllib.request import urlopen
+except ImportError:
+    from urllib2 import HTTPError, URLError, urlopen
 
 try:
     # Inspired by
@@ -27,6 +34,10 @@ WARNING = "\x1b[1;33m [WARNING]: "
 INFO = "\x1b[1;33m [INFO]: "
 HINT = "\x1b[3;33m"
 SUCCESS = "\x1b[1;32m [SUCCESS]: "
+# For offline usage; not consistently updated
+DEFAULT_BOOTSTRAP_VERSION = "5.1.3"
+DEFAULT_BOOTSTRAP_CSS_SRI = "sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w=="
+DEFAULT_BOOTSTRAP_JS_SRI = "sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ=="
 
 DEBUG_VALUE = "debug"
 
@@ -285,6 +296,67 @@ def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):
 def set_flags_in_settings_files():
     set_django_secret_key(os.path.join("config", "settings", "local.py"))
     set_django_secret_key(os.path.join("config", "settings", "test.py"))
+
+
+def set_bootstrap_css_link(file_path, version=None, sri=None):
+    tag = (
+        '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/'
+        '{}/css/bootstrap.min.css" integrity="{}" crossorigin="anonymous" '
+        'referrerpolicy="no-referrer" /> '
+    ).format(version, sri)
+    bootstrap_css_tag = set_flag(file_path, "!!!SET BOOTSTRAP CSS LINK!!!", value=tag)
+    return bootstrap_css_tag
+
+
+def set_bootstrap_js_link(file_path, version=None, sri=None):
+    tag = (
+        '<script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/'
+        '{}/js/bootstrap.min.js" integrity="{}" crossorigin="anonymous" '
+        'referrerpolicy="no-referrer"></script>'
+    ).format(version, sri)
+    bootstrap_js_tag = set_flag(file_path, "!!!SET BOOTSTRAP JS LINK!!!", value=tag)
+    return bootstrap_js_tag
+
+
+def set_bootstrap_version():
+    add_css = "{{ cookiecutter.custom_bootstrap_compilation }}".lower() == "n"
+    add_js = not (
+        "{{ cookiecutter.custom_bootstrap_compilation }}".lower() == "y"
+        and "{{ cookiecutter.js_task_runner }}".lower() == "Gulp"
+    )
+    if not (add_css or add_js):
+        return
+    try:
+        r = urlopen("https://api.cdnjs.com/libraries/bootstrap?fields=versions")
+        bootstrap_version = sorted(
+            [x for x in json.loads(r.read())["versions"] if "-" not in x], reverse=True
+        )[0]
+        r.close()
+        r = urlopen(
+            "https://api.cdnjs.com/libraries/bootstrap/{}?fields=sri".format(
+                bootstrap_version
+            )
+        )
+        contents = json.loads(r.read())
+        r.close()
+        bootstrap_css_sri = contents["css/bootstrap.min.css"]
+        bootstrap_js_sri = contents["js/bootstrap.min.js"]
+    except (HTTPError, URLError):
+        bootstrap_version = DEFAULT_BOOTSTRAP_VERSION
+        bootstrap_css_sri = DEFAULT_BOOTSTRAP_CSS_SRI
+        bootstrap_js_sri = DEFAULT_BOOTSTRAP_JS_SRI
+
+    base_html_file = os.path.join(
+        "{{ cookiecutter.project_slug }}", "templates", "base.html"
+    )
+    if add_css:
+        set_bootstrap_css_link(
+            base_html_file, version=bootstrap_version, sri=bootstrap_css_sri
+        )
+    if add_js:
+        set_bootstrap_js_link(
+            base_html_file, version=bootstrap_version, sri=bootstrap_js_sri
+        )
 
 
 def remove_envs_and_associated_files():
