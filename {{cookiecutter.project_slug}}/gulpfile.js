@@ -19,7 +19,7 @@ const plumber = require('gulp-plumber')
 const postcss = require('gulp-postcss')
 const reload = browserSync.reload
 const rename = require('gulp-rename')
-const sass = require('gulp-sass')
+const sass = require('gulp-sass')(require('sass'))
 const spawn = require('child_process').spawn
 const uglify = require('gulp-uglify-es').default
 

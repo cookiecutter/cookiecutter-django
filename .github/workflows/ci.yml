@@ -60,6 +60,8 @@ jobs:
         script:
           - name: With Celery
             args: "use_celery=y use_compressor=y"
+          - name: With Gulp
+            args: "js_task_runner=Gulp custom_bootstrap_compilation=y"
 
     name: "${{ matrix.script.name }} Bare metal"
     services:
@@ -83,6 +85,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: "3.9"
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
       - name: Bare Metal ${{ matrix.script.name }}
         run: sh tests/test_bare.sh ${{ matrix.script.args }}
