@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## [2021-11-17]
+### Updated
+- Update sentry-sdk to 1.5.0 ([#3417](https://github.com/cookiecutter/cookiecutter-django/pull/3417))
+- Update black to 21.11b0 ([#3414](https://github.com/cookiecutter/cookiecutter-django/pull/3414))
+
 ## [2021-11-16]
 ### Changed
 - Upgrade JS dependencies and upgrade to node 16 ([#3400](https://github.com/cookiecutter/cookiecutter-django/pull/3400))
