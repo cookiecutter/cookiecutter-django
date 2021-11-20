@@ -1280,6 +1280,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>mpoli</td>
+    <td>
+      <a href="https://github.com/mpoli">mpoli</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Nico Stefani</td>
     <td>
       <a href="https://github.com/nicolas471">nicolas471</a>
