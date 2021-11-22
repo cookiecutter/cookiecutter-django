@@ -199,7 +199,6 @@ TEMPLATES = [
                 "django.template.context_processors.static",
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
-                "{{ cookiecutter.project_slug }}.utils.context_processors.settings_context",
             ],
         },
     }
