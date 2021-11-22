@@ -12,11 +12,11 @@ labels: bug
 
 <!-- To assist you best, please include commands that you've run, options you've selected and any relevant logs -->
 
-* Host system configuration: 
+* Host system configuration:
     * Version of cookiecutter CLI (get it with `cookiecutter --version`):
     * OS name and version:
 
-      On Linux, run 
+      On Linux, run
       ```bash
       lsb_release -a 2> /dev/null || cat /etc/redhat-release 2> /dev/null || cat /etc/*-release 2> /dev/null || cat /etc/issue 2> /dev/null
       ```
@@ -25,7 +25,7 @@ labels: bug
       ```bash
       sw_vers
       ```
-      
+
       On Windows, via CMD, run
       ```
       systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
@@ -34,7 +34,7 @@ labels: bug
 
       ```bash
       # Insert here the OS name and version
-      
+
       ```
 
     * Python version, run `python3 -V`:

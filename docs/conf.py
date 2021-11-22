@@ -7,10 +7,7 @@
 #
 # All configuration values have a default; values that are commented out
 # serve to show the default.
-
 from datetime import datetime
-import os
-import sys
 
 now = datetime.now()
 
@@ -242,7 +239,8 @@ texinfo_documents = [
         "Cookiecutter Django documentation",
         "Daniel Roy Greenfeld",
         "Cookiecutter Django",
-        "A Cookiecutter template for creating production-ready Django projects quickly.",
+        "A Cookiecutter template for creating production-ready "
+        "Django projects quickly.",
         "Miscellaneous",
     )
 ]
