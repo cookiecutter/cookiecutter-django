@@ -55,7 +55,7 @@ Set environment variables via the virtualenv "postactivate" script (this will se
 
     vi $VIRTUAL_ENV/bin/postactivate
 
-**TIP:** *If you don't like vi, you can also edit this file via the PythonAnywhere "Files" menu; look in the ".virtualenvs" folder*.
+.. note:: If you don't like vi, you can also edit this file via the PythonAnywhere "Files" menu; look in the ".virtualenvs" folder.
 
 Add these exports
 
@@ -73,7 +73,7 @@ Add these exports
     export DJANGO_AWS_STORAGE_BUCKET_NAME=
     export DATABASE_URL='<see below>'
 
-**NOTE:** *The AWS details are not required if you're using whitenoise or the built-in pythonanywhere static files service, but you do need to set them to blank, as above.*
+.. note:: The AWS details are not required if you're using whitenoise or the built-in pythonanywhere static files service, but you do need to set them to blank, as above.
 
 
 Database setup:
@@ -119,7 +119,7 @@ Configure the PythonAnywhere Web Tab
 
 Go to the PythonAnywhere **Web tab**, hit **Add new web app**, and choose **Manual Config**, and then the version of Python you used for your virtualenv.
 
-**NOTE:** *If you're using a custom domain (not on \*.pythonanywhere.com), then you'll need to set up a CNAME with your domain registrar.*
+.. note:: If you're using a custom domain (not on \*.pythonanywhere.com), then you'll need to set up a CNAME with your domain registrar.
 
 When you're redirected back to the web app config screen, set the **path to your virtualenv**.  If you used virtualenvwrapper as above, you can just enter its name.
 
@@ -152,15 +152,14 @@ Click through to the **WSGI configuration file** link (near the top) and edit th
 Back on the Web tab, hit **Reload**, and your app should be live!
 
 
-**NOTE:** *you may see security warnings until you set up your SSL certificates. If you
-want to suppress them temporarily, set DJANGO_SECURE_SSL_REDIRECT to blank.  Follow
-the instructions here to get SSL set up: https://help.pythonanywhere.com/pages/SSLOwnDomains/*
+.. note:: You may see security warnings until you set up your SSL certificates. If you want to suppress them temporarily, set ``DJANGO_SECURE_SSL_REDIRECT`` to blank. Follow the instructions `here <https://help.pythonanywhere.com/pages/HTTPSSetup>`_ to get SSL set up.
+
 
 
 Optional: static files
 ----------------------
 
-If you want to use the PythonAnywhere static files service instead of using whitenoise or S3, you'll find its configuration section on the Web tab.  Essentially you'll need an entry to match your ``STATIC_URL`` and ``STATIC_ROOT`` settings.  There's more info here: https://help.pythonanywhere.com/pages/DjangoStaticFiles
+If you want to use the PythonAnywhere static files service instead of using whitenoise or S3, you'll find its configuration section on the Web tab.  Essentially you'll need an entry to match your ``STATIC_URL`` and ``STATIC_ROOT`` settings.  There's more info `here <https://help.pythonanywhere.com/pages/DjangoStaticFiles>`_.
 
 
 Future deployments
@@ -180,4 +179,4 @@ For subsequent deployments, the procedure is much simpler.  In a Bash console:
 
 And then go to the Web tab and hit **Reload**
 
-**TIP:** *if you're really keen, you can set up git-push based deployments:  https://blog.pythonanywhere.com/87/*
+.. note:: If you're really keen, you can set up git-push based deployments:  https://blog.pythonanywhere.com/87/
