@@ -15,7 +15,7 @@ Full instructions follow, but here's a high-level view.
 
 2. Set your config variables in the *postactivate* script
 
-3. Run the *manage.py* ``migrate`` and ``collectstatic`` {%- if cookiecutter.use_compressor == "y" %}and ``compress`` {%- endif %}commands
+3. Run the *manage.py* ``migrate`` and ``collectstatic`` commands. If you've opted for django-compressor, also run ``compress``
 
 4. Add an entry to the PythonAnywhere *Web tab*
 
@@ -23,7 +23,6 @@ Full instructions follow, but here's a high-level view.
 
 
 Once you've been through this one-off config, future deployments are much simpler: just ``git pull`` and then hit the "Reload" button :)
-
 
 
 Getting your code and dependencies installed on PythonAnywhere
@@ -37,7 +36,6 @@ Make sure your project is fully committed and pushed up to Bitbucket or Github o
     cd my-project-name
     mkvirtualenv --python=/usr/bin/python3.9 my-project-name
     pip install -r requirements/production.txt  # may take a few minutes
-
 
 
 Setting environment variables in the console
@@ -109,7 +107,8 @@ Now run the migration, and collectstatic:
     source $VIRTUAL_ENV/bin/postactivate
     python manage.py migrate
     python manage.py collectstatic
-    {%- if cookiecutter.use_compressor == "y" %}python manage.py compress {%- endif %}
+    # if using django-compressor:
+    python manage.py compress
     # and, optionally
     python manage.py createsuperuser
 
@@ -176,7 +175,8 @@ For subsequent deployments, the procedure is much simpler.  In a Bash console:
     git pull
     python manage.py migrate
     python manage.py collectstatic
-    {%- if cookiecutter.use_compressor == "y" %}python manage.py compress {%- endif %}
+    # if using django-compressor:
+    python manage.py compress
 
 And then go to the Web tab and hit **Reload**
 
