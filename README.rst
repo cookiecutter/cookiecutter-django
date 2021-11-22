@@ -97,7 +97,7 @@ Constraints
 -----------
 
 * Only maintained 3rd party libraries are used.
-* Uses PostgreSQL everywhere (10.16 - 13.2)
+* Uses PostgreSQL everywhere (10.19 - 14.1)
 * Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
 Support this Project!
@@ -178,10 +178,11 @@ Answer the prompts with your own desired options_. For example::
     use_heroku [n]: y
     use_compressor [n]: y
     Select postgresql_version:
-    1 - 13.2
-    2 - 12.6
-    3 - 11.11
-    4 - 10.16
+    1 - 14.1
+    2 - 13.5
+    3 - 12.9
+    4 - 11.14
+    5 - 10.19
     Choose from 1, 2, 3, 4, 5 [1]: 1
     Select js_task_runner:
     1 - None
