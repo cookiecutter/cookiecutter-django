@@ -19,7 +19,7 @@ const plumber = require('gulp-plumber')
 const postcss = require('gulp-postcss')
 const reload = browserSync.reload
 const rename = require('gulp-rename')
-const sass = require('gulp-sass')
+const sass = require('gulp-sass')(require('sass'))
 const spawn = require('child_process').spawn
 const uglify = require('gulp-uglify-es').default
 
@@ -32,8 +32,7 @@ function pathsConfig(appName) {
     {%- if cookiecutter.custom_bootstrap_compilation == 'y' %}
     bootstrapSass: `${vendorsRoot}/bootstrap/scss`,
     vendorsJs: [
-      `${vendorsRoot}/jquery/dist/jquery.slim.js`,
-      `${vendorsRoot}/popper.js/dist/umd/popper.js`,
+      `${vendorsRoot}/@popperjs/core/dist/umd/popper.js`,
       `${vendorsRoot}/bootstrap/dist/js/bootstrap.js`,
     ],
     {%- endif %}

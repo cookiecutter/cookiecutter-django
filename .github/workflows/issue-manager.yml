@@ -15,7 +15,7 @@ name: Issue Manager
 on:
   # Every day at midnight
   schedule:
-  - cron: "0 0 * * *"
+    - cron: "0 0 * * *"
   # Manual trigger
   workflow_dispatch:
 
@@ -23,40 +23,40 @@ jobs:
   issue-manager:
     runs-on: ubuntu-latest
     steps:
-    - uses: tiangolo/issue-manager@0.4.0
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: tiangolo/issue-manager@0.4.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-        config: >
-          {
-            "answered": {
-              "delay": 864000,
-              "message": "Assuming the original issue was solved, it will be automatically closed now.",
-              "users": [
-               "pydanny",
-               "audreyr",
-               "luzfcb",
-               "theskumar",
-               "jayfk",
-               "burhan",
-               "webyneter",
-               "browniebroke",
-               "sfdye"
-              ]
-            },
-            "waiting": {
-              "delay": 864000,
-              "message": "Automatically closing. To re-open, please provide the additional information requested.",
-              "users": [
-                "pydanny",
-                "audreyr",
-                "luzfcb",
-                "theskumar",
-                "jayfk",
-                "burhan",
-                "webyneter",
-                "browniebroke",
-                "sfdye"
-              ]
+          config: >
+            {
+              "answered": {
+                "delay": 864000,
+                "message": "Assuming the original issue was solved, it will be automatically closed now.",
+                "users": [
+                 "pydanny",
+                 "audreyr",
+                 "luzfcb",
+                 "theskumar",
+                 "jayfk",
+                 "burhan",
+                 "webyneter",
+                 "browniebroke",
+                 "sfdye"
+                ]
+              },
+              "waiting": {
+                "delay": 864000,
+                "message": "Automatically closing. To re-open, please provide the additional information requested.",
+                "users": [
+                  "pydanny",
+                  "audreyr",
+                  "luzfcb",
+                  "theskumar",
+                  "jayfk",
+                  "burhan",
+                  "webyneter",
+                  "browniebroke",
+                  "sfdye"
+                ]
+              }
             }
-          }

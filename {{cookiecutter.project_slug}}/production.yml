@@ -47,7 +47,7 @@ services:
       {%- endif %}
 
   redis:
-    image: redis:5.0
+    image: redis:6
   {%- if cookiecutter.use_celery == 'y' %}
 
   celeryworker:
