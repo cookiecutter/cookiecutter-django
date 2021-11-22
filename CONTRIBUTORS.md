@@ -1664,6 +1664,13 @@ Listed in alphabetical order.
     </td>
     <td></td>
   </tr>
+  <tr>
+    <td>Zach Borboa</td>
+    <td>
+      <a href="https://github.com/zachborboa">zachborboa</a>
+    </td>
+    <td></td>
+  </tr>
 </table>
 
 ### Special Thanks
