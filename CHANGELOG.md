@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2021.11.22
+
+### Changed
+- Removed unnecessary custom context processor exposing the DEBUG Template Context Variable ([#3042](https://github.com/cookiecutter/cookiecutter-django/pull/3042))
+- Clean up trailing whitespace ([#3430](https://github.com/cookiecutter/cookiecutter-django/pull/3430))
+### Updated
+- Update redis to 4.0.2 ([#3431](https://github.com/cookiecutter/cookiecutter-django/pull/3431))
+- Bump Postgres to 13.5 12.9 11.14 10.19; add 14.1 ([#3428](https://github.com/cookiecutter/cookiecutter-django/pull/3428))
+
 ## 2021.11.20
 
 ### Fixed
