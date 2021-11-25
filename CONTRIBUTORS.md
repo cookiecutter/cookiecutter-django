@@ -1539,6 +1539,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Timm Simpkins</td>
+    <td>
+      <a href="https://github.com/PoDuck">PoDuck</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Tom Atkins</td>
     <td>
       <a href="https://github.com/knitatoms">knitatoms</a>
