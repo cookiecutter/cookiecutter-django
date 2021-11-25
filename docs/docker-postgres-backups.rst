@@ -55,8 +55,11 @@ With a single backup file copied to ``.`` that would be ::
 
     $ docker cp 9c5c3f055843:/backups/backup_2018_03_13T09_05_07.sql.gz .
 
-.. _`command`: https://docs.docker.com/engine/reference/commandline/cp/
+You can also get the container ID using ``docker-compose -f local.yml ps -q postgres`` so if you want to automate your backups, you don't have to check the container ID manually every time. Here is the full command ::
 
+    $ docker cp $(docker-compose -f local.yml ps -q postgres):/backups ./backups
+
+.. _`command`: https://docs.docker.com/engine/reference/commandline/cp/
 
 Restoring from the Existing Backup
 ----------------------------------

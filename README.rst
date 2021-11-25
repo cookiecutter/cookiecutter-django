@@ -1,23 +1,24 @@
 Cookiecutter Django
 ===================
 
-.. image:: https://img.shields.io/github/workflow/status/pydanny/cookiecutter-django/CI/master
-    :target: https://github.com/pydanny/cookiecutter-django/actions?query=workflow%3ACI
+.. image:: https://img.shields.io/github/workflow/status/cookiecutter/cookiecutter-django/CI/master
+    :target: https://github.com/cookiecutter/cookiecutter-django/actions?query=workflow%3ACI
     :alt: Build Status
 
 .. image:: https://readthedocs.org/projects/cookiecutter-django/badge/?version=latest
     :target: https://cookiecutter-django.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-.. image:: https://pyup.io/repos/github/pydanny/cookiecutter-django/shield.svg
-    :target: https://pyup.io/repos/github/pydanny/cookiecutter-django/
+.. image:: https://pyup.io/repos/github/cookiecutter/cookiecutter-django/shield.svg
+    :target: https://pyup.io/repos/github/cookiecutter/cookiecutter-django/
     :alt: Updates
 
-.. image:: https://img.shields.io/badge/cookiecutter-Join%20on%20Slack-green?style=flat&logo=slack
-    :target: https://join.slack.com/t/cookie-cutter/shared_invite/enQtNzI0Mzg5NjE5Nzk5LTRlYWI2YTZhYmQ4YmU1Y2Q2NmE1ZjkwOGM0NDQyNTIwY2M4ZTgyNDVkNjMxMDdhZGI5ZGE5YmJjM2M3ODJlY2U
+.. image:: https://img.shields.io/badge/Discord-cookiecutter-5865F2?style=flat&logo=discord&logoColor=white
+    :target: https://discord.gg/bTfDa6Zz
+    :alt: Join our Discord
 
-.. image:: https://www.codetriage.com/pydanny/cookiecutter-django/badges/users.svg
-    :target: https://www.codetriage.com/pydanny/cookiecutter-django
+.. image:: https://www.codetriage.com/cookiecutter/cookiecutter-django/badges/users.svg
+    :target: https://www.codetriage.com/cookiecutter/cookiecutter-django
     :alt: Code Helpers Badge
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
@@ -34,16 +35,16 @@ production-ready Django projects quickly.
 
 .. _Troubleshooting: https://cookiecutter-django.readthedocs.io/en/latest/troubleshooting.html
 
-.. _528: https://github.com/pydanny/cookiecutter-django/issues/528#issuecomment-212650373
-.. _issues: https://github.com/pydanny/cookiecutter-django/issues/new
+.. _528: https://github.com/cookiecutter/cookiecutter-django/issues/528#issuecomment-212650373
+.. _issues: https://github.com/cookiecutter/cookiecutter-django/issues/new
 
 Features
 ---------
 
-* For Django 3.1
+* For Django 3.2
 * Works with Python 3.9
 * Renders Django projects with 100% starting test coverage
-* Twitter Bootstrap_ v4 (`maintained Foundation fork`_ also available)
+* Twitter Bootstrap_ v5 (`maintained Foundation fork`_ also available)
 * 12-Factor_ based settings via django-environ_
 * Secure by default. We believe in SSL.
 * Optimized development and production settings
@@ -96,7 +97,7 @@ Constraints
 -----------
 
 * Only maintained 3rd party libraries are used.
-* Uses PostgreSQL everywhere (9.4 - 12.3)
+* Uses PostgreSQL everywhere (10.19 - 14.1)
 * Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
 Support this Project!
@@ -145,7 +146,7 @@ First, get Cookiecutter. Trust me, it's awesome::
 
 Now run it against this repo::
 
-    $ cookiecutter https://github.com/pydanny/cookiecutter-django
+    $ cookiecutter https://github.com/cookiecutter/cookiecutter-django
 
 You'll be prompted for some values. Provide them, then a Django project will be created for you.
 
@@ -177,11 +178,11 @@ Answer the prompts with your own desired options_. For example::
     use_heroku [n]: y
     use_compressor [n]: y
     Select postgresql_version:
-    1 - 12.3
-    2 - 11.8
-    3 - 10.8
-    4 - 9.6
-    5 - 9.5
+    1 - 14.1
+    2 - 13.5
+    3 - 12.9
+    4 - 11.14
+    5 - 10.19
     Choose from 1, 2, 3, 4, 5 [1]: 1
     Select js_task_runner:
     1 - None
@@ -235,7 +236,7 @@ Community
 * For anything else, you can chat with us on `Slack`_.
 
 .. _`Stack Overflow`: http://stackoverflow.com/questions/tagged/cookiecutter-django
-.. _`issue`: https://github.com/pydanny/cookiecutter-django/issues
+.. _`issue`: https://github.com/cookiecutter/cookiecutter-django/issues
 .. _`Slack`: https://join.slack.com/t/cookie-cutter/shared_invite/enQtNzI0Mzg5NjE5Nzk5LTRlYWI2YTZhYmQ4YmU1Y2Q2NmE1ZjkwOGM0NDQyNTIwY2M4ZTgyNDVkNjMxMDdhZGI5ZGE5YmJjM2M3ODJlY2U
 
 For Readers of Two Scoops of Django
@@ -258,7 +259,7 @@ Scattered throughout the Python and HTML of this project are places marked with 
 Releases
 --------
 
-Need a stable release? You can find them at https://github.com/pydanny/cookiecutter-django/releases
+Need a stable release? You can find them at https://github.com/cookiecutter/cookiecutter-django/releases
 
 
 Not Exactly What You Want?
