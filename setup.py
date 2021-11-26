@@ -13,7 +13,10 @@ with open("README.rst") as readme_file:
 setup(
     name="cookiecutter-django",
     version=version,
-    description="A Cookiecutter template for creating production-ready Django projects quickly.",
+    description=(
+        "A Cookiecutter template for creating production-ready "
+        "Django projects quickly."
+    ),
     long_description=long_description,
     author="Daniel Roy Greenfeld",
     author_email="pydanny@gmail.com",

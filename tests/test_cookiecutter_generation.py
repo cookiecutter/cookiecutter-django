@@ -2,10 +2,10 @@ import os
 import re
 
 import pytest
-from cookiecutter.exceptions import FailedHookException
 import sh
 import yaml
 from binaryornot.check import is_binary
+from cookiecutter.exceptions import FailedHookException
 
 PATTERN = r"{{(\s?cookiecutter)[.](.*?)}}"
 RE_OBJ = re.compile(PATTERN)

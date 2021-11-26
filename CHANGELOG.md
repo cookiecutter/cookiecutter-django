@@ -1066,7 +1066,7 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 ### Removed
 - Remove the user list view (@browniebroke)
 
-### Fixed 
+### Fixed
 - Static storage default ACL (@browniebroke)
 
 ## [2019-05-17]
@@ -1102,7 +1102,7 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 ## [2019-03-11]
 ### Changed
 - Sentry integration from Raven to Sentry-SDK (@gfabricio)
-- Made Redis config conditional on Celery locally (@demestav) 
+- Made Redis config conditional on Celery locally (@demestav)
 
 ## [2019-03-11]
 ### Added
@@ -1171,7 +1171,7 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 ### Changed
 - Test commands to use pytest (@jcass77)
 
-### Removed 
+### Removed
 - Some hacks leftovers from Bootstrap v4 beta in `project.js` (@hendrikschneider)
 
 ## [2018-07-12]
