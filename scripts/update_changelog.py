@@ -85,7 +85,7 @@ def group_pulls_by_change_type(
         "Updated": [],
     }
     for pull in pull_requests_list:
-        label_names = {l.name for l in pull.labels}
+        label_names = {label.name for label in pull.labels}
         if "update" in label_names:
             group_name = "Updated"
         elif "bug" in label_names:

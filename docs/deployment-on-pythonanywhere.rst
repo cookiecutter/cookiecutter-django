@@ -152,14 +152,14 @@ Click through to the **WSGI configuration file** link (near the top) and edit th
 Back on the Web tab, hit **Reload**, and your app should be live!
 
 
-.. note:: You may see security warnings until you set up your SSL certificates. If you want to suppress them temporarily, set ``DJANGO_SECURE_SSL_REDIRECT`` to blank. Follow the instructions `here <https://help.pythonanywhere.com/pages/HTTPSSetup>`_ to get SSL set up.
+.. note:: You may see security warnings until you set up your SSL certificates. If you want to suppress them temporarily, set ``DJANGO_SECURE_SSL_REDIRECT`` to blank. Follow `these instructions <https://help.pythonanywhere.com/pages/HTTPSSetup>`_ to get SSL set up.
 
 
 
 Optional: static files
 ----------------------
 
-If you want to use the PythonAnywhere static files service instead of using whitenoise or S3, you'll find its configuration section on the Web tab.  Essentially you'll need an entry to match your ``STATIC_URL`` and ``STATIC_ROOT`` settings.  There's more info `here <https://help.pythonanywhere.com/pages/DjangoStaticFiles>`_.
+If you want to use the PythonAnywhere static files service instead of using whitenoise or S3, you'll find its configuration section on the Web tab.  Essentially you'll need an entry to match your ``STATIC_URL`` and ``STATIC_ROOT`` settings.  There's more info `in this article <https://help.pythonanywhere.com/pages/DjangoStaticFiles>`_.
 
 
 Future deployments

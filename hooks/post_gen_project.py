@@ -5,7 +5,8 @@ NOTE:
     can potentially be run in Python 2.x environment
     (at least so we presume in `pre_gen_project.py`).
 
-TODO: ? restrict Cookiecutter Django project initialization to Python 3.x environments only
+TODO: restrict Cookiecutter Django project initialization to
+      Python 3.x environments only
 """
 from __future__ import print_function
 
@@ -164,8 +165,8 @@ def set_flag(file_path, flag, value=None, formatted=None, *args, **kwargs):
         random_string = generate_random_string(*args, **kwargs)
         if random_string is None:
             print(
-                "We couldn't find a secure pseudo-random number generator on your system. "
-                "Please, make sure to manually {} later.".format(flag)
+                "We couldn't find a secure pseudo-random number generator on your "
+                "system. Please, make sure to manually {} later.".format(flag)
             )
             random_string = flag
         if formatted is not None:
