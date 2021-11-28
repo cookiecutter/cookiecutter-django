@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2021.11.27
+
+### Updated
+- Update coverage to 6.2 ([#3437](https://github.com/cookiecutter/cookiecutter-django/pull/3437))
+
 ## 2021.11.26
 
 ### Changed
