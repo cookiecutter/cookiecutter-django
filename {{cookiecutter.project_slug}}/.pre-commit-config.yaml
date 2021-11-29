@@ -1,6 +1,5 @@
-exclude: "docs|node_modules|migrations|.git|.tox"
+exclude: "^docs/|/migrations/"
 default_stages: [commit]
-fail_fast: true
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
