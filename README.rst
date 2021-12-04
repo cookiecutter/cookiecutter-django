@@ -120,8 +120,8 @@ Projects that provide financial support to the maintainers:
 
 Two Scoops of Django 3.x is the best ice cream-themed Django reference in the universe!
 
-pyup
-~~~~~~~~~~~~~~~~~~
+PyUp
+~~~~
 
 .. image:: https://pyup.io/static/images/logo.png
    :name: pyup
@@ -129,7 +129,7 @@ pyup
    :alt: pyup
    :target: https://pyup.io/
 
-Pyup brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
+PyUp brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
 
 Usage
 ------
@@ -241,12 +241,12 @@ For Readers of Two Scoops of Django
 
 You may notice that some elements of this project do not exactly match what we describe in chapter 3. The reason for that is this project, amongst other things, serves as a test bed for trying out new ideas and concepts. Sometimes they work, sometimes they don't, but the end result is that it won't necessarily match precisely what is described in the book I co-authored.
 
-For pyup.io Users
------------------
+For PyUp Users
+--------------
 
-If you are using `pyup.io`_ to keep your dependencies updated and secure, use the code *cookiecutter* during checkout to get 15% off every month.
+If you are using `PyUp`_ to keep your dependencies updated and secure, use the code *cookiecutter* during checkout to get 15% off every month.
 
-.. _`pyup.io`: https://pyup.io
+.. _`PyUp`: https://pyup.io
 
 "Your Stuff"
 -------------
