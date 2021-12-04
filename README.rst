@@ -244,9 +244,7 @@ You may notice that some elements of this project do not exactly match what we d
 For PyUp Users
 --------------
 
-If you are using `PyUp`_ to keep your dependencies updated and secure, use the code *cookiecutter* during checkout to get 15% off every month.
-
-.. _`PyUp`: https://pyup.io
+If you are using `PyUp <https://pyup.io>`_ to keep your dependencies updated and secure, use the code *cookiecutter* during checkout to get 15% off every month.
 
 "Your Stuff"
 -------------
