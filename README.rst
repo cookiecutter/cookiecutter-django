@@ -61,9 +61,6 @@ Features
 * Customizable PostgreSQL version
 * Default integration with pre-commit_ for identifying simple issues before submission to code review
 
-.. _`maintained Foundation fork`: https://github.com/Parbhat/cookiecutter-django-foundation
-
-
 Optional Integrations
 ---------------------
 
