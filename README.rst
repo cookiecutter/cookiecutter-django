@@ -230,11 +230,11 @@ Community
 
 * Have questions? **Before you ask questions anywhere else**, please post your question on `Stack Overflow`_ under the *cookiecutter-django* tag. We check there periodically for questions.
 * If you think you found a bug or want to request a feature, please open an issue_.
-* For anything else, you can chat with us on `Slack`_.
+* For anything else, you can chat with us on `Discord`_.
 
 .. _`Stack Overflow`: http://stackoverflow.com/questions/tagged/cookiecutter-django
 .. _`issue`: https://github.com/cookiecutter/cookiecutter-django/issues
-.. _`Slack`: https://join.slack.com/t/cookie-cutter/shared_invite/enQtNzI0Mzg5NjE5Nzk5LTRlYWI2YTZhYmQ4YmU1Y2Q2NmE1ZjkwOGM0NDQyNTIwY2M4ZTgyNDVkNjMxMDdhZGI5ZGE5YmJjM2M3ODJlY2U
+.. _`Discord`: https://discord.gg/bTfDa6Zz
 
 For Readers of Two Scoops of Django
 --------------------------------------------
