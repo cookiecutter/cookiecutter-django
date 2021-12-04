@@ -44,7 +44,7 @@ Features
 * For Django 3.2
 * Works with Python 3.9
 * Renders Django projects with 100% starting test coverage
-* Twitter Bootstrap_ v5 (`maintained Foundation fork`_ also available)
+* Twitter Bootstrap_ v5
 * 12-Factor_ based settings via django-environ_
 * Secure by default. We believe in SSL.
 * Optimized development and production settings
@@ -60,9 +60,6 @@ Features
 * Run tests with unittest or pytest
 * Customizable PostgreSQL version
 * Default integration with pre-commit_ for identifying simple issues before submission to code review
-
-.. _`maintained Foundation fork`: https://github.com/Parbhat/cookiecutter-django-foundation
-
 
 Optional Integrations
 ---------------------
