@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2021.12.04
+
+### Changed
+- Removed mention of Foundation fork from readme ([#3445](https://github.com/cookiecutter/cookiecutter-django/pull/3445))
+### Updated
+- Update pytest-django to 4.5.1 ([#3443](https://github.com/cookiecutter/cookiecutter-django/pull/3443))
+
 ## 2021.12.01
 
 ### Updated
