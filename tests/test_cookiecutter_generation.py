@@ -2,10 +2,10 @@ import os
 import re
 
 import pytest
-from cookiecutter.exceptions import FailedHookException
 import sh
 import yaml
 from binaryornot.check import is_binary
+from cookiecutter.exceptions import FailedHookException
 
 PATTERN = r"{{(\s?cookiecutter)[.](.*?)}}"
 RE_OBJ = re.compile(PATTERN)
@@ -37,11 +37,11 @@ SUPPORTED_COMBINATIONS = [
     {"use_pycharm": "n"},
     {"use_docker": "y"},
     {"use_docker": "n"},
-    {"postgresql_version": "12.3"},
-    {"postgresql_version": "11.8"},
-    {"postgresql_version": "10.8"},
-    {"postgresql_version": "9.6"},
-    {"postgresql_version": "9.5"},
+    {"postgresql_version": "14.1"},
+    {"postgresql_version": "13.5"},
+    {"postgresql_version": "12.9"},
+    {"postgresql_version": "11.14"},
+    {"postgresql_version": "10.19"},
     {"cloud_provider": "AWS", "use_whitenoise": "y"},
     {"cloud_provider": "AWS", "use_whitenoise": "n"},
     {"cloud_provider": "GCP", "use_whitenoise": "y"},
@@ -282,3 +282,20 @@ def test_error_if_incompatible(cookies, context, invalid_context):
 
     assert result.exit_code != 0
     assert isinstance(result.exception, FailedHookException)
+
+
+@pytest.mark.parametrize(
+    ["use_pycharm", "pycharm_docs_exist"],
+    [
+        ("n", False),
+        ("y", True),
+    ],
+)
+def test_pycharm_docs_removed(cookies, context, use_pycharm, pycharm_docs_exist):
+    """."""
+    context.update({"use_pycharm": use_pycharm})
+    result = cookies.bake(extra_context=context)
+
+    with open(f"{result.project}/docs/index.rst", "r") as f:
+        has_pycharm_docs = "pycharm/configuration" in f.read()
+        assert has_pycharm_docs is pycharm_docs_exist

@@ -159,6 +159,10 @@ typings/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
 
 
 {% if cookiecutter.use_pycharm == 'y' -%}
@@ -323,13 +327,13 @@ Session.vim
 tags
 
 ### Project template
-{% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' %}
+{%- if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' %}
 MailHog
 {%- endif %}
 {{ cookiecutter.project_slug }}/media/
 
 .pytest_cache/
 
-{% if cookiecutter.use_docker == 'y' %}
+{%- if cookiecutter.use_docker == 'y' %}
 .ipython/
 {%- endif %}
