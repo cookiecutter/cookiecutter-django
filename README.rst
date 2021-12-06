@@ -14,7 +14,7 @@ Cookiecutter Django
     :alt: Updates
 
 .. image:: https://img.shields.io/badge/Discord-cookiecutter-5865F2?style=flat&logo=discord&logoColor=white
-    :target: https://discord.gg/bTfDa6Zz
+    :target: https://discord.gg/9BrxzPKuEW
     :alt: Join our Discord
 
 .. image:: https://www.codetriage.com/cookiecutter/cookiecutter-django/badges/users.svg
@@ -234,7 +234,7 @@ Community
 
 .. _`Stack Overflow`: http://stackoverflow.com/questions/tagged/cookiecutter-django
 .. _`issue`: https://github.com/cookiecutter/cookiecutter-django/issues
-.. _`Discord`: https://discord.gg/bTfDa6Zz
+.. _`Discord`: https://discord.gg/9BrxzPKuEW
 
 For Readers of Two Scoops of Django
 --------------------------------------------
