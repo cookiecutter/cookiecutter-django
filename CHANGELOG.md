@@ -3,6 +3,31 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2021.12.04
+
+### Changed
+- Removed mention of Foundation fork from readme ([#3445](https://github.com/cookiecutter/cookiecutter-django/pull/3445))
+### Updated
+- Update pytest-django to 4.5.1 ([#3443](https://github.com/cookiecutter/cookiecutter-django/pull/3443))
+
+## 2021.12.01
+
+### Updated
+- Update pre-commit to 2.16.0 ([#3442](https://github.com/cookiecutter/cookiecutter-django/pull/3442))
+
+## 2021.11.30
+
+### Updated
+- Update django-redis to 5.1.0 ([#3440](https://github.com/cookiecutter/cookiecutter-django/pull/3440))
+- Update django-stubs to 1.9.0 ([#3439](https://github.com/cookiecutter/cookiecutter-django/pull/3439))
+
+## 2021.11.29
+
+### Fixed
+- Fix pre-commit config ([#3435](https://github.com/cookiecutter/cookiecutter-django/pull/3435))
+### Updated
+- Update sphinx to 4.3.1 ([#3438](https://github.com/cookiecutter/cookiecutter-django/pull/3438))
+
 ## 2021.11.27
 
 ### Updated

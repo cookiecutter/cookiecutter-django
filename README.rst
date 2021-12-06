@@ -14,7 +14,7 @@ Cookiecutter Django
     :alt: Updates
 
 .. image:: https://img.shields.io/badge/Discord-cookiecutter-5865F2?style=flat&logo=discord&logoColor=white
-    :target: https://discord.gg/bTfDa6Zz
+    :target: https://discord.gg/9BrxzPKuEW
     :alt: Join our Discord
 
 .. image:: https://www.codetriage.com/cookiecutter/cookiecutter-django/badges/users.svg
@@ -44,7 +44,7 @@ Features
 * For Django 3.2
 * Works with Python 3.9
 * Renders Django projects with 100% starting test coverage
-* Twitter Bootstrap_ v5 (`maintained Foundation fork`_ also available)
+* Twitter Bootstrap_ v5
 * 12-Factor_ based settings via django-environ_
 * Secure by default. We believe in SSL.
 * Optimized development and production settings
@@ -60,9 +60,6 @@ Features
 * Run tests with unittest or pytest
 * Customizable PostgreSQL version
 * Default integration with pre-commit_ for identifying simple issues before submission to code review
-
-.. _`maintained Foundation fork`: https://github.com/Parbhat/cookiecutter-django-foundation
-
 
 Optional Integrations
 ---------------------
@@ -123,8 +120,8 @@ Projects that provide financial support to the maintainers:
 
 Two Scoops of Django 3.x is the best ice cream-themed Django reference in the universe!
 
-pyup
-~~~~~~~~~~~~~~~~~~
+PyUp
+~~~~
 
 .. image:: https://pyup.io/static/images/logo.png
    :name: pyup
@@ -132,7 +129,7 @@ pyup
    :alt: pyup
    :target: https://pyup.io/
 
-Pyup brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
+PyUp brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
 
 Usage
 ------
@@ -233,23 +230,21 @@ Community
 
 * Have questions? **Before you ask questions anywhere else**, please post your question on `Stack Overflow`_ under the *cookiecutter-django* tag. We check there periodically for questions.
 * If you think you found a bug or want to request a feature, please open an issue_.
-* For anything else, you can chat with us on `Slack`_.
+* For anything else, you can chat with us on `Discord`_.
 
 .. _`Stack Overflow`: http://stackoverflow.com/questions/tagged/cookiecutter-django
 .. _`issue`: https://github.com/cookiecutter/cookiecutter-django/issues
-.. _`Slack`: https://join.slack.com/t/cookie-cutter/shared_invite/enQtNzI0Mzg5NjE5Nzk5LTRlYWI2YTZhYmQ4YmU1Y2Q2NmE1ZjkwOGM0NDQyNTIwY2M4ZTgyNDVkNjMxMDdhZGI5ZGE5YmJjM2M3ODJlY2U
+.. _`Discord`: https://discord.gg/9BrxzPKuEW
 
 For Readers of Two Scoops of Django
 --------------------------------------------
 
 You may notice that some elements of this project do not exactly match what we describe in chapter 3. The reason for that is this project, amongst other things, serves as a test bed for trying out new ideas and concepts. Sometimes they work, sometimes they don't, but the end result is that it won't necessarily match precisely what is described in the book I co-authored.
 
-For pyup.io Users
------------------
+For PyUp Users
+--------------
 
-If you are using `pyup.io`_ to keep your dependencies updated and secure, use the code *cookiecutter* during checkout to get 15% off every month.
-
-.. _`pyup.io`: https://pyup.io
+If you are using `PyUp <https://pyup.io>`_ to keep your dependencies updated and secure, use the code *cookiecutter* during checkout to get 15% off every month.
 
 "Your Stuff"
 -------------

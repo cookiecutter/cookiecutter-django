@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.models import AnonymousUser
 from django.contrib.messages.middleware import MessageMiddleware
 from django.contrib.sessions.middleware import SessionMiddleware
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponseRedirect
 from django.test import RequestFactory
 from django.urls import reverse
 
@@ -97,5 +97,6 @@ class TestUserDetailView:
         response = user_detail_view(request, username=user.username)
         login_url = reverse(settings.LOGIN_URL)
 
+        assert isinstance(response, HttpResponseRedirect)
         assert response.status_code == 302
         assert response.url == f"{login_url}?next=/fake-url/"

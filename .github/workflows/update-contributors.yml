@@ -7,8 +7,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # Disables this workflow from running in a repository that is not part of the indicated organization/user
+    if: github.repository_owner == 'cookiecutter'
 
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
