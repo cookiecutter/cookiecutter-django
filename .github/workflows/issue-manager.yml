@@ -12,12 +12,14 @@ on:
 
 jobs:
   issue-manager:
+    # Disables this workflow from running in a repository that is not part of the indicated organization/user
+    if: github.repository_owner == 'cookiecutter'
+
     runs-on: ubuntu-latest
     steps:
       - uses: tiangolo/issue-manager@0.4.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-
           config: >
             {
               "answered": {
