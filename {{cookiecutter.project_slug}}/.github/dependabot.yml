@@ -3,7 +3,7 @@
 
 version: 2
 updates:
-  # Update Github actions in workflows
+  # Update GitHub actions in workflows
   - package-ecosystem: "github-actions"
     directory: "/"
     # Check for updates to GitHub Actions every weekday
@@ -14,7 +14,7 @@ updates:
 
   # Enable version updates for Docker
   # We need to specify each Dockerfile in a separate entry because Dependabot doesn't 
-  # support widlcards or recursively checking subdirectories. Check this issue for updates:
+  # support wildcards or recursively checking subdirectories. Check this issue for updates:
   # https://github.com/dependabot/dependabot-core/issues/2178
   - package-ecosystem: "docker"
     # Look for a `Dockerfile` in the `compose/local/django` directory
