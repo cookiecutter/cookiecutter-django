@@ -391,6 +391,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Chao Yang Wu</td>
+    <td>
+      <a href="https://github.com/goatwu1993">goatwu1993</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Charlie Macfarlane Brodie</td>
     <td>
       <a href="https://github.com/tannart">tannart</a>
@@ -613,6 +620,13 @@ Listed in alphabetical order.
       <a href="https://github.com/purplediane">purplediane</a>
     </td>
     <td>purplediane88</td>
+  </tr>
+  <tr>
+    <td>Diego Montes</td>
+    <td>
+      <a href="https://github.com/d57montes">d57montes</a>
+    </td>
+    <td></td>
   </tr>
   <tr>
     <td>Dong Huynh</td>
@@ -1077,6 +1091,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Liam Brenner</td>
+    <td>
+      <a href="https://github.com/SableWalnut">SableWalnut</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Lin Xianyi</td>
     <td>
       <a href="https://github.com/iynaix">iynaix</a>
@@ -1259,11 +1280,25 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>mpoli</td>
+    <td>
+      <a href="https://github.com/mpoli">mpoli</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Nico Stefani</td>
     <td>
       <a href="https://github.com/nicolas471">nicolas471</a>
     </td>
     <td>moby_dick91</td>
+  </tr>
+  <tr>
+    <td>Noah H</td>
+    <td>
+      <a href="https://github.com/nthall">nthall</a>
+    </td>
+    <td></td>
   </tr>
   <tr>
     <td>Oleg Russkin</td>
@@ -1504,6 +1539,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Timm Simpkins</td>
+    <td>
+      <a href="https://github.com/PoDuck">PoDuck</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Tom Atkins</td>
     <td>
       <a href="https://github.com/knitatoms">knitatoms</a>
@@ -1626,6 +1668,13 @@ Listed in alphabetical order.
     <td>Yuchen Xie</td>
     <td>
       <a href="https://github.com/mapx">mapx</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Zach Borboa</td>
+    <td>
+      <a href="https://github.com/zachborboa">zachborboa</a>
     </td>
     <td></td>
   </tr>

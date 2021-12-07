@@ -7,10 +7,7 @@
 #
 # All configuration values have a default; values that are commented out
 # serve to show the default.
-
 from datetime import datetime
-import os
-import sys
 
 now = datetime.now()
 
@@ -92,7 +89,7 @@ pygments_style = "sphinx"
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = "default"
+html_theme = "sphinx_rtd_theme"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -242,7 +239,8 @@ texinfo_documents = [
         "Cookiecutter Django documentation",
         "Daniel Roy Greenfeld",
         "Cookiecutter Django",
-        "A Cookiecutter template for creating production-ready Django projects quickly.",
+        "A Cookiecutter template for creating production-ready "
+        "Django projects quickly.",
         "Miscellaneous",
     )
 ]

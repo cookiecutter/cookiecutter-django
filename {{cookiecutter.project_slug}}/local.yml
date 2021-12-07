@@ -13,6 +13,9 @@ services:
     container_name: django
     depends_on:
       - postgres
+      {%- if cookiecutter.use_celery == 'y' %}
+      - redis
+      {%- endif %}
       {%- if cookiecutter.use_mailhog == 'y' %}
       - mailhog
       {%- endif %}

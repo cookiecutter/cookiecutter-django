@@ -12,7 +12,7 @@ Checklist:
 
 ## Rationale
 
-<!-- 
-Why does this project need the change you're proposing? 
-If this pull request fixes an open issue, don't forget to link it with `Fix #NNNN` 
+<!--
+Why does this project need the change you're proposing?
+If this pull request fixes an open issue, don't forget to link it with `Fix #NNNN`
 -->

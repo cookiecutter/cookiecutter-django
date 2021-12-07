@@ -3,12 +3,12 @@
 -r base.txt
 
 gunicorn==20.1.0  # https://github.com/benoitc/gunicorn
-psycopg2==2.9.1  # https://github.com/psycopg/psycopg2
+psycopg2==2.9.2  # https://github.com/psycopg/psycopg2
 {%- if cookiecutter.use_whitenoise == 'n' %}
 Collectfast==2.2.0  # https://github.com/antonagestam/collectfast
 {%- endif %}
 {%- if cookiecutter.use_sentry == "y" %}
-sentry-sdk==1.4.3  # https://github.com/getsentry/sentry-python
+sentry-sdk==1.5.0  # https://github.com/getsentry/sentry-python
 {%- endif %}
 {%- if cookiecutter.use_docker == "n" and cookiecutter.windows == "y" %}
 hiredis==2.0.0  # https://github.com/redis/hiredis-py
@@ -17,9 +17,9 @@ hiredis==2.0.0  # https://github.com/redis/hiredis-py
 # Django
 # ------------------------------------------------------------------------------
 {%- if cookiecutter.cloud_provider == 'AWS' %}
-django-storages[boto3]==1.12.1  # https://github.com/jschneier/django-storages
+django-storages[boto3]==1.12.3  # https://github.com/jschneier/django-storages
 {%- elif cookiecutter.cloud_provider == 'GCP' %}
-django-storages[google]==1.12.1  # https://github.com/jschneier/django-storages
+django-storages[google]==1.12.3  # https://github.com/jschneier/django-storages
 {%- endif %}
 {%- if cookiecutter.mail_service == 'Mailgun' %}
 django-anymail[mailgun]==8.4  # https://github.com/anymail/django-anymail

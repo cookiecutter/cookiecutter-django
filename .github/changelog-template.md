@@ -1,4 +1,3 @@
-## [{{merge_date.strftime('%Y-%m-%d')}}]
 {%- for change_type, pulls in grouped_pulls.items() %}
 {%- if pulls %}
 ### {{ change_type }}
