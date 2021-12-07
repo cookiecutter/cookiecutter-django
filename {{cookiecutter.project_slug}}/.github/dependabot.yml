@@ -82,6 +82,8 @@ updates:
     schedule:
       interval: "daily"
 
+{%- if cookiecutter.js_task_runner != "None" %}
+
   # Enable version updates for javascript/npm
   - package-ecosystem: "npm"
     # Look for a `packages.json' in the `root` directory
@@ -89,3 +91,5 @@ updates:
     # Check for updates to GitHub Actions every weekday
     schedule:
       interval: "daily"
+
+{%- endif %}
