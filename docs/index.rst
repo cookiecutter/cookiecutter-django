@@ -1,9 +1,9 @@
 .. cookiecutter-django documentation master file.
 
 Welcome to Cookiecutter Django's documentation!
-====================================================================
+===============================================
 
-A Cookiecutter_ template for Django.
+Powered by Cookiecutter_, Cookiecutter Django is a project template for jumpstarting production-ready Django projects.
 
 .. _cookiecutter: https://github.com/cookiecutter/cookiecutter
 
