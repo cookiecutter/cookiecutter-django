@@ -10,6 +10,7 @@ TODO: restrict Cookiecutter Django project initialization to
 """
 from __future__ import print_function
 
+import json
 import os
 import random
 import shutil
@@ -93,6 +94,16 @@ def remove_packagejson_file():
     file_names = ["package.json"]
     for file_name in file_names:
         os.remove(file_name)
+
+
+def remove_bootstrap_packages():
+    with open("package.json", mode="r") as fd:
+        content = json.load(fd)
+    for package_name in ["bootstrap", "gulp-concat", "@popperjs/core"]:
+        content["devDependencies"].pop(package_name)
+    with open("package.json", mode="w") as fd:
+        json.dump(content, fd, ensure_ascii=False, indent=2)
+        fd.write("\n")
 
 
 def remove_celery_files():
@@ -381,6 +392,8 @@ def main():
         remove_packagejson_file()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_node_dockerfile()
+    elif "{{ cookiecutter.custom_bootstrap_compilation }}" == "n":
+        remove_bootstrap_packages()
 
     if "{{ cookiecutter.cloud_provider}}".lower() == "none":
         print(
