@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2021.12.06
+
+### Updated
+- Auto-update pre-commit hooks ([#3449](https://github.com/cookiecutter/cookiecutter-django/pull/3449))
+- Update black to 21.12b0 ([#3448](https://github.com/cookiecutter/cookiecutter-django/pull/3448))
+- Update django-cors-headers to 3.10.1 ([#3447](https://github.com/cookiecutter/cookiecutter-django/pull/3447))
+
 ## 2021.12.04
 
 ### Changed
