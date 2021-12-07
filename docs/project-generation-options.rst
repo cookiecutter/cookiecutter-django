@@ -1,3 +1,5 @@
+.. _template-options:
+
 Project Generation Options
 ==========================
 
