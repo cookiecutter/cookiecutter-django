@@ -10,7 +10,7 @@
     "browser-sync": "^2.27.7",
     "cssnano": "^5.0.11",
     "gulp": "^4.0.2",
-    "gulp-imagemin": "^7.1.0",
+    "gulp-imagemin": "^8.0.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",
