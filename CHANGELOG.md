@@ -3,6 +3,14 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2021.12.07
+
+### Changed
+- Add docker, pip and npm to GitHub&#39;s Dependabot ([#3401](https://github.com/cookiecutter/cookiecutter-django/pull/3401))
+- Configure Dependabot for npm packages at the template level ([#3436](https://github.com/cookiecutter/cookiecutter-django/pull/3436))
+### Updated
+- Update django to 3.2.10 ([#3451](https://github.com/cookiecutter/cookiecutter-django/pull/3451))
+
 ## 2021.12.06
 
 ### Updated
