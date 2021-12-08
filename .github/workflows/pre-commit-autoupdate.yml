@@ -5,7 +5,7 @@ name: Pre-commit auto-update
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "15 2 * * *"
   workflow_dispatch: # to trigger manually
 
 jobs:
@@ -23,7 +23,10 @@ jobs:
       - name: Install pre-commit
         run: pip install pre-commit
 
-      - name: Run pre-commit autoupdate
+      - name: Autoupdate template
+        run: pre-commit autoupdate
+
+      - name: Autoupdate generated projects
         working-directory: "{{cookiecutter.project_slug}}"
         run: pre-commit autoupdate
 
