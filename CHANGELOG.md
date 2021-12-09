@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2021.12.08
+
+### Changed
+- Reword introduction in documentation ([#3452](https://github.com/cookiecutter/cookiecutter-django/pull/3452))
+### Updated
+- Update argon2-cffi to 21.2.0 ([#3453](https://github.com/cookiecutter/cookiecutter-django/pull/3453))
+
 ## 2021.12.07
 
 ### Changed
