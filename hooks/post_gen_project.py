@@ -61,6 +61,8 @@ def remove_docker_files():
     file_names = ["local.yml", "production.yml", ".dockerignore"]
     for file_name in file_names:
         os.remove(file_name)
+    if "{{ cookiecutter.use_pycharm }}".lower() == "y":
+        os.remove(os.path.join(".idea", "runConfigurations", "docker_compose_up.xml"))
 
 
 def remove_utility_files():
