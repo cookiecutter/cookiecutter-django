@@ -62,7 +62,9 @@ def remove_docker_files():
     for file_name in file_names:
         os.remove(file_name)
     if "{{ cookiecutter.use_pycharm }}".lower() == "y":
-        os.remove(os.path.join(".idea", "runConfigurations", "docker_compose_up.xml"))
+        file_names = ["docker_compose_up_django.xml", "docker_compose_up_docs.xml"]
+        for file_name in file_names:
+            os.remove(os.path.join(".idea", "runConfigurations", file_name))
 
 
 def remove_utility_files():

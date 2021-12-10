@@ -1,12 +1,11 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration name="docker-compose up" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
+  <configuration name="docker-compose up django" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
     <deployment type="docker-compose.yml">
       <settings>
         <option name="envFilePath" value=""/>
         <option name="services">
           <list>
-            <option value="django"/>
-            <option value="node"/>
+            <option value="docs"/>
           </list>
         </option>
         <option name="sourceFilePath" value="local.yml"/>
