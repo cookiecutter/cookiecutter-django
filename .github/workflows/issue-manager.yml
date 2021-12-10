@@ -1,13 +1,19 @@
 # Automatically close issues or pull requests that have a label, after a custom delay, if no one replies.
 # https://github.com/tiangolo/issue-manager
-
 name: Issue Manager
 
 on:
-  # Every day
   schedule:
     - cron: "12 0 * * *"
-  # Manual trigger
+  issue_comment:
+    types:
+      - created
+  issues:
+    types:
+      - labeled
+  pull_request_target:
+    types:
+      - labeled
   workflow_dispatch:
 
 jobs:
