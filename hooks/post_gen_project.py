@@ -139,13 +139,6 @@ def remove_dotgithub_folder():
     shutil.rmtree(".github")
 
 
-def append_to_project_gitignore(path):
-    gitignore_file_path = ".gitignore"
-    with open(gitignore_file_path, "a") as gitignore_file:
-        gitignore_file.write(path)
-        gitignore_file.write(os.linesep)
-
-
 def generate_random_string(
     length, using_digits=False, using_ascii_letters=False, using_punctuation=False
 ):
@@ -260,10 +253,10 @@ def set_celery_flower_password(file_path, value=None):
     return celery_flower_password
 
 
-def append_to_gitignore_file(s):
+def append_to_gitignore_file(ignored_line):
     with open(".gitignore", "a") as gitignore_file:
-        gitignore_file.write(s)
-        gitignore_file.write(os.linesep)
+        gitignore_file.write(ignored_line)
+        gitignore_file.write("\n")
 
 
 def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):
