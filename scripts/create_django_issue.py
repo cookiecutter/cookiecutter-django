@@ -274,7 +274,7 @@ class GitHubManager:
             print(f"Handling GitHub issue for Django {version}")
             md_content = self.generate_markdown(version)
             print(f"Generated markdown:\n\n{md_content}")
-            # self.create_or_edit_issue(version, md_content)
+            self.create_or_edit_issue(version, md_content)
 
 
 def main() -> None:

@@ -1,13 +1,14 @@
 .. cookiecutter-django documentation master file.
 
 Welcome to Cookiecutter Django's documentation!
-====================================================================
+===============================================
 
-A Cookiecutter_ template for Django.
+Powered by Cookiecutter_, Cookiecutter Django is a project template for jumpstarting production-ready Django projects. The template offers a number of generation options, we invite you to check the :ref:`dedicated page <template-options>` to learn more about each of them.
 
 .. _cookiecutter: https://github.com/cookiecutter/cookiecutter
 
-Contents:
+Contents
+--------
 
 .. toctree::
    :maxdepth: 2
@@ -28,7 +29,7 @@ Contents:
    troubleshooting
 
 Indices and tables
-==================
+------------------
 
 * :ref:`genindex`
 * :ref:`search`
