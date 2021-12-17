@@ -133,31 +133,31 @@ function runServer(cb) {
 
 // Browser sync server for live reload
 function initBrowserSync() {
-    browserSync.init(
-      [
-        `${paths.css}/*.css`,
-        `${paths.js}/*.js`,
-        `${paths.templates}/*.html`
-      ], {
-        // https://www.browsersync.io/docs/options/#option-proxy
+  browserSync.init(
+    [
+      `${paths.css}/*.css`,
+      `${paths.js}/*.js`,
+      `${paths.templates}/*.html`
+    ], {
+      // https://www.browsersync.io/docs/options/#option-proxy
+      proxy:  {
         {%- if cookiecutter.use_docker == 'n' %}
-        proxy: 'localhost:8000'
+        proxy: '127.0.0.1:8000',
         {%- else %}
-        proxy:  {
-          target: 'django:8000',
-          proxyReq: [
-            function(proxyReq, req) {
-              // Assign proxy "host" header same as current request at Browsersync server
-              proxyReq.setHeader('Host', req.headers.host)
-            }
-          ]
-        },
         // https://www.browsersync.io/docs/options/#option-open
         // Disable as it doesn't work from inside a container
-        open: false
+        open: false,
+        target: 'django:8000',
         {%- endif %}
+        proxyReq: [
+          function(proxyReq, req) {
+            // Assign proxy "host" header same as current request at Browsersync server
+            proxyReq.setHeader('Host', req.headers.host)
+          }
+        ]
       }
-    )
+    }
+  )
 }
 
 // Watch
