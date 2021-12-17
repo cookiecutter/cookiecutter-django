@@ -3,6 +3,47 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2021.12.16
+
+### Fixed
+- Fix carriage return in `.gitignore` on Windows ([#3456](https://github.com/cookiecutter/cookiecutter-django/pull/3456))
+### Updated
+- Update django-debug-toolbar to 3.2.4 ([#3473](https://github.com/cookiecutter/cookiecutter-django/pull/3473))
+
+## 2021.12.15
+
+### Updated
+- Update djangorestframework to 3.13.1 ([#3472](https://github.com/cookiecutter/cookiecutter-django/pull/3472))
+
+## 2021.12.14
+
+### Changed
+- Update rcssmin &amp; django-compressor ([#3470](https://github.com/cookiecutter/cookiecutter-django/pull/3470))
+### Updated
+- Update pytest-django to 4.5.2 ([#3471](https://github.com/cookiecutter/cookiecutter-django/pull/3471))
+- Bump peter-evans/create-pull-request from 3.11.0 to 3.12.0 ([#3469](https://github.com/cookiecutter/cookiecutter-django/pull/3469))
+
+## 2021.12.13
+
+### Updated
+- Update djangorestframework to 3.13.0 ([#3468](https://github.com/cookiecutter/cookiecutter-django/pull/3468))
+- Update sentry-sdk to 1.5.1 ([#3467](https://github.com/cookiecutter/cookiecutter-django/pull/3467))
+- Update django-debug-toolbar to 3.2.3 ([#3466](https://github.com/cookiecutter/cookiecutter-django/pull/3466))
+- Update argon2-cffi to 21.3.0 ([#3464](https://github.com/cookiecutter/cookiecutter-django/pull/3464))
+- Update django-allauth to 0.47.0 ([#3459](https://github.com/cookiecutter/cookiecutter-django/pull/3459))
+
+## 2021.12.09
+
+### Updated
+- Auto-update pre-commit hooks ([#3457](https://github.com/cookiecutter/cookiecutter-django/pull/3457))
+
+## 2021.12.08
+
+### Changed
+- Reword introduction in documentation ([#3452](https://github.com/cookiecutter/cookiecutter-django/pull/3452))
+### Updated
+- Update argon2-cffi to 21.2.0 ([#3453](https://github.com/cookiecutter/cookiecutter-django/pull/3453))
+
 ## 2021.12.07
 
 ### Changed
