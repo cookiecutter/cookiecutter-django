@@ -1,14 +1,20 @@
 import os
 import re
+import sys
 
 import pytest
-import sh
+
+try:
+    import sh
+except (ImportError, ModuleNotFoundError):
+    sh = None  # sh doesn't support Windows
 import yaml
 from binaryornot.check import is_binary
 from cookiecutter.exceptions import FailedHookException
 
 PATTERN = r"{{(\s?cookiecutter)[.](.*?)}}"
 RE_OBJ = re.compile(PATTERN)
+IS_WINDOWS = sys.platform.startswith("win")
 
 
 @pytest.fixture
@@ -111,7 +117,7 @@ UNSUPPORTED_COMBINATIONS = [
 
 
 def _fixture_id(ctx):
-    """Helper to get a user friendly test name from the parametrized context."""
+    """Helper to get a user-friendly test name from the parametrized context."""
     return "-".join(f"{key}:{value}" for key, value in ctx.items())
 
 
@@ -151,6 +157,7 @@ def test_project_generation(cookies, context, context_override):
     check_paths(paths)
 
 
+@pytest.mark.skipif(IS_WINDOWS, reason="sh doesn't support windows")
 @pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
 def test_flake8_passes(cookies, context_override):
     """Generated project should pass flake8."""
@@ -162,6 +169,7 @@ def test_flake8_passes(cookies, context_override):
         pytest.fail(e.stdout.decode())
 
 
+@pytest.mark.skipif(IS_WINDOWS, reason="sh doesn't support windows")
 @pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
 def test_black_passes(cookies, context_override):
     """Generated project should pass black."""
@@ -265,7 +273,7 @@ def test_github_invokes_linter_and_pytest(
 
 @pytest.mark.parametrize("slug", ["project slug", "Project_Slug"])
 def test_invalid_slug(cookies, context, slug):
-    """Invalid slug should failed pre-generation hook."""
+    """Invalid slug should fail pre-generation hook."""
     context.update({"project_slug": slug})
 
     result = cookies.bake(extra_context=context)
