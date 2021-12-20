@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2021.12.19
+
+### Updated
+- Update mypy to 0.920 ([#3478](https://github.com/cookiecutter/cookiecutter-django/pull/3478))
+- Update django-compressor to 3.1 ([#3476](https://github.com/cookiecutter/cookiecutter-django/pull/3476))
+- Update sphinx to 4.3.2 ([#3477](https://github.com/cookiecutter/cookiecutter-django/pull/3477))
+
 ## 2021.12.17
 
 ### Fixed
