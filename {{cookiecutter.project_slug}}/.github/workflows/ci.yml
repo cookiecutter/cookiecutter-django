@@ -28,7 +28,7 @@ jobs:
         with:
           python-version: "3.9"
           cache: pip
-          cache-dependency-path: 'requirements/*.txt'
+          cache-dependency-path: "requirements/*.txt"
 
       # Run all pre-commit hooks on all the files.
       # Getting only staged files can be tricky in case a new PR is opened
@@ -87,6 +87,7 @@ jobs:
         with:
           python-version: "3.9"
           cache: pip
+          cache-dependency-path: "requirements/*.txt"
 
       - name: Install Dependencies
         run: |
