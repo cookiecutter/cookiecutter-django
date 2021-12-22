@@ -38,7 +38,7 @@ crispy-bootstrap5==0.6  # https://github.com/django-crispy-forms/crispy-bootstra
 {%- if cookiecutter.use_compressor == "y" %}
 django-compressor==3.1  # https://github.com/django-compressor/django-compressor
 {%- endif %}
-django-redis==5.1.0  # https://github.com/jazzband/django-redis
+django-redis==5.2.0  # https://github.com/jazzband/django-redis
 {%- if cookiecutter.use_drf == "y" %}
 # Django REST Framework
 djangorestframework==3.13.1  # https://github.com/encode/django-rest-framework
