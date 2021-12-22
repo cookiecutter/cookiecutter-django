@@ -60,6 +60,8 @@ jobs:
         with:
           python-version: "3.9"
           cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
       - name: Docker ${{ matrix.script.name }}
         run: sh tests/test_docker.sh ${{ matrix.script.args }}
 
@@ -99,6 +101,8 @@ jobs:
           python-version: "3.9"
           cache: pip
           cache-dependency-path: '**/requirements*.txt'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
       - uses: actions/setup-node@v2
         with:
           node-version: "16"

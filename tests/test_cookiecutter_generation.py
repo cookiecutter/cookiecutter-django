@@ -14,7 +14,11 @@ from cookiecutter.exceptions import FailedHookException
 
 PATTERN = r"{{(\s?cookiecutter)[.](.*?)}}"
 RE_OBJ = re.compile(PATTERN)
-IS_WINDOWS = sys.platform.startswith("win")
+
+if sys.platform.startswith("win"):
+    pytest.skip("sh doesn't support windows", allow_module_level=True)
+elif sys.platform.startswith("darwin") and os.getenv("CI"):
+    pytest.skip("skipping slow macOS tests on CI", allow_module_level=True)
 
 
 @pytest.fixture
@@ -157,7 +161,6 @@ def test_project_generation(cookies, context, context_override):
     check_paths(paths)
 
 
-@pytest.mark.skipif(IS_WINDOWS, reason="sh doesn't support windows")
 @pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
 def test_flake8_passes(cookies, context_override):
     """Generated project should pass flake8."""
@@ -169,7 +172,6 @@ def test_flake8_passes(cookies, context_override):
         pytest.fail(e.stdout.decode())
 
 
-@pytest.mark.skipif(IS_WINDOWS, reason="sh doesn't support windows")
 @pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
 def test_black_passes(cookies, context_override):
     """Generated project should pass black."""
