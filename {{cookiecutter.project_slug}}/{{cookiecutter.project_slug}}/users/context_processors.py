@@ -2,7 +2,7 @@ from django.conf import settings
 
 
 def allauth_settings(request):
-    # return any necessary values
+    """Expose some settings from django-allauth in templates."""
     return {
-        'ACCOUNT_ALLOW_REGISTRATION': settings.ACCOUNT_ALLOW_REGISTRATION
+        "ACCOUNT_ALLOW_REGISTRATION": settings.ACCOUNT_ALLOW_REGISTRATION,
     }
