@@ -6,13 +6,6 @@
 set -o errexit
 set -x
 
-# Install modern pip with new resolver:
-# https://blog.python.org/2020/11/pip-20-3-release-new-resolver.html
-pip install 'pip>=20.3'
-
-# install test requirements
-pip install -r requirements.txt
-
 # create a cache directory
 mkdir -p .cache/bare
 cd .cache/bare

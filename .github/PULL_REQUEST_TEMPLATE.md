@@ -7,7 +7,7 @@
 
 Checklist:
 
-- [ ] I've made sure that `tests/test_cookiecutter_generation.py` is updated accordingly (especially if adding or updating a template option)
+- [ ] I've made sure that tests are updated accordingly (especially if adding or updating a template option)
 - [ ] I've updated the documentation or confirm that my change doesn't require any updates
 
 ## Rationale

@@ -61,6 +61,10 @@ def remove_docker_files():
     file_names = ["local.yml", "production.yml", ".dockerignore"]
     for file_name in file_names:
         os.remove(file_name)
+    if "{{ cookiecutter.use_pycharm }}".lower() == "y":
+        file_names = ["docker_compose_up_django.xml", "docker_compose_up_docs.xml"]
+        for file_name in file_names:
+            os.remove(os.path.join(".idea", "runConfigurations", file_name))
 
 
 def remove_utility_files():
@@ -137,13 +141,6 @@ def remove_dotgitlabciyml_file():
 
 def remove_dotgithub_folder():
     shutil.rmtree(".github")
-
-
-def append_to_project_gitignore(path):
-    gitignore_file_path = ".gitignore"
-    with open(gitignore_file_path, "a") as gitignore_file:
-        gitignore_file.write(path)
-        gitignore_file.write(os.linesep)
 
 
 def generate_random_string(
@@ -260,10 +257,10 @@ def set_celery_flower_password(file_path, value=None):
     return celery_flower_password
 
 
-def append_to_gitignore_file(s):
+def append_to_gitignore_file(ignored_line):
     with open(".gitignore", "a") as gitignore_file:
-        gitignore_file.write(s)
-        gitignore_file.write(os.linesep)
+        gitignore_file.write(ignored_line)
+        gitignore_file.write("\n")
 
 
 def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):

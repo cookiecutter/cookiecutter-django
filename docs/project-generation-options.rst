@@ -1,5 +1,11 @@
+.. _template-options:
+
 Project Generation Options
 ==========================
+
+This page describes all the template options that will be prompted by the `cookiecutter CLI`_ prior to generating your project.
+
+.. _cookiecutter CLI: https://github.com/cookiecutter/cookiecutter
 
 project_name:
     Your project's human-readable name, capitals and spaces allowed.
