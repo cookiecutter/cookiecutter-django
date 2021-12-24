@@ -35,3 +35,6 @@ docker-compose -f local.yml run django python manage.py makemigrations --dry-run
 
 # Test support for translations
 docker-compose -f local.yml run django python manage.py makemessages --all
+
+# Make sure the check doesn't raise any warnings
+docker-compose -f local.yml run django python manage.py check --fail-level WARNING
