@@ -112,7 +112,6 @@ _TABLE_HEADER = """
 """
 VITAL_BUT_UNKNOWN = [
     "django-environ",  # not updated often
-    "pylint-django",  # classifier not included in setup.py
 ]
 
 
