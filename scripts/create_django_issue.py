@@ -264,9 +264,10 @@ class GitHubManager:
             issue.edit(body=description)
         else:
             print(f"Creating new issue for Django {needed_dj_version}")
-            self.repo.create_issue(
+            issue = self.repo.create_issue(
                 f"[Update Django] Django {needed_dj_version}", description
             )
+            issue.add_to_labels(f"django{needed_dj_version}")
 
     def generate(self):
         for version in self.needed_dj_versions:
