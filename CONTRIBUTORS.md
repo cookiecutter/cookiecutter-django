@@ -636,6 +636,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Douglas</td>
+    <td>
+      <a href="https://github.com/douglascdev">douglascdev</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Duda Nogueira</td>
     <td>
       <a href="https://github.com/dudanogueira">dudanogueira</a>
