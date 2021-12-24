@@ -1,14 +1,24 @@
 import os
 import re
+import sys
 
 import pytest
-from cookiecutter.exceptions import FailedHookException
-import sh
+
+try:
+    import sh
+except (ImportError, ModuleNotFoundError):
+    sh = None  # sh doesn't support Windows
 import yaml
 from binaryornot.check import is_binary
+from cookiecutter.exceptions import FailedHookException
 
 PATTERN = r"{{(\s?cookiecutter)[.](.*?)}}"
 RE_OBJ = re.compile(PATTERN)
+
+if sys.platform.startswith("win"):
+    pytest.skip("sh doesn't support windows", allow_module_level=True)
+elif sys.platform.startswith("darwin") and os.getenv("CI"):
+    pytest.skip("skipping slow macOS tests on CI", allow_module_level=True)
 
 
 @pytest.fixture
@@ -37,11 +47,11 @@ SUPPORTED_COMBINATIONS = [
     {"use_pycharm": "n"},
     {"use_docker": "y"},
     {"use_docker": "n"},
-    {"postgresql_version": "12.3"},
-    {"postgresql_version": "11.8"},
-    {"postgresql_version": "10.8"},
-    {"postgresql_version": "9.6"},
-    {"postgresql_version": "9.5"},
+    {"postgresql_version": "14.1"},
+    {"postgresql_version": "13.5"},
+    {"postgresql_version": "12.9"},
+    {"postgresql_version": "11.14"},
+    {"postgresql_version": "10.19"},
     {"cloud_provider": "AWS", "use_whitenoise": "y"},
     {"cloud_provider": "AWS", "use_whitenoise": "n"},
     {"cloud_provider": "GCP", "use_whitenoise": "y"},
@@ -96,6 +106,7 @@ SUPPORTED_COMBINATIONS = [
     {"ci_tool": "None"},
     {"ci_tool": "Travis"},
     {"ci_tool": "Gitlab"},
+    {"ci_tool": "Github"},
     {"keep_local_envs_in_vcs": "y"},
     {"keep_local_envs_in_vcs": "n"},
     {"debug": "y"},
@@ -110,7 +121,7 @@ UNSUPPORTED_COMBINATIONS = [
 
 
 def _fixture_id(ctx):
-    """Helper to get a user friendly test name from the parametrized context."""
+    """Helper to get a user-friendly test name from the parametrized context."""
     return "-".join(f"{key}:{value}" for key, value in ctx.items())
 
 
@@ -138,6 +149,7 @@ def check_paths(paths):
 @pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
 def test_project_generation(cookies, context, context_override):
     """Test that project is generated and fully rendered."""
+
     result = cookies.bake(extra_context={**context, **context_override})
     assert result.exit_code == 0
     assert result.exception is None
@@ -225,9 +237,45 @@ def test_gitlab_invokes_flake8_and_pytest(
             pytest.fail(e)
 
 
+@pytest.mark.parametrize(
+    ["use_docker", "expected_test_script"],
+    [
+        ("n", "pytest"),
+        ("y", "docker-compose -f local.yml run django pytest"),
+    ],
+)
+def test_github_invokes_linter_and_pytest(
+    cookies, context, use_docker, expected_test_script
+):
+    context.update({"ci_tool": "Github", "use_docker": use_docker})
+    result = cookies.bake(extra_context=context)
+
+    assert result.exit_code == 0
+    assert result.exception is None
+    assert result.project.basename == context["project_slug"]
+    assert result.project.isdir()
+
+    with open(f"{result.project}/.github/workflows/ci.yml", "r") as github_yml:
+        try:
+            github_config = yaml.safe_load(github_yml)
+            linter_present = False
+            for action_step in github_config["jobs"]["linter"]["steps"]:
+                if action_step.get("uses", "NA").startswith("pre-commit"):
+                    linter_present = True
+            assert linter_present
+
+            expected_test_script_present = False
+            for action_step in github_config["jobs"]["pytest"]["steps"]:
+                if action_step.get("run") == expected_test_script:
+                    expected_test_script_present = True
+            assert expected_test_script_present
+        except yaml.YAMLError as e:
+            pytest.fail(e)
+
+
 @pytest.mark.parametrize("slug", ["project slug", "Project_Slug"])
 def test_invalid_slug(cookies, context, slug):
-    """Invalid slug should failed pre-generation hook."""
+    """Invalid slug should fail pre-generation hook."""
     context.update({"project_slug": slug})
 
     result = cookies.bake(extra_context=context)
@@ -244,3 +292,20 @@ def test_error_if_incompatible(cookies, context, invalid_context):
 
     assert result.exit_code != 0
     assert isinstance(result.exception, FailedHookException)
+
+
+@pytest.mark.parametrize(
+    ["use_pycharm", "pycharm_docs_exist"],
+    [
+        ("n", False),
+        ("y", True),
+    ],
+)
+def test_pycharm_docs_removed(cookies, context, use_pycharm, pycharm_docs_exist):
+    """."""
+    context.update({"use_pycharm": use_pycharm})
+    result = cookies.bake(extra_context=context)
+
+    with open(f"{result.project}/docs/index.rst", "r") as f:
+        has_pycharm_docs = "pycharm/configuration" in f.read()
+        assert has_pycharm_docs is pycharm_docs_exist

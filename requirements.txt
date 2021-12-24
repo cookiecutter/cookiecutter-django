@@ -1,23 +1,26 @@
-cookiecutter==1.7.2
-sh==1.14.0
+cookiecutter==1.7.3
+sh==1.14.2
 binaryornot==0.4.4
 
 # Code quality
 # ------------------------------------------------------------------------------
-black==20.8b1
-isort==5.5.2
-flake8==3.8.3
-flake8-isort==4.0.0
+black==21.12b0
+isort==5.10.1
+flake8==4.0.1
+flake8-isort==4.1.1
+pre-commit==2.16.0
 
 # Testing
 # ------------------------------------------------------------------------------
-tox==3.20.0
-pytest==6.0.2
-pytest-cookies==0.5.1
+tox==3.24.4
+pytest==6.2.5
+pytest-cookies==0.6.1
 pytest-instafail==0.4.2
-pyyaml==5.3.1
+pyyaml==6.0
 
 # Scripting
 # ------------------------------------------------------------------------------
-PyGithub==1.53
-jinja2==2.11.2
+PyGithub==1.55
+gitpython==3.1.24
+jinja2==3.0.3
+requests==2.26.0

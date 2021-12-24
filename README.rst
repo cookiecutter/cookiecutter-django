@@ -1,23 +1,24 @@
 Cookiecutter Django
-=======================
+===================
 
-.. image:: https://travis-ci.org/pydanny/cookiecutter-django.svg?branch=master
-    :target: https://travis-ci.org/pydanny/cookiecutter-django?branch=master
+.. image:: https://img.shields.io/github/workflow/status/cookiecutter/cookiecutter-django/CI/master
+    :target: https://github.com/cookiecutter/cookiecutter-django/actions?query=workflow%3ACI
     :alt: Build Status
 
 .. image:: https://readthedocs.org/projects/cookiecutter-django/badge/?version=latest
     :target: https://cookiecutter-django.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-.. image:: https://pyup.io/repos/github/pydanny/cookiecutter-django/shield.svg
-    :target: https://pyup.io/repos/github/pydanny/cookiecutter-django/
+.. image:: https://pyup.io/repos/github/cookiecutter/cookiecutter-django/shield.svg
+    :target: https://pyup.io/repos/github/cookiecutter/cookiecutter-django/
     :alt: Updates
 
-.. image:: https://img.shields.io/badge/cookiecutter-Join%20on%20Slack-green?style=flat&logo=slack
-    :target: https://join.slack.com/t/cookie-cutter/shared_invite/enQtNzI0Mzg5NjE5Nzk5LTRlYWI2YTZhYmQ4YmU1Y2Q2NmE1ZjkwOGM0NDQyNTIwY2M4ZTgyNDVkNjMxMDdhZGI5ZGE5YmJjM2M3ODJlY2U
+.. image:: https://img.shields.io/badge/Discord-cookiecutter-5865F2?style=flat&logo=discord&logoColor=white
+    :target: https://discord.gg/9BrxzPKuEW
+    :alt: Join our Discord
 
-.. image:: https://www.codetriage.com/pydanny/cookiecutter-django/badges/users.svg
-    :target: https://www.codetriage.com/pydanny/cookiecutter-django
+.. image:: https://www.codetriage.com/cookiecutter/cookiecutter-django/badges/users.svg
+    :target: https://www.codetriage.com/cookiecutter/cookiecutter-django
     :alt: Code Helpers Badge
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
@@ -34,16 +35,16 @@ production-ready Django projects quickly.
 
 .. _Troubleshooting: https://cookiecutter-django.readthedocs.io/en/latest/troubleshooting.html
 
-.. _528: https://github.com/pydanny/cookiecutter-django/issues/528#issuecomment-212650373
-.. _issues: https://github.com/pydanny/cookiecutter-django/issues/new
+.. _528: https://github.com/cookiecutter/cookiecutter-django/issues/528#issuecomment-212650373
+.. _issues: https://github.com/cookiecutter/cookiecutter-django/issues/new
 
 Features
 ---------
 
-* For Django 3.0
-* Works with Python 3.8
+* For Django 3.2
+* Works with Python 3.9
 * Renders Django projects with 100% starting test coverage
-* Twitter Bootstrap_ v4 (`maintained Foundation fork`_ also available)
+* Twitter Bootstrap_ v5
 * 12-Factor_ based settings via django-environ_
 * Secure by default. We believe in SSL.
 * Optimized development and production settings
@@ -59,9 +60,6 @@ Features
 * Run tests with unittest or pytest
 * Customizable PostgreSQL version
 * Default integration with pre-commit_ for identifying simple issues before submission to code review
-
-.. _`maintained Foundation fork`: https://github.com/Parbhat/cookiecutter-django-foundation
-
 
 Optional Integrations
 ---------------------
@@ -96,7 +94,7 @@ Constraints
 -----------
 
 * Only maintained 3rd party libraries are used.
-* Uses PostgreSQL everywhere (9.4 - 12.3)
+* Uses PostgreSQL everywhere (10.19 - 14.1)
 * Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
 Support this Project!
@@ -110,19 +108,20 @@ This project is run by volunteers. Please support them in their efforts to maint
 
 Projects that provide financial support to the maintainers:
 
-Django Crash Course
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: https://cdn.shopify.com/s/files/1/0304/6901/files/Django-Crash-Course-300x436.jpg
-   :name: Django Crash Course: Covers Django 3.0 and Python 3.8
+.. image:: https://cdn.shopify.com/s/files/1/0304/6901/products/Two-Scoops-of-Django-3-Alpha-Cover_540x_26507b15-e489-470b-8a97-02773dd498d1_1080x.jpg
+   :name: Two Scoops of Django 3.x
    :align: center
-   :alt: Django Crash Course
-   :target: https://www.roygreenfeld.com/products/django-crash-course
+   :alt: Two Scoops of Django
+   :target: https://www.feldroy.com/products//two-scoops-of-django-3-x
 
-Django Crash Course for Django 3.0 and Python 3.8 is the best cheese-themed Django reference in the universe!
+Two Scoops of Django 3.x is the best ice cream-themed Django reference in the universe!
 
-pyup
-~~~~~~~~~~~~~~~~~~
+PyUp
+~~~~
 
 .. image:: https://pyup.io/static/images/logo.png
    :name: pyup
@@ -130,7 +129,7 @@ pyup
    :alt: pyup
    :target: https://pyup.io/
 
-Pyup brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
+PyUp brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
 
 Usage
 ------
@@ -144,7 +143,7 @@ First, get Cookiecutter. Trust me, it's awesome::
 
 Now run it against this repo::
 
-    $ cookiecutter https://github.com/pydanny/cookiecutter-django
+    $ cookiecutter https://github.com/cookiecutter/cookiecutter-django
 
 You'll be prompted for some values. Provide them, then a Django project will be created for you.
 
@@ -176,11 +175,11 @@ Answer the prompts with your own desired options_. For example::
     use_heroku [n]: y
     use_compressor [n]: y
     Select postgresql_version:
-    1 - 12.3
-    2 - 11.8
-    3 - 10.8
-    4 - 9.6
-    5 - 9.5
+    1 - 14.1
+    2 - 13.5
+    3 - 12.9
+    4 - 11.14
+    5 - 10.19
     Choose from 1, 2, 3, 4, 5 [1]: 1
     Select js_task_runner:
     1 - None
@@ -231,23 +230,21 @@ Community
 
 * Have questions? **Before you ask questions anywhere else**, please post your question on `Stack Overflow`_ under the *cookiecutter-django* tag. We check there periodically for questions.
 * If you think you found a bug or want to request a feature, please open an issue_.
-* For anything else, you can chat with us on `Slack`_.
+* For anything else, you can chat with us on `Discord`_.
 
 .. _`Stack Overflow`: http://stackoverflow.com/questions/tagged/cookiecutter-django
-.. _`issue`: https://github.com/pydanny/cookiecutter-django/issues
-.. _`Slack`: https://join.slack.com/t/cookie-cutter/shared_invite/enQtNzI0Mzg5NjE5Nzk5LTRlYWI2YTZhYmQ4YmU1Y2Q2NmE1ZjkwOGM0NDQyNTIwY2M4ZTgyNDVkNjMxMDdhZGI5ZGE5YmJjM2M3ODJlY2U
+.. _`issue`: https://github.com/cookiecutter/cookiecutter-django/issues
+.. _`Discord`: https://discord.gg/9BrxzPKuEW
 
 For Readers of Two Scoops of Django
 --------------------------------------------
 
 You may notice that some elements of this project do not exactly match what we describe in chapter 3. The reason for that is this project, amongst other things, serves as a test bed for trying out new ideas and concepts. Sometimes they work, sometimes they don't, but the end result is that it won't necessarily match precisely what is described in the book I co-authored.
 
-For pyup.io Users
------------------
+For PyUp Users
+--------------
 
-If you are using `pyup.io`_ to keep your dependencies updated and secure, use the code *cookiecutter* during checkout to get 15% off every month.
-
-.. _`pyup.io`: https://pyup.io
+If you are using `PyUp <https://pyup.io>`_ to keep your dependencies updated and secure, use the code *cookiecutter* during checkout to get 15% off every month.
 
 "Your Stuff"
 -------------
@@ -257,7 +254,7 @@ Scattered throughout the Python and HTML of this project are places marked with 
 Releases
 --------
 
-Need a stable release? You can find them at https://github.com/pydanny/cookiecutter-django/releases
+Need a stable release? You can find them at https://github.com/cookiecutter/cookiecutter-django/releases
 
 
 Not Exactly What You Want?

@@ -1,4 +1,4 @@
-ARG PYTHON_VERSION=3.8-slim-buster
+ARG PYTHON_VERSION=3.9-slim-bullseye
 
 # define an alias for the specfic python version used in this file.
 FROM python:${PYTHON_VERSION} as python
@@ -63,6 +63,8 @@ RUN pip install --no-cache /wheels/* \
 	&& rm -rf /wheels
 
 
-WORKDIR /docs
+COPY ./compose/local/docs/start /start-docs
+RUN sed -i 's/\r$//g' /start-docs
+RUN chmod +x /start-docs
 
-CMD make livehtml
+WORKDIR /docs

@@ -1,16 +1,10 @@
 #!/bin/sh
 # this is a very simple script that tests the docker configuration for cookiecutter-django
 # it is meant to be run from the root directory of the repository, eg:
-# sh tests/test_docker.sh
+# sh tests/test_bare.sh
 
 set -o errexit
-
-# Install modern pip to use new resolver:
-# https://blog.python.org/2020/07/upgrade-pip-20-2-changes-20-3.html
-pip install 'pip>=20.2'
-
-# install test requirements
-pip install -r requirements.txt
+set -x
 
 # create a cache directory
 mkdir -p .cache/bare
@@ -24,7 +18,23 @@ cd my_awesome_project
 sudo utility/install_os_dependencies.sh install
 
 # Install Python deps
-pip install --use-feature=2020-resolver -r requirements/local.txt
+pip install -r requirements/local.txt
+
+# Lint by running pre-commit on all files
+# Needs a git repo to find the project root
+git init
+git add .
+pre-commit run --show-diff-on-failure -a
 
 # run the project's tests
 pytest
+
+if [ -f "package.json" ]
+then
+    npm install
+    if [ -f "gulpfile.js" ]
+    then
+        npm run build
+    fi
+fi
+
