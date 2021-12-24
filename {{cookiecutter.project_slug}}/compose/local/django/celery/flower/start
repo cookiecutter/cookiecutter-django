@@ -1,10 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
 set -o errexit
 set -o nounset
 
 
-celery flower \
-    --app={{cookiecutter.project_slug}}.taskapp \
-    --broker="${CELERY_BROKER_URL}" \
+celery \
+    -A config.celery_app \
+    -b "${CELERY_BROKER_URL}" \
+    flower \
     --basic_auth="${CELERY_FLOWER_USER}:${CELERY_FLOWER_PASSWORD}"

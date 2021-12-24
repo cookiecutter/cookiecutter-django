@@ -25,7 +25,9 @@ Provided you have opted for Celery (via setting ``use_celery`` to ``y``) there a
 
 * ``celeryworker`` running a Celery worker process;
 * ``celerybeat`` running a Celery beat process;
-* ``flower`` running Flower_ (for more info, check out :ref:`CeleryFlower` instructions for local environment).
+* ``flower`` running Flower_.
+
+The ``flower`` service is served by Traefik over HTTPS, through the port ``5555``. For more information about Flower and its login credentials, check out :ref:`CeleryFlower` instructions for local environment.
 
 .. _`Flower`: https://github.com/mher/flower
 
@@ -35,7 +37,15 @@ Configuring the Stack
 
 The majority of services above are configured through the use of environment variables. Just check out :ref:`envs` and you will know the drill.
 
-To obtain logs and information about crashes in a production setup, make sure that you have access to an external Sentry instance (e.g. by creating an account with `sentry.io`_), and set the ``SENTRY_DSN`` variable.
+To obtain logs and information about crashes in a production setup, make sure that you have access to an external Sentry instance (e.g. by creating an account with `sentry.io`_), and set the ``SENTRY_DSN`` variable. Logs of level `logging.ERROR` are sent as Sentry events. Therefore, in order to send a Sentry event use:
+
+.. code-block:: python
+
+    import logging
+    logging.error("This event is sent to Sentry", extra={"<example_key>": "<example_value>"})
+
+The `extra` parameter allows you to send additional information about the context of this error.
+
 
 You will probably also need to setup the Mail backend, for example by adding a `Mailgun`_ API key and a `Mailgun`_ sender domain, otherwise, the account creation view will crash and result in a 500 error when the backend attempts to send an email to the account owner.
 
@@ -72,7 +82,7 @@ The Traefik reverse proxy used in the default configuration will get you a valid
 
 You can read more about this feature and how to configure it, at `Automatic HTTPS`_ in the Traefik docs.
 
-.. _Automatic HTTPS: https://docs.traefik.io/configuration/acme/
+.. _Automatic HTTPS: https://docs.traefik.io/https/acme/
 
 
 (Optional) Postgres Data Volume Modifications
@@ -114,8 +124,8 @@ To check the logs out, run::
 
 If you want to scale your application, run::
 
-   docker-compose -f production.yml scale django=4
-   docker-compose -f production.yml scale celeryworker=2
+   docker-compose -f production.yml up --scale django=4
+   docker-compose -f production.yml up --scale celeryworker=2
 
 .. warning:: don't try to scale ``postgres``, ``celerybeat``, or ``traefik``.
 
@@ -144,6 +154,7 @@ If you are using ``supervisor``, you can use this file as a starting point::
 Move it to ``/etc/supervisor/conf.d/{{cookiecutter.project_slug}}.conf`` and run::
 
     supervisorctl reread
+    supervisorctl update
     supervisorctl start {{cookiecutter.project_slug}}
 
 For status check, run::

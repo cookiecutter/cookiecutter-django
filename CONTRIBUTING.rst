@@ -8,7 +8,6 @@ Getting your pull request merged in
 
 #. Keep it small. The smaller the pull request the more likely I'll pull it in.
 #. Pull requests that fix a current issue get priority for review.
-#. If you're not already in the `CONTRIBUTORS.rst` file, add yourself!
 
 Testing
 -------
@@ -39,9 +38,9 @@ To run all tests using various versions of python in virtualenvs defined in tox.
 It is possible to test with a specific version of python. To do this, the command
 is::
 
-    $ tox -e py36
+    $ tox -e py39
 
-This will run py.test with the python3.6 interpreter, for example.
+This will run py.test with the python3.9 interpreter, for example.
 
 To run a particular test with tox for against your current Python version::
 

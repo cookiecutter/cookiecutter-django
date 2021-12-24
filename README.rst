@@ -1,19 +1,24 @@
 Cookiecutter Django
-=======================
+===================
 
-.. image:: https://travis-ci.org/pydanny/cookiecutter-django.svg?branch=master
-    :target: https://travis-ci.org/pydanny/cookiecutter-django?branch=master
+.. image:: https://img.shields.io/github/workflow/status/cookiecutter/cookiecutter-django/CI/master
+    :target: https://github.com/cookiecutter/cookiecutter-django/actions?query=workflow%3ACI
     :alt: Build Status
 
-.. image:: https://pyup.io/repos/github/pydanny/cookiecutter-django/shield.svg
-    :target: https://pyup.io/repos/github/pydanny/cookiecutter-django/
+.. image:: https://readthedocs.org/projects/cookiecutter-django/badge/?version=latest
+    :target: https://cookiecutter-django.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
+.. image:: https://pyup.io/repos/github/cookiecutter/cookiecutter-django/shield.svg
+    :target: https://pyup.io/repos/github/cookiecutter/cookiecutter-django/
     :alt: Updates
 
-.. image:: https://badges.gitter.im/Join Chat.svg
-    :target: https://gitter.im/pydanny/cookiecutter-django?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+.. image:: https://img.shields.io/badge/Discord-cookiecutter-5865F2?style=flat&logo=discord&logoColor=white
+    :target: https://discord.gg/9BrxzPKuEW
+    :alt: Join our Discord
 
-.. image:: https://www.codetriage.com/pydanny/cookiecutter-django/badges/users.svg
-    :target: https://www.codetriage.com/pydanny/cookiecutter-django
+.. image:: https://www.codetriage.com/cookiecutter/cookiecutter-django/badges/users.svg
+    :target: https://www.codetriage.com/cookiecutter/cookiecutter-django
     :alt: Code Helpers Badge
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
@@ -30,39 +35,38 @@ production-ready Django projects quickly.
 
 .. _Troubleshooting: https://cookiecutter-django.readthedocs.io/en/latest/troubleshooting.html
 
-.. _528: https://github.com/pydanny/cookiecutter-django/issues/528#issuecomment-212650373
-.. _issues: https://github.com/pydanny/cookiecutter-django/issues/new
+.. _528: https://github.com/cookiecutter/cookiecutter-django/issues/528#issuecomment-212650373
+.. _issues: https://github.com/cookiecutter/cookiecutter-django/issues/new
 
 Features
 ---------
 
-* For Django 2.0
-* Works with Python 3.6
+* For Django 3.2
+* Works with Python 3.9
 * Renders Django projects with 100% starting test coverage
-* Twitter Bootstrap_ v4.1.1 (`maintained Foundation fork`_ also available)
+* Twitter Bootstrap_ v5
 * 12-Factor_ based settings via django-environ_
 * Secure by default. We believe in SSL.
 * Optimized development and production settings
 * Registration via django-allauth_
 * Comes with custom user model ready to go
+* Optional basic ASGI setup for Websockets
 * Optional custom static build using Gulp and livereload
-* Send emails via Anymail_ (using Mailgun_ by default, but switchable)
-* Media storage using Amazon S3
+* Send emails via Anymail_ (using Mailgun_ by default or Amazon SES if AWS is selected cloud provider, but switchable)
+* Media storage using Amazon S3 or Google Cloud Storage
 * Docker support using docker-compose_ for development and production (using Traefik_ with LetsEncrypt_ support)
 * Procfile_ for deploying to Heroku
 * Instructions for deploying to PythonAnywhere_
-* Run tests with unittest or py.test
+* Run tests with unittest or pytest
 * Customizable PostgreSQL version
-
-.. _`maintained Foundation fork`: https://github.com/Parbhat/cookiecutter-django-foundation
-
+* Default integration with pre-commit_ for identifying simple issues before submission to code review
 
 Optional Integrations
 ---------------------
 
 *These features can be enabled during initial project setup.*
 
-* Serve static files from Amazon S3 or Whitenoise_
+* Serve static files from Amazon S3, Google Cloud Storage or Whitenoise_
 * Configuration for Celery_ and Flower_ (the latter in Docker setup only)
 * Integration with MailHog_ for local email testing
 * Integration with Sentry_ for error logging
@@ -84,13 +88,14 @@ Optional Integrations
 .. _PythonAnywhere: https://www.pythonanywhere.com/
 .. _Traefik: https://traefik.io/
 .. _LetsEncrypt: https://letsencrypt.org/
+.. _pre-commit: https://github.com/pre-commit/pre-commit
 
 Constraints
 -----------
 
 * Only maintained 3rd party libraries are used.
-* Uses PostgreSQL everywhere (9.2+)
-* Environment variables for configuration (This won't work with Apache/mod_wsgi except on AWS ELB).
+* Uses PostgreSQL everywhere (10.19 - 14.1)
+* Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
 Support this Project!
 ----------------------
@@ -103,19 +108,20 @@ This project is run by volunteers. Please support them in their efforts to maint
 
 Projects that provide financial support to the maintainers:
 
-Two Scoops of Django 1.11
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: https://cdn.shopify.com/s/files/1/0304/6901/products/tsd-111-alpha_medium.jpg?v=1499531513
-   :name: Two Scoops of Django 1.11 Cover
+.. image:: https://cdn.shopify.com/s/files/1/0304/6901/products/Two-Scoops-of-Django-3-Alpha-Cover_540x_26507b15-e489-470b-8a97-02773dd498d1_1080x.jpg
+   :name: Two Scoops of Django 3.x
    :align: center
    :alt: Two Scoops of Django
-   :target: http://twoscoopspress.com/products/two-scoops-of-django-1-11
+   :target: https://www.feldroy.com/products//two-scoops-of-django-3-x
 
-Two Scoops of Django is the best dessert-themed Django reference in the universe
+Two Scoops of Django 3.x is the best ice cream-themed Django reference in the universe!
 
-pyup
-~~~~~~~~~~~~~~~~~~
+PyUp
+~~~~
 
 .. image:: https://pyup.io/static/images/logo.png
    :name: pyup
@@ -123,7 +129,7 @@ pyup
    :alt: pyup
    :target: https://pyup.io/
 
-Pyup brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
+PyUp brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
 
 Usage
 ------
@@ -133,11 +139,11 @@ and then editing the results to include your name, email, and various configurat
 
 First, get Cookiecutter. Trust me, it's awesome::
 
-    $ pip install "cookiecutter>=1.4.0"
+    $ pip install "cookiecutter>=1.7.0"
 
 Now run it against this repo::
 
-    $ cookiecutter https://github.com/pydanny/cookiecutter-django
+    $ cookiecutter https://github.com/cookiecutter/cookiecutter-django
 
 You'll be prompted for some values. Provide them, then a Django project will be created for you.
 
@@ -155,7 +161,7 @@ Answer the prompts with your own desired options_. For example::
     project_slug [reddit_clone]: reddit
     author_name [Daniel Roy Greenfeld]: Daniel Greenfeld
     email [you@example.com]: pydanny@gmail.com
-    description [A short description of the project.]: A reddit clone.
+    description [Behold My Awesome Project!]: A reddit clone.
     domain_name [example.com]: myreddit.com
     version [0.1.0]: 0.0.1
     timezone [UTC]: America/Los_Angeles
@@ -169,18 +175,21 @@ Answer the prompts with your own desired options_. For example::
     use_heroku [n]: y
     use_compressor [n]: y
     Select postgresql_version:
-    1 - 10.3
-    2 - 10.2
-    3 - 10.1
-    4 - 9.6
-    5 - 9.5
-    6 - 9.4
-    7 - 9.3
-    Choose from 1, 2, 3, 4 [1]: 1
+    1 - 14.1
+    2 - 13.5
+    3 - 12.9
+    4 - 11.14
+    5 - 10.19
+    Choose from 1, 2, 3, 4, 5 [1]: 1
     Select js_task_runner:
     1 - None
     2 - Gulp
     Choose from 1, 2 [1]: 1
+    Select cloud_provider:
+    1 - AWS
+    2 - GCP
+    3 - None
+    Choose from 1, 2, 3 [1]: 1
     custom_bootstrap_compilation [n]: n
     Select open_source_license:
     1 - MIT
@@ -221,23 +230,21 @@ Community
 
 * Have questions? **Before you ask questions anywhere else**, please post your question on `Stack Overflow`_ under the *cookiecutter-django* tag. We check there periodically for questions.
 * If you think you found a bug or want to request a feature, please open an issue_.
-* For anything else, you can chat with us on `Gitter`_.
+* For anything else, you can chat with us on `Discord`_.
 
 .. _`Stack Overflow`: http://stackoverflow.com/questions/tagged/cookiecutter-django
-.. _`issue`: https://github.com/pydanny/cookiecutter-django/issues
-.. _`Gitter`: https://gitter.im/pydanny/cookiecutter-django?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+.. _`issue`: https://github.com/cookiecutter/cookiecutter-django/issues
+.. _`Discord`: https://discord.gg/9BrxzPKuEW
 
 For Readers of Two Scoops of Django
 --------------------------------------------
 
 You may notice that some elements of this project do not exactly match what we describe in chapter 3. The reason for that is this project, amongst other things, serves as a test bed for trying out new ideas and concepts. Sometimes they work, sometimes they don't, but the end result is that it won't necessarily match precisely what is described in the book I co-authored.
 
-For pyup.io Users
------------------
+For PyUp Users
+--------------
 
-If you are using `pyup.io`_ to keep your dependencies updated and secure, use the code *cookiecutter* during checkout to get 15% off every month.
-
-.. _`pyup.io`: https://pyup.io
+If you are using `PyUp <https://pyup.io>`_ to keep your dependencies updated and secure, use the code *cookiecutter* during checkout to get 15% off every month.
 
 "Your Stuff"
 -------------
@@ -247,7 +254,7 @@ Scattered throughout the Python and HTML of this project are places marked with 
 Releases
 --------
 
-Need a stable release? You can find them at https://github.com/pydanny/cookiecutter-django/releases
+Need a stable release? You can find them at https://github.com/cookiecutter/cookiecutter-django/releases
 
 
 Not Exactly What You Want?
@@ -267,7 +274,7 @@ If you do rename your fork, I encourage you to submit it to the following places
 * cookiecutter_ so it gets listed in the README as a template.
 * The cookiecutter grid_ on Django Packages.
 
-.. _cookiecutter: https://github.com/audreyr/cookiecutter
+.. _cookiecutter: https://github.com/cookiecutter/cookiecutter
 .. _grid: https://www.djangopackages.com/grids/g/cookiecutters/
 
 Submit a Pull Request

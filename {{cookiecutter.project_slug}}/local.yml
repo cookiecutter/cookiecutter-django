@@ -10,13 +10,17 @@ services:
       context: .
       dockerfile: ./compose/local/django/Dockerfile
     image: {{ cookiecutter.project_slug }}_local_django
+    container_name: django
     depends_on:
       - postgres
+      {%- if cookiecutter.use_celery == 'y' %}
+      - redis
+      {%- endif %}
       {%- if cookiecutter.use_mailhog == 'y' %}
       - mailhog
       {%- endif %}
     volumes:
-      - .:/app
+      - .:/app:z
     env_file:
       - ./.envs/.local/.django
       - ./.envs/.local/.postgres
@@ -29,15 +33,33 @@ services:
       context: .
       dockerfile: ./compose/production/postgres/Dockerfile
     image: {{ cookiecutter.project_slug }}_production_postgres
+    container_name: postgres
     volumes:
-      - local_postgres_data:/var/lib/postgresql/data
-      - local_postgres_data_backups:/backups
+      - local_postgres_data:/var/lib/postgresql/data:Z
+      - local_postgres_data_backups:/backups:z
     env_file:
       - ./.envs/.local/.postgres
+
+  docs:
+    image: {{ cookiecutter.project_slug }}_local_docs
+    container_name: docs
+    build:
+      context: .
+      dockerfile: ./compose/local/docs/Dockerfile
+    env_file:
+      - ./.envs/.local/.django
+    volumes:
+      - ./docs:/docs:z
+      - ./config:/app/config:z
+      - ./{{ cookiecutter.project_slug }}:/app/{{ cookiecutter.project_slug }}:z
+    ports:
+      - "7000:7000"
+    command: /start-docs
   {%- if cookiecutter.use_mailhog == 'y' %}
 
   mailhog:
     image: mailhog/mailhog:v1.0.0
+    container_name: mailhog
     ports:
       - "8025:8025"
 
@@ -45,15 +67,17 @@ services:
   {%- if cookiecutter.use_celery == 'y' %}
 
   redis:
-    image: redis:3.2
+    image: redis:6
+    container_name: redis
 
   celeryworker:
     <<: *django
     image: {{ cookiecutter.project_slug }}_local_celeryworker
+    container_name: celeryworker
     depends_on:
       - redis
       - postgres
-      {% if cookiecutter.use_mailhog == 'y' -%}
+      {%- if cookiecutter.use_mailhog == 'y' %}
       - mailhog
       {%- endif %}
     ports: []
@@ -62,10 +86,11 @@ services:
   celerybeat:
     <<: *django
     image: {{ cookiecutter.project_slug }}_local_celerybeat
+    container_name: celerybeat
     depends_on:
       - redis
       - postgres
-      {% if cookiecutter.use_mailhog == 'y' -%}
+      {%- if cookiecutter.use_mailhog == 'y' %}
       - mailhog
       {%- endif %}
     ports: []
@@ -74,6 +99,7 @@ services:
   flower:
     <<: *django
     image: {{ cookiecutter.project_slug }}_local_flower
+    container_name: flower
     ports:
       - "5555:5555"
     command: /start-flower
@@ -86,10 +112,11 @@ services:
       context: .
       dockerfile: ./compose/local/node/Dockerfile
     image: {{ cookiecutter.project_slug }}_local_node
+    container_name: node
     depends_on:
       - django
     volumes:
-      - .:/app
+      - .:/app:z
       # http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html
       - /app/node_modules
     command: npm run dev

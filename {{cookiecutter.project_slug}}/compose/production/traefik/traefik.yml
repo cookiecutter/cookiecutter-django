@@ -1,0 +1,85 @@
+log:
+  level: INFO
+
+entryPoints:
+  web:
+    # http
+    address: ":80"
+    http:
+      # https://docs.traefik.io/routing/entrypoints/#entrypoint
+      redirections:
+        entryPoint:
+          to: web-secure
+
+  web-secure:
+    # https
+    address: ":443"
+  {%- if cookiecutter.use_celery == 'y' %}
+
+  flower:
+    address: ":5555"
+  {%- endif %}
+
+certificatesResolvers:
+  letsencrypt:
+    # https://docs.traefik.io/master/https/acme/#lets-encrypt
+    acme:
+      email: "{{ cookiecutter.email }}"
+      storage: /etc/traefik/acme/acme.json
+      # https://docs.traefik.io/master/https/acme/#httpchallenge
+      httpChallenge:
+        entryPoint: web
+
+http:
+  routers:
+    web-secure-router:
+      {%- if cookiecutter.domain_name.count('.') == 1 %}
+      rule: "Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)"
+      {%- else %}
+      rule: "Host(`{{ cookiecutter.domain_name }}`)"
+      {%- endif %}
+      entryPoints:
+        - web-secure
+      middlewares:
+        - csrf
+      service: django
+      tls:
+        # https://docs.traefik.io/master/routing/routers/#certresolver
+        certResolver: letsencrypt
+    {%- if cookiecutter.use_celery == 'y' %}
+
+    flower-secure-router:
+      rule: "Host(`{{ cookiecutter.domain_name }}`)"
+      entryPoints:
+        - flower
+      service: flower
+      tls:
+        # https://docs.traefik.io/master/routing/routers/#certresolver
+        certResolver: letsencrypt
+    {%- endif %}
+
+  middlewares:
+    csrf:
+      # https://docs.traefik.io/master/middlewares/headers/#hostsproxyheaders
+      # https://docs.djangoproject.com/en/dev/ref/csrf/#ajax
+      headers:
+        hostsProxyHeaders: ["X-CSRFToken"]
+
+  services:
+    django:
+      loadBalancer:
+        servers:
+          - url: http://django:5000
+    {%- if cookiecutter.use_celery == 'y' %}
+
+    flower:
+      loadBalancer:
+        servers:
+          - url: http://flower:5555
+    {%- endif %}
+
+providers:
+  # https://docs.traefik.io/master/providers/file/
+  file:
+    filename: /etc/traefik/traefik.yml
+    watch: true

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+    {%- if cookiecutter.use_docker == 'n' %}
+        <component name="DjangoConsoleOptions"
+                   custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;import os&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)"
+                   module-name="{{ cookiecutter.project_slug }}" is-module-sdk="true">
+        </component>
+    {%- elif cookiecutter.use_celery == 'y' %}
+        <component name="DjangoConsoleOptions"
+                   custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;import os&#10;os.environ.setdefault(&quot;DATABASE_URL&quot;,&quot;postgres://{}:{}@{}:{}/{}&quot;.format(os.environ['POSTGRES_USER'], os.environ['POSTGRES_PASSWORD'], os.environ['POSTGRES_HOST'], os.environ['POSTGRES_PORT'], os.environ['POSTGRES_DB']))&#10;os.environ.setdefault(&quot;CELERY_BROKER_URL&quot;, os.environ['REDIS_URL'])&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)"
+                   module-name="{{ cookiecutter.project_slug }}" is-module-sdk="true">
+        </component>
+    {%- else %}
+        <component name="DjangoConsoleOptions"
+                   custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;import os&#10;os.environ.setdefault(&quot;DATABASE_URL&quot;,&quot;postgres://{}:{}@{}:{}/{}&quot;.format(os.environ['POSTGRES_USER'], os.environ['POSTGRES_PASSWORD'], os.environ['POSTGRES_HOST'], os.environ['POSTGRES_PORT'], os.environ['POSTGRES_DB']))&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)"
+                   module-name="{{ cookiecutter.project_slug }}" is-module-sdk="true">
+        </component>
+    {%- endif %}
+</project>

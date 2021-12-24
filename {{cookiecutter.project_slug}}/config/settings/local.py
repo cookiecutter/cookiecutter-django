@@ -23,29 +23,32 @@ CACHES = {
     }
 }
 
-# TEMPLATES
-# ------------------------------------------------------------------------------
-# https://docs.djangoproject.com/en/dev/ref/settings/#templates
-TEMPLATES[0]["OPTIONS"]["debug"] = DEBUG  # noqa F405
-
 # EMAIL
 # ------------------------------------------------------------------------------
 {% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'y' -%}
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-host
 EMAIL_HOST = env("EMAIL_HOST", default="mailhog")
+# https://docs.djangoproject.com/en/dev/ref/settings/#email-port
+EMAIL_PORT = 1025
 {%- elif cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' -%}
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-host
 EMAIL_HOST = "localhost"
+# https://docs.djangoproject.com/en/dev/ref/settings/#email-port
+EMAIL_PORT = 1025
 {%- else -%}
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
 EMAIL_BACKEND = env(
     "DJANGO_EMAIL_BACKEND", default="django.core.mail.backends.console.EmailBackend"
 )
-# https://docs.djangoproject.com/en/dev/ref/settings/#email-host
-EMAIL_HOST = "localhost"
 {%- endif %}
-# https://docs.djangoproject.com/en/dev/ref/settings/#email-port
-EMAIL_PORT = 1025
+
+{%- if cookiecutter.use_whitenoise == 'y' %}
+
+# WhiteNoise
+# ------------------------------------------------------------------------------
+# http://whitenoise.evans.io/en/latest/django.html#using-whitenoise-in-development
+INSTALLED_APPS = ["whitenoise.runserver_nostatic"] + INSTALLED_APPS  # noqa F405
+{% endif %}
 
 # django-debug-toolbar
 # ------------------------------------------------------------------------------
@@ -65,7 +68,15 @@ if env("USE_DOCKER") == "yes":
     import socket
 
     hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
-    INTERNAL_IPS += [ip[:-1] + "1" for ip in ips]
+    INTERNAL_IPS += [".".join(ip.split(".")[:-1] + ["1"]) for ip in ips]
+    {%- if cookiecutter.js_task_runner == 'Gulp' %}
+    try:
+        _, _, ips = socket.gethostbyname_ex("node")
+        INTERNAL_IPS.extend(ips)
+    except socket.gaierror:
+        # The node container isn't started (yet?)
+        pass
+    {%- endif %}
 {%- endif %}
 
 # django-extensions
