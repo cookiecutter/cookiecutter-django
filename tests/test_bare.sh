@@ -29,6 +29,9 @@ pre-commit run --show-diff-on-failure -a
 # run the project's tests
 pytest
 
+# Make sure the check doesn't raise any warnings
+python manage.py check --fail-level WARNING
+
 if [ -f "package.json" ]
 then
     npm install
