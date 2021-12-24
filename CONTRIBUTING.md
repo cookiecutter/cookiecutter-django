@@ -4,7 +4,7 @@ Always happy to get issues identified and pull requests!
 
 ## Getting your pull request merged in
 
-1.  Keep it small. The smaller the pull request the more likely I\'ll pull it in.
+1.  Keep it small. The smaller the pull request, the more likely we are to accept.
 2.  Pull requests that fix a current issue get priority for review.
 
 ## Testing
@@ -22,7 +22,7 @@ such as [pytest-cookies](https://pypi.python.org/pypi/pytest-cookies/) and [flak
 
 ### Run the Tests
 
-Tox uses py.test under the hood, hence it supports the same syntax for selecting tests.
+Tox uses pytest under the hood, hence it supports the same syntax for selecting tests.
 
 For further information please consult the [pytest usage docs](https://pytest.org/latest/usage.html#specifying-tests-selecting-tests).
 
@@ -35,7 +35,7 @@ is:
 
     $ tox -e py39
 
-This will run py.test with the python3.9 interpreter, for example.
+This will run pytest with the python3.9 interpreter, for example.
 
 To run a particular test with tox for against your current Python version:
 

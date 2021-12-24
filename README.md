@@ -12,7 +12,7 @@ production-ready Django projects quickly.
 
 -   Documentation: <https://cookiecutter-django.readthedocs.io/en/latest/>
 -   See [Troubleshooting](https://cookiecutter-django.readthedocs.io/en/latest/troubleshooting.html) for common errors and obstacles
--   If you have problems with Cookiecutter Django, please open [issues](https://github.com/cookiecutter/cookiecutter-django/issues/new) don\'t send
+-   If you have problems with Cookiecutter Django, please open [issues](https://github.com/cookiecutter/cookiecutter-django/issues/new) don't send
     emails to the maintainers.
 
 ## Features
@@ -50,7 +50,7 @@ production-ready Django projects quickly.
 
 -   Only maintained 3rd party libraries are used.
 -   Uses PostgreSQL everywhere (10.19 - 14.1)
--   Environment variables for configuration (This won\'t work with Apache/mod_wsgi).
+-   Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
 ## Support this Project!
 
@@ -75,10 +75,10 @@ PyUp brings you automated security and dependency updates used by Google and oth
 
 ## Usage
 
-Let\'s pretend you want to create a Django project called \"redditclone\". Rather than using `startproject`
+Let's pretend you want to create a Django project called "redditclone". Rather than using `startproject`
 and then editing the results to include your name, email, and various configuration issues that always get forgotten until the worst possible moment, get [cookiecutter](https://github.com/cookiecutter/cookiecutter) to do all the work.
 
-First, get Cookiecutter. Trust me, it\'s awesome:
+First, get Cookiecutter. Trust me, it's awesome:
 
     $ pip install "cookiecutter>=1.7.0"
 
@@ -86,9 +86,9 @@ Now run it against this repo:
 
     $ cookiecutter https://github.com/cookiecutter/cookiecutter-django
 
-You\'ll be prompted for some values. Provide them, then a Django project will be created for you.
+You'll be prompted for some values. Provide them, then a Django project will be created for you.
 
-**Warning**: After this point, change \'Daniel Greenfeld\', \'pydanny\', etc to your own information.
+**Warning**: After this point, change 'Daniel Greenfeld', 'pydanny', etc to your own information.
 
 Answer the prompts with your own desired [options](http://cookiecutter-django.readthedocs.io/en/latest/project-generation-options.html). For example:
 
@@ -155,7 +155,7 @@ Create a git repo and push it there:
     $ git remote add origin git@github.com:pydanny/redditclone.git
     $ git push -u origin master
 
-Now take a look at your repo. Don\'t forget to carefully look at the generated README. Awesome, right?
+Now take a look at your repo. Don't forget to carefully look at the generated README. Awesome, right?
 
 For local development, see the following:
 
@@ -170,15 +170,15 @@ For local development, see the following:
 
 ## For Readers of Two Scoops of Django
 
-You may notice that some elements of this project do not exactly match what we describe in chapter 3. The reason for that is this project, amongst other things, serves as a test bed for trying out new ideas and concepts. Sometimes they work, sometimes they don\'t, but the end result is that it won\'t necessarily match precisely what is described in the book I co-authored.
+You may notice that some elements of this project do not exactly match what we describe in chapter 3. The reason for that is this project, amongst other things, serves as a test bed for trying out new ideas and concepts. Sometimes they work, sometimes they don't, but the end result is that it won't necessarily match precisely what is described in the book I co-authored.
 
 ## For PyUp Users
 
 If you are using [PyUp](https://pyup.io) to keep your dependencies updated and secure, use the code *cookiecutter* during checkout to get 15% off every month.
 
-## \"Your Stuff\"
+## "Your Stuff"
 
-Scattered throughout the Python and HTML of this project are places marked with \"your stuff\". This is where third-party libraries are to be integrated with your project.
+Scattered throughout the Python and HTML of this project are places marked with "your stuff". This is where third-party libraries are to be integrated with your project.
 
 ## Releases
 
@@ -186,13 +186,13 @@ Need a stable release? You can find them at <https://github.com/cookiecutter/coo
 
 ## Not Exactly What You Want?
 
-This is what I want. *It might not be what you want.* Don\'t worry, you have options:
+This is what I want. *It might not be what you want.* Don't worry, you have options:
 
 ### Fork This
 
 If you have differences in your preferred setup, I encourage you to fork this to create your own version.
-Once you have your fork working, let me know and I\'ll add it to a \'*Similar Cookiecutter Templates*\' list here.
-It\'s up to you whether or not to rename your fork.
+Once you have your fork working, let me know and I'll add it to a '*Similar Cookiecutter Templates*' list here.
+It's up to you whether to rename your fork.
 
 If you do rename your fork, I encourage you to submit it to the following places:
 
@@ -201,7 +201,7 @@ If you do rename your fork, I encourage you to submit it to the following places
 
 ### Submit a Pull Request
 
-We accept pull requests if they\'re small, atomic, and make our own project development
+We accept pull requests if they're small, atomic, and make our own project development
 experience better.
 
 ## Articles
@@ -221,5 +221,5 @@ Have a blog or online publication? Write about your cookiecutter-django tips and
 
 ## Code of Conduct
 
-Everyone interacting in the Cookiecutter project\'s codebases, issue trackers, chat
+Everyone interacting in the Cookiecutter project's codebases, issue trackers, chat
 rooms, and mailing lists is expected to follow the [PyPA Code of Conduct](https://www.pypa.io/en/latest/code-of-conduct/).
