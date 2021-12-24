@@ -37,8 +37,12 @@
 
 {% else %}
   {% if ACCOUNT_ALLOW_REGISTRATION %}
-    <p>{% blocktranslate %}If you have not created an account yet, then please
-    <a href="{{ signup_url }}">sign up</a> first.{% endblocktranslate %}</p>
+    <p>
+      {% blocktranslate trimmed %}
+        If you have not created an account yet, then please
+        <a href="{{ signup_url }}">sign up</a> first.
+      {% endblocktranslate %}
+    </p>
   {% endif %}
 {% endif %}
 
