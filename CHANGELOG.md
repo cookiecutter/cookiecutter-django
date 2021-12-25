@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2021.12.24
+
+### Changed
+- Simplify `TEMPLATES` settings with `APP_DIRS=True` ([#3488](https://github.com/cookiecutter/cookiecutter-django/pull/3488))
+- Fix docs not building ([#3491](https://github.com/cookiecutter/cookiecutter-django/pull/3491))
+- Remove pylint-django from VITAL_BUT_UNKNOWN ([#3490](https://github.com/cookiecutter/cookiecutter-django/pull/3490))
+- Making docs image 40% smaller and also making python version upgrades easier for multi-stage builds. ([#2836](https://github.com/cookiecutter/cookiecutter-django/pull/2836))
+- Added Django&#39;s current language to the lang attribute of the html tag ([#3174](https://github.com/cookiecutter/cookiecutter-django/pull/3174))
+### Updated
+- Update uvicorn to 0.16.0 ([#3454](https://github.com/cookiecutter/cookiecutter-django/pull/3454))
+
 ## 2021.12.22
 
 ### Changed
