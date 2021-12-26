@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2021.12.25
+
+### Changed
+- Automatically add Django version label to issue ([#3492](https://github.com/cookiecutter/cookiecutter-django/pull/3492))
+### Updated
+- Auto-update pre-commit hooks ([#3493](https://github.com/cookiecutter/cookiecutter-django/pull/3493))
+
 ## 2021.12.24
 
 ### Changed
