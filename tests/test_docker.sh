@@ -38,3 +38,6 @@ docker-compose -f local.yml run django python manage.py makemessages --all
 
 # Make sure the check doesn't raise any warnings
 docker-compose -f local.yml run django python manage.py check --fail-level WARNING
+
+# Generate the HTML for the documentation
+docker-compose -f local.yml run docs make html
