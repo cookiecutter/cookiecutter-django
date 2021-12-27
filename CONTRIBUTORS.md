@@ -1644,6 +1644,13 @@ Listed in alphabetical order.
     <td>g01dhand</td>
   </tr>
   <tr>
+    <td>Will Gordon</td>
+    <td>
+      <a href="https://github.com/wgordon17">wgordon17</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>William Archinal</td>
     <td>
       <a href="https://github.com/archinal">archinal</a>
