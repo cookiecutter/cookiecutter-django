@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2021.12.27
+
+### Changed
+- Hides &#39;sign up&#39; elements when ACCOUNT_ALLOW_REGISTRATION is disabled ([#1914](https://github.com/cookiecutter/cookiecutter-django/pull/1914))
+
 ## 2021.12.26
 
 ### Fixed
