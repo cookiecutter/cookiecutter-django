@@ -341,4 +341,6 @@ MailHog
 {%- if cookiecutter.js_task_runner == 'Gulp' %}
 project.css
 project.min.css
-{% endif %}
+vendors.js
+*.min.js
+{%- endif %}
