@@ -41,3 +41,5 @@ then
     fi
 fi
 
+# Generate the HTML for the documentation
+cd docs && make html
