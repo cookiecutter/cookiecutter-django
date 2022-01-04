@@ -394,7 +394,7 @@ def main():
         remove_packagejson_file()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_node_dockerfile()
-    elif "bootstrap" not in "{{ cookiecutter.frontend_pipeline }}":
+    elif "Bootstrap" not in "{{ cookiecutter.frontend_pipeline }}":
         remove_bootstrap_packages()
 
     if "{{ cookiecutter.cloud_provider}}".lower() == "none":
