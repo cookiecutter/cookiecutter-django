@@ -11,7 +11,7 @@ mkdir -p .cache/bare
 cd .cache/bare
 
 # create the project using the default settings in cookiecutter.json
-cookiecutter ../../ --no-input --overwrite-if-exists use_docker=n $@
+cookiecutter ../../ --no-input --overwrite-if-exists use_docker=n "$@"
 cd my_awesome_project
 
 # Install OS deps

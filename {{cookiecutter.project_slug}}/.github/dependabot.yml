@@ -13,7 +13,7 @@ updates:
 {%- if cookiecutter.use_docker == 'y' %}
 
   # Enable version updates for Docker
-  # We need to specify each Dockerfile in a separate entry because Dependabot doesn't 
+  # We need to specify each Dockerfile in a separate entry because Dependabot doesn't
   # support wildcards or recursively checking subdirectories. Check this issue for updates:
   # https://github.com/dependabot/dependabot-core/issues/2178
   - package-ecosystem: "docker"
@@ -38,7 +38,7 @@ updates:
     # Check for updates to GitHub Actions every weekday
     schedule:
       interval: "daily"
-  
+
   # Enable version updates for Docker
   - package-ecosystem: "docker"
     # Look for a `Dockerfile` in the `compose/production/aws` directory
