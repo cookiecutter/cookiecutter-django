@@ -1,4 +1,4 @@
-{% if cookiecutter.custom_bootstrap_compilation == 'y' %}
+{% if 'Bootstrap' in cookiecutter.frontend_pipeline %}
 @import "custom_bootstrap_vars";
 @import "bootstrap";
 {% endif %}

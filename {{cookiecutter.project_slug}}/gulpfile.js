@@ -9,7 +9,7 @@ const pjson = require('./package.json')
 // Plugins
 const autoprefixer = require('autoprefixer')
 const browserSync = require('browser-sync').create()
-{% if cookiecutter.custom_bootstrap_compilation == 'y' %}
+{% if 'Bootstrap' in cookiecutter.frontend_pipeline %}
 const concat = require('gulp-concat')
 {% endif %}
 const cssnano = require ('cssnano')
@@ -29,7 +29,7 @@ function pathsConfig(appName) {
   const vendorsRoot = 'node_modules'
 
   return {
-    {%- if cookiecutter.custom_bootstrap_compilation == 'y' %}
+    {%- if 'Bootstrap' in cookiecutter.frontend_pipeline %}
     bootstrapSass: `${vendorsRoot}/bootstrap/scss`,
     vendorsJs: [
       `${vendorsRoot}/@popperjs/core/dist/umd/popper.js`,
@@ -66,7 +66,7 @@ function styles() {
   return src(`${paths.sass}/project.scss`)
     .pipe(sass({
       includePaths: [
-        {%- if cookiecutter.custom_bootstrap_compilation == 'y' %}
+        {%- if 'Bootstrap' in cookiecutter.frontend_pipeline %}
         paths.bootstrapSass,
         {%- endif %}
         paths.sass
@@ -89,7 +89,7 @@ function scripts() {
     .pipe(dest(paths.js))
 }
 
-{%- if cookiecutter.custom_bootstrap_compilation == 'y' %}
+{%- if 'Bootstrap' in cookiecutter.frontend_pipeline %}
 // Vendor Javascript minification
 function vendorScripts() {
   return src(paths.vendorsJs)
@@ -173,7 +173,7 @@ function watchPaths() {
 const generateAssets = parallel(
   styles,
   scripts,
-  {%- if cookiecutter.custom_bootstrap_compilation == 'y' %}vendorScripts,{% endif %}
+  {%- if 'Bootstrap' in cookiecutter.frontend_pipeline %}vendorScripts,{% endif %}
   imgCompression
 )
 

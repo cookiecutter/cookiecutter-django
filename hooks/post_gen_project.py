@@ -369,7 +369,7 @@ def main():
 
     if "{{ cookiecutter.use_heroku }}".lower() == "n":
         remove_heroku_files()
-    elif "{{ cookiecutter.use_compressor }}".lower() == "n":
+    elif "{{ cookiecutter.frontend_pipeline }}".lower() != "Django Compressor":
         remove_heroku_build_hooks()
 
     if (
@@ -389,12 +389,12 @@ def main():
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
             append_to_gitignore_file("!.envs/.local/")
 
-    if "{{ cookiecutter.js_task_runner}}".lower() == "none":
+    if "gulp" not in "{{ cookiecutter.frontend_pipeline }}".lower():
         remove_gulp_files()
         remove_packagejson_file()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_node_dockerfile()
-    elif "{{ cookiecutter.custom_bootstrap_compilation }}" == "n":
+    if "bootstrap" not in "{{ cookiecutter.frontend_pipeline }}":
         remove_bootstrap_packages()
 
     if "{{ cookiecutter.cloud_provider}}".lower() == "none":

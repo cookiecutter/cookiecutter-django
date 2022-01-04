@@ -127,10 +127,6 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     4 - 11.14
     5 - 10.19
     Choose from 1, 2, 3, 4, 5 [1]: 1
-    Select js_task_runner:
-    1 - None
-    2 - Gulp
-    Choose from 1, 2 [1]: 1
     Select cloud_provider:
     1 - AWS
     2 - GCP
@@ -149,8 +145,12 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     Choose from 1, 2, 3, 4, 5, 6, 7, 8, 9 [1]: 1
     use_async [n]: n
     use_drf [n]: y
-    custom_bootstrap_compilation [n]: n
-    use_compressor [n]: n
+    Select frontend_pipeline:
+    1 - None
+    2 - Django Compressor
+    3 - Gulp
+    4 - Gulp with custom Bootstrap
+    Choose from 1, 2, 3, 4 [1]: 1
     use_celery [n]: y
     use_mailhog [n]: n
     use_sentry [n]: y

@@ -6,7 +6,7 @@ set -o nounset
 
 
 python /app/manage.py collectstatic --noinput
-{% if cookiecutter.use_whitenoise == 'y' and cookiecutter.use_compressor == 'y' %}
+{% if cookiecutter.use_whitenoise == 'y' and cookiecutter.frontend_pipeline == 'Django Compressor' %}
 compress_enabled() {
 python << END
 import sys
