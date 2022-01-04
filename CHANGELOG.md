@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.01.03
+
+### Changed
+- Convert top level RST files to Markdown ([#3489](https://github.com/cookiecutter/cookiecutter-django/pull/3489))
+### Updated
+- Update requests to 2.27.0 ([#3509](https://github.com/cookiecutter/cookiecutter-django/pull/3509))
+- Update pillow to 9.0.0 ([#3508](https://github.com/cookiecutter/cookiecutter-django/pull/3508))
+- Update pylint-django to 2.5.0 ([#3505](https://github.com/cookiecutter/cookiecutter-django/pull/3505))
+
 ## 2021.12.29
 
 ### Fixed
