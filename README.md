@@ -98,23 +98,24 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     remote: Total 550 (delta 283), reused 479 (delta 222)
     Receiving objects: 100% (550/550), 127.66 KiB | 58 KiB/s, done.
     Resolving deltas: 100% (283/283), done.
-    project_name [Project Name]: Reddit Clone
+    project_name [My Awesome Project]: Reddit Clone
     project_slug [reddit_clone]: reddit
-    author_name [Daniel Roy Greenfeld]: Daniel Greenfeld
-    email [you@example.com]: pydanny@gmail.com
     description [Behold My Awesome Project!]: A reddit clone.
+    author_name [Daniel Roy Greenfeld]: Daniel Greenfeld
     domain_name [example.com]: myreddit.com
+    email [daniel-greenfeld@example.com]: pydanny@gmail.com
     version [0.1.0]: 0.0.1
+    Select open_source_license:
+    1 - MIT
+    2 - BSD
+    3 - GPLv3
+    4 - Apache Software License 2.0
+    5 - Not open source
+    Choose from 1, 2, 3, 4, 5 [1]: 1
     timezone [UTC]: America/Los_Angeles
-    use_whitenoise [n]: n
-    use_celery [n]: y
-    use_mailhog [n]: n
-    use_sentry [n]: y
-    use_pycharm [n]: y
     windows [n]: n
+    use_pycharm [n]: y
     use_docker [n]: n
-    use_heroku [n]: y
-    use_compressor [n]: y
     Select postgresql_version:
     1 - 14.1
     2 - 13.5
@@ -131,16 +132,34 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     2 - GCP
     3 - None
     Choose from 1, 2, 3 [1]: 1
+    Select mail_service:
+    1 - Mailgun
+    2 - Amazon SES
+    3 - Mailjet
+    4 - Mandrill
+    5 - Postmark
+    6 - Sendgrid
+    7 - SendinBlue
+    8 - SparkPost
+    9 - Other SMTP
+    Choose from 1, 2, 3, 4, 5, 6, 7, 8, 9 [1]: 1
+    use_async [n]: n
+    use_drf [n]: y
     custom_bootstrap_compilation [n]: n
-    Select open_source_license:
-    1 - MIT
-    2 - BSD
-    3 - GPLv3
-    4 - Apache Software License 2.0
-    5 - Not open source
-    Choose from 1, 2, 3, 4, 5 [1]: 1
+    use_compressor [n]: n
+    use_celery [n]: y
+    use_mailhog [n]: n
+    use_sentry [n]: y
+    use_whitenoise [n]: n
+    use_heroku [n]: y
+    Select ci_tool:
+    1 - None
+    2 - Travis
+    3 - Gitlab
+    4 - Github
+    Choose from 1, 2, 3, 4 [1]: 4
     keep_local_envs_in_vcs [y]: y
-    debug[n]: n
+    debug [n]: n
 
 Enter the project and take a look around:
 
