@@ -389,12 +389,12 @@ def main():
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
             append_to_gitignore_file("!.envs/.local/")
 
-    if "gulp" not in "{{ cookiecutter.frontend_pipeline }}".lower():
+    if "Gulp" not in "{{ cookiecutter.frontend_pipeline }}":
         remove_gulp_files()
         remove_packagejson_file()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_node_dockerfile()
-    if "bootstrap" not in "{{ cookiecutter.frontend_pipeline }}":
+    elif "bootstrap" not in "{{ cookiecutter.frontend_pipeline }}":
         remove_bootstrap_packages()
 
     if "{{ cookiecutter.cloud_provider}}".lower() == "none":
