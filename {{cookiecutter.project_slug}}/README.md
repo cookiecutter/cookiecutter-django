@@ -132,9 +132,9 @@ See detailed [cookiecutter-django Docker documentation](http://cookiecutter-djan
 ### Custom Bootstrap Compilation
 
 The generated CSS is set up with automatic Bootstrap recompilation with variables of your choice.
-Bootstrap v4 is installed using npm and customised by tweaking your variables in `static/sass/custom_bootstrap_vars`.
+Bootstrap v5 is installed using npm and customised by tweaking your variables in `static/sass/custom_bootstrap_vars`.
 
-You can find a list of available variables [in the bootstrap source](https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss), or get explanations on them in the [Bootstrap docs](https://getbootstrap.com/docs/4.1/getting-started/theming/).
+You can find a list of available variables [in the bootstrap source](https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss), or get explanations on them in the [Bootstrap docs](https://getbootstrap.com/docs/5.1/customize/sass/).
 
 {%- if cookiecutter.js_task_runner == "Gulp" %}
 Bootstrap's javascript as well as its dependencies is concatenated into a single file: `static/js/vendors.js`.
