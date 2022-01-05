@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.01.04
+
+### Changed
+- Double quote array expansions to avoid re-splitting elements ([#3514](https://github.com/cookiecutter/cookiecutter-django/pull/3514))
+### Updated
+- Update django to 3.2.11 ([#3510](https://github.com/cookiecutter/cookiecutter-django/pull/3510))
+
 ## 2022.01.03
 
 ### Changed
