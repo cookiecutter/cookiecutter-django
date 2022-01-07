@@ -139,14 +139,16 @@ function initBrowserSync() {
       `${paths.js}/*.js`,
       `${paths.templates}/*.html`
     ], {
+      {%- if cookiecutter.use_docker == 'y' %}
+      // https://www.browsersync.io/docs/options/#option-open
+      // Disable as it doesn't work from inside a container
+      open: false,
+      {%- endif %}
       // https://www.browsersync.io/docs/options/#option-proxy
       proxy:  {
         {%- if cookiecutter.use_docker == 'n' %}
         target: '127.0.0.1:8000',
         {%- else %}
-        // https://www.browsersync.io/docs/options/#option-open
-        // Disable as it doesn't work from inside a container
-        open: false,
         target: 'django:8000',
         {%- endif %}
         proxyReq: [
