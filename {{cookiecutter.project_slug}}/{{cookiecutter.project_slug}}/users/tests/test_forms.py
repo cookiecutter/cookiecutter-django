@@ -4,20 +4,20 @@ Module for all Form Tests.
 import pytest
 from django.utils.translation import gettext_lazy as _
 
-from {{ cookiecutter.project_slug }}.users.forms import UserCreationForm
+from {{ cookiecutter.project_slug }}.users.forms import UserAdminCreationForm
 from {{ cookiecutter.project_slug }}.users.models import User
 
 pytestmark = pytest.mark.django_db
 
 
-class TestUserCreationForm:
+class TestUserAdminCreationForm:
     """
-    Test class for all tests related to the UserCreationForm
+    Test class for all tests related to the UserAdminCreationForm
     """
 
     def test_username_validation_error_msg(self, user: User):
         """
-        Tests UserCreation Form's unique validator functions correctly by testing:
+        Tests UserAdminCreation Form's unique validator functions correctly by testing:
             1) A new user with an existing username cannot be added.
             2) Only 1 error is raised by the UserCreation Form
             3) The desired error message is raised
@@ -25,7 +25,7 @@ class TestUserCreationForm:
 
         # The user already exists,
         # hence cannot be created.
-        form = UserCreationForm(
+        form = UserAdminCreationForm(
             {
                 "username": user.username,
                 "password1": user.password,
