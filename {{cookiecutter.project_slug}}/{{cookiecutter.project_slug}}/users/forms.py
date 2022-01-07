@@ -31,18 +31,6 @@ class UserSignupForm(SignupForm):
     Check UserSocialSignupForm for accounts created from social.
     """
 
-    def save(self, request):
-
-        # Ensure you call the parent class's save.
-        # .save() returns a User object.
-        user = super(UserSignupForm, self).save(request)
-
-        # Add your own processing here.
-
-        # You must return the original result.
-        return user
-
-
     class Meta:
         model = User
     
