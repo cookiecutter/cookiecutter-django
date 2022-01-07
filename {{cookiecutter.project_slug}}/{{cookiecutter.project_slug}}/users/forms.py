@@ -24,6 +24,7 @@ class UserCreationForm(admin_forms.UserCreationForm):
             "username": {"unique": _("This username has already been taken.")}
         }
 
+
 class UserSignupForm(SignupForm):
     """
     Form that will be rendered on a user sign up section/screen.
@@ -33,6 +34,8 @@ class UserSignupForm(SignupForm):
 
     class Meta:
         model = User
+
+
 class UserSocialSignupForm(SocialSignupForm):
     """
     Renders the form when user has signed up using social accounts.
