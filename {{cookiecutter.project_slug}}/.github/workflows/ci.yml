@@ -28,6 +28,9 @@ jobs:
         with:
           python-version: "3.9"
           cache: pip
+          cache-dependency-path: |
+            requirements/base.txt
+            requirements/local.txt
 
       - name: Run pre-commit
         uses: pre-commit/action@v2.0.3
