@@ -14,7 +14,7 @@ class UserChangeForm(admin_forms.UserChangeForm):
 
 class UserCreationForm(admin_forms.UserCreationForm):
     """
-    Form for User Creation in the Admin Area.  
+    Form for User Creation in the Admin Area.
     To change user signup, see UserSignupForm and UserSocialSignupForm.
     """
     class Meta(admin_forms.UserCreationForm.Meta):
