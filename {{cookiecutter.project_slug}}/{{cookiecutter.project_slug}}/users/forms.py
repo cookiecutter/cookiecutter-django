@@ -33,7 +33,6 @@ class UserSignupForm(SignupForm):
 
     class Meta:
         model = User
-    
 class UserSocialSignupForm(SocialSignupForm):
     """
     Renders the form when user has signed up using social accounts.
