@@ -47,19 +47,35 @@ jobs:
         ports:
           - 6379:6379
       {%- endif %}
+      {%- if cookiecutter.database_engine == 'postgresql' %}
       postgres:
         image: postgres:12
         ports:
           - 5432:5432
         env:
           POSTGRES_PASSWORD: postgres
+      {%- endif %}
+      {%- if cookiecutter.database_engine == 'mysql' %}
+      mysql:
+        image: mysql:8.0
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_PASSWORD: mysql
+      {%- endif %}
 
     env:
       {%- if cookiecutter.use_celery == 'y' %}
       CELERY_BROKER_URL: "redis://localhost:6379/0"
       {%- endif %}
+      {%- if cookiecutter.database_engine == 'postgresql' %}
       # postgres://user:password@host:port/database
       DATABASE_URL: "postgres://postgres:postgres@localhost:5432/postgres"
+      {%- endif %}
+      {%- if cookiecutter.database_engine == 'mysql' %}
+      # mysql://user:password@host:port/database
+      DATABASE_URL: "mysql://mysql:mysql@localhost:3306/mysql"
+      {%- endif %}
     {%- endif %}
 
     steps:
