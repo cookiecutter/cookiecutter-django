@@ -24,8 +24,7 @@
     "postgresql@12.9",
     "postgresql@11.14",
     "postgresql@10.19",
-    "mysql@5.7",
-    "mysql@5.6"
+    "mysql@5.7"
   ],
   "_processed_database_engine": "{{ cookiecutter.database_version.split('@')[0] }}",
   "_processed_database_version": "{{ cookiecutter.database_version.split('@')[1] }}",

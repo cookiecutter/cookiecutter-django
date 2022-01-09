@@ -91,7 +91,7 @@ if (
 if "{{ cookiecutter._processed_database_engine }}" != "{{ cookiecutter.database_engine }}":
     print(
         WARNING
-        + " You have selected {{ cookiecutter.database_engine }} as your database and "
+        + " You have selected {{ cookiecutter.database_engine }} as your database engien and "
         "your selected database_version {{ cookiecutter.database_version }} is not compatible with this "
         "selection. Please retry and select appropriate option."
         + TERMINATOR
