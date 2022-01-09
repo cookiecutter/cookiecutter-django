@@ -3,7 +3,11 @@
 -r base.txt
 
 gunicorn==20.1.0  # https://github.com/benoitc/gunicorn
+{%- if cookiecutter.database_engine == "postgresql" %}
 psycopg2==2.9.3  # https://github.com/psycopg/psycopg2
+{%- elif cookiecutter.database_engine == "mysql" %}
+mysqlclient==2.1.0 # https://github.com/PyMySQL/mysqlclient
+{%- endif %}
 {%- if cookiecutter.use_whitenoise == 'n' %}
 Collectfast==2.2.0  # https://github.com/antonagestam/collectfast
 {%- endif %}
