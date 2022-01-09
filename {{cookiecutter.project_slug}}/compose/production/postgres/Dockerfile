@@ -1,4 +1,4 @@
-FROM postgres:{{ cookiecutter.cookiecutter.database_version.lower()|split('@')[1] }}
+FROM postgres:{{ cookiecutter.database_version.lower()|split('@')[1] }}
 
 COPY ./compose/production/postgres/maintenance /usr/local/bin/maintenance
 RUN chmod +x /usr/local/bin/maintenance/*
