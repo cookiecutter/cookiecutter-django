@@ -63,13 +63,17 @@ Projects that provide financial support to the maintainers:
 
 ------------------------------------------------------------------------
 
-[![Two Scoops of Django](https://cdn.shopify.com/s/files/1/0304/6901/products/Two-Scoops-of-Django-3-Alpha-Cover_540x_26507b15-e489-470b-8a97-02773dd498d1_1080x.jpg){#Two Scoops of Django 3.x .align-center}](https://www.feldroy.com/products//two-scoops-of-django-3-x)
+<p align="center">
+  <a href="https://www.feldroy.com/products//two-scoops-of-django-3-x"><img src="https://cdn.shopify.com/s/files/1/0304/6901/products/Two-Scoops-of-Django-3-Alpha-Cover_540x_26507b15-e489-470b-8a97-02773dd498d1_1080x.jpg"></a>
+</p>
 
 Two Scoops of Django 3.x is the best ice cream-themed Django reference in the universe!
 
 ### PyUp
 
-[![pyup](https://pyup.io/static/images/logo.png){#pyup .align-center}](https://pyup.io/)
+<p align="center">
+  <a href="https://pyup.io/"><img src="https://pyup.io/static/images/logo.png"></a>
+</p>
 
 PyUp brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
 
