@@ -88,7 +88,7 @@ if (
     sys.exit(1)
 
 
-if "{{ cookiecutter._processed_database_engine }}" != "{{ cookiecutter.database_engine }}":
+if "{{ cookiecutter.database_version }}".lower().split("@")[0] != "{{ cookiecutter.database_engine }}":
     print(
         WARNING
         + " You have selected {{ cookiecutter.database_engine }} as your database engien and "

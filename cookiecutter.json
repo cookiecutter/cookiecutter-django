@@ -26,8 +26,8 @@
     "postgresql@10.19",
     "mysql@5.7"
   ],
-  "_processed_database_engine": "{{ cookiecutter.database_version.split('@')[0] }}",
-  "_processed_database_version": "{{ cookiecutter.database_version.split('@')[1] }}",
+  "_processed_database_engine": "{{ cookiecutter.database_version.lower().split('@')[0] }}",
+  "_processed_database_version": "{{ cookiecutter.database_version.lower().split('@')[1] }}",
   "js_task_runner": ["None", "Gulp"],
   "cloud_provider": ["AWS", "GCP", "None"],
   "mail_service": [
