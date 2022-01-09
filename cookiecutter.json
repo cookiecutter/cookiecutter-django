@@ -17,8 +17,8 @@
   "windows": "n",
   "use_pycharm": "n",
   "use_docker": "n",
-  "database": ["postgresql", "mysql"],
-  "db_version": [
+  "database_engine": ["postgresql", "mysql"],
+  "database_version": [
     "postgresql@14.1",
     "postgresql@13.5",
     "postgresql@12.9",
@@ -27,6 +27,8 @@
     "mysql@5.7",
     "mysql@5.6"
   ],
+  "_processed_database_engine": "{{ cookiecutter.database_version.split('@')[0] }}",
+  "_processed_database_version": "{{ cookiecutter.database_version.split('@')[1] }}",
   "js_task_runner": ["None", "Gulp"],
   "cloud_provider": ["AWS", "GCP", "None"],
   "mail_service": [
