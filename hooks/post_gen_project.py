@@ -229,7 +229,7 @@ def set_database_user(file_path: str, value: str, database_engine: str):
     return database_user
 
 
-def set_database_password(file_path: str,  database_engine: str, value: str | None=None):
+def set_database_password(file_path: str,  database_engine: str, value: str=None):
     database_password = set_flag(
         file_path,
         f"!!!SET {database_engine.upper()}_USER!!!",

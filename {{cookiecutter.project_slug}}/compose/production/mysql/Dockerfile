@@ -1,4 +1,4 @@
-FROM mysql:{{ cookiecutter.database_version.lower()|split('@')[1] }}
+FROM mysql:{{ cookiecutter.database_version.lower().split('@')[1] }}
 
 COPY ./compose/production/mysql/maintenance /usr/local/bin/maintenance
 RUN chmod +x /usr/local/bin/maintenance/*
