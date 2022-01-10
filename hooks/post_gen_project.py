@@ -437,9 +437,9 @@ def main():
         remove_heroku_build_hooks()
 
     if "{{ cookiecutter.database_engine }}".lower() == "postgresql":
-        remove_postgres_env_files()
-    elif "{{ cookiecutter.database_engine }}".lower() == "mysql":
         remove_mysql_env_files()
+    elif "{{ cookiecutter.database_engine }}".lower() == "mysql":
+        remove_postgres_env_files()
 
     if (
         "{{ cookiecutter.use_docker }}".lower() == "n"
