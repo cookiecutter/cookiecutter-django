@@ -107,7 +107,12 @@ services:
     container_name: celeryworker
     depends_on:
       - redis
+      {%- if cookiecutter.database_engine == 'postgresql' %}
       - postgres
+      {%- endif %}
+      {%- if cookiecutter.database_engine == 'mysql' %}
+      - mysql
+      {%- endif %}
       {%- if cookiecutter.use_mailhog == 'y' %}
       - mailhog
       {%- endif %}
@@ -120,7 +125,12 @@ services:
     container_name: celerybeat
     depends_on:
       - redis
+      {%- if cookiecutter.database_engine == 'postgresql' %}
       - postgres
+      {%- endif %}
+      {%- if cookiecutter.database_engine == 'mysql' %}
+      - mysql
+      {%- endif %}
       {%- if cookiecutter.use_mailhog == 'y' %}
       - mailhog
       {%- endif %}
