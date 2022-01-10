@@ -33,9 +33,6 @@ class UserSignupForm(SignupForm):
     Check UserSocialSignupForm for accounts created from social.
     """
 
-    class Meta:
-        model = User
-
 
 class UserSocialSignupForm(SocialSignupForm):
     """
@@ -43,6 +40,3 @@ class UserSocialSignupForm(SocialSignupForm):
     Default fields will be added automatically.
     See UserSignupForm otherwise.
     """
-
-    class Meta:
-        model = User
