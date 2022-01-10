@@ -1,8 +1,14 @@
 version: '3'
 
 volumes:
+  {%- if cookiecutter.database_engine == 'postgresql' %}
   production_postgres_data: {}
   production_postgres_data_backups: {}
+  {%- endif %}
+  {%- if cookiecutter.database_engine == 'mysql' %}
+  production_mysql_data: {}
+  production_mysql_data_backups: {}
+  {%- endif %}
   production_traefik: {}
 
 services:
@@ -12,13 +18,24 @@ services:
       dockerfile: ./compose/production/django/Dockerfile
     image: {{ cookiecutter.project_slug }}_production_django
     depends_on:
+      {%- if cookiecutter.database_engine == 'postgresql' %}
       - postgres
+      {%- endif %}
+      {%- if cookiecutter.database_engine == 'mysql' %}
+      - mysql
+      {%- endif %}
       - redis
     env_file:
       - ./.envs/.production/.django
+      {%- if cookiecutter.database_engine == 'postgresql' %}
       - ./.envs/.production/.postgres
+      {%- endif %}
+      {%- if cookiecutter.database_engine == 'mysql' %}
+      - ./.envs/.production/.mysql
+      {%- endif %}
     command: /start
 
+  {%- if cookiecutter.database_engine == 'postgresql' %}
   postgres:
     build:
       context: .
@@ -29,6 +46,20 @@ services:
       - production_postgres_data_backups:/backups:z
     env_file:
       - ./.envs/.production/.postgres
+  {%- endif %}
+  {%- if cookiecutter.database_engine == 'mysql' %}
+  mysql:
+    build:
+      context: .
+      dockerfile: ./compose/production/mysql/Dockerfile
+    image: {{ cookiecutter.project_slug }}_production_mysql
+    container_name: mysql
+    volumes:
+      - production_mysql_data:/var/lib/mysql/data:Z
+      - production_mysql_data_backups:/backups:z
+    env_file:
+      - ./.envs/.production/.mysql
+  {%- endif %}
 
   traefik:
     build:

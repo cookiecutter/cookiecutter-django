@@ -7,7 +7,7 @@ volumes:
   {%- endif %}
   {%- if cookiecutter.database_engine == 'mysql' %}
   local_mysql_data: {}
-  local_my_sql_backup: {}
+  local_mysql_data_backups: {}
   {%- endif %}
 
 services:
