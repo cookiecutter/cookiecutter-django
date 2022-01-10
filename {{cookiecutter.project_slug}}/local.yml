@@ -1,8 +1,14 @@
 version: '3'
 
 volumes:
+  {%- if cookiecutter.database_engine == 'postgresql' %}
   local_postgres_data: {}
   local_postgres_data_backups: {}
+  {%- endif %}
+  {%- if cookiecutter.database_engine == 'mysql' %}
+  local_mysql_data: {}
+  local_my_sql_backup: {}
+  {%- endif %}
 
 services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
@@ -12,7 +18,12 @@ services:
     image: {{ cookiecutter.project_slug }}_local_django
     container_name: django
     depends_on:
+      {%- if cookiecutter.database_engine == 'postgresql' %}
       - postgres
+      {%- endif %}
+      {%- if cookiecutter.database_engine == 'mysql' %}
+      - mysql
+      {%- endif %}
       {%- if cookiecutter.use_celery == 'y' %}
       - redis
       {%- endif %}
@@ -23,11 +34,17 @@ services:
       - .:/app:z
     env_file:
       - ./.envs/.local/.django
+      {%- if cookiecutter.database_engine == 'postgresql' %}
       - ./.envs/.local/.postgres
+      {%- endif %}
+      {%- if cookiecutter.database_engine == 'mysql' %}
+      - ./.envs/.local/.mysql
+      {%- endif %}
     ports:
       - "8000:8000"
     command: /start
 
+  {%- if cookiecutter.database_engine == 'postgresql' %}
   postgres:
     build:
       context: .
@@ -39,6 +56,20 @@ services:
       - local_postgres_data_backups:/backups:z
     env_file:
       - ./.envs/.local/.postgres
+  {%- endif %}
+  {%- if cookiecutter.database_engine == 'mysql' %}
+  mysql:
+    build:
+      context: .
+      dockerfile: ./compose/production/mysql/Dockerfile
+    image: {{ cookiecutter.project_slug }}_production_mysql
+    container_name: mysql
+    volumes:
+      - local_mysql_data:/var/lib/mysql/data:Z
+      - local_mysql_data_backups:/backups:z
+    env_file:
+      - ./.envs/.local/.mysql
+  {%- endif %}
 
   docs:
     image: {{ cookiecutter.project_slug }}_local_docs
