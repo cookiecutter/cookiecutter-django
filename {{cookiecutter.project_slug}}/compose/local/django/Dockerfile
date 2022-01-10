@@ -42,7 +42,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   libpq-dev \
   {% elif cookiecutter.database_engine == "mysql" %}
   # mysql dependency
-  libmysqlclient-dev\
+  libmysqlclient-dev \
   {% endif %}
   # Translations dependencies
   gettext \
