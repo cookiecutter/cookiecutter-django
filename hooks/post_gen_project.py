@@ -143,6 +143,32 @@ def remove_dotgithub_folder():
     shutil.rmtree(".github")
 
 
+def remove_postgres_env_files():
+    local_postgres_envs_path = os.path.join(".envs", ".local", ".postgres")
+    production_postgres_envs_path = os.path.join(".envs", ".production", ".postgres")
+
+    os.remove(local_postgres_envs_path)
+    os.remove(production_postgres_envs_path)
+
+
+def remove_mysql_env_files():
+    local_mysql_envs_path = os.path.join(".envs", ".local", ".mysql")
+    production_mysql_envs_path = os.path.join(".envs", ".production", ".mysql")
+
+    os.remove(local_mysql_envs_path)
+    os.remove(production_mysql_envs_path)
+
+
+def remove_postgres_docker_folder():
+    postgres_compose_path = os.path.join("compose", "production", "postgres")
+    shutil.rmtree(postgres_compose_path)
+
+
+def remove_mysql_docker_folder():
+    mysql_compose_path = os.path.join("compose", "production", "mysql")
+    shutil.rmtree(mysql_compose_path)
+
+
 def generate_random_string(
     length, using_digits=False, using_ascii_letters=False, using_punctuation=False
 ):
@@ -391,6 +417,10 @@ def main():
         remove_pycharm_files()
 
     if "{{ cookiecutter.use_docker }}".lower() == "y":
+        if "{{ cookiecutter.database_engine }}".lower() == "postgresql":
+            remove_mysql_docker_folder()
+        elif "{{ cookiecutter.database_engine }}".lower() == "mysql":
+            remove_postgres_docker_folder()
         remove_utility_files()
     else:
         remove_docker_files()
@@ -405,6 +435,11 @@ def main():
         remove_heroku_files()
     elif "{{ cookiecutter.use_compressor }}".lower() == "n":
         remove_heroku_build_hooks()
+
+    if "{{ cookiecutter.database_engine }}".lower() == "postgresql":
+        remove_postgres_env_files()
+    elif "{{ cookiecutter.database_engine }}".lower() == "mysql":
+        remove_mysql_env_files()
 
     if (
         "{{ cookiecutter.use_docker }}".lower() == "n"
