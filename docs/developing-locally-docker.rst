@@ -167,16 +167,18 @@ docker
 
 The ``container_name`` from the yml file can be used to check on containers with docker commands, for example: ::
 
-    $ docker logs worker
-    $ docker top worker
+    $ docker logs <project_slug>_local_celeryworker
+    $ docker top <project_slug>_local_celeryworker
 
+
+Notice that the ``container_name`` is generated dynamically using your project slug as a prefix
 
 Mailhog
 ~~~~~~~
 
 When developing locally you can go with MailHog_ for email testing provided ``use_mailhog`` was set to ``y`` on setup. To proceed,
 
-#. make sure ``mailhog`` container is up and running;
+#. make sure ``<project_slug>_local_mailhog`` container is up and running;
 
 #. open up ``http://127.0.0.1:8025``.
 
