@@ -22,7 +22,7 @@ if [ -z "${MYSQL_USER}" ]; then
     base_mysql_image_default_user='mysql'
     export MYSQL_USER="${base_mysql_image_default_user}"
 fi
-export DATABASE_URL="mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DB}"
+export DATABASE_URL="mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}"
 {%- endif %}
 
 database_ready() {
@@ -52,7 +52,7 @@ try:
         host="${MYSQL_HOST}",
         user="${MYSQL_USER}",
         password="${MYSQL_PASSWORD}",
-        database="${MYSQL_DB}",
+        database="${MYSQL_DATABASE}",
         port=int("${MYSQL_PORT}")
     )
 except MySQLdb._exceptions.OperationalError:
