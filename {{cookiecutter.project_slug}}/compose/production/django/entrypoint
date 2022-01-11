@@ -53,7 +53,7 @@ try:
         user="${MYSQL_USER}",
         password="${MYSQL_PASSWORD}",
         database="${MYSQL_DB}",
-        port="${MYSQL_PORT}",
+        port=int("${MYSQL_PORT}")
     )
 except MySQLdb._exceptions.OperationalError:
     sys.exit(-1)

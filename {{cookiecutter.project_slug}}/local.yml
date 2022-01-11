@@ -65,7 +65,7 @@ services:
     image: {{ cookiecutter.project_slug }}_production_mysql
     container_name: mysql
     volumes:
-      - local_mysql_data:/var/lib/mysql/data:Z
+      - local_mysql_data:/var/lib/mysql:z
       - local_mysql_data_backups:/backups:z
     env_file:
       - ./.envs/.local/.mysql
