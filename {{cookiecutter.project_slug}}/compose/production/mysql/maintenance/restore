@@ -7,7 +7,7 @@
 ###     <1> filename of an existing backup.
 ###
 ### Usage:
-###     $ docker-compose -f <environment>.yml (exec |run --rm) postgres restore <1>
+###     $ docker-compose -f <environment>.yml (exec |run --rm) mysql restore <1>
 
 
 set -o errexit
@@ -30,26 +30,20 @@ if [[ ! -f "${backup_filename}" ]]; then
     exit 1
 fi
 
-message_welcome "Restoring the '${POSTGRES_DB}' database from the '${backup_filename}' backup..."
+message_welcome "Restoring the '${MYSQL_DATABASE}' database from the '${backup_filename}' backup..."
 
-if [[ "${POSTGRES_USER}" == "postgres" ]]; then
-    message_error "Restoring as 'postgres' user is not supported. Assign 'POSTGRES_USER' env with another one and try again."
+if [[ "${MYSQL}" == "root" ]]; then
+    message_error "Restoring as 'mysql' user is not supported. Assign 'MYSQL_DATABASE' env with another one and try again."
     exit 1
 fi
 
-export PGHOST="${POSTGRES_HOST}"
-export PGPORT="${POSTGRES_PORT}"
-export PGUSER="${POSTGRES_USER}"
-export PGPASSWORD="${POSTGRES_PASSWORD}"
-export PGDATABASE="${POSTGRES_DB}"
-
 message_info "Dropping the database..."
-dropdb "${PGDATABASE}"
+echo "DROP DATABASE IF EXISTS ${MYSQL_DATABASE};" | mysql --user=${MYSQL_USER} --password=${MYSQL_PASSWORD}
 
 message_info "Creating a new database..."
-createdb --owner="${POSTGRES_USER}"
+echo "CREATE DATABASE IF NOT EXISTS ${MYSQL_DATABASE};" | mysql --user=${MYSQL_USER} --password=${MYSQL_PASSWORD}
 
 message_info "Applying the backup to the new database..."
-gunzip -c "${backup_filename}" | psql "${POSTGRES_DB}"
+gunzip -c "${backup_filename}" | mysql --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} ${MYSQL_DATABASE}
 
-message_success "The '${POSTGRES_DB}' database has been restored from the '${backup_filename}' backup."
+message_success "The '${MYSQL_DATABASE}' database has been restored from the '${backup_filename}' backup."
