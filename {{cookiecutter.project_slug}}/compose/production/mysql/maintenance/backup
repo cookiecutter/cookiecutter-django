@@ -25,14 +25,14 @@ if [[ "${MYSQL_USER}" == "root" ]]; then
     exit 1
 fi
 
-export MYSQL_TCP_PORT="${MYQL_PORT}"
+export MYSQL_TCP_PORT="${MYSQL_PORT}"
 export MYSQL_HOST="${MYSQL_HOST}"
 
 backup_filename="${BACKUP_FILE_PREFIX}_$(date +'%Y_%m_%dT%H_%M_%S').sql.gz"
 backup_file_path="${BACKUP_DIR_PATH}/${backup_filename}"
 
 
-mysqldump --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} --port=${MYSQL_PORT} ${MYSQL_DATABASE} | gzip > "${backup_file_path}"
+mysqldump --no-tablespaces --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} --port=${MYSQL_PORT} ${MYSQL_DATABASE} | gzip > "${backup_file_path}"
 
 
 
