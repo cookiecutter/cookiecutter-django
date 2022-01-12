@@ -32,7 +32,7 @@ fi
 
 message_welcome "Restoring the '${MYSQL_DATABASE}' database from the '${backup_filename}' backup..."
 
-if [[ "${MYSQL}" == "root" ]]; then
+if [[ "${MYSQL_USER}" == "root" ]]; then
     message_error "Restoring as 'mysql' user is not supported. Assign 'MYSQL_DATABASE' env with another one and try again."
     exit 1
 fi
