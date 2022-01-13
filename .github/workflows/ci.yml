@@ -70,6 +70,8 @@ jobs:
       fail-fast: false
       matrix:
         script:
+          - name: With Async
+            args: "use_async=y"
           - name: With Celery
             args: "use_celery=y use_compressor=y"
           - name: With Gulp
