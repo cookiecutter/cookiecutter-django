@@ -27,12 +27,11 @@ def _update_or_create_site_with_sequence(site_model, connection, domain, name):
         with connection.cursor() as cursor:
             cursor.execute("SELECT last_value from django_site_id_seq")
             (current_id,) = cursor.fetchone()
-            if current_id < max_id:
+            if current_id <= max_id:
                 cursor.execute(
                     "alter sequence django_site_id_seq restart with %s",
                     [max_id + 1],
                 )
-                cursor.fetchone()
 
 
 def update_site_forward(apps, schema_editor):
