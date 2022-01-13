@@ -3,10 +3,19 @@ stages:
   - test
 
 variables:
+  {% if cookiecutter.database_engine == 'postgresql' -%}
   POSTGRES_USER: '{{ cookiecutter.project_slug }}'
   POSTGRES_PASSWORD: ''
   POSTGRES_DB: 'test_{{ cookiecutter.project_slug }}'
   POSTGRES_HOST_AUTH_METHOD: trust
+  {% elif cookiecutter.database_engine == 'mysql' -%}
+  MYSQL_USER: '{{ cookiecutter.project_slug }}'
+  MYSQL_PASSWORD: ''
+  MYSQL_DATABASE: 'test_{{ cookiecutter.project_slug }}'
+  MYSQL_ROOT_PASSWORD: ''
+  MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+  {% endif -%}
+  {%- endif %}
   {% if cookiecutter.use_celery == 'y' -%}
   CELERY_BROKER_URL: 'redis://redis:6379/0'
   {%- endif %}
@@ -39,9 +48,17 @@ pytest:
   tags:
     - python
   services:
-    - postgres:{{ cookiecutter.postgresql_version }}
+    {% if cookiecutter.database_engine == 'postgresql' -%}
+    - postgres:{{ cookiecutter.database_version.split('@')[1] }}
+    {% elif cookiecutter.database_engine == 'mysql' -%}
+    - mysql:{{ cookiecutter.database_version.split('@')[1] }}
+    {% endif -%}
   variables:
+    {% if cookiecutter.database_engine == 'postgresql' -%}
     DATABASE_URL: pgsql://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
+    {% elif cookiecutter.database_engine == 'mysql' -%}
+    DATABASE_URL: mysql://$MYSQL_USER:$MYSQL_PASSWORD@mysql/$MYSQL_DATABASE
+    {% endif -%}
 
   before_script:
     - pip install -r requirements/local.txt
