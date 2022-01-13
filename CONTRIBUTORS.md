@@ -1539,6 +1539,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Thibault J.</td>
+    <td>
+      <a href="https://github.com/thibault">thibault</a>
+    </td>
+    <td>thibault</td>
+  </tr>
+  <tr>
     <td>Théo Segonds</td>
     <td>
       <a href="https://github.com/show0k">show0k</a>
