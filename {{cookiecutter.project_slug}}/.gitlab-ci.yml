@@ -15,7 +15,6 @@ variables:
   MYSQL_ROOT_PASSWORD: ''
   MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
   {% endif -%}
-  {%- endif %}
   {% if cookiecutter.use_celery == 'y' -%}
   CELERY_BROKER_URL: 'redis://redis:6379/0'
   {%- endif %}
