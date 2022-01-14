@@ -3,6 +3,14 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.01.13
+
+### Changed
+- Add UserSignupForm and UserSocialSignupForm ([#3515](https://github.com/cookiecutter/cookiecutter-django/pull/3515))
+### Fixed
+- Fix high CPU usage when running `runserver_plus` in Docker ([#3531](https://github.com/cookiecutter/cookiecutter-django/pull/3531))
+- Fix out-of-sync sequence for Site ID ([#3511](https://github.com/cookiecutter/cookiecutter-django/pull/3511))
+
 ## 2022.01.11
 
 ### Updated
