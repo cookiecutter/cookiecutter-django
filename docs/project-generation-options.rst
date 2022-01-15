@@ -52,14 +52,33 @@ use_pycharm:
 use_docker:
     Indicates whether the project should be configured to use Docker_ and `Docker Compose`_.
 
-postgresql_version:
-    Select a PostgreSQL_ version to use. The choices are:
+database_engine:
+    Cookiecutter now supports the following databases:
+
+    1. Postgres
+    2. MySQL
+
+    Select the database you want to use for your project.
+
+database_version:
+    Select the version of the database you want to use for your project.
+
+    .. note::
+        | Database versions are shown in the format ``{database_engine}@{version}``.
+        | So make sure you select the versoin accoring to the database version you seleted in the previous step.
+        | For example, if you selected **Postgres** as your database, make sure to select from one of the options starting with ``postgresql@{version_you_want}`` and if you seleted **MySQL**, select one of the options starting with ``mysql@{version_you_want}``.
+
+    *Currently, following PostgreSQL versions are supported:*
 
     1. 14.1
     2. 13.5
     3. 12.9
     4. 11.14
     5. 10.19
+
+    *Currently, following MySQL versions are supported:*
+
+    1. 5.7
 
 js_task_runner:
     Select a JavaScript task runner. The choices are:
