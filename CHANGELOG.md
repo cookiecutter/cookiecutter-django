@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.01.14
+
+### Updated
+- Update uvicorn to 0.17.0 ([#3534](https://github.com/cookiecutter/cookiecutter-django/pull/3534))
+- Bump stefanzweifel/git-auto-commit-action from 4.13.0 to 4.13.1 ([#3532](https://github.com/cookiecutter/cookiecutter-django/pull/3532))
+
 ## 2022.01.13
 
 ### Changed
