@@ -1,7 +1,7 @@
 Getting Up and Running Locally
 ==============================
 
-.. index:: pip, virtualenv, PostgreSQL
+.. index:: pip, virtualenv, PostgreSQL, MySQL
 
 
 Setting Up Development Environment
