@@ -249,13 +249,12 @@ def generate_database_user(debug=False):
 
 def set_database_user(file_path: str, value: str, database_engine: str):
     database_user = set_flag(
-        file_path,
-        f"!!!SET {database_engine.upper()}_USER!!!",
-        value=value)
+        file_path, f"!!!SET {database_engine.upper()}_USER!!!", value=value
+    )
     return database_user
 
 
-def set_database_password(file_path: str,  database_engine: str, value: str=None):
+def set_database_password(file_path: str, database_engine: str, value: str = None):
     database_password = set_flag(
         file_path,
         f"!!!SET {database_engine.upper()}_USER!!!",
@@ -327,23 +326,23 @@ def set_flags_in_envs(database_user, celery_flower_user, debug=False):
     set_database_user(
         get_database_env_path(env="local", database_engine=selected_database),
         value=database_user,
-        database_engine=selected_database
-        )
+        database_engine=selected_database,
+    )
     set_database_password(
         get_database_env_path(env="local", database_engine=selected_database),
         database_engine=selected_database,
-        value=DEBUG_VALUE if debug else None
+        value=DEBUG_VALUE if debug else None,
     )
 
     set_database_user(
         get_database_env_path(env="prod", database_engine=selected_database),
         value=database_user,
-        database_engine=selected_database
-        )
+        database_engine=selected_database,
+    )
     set_database_password(
         get_database_env_path(env="prod", database_engine=selected_database),
         database_engine=selected_database,
-        value=DEBUG_VALUE if debug else None
+        value=DEBUG_VALUE if debug else None,
     )
 
     set_celery_flower_user(local_django_envs_path, value=celery_flower_user)
