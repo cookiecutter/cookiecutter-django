@@ -1,4 +1,4 @@
-PostgreSQL Backups with Docker
+Database Backups with Docker
 ==============================
 
 .. note:: For brevity it is assumed that you will be running the below commands against local environment, however, this is by no means mandatory so feel free to switch to ``production.yml`` when needed.
@@ -14,24 +14,40 @@ Prerequisites
 Creating a Backup
 -----------------
 
-To create a backup, run::
+Postgresql Backup
+~~~~~~~~~~~~~~~~~~
 
-    $ docker-compose -f local.yml exec postgres backup
+    To create a backup, run::
+
+        $ docker-compose -f local.yml exec postgres backup
+
+MySQL Backup
+~~~~~~~~~~~~~
+
+    To create a backup, run::
+
+        $ docker-compose -f local.yml exec mysql backup
 
 Assuming your project's database is named ``my_project`` here is what you will see: ::
 
     Backing up the 'my_project' database...
     SUCCESS: 'my_project' database backup 'backup_2018_03_13T09_05_07.sql.gz' has been created and placed in '/backups'.
 
-Keep in mind that ``/backups`` is the ``postgres`` container directory.
+Keep in mind that ``/backups`` is the directory in the database container
 
 
 Viewing the Existing Backups
 ----------------------------
 
-To list existing backups, ::
+To list existing backups,
 
-    $ docker-compose -f local.yml exec postgres backups
+    Postgres database backups: ::
+
+        $ docker-compose -f local.yml exec postgres backups
+
+    MySQL database backups: ::
+
+        $ docker-compose -f local.yml exec mysql backups
 
 These are the sample contents of ``/backups``: ::
 
@@ -59,14 +75,24 @@ You can also get the container ID using ``docker-compose -f local.yml ps -q post
 
     $ docker cp $(docker-compose -f local.yml ps -q postgres):/backups ./backups
 
+.. note::
+    The above example assumes `postgres` as the project database. If you're using `mysql`, just replace the container names
+    with `mysql`
+
 .. _`command`: https://docs.docker.com/engine/reference/commandline/cp/
 
 Restoring from the Existing Backup
 ----------------------------------
 
-To restore from one of the backups you have already got (take the ``backup_2018_03_13T09_05_07.sql.gz`` for example), ::
+To restore from one of the backups you have already got (take the ``backup_2018_03_13T09_05_07.sql.gz`` for example),
+
+Postgres ::
 
     $ docker-compose -f local.yml exec postgres restore backup_2018_03_13T09_05_07.sql.gz
+
+MySQL ::
+
+    $ docker-compose -f local.yml exec mysql restore backup_2018_03_13T09_05_07.sql.gz
 
 You will see something like ::
 

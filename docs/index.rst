@@ -23,7 +23,7 @@ Contents
    deployment-on-pythonanywhere
    deployment-on-heroku
    deployment-with-docker
-   docker-postgres-backups
+   docker-database-backups
    websocket
    faq
    troubleshooting
