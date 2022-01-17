@@ -734,6 +734,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Fuzzwah</td>
+    <td>
+      <a href="https://github.com/Fuzzwah">Fuzzwah</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Gabriel Mejia</td>
     <td>
       <a href="https://github.com/elgartoinf">elgartoinf</a>
@@ -1343,6 +1350,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Pedro Campos</td>
+    <td>
+      <a href="https://github.com/pcampos119104">pcampos119104</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Peter Bittner</td>
     <td>
       <a href="https://github.com/bittner">bittner</a>
@@ -1530,6 +1544,13 @@ Listed in alphabetical order.
       <a href="https://github.com/"></a>
     </td>
     <td></td>
+  </tr>
+  <tr>
+    <td>Thibault J.</td>
+    <td>
+      <a href="https://github.com/thibault">thibault</a>
+    </td>
+    <td>thibault</td>
   </tr>
   <tr>
     <td>Théo Segonds</td>

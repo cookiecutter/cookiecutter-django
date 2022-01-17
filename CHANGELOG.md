@@ -3,6 +3,37 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.01.14
+
+### Updated
+- Update uvicorn to 0.17.0 ([#3534](https://github.com/cookiecutter/cookiecutter-django/pull/3534))
+- Bump stefanzweifel/git-auto-commit-action from 4.13.0 to 4.13.1 ([#3532](https://github.com/cookiecutter/cookiecutter-django/pull/3532))
+
+## 2022.01.13
+
+### Changed
+- Add UserSignupForm and UserSocialSignupForm ([#3515](https://github.com/cookiecutter/cookiecutter-django/pull/3515))
+### Fixed
+- Fix high CPU usage when running `runserver_plus` in Docker ([#3531](https://github.com/cookiecutter/cookiecutter-django/pull/3531))
+- Fix out-of-sync sequence for Site ID ([#3511](https://github.com/cookiecutter/cookiecutter-django/pull/3511))
+
+## 2022.01.11
+
+### Updated
+- Bump stefanzweifel/git-auto-commit-action from 4.12.0 to 4.13.0 ([#3527](https://github.com/cookiecutter/cookiecutter-django/pull/3527))
+
+## 2022.01.10
+
+### Updated
+- Update django-cors-headers to 3.11.0 ([#3526](https://github.com/cookiecutter/cookiecutter-django/pull/3526))
+- Update sentry-sdk to 1.5.2 ([#3525](https://github.com/cookiecutter/cookiecutter-django/pull/3525))
+- Update gitpython to 3.1.26 ([#3524](https://github.com/cookiecutter/cookiecutter-django/pull/3524))
+
+## 2022.01.09
+
+### Changed
+- Fix broken center align of image links in README  ([#3522](https://github.com/cookiecutter/cookiecutter-django/pull/3522))
+
 ## 2022.01.07
 
 ### Fixed
