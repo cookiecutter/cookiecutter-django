@@ -9,7 +9,7 @@ volumes:
   {{ cookiecutter.project_slug }}_local_mysql_data: {}
   {{ cookiecutter.project_slug }}_local_mysql_data_backups: {}
   {%- endif %}
-  
+
 services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
     build:
@@ -65,8 +65,8 @@ services:
     image: {{ cookiecutter.project_slug }}_production_mysql
     container_name: mysql
     volumes:
-      - local_mysql_data:/var/lib/mysql:z
-      - local_mysql_data_backups:/backups:z
+      - {{ cookiecutter.project_slug }}_local_mysql_data:/var/lib/mysql:z
+      - {{ cookiecutter.project_slug }}_local_mysql_data_backups:/backups:z
     env_file:
       - ./.envs/.local/.mysql
   {%- endif %}
