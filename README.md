@@ -118,11 +118,11 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     use_docker [n]: n
     database_engine: 1
     Select database_version:
-    1 - 14.1
-    2 - 13.5
-    3 - 12.9
-    4 - 11.14
-    5 - 10.19
+    1 - postgresql@14.1
+    2 - postgresql@13.5
+    3 - postgresql@12.9
+    4 - postgresql@11.14
+    5 - postgresql@10.19
     Choose from 1, 2, 3, 4, 5 [1]: 1
     Select js_task_runner:
     1 - None
