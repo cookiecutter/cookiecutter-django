@@ -2,12 +2,12 @@ version: '3'
 
 volumes:
   {%- if cookiecutter.database_engine == 'postgresql' %}
-  local_postgres_data: {}
-  local_postgres_data_backups: {}
+  {{ cookiecutter.project_slug }}_local_postgres_data: {}
+  {{ cookiecutter.project_slug }}_local_postgres_data_backups: {}
   {%- endif %}
   {%- if cookiecutter.database_engine == 'mysql' %}
-  local_mysql_data: {}
-  local_mysql_data_backups: {}
+  {{ cookiecutter.project_slug }}_local_mysql_data: {}
+  {{ cookiecutter.project_slug }}_local_mysql_data_backups: {}
   {%- endif %}
 
 services:
