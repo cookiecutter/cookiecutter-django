@@ -337,7 +337,7 @@ CORS_URLS_REGEX = r"^/api/.*$"
 
 # By Default swagger ui is available only to admin user. You can change permission classs to change that
 SPECTACULAR_SETTINGS = {
-    "TITLE": "{{ cookiecutter.project_slug }} API",
+    "TITLE": "API documentation for{{ cookiecutter.project_slug }}",
     "DESCRIPTION": "Lets rock and then roll!",
     "VERSION": "1.0.0",
     "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAdminUser"],
