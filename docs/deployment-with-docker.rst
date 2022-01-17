@@ -17,7 +17,7 @@ Understanding the Docker Compose Setup
 Before you begin, check out the ``production.yml`` file in the root of this project. Keep note of how it provides configuration for the following services:
 
 * ``django``: your application running behind ``Gunicorn``;
-* ``postgres``: PostgreSQL database with the application's relational data;
+* ``postgres/mysql``: PostgreSQL/MySQL database with the application's relational data;
 * ``redis``: Redis instance for caching;
 * ``traefik``: Traefik reverse proxy with HTTPS on by default.
 
@@ -85,10 +85,12 @@ You can read more about this feature and how to configure it, at `Automatic HTTP
 .. _Automatic HTTPS: https://docs.traefik.io/https/acme/
 
 
-(Optional) Postgres Data Volume Modifications
+(Optional) Database Data Volume Modifications
 ---------------------------------------------
 
-Postgres is saving its database files to the ``production_postgres_data`` volume by default. Change that if you want something else and make sure to make backups since this is not done automatically.
+Postgres is saving its database files to the ``production_postgres_data`` volume by default.
+Similarly, MySQL is saving its database files to the ``production_mysql_data`` volume by default.
+Change that if you want something else and make sure to make backups since this is not done automatically.
 
 
 Building & Running Production Stack

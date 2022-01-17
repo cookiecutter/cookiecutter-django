@@ -2,10 +2,15 @@
 
 Werkzeug[watchdog]==2.0.2 # https://github.com/pallets/werkzeug
 ipdb==0.13.9  # https://github.com/gotcha/ipdb
+{%- if cookiecutter.database_engine == "postgresql" %}
 {%- if cookiecutter.use_docker == 'y' %}
 psycopg2==2.9.3  # https://github.com/psycopg/psycopg2
 {%- else %}
 psycopg2-binary==2.9.3  # https://github.com/psycopg/psycopg2
+{%- endif %}
+{%- endif %}
+{%- if cookiecutter.database_engine == "mysql" %}
+mysqlclient==2.1.0 # https://github.com/PyMySQL/mysqlclient
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' or cookiecutter.use_celery == 'y' %}
 watchgod==0.7  # https://github.com/samuelcolvin/watchgod

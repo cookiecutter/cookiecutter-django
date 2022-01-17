@@ -8,51 +8,97 @@ Script
 
 Run these commands to deploy the project to Heroku:
 
-.. code-block:: bash
+#. Create app on Heroku ::
 
     heroku create --buildpack heroku/python
 
     heroku addons:create heroku-postgresql:hobby-dev
-    # On Windows use double quotes for the time zone, e.g.
-    # heroku pg:backups schedule --at "02:00 America/Los_Angeles" DATABASE_URL
-    heroku pg:backups schedule --at '02:00 America/Los_Angeles' DATABASE_URL
-    heroku pg:promote DATABASE_URL
 
-    heroku addons:create heroku-redis:hobby-dev
+#. Database setup
 
-    # Assuming you chose Mailgun as mail service (see below for others)
-    heroku addons:create mailgun:starter
+    #. Postgres
+        .. code-block:: bash
 
-    heroku config:set PYTHONHASHSEED=random
+            # Postgres
+            # On Windows use double quotes for the time zone, e.g.
+            # heroku pg:backups schedule --at "02:00 America/Los_Angeles" DATABASE_URL
+            heroku pg:backups schedule --at '02:00 America/Los_Angeles' DATABASE_URL
+            heroku pg:promote DATABASE_URL
 
-    heroku config:set WEB_CONCURRENCY=4
+    #. MySQL
 
-    heroku config:set DJANGO_DEBUG=False
-    heroku config:set DJANGO_SETTINGS_MODULE=config.settings.production
-    heroku config:set DJANGO_SECRET_KEY="$(openssl rand -base64 64)"
+        To add mysql to yout app when deploying it on heroku, you have to add it through some add-on that support MySQL.
+        Check the full list of add-ons on `Heroku Add-ons`_. Here **JAWSDB Add-ons** is being used.
 
-    # Generating a 32 character-long random string without any of the visually similar characters "IOl01":
-    heroku config:set DJANGO_ADMIN_URL="$(openssl rand -base64 4096 | tr -dc 'A-HJ-NP-Za-km-z2-9' | head -c 32)/"
+        .. code-block:: bash
 
-    # Set this to your Heroku app url, e.g. 'bionic-beaver-28392.herokuapp.com'
-    heroku config:set DJANGO_ALLOWED_HOSTS=
+            heroku addons:create jawsdb --app <name_of_your_app>
+            # or
+            heroku addons:create jawsdb --app <name_of_your_app> --version=<your_desired_mysql_version>
 
-    # Assign with AWS_ACCESS_KEY_ID
-    heroku config:set DJANGO_AWS_ACCESS_KEY_ID=
+            # once database is delployed, you can run the following command to get the connection url,
+            heroku config:get JAWSDB_URL
+            >> mysql://username:password@hostname:port/default_schema
 
-    # Assign with AWS_SECRET_ACCESS_KEY
-    heroku config:set DJANGO_AWS_SECRET_ACCESS_KEY=
+            # backups
+            heroku addons:create jawsdb --bkpwindowstart 00:30 --bkpwindowend 01:00 --mntwindowstart Tue:23:30 --mntwindowend Wed:00:00 --app <name_of_your_app>
 
-    # Assign with AWS_STORAGE_BUCKET_NAME
-    heroku config:set DJANGO_AWS_STORAGE_BUCKET_NAME=
+            # To find more about jawsdb backups
+            # https://devcenter.heroku.com/articles/jawsdb#backup-import-data-from-jawsdb-or-another-mysql-database
 
-    git push heroku master
+#. Redis connection setup
 
-    heroku run python manage.py createsuperuser
+    .. code-block:: bash
 
-    heroku run python manage.py check --deploy
+        heroku addons:create heroku-redis:hobby-dev
 
-    heroku open
+#. Mailgun
+
+    .. code-block:: bash
+
+        # Assuming you chose Mailgun as mail service (see below for others)
+        heroku addons:create mailgun:starter
+
+#. Setting up environment variables
+
+.. code-block:: bash
+
+        heroku config:set PYTHONHASHSEED=random
+
+        heroku config:set WEB_CONCURRENCY=4
+
+        heroku config:set DJANGO_DEBUG=False
+        heroku config:set DJANGO_SETTINGS_MODULE=config.settings.production
+        heroku config:set DJANGO_SECRET_KEY="$(openssl rand -base64 64)"
+
+        # Generating a 32 character-long random string without any of the visually similar characters "IOl01":
+        heroku config:set DJANGO_ADMIN_URL="$(openssl rand -base64 4096 | tr -dc 'A-HJ-NP-Za-km-z2-9' | head -c 32)/"
+
+        # Set this to your Heroku app url, e.g. 'bionic-beaver-28392.herokuapp.com'
+        heroku config:set DJANGO_ALLOWED_HOSTS=
+
+        # Assign with AWS_ACCESS_KEY_ID
+        heroku config:set DJANGO_AWS_ACCESS_KEY_ID=
+
+        # Assign with AWS_SECRET_ACCESS_KEY
+        heroku config:set DJANGO_AWS_SECRET_ACCESS_KEY=
+
+        # Assign with AWS_STORAGE_BUCKET_NAME
+        heroku config:set DJANGO_AWS_STORAGE_BUCKET_NAME=
+
+#. Deploying
+
+    .. code-block:: bash
+
+        git push heroku master
+
+        heroku run python manage.py createsuperuser
+
+        heroku run python manage.py check --deploy
+
+        heroku open
+
+.. _Heroku Add-ons: https://elements.heroku.com/addons
 
 Notes
 -----

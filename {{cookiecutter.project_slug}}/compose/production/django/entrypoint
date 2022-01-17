@@ -10,16 +10,26 @@ set -o nounset
 export CELERY_BROKER_URL="${REDIS_URL}"
 {% endif %}
 
+{%- if cookiecutter.database_engine == 'postgresql' %}
 if [ -z "${POSTGRES_USER}" ]; then
     base_postgres_image_default_user='postgres'
     export POSTGRES_USER="${base_postgres_image_default_user}"
 fi
 export DATABASE_URL="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}"
+{%- endif %}
+{%- if cookiecutter.database_engine == 'mysql' %}
+if [ -z "${MYSQL_USER}" ]; then
+    base_mysql_image_default_user='mysql'
+    export MYSQL_USER="${base_mysql_image_default_user}"
+fi
+export DATABASE_URL="mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}"
+{%- endif %}
 
-postgres_ready() {
+database_ready() {
 python << END
 import sys
 
+{%- if cookiecutter.database_engine == 'postgresql' %}
 import psycopg2
 
 try:
@@ -33,13 +43,28 @@ try:
 except psycopg2.OperationalError:
     sys.exit(-1)
 sys.exit(0)
+{%- endif %}
+{%- if cookiecutter.database_engine == 'mysql' %}
+import MySQLdb
+
+try:
+    _db = MySQLdb._mysql.connect(
+        host="${MYSQL_HOST}",
+        user="${MYSQL_USER}",
+        password="${MYSQL_PASSWORD}",
+        database="${MYSQL_DATABASE}",
+        port=int("${MYSQL_PORT}")
+    )
+except MySQLdb._exceptions.OperationalError:
+    sys.exit(-1)
+{%- endif %}
 
 END
 }
-until postgres_ready; do
-  >&2 echo 'Waiting for PostgreSQL to become available...'
+until database_ready; do
+  >&2 echo 'Waiting for {{ cookiecutter.database_engine.upper() }} to become available...'
   sleep 1
 done
->&2 echo 'PostgreSQL is available'
+>&2 echo '{{ cookiecutter.database_engine.upper() }} is available'
 
 exec "$@"

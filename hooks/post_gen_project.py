@@ -143,6 +143,32 @@ def remove_dotgithub_folder():
     shutil.rmtree(".github")
 
 
+def remove_postgres_env_files():
+    local_postgres_envs_path = os.path.join(".envs", ".local", ".postgres")
+    production_postgres_envs_path = os.path.join(".envs", ".production", ".postgres")
+
+    os.remove(local_postgres_envs_path)
+    os.remove(production_postgres_envs_path)
+
+
+def remove_mysql_env_files():
+    local_mysql_envs_path = os.path.join(".envs", ".local", ".mysql")
+    production_mysql_envs_path = os.path.join(".envs", ".production", ".mysql")
+
+    os.remove(local_mysql_envs_path)
+    os.remove(production_mysql_envs_path)
+
+
+def remove_postgres_docker_folder():
+    postgres_compose_path = os.path.join("compose", "production", "postgres")
+    shutil.rmtree(postgres_compose_path)
+
+
+def remove_mysql_docker_folder():
+    mysql_compose_path = os.path.join("compose", "production", "mysql")
+    shutil.rmtree(mysql_compose_path)
+
+
 def generate_random_string(
     length, using_digits=False, using_ascii_letters=False, using_punctuation=False
 ):
@@ -217,25 +243,50 @@ def generate_random_user():
     return generate_random_string(length=32, using_ascii_letters=True)
 
 
-def generate_postgres_user(debug=False):
+def generate_database_user(debug=False):
     return DEBUG_VALUE if debug else generate_random_user()
 
 
-def set_postgres_user(file_path, value):
-    postgres_user = set_flag(file_path, "!!!SET POSTGRES_USER!!!", value=value)
-    return postgres_user
+def set_database_user(file_path: str, value: str, database_engine: str):
+    database_user = set_flag(
+        file_path, f"!!!SET {database_engine.upper()}_USER!!!", value=value
+    )
+    return database_user
 
 
-def set_postgres_password(file_path, value=None):
-    postgres_password = set_flag(
+def set_database_password(file_path: str, database_engine: str, value: str = None):
+    database_password = set_flag(
         file_path,
-        "!!!SET POSTGRES_PASSWORD!!!",
+        f"!!!SET {database_engine.upper()}_USER!!!",
         value=value,
         length=64,
         using_digits=True,
         using_ascii_letters=True,
     )
-    return postgres_password
+    return database_password
+
+
+def get_database_env_path(env: str, database_engine: str):
+    local_postgres_envs_path = os.path.join(".envs", ".local", ".postgres")
+    production_postgres_envs_path = os.path.join(".envs", ".production", ".postgres")
+    local_mysql_envs_path = os.path.join(".envs", ".local", ".mysql")
+    production_mysql_envs_path = os.path.join(".envs", ".production", ".mysql")
+
+    is_mysql = database_engine == "mysql"
+    is_postgres = database_engine == "postgresql"
+
+    if env == "local":
+        if is_mysql:
+            return local_mysql_envs_path
+        if is_postgres:
+            return local_postgres_envs_path
+    if env == "prod":
+        if is_mysql:
+            return production_mysql_envs_path
+        if is_postgres:
+            return production_postgres_envs_path
+
+    return None
 
 
 def set_celery_flower_user(file_path, value):
@@ -263,22 +314,35 @@ def append_to_gitignore_file(ignored_line):
         gitignore_file.write("\n")
 
 
-def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):
+def set_flags_in_envs(database_user, celery_flower_user, debug=False):
     local_django_envs_path = os.path.join(".envs", ".local", ".django")
     production_django_envs_path = os.path.join(".envs", ".production", ".django")
-    local_postgres_envs_path = os.path.join(".envs", ".local", ".postgres")
-    production_postgres_envs_path = os.path.join(".envs", ".production", ".postgres")
+
+    selected_database = "{{ cookiecutter.database_engine }}"
 
     set_django_secret_key(production_django_envs_path)
     set_django_admin_url(production_django_envs_path)
 
-    set_postgres_user(local_postgres_envs_path, value=postgres_user)
-    set_postgres_password(
-        local_postgres_envs_path, value=DEBUG_VALUE if debug else None
+    set_database_user(
+        get_database_env_path(env="local", database_engine=selected_database),
+        value=database_user,
+        database_engine=selected_database,
     )
-    set_postgres_user(production_postgres_envs_path, value=postgres_user)
-    set_postgres_password(
-        production_postgres_envs_path, value=DEBUG_VALUE if debug else None
+    set_database_password(
+        get_database_env_path(env="local", database_engine=selected_database),
+        database_engine=selected_database,
+        value=DEBUG_VALUE if debug else None,
+    )
+
+    set_database_user(
+        get_database_env_path(env="prod", database_engine=selected_database),
+        value=database_user,
+        database_engine=selected_database,
+    )
+    set_database_password(
+        get_database_env_path(env="prod", database_engine=selected_database),
+        database_engine=selected_database,
+        value=DEBUG_VALUE if debug else None,
     )
 
     set_celery_flower_user(local_django_envs_path, value=celery_flower_user)
@@ -352,6 +416,10 @@ def main():
         remove_pycharm_files()
 
     if "{{ cookiecutter.use_docker }}".lower() == "y":
+        if "{{ cookiecutter.database_engine }}".lower() == "postgresql":
+            remove_mysql_docker_folder()
+        elif "{{ cookiecutter.database_engine }}".lower() == "mysql":
+            remove_postgres_docker_folder()
         remove_utility_files()
     else:
         remove_docker_files()
@@ -366,6 +434,11 @@ def main():
         remove_heroku_files()
     elif "{{ cookiecutter.use_compressor }}".lower() == "n":
         remove_heroku_build_hooks()
+
+    if "{{ cookiecutter.database_engine }}".lower() == "postgresql":
+        remove_mysql_env_files()
+    elif "{{ cookiecutter.database_engine }}".lower() == "mysql":
+        remove_postgres_env_files()
 
     if (
         "{{ cookiecutter.use_docker }}".lower() == "n"

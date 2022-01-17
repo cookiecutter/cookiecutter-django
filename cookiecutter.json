@@ -17,22 +17,19 @@
   "windows": "n",
   "use_pycharm": "n",
   "use_docker": "n",
-  "postgresql_version": [
-    "14.1",
-    "13.5",
-    "12.9",
-    "11.14",
-    "10.19"
+  "database_engine": ["postgresql", "mysql"],
+  "database_version": [
+    "postgresql@14.1",
+    "postgresql@13.5",
+    "postgresql@12.9",
+    "postgresql@11.14",
+    "postgresql@10.19",
+    "mysql@5.7"
   ],
-  "js_task_runner": [
-    "None",
-    "Gulp"
-  ],
-  "cloud_provider": [
-    "AWS",
-    "GCP",
-    "None"
-  ],
+  "__processed_database_engine": "{{ cookiecutter.database_version.lower()|split('@')[0] }}",
+  "__processed_database_version": "{{ cookiecutter.database_version.lower()|split('@')[1] }}",
+  "js_task_runner": ["None", "Gulp"],
+  "cloud_provider": ["AWS", "GCP", "None"],
   "mail_service": [
     "Mailgun",
     "Amazon SES",
@@ -53,12 +50,7 @@
   "use_sentry": "n",
   "use_whitenoise": "n",
   "use_heroku": "n",
-  "ci_tool": [
-    "None",
-    "Travis",
-    "Gitlab",
-    "Github"
-  ],
+  "ci_tool": ["None", "Travis", "Gitlab", "Github"],
   "keep_local_envs_in_vcs": "y",
   "debug": "n"
 }

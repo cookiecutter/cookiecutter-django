@@ -43,9 +43,15 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 {% if cookiecutter.use_docker == "y" -%}
 DATABASES = {"default": env.db("DATABASE_URL")}
 {%- else %}
+{% if cookiecutter.database_engine == 'postgresql' -%}
 DATABASES = {
     "default": env.db("DATABASE_URL", default="postgres://{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.project_slug}}"),
 }
+{% elif cookiecutter.database_engine == 'mysql' -%}
+DATABASES = {
+    "default": env.db("DATABASE_URL", default="mysql://root:debug@{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.project_slug}}"),
+}
+{%- endif %}
 {%- endif %}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 # https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEFAULT_AUTO_FIELD

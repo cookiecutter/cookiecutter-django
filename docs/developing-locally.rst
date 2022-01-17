@@ -1,7 +1,7 @@
 Getting Up and Running Locally
 ==============================
 
-.. index:: pip, virtualenv, PostgreSQL
+.. index:: pip, virtualenv, PostgreSQL, MySQL
 
 
 Setting Up Development Environment
@@ -10,25 +10,25 @@ Setting Up Development Environment
 Make sure to have the following on your host:
 
 * Python 3.9
-* PostgreSQL_.
+* PostgreSQL_ / MySQL_
 * Redis_, if using Celery
 * Cookiecutter_
 
 First things first.
 
-#. Create a virtualenv: ::
+1. Create a virtualenv: ::
 
     $ python3.9 -m venv <virtual env path>
 
-#. Activate the virtualenv you have just created: ::
+2. Activate the virtualenv you have just created: ::
 
     $ source <virtual env path>/bin/activate
 
-#. Install cookiecutter-django: ::
+3. Install cookiecutter-django: ::
 
     $ cookiecutter gh:cookiecutter/cookiecutter-django
 
-#. Install development requirements: ::
+4. Install development requirements: ::
 
     $ cd <what you have entered as the project_slug at setup stage>
     $ pip install -r requirements/local.txt
@@ -40,6 +40,11 @@ First things first.
        the `pre-commit` hook exists in the generated project as default.
        For the details of `pre-commit`, follow the `pre-commit`_ site.
 
+Database Setup
+-------------------
+
+Setup with PostgreSQL_
+~~~~~~~~~~~~~~~~~~~~~~~
 #. Create a new PostgreSQL database using createdb_: ::
 
     $ createdb <what you have entered as the project_slug at setup stage> -U postgres --password <password>
@@ -51,10 +56,31 @@ First things first.
        the ``postgres`` user. The `postgres documentation`_ explains the syntax of the config file
        that you need to change.
 
+Setup with MySQL_
+~~~~~~~~~~~~~~~~~~~~~~~
+    #. Create a new MySQL database: ::
 
-#. Set the environment variables for your database(s): ::
+        $ mysql -u root -p <password>
+        $ Enter password: ******
 
+        mysql> CREATE DATABASE <what you have entered as the project_slug at setup stage>;
+
+        mysql> quit
+
+    .. note::
+
+        If this is the first time you are using MySQL database on your machine, you might need to install the database
+        and set a root user and password. Visit `initial MySQL set up`_ for more details.
+
+
+5. Set the environment variables for your database(s): ::
+
+    # PostgreSQL
     $ export DATABASE_URL=postgres://postgres:<password>@127.0.0.1:5432/<DB name given to createdb>
+
+    # MySQL
+    $ export DATABASE_URL=mysql://root:<password>@127.0.0.1:3306/<DB name given to createdb>
+
     # Optional: set broker URL if using Celery
     $ export CELERY_BROKER_URL=redis://localhost:6379/0
 
@@ -71,11 +97,11 @@ First things first.
          will be read.
        * Use a local environment manager like `direnv`_
 
-#. Apply migrations: ::
+6. Apply migrations: ::
 
     $ python manage.py migrate
 
-#. If you're running synchronously, see the application being served through Django development server: ::
+7. If you're running synchronously, see the application being served through Django development server: ::
 
     $ python manage.py runserver 0.0.0.0:8000
 
@@ -84,10 +110,12 @@ or if you're running asynchronously: ::
     $ uvicorn config.asgi:application --host 0.0.0.0 --reload
 
 .. _PostgreSQL: https://www.postgresql.org/download/
+.. _MySQL: https://dev.mysql.com/downloads/
 .. _Redis: https://redis.io/download
 .. _CookieCutter: https://github.com/cookiecutter/cookiecutter
 .. _createdb: https://www.postgresql.org/docs/current/static/app-createdb.html
 .. _initial PostgreSQL set up: https://web.archive.org/web/20190303010033/http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html
+.. _initial MySQL set up: https://dev.mysql.com/doc/mysql-getting-started/en/#mysql-getting-started-installing
 .. _postgres documentation: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
 .. _pre-commit: https://pre-commit.com/
 .. _direnv: https://direnv.net/

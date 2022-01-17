@@ -17,6 +17,9 @@ INFO = "\x1b[1;33m [INFO]: "
 HINT = "\x1b[3;33m"
 SUCCESS = "\x1b[1;32m [SUCCESS]: "
 
+SUPPORTED_POSTGRES_VERSIONS = ["14.1", "13.5", "12.9", "11.14", "10.19"]
+SUPPORTED_MYSQL_VERSIONS = ["5.7"]
+
 project_slug = "{{ cookiecutter.project_slug }}"
 if hasattr(project_slug, "isidentifier"):
     assert (
@@ -81,5 +84,19 @@ if (
     print(
         "You should either use AWS or select a different "
         "Mail Service for sending emails."
+    )
+    sys.exit(1)
+
+
+if (
+    "{{ cookiecutter.database_version }}".lower().split("@")[0]
+    != "{{ cookiecutter.database_engine }}"
+):
+    print(
+        WARNING + " You have selected {{ cookiecutter.database_engine }} "
+        "as your database engien and "
+        "your selected database_version {{ cookiecutter.database_version }} is not "
+        "compatible with this "
+        "selection. Please retry and select appropriate option." + TERMINATOR
     )
     sys.exit(1)

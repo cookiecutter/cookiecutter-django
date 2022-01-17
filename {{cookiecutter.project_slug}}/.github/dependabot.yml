@@ -57,8 +57,14 @@ updates:
 
   # Enable version updates for Docker
   - package-ecosystem: "docker"
+    {%- if cookiecutter.database_engine == 'postgresql' %}
     # Look for a `Dockerfile` in the `compose/production/postgres` directory
     directory: "compose/production/postgres/"
+    {%- endif %}
+    {%- if cookiecutter.database_engine == 'mysql' %}
+    # Look for a `Dockerfile` in the `compose/production/mysql` directory
+    directory: "compose/production/mysql/"
+    {%- endif %}
     # Check for updates to GitHub Actions every weekday
     schedule:
       interval: "daily"
