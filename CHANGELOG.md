@@ -3,6 +3,14 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.01.17
+
+### Changed
+- Avoid docker image/volume collision by prefixing with project slug ([#3528](https://github.com/cookiecutter/cookiecutter-django/pull/3528))
+### Updated
+- Update redis to 4.1.1 ([#3540](https://github.com/cookiecutter/cookiecutter-django/pull/3540))
+- Update sphinx to 4.4.0 ([#3537](https://github.com/cookiecutter/cookiecutter-django/pull/3537))
+
 ## 2022.01.14
 
 ### Updated
