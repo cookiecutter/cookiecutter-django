@@ -344,7 +344,7 @@ SPECTACULAR_SETTINGS = {
     "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAdminUser"],
     "SERVERS": [
         {"url": "https://127.0.0.1:8000", "description": "Local Development server"},
-        {"url": "https://example.com", "description": "Production server"},
+        {"url": "https://{{ cookiecutter.domain_name }}", "description": "Production server"},
     ],
 }
 {%- endif %}
