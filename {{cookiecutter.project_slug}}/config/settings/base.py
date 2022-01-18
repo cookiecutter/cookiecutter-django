@@ -343,18 +343,8 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "1.0.0",
     "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAdminUser"],
     "SERVERS": [
-        {
-            "url": "https://127.0.0.1:8000",
-            "description": "Local Development server"
-        },
-#        {
-#            "url": "https://staging.{{ cookiecutter.domain_name }}",
-#            "description": "Development server"
-#        },
-        {
-            "url": 'https://{{ cookiecutter.domain_name }}",
-            "description": "Production server"
-        }
+        {"url": "https://127.0.0.1:8000", "description": "Local Development server"},
+        {"url": "https://example.com", "description": "Production server"},
     ],
 }
 {%- endif %}
