@@ -84,6 +84,7 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "corsheaders",
+    "drf_spectacular",
 {%- endif %}
 ]
 
@@ -334,6 +335,18 @@ REST_FRAMEWORK = {
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup
 CORS_URLS_REGEX = r"^/api/.*$"
 
+# By Default swagger ui is available only to admin user. You can change permission classs to change that
+# See more configuration options at https://drf-spectacular.readthedocs.io/en/latest/settings.html#settings
+SPECTACULAR_SETTINGS = {
+    "TITLE": "{{ cookiecutter.project_name }} API",
+    "DESCRIPTION": "Documentation of API endpoiints of {{ cookiecutter.project_name }}",
+    "VERSION": "1.0.0",
+    "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAdminUser"],
+    "SERVERS": [
+        {"url": "https://127.0.0.1:8000", "description": "Local Development server"},
+        {"url": "https://{{ cookiecutter.domain_name }}", "description": "Production server"},
+    ],
+}
 {%- endif %}
 # Your stuff...
 # ------------------------------------------------------------------------------

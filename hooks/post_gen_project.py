@@ -327,6 +327,11 @@ def remove_drf_starter_files():
             "{{cookiecutter.project_slug}}", "users", "tests", "test_drf_views.py"
         )
     )
+    os.remove(
+        os.path.join(
+            "{{cookiecutter.project_slug}}", "users", "tests", "test_swagger_ui.py"
+        )
+    )
 
 
 def remove_storages_module():
