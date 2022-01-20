@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.01.19
+
+### Changed
+- Add swagger API documentation when DRF is enabled  ([#3536](https://github.com/cookiecutter/cookiecutter-django/pull/3536))
+### Updated
+- Update pre-commit to 2.17.0 ([#3541](https://github.com/cookiecutter/cookiecutter-django/pull/3541))
+
 ## 2022.01.17
 
 ### Changed
