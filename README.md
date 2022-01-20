@@ -50,7 +50,7 @@ production-ready Django projects quickly.
 
 -   Only maintained 3rd party libraries are used.
 -   Uses PostgreSQL everywhere (10.19 - 14.1)
-    -  Now, MySQL is also supported. Please visit [this fork](https://github.com/mabdullahadeel/cookiecutter-django) to get full support for MySQL.
+    -  Now, MySQL is also supported. Please visit [this fork](https://github.com/mabdullahadeel/cookiecutter-django-mysql) to get full support for MySQL.
 -   Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
 ## Support this Project!
@@ -206,7 +206,7 @@ Scattered throughout the Python and HTML of this project are places marked with 
 
 ## For MySQL users
 To get full mysql support in addition to the default Postgresql, you can use this fork of the cookiecutter:
-https://github.com/mabdullahadeel/cookiecutter-django
+https://github.com/mabdullahadeel/cookiecutter-django-mysql
 
 ## Releases
 
