@@ -67,6 +67,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Docker ${{ matrix.script.name }}
+        key: ${{ runner.os }}-mycache-v2-${{ hashFiles(...) }}
         run: sh tests/test_docker.sh ${{ matrix.script.args }}
 
   bare:
