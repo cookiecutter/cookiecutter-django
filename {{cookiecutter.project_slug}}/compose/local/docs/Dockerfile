@@ -11,8 +11,13 @@ ENV PYTHONDONTWRITEBYTECODE 1
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
   # dependencies for building Python packages
-  build-essential \
+  {%- if cookiecutter.database_engine == "postgresql" %}
   # psycopg2 dependencies
+  libpq-dev \
+  {%- elif cookiecutter.database_engine == "mysql" %}
+  # mysql dependency
+  default-libmysqlclient-dev \
+  {%- endif %}
   libpq-dev \
   # cleaning up unused files
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
@@ -37,8 +42,13 @@ ENV PYTHONDONTWRITEBYTECODE 1
 RUN apt-get update && apt-get install --no-install-recommends -y \
   # To run the Makefile
   make \
+  {%- if cookiecutter.database_engine == "postgresql" %}
   # psycopg2 dependencies
   libpq-dev \
+  {%- elif cookiecutter.database_engine == "mysql" %}
+  # mysql dependency
+  default-libmysqlclient-dev \
+  {%- endif %}
   # Translations dependencies
   gettext \
   # Uncomment below lines to enable Sphinx output to latex and pdf
