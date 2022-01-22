@@ -3,6 +3,14 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.01.21
+
+### Changed
+- mysql support link ([#3544](https://github.com/cookiecutter/cookiecutter-django/pull/3544))
+### Updated
+- Update sentry-sdk to 1.5.3 ([#3543](https://github.com/cookiecutter/cookiecutter-django/pull/3543))
+- Update django-anymail to 8.5 ([#3542](https://github.com/cookiecutter/cookiecutter-django/pull/3542))
+
 ## 2022.01.19
 
 ### Changed
