@@ -22,7 +22,6 @@ git add .
 pre-commit run --show-diff-on-failure -a
 
 # make sure all images build
-cat ./compose/local/django/Dockerfile
 docker-compose -f local.yml build
 
 # run the project's type checks
