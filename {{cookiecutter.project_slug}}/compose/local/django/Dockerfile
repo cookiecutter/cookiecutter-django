@@ -45,9 +45,9 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   {%- if cookiecutter.database_engine == "postgresql" %}
   # psycopg2 dependencies
   libpq-dev \
+  default-libmysqlclient-dev \
   {%- elif cookiecutter.database_engine == "mysql" %}
   # mysql dependency
-  default-libmysqlclient-dev \
   {%- endif %}
   # Translations dependencies
   gettext \
