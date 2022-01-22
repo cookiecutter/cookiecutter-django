@@ -1,0 +1,44 @@
+name: CIMYSQL
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+          cache: pip
+      - name: Run pre-commit
+        uses: pre-commit/action@v2.0.3
+
+  docker:
+    strategy:
+      fail-fast: false
+      matrix:
+        script:
+          - name: Basic - MySQL
+            args: "database_engine=mysql database_version='mysql@8.0.28'"
+          - name: Extended - MySQL
+            args: "use_celery=y use_drf=y js_task_runner=Gulp database_engine=mysql database_version='mysql@8.0.28'"
+
+    name: "${{ matrix.script.name }} Docker"
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_BUILDKIT: 1
+      COMPOSE_DOCKER_CLI_BUILD: 1
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Docker ${{ matrix.script.name }}
+        run: sh tests/test_docker.sh ${{ matrix.script.args }}
