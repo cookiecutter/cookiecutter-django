@@ -19,7 +19,7 @@ export DATABASE_URL="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES
 {%- endif %}
 {%- if cookiecutter.database_engine == 'mysql' %}
 if [ -z "${MYSQL_USER}" ]; then
-    base_mysql_image_default_user='mysql'
+    base_mysql_image_default_user='root'
     export MYSQL_USER="${base_mysql_image_default_user}"
 fi
 export DATABASE_URL="mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}"
