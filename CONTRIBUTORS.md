@@ -132,6 +132,13 @@ Listed in alphabetical order.
     <td>Qoyyuum</td>
   </tr>
   <tr>
+    <td>Abdullah Adeel</td>
+    <td>
+      <a href="https://github.com/mabdullahadeel">mabdullahadeel</a>
+    </td>
+    <td>abdadeel_</td>
+  </tr>
+  <tr>
     <td>Adam Bogdał</td>
     <td>
       <a href="https://github.com/bogdal">bogdal</a>

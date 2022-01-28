@@ -50,6 +50,7 @@ _These features can be enabled during initial project setup._
 ## Constraints
 
 - Only maintained 3rd party libraries are used.
+- Uses PostgreSQL everywhere: 10.19 - 14.1 ([MySQL fork](https://github.com/mabdullahadeel/cookiecutter-django-mysql) also available).
 - Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
 ## Support this Project!
@@ -203,6 +204,11 @@ If you are using [PyUp](https://pyup.io) to keep your dependencies updated and s
 ## "Your Stuff"
 
 Scattered throughout the Python and HTML of this project are places marked with "your stuff". This is where third-party libraries are to be integrated with your project.
+
+## For MySQL users
+
+To get full MySQL support in addition to the default Postgresql, you can use this fork of the cookiecutter-django:
+https://github.com/mabdullahadeel/cookiecutter-django-mysql
 
 ## Releases
 

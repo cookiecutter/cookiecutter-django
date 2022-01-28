@@ -3,6 +3,27 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.01.27
+
+### Updated
+- Update redis to 4.1.2 ([#3551](https://github.com/cookiecutter/cookiecutter-django/pull/3551))
+
+## 2022.01.26
+
+### Updated
+- Update coverage to 6.3 ([#3550](https://github.com/cookiecutter/cookiecutter-django/pull/3550))
+- Update sentry-sdk to 1.5.4 ([#3549](https://github.com/cookiecutter/cookiecutter-django/pull/3549))
+- Update django-crispy-forms to 1.14.0 ([#3548](https://github.com/cookiecutter/cookiecutter-django/pull/3548))
+- Update uvicorn to 0.17.0.post1 ([#3547](https://github.com/cookiecutter/cookiecutter-django/pull/3547))
+
+## 2022.01.21
+
+### Changed
+- mysql support link ([#3544](https://github.com/cookiecutter/cookiecutter-django/pull/3544))
+### Updated
+- Update sentry-sdk to 1.5.3 ([#3543](https://github.com/cookiecutter/cookiecutter-django/pull/3543))
+- Update django-anymail to 8.5 ([#3542](https://github.com/cookiecutter/cookiecutter-django/pull/3542))
+
 ## 2022.01.19
 
 ### Changed
