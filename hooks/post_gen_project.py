@@ -257,13 +257,25 @@ def set_database_user(file_path: str, value: str, database_engine: str):
 def set_database_password(file_path: str, database_engine: str, value: str = None):
     database_password = set_flag(
         file_path,
-        f"!!!SET {database_engine.upper()}_USER!!!",
+        f"!!!SET {database_engine.upper()}_PASSWORD!!!",
         value=value,
         length=64,
         using_digits=True,
         using_ascii_letters=True,
     )
     return database_password
+
+
+def set_mysql_root_password(file_path: str, database_engine: str, value: str = None):
+    database_root_password = set_flag(
+        file_path,
+        f"!!!SET {database_engine.upper()}_ROOT_PASSWORD!!!",
+        value=value,
+        length=74,
+        using_digits=True,
+        using_ascii_letters=True,
+    )
+    return database_root_password
 
 
 def get_database_env_path(env: str, database_engine: str):
@@ -344,6 +356,19 @@ def set_flags_in_envs(database_user, celery_flower_user, debug=False):
         database_engine=selected_database,
         value=DEBUG_VALUE if debug else None,
     )
+
+    if selected_database == "mysql":
+        set_mysql_root_password(
+            get_database_env_path(env="local", database_engine=selected_database),
+            database_engine=selected_database,
+            value=DEBUG_VALUE if debug else None,
+        )
+
+        set_mysql_root_password(
+            get_database_env_path(env="prod", database_engine=selected_database),
+            database_engine=selected_database,
+            value=DEBUG_VALUE if debug else None,
+        )
 
     set_celery_flower_user(local_django_envs_path, value=celery_flower_user)
     set_celery_flower_password(
