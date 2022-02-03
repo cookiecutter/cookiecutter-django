@@ -11,6 +11,7 @@ services:
       dockerfile: ./compose/local/django/Dockerfile
     image: {{ cookiecutter.project_slug }}_local_django
     container_name: {{ cookiecutter.project_slug }}_local_django
+    platform: linux/x86_64
     depends_on:
       - postgres
       {%- if cookiecutter.use_celery == 'y' %}
@@ -43,6 +44,7 @@ services:
   docs:
     image: {{ cookiecutter.project_slug }}_local_docs
     container_name: {{ cookiecutter.project_slug }}_local_docs
+    platform: linux/x86_64
     build:
       context: .
       dockerfile: ./compose/local/docs/Dockerfile
