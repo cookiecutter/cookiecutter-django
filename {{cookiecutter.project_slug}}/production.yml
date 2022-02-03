@@ -11,6 +11,7 @@ services:
       context: .
       dockerfile: ./compose/production/django/Dockerfile
     image: {{ cookiecutter.project_slug }}_production_django
+    platform: linux/x86_64
     depends_on:
       - postgres
       - redis
