@@ -3,14 +3,14 @@ Deployment on Heroku
 
 .. index:: Heroku
 
-Commands to run
----------------
+Script
+------
 
 Run these commands to deploy the project to Heroku:
 
 .. code-block:: bash
 
-    heroku create --buildpack heroku/python 
+    heroku create --buildpack heroku/python
 
     heroku addons:create heroku-postgresql:hobby-dev
     # On Windows use double quotes for the time zone, e.g.
@@ -20,6 +20,7 @@ Run these commands to deploy the project to Heroku:
 
     heroku addons:create heroku-redis:hobby-dev
 
+    # Assuming you chose Mailgun as mail service (see below for others)
     heroku addons:create mailgun:starter
 
     heroku config:set PYTHONHASHSEED=random
@@ -53,11 +54,25 @@ Run these commands to deploy the project to Heroku:
 
     heroku open
 
+Notes
+-----
+
+Email Service
++++++++++++++
+
+The script above assumes that you've chose Mailgun as email service. If you want to use another one, check the `documentation for django-anymail <https://anymail.readthedocs.io>`_ to know which environment variables to set. Heroku provides other `add-ons for emails <https://elements.heroku.com/addons#email-sms>`_ (e.g. Sendgrid) which can be configured with a similar one line command.
 
 .. warning::
 
     .. include:: mailgun.rst
 
+Heroku & Docker
++++++++++++++++
+
+Although Heroku has some sort of `Docker support`_, it's not supported by cookiecutter-django.
+We invite you to follow Heroku documentation about it.
+
+.. _Docker support: https://devcenter.heroku.com/articles/build-docker-images-heroku-yml
 
 Optional actions
 ----------------
@@ -111,11 +126,3 @@ which runs Gulp in cookiecutter-django.
 If things don't work, please refer to the Heroku docs.
 
 .. _multiple buildpacks: https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app
-
-About Heroku & Docker
----------------------
-
-Although Heroku has some sort of `Docker support`_, it's not supported by cookiecutter-django.
-We invite you to follow Heroku documentation about it.
-
-.. _Docker support: https://devcenter.heroku.com/articles/build-docker-images-heroku-yml

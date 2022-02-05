@@ -2,33 +2,43 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
   pull_request:
 
 jobs:
-  tox:
+  lint:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+          cache: pip
+      - name: Run pre-commit
+        uses: pre-commit/action@v2.0.3
+
+  tests:
     strategy:
       fail-fast: false
       matrix:
-        tox-env:
-          - py39
-          - black-template
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macOS-latest
 
+    name: "Run tests"
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2.2.2
+      - uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: "3.9"
+          cache: pip
       - name: Install dependencies
-        run: |
-          python -m pip install -U pip
-          python -m pip install -U tox
-      - name: Tox ${{ matrix.tox-env }}
-        run: tox -e ${{ matrix.tox-env }}
+        run: pip install -r requirements.txt
+      - name: Run tests
+        run: pytest tests
 
   docker:
-    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
@@ -38,27 +48,35 @@ jobs:
           - name: Extended
             args: "use_celery=y use_drf=y js_task_runner=Gulp"
 
+    name: "${{ matrix.script.name }} Docker"
+    runs-on: ubuntu-latest
     env:
       DOCKER_BUILDKIT: 1
       COMPOSE_DOCKER_CLI_BUILD: 1
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2.2.2
+      - uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: "3.9"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
       - name: Docker ${{ matrix.script.name }}
         run: sh tests/test_docker.sh ${{ matrix.script.args }}
 
   bare:
-    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         script:
           - name: With Celery
             args: "use_celery=y use_compressor=y"
+          - name: With Gulp
+            args: "js_task_runner=Gulp custom_bootstrap_compilation=y"
 
+    runs-on: ubuntu-latest
+    name: "${{ matrix.script.name }} Bare metal"
     services:
       redis:
         image: redis:5.0
@@ -78,8 +96,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2.2.2
+      - uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: "3.9"
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            {{cookiecutter.project_slug}}/requirements/base.txt
+            {{cookiecutter.project_slug}}/requirements/local.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
       - name: Bare Metal ${{ matrix.script.name }}
         run: sh tests/test_bare.sh ${{ matrix.script.args }}

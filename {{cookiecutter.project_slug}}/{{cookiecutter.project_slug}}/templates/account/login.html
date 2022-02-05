@@ -13,25 +13,37 @@
 {% get_providers as socialaccount_providers %}
 
 {% if socialaccount_providers %}
-<p>{% blocktranslate with site.name as site_name %}Please sign in with one
-of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-for a {{ site_name }} account and sign in below:{% endblocktranslate %}</p>
+  <p>
+    {% translate "Please sign in with one of your existing third party accounts:" %}
+    {% if ACCOUNT_ALLOW_REGISTRATION %}
+      {% blocktranslate trimmed %}
+        Or, <a href="{{ signup_url }}">sign up</a>
+        for a {{ site_name }} account and sign in below:
+      {% endblocktranslate %}
+    {% endif %}
+  </p>
 
-<div class="socialaccount_ballot">
+  <div class="socialaccount_ballot">
 
-  <ul class="socialaccount_providers">
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-  </ul>
+    <ul class="socialaccount_providers">
+      {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+    </ul>
 
-  <div class="login-or">{% translate 'or' %}</div>
+    <div class="login-or">{% translate "or" %}</div>
 
-</div>
+  </div>
 
-{% include "socialaccount/snippets/login_extra.html" %}
+  {% include "socialaccount/snippets/login_extra.html" %}
 
 {% else %}
-<p>{% blocktranslate %}If you have not created an account yet, then please
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktranslate %}</p>
+  {% if ACCOUNT_ALLOW_REGISTRATION %}
+    <p>
+      {% blocktranslate trimmed %}
+        If you have not created an account yet, then please
+        <a href="{{ signup_url }}">sign up</a> first.
+      {% endblocktranslate %}
+    </p>
+  {% endif %}
 {% endif %}
 
 <form class="login" method="POST" action="{% url 'account_login' %}">

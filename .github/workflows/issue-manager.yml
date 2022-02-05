@@ -1,62 +1,40 @@
-# Automatically close issues that have a keyword mark (an HTML comment)
-# in the last comment in the issue, by a group of predefined users, after a custom delay.
+# Automatically close issues or pull requests that have a label, after a custom delay, if no one replies.
 # https://github.com/tiangolo/issue-manager
-
-# Default config:
-# <!-- issue-manager: answered -->
-# Wait 10 days and comment: "Assuming the original issue was solved, it will be automatically closed now"
-
-# Extra config:
-# '<!-- issue-manager: waiting -->'
-# Wait 10 days and comment: "Automatically closing. To re-open, please provide the additional information requested"
-
 name: Issue Manager
 
 on:
-  # Every day at midnight
   schedule:
-  - cron: "0 0 * * *"
-  # Manual trigger
+    - cron: "12 0 * * *"
+  issue_comment:
+    types:
+      - created
+  issues:
+    types:
+      - labeled
+  pull_request_target:
+    types:
+      - labeled
   workflow_dispatch:
 
 jobs:
   issue-manager:
+    # Disables this workflow from running in a repository that is not part of the indicated organization/user
+    if: github.repository_owner == 'cookiecutter'
+
     runs-on: ubuntu-latest
     steps:
-    - uses: tiangolo/issue-manager@0.4.0
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-
-        config: >
-          {
-            "answered": {
-              "delay": 864000,
-              "message": "Assuming the original issue was solved, it will be automatically closed now.",
-              "users": [
-               "pydanny",
-               "audreyr",
-               "luzfcb",
-               "theskumar",
-               "jayfk",
-               "burhan",
-               "webyneter",
-               "browniebroke",
-               "sfdye"
-              ]
-            },
-            "waiting": {
-              "delay": 864000,
-              "message": "Automatically closing. To re-open, please provide the additional information requested.",
-              "users": [
-                "pydanny",
-                "audreyr",
-                "luzfcb",
-                "theskumar",
-                "jayfk",
-                "burhan",
-                "webyneter",
-                "browniebroke",
-                "sfdye"
-              ]
+      - uses: tiangolo/issue-manager@0.4.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          config: >
+            {
+              "answered": {
+                "message": "Assuming the question was answered, this will be automatically closed now."
+              },
+              "solved": {
+                "message": "Assuming the original issue was solved, it will be automatically closed now."
+              },
+              "waiting": {
+                "message": "Automatically closing after waiting for additional info. To re-open, please provide the additional information requested."
+              }
             }
-          }

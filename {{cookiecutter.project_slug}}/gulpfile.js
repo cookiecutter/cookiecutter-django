@@ -19,7 +19,7 @@ const plumber = require('gulp-plumber')
 const postcss = require('gulp-postcss')
 const reload = browserSync.reload
 const rename = require('gulp-rename')
-const sass = require('gulp-sass')
+const sass = require('gulp-sass')(require('sass'))
 const spawn = require('child_process').spawn
 const uglify = require('gulp-uglify-es').default
 
@@ -32,8 +32,7 @@ function pathsConfig(appName) {
     {%- if cookiecutter.custom_bootstrap_compilation == 'y' %}
     bootstrapSass: `${vendorsRoot}/bootstrap/scss`,
     vendorsJs: [
-      `${vendorsRoot}/jquery/dist/jquery.slim.js`,
-      `${vendorsRoot}/popper.js/dist/umd/popper.js`,
+      `${vendorsRoot}/@popperjs/core/dist/umd/popper.js`,
       `${vendorsRoot}/bootstrap/dist/js/bootstrap.js`,
     ],
     {%- endif %}
@@ -134,31 +133,33 @@ function runServer(cb) {
 
 // Browser sync server for live reload
 function initBrowserSync() {
-    browserSync.init(
-      [
-        `${paths.css}/*.css`,
-        `${paths.js}/*.js`,
-        `${paths.templates}/*.html`
-      ], {
-        // https://www.browsersync.io/docs/options/#option-proxy
+  browserSync.init(
+    [
+      `${paths.css}/*.css`,
+      `${paths.js}/*.js`,
+      `${paths.templates}/*.html`
+    ], {
+      {%- if cookiecutter.use_docker == 'y' %}
+      // https://www.browsersync.io/docs/options/#option-open
+      // Disable as it doesn't work from inside a container
+      open: false,
+      {%- endif %}
+      // https://www.browsersync.io/docs/options/#option-proxy
+      proxy:  {
         {%- if cookiecutter.use_docker == 'n' %}
-        proxy: 'localhost:8000'
+        target: '127.0.0.1:8000',
         {%- else %}
-        proxy:  {
-          target: 'django:8000',
-          proxyReq: [
-            function(proxyReq, req) {
-              // Assign proxy "host" header same as current request at Browsersync server
-              proxyReq.setHeader('Host', req.headers.host)
-            }
-          ]
-        },
-        // https://www.browsersync.io/docs/options/#option-open
-        // Disable as it doesn't work from inside a container
-        open: false
+        target: 'django:8000',
         {%- endif %}
+        proxyReq: [
+          function(proxyReq, req) {
+            // Assign proxy "host" header same as current request at Browsersync server
+            proxyReq.setHeader('Host', req.headers.host)
+          }
+        ]
       }
-    )
+    }
+  )
 }
 
 // Watch

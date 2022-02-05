@@ -15,7 +15,7 @@ Full instructions follow, but here's a high-level view.
 
 2. Set your config variables in the *postactivate* script
 
-3. Run the *manage.py* ``migrate`` and ``collectstatic`` {%- if cookiecutter.use_compressor == "y" %}and ``compress`` {%- endif %}commands
+3. Run the *manage.py* ``migrate`` and ``collectstatic`` commands. If you've opted for django-compressor, also run ``compress``
 
 4. Add an entry to the PythonAnywhere *Web tab*
 
@@ -23,7 +23,6 @@ Full instructions follow, but here's a high-level view.
 
 
 Once you've been through this one-off config, future deployments are much simpler: just ``git pull`` and then hit the "Reload" button :)
-
 
 
 Getting your code and dependencies installed on PythonAnywhere
@@ -37,7 +36,6 @@ Make sure your project is fully committed and pushed up to Bitbucket or Github o
     cd my-project-name
     mkvirtualenv --python=/usr/bin/python3.9 my-project-name
     pip install -r requirements/production.txt  # may take a few minutes
-
 
 
 Setting environment variables in the console
@@ -57,7 +55,7 @@ Set environment variables via the virtualenv "postactivate" script (this will se
 
     vi $VIRTUAL_ENV/bin/postactivate
 
-**TIP:** *If you don't like vi, you can also edit this file via the PythonAnywhere "Files" menu; look in the ".virtualenvs" folder*.
+.. note:: If you don't like vi, you can also edit this file via the PythonAnywhere "Files" menu; look in the ".virtualenvs" folder.
 
 Add these exports
 
@@ -73,13 +71,14 @@ Add these exports
     export DJANGO_AWS_ACCESS_KEY_ID=
     export DJANGO_AWS_SECRET_ACCESS_KEY=
     export DJANGO_AWS_STORAGE_BUCKET_NAME=
-    export DATABASE_URL='<see below>'
+    export DATABASE_URL='<see Database setup section below>'
+    export REDIS_URL='<see Redis section below>'
 
-**NOTE:** *The AWS details are not required if you're using whitenoise or the built-in pythonanywhere static files service, but you do need to set them to blank, as above.*
+.. note:: The AWS details are not required if you're using whitenoise or the built-in pythonanywhere static files service, but you do need to set them to blank, as above.
 
 
-Database setup:
----------------
+Database setup
+--------------
 
 Go to the PythonAnywhere **Databases tab** and configure your database.
 
@@ -109,10 +108,18 @@ Now run the migration, and collectstatic:
     source $VIRTUAL_ENV/bin/postactivate
     python manage.py migrate
     python manage.py collectstatic
-    {%- if cookiecutter.use_compressor == "y" %}python manage.py compress {%- endif %}
+    # if using django-compressor:
+    python manage.py compress
     # and, optionally
     python manage.py createsuperuser
 
+
+Redis
+-----
+
+PythonAnywhere does NOT `offer a built-in solution <https://www.pythonanywhere.com/forums/topic/1666/>`_ for Redis, however the production setup from Cookiecutter Django uses Redis as cache and requires one.
+
+We recommend to signup to a separate service offering hosted Redis (e.g. `Redislab <https://redis.com/>`_) and use the URL they provide.
 
 
 Configure the PythonAnywhere Web Tab
@@ -120,7 +127,7 @@ Configure the PythonAnywhere Web Tab
 
 Go to the PythonAnywhere **Web tab**, hit **Add new web app**, and choose **Manual Config**, and then the version of Python you used for your virtualenv.
 
-**NOTE:** *If you're using a custom domain (not on \*.pythonanywhere.com), then you'll need to set up a CNAME with your domain registrar.*
+.. note:: If you're using a custom domain (not on \*.pythonanywhere.com), then you'll need to set up a CNAME with your domain registrar.
 
 When you're redirected back to the web app config screen, set the **path to your virtualenv**.  If you used virtualenvwrapper as above, you can just enter its name.
 
@@ -153,15 +160,14 @@ Click through to the **WSGI configuration file** link (near the top) and edit th
 Back on the Web tab, hit **Reload**, and your app should be live!
 
 
-**NOTE:** *you may see security warnings until you set up your SSL certificates. If you
-want to suppress them temporarily, set DJANGO_SECURE_SSL_REDIRECT to blank.  Follow
-the instructions here to get SSL set up: https://help.pythonanywhere.com/pages/SSLOwnDomains/*
+.. note:: You may see security warnings until you set up your SSL certificates. If you want to suppress them temporarily, set ``DJANGO_SECURE_SSL_REDIRECT`` to blank. Follow `these instructions <https://help.pythonanywhere.com/pages/HTTPSSetup>`_ to get SSL set up.
+
 
 
 Optional: static files
 ----------------------
 
-If you want to use the PythonAnywhere static files service instead of using whitenoise or S3, you'll find its configuration section on the Web tab.  Essentially you'll need an entry to match your ``STATIC_URL`` and ``STATIC_ROOT`` settings.  There's more info here: https://help.pythonanywhere.com/pages/DjangoStaticFiles
+If you want to use the PythonAnywhere static files service instead of using whitenoise or S3, you'll find its configuration section on the Web tab.  Essentially you'll need an entry to match your ``STATIC_URL`` and ``STATIC_ROOT`` settings.  There's more info `in this article <https://help.pythonanywhere.com/pages/DjangoStaticFiles>`_.
 
 
 Future deployments
@@ -176,8 +182,9 @@ For subsequent deployments, the procedure is much simpler.  In a Bash console:
     git pull
     python manage.py migrate
     python manage.py collectstatic
-    {%- if cookiecutter.use_compressor == "y" %}python manage.py compress {%- endif %}
+    # if using django-compressor:
+    python manage.py compress
 
 And then go to the Web tab and hit **Reload**
 
-**TIP:** *if you're really keen, you can set up git-push based deployments:  https://blog.pythonanywhere.com/87/*
+.. note:: If you're really keen, you can set up git-push based deployments:  https://blog.pythonanywhere.com/87/

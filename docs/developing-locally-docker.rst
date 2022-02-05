@@ -18,7 +18,7 @@ Prerequisites
 
 * Docker; if you don't have it yet, follow the `installation instructions`_;
 * Docker Compose; refer to the official documentation for the `installation guide`_.
-* Pre-commit; refer to the official documentation for the `installation guide`_.
+* Pre-commit; refer to the official documentation for the [pre-commit](https://pre-commit.com/#install).
 
 .. _`installation instructions`: https://docs.docker.com/install/#supported-platforms
 .. _`installation guide`: https://docs.docker.com/compose/install/
@@ -167,16 +167,18 @@ docker
 
 The ``container_name`` from the yml file can be used to check on containers with docker commands, for example: ::
 
-    $ docker logs worker
-    $ docker top worker
+    $ docker logs <project_slug>_local_celeryworker
+    $ docker top <project_slug>_local_celeryworker
 
+
+Notice that the ``container_name`` is generated dynamically using your project slug as a prefix
 
 Mailhog
 ~~~~~~~
 
 When developing locally you can go with MailHog_ for email testing provided ``use_mailhog`` was set to ``y`` on setup. To proceed,
 
-#. make sure ``mailhog`` container is up and running;
+#. make sure ``<project_slug>_local_mailhog`` container is up and running;
 
 #. open up ``http://127.0.0.1:8025``.
 
@@ -213,34 +215,34 @@ Developing locally with HTTPS
 
 Increasingly it is becoming necessary to develop software in a secure environment in order that there are very few changes when deploying to production. Recently Facebook changed their policies for apps/sites that use Facebook login which requires the use of an HTTPS URL for the OAuth redirect URL. So if you want to use the ``users`` application with a OAuth provider such as Facebook, securing your communication to the local development environment will be necessary.
 
-On order to create a secure environment, we need to have a trusted SSL certficate installed in our Docker application.
+In order to create a secure environment, we need to have a trusted SSL certficate installed in our Docker application.
 
 #.  **Let's Encrypt**
-    
-    The official line from Let’s Encrypt is: 
 
-    [For local development section] ... The best option: Generate your own certificate, either self-signed or signed by a local root, and trust it in your operating system’s trust store. Then use that certificate in your local web server. See below for details. 
+    The official line from Let’s Encrypt is:
+
+    [For local development section] ... The best option: Generate your own certificate, either self-signed or signed by a local root, and trust it in your operating system’s trust store. Then use that certificate in your local web server. See below for details.
 
     See `letsencrypt.org - certificates-for-localhost`_
 
     .. _`letsencrypt.org - certificates-for-localhost`: https://letsencrypt.org/docs/certificates-for-localhost/
 
 #.  **mkcert: Valid Https Certificates For Localhost**
-    
+
     `mkcert`_ is a simple by design tool that hides all the arcane knowledge required to generate valid TLS certificates. It works for any hostname or IP, including localhost. It supports macOS, Linux, and Windows, and Firefox, Chrome and Java. It even works on mobile devices with a couple manual steps.
 
     See https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/
 
     .. _`mkcert`:  https://github.com/FiloSottile/mkcert/blob/master/README.md#supported-root-stores
 
-After installing a trusted TLS certificate, configure your docker installation. We are going to configure an ``nginx`` reverse-proxy server. This makes sure that it does not interfere with our ``traefik`` configuration that is reserved for production environements.
+After installing a trusted TLS certificate, configure your docker installation. We are going to configure an ``nginx`` reverse-proxy server. This makes sure that it does not interfere with our ``traefik`` configuration that is reserved for production environments.
 
 These are the places that you should configure to secure your local environment.
 
 certs
 ~~~~~
 
-Take the certificates that you generated and place them in a folder called ``certs`` on the projects root folder. Assuming that you registered your local hostname as ``my-dev-env.local``, the certificates you will put in the folder should have the names ``my-dev-env.local.crt`` and ``my-dev-env.local.key``.
+Take the certificates that you generated and place them in a folder called ``certs`` in the project's root folder. Assuming that you registered your local hostname as ``my-dev-env.local``, the certificates you will put in the folder should have the names ``my-dev-env.local.crt`` and ``my-dev-env.local.key``.
 
 local.yml
 ~~~~~~~~~
@@ -261,11 +263,11 @@ local.yml
       restart: always
       depends_on:
         - django
-    
+
     ...
 
-#. Link the ``nginx-proxy`` to ``django`` through environmental variables.
-   
+#. Link the ``nginx-proxy`` to ``django`` through environment variables.
+
    ``django`` already has an ``.env`` file connected to it. Add the following variables. You should do this especially if you are working with a team and you want to keep your local environment details to yourself.
 
    ::
