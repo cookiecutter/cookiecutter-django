@@ -1,6 +1,6 @@
 pytz==2021.3  # https://github.com/stub42/pytz
 python-slugify==5.0.2  # https://github.com/un33k/python-slugify
-Pillow==9.0.0  # https://github.com/python-pillow/Pillow
+Pillow==9.0.1  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.use_compressor == "y" %}
 {%- if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %}
 rcssmin==1.1.0 --install-option="--without-c-extensions"  # https://github.com/ndparker/rcssmin
@@ -24,15 +24,15 @@ flower==1.0.0  # https://github.com/mher/flower
 {%- endif %}
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' %}
-uvicorn[standard]==0.17.0.post1  # https://github.com/encode/uvicorn
+uvicorn[standard]==0.17.4  # https://github.com/encode/uvicorn
 {%- endif %}
 
 # Django
 # ------------------------------------------------------------------------------
-django==3.2.11  # pyup: < 4.0  # https://www.djangoproject.com/
+django==3.2.12  # pyup: < 4.0  # https://www.djangoproject.com/
 django-environ==0.8.1  # https://github.com/joke2k/django-environ
 django-model-utils==4.2.0  # https://github.com/jazzband/django-model-utils
-django-allauth==0.47.0  # https://github.com/pennersr/django-allauth
+django-allauth==0.48.0  # https://github.com/pennersr/django-allauth
 django-crispy-forms==1.14.0  # https://github.com/django-crispy-forms/django-crispy-forms
 crispy-bootstrap5==0.6  # https://github.com/django-crispy-forms/crispy-bootstrap5
 {%- if cookiecutter.use_compressor == "y" %}
@@ -44,5 +44,5 @@ django-redis==5.2.0  # https://github.com/jazzband/django-redis
 djangorestframework==3.13.1  # https://github.com/encode/django-rest-framework
 django-cors-headers==3.11.0 # https://github.com/adamchainz/django-cors-headers
 # DRF-spectacular for api documentation
-drf-spectacular==0.21.1
+drf-spectacular==0.21.2
 {%- endif %}
