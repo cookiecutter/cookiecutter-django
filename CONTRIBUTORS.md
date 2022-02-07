@@ -972,6 +972,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Jorge Valdez</td>
+    <td>
+      <a href="https://github.com/jorgeavaldez">jorgeavaldez</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Jules Cheron</td>
     <td>
       <a href="https://github.com/jules-ch">jules-ch</a>
