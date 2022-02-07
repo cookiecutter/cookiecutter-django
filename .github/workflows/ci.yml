@@ -3,8 +3,6 @@ name: CI
 on:
   push:
   pull_request:
-    branches:
-      - "master"
 
 concurrency:
   group: ${{ github.head_ref || github.run_id }}
