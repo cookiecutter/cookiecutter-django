@@ -14,13 +14,13 @@ on:
     branches: [ "master", "main" ]
     paths-ignore: [ "docs/**" ]
 
+concurrency:
+  group: {% raw %}${{ github.head_ref || github.run_id }}{% endraw %}
+  cancel-in-progress: true
 
 jobs:
   linter:
     runs-on: ubuntu-latest
-    concurrency:
-      group: {% raw %}${{ github.head_ref || github.run_id }}{% endraw %}
-      cancel-in-progress: true
     steps:
 
       - name: Checkout Code Repository
@@ -41,9 +41,6 @@ jobs:
   # With no caching at all the entire ci process takes 4m 30s to complete!
   pytest:
     runs-on: ubuntu-latest
-    concurrency:
-      group: {% raw %}${{ github.head_ref || github.run_id }}{% endraw %}
-      cancel-in-progress: true
     {%- if cookiecutter.use_docker == 'n' %}
 
     services:
