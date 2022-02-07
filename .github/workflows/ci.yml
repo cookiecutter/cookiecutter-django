@@ -7,6 +7,9 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.head_ref || github.run_id }}
+      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -27,6 +30,9 @@ jobs:
 
     name: "Run tests"
     runs-on: ${{ matrix.os }}
+    concurrency:
+      group: ${{ github.head_ref || github.run_id }}
+      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -50,6 +56,9 @@ jobs:
 
     name: "${{ matrix.script.name }} Docker"
     runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.head_ref || github.run_id }}
+      cancel-in-progress: true
     env:
       DOCKER_BUILDKIT: 1
       COMPOSE_DOCKER_CLI_BUILD: 1
@@ -75,8 +84,11 @@ jobs:
           - name: With Gulp
             args: "js_task_runner=Gulp custom_bootstrap_compilation=y"
 
-    runs-on: ubuntu-latest
     name: "${{ matrix.script.name }} Bare metal"
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.head_ref || github.run_id }}
+      cancel-in-progress: true
     services:
       redis:
         image: redis:5.0
