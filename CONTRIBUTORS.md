@@ -1469,6 +1469,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Ryan Fitch</td>
+    <td>
+      <a href="https://github.com/ryfi">ryfi</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Sam Collins</td>
     <td>
       <a href="https://github.com/MightySCollins">MightySCollins</a>
