@@ -3,6 +3,22 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.02.07
+
+### Changed
+- Update black to 22.1.0 ([#3572](https://github.com/cookiecutter/cookiecutter-django/pull/3572))
+### Fixed
+- Fix docker-compose config on Apple silicon ([#3562](https://github.com/cookiecutter/cookiecutter-django/pull/3562))
+### Updated
+- Update uvicorn to 0.17.4 ([#3574](https://github.com/cookiecutter/cookiecutter-django/pull/3574))
+- Update django-allauth to 0.48.0 ([#3573](https://github.com/cookiecutter/cookiecutter-django/pull/3573))
+- Update pytest to 7.0.0 ([#3567](https://github.com/cookiecutter/cookiecutter-django/pull/3567))
+- Update coverage to 6.3.1 ([#3561](https://github.com/cookiecutter/cookiecutter-django/pull/3561))
+- Update pillow to 9.0.1 ([#3571](https://github.com/cookiecutter/cookiecutter-django/pull/3571))
+- Bump peter-evans/create-pull-request from 3.12.0 to 3.12.1 ([#3558](https://github.com/cookiecutter/cookiecutter-django/pull/3558))
+- Update drf-spectacular to 0.21.2 ([#3560](https://github.com/cookiecutter/cookiecutter-django/pull/3560))
+- Update django to 3.2.12 ([#3559](https://github.com/cookiecutter/cookiecutter-django/pull/3559))
+
 ## 2022.01.27
 
 ### Updated
