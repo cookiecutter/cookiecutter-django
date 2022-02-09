@@ -972,6 +972,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Jorge Valdez</td>
+    <td>
+      <a href="https://github.com/jorgeavaldez">jorgeavaldez</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Jules Cheron</td>
     <td>
       <a href="https://github.com/jules-ch">jules-ch</a>
@@ -1458,6 +1465,13 @@ Listed in alphabetical order.
     <td>Russell Davies</td>
     <td>
       <a href="https://github.com/"></a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Ryan Fitch</td>
+    <td>
+      <a href="https://github.com/ryfi">ryfi</a>
     </td>
     <td></td>
   </tr>
