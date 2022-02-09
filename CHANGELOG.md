@@ -3,6 +3,14 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.02.08
+
+### Fixed
+- Fixed some typos in drf-spectacular description and comments ([#3579](https://github.com/cookiecutter/cookiecutter-django/pull/3579))
+### Updated
+- Update redis to 4.1.3 ([#3577](https://github.com/cookiecutter/cookiecutter-django/pull/3577))
+- Update werkzeug to 2.0.3 ([#3576](https://github.com/cookiecutter/cookiecutter-django/pull/3576))
+
 ## 2022.02.07
 
 ### Changed
