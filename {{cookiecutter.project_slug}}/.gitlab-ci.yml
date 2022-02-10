@@ -22,7 +22,7 @@ flake8:
 pytest:
   stage: test
   {% if cookiecutter.use_docker == 'y' -%}
-  image: docker/compose:latest
+  image: docker/compose:1.29.2
   tags:
     - docker
   services:
