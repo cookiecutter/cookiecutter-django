@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.02.10
+
+### Fixed
+- Fix GitLab CI error caused by Docker Compose&#39;s `platform` option ([#3585](https://github.com/cookiecutter/cookiecutter-django/pull/3585))
+### Updated
+- Update whitenoise to 6.0.0 ([#3583](https://github.com/cookiecutter/cookiecutter-django/pull/3583))
+
 ## 2022.02.08
 
 ### Fixed
