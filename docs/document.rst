@@ -13,7 +13,7 @@ If you set up your project to `develop locally with docker`_, run the following 
 
     $ docker-compose -f local.yml up docs
 
-Navigate to port 7000 on your host to see the documentation. This will be opened automatically at `localhost`_ for local, non-docker development.
+Navigate to port 9000 on your host to see the documentation. This will be opened automatically at `localhost`_ for local, non-docker development.
 
 Note: using Docker for documentation sets up a temporary SQLite file by setting the environment variable ``DATABASE_URL=sqlite:///readthedocs.db`` in ``docs/conf.py`` to avoid a dependency on PostgreSQL.
 
@@ -36,7 +36,7 @@ To setup your documentation on `ReadTheDocs`_, you must
 
 Additionally, you can auto-build Pull Request previews, but `you must enable it`_.
 
-.. _localhost: http://localhost:7000/
+.. _localhost: http://localhost:9000/
 .. _Sphinx: https://www.sphinx-doc.org/en/master/index.html
 .. _develop locally: ./developing-locally.html
 .. _develop locally with docker: ./developing-locally-docker.html
