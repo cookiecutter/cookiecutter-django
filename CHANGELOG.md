@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.02.12
+
+### Updated
+- Update pytest to 7.0.1 ([#3588](https://github.com/cookiecutter/cookiecutter-django/pull/3588))
+
 ## 2022.02.11
 
 ### Updated
