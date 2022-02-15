@@ -769,6 +769,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>ghazi-git</td>
+    <td>
+      <a href="https://github.com/ghazi-git">ghazi-git</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Gilbishkosma</td>
     <td>
       <a href="https://github.com/Gilbishkosma">Gilbishkosma</a>
