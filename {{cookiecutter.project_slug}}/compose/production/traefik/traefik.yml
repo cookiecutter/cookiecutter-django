@@ -46,8 +46,8 @@ http:
       tls:
         # https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
+    
     {%- if cookiecutter.use_celery == 'y' %}
-
     flower-secure-router:
       rule: "Host(`{{ cookiecutter.domain_name }}`)"
       entryPoints:
@@ -56,8 +56,9 @@ http:
       tls:
         # https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
-    {%- if cookiecutter.cloud_provider == 'nginx' %}
+    {%- endif %}
 
+    {%- if cookiecutter.cloud_provider == 'nginx' %}
     web-media-router:
       rule: "Host(`{{ cookiecutter.domain_name }}`) && PathPrefix(`/media/`)"
       entryPoints:
