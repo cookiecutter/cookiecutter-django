@@ -14,14 +14,10 @@ services:
       context: .
       dockerfile: ./compose/production/django/Dockerfile
     image: {{ cookiecutter.project_slug }}_production_django
-<<<<<<< HEAD
     {%- if cookiecutter.cloud_provider == 'nginx' %}
     volumes:
       - production_django_media:/app/{{ cookiecutter.project_slug }}/media
     {%- endif %}
-=======
-    platform: linux/x86_64
->>>>>>> master
     depends_on:
       - postgres
       - redis
@@ -29,6 +25,7 @@ services:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
     command: /start
+    platform: linux/x86_64
 
   postgres:
     build:
