@@ -329,7 +329,7 @@ def remove_drf_starter_files():
     )
     os.remove(
         os.path.join(
-            "{{cookiecutter.project_slug}}", "users", "tests", "test_swagger_ui.py"
+            "{{cookiecutter.project_slug}}", "users", "tests", "test_swagger.py"
         )
     )
 
