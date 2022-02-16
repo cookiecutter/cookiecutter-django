@@ -14,10 +14,14 @@ services:
       context: .
       dockerfile: ./compose/production/django/Dockerfile
     image: {{ cookiecutter.project_slug }}_production_django
+<<<<<<< HEAD
     {%- if cookiecutter.cloud_provider == 'nginx' %}
     volumes:
       - production_django_media:/app/{{ cookiecutter.project_slug }}/media
     {%- endif %}
+=======
+    platform: linux/x86_64
+>>>>>>> master
     depends_on:
       - postgres
       - redis
@@ -32,8 +36,8 @@ services:
       dockerfile: ./compose/production/postgres/Dockerfile
     image: {{ cookiecutter.project_slug }}_production_postgres
     volumes:
-      - production_postgres_data:/var/lib/postgresql/data
-      - production_postgres_data_backups:/backups
+      - production_postgres_data:/var/lib/postgresql/data:Z
+      - production_postgres_data_backups:/backups:z
     env_file:
       - ./.envs/.production/.postgres
 
@@ -45,13 +49,16 @@ services:
     depends_on:
       - django
     volumes:
-      - production_traefik:/etc/traefik/acme
+      - production_traefik:/etc/traefik/acme:z
     ports:
       - "0.0.0.0:80:80"
       - "0.0.0.0:443:443"
+      {%- if cookiecutter.use_celery == 'y' %}
+      - "0.0.0.0:5555:5555"
+      {%- endif %}
 
   redis:
-    image: redis:5.0
+    image: redis:6
   {%- if cookiecutter.use_celery == 'y' %}
 
   celeryworker:
@@ -67,13 +74,10 @@ services:
   flower:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_flower
-    ports:
-      - "5555:5555"
     command: /start-flower
-
   {%- endif %}
+  {%- if cookiecutter.cloud_provider == 'AWS' %}
 
-  {% if cookiecutter.cloud_provider == 'AWS' %}
   awscli:
     build:
       context: .
@@ -81,7 +85,7 @@ services:
     env_file:
       - ./.envs/.production/.django
     volumes:
-      - production_postgres_data_backups:/backups
+      - production_postgres_data_backups:/backups:z
   {%- endif %}
   {%- if cookiecutter.cloud_provider == 'nginx' %}
   nginx:

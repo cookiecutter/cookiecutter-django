@@ -159,6 +159,10 @@ typings/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
 
 
 {% if cookiecutter.use_pycharm == 'y' -%}
@@ -321,28 +325,22 @@ Session.vim
 
 # Auto-generated tag files
 tags
-{% if cookiecutter.use_docker == 'n' %}
-
-### VirtualEnv template
-# Virtualenv
-[Bb]in
-[Ii]nclude
-[Ll]ib
-[Ll]ib64
-[Ss]cripts
-pyvenv.cfg
-pip-selfcheck.json
-.env
-{% endif %}
 
 ### Project template
-{% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' %}
+{%- if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' %}
 MailHog
 {%- endif %}
 {{ cookiecutter.project_slug }}/media/
 
 .pytest_cache/
 
-{% if cookiecutter.use_docker == 'y' %}
+{%- if cookiecutter.use_docker == 'y' %}
 .ipython/
+{%- endif %}
+
+{%- if cookiecutter.js_task_runner == 'Gulp' %}
+project.css
+project.min.css
+vendors.js
+*.min.js
 {%- endif %}

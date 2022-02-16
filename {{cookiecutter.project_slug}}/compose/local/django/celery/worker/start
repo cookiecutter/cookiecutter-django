@@ -4,4 +4,4 @@ set -o errexit
 set -o nounset
 
 
-celery -A config.celery_app worker -l INFO
+watchgod celery.__main__.main --args -A config.celery_app worker -l INFO
