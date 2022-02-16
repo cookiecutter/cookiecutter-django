@@ -56,7 +56,10 @@ http:
       tls:
         # https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
+<<<<<<< HEAD
     {%- endif %}
+=======
+>>>>>>> origin/master
     {%- if cookiecutter.cloud_provider == 'nginx' %}
 
     web-media-router:
