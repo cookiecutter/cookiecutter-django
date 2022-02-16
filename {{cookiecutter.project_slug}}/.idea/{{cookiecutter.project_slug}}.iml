@@ -14,11 +14,11 @@
   </component>
   <component name="NewModuleRootManager">
     {% if cookiecutter.js_task_runner != 'None' %}
-    <content url="file://$MODULE_DIR$"> 
+    <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/node_modules" />
     </content>
-    {% else %} 
-    <content url="file://$MODULE_DIR$" /> 
+    {% else %}
+    <content url="file://$MODULE_DIR$" />
     {% endif %}
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

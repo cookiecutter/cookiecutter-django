@@ -1,0 +1,40 @@
+# Automatically close issues or pull requests that have a label, after a custom delay, if no one replies.
+# https://github.com/tiangolo/issue-manager
+name: Issue Manager
+
+on:
+  schedule:
+    - cron: "12 0 * * *"
+  issue_comment:
+    types:
+      - created
+  issues:
+    types:
+      - labeled
+  pull_request_target:
+    types:
+      - labeled
+  workflow_dispatch:
+
+jobs:
+  issue-manager:
+    # Disables this workflow from running in a repository that is not part of the indicated organization/user
+    if: github.repository_owner == 'cookiecutter'
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: tiangolo/issue-manager@0.4.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          config: >
+            {
+              "answered": {
+                "message": "Assuming the question was answered, this will be automatically closed now."
+              },
+              "solved": {
+                "message": "Assuming the original issue was solved, it will be automatically closed now."
+              },
+              "waiting": {
+                "message": "Automatically closing after waiting for additional info. To re-open, please provide the additional information requested."
+              }
+            }

@@ -9,29 +9,36 @@ Setting Up Development Environment
 
 Make sure to have the following on your host:
 
-* Python 3.7
+* Python 3.9
 * PostgreSQL_.
 * Redis_, if using Celery
+* Cookiecutter_
 
 First things first.
 
 #. Create a virtualenv: ::
 
-    $ python3.7 -m venv <virtual env path>
+    $ python3.9 -m venv <virtual env path>
 
 #. Activate the virtualenv you have just created: ::
 
     $ source <virtual env path>/bin/activate
 
+#. Install cookiecutter-django: ::
+
+    $ cookiecutter gh:cookiecutter/cookiecutter-django
+
 #. Install development requirements: ::
 
+    $ cd <what you have entered as the project_slug at setup stage>
     $ pip install -r requirements/local.txt
+    $ git init # A git repo is required for pre-commit to install
     $ pre-commit install
 
-     .. note::
+   .. note::
 
-        the `pre-commit` exists in the generated project as default.
-        for the details of `pre-commit`, follow the [site of pre-commit](https://pre-commit.com/).
+       the `pre-commit` hook exists in the generated project as default.
+       For the details of `pre-commit`, follow the `pre-commit`_ site.
 
 #. Create a new PostgreSQL database using createdb_: ::
 
@@ -68,15 +75,21 @@ First things first.
 
     $ python manage.py migrate
 
-#. See the application being served through Django development server: ::
+#. If you're running synchronously, see the application being served through Django development server: ::
 
     $ python manage.py runserver 0.0.0.0:8000
 
+or if you're running asynchronously: ::
+
+    $ uvicorn config.asgi:application --host 0.0.0.0 --reload
+
 .. _PostgreSQL: https://www.postgresql.org/download/
 .. _Redis: https://redis.io/download
+.. _CookieCutter: https://github.com/cookiecutter/cookiecutter
 .. _createdb: https://www.postgresql.org/docs/current/static/app-createdb.html
-.. _initial PostgreSQL set up: http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html
+.. _initial PostgreSQL set up: https://web.archive.org/web/20190303010033/http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html
 .. _postgres documentation: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
+.. _pre-commit: https://pre-commit.com/
 .. _direnv: https://direnv.net/
 
 
@@ -133,12 +146,32 @@ in ``config/settings/local.py``::
 
     CELERY_TASK_ALWAYS_EAGER = False
 
+To run Celery locally, make sure redis-server is installed (instructions are available at https://redis.io/topics/quickstart), run the server in one terminal with `redis-server`, and then start celery in another terminal with the following command::
+
+    celery -A config.celery_app worker --loglevel=info
+
 
 Sass Compilation & Live Reloading
 ---------------------------------
 
-If you’d like to take advantage of live reloading and Sass compilation you can do so with a little
-bit of preparation, see :ref:`sass-compilation-live-reload`.
+If you've opted for Gulp as JS task runner, the project comes configured with `Sass`_ compilation and `live reloading`_. As you change you Sass/JS source files, the task runner will automatically rebuild the corresponding CSS and JS assets and reload them in your browser without refreshing the page.
+
+#. Make sure that `Node.js`_ v16 is installed on your machine.
+#. In the project root, install the JS dependencies with::
+
+    $ npm install
+
+#. Now - with your virtualenv activated - start the application by running::
+
+    $ npm run dev
+
+   The app will now run with live reloading enabled, applying front-end changes dynamically.
+
+.. note:: The task will start 2 processes in parallel: the static assets build loop on one side, and the Django server on the other. You don NOT need to run Django as your would normally with ``manage.py runserver``.
+
+.. _Node.js: http://nodejs.org/download/
+.. _Sass: https://sass-lang.com/
+.. _live reloading: https://browsersync.io
 
 Summary
 -------
