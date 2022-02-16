@@ -1,6 +1,5 @@
 import pytest
 from django.test import RequestFactory
-from django.urls import reverse
 
 from {{ cookiecutter.project_slug }}.users.api.views import UserViewSet
 from {{ cookiecutter.project_slug }}.users.models import User
@@ -32,9 +31,3 @@ class TestUserViewSet:
             "name": user.name,
             "url": f"http://testserver/api/users/{user.username}/",
         }
-
-
-def test_api_schema_generated_successfully(admin_client):
-    url = reverse("api-schema")
-    response = admin_client.get(url)
-    assert response.status_code == 200
