@@ -405,6 +405,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Cebrail Yılmaz</td>
+    <td>
+      <a href="https://github.com/b1sar">b1sar</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Chao Yang Wu</td>
     <td>
       <a href="https://github.com/goatwu1993">goatwu1993</a>
