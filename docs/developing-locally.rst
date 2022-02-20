@@ -42,7 +42,8 @@ First things first.
 
 #. Create a new PostgreSQL database using createdb_: ::
 
-    $ createdb <what you have entered as the project_slug at setup stage> -U postgres --password <password>
+    $ createdb --username=postgres <project_slug>
+   ``project_slug`` is what you have entered as the project_slug at the setup stage.
 
    .. note::
 
