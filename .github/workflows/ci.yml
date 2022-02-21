@@ -4,6 +4,10 @@ on:
   push:
   pull_request:
 
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -75,8 +79,8 @@ jobs:
           - name: With Gulp
             args: "js_task_runner=Gulp custom_bootstrap_compilation=y"
 
-    runs-on: ubuntu-latest
     name: "${{ matrix.script.name }} Bare metal"
+    runs-on: ubuntu-latest
     services:
       redis:
         image: redis:5.0
