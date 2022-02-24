@@ -1,5 +1,5 @@
 pytz==2021.3  # https://github.com/stub42/pytz
-python-slugify==6.0.1  # https://github.com/un33k/python-slugify
+python-slugify==6.1.0  # https://github.com/un33k/python-slugify
 Pillow==9.0.1  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.use_compressor == "y" %}
 {%- if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %}
