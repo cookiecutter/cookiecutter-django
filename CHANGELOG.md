@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.02.24
+
+### Updated
+- Update django-allauth to 0.49.0 ([#3613](https://github.com/cookiecutter/cookiecutter-django/pull/3613))
+- Update sentry-sdk to 1.5.6 ([#3611](https://github.com/cookiecutter/cookiecutter-django/pull/3611))
+- Update python-slugify to 6.1.0 ([#3612](https://github.com/cookiecutter/cookiecutter-django/pull/3612))
+
 ## 2022.02.21
 
 ### Changed
