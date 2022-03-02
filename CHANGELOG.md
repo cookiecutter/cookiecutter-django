@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.03.01
+
+### Updated
+- Bump actions/setup-python from 2 to 3 ([#3617](https://github.com/cookiecutter/cookiecutter-django/pull/3617))
+- Bump peter-evans/create-pull-request from 3.13.0 to 3.14.0 ([#3618](https://github.com/cookiecutter/cookiecutter-django/pull/3618))
+
 ## 2022.02.28
 
 ### Updated
