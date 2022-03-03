@@ -12,8 +12,8 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
         with:
           python-version: "3.9"
           cache: pip
@@ -32,8 +32,8 @@ jobs:
     name: "Run tests"
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
         with:
           python-version: "3.9"
           cache: pip
@@ -63,8 +63,8 @@ jobs:
       COMPOSE_DOCKER_CLI_BUILD: 1
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
         with:
           python-version: "3.9"
           cache: pip
@@ -105,8 +105,8 @@ jobs:
       DATABASE_URL: ${{ matrix.script.database_url }}
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
         with:
           python-version: "3.9"
           cache: pip
@@ -116,7 +116,7 @@ jobs:
             {{cookiecutter.project_slug}}/requirements/local.txt
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: "16"
       - name: Bare Metal ${{ matrix.script.name }}
