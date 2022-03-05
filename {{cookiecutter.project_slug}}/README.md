@@ -128,7 +128,7 @@ See detailed [cookiecutter-django Heroku documentation](http://cookiecutter-djan
 See detailed [cookiecutter-django Docker documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html).
 
 {%- endif %}
-{%- if 'Bootstrap' in cookiecutter.frontend_pipeline %}
+{%- if cookiecutter.frontend_pipeline == 'Gulp' %}
 ### Custom Bootstrap Compilation
 
 The generated CSS is set up with automatic Bootstrap recompilation with variables of your choice.

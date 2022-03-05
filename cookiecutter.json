@@ -45,8 +45,7 @@
   "frontend_pipeline": [
     "None",
     "Django Compressor",
-    "Gulp",
-    "Gulp with custom Bootstrap"
+    "Gulp"
   ],
   "use_celery": "n",
   "use_mailhog": "n",

@@ -1,8 +1,5 @@
-{% if 'Bootstrap' in cookiecutter.frontend_pipeline %}
 @import "custom_bootstrap_vars";
 @import "bootstrap";
-{% endif %}
-
 
 
 // project specific CSS goes here

@@ -94,9 +94,7 @@ frontend_pipeline:
 
     1. None
     2. `Django Compressor`_
-    3. `Gulp`_
-    4. `Gulp`_ with custom Boostrap: support Bootstrap recompilation with real-time
-       variables alteration.
+    3. `Gulp`_: support Bootstrap recompilation with real-time variables alteration.
 
 use_celery:
     Indicates whether the project should be configured to use Celery_.

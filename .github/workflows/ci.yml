@@ -77,7 +77,7 @@ jobs:
           - name: With Celery
             args: "use_celery=y frontend_pipeline='Django Compressor'"
           - name: With Gulp
-            args: "frontend_pipeline='Gulp with custom Bootstrap'"
+            args: "frontend_pipeline='Gulp'"
 
     name: "${{ matrix.script.name }} Bare metal"
     runs-on: ubuntu-latest
