@@ -78,11 +78,11 @@ jobs:
       fail-fast: false
       matrix:
         script:
-          - name: With Celery
+          - name: Celery
             args: "use_celery=y frontend_pipeline='Django Compressor'"
-          - name: With Gulp
+          - name: Gulp
             args: "frontend_pipeline=Gulp"
-          - name: With Webpack
+          - name: Webpack
             args: "frontend_pipeline=Webpack"
 
     name: "${{ matrix.script.name }} Bare metal"
