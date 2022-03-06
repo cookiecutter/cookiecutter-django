@@ -109,10 +109,10 @@ Or add the DSN for your account, if you already have one:
 .. _Sentry add-on: https://elements.heroku.com/addons/sentry
 
 
-Gulp & Bootstrap compilation
-++++++++++++++++++++++++++++
+Gulp or Webpack
++++++++++++++++
 
-If you've opted for Gulp, you'll most likely need to setup
+If you've opted for Gulp or Webpack as frontend pipeline, you'll most likely need to setup
 your app to use `multiple buildpacks`_: one for Python & one for Node.js:
 
 .. code-block:: bash
@@ -121,7 +121,7 @@ your app to use `multiple buildpacks`_: one for Python & one for Node.js:
 
 At time of writing, this should do the trick: during deployment,
 the Heroku should run ``npm install`` and then ``npm build``,
-which runs Gulp in cookiecutter-django.
+which run the SASS compilation & JS bundling.
 
 If things don't work, please refer to the Heroku docs.
 

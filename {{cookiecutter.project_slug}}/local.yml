@@ -107,7 +107,7 @@ services:
     command: /start-flower
 
   {%- endif %}
-  {%- if cookiecutter.frontend_pipeline == 'Gulp' %}
+  {%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
 
   node:
     build:

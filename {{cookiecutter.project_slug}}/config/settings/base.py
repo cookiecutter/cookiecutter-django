@@ -89,6 +89,9 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "drf_spectacular",
 {%- endif %}
+{%- if cookiecutter.frontend_pipeline == 'Webpack' %}
+    "webpack_loader",
+{%- endif %}
 ]
 
 LOCAL_APPS = [
@@ -351,6 +354,19 @@ SPECTACULAR_SETTINGS = {
         {"url": "https://{{ cookiecutter.domain_name }}", "description": "Production server"},
     ],
 }
+{%- endif %}
+{%- if cookiecutter.frontend_pipeline == 'Webpack' %}
+# django-webpack-loader
+# ------------------------------------------------------------------------------
+WEBPACK_LOADER = {
+    "DEFAULT": {
+        "CACHE": not DEBUG,
+        "STATS_FILE": ROOT_DIR / "webpack-stats.json",
+        "POLL_INTERVAL": 0.1,
+        "IGNORE": [r".+\.hot-update.js", r".+\.map"],
+    }
+}
+
 {%- endif %}
 # Your stuff...
 # ------------------------------------------------------------------------------

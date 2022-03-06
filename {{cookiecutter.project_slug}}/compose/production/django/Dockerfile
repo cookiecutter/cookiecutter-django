@@ -1,6 +1,6 @@
 ARG PYTHON_VERSION=3.9-slim-bullseye
 
-{% if cookiecutter.frontend_pipeline == 'Gulp' -%}
+{% if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] -%}
 FROM node:16-bullseye-slim as client-builder
 
 ARG APP_HOME=/app
@@ -99,7 +99,7 @@ RUN chmod +x /start-flower
 
 
 # copy application code to WORKDIR
-{%- if cookiecutter.frontend_pipeline == 'Gulp' %}
+{%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
 COPY --from=client-builder --chown=django:django ${APP_HOME} ${APP_HOME}
 {% else %}
 COPY --chown=django:django . ${APP_HOME}
