@@ -286,6 +286,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Artur Barseghyan</td>
+    <td>
+      <a href="https://github.com/barseghyanartur">barseghyanartur</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>AsheKR</td>
     <td>
       <a href="https://github.com/ashekr">ashekr</a>
