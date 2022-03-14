@@ -46,7 +46,7 @@ To run the tests, check your test coverage, and generate an HTML coverage report
 
 ### Live reloading and Sass CSS compilation
 
-Moved to [Live reloading and SASS compilation](http://cookiecutter-django.readthedocs.io/en/latest/live-reloading-and-sass-compilation.html).
+Moved to [Live reloading and SASS compilation](https://cookiecutter-django.readthedocs.io/en/latest/developing-locally.html#sass-compilation-live-reloading).
 
 {%- if cookiecutter.use_celery == "y" %}
 
