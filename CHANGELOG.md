@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.03.14
+
+### Fixed
+- Fix broken link in README of generated projects ([#3634](https://github.com/cookiecutter/cookiecutter-django/pull/3634))
+
 ## 2022.03.13
 
 ### Changed
