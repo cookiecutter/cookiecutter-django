@@ -888,6 +888,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>innicoder</td>
+    <td>
+      <a href="https://github.com/innicoder">innicoder</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Irfan Ahmad</td>
     <td>
       <a href="https://github.com/erfaan">erfaan</a>
