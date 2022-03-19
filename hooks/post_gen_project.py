@@ -91,6 +91,11 @@ def remove_gulp_files():
     file_names = ["gulpfile.js"]
     for file_name in file_names:
         os.remove(file_name)
+    remove_sass_files()
+
+
+def remove_sass_files():
+    shutil.rmtree(os.path.join("{{cookiecutter.project_slug}}", "static", "sass"))
 
 
 def remove_packagejson_file():
