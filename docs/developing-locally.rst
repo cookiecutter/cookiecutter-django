@@ -168,7 +168,7 @@ If you've opted for Gulp as JS task runner, the project comes configured with `S
 
    The app will now run with live reloading enabled, applying front-end changes dynamically.
 
-.. note:: The task will start 2 processes in parallel: the static assets build loop on one side, and the Django server on the other. You don NOT need to run Django as your would normally with ``manage.py runserver``.
+.. note:: The task will start 2 processes in parallel: the static assets build loop on one side, and the Django server on the other. You do NOT need to run Django as your would normally with ``manage.py runserver``.
 
 .. _Node.js: http://nodejs.org/download/
 .. _Sass: https://sass-lang.com/
