@@ -17,4 +17,4 @@ module.exports = merge(commonConfig, {
     hot: false,
     liveReload: true,
   },
-})
+});

@@ -13,7 +13,7 @@ module.exports = {
     path: path.resolve(__dirname, '../{{cookiecutter.project_slug}}/static/webpack_bundles/'),
     publicPath: '/static/webpack_bundles/',
     filename: 'js/[name]-[fullhash].js',
-    chunkFilename: 'js/[name]-[hash].js'
+    chunkFilename: 'js/[name]-[hash].js',
   },
   plugins: [
     new BundleTracker({filename: path.resolve(__dirname, '../webpack-stats.json')}),
@@ -45,11 +45,11 @@ module.exports = {
           },
           'sass-loader',
         ],
-      }
+      },
     ],
   },
   resolve: {
     modules: ['node_modules'],
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
-}
+};
