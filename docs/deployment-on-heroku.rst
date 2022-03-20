@@ -112,7 +112,7 @@ Or add the DSN for your account, if you already have one:
 Gulp & Bootstrap compilation
 ++++++++++++++++++++++++++++
 
-If you've opted for a custom bootstrap build, you'll most likely need to setup
+If you've opted for Gulp, you'll most likely need to setup
 your app to use `multiple buildpacks`_: one for Python & one for Node.js:
 
 .. code-block:: bash

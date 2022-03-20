@@ -24,10 +24,6 @@
     "11.14",
     "10.19"
   ],
-  "js_task_runner": [
-    "None",
-    "Gulp"
-  ],
   "cloud_provider": [
     "AWS",
     "GCP",
@@ -46,8 +42,11 @@
   ],
   "use_async": "n",
   "use_drf": "n",
-  "custom_bootstrap_compilation": "n",
-  "use_compressor": "n",
+  "frontend_pipeline": [
+    "None",
+    "Django Compressor",
+    "Gulp"
+  ],
   "use_celery": "n",
   "use_mailhog": "n",
   "use_sentry": "n",

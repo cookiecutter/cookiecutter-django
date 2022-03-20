@@ -10,7 +10,6 @@ TODO: restrict Cookiecutter Django project initialization to
 """
 from __future__ import print_function
 
-import json
 import os
 import random
 import shutil
@@ -92,22 +91,17 @@ def remove_gulp_files():
     file_names = ["gulpfile.js"]
     for file_name in file_names:
         os.remove(file_name)
+    remove_sass_files()
+
+
+def remove_sass_files():
+    shutil.rmtree(os.path.join("{{cookiecutter.project_slug}}", "static", "sass"))
 
 
 def remove_packagejson_file():
     file_names = ["package.json"]
     for file_name in file_names:
         os.remove(file_name)
-
-
-def remove_bootstrap_packages():
-    with open("package.json", mode="r") as fd:
-        content = json.load(fd)
-    for package_name in ["bootstrap", "gulp-concat", "@popperjs/core"]:
-        content["devDependencies"].pop(package_name)
-    with open("package.json", mode="w") as fd:
-        json.dump(content, fd, ensure_ascii=False, indent=2)
-        fd.write("\n")
 
 
 def remove_celery_files():
@@ -363,13 +357,13 @@ def main():
 
     if (
         "{{ cookiecutter.use_docker }}".lower() == "y"
-        and "{{ cookiecutter.cloud_provider}}".lower() != "aws"
+        and "{{ cookiecutter.cloud_provider}}" != "AWS"
     ):
         remove_aws_dockerfile()
 
     if "{{ cookiecutter.use_heroku }}".lower() == "n":
         remove_heroku_files()
-    elif "{{ cookiecutter.use_compressor }}".lower() == "n":
+    elif "{{ cookiecutter.frontend_pipeline }}" != "Django Compressor":
         remove_heroku_build_hooks()
 
     if (
@@ -389,15 +383,13 @@ def main():
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
             append_to_gitignore_file("!.envs/.local/")
 
-    if "{{ cookiecutter.js_task_runner}}".lower() == "none":
+    if "{{ cookiecutter.frontend_pipeline }}" != "Gulp":
         remove_gulp_files()
         remove_packagejson_file()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_node_dockerfile()
-    elif "{{ cookiecutter.custom_bootstrap_compilation }}" == "n":
-        remove_bootstrap_packages()
 
-    if "{{ cookiecutter.cloud_provider}}".lower() == "none":
+    if "{{ cookiecutter.cloud_provider}}" == "None":
         print(
             WARNING + "You chose not to use a cloud provider, "
             "media files won't be served in production." + TERMINATOR
@@ -409,13 +401,13 @@ def main():
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_celery_compose_dirs()
 
-    if "{{ cookiecutter.ci_tool }}".lower() != "travis":
+    if "{{ cookiecutter.ci_tool }}" != "Travis":
         remove_dottravisyml_file()
 
-    if "{{ cookiecutter.ci_tool }}".lower() != "gitlab":
+    if "{{ cookiecutter.ci_tool }}" != "Gitlab":
         remove_dotgitlabciyml_file()
 
-    if "{{ cookiecutter.ci_tool }}".lower() != "github":
+    if "{{ cookiecutter.ci_tool }}" != "Github":
         remove_dotgithub_folder()
 
     if "{{ cookiecutter.use_drf }}".lower() == "n":
