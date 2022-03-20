@@ -149,7 +149,6 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     1 - None
     2 - Django Compressor
     3 - Gulp
-    4 - Gulp with custom Bootstrap
     Choose from 1, 2, 3, 4 [1]: 1
     use_celery [n]: y
     use_mailhog [n]: n
