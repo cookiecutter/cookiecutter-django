@@ -88,15 +88,14 @@ def remove_heroku_build_hooks():
     shutil.rmtree("bin")
 
 
+def remove_sass_files():
+    shutil.rmtree(os.path.join("{{cookiecutter.project_slug}}", "static", "sass"))
+
+
 def remove_gulp_files():
     file_names = ["gulpfile.js"]
     for file_name in file_names:
         os.remove(file_name)
-    remove_sass_files()
-
-
-def remove_sass_files():
-    shutil.rmtree(os.path.join("{{cookiecutter.project_slug}}", "static", "sass"))
 
 
 def remove_webpack_files():
@@ -462,9 +461,10 @@ def main():
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
             append_to_gitignore_file("!.envs/.local/")
 
-    if "{{ cookiecutter.frontend_pipeline }}".lower() in ["none", "django compressor"]:
+    if "{{ cookiecutter.frontend_pipeline }}" in ["None", "Django Compressor"]:
         remove_gulp_files()
         remove_webpack_files()
+        remove_sass_files()
         remove_packagejson_file()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_node_dockerfile()
