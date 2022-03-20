@@ -244,8 +244,3 @@ experience better.
 -   [How to create a Django Application using Cookiecutter and Django 1.8](https://www.swapps.io/blog/how-to-create-a-django-application-using-cookiecutter-and-django-1-8/) - Sept. 12, 2015
 
 Have a blog or online publication? Write about your cookiecutter-django tips and tricks, then send us a pull request with the link.
-
-## Code of Conduct
-
-Everyone interacting in the Cookiecutter project's codebases, issue trackers, chat
-rooms, and mailing lists is expected to follow the [PyPA Code of Conduct](https://www.pypa.io/en/latest/code-of-conduct/).
