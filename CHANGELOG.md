@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.03.23
+
+### Updated
+- Bump peter-evans/create-pull-request from 3.14.0 to 4 ([#3645](https://github.com/cookiecutter/cookiecutter-django/pull/3645))
+
 ## 2022.03.20
 
 ### Changed
