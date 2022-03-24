@@ -1,4 +1,4 @@
-{% raw %}{% load static i18n {% endraw %}{% if cookiecutter.use_compressor == "y" %}compress{% endif %}{% raw %}%}<!DOCTYPE html>
+{% raw %}{% load static i18n {% endraw %}{% if cookiecutter.frontend_pipeline == 'Django Compressor' %}compress{% endif %}{% raw %}%}<!DOCTYPE html>
 {% get_current_language as LANGUAGE_CODE %}
 <html lang="{{ LANGUAGE_CODE }}">
   <head>
@@ -12,30 +12,34 @@
     <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
 
     {% block css %}
-    {%- endraw %}{% if cookiecutter.custom_bootstrap_compilation == "n" %}{% raw %}
+    {%- endraw %}
+    {%- if cookiecutter.frontend_pipeline != 'Gulp' %}
+    {%- raw %}
     <!-- Latest compiled and minified Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    {%- endraw %}{% endif %}{% raw %}
-
+    {%- endraw %}
+    {%- endif %}
+    {%- raw %}
     <!-- Your stuff: Third-party CSS libraries go here -->
-    {%- endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% compress css %}{% endraw %}{% endif %}{% raw %}
+
     <!-- This file stores project-specific CSS -->
-    {%- endraw %}{% if cookiecutter.js_task_runner == "Gulp" and cookiecutter.use_compressor == "n" %}{% raw %}
-    <link href="{% static 'css/project.min.css' %}" rel="stylesheet">
-    {%- endraw %}{% else %}{% raw %}
+    {%- endraw %}{% if cookiecutter.frontend_pipeline == 'None' %}{% raw %}
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
+    {%- endraw %}{% elif cookiecutter.frontend_pipeline == 'Django Compressor' %}{% raw %}
+    {% compress css %}
+    <link href="{% static 'css/project.css' %}" rel="stylesheet">
+    {% endcompress %}
+    {%- endraw %}{% elif cookiecutter.frontend_pipeline == 'Gulp' %}{% raw %}
+    <link href="{% static 'css/project.min.css' %}" rel="stylesheet">
     {%- endraw %}{% endif %}{% raw %}
-    {%- endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% endcompress %}{% endraw %}{% endif %}{% raw %}
     {% endblock %}
     <!-- Le javascript
     ================================================== -->
     {# Placed at the top of the document so pages load faster with defer #}
     {% block javascript %}
-      {%- endraw %}{% if cookiecutter.custom_bootstrap_compilation == "y" and cookiecutter.js_task_runner == "Gulp" %}{% raw %}
+      {%- endraw %}{% if cookiecutter.frontend_pipeline == 'Gulp' %}{% raw %}
       <!-- Vendor dependencies bundled as one file-->
-      {%- endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% compress js %}{% endraw %}{% endif %}{% raw %}
-      <script defer src="{% static 'js/vendors.js' %}"></script>
-      {%- endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% endcompress %}{% endraw %}{% endif %}{% raw %}
+      <script defer src="{% static 'js/vendors.min.js' %}"></script>
       {%- endraw %}{% else %}{% raw %}
       <!-- Bootstrap JS -->
       <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js" integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -43,9 +47,15 @@
       {%- endraw %}{% endif %}{% raw %}
 
       <!-- place project specific Javascript in this file -->
-      {%- endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% compress js %}{% endraw %}{% endif %}{% raw %}
+      {%- endraw %}{% if cookiecutter.frontend_pipeline == 'None' %}{% raw %}
       <script defer src="{% static 'js/project.js' %}"></script>
-      {%- endraw %}{% if cookiecutter.use_compressor == "y" %}{% raw %}{% endcompress %}{% endraw %}{% endif %}{% raw %}
+      {%- endraw %}{% elif cookiecutter.frontend_pipeline == 'Django Compressor' %}{% raw %}
+      {% compress js %}
+      <script defer src="{% static 'js/project.js' %}"></script>
+      {% endcompress %}
+      {%- endraw %}{% elif cookiecutter.frontend_pipeline == 'Gulp' %}{% raw %}
+      <script defer src="{% static 'js/project.min.js' %}"></script>
+      {%- endraw %}{% endif %}{% raw %}
 
     {% endblock javascript %}
 
