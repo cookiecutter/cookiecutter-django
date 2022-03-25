@@ -338,7 +338,7 @@ MailHog
 .ipython/
 {%- endif %}
 
-{%- if cookiecutter.js_task_runner == 'Gulp' %}
+{%- if cookiecutter.frontend_pipeline == 'Gulp' %}
 project.css
 project.min.css
 vendors.js

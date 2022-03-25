@@ -13,7 +13,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager">
-    {% if cookiecutter.js_task_runner != 'None' %}
+    {% if cookiecutter.frontend_pipeline == 'Gulp' %}
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/node_modules" />
     </content>

@@ -128,7 +128,7 @@ See detailed [cookiecutter-django Heroku documentation](http://cookiecutter-djan
 See detailed [cookiecutter-django Docker documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html).
 
 {%- endif %}
-{%- if cookiecutter.custom_bootstrap_compilation == "y" %}
+{%- if cookiecutter.frontend_pipeline == 'Gulp' %}
 ### Custom Bootstrap Compilation
 
 The generated CSS is set up with automatic Bootstrap recompilation with variables of your choice.
@@ -136,8 +136,5 @@ Bootstrap v5 is installed using npm and customised by tweaking your variables in
 
 You can find a list of available variables [in the bootstrap source](https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss), or get explanations on them in the [Bootstrap docs](https://getbootstrap.com/docs/5.1/customize/sass/).
 
-{%- if cookiecutter.js_task_runner == "Gulp" %}
 Bootstrap's javascript as well as its dependencies is concatenated into a single file: `static/js/vendors.js`.
-{%- endif %}
-
 {%- endif %}

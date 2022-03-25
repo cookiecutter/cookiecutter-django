@@ -80,12 +80,6 @@ database_version:
 
     1. 5.7
 
-js_task_runner:
-    Select a JavaScript task runner. The choices are:
-
-    1. None
-    2. Gulp_
-
 cloud_provider:
     Select a cloud provider for static & media files. The choices are:
 
@@ -114,13 +108,12 @@ use_async:
 use_drf:
     Indicates whether the project should be configured to use `Django Rest Framework`_.
 
-custom_bootstrap_compilation:
-    Indicates whether the project should support Bootstrap recompilation
-    via the selected JavaScript task runner's task. This can be useful
-    for real-time Bootstrap variable alteration.
+frontend_pipeline:
+    Select a pipeline to compile and optimise frontend assets (JS, CSS, ...):
 
-use_compressor:
-    Indicates whether the project should be configured to use `Django Compressor`_.
+    1. None
+    2. `Django Compressor`_
+    3. `Gulp`_: support Bootstrap recompilation with real-time variables alteration.
 
 use_celery:
     Indicates whether the project should be configured to use Celery_.
