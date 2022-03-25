@@ -136,13 +136,14 @@ def update_package_json(remove_dev_deps=None, remove_keys=None, scripts=None):
         fd.write("\n")
 
 
-def handle_js_runner(choice):
+def handle_js_runner(choice, use_docker, use_async):
     if choice == "Gulp":
         update_package_json(
             remove_dev_deps=[
                 "@babel/core",
                 "@babel/preset-env",
                 "babel-loader",
+                "concurrently",
                 "css-loader",
                 "mini-css-extract-plugin",
                 "postcss-loader",
@@ -162,23 +163,37 @@ def handle_js_runner(choice):
         )
         remove_webpack_files()
     elif choice == "Webpack":
-        update_package_json(
-            remove_dev_deps=[
-                "browser-sync",
-                "cssnano",
-                "gulp",
-                "gulp-imagemin",
-                "gulp-plumber",
-                "gulp-postcss",
-                "gulp-rename",
-                "gulp-sass",
-                "gulp-uglify-es",
-            ],
-            scripts={
-                "dev": "webpack serve --config webpack/dev.config.js ",
-                "build": "webpack --config webpack/prod.config.js",
-            },
-        )
+        scripts = {
+            "dev": "webpack serve --config webpack/dev.config.js",
+            "build": "webpack --config webpack/prod.config.js",
+        }
+        remove_dev_deps = [
+            "browser-sync",
+            "cssnano",
+            "gulp",
+            "gulp-imagemin",
+            "gulp-plumber",
+            "gulp-postcss",
+            "gulp-rename",
+            "gulp-sass",
+            "gulp-uglify-es",
+        ]
+        if not use_docker:
+            dev_django_cmd = (
+                "gunicorn config.asgi -k uvicorn.workers.UvicornWorker --reload"
+                if use_async
+                else "python manage.py runserver_plus"
+            )
+            scripts.update(
+                {
+                    "dev": "concurrently npm:dev:*",
+                    "dev:webpack": "webpack serve --config webpack/dev.config.js",
+                    "dev:django": dev_django_cmd,
+                }
+            )
+        else:
+            remove_dev_deps.append("concurrently")
+        update_package_json(remove_dev_deps=remove_dev_deps, scripts=scripts)
         remove_gulp_files()
 
 
@@ -469,7 +484,11 @@ def main():
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_node_dockerfile()
     else:
-        handle_js_runner("{{ cookiecutter.frontend_pipeline }}")
+        handle_js_runner(
+            "{{ cookiecutter.frontend_pipeline }}",
+            use_docker=("{{ cookiecutter.use_docker }}".lower() == "y"),
+            use_async=("{{ cookiecutter.use_async }}".lower() == "y"),
+        )
 
     if "{{ cookiecutter.cloud_provider }}" == "None":
         print(

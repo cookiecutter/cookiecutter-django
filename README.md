@@ -27,7 +27,7 @@ production-ready Django projects quickly.
 -   Registration via [django-allauth](https://github.com/pennersr/django-allauth)
 -   Comes with custom user model ready to go
 -   Optional basic ASGI setup for Websockets
--   Optional custom static build using Gulp and livereload
+-   Optional custom static build using Gulp or Webpack
 -   Send emails via [Anymail](https://github.com/anymail/django-anymail) (using [Mailgun](http://www.mailgun.com/) by default or Amazon SES if AWS is selected cloud provider, but switchable)
 -   Media storage using Amazon S3 or Google Cloud Storage
 -   Docker support using [docker-compose](https://github.com/docker/compose) for development and production (using [Traefik](https://traefik.io/) with [LetsEncrypt](https://letsencrypt.org/) support)
