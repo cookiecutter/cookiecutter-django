@@ -15,7 +15,7 @@ watchgod==0.7  # https://github.com/samuelcolvin/watchgod
 # ------------------------------------------------------------------------------
 mypy==0.931  # https://github.com/python/mypy
 django-stubs==1.9.0  # https://github.com/typeddjango/django-stubs
-pytest==7.0.1  # https://github.com/pytest-dev/pytest
+pytest==7.1.1  # https://github.com/pytest-dev/pytest
 pytest-sugar==0.9.4  # https://github.com/Frozenball/pytest-sugar
 {%- if cookiecutter.use_drf == "y" %}
 djangorestframework-stubs==1.4.0  # https://github.com/typeddjango/djangorestframework-stubs
