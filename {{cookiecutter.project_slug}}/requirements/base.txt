@@ -1,4 +1,4 @@
-pytz==2021.3  # https://github.com/stub42/pytz
+pytz==2022.1  # https://github.com/stub42/pytz
 python-slugify==6.1.1  # https://github.com/un33k/python-slugify
 Pillow==9.0.1  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.frontend_pipeline == 'Django Compressor' %}
