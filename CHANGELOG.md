@@ -3,6 +3,14 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.04.04
+
+### Updated
+- Update redis to 4.2.2 ([#3670](https://github.com/cookiecutter/cookiecutter-django/pull/3670))
+- Update celery to 5.2.5 ([#3669](https://github.com/cookiecutter/cookiecutter-django/pull/3669))
+- Update pre-commit to 2.18.1 ([#3668](https://github.com/cookiecutter/cookiecutter-django/pull/3668))
+- Update pillow to 9.1.0 ([#3665](https://github.com/cookiecutter/cookiecutter-django/pull/3665))
+
 ## 2022.04.01
 
 ### Changed
