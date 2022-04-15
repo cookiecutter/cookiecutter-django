@@ -25,13 +25,12 @@
     "10.19"
   ],
   "cloud_provider": [
-    "Aliyun",
     "AWS",
     "GCP",
+    "Aliyun",
     "None"
   ],
   "mail_service": [
-    "Other SMTP",
     "Mailgun",
     "Amazon SES",
     "Mailjet",
@@ -39,7 +38,8 @@
     "Postmark",
     "Sendgrid",
     "SendinBlue",
-    "SparkPost"
+    "SparkPost",
+    "Other SMTP"
   ],
   "use_async": "y",
   "use_drf": "y",
