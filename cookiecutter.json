@@ -7,11 +7,11 @@
   "email": "{{ cookiecutter.author_name.lower()|replace(' ', '-') }}@example.com",
   "version": "0.1.0",
   "open_source_license": [
+    "Not open source",
     "MIT",
     "BSD",
     "GPLv3",
-    "Apache Software License 2.0",
-    "Not open source"
+    "Apache Software License 2.0"
   ],
   "timezone": "UTC",
   "windows": "n",
