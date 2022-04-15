@@ -16,7 +16,7 @@
   "timezone": "Asia/Shanghai",
   "windows": "n",
   "use_pycharm": "y",
-  "use_docker": "y",
+  "use_docker": "n",
   "postgresql_version": [
     "14.1",
     "13.5",
