@@ -2,20 +2,20 @@
   "project_name": "My Awesome Project",
   "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
   "description": "Behold My Awesome Project!",
-  "author_name": "Daniel Roy Greenfeld",
-  "domain_name": "example.com",
-  "email": "{{ cookiecutter.author_name.lower()|replace(' ', '-') }}@example.com",
+  "author_name": "Aiden Lu",
+  "domain_name": "wochacha.com",
+  "email": "{{ cookiecutter.author_name.lower()|replace(' ', '-') }}@wochacha.com",
   "version": "0.1.0",
   "open_source_license": [
+    "Not open source",
     "MIT",
     "BSD",
     "GPLv3",
-    "Apache Software License 2.0",
-    "Not open source"
+    "Apache Software License 2.0"
   ],
-  "timezone": "UTC",
+  "timezone": "Asia/Shanghai",
   "windows": "n",
-  "use_pycharm": "n",
+  "use_pycharm": "y",
   "use_docker": "n",
   "postgresql_version": [
     "14.1",
@@ -27,6 +27,7 @@
   "cloud_provider": [
     "AWS",
     "GCP",
+    "Aliyun",
     "None"
   ],
   "mail_service": [
@@ -40,23 +41,23 @@
     "SparkPost",
     "Other SMTP"
   ],
-  "use_async": "n",
-  "use_drf": "n",
+  "use_async": "y",
+  "use_drf": "y",
   "frontend_pipeline": [
     "None",
     "Django Compressor",
     "Gulp"
   ],
-  "use_celery": "n",
-  "use_mailhog": "n",
-  "use_sentry": "n",
+  "use_celery": "y",
+  "use_mailhog": "y",
+  "use_sentry": "y",
   "use_whitenoise": "n",
   "use_heroku": "n",
   "ci_tool": [
-    "None",
-    "Travis",
     "Gitlab",
-    "Github"
+    "Travis",
+    "Github",
+    "None"
   ],
   "keep_local_envs_in_vcs": "y",
   "debug": "n"
