@@ -13,10 +13,10 @@
     "GPLv3",
     "Apache Software License 2.0"
   ],
-  "timezone": "UTC",
+  "timezone": "Asia/Shanghai",
   "windows": "n",
-  "use_pycharm": "n",
-  "use_docker": "n",
+  "use_pycharm": "y",
+  "use_docker": "y",
   "postgresql_version": [
     "14.1",
     "13.5",
@@ -30,6 +30,7 @@
     "None"
   ],
   "mail_service": [
+    "Other SMTP",
     "Mailgun",
     "Amazon SES",
     "Mailjet",
@@ -37,26 +38,25 @@
     "Postmark",
     "Sendgrid",
     "SendinBlue",
-    "SparkPost",
-    "Other SMTP"
+    "SparkPost"
   ],
-  "use_async": "n",
-  "use_drf": "n",
+  "use_async": "y",
+  "use_drf": "y",
   "frontend_pipeline": [
     "None",
     "Django Compressor",
     "Gulp"
   ],
-  "use_celery": "n",
-  "use_mailhog": "n",
-  "use_sentry": "n",
+  "use_celery": "y",
+  "use_mailhog": "y",
+  "use_sentry": "y",
   "use_whitenoise": "n",
   "use_heroku": "n",
   "ci_tool": [
-    "None",
+    "Github",
     "Travis",
     "Gitlab",
-    "Github"
+    "None"
   ],
   "keep_local_envs_in_vcs": "y",
   "debug": "n"
