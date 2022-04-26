@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.04.25
+
+### Updated
+- Update pytest to 7.1.2 ([#3683](https://github.com/cookiecutter/cookiecutter-django/pull/3683))
+
+## 2022.04.19
+
+### Updated
+- Update tox to 3.25.0 ([#3675](https://github.com/cookiecutter/cookiecutter-django/pull/3675))
+- Update sentry-sdk to 1.5.10 ([#3679](https://github.com/cookiecutter/cookiecutter-django/pull/3679))
+
 ## 2022.04.13
 
 ### Updated

@@ -13,7 +13,7 @@ pre-commit==2.18.1
 # Testing
 # ------------------------------------------------------------------------------
 tox==3.25.0
-pytest==7.1.1
+pytest==7.1.2
 pytest-cookies==0.6.1
 pytest-instafail==0.4.2
 pyyaml==6.0
