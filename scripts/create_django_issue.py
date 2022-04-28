@@ -47,6 +47,11 @@ class DjVersion(NamedTuple):
         major, minor, *_ = version_str.split(".")
         return cls(major=int(major), minor=int(minor))
 
+    @classmethod
+    def parse_to_tuple(cls, version_str: str):
+        version = cls.parse(version_str=version_str)
+        return version.major, version.minor
+
 
 def get_package_info(package: str) -> dict:
     """Get package metadata using PyPI API."""
@@ -75,17 +80,22 @@ def get_name_and_version(requirements_line: str) -> tuple[str, ...]:
     return name_without_extras, version
 
 
-def get_all_latest_django_versions() -> tuple[DjVersion, list[DjVersion]]:
+def get_all_latest_django_versions(
+    django_max_version: tuple[DjVersion] = None,
+) -> tuple[DjVersion, list[DjVersion]]:
     """
     Grabs all Django versions that are worthy of a GitHub issue.
-
     Depends on Django versions having higher major version or minor version.
     """
+    _django_max_version = (99, 99)
+    if django_max_version:
+        _django_max_version = django_max_version
+
     print("Fetching all Django versions from PyPI")
     base_txt = REQUIREMENTS_DIR / "base.txt"
     with base_txt.open() as f:
         for line in f.readlines():
-            if "django==" in line:
+            if "django==" in line.lower():
                 break
         else:
             print(f"django not found in {base_txt}")  # Huh...?
@@ -97,7 +107,7 @@ def get_all_latest_django_versions() -> tuple[DjVersion, list[DjVersion]]:
     current_minor_version = DjVersion.parse(current_version_str)
     newer_versions: set[DjVersion] = set()
     for django_version in get_django_versions():
-        if django_version > current_minor_version:
+        if _django_max_version >= django_version >= current_minor_version:
             newer_versions.add(django_version)
 
     return current_minor_version, sorted(newer_versions, reverse=True)
@@ -143,7 +153,13 @@ class GitHubManager:
         for requirements_file in self.requirements_files:
             with (REQUIREMENTS_DIR / f"{requirements_file}.txt").open() as f:
                 for line in f.readlines():
-                    if "==" in line and not line.startswith("{%"):
+                    if (
+                        "==" in line
+                        and not line.startswith("{%")
+                        and not line.startswith("    #")
+                        and not line.startswith("#")
+                        and not line.startswith(" ")
+                    ):
                         name, version = get_name_and_version(line)
                         self.requirements[requirements_file][name] = (
                             version,
@@ -192,9 +208,9 @@ class GitHubManager:
         # updated packages, or known releases that will happen but haven't yet
         if issue := self.existing_issues.get(needed_dj_version):
             if index := issue.body.find(package_name):
-                name, _current, prev_compat, ok = [
+                name, _current, prev_compat, ok = (
                     s.strip() for s in issue.body[index:].split("|", 4)[:4]
-                ]
+                )
                 if ok in ("✅", "❓", "🕒"):
                     return prev_compat, ok
 
@@ -251,11 +267,12 @@ class GitHubManager:
                 )
                 requirements += (
                     f"| {self._get_md_home_page_url(info).format(package_name)} "
-                    f"| {version} "
-                    f"| {compat_version} "
+                    f"| {version.strip()} "
+                    f"| {compat_version.strip()} "
                     f"| {icon} "
                     f"|\n"
                 )
+
         return requirements
 
     def create_or_edit_issue(self, needed_dj_version: DjVersion, description: str):
@@ -277,9 +294,11 @@ class GitHubManager:
             self.create_or_edit_issue(version, md_content)
 
 
-def main() -> None:
+def main(django_max_version=None) -> None:
     # Check if there are any djs
-    current_dj, latest_djs = get_all_latest_django_versions()
+    current_dj, latest_djs = get_all_latest_django_versions(
+        django_max_version=django_max_version
+    )
     if not latest_djs:
         sys.exit(0)
     manager = GitHubManager(current_dj, latest_djs)
@@ -292,4 +311,9 @@ if __name__ == "__main__":
         raise RuntimeError(
             "No github repo, please set the environment variable GITHUB_REPOSITORY"
         )
-    main()
+    max_version = None
+    last_arg = sys.argv[-1]
+    if CURRENT_FILE.name not in last_arg:
+        max_version = DjVersion.parse_to_tuple(version_str=last_arg)
+
+    main(django_max_version=max_version)
