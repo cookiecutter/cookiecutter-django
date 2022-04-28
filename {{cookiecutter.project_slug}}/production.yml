@@ -10,6 +10,17 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/django/Dockerfile
+      {%- if cookiecutter.use_whitenoise == 'n' %}
+      args:
+        # These variable can be defined in an .env file in the root of the repo
+        {%- if cookiecutter.cloud_provider == 'AWS' %}
+        DJANGO_AWS_STORAGE_BUCKET_NAME: ${DJANGO_AWS_STORAGE_BUCKET_NAME}
+        DJANGO_AWS_S3_CUSTOM_DOMAIN: ${DJANGO_AWS_S3_CUSTOM_DOMAIN}
+        {%- elif cookiecutter.cloud_provider == 'GCP' %}
+        DJANGO_GCP_STORAGE_BUCKET_NAME: ${DJANGO_GCP_STORAGE_BUCKET_NAME}
+        {%- endif %}
+      {%- endif %}
+
     image: {{ cookiecutter.project_slug }}_production_django
     platform: linux/x86_64
     depends_on:
