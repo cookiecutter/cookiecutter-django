@@ -18,7 +18,7 @@ Prerequisites
 
 * Docker; if you don't have it yet, follow the `installation instructions`_;
 * Docker Compose; refer to the official documentation for the `installation guide`_.
-* Pre-commit; refer to the official documentation for the [pre-commit](https://pre-commit.com/#install).
+* Pre-commit; refer to the official documentation for the `pre-commit`_.
 
 .. _`installation instructions`: https://docs.docker.com/install/#supported-platforms
 .. _`installation guide`: https://docs.docker.com/compose/install/
@@ -190,7 +190,7 @@ Celery tasks in local development
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 When not using docker Celery tasks are set to run in Eager mode, so that a full stack is not needed. When using docker the task scheduler will be used by default.
 
-If you need tasks to be executed on the main thread during development set CELERY_TASK_ALWAYS_EAGER = True in config/settings/local.py.
+If you need tasks to be executed on the main thread during development set ``CELERY_TASK_ALWAYS_EAGER = True`` in ``config/settings/local.py``.
 
 Possible uses could be for testing, or ease of profiling with DJDT.
 
@@ -215,7 +215,7 @@ Developing locally with HTTPS
 
 Increasingly it is becoming necessary to develop software in a secure environment in order that there are very few changes when deploying to production. Recently Facebook changed their policies for apps/sites that use Facebook login which requires the use of an HTTPS URL for the OAuth redirect URL. So if you want to use the ``users`` application with a OAuth provider such as Facebook, securing your communication to the local development environment will be necessary.
 
-In order to create a secure environment, we need to have a trusted SSL certficate installed in our Docker application.
+In order to create a secure environment, we need to have a trusted SSL certificate installed in our Docker application.
 
 #.  **Let's Encrypt**
 
