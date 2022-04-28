@@ -47,5 +47,5 @@ django-cors-headers==3.11.0 # https://github.com/adamchainz/django-cors-headers
 drf-spectacular==0.22.1  # https://github.com/tfranzel/drf-spectacular 
 {%- endif %}
 {%- if cookiecutter.frontend_pipeline == 'Webpack' %}
-django-webpack-loader==1.4.1 # https://github.com/django-webpack/django-webpack-loader
+django-webpack-loader==1.5.0 # https://github.com/django-webpack/django-webpack-loader
 {%- endif %}
