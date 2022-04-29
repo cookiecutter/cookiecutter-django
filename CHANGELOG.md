@@ -3,6 +3,18 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.04.28
+
+### Changed
+- Add the possibility to set a max django version on create_django_issue script ([#3680](https://github.com/cookiecutter/cookiecutter-django/pull/3680))
+
+## 2022.04.27
+
+### Updated
+- Update mypy to 0.950 ([#3687](https://github.com/cookiecutter/cookiecutter-django/pull/3687))
+- Update python-slugify to 6.1.2 ([#3686](https://github.com/cookiecutter/cookiecutter-django/pull/3686))
+- Update drf-spectacular to 0.22.1 ([#3684](https://github.com/cookiecutter/cookiecutter-django/pull/3684))
+
 ## 2022.04.25
 
 ### Updated
