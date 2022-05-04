@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.05.03
+
+### Updated
+- Update django-debug-toolbar to 3.4.0 ([#3692](https://github.com/cookiecutter/cookiecutter-django/pull/3692))
+- Update sentry-sdk to 1.5.11 ([#3693](https://github.com/cookiecutter/cookiecutter-django/pull/3693))
+
 ## 2022.05.01
 
 ### Updated
