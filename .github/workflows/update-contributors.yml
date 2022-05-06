@@ -5,9 +5,14 @@ on:
     branches:
       - master
 
+permissions:
+  contents: read
+
 jobs:
   build:
     # Disables this workflow from running in a repository that is not part of the indicated organization/user
+    permissions:
+      contents: write  # for stefanzweifel/git-auto-commit-action to push code in repo
     if: github.repository_owner == 'cookiecutter'
 
     runs-on: ubuntu-latest
