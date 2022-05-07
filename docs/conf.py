@@ -39,7 +39,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "Cookiecutter Django"
-copyright = "2013-{}, Daniel Roy Greenfeld".format(now.year)
+copyright = f"2013-{now.year}, Daniel Roy Greenfeld"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
