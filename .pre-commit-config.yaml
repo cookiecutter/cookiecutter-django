@@ -13,6 +13,7 @@ repos:
     hooks:
       - id: pyupgrade
         args: [--py39-plus]
+        exclude: hooks/
 
   - repo: https://github.com/psf/black
     rev: 22.3.0
