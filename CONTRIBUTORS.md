@@ -1350,6 +1350,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Naveen</td>
+    <td>
+      <a href="https://github.com/naveensrinivasan">naveensrinivasan</a>
+    </td>
+    <td>snaveen</td>
+  </tr>
+  <tr>
     <td>Nico Stefani</td>
     <td>
       <a href="https://github.com/nicolas471">nicolas471</a>
