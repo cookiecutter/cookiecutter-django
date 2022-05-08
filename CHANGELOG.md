@@ -3,6 +3,14 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.05.07
+
+### Changed
+- Add pyupgrade to pre-commit config ([#3702](https://github.com/cookiecutter/cookiecutter-django/pull/3702))
+- Set permissions for GitHub actions ([#3698](https://github.com/cookiecutter/cookiecutter-django/pull/3698))
+### Updated
+- Update jinja2 to 3.1.2 ([#3700](https://github.com/cookiecutter/cookiecutter-django/pull/3700))
+
 ## 2022.05.06
 
 ### Updated
