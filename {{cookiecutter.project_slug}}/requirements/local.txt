@@ -30,7 +30,7 @@ sphinx-autobuild==2021.3.14 # https://github.com/GaretJax/sphinx-autobuild
 # ------------------------------------------------------------------------------
 flake8==4.0.1  # https://github.com/PyCQA/flake8
 flake8-isort==4.1.1  # https://github.com/gforcada/flake8-isort
-coverage==6.3.2  # https://github.com/nedbat/coveragepy
+coverage==6.3.3  # https://github.com/nedbat/coveragepy
 black==22.3.0  # https://github.com/psf/black
 pylint-django==2.5.3  # https://github.com/PyCQA/pylint-django
 {%- if cookiecutter.use_celery == 'y' %}
