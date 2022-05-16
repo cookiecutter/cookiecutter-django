@@ -18,11 +18,11 @@
   "use_pycharm": "n",
   "use_docker": "n",
   "postgresql_version": [
-    "14.1",
-    "13.5",
-    "12.9",
-    "11.14",
-    "10.19"
+    "14",
+    "13",
+    "12",
+    "11",
+    "10"
   ],
   "cloud_provider": [
     "AWS",
