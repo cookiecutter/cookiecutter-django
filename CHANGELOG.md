@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.05.16
+
+### Changed
+- Update postgres versions ([#3712](https://github.com/cookiecutter/cookiecutter-django/pull/3712))
+### Updated
+- Update django-anymail to 8.6 ([#3713](https://github.com/cookiecutter/cookiecutter-django/pull/3713))
+
 ## 2022.05.14
 
 ### Updated
