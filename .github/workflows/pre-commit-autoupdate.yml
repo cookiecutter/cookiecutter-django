@@ -8,10 +8,16 @@ on:
     - cron: "15 2 * * *"
   workflow_dispatch: # to trigger manually
 
+permissions:
+  contents: read
+
 jobs:
   auto-update:
     # Disables this workflow from running in a repository that is not part of the indicated organization/user
     if: github.repository_owner == 'cookiecutter'
+    permissions:
+      contents: write  # for peter-evans/create-pull-request to create branch
+      pull-requests: write  # for peter-evans/create-pull-request to create a PR
 
     runs-on: ubuntu-latest
     steps:
