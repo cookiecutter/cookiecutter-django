@@ -70,11 +70,11 @@ database_version:
 
     *Currently, following PostgreSQL versions are supported:*
 
-    1. 14.1
-    2. 13.5
-    3. 12.9
-    4. 11.14
-    5. 10.19
+    1. 14
+    2. 13
+    3. 12
+    4. 11
+    5. 10
 
     *Currently, following MySQL versions are supported:*
 
