@@ -19,11 +19,11 @@
   "use_docker": "n",
   "database_engine": ["postgresql", "mysql"],
   "database_version": [
-    "postgresql@14.1",
-    "postgresql@13.5",
-    "postgresql@12.9",
-    "postgresql@11.14",
-    "postgresql@10.19",
+    "postgresql@14",
+    "postgresql@13",
+    "postgresql@12",
+    "postgresql@11",
+    "postgresql@10",
     "mysql@8.0.28",
     "mysql@8.0",
     "mysql@5.7"
