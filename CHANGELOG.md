@@ -3,6 +3,42 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.06.02
+
+### Updated
+- Update coverage to 6.4.1 ([#3729](https://github.com/cookiecutter/cookiecutter-django/pull/3729))
+- Update redis to 4.3.3 ([#3728](https://github.com/cookiecutter/cookiecutter-django/pull/3728))
+
+## 2022.06.01
+
+### Updated
+- Update redis to 4.3.2 ([#3726](https://github.com/cookiecutter/cookiecutter-django/pull/3726))
+
+## 2022.05.24
+
+### Updated
+- Update coverage to 6.4 ([#3716](https://github.com/cookiecutter/cookiecutter-django/pull/3716))
+
+## 2022.05.18
+
+### Updated
+- Update pillow to 9.1.1 ([#3714](https://github.com/cookiecutter/cookiecutter-django/pull/3714))
+
+## 2022.05.16
+
+### Changed
+- Update postgres versions ([#3712](https://github.com/cookiecutter/cookiecutter-django/pull/3712))
+### Updated
+- Update django-anymail to 8.6 ([#3713](https://github.com/cookiecutter/cookiecutter-django/pull/3713))
+
+## 2022.05.14
+
+### Updated
+- Update coverage to 6.3.3 ([#3709](https://github.com/cookiecutter/cookiecutter-django/pull/3709))
+- Update whitenoise to 6.1.0 ([#3707](https://github.com/cookiecutter/cookiecutter-django/pull/3707))
+- Update sentry-sdk to 1.5.12 ([#3706](https://github.com/cookiecutter/cookiecutter-django/pull/3706))
+- Update redis to 4.3.1 ([#3704](https://github.com/cookiecutter/cookiecutter-django/pull/3704))
+
 ## 2022.05.07
 
 ### Changed
