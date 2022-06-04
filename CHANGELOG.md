@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.06.02
+
+### Updated
+- Update coverage to 6.4.1 ([#3729](https://github.com/cookiecutter/cookiecutter-django/pull/3729))
+- Update redis to 4.3.3 ([#3728](https://github.com/cookiecutter/cookiecutter-django/pull/3728))
+
 ## 2022.06.01
 
 ### Updated
