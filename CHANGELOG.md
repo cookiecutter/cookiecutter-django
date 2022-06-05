@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.06.04
+
+### Updated
+- Update django-cors-headers to 3.12.0 ([#3736](https://github.com/cookiecutter/cookiecutter-django/pull/3736))
+- Update djangorestframework-stubs to 1.6.0 ([#3718](https://github.com/cookiecutter/cookiecutter-django/pull/3718))
+- Update django-stubs to 1.11.0 ([#3734](https://github.com/cookiecutter/cookiecutter-django/pull/3734))
+- Update sphinx to 5.0.1 ([#3733](https://github.com/cookiecutter/cookiecutter-django/pull/3733))
+- Update sphinx to 5.0.0 ([#3724](https://github.com/cookiecutter/cookiecutter-django/pull/3724))
+- Update celery to 5.2.7 ([#3732](https://github.com/cookiecutter/cookiecutter-django/pull/3732))
+- Update django-celery-beat to 2.3.0 ([#3731](https://github.com/cookiecutter/cookiecutter-django/pull/3731))
+
 ## 2022.06.02
 
 ### Updated
