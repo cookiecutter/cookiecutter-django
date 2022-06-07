@@ -5,7 +5,7 @@ except ImportError:
     from distutils.core import setup
 
 # We use calendar versioning
-version = "2022.06.05"
+version = "2022.06.06"
 
 with open("README.rst") as readme_file:
     long_description = readme_file.read()
