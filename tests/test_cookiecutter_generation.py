@@ -88,7 +88,7 @@ SUPPORTED_COMBINATIONS = [
     {"use_drf": "y"},
     {"use_drf": "n"},
     {"frontend_pipeline": "None"},
-    {"frontend_pipeline": "django-compressor"},
+    {"frontend_pipeline": "Django Compressor"},
     {"frontend_pipeline": "Gulp"},
     {"use_celery": "y"},
     {"use_celery": "n"},
