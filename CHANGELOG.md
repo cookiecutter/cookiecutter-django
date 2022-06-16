@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.06.15
+
+### Updated
+- Update django-environ to 0.9.0 ([#3751](https://github.com/cookiecutter/cookiecutter-django/pull/3751))
+
 ## 2022.06.13
 
 ### Updated
