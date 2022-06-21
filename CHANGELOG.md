@@ -3,6 +3,42 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.06.15
+
+### Updated
+- Update django-environ to 0.9.0 ([#3751](https://github.com/cookiecutter/cookiecutter-django/pull/3751))
+
+## 2022.06.13
+
+### Updated
+- Update cookiecutter to 2.1.1 ([#3727](https://github.com/cookiecutter/cookiecutter-django/pull/3727))
+
+## 2022.06.11
+
+### Updated
+- Update requests to 2.28.0 ([#3748](https://github.com/cookiecutter/cookiecutter-django/pull/3748))
+
+## 2022.06.09
+
+### Updated
+- Bump actions/setup-python from 3 to 4 ([#3746](https://github.com/cookiecutter/cookiecutter-django/pull/3746))
+
+## 2022.06.08
+
+### Updated
+- Auto-update pre-commit hooks ([#3744](https://github.com/cookiecutter/cookiecutter-django/pull/3744))
+
+## 2022.06.07
+
+### Updated
+- Update django-allauth to 0.51.0 ([#3743](https://github.com/cookiecutter/cookiecutter-django/pull/3743))
+- Auto-update pre-commit hooks ([#3742](https://github.com/cookiecutter/cookiecutter-django/pull/3742))
+
+## 2022.06.06
+
+### Updated
+- Bump pre-commit/action from 2.0.3 to 3.0.0 ([#3739](https://github.com/cookiecutter/cookiecutter-django/pull/3739))
+
 ## 2022.06.05
 
 ### Updated
