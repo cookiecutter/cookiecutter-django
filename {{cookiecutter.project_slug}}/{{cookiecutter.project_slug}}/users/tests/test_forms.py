@@ -27,7 +27,7 @@ class TestUserAdminCreationForm:
         # hence cannot be created.
         form = UserAdminCreationForm(
             {
-                "username": user.username,
+                "email": user.email,
                 "password1": user.password,
                 "password2": user.password,
             }
