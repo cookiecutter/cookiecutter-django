@@ -10,6 +10,7 @@ User = get_user_model()
 class UserAdminChangeForm(admin_forms.UserChangeForm):
     class Meta(admin_forms.UserChangeForm.Meta):
         model = User
+        fields = ("email", "first_name", "last_name")
 
 
 class UserAdminCreationForm(admin_forms.UserCreationForm):
@@ -20,9 +21,10 @@ class UserAdminCreationForm(admin_forms.UserCreationForm):
 
     class Meta(admin_forms.UserCreationForm.Meta):
         model = User
+        fields = ("email", "first_name", "last_name")
 
         error_messages = {
-            "username": {"unique": _("This username has already been taken.")}
+            "email": {"unique": _("This email has already been taken.")}
         }
 
 
@@ -32,6 +34,21 @@ class UserSignupForm(SignupForm):
     Default fields will be added automatically.
     Check UserSocialSignupForm for accounts created from social.
     """
+    first_name = forms.CharField(
+        max_length=150,
+        label=_("first name").capitalize(),
+        widget=forms.TextInput(attrs={"placeholder": _("first name").capitalize()}),
+    )
+    last_name = forms.CharField(
+        max_length=150,
+        label=_("last name").capitalize(),
+        widget=forms.TextInput(attrs={"placeholder": _("last name").capitalize()}),
+    )
+
+    def custom_signup(self, request, user):
+        user.first_name = self.cleaned_data["first_name"]
+        user.last_name = self.cleaned_data["last_name"]
+        return super().custom_signup(request, user)
 
 
 class UserSocialSignupForm(SocialSignupForm):
