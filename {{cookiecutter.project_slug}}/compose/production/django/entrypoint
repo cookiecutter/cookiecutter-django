@@ -7,14 +7,16 @@ set -o nounset
 
 {% if cookiecutter.use_celery == 'y' %}
 # N.B. If only .env files supported variable expansion...
-export CELERY_BROKER_URL="${REDIS_URL}"
+# export CELERY_BROKER_URL="${REDIS_URL}"
+# Updated in .envs
 {% endif %}
 
 if [ -z "${POSTGRES_USER}" ]; then
     base_postgres_image_default_user='postgres'
     export POSTGRES_USER="${base_postgres_image_default_user}"
 fi
-export DATABASE_URL="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}"
+#export DATABASE_URL="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}"
+# Updated in .envs
 
 postgres_ready() {
 python << END
