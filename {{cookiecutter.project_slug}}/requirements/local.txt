@@ -18,7 +18,7 @@ django-stubs==1.11.0  # https://github.com/typeddjango/django-stubs
 pytest==7.1.2  # https://github.com/pytest-dev/pytest
 pytest-sugar==0.9.4  # https://github.com/Frozenball/pytest-sugar
 {%- if cookiecutter.use_drf == "y" %}
-djangorestframework-stubs==1.6.0  # https://github.com/typeddjango/djangorestframework-stubs
+djangorestframework-stubs==1.7.0  # https://github.com/typeddjango/djangorestframework-stubs
 {%- endif %}
 
 # Documentation
