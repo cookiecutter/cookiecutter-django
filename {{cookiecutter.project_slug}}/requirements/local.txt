@@ -25,6 +25,7 @@ djangorestframework-stubs==1.6.0  # https://github.com/typeddjango/djangorestfra
 # ------------------------------------------------------------------------------
 sphinx==5.0.1  # https://github.com/sphinx-doc/sphinx
 sphinx-autobuild==2021.3.14 # https://github.com/GaretJax/sphinx-autobuild
+sphinx-rtd-theme==1.0.0 # https://pypi.org/project/sphinx-rtd-theme/
 
 # Code quality
 # ------------------------------------------------------------------------------

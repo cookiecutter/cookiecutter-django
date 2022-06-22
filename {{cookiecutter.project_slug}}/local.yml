@@ -38,6 +38,8 @@ services:
     volumes:
       - {{ cookiecutter.project_slug }}_local_postgres_data:/var/lib/postgresql/data:Z
       - {{ cookiecutter.project_slug }}_local_postgres_data_backups:/backups:z
+    ports:
+      - "5432:5432"
     env_file:
       - ./.envs/.local/.postgres
 

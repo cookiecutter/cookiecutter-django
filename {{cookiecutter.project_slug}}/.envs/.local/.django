@@ -10,6 +10,7 @@ REDIS_URL=redis://redis:6379/0
 
 # Celery
 # ------------------------------------------------------------------------------
+CELERY_BROKER_URL="${REDIS_URL}"
 
 # Flower
 CELERY_FLOWER_USER=!!!SET CELERY_FLOWER_USER!!!
