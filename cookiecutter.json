@@ -28,8 +28,6 @@
     "mysql@8.0",
     "mysql@5.7"
   ],
-  "__processed_database_engine": "{{ cookiecutter.database_version.lower()|split('@')[0] }}",
-  "__processed_database_version": "{{ cookiecutter.database_version.lower()|split('@')[1] }}",
   "cloud_provider": ["AWS", "GCP", "None"],
   "mail_service": [
     "Mailgun",
