@@ -1,4 +1,6 @@
-FROM node:16-bullseye-slim
+FROM node:18-bullseye-slim
+
+RUN apt-get update && apt-get install -y python3 g++ make
 
 WORKDIR /app
 
