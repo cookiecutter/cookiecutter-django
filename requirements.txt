@@ -1,10 +1,10 @@
-cookiecutter==1.7.3
+cookiecutter==2.1.1
 sh==1.14.2
 binaryornot==0.4.4
 
 # Code quality
 # ------------------------------------------------------------------------------
-black==22.3.0
+black==22.6.0
 isort==5.10.1
 flake8==4.0.1
 flake8-isort==4.1.1
@@ -23,4 +23,4 @@ pyyaml==6.0
 PyGithub==1.55
 gitpython==3.1.27
 jinja2==3.1.2
-requests==2.27.1
+requests==2.28.0
