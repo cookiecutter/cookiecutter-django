@@ -1364,6 +1364,13 @@ Listed in alphabetical order.
     <td>moby_dick91</td>
   </tr>
   <tr>
+    <td>Nikita Sobolev</td>
+    <td>
+      <a href="https://github.com/sobolevn">sobolevn</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Noah H</td>
     <td>
       <a href="https://github.com/nthall">nthall</a>
