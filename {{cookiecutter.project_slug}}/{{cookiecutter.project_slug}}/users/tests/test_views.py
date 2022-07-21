@@ -64,6 +64,7 @@ class TestUserUpdateView:
         # Initialize the form
         form = UserAdminChangeForm()
         form.cleaned_data = {}
+        form.instance = user
         view.form_valid(form)
 
         messages_sent = [m.message for m in messages.get_messages(request)]
