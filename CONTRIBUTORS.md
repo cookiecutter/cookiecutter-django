@@ -1532,6 +1532,13 @@ Listed in alphabetical order.
     <td>saschalalala</td>
   </tr>
   <tr>
+    <td>Sebastian Reyes Espinosa</td>
+    <td>
+      <a href="https://github.com/sebastian-code">sebastian-code</a>
+    </td>
+    <td>sebastianreyese</td>
+  </tr>
+  <tr>
     <td>Simon Rey</td>
     <td>
       <a href="https://github.com/eqqe">eqqe</a>
