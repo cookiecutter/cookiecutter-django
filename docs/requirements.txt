@@ -1,2 +1,2 @@
-sphinx==5.0.1
+sphinx==5.0.2
 sphinx-rtd-theme==1.0.0
