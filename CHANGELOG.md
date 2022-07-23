@@ -3,6 +3,14 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.07.22
+
+### Updated
+- Update pytest-sugar to 0.9.5 ([#3800](https://github.com/cookiecutter/cookiecutter-django/pull/3800))
+- Update sphinx to 5.0.2 ([#3801](https://github.com/cookiecutter/cookiecutter-django/pull/3801))
+- Update pillow to 9.2.0 ([#3799](https://github.com/cookiecutter/cookiecutter-django/pull/3799))
+- Update werkzeug to 2.1.2 ([#3797](https://github.com/cookiecutter/cookiecutter-django/pull/3797))
+
 ## 2022.07.21
 
 ### Changed
