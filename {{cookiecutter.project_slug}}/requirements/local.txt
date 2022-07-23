@@ -1,6 +1,6 @@
 -r base.txt
 
-Werkzeug[watchdog]==2.0.3 # https://github.com/pallets/werkzeug
+Werkzeug[watchdog]==2.1.2 # https://github.com/pallets/werkzeug
 ipdb==0.13.9  # https://github.com/gotcha/ipdb
 {%- if cookiecutter.database_engine == "postgresql" %}
 {%- if cookiecutter.use_docker == 'y' %}
@@ -18,36 +18,36 @@ watchgod==0.8.2  # https://github.com/samuelcolvin/watchgod
 
 # Testing
 # ------------------------------------------------------------------------------
-mypy==0.950  # https://github.com/python/mypy
+mypy==0.971  # https://github.com/python/mypy
 django-stubs==1.12.0  # https://github.com/typeddjango/django-stubs
 pytest==7.1.2  # https://github.com/pytest-dev/pytest
-pytest-sugar==0.9.4  # https://github.com/Frozenball/pytest-sugar
+pytest-sugar==0.9.5  # https://github.com/Frozenball/pytest-sugar
 {%- if cookiecutter.use_drf == "y" %}
 djangorestframework-stubs==1.7.0  # https://github.com/typeddjango/djangorestframework-stubs
 {%- endif %}
 
 # Documentation
 # ------------------------------------------------------------------------------
-sphinx==5.0.1  # https://github.com/sphinx-doc/sphinx
+sphinx==5.0.2  # https://github.com/sphinx-doc/sphinx
 sphinx-autobuild==2021.3.14 # https://github.com/GaretJax/sphinx-autobuild
 
 # Code quality
 # ------------------------------------------------------------------------------
 flake8==4.0.1  # https://github.com/PyCQA/flake8
 flake8-isort==4.1.1  # https://github.com/gforcada/flake8-isort
-coverage==6.4.1  # https://github.com/nedbat/coveragepy
+coverage==6.4.2  # https://github.com/nedbat/coveragepy
 black==22.6.0  # https://github.com/psf/black
 pylint-django==2.5.3  # https://github.com/PyCQA/pylint-django
 {%- if cookiecutter.use_celery == 'y' %}
 pylint-celery==0.3  # https://github.com/PyCQA/pylint-celery
 {%- endif %}
-pre-commit==2.19.0  # https://github.com/pre-commit/pre-commit
+pre-commit==2.20.0  # https://github.com/pre-commit/pre-commit
 
 # Django
 # ------------------------------------------------------------------------------
 factory-boy==3.2.1  # https://github.com/FactoryBoy/factory_boy
 
 django-debug-toolbar==3.5.0  # https://github.com/jazzband/django-debug-toolbar
-django-extensions==3.1.5  # https://github.com/django-extensions/django-extensions
+django-extensions==3.2.0  # https://github.com/django-extensions/django-extensions
 django-coverage-plugin==2.0.3  # https://github.com/nedbat/django_coverage_plugin
 pytest-django==4.5.2  # https://github.com/pytest-dev/pytest-django

@@ -1364,6 +1364,13 @@ Listed in alphabetical order.
     <td>moby_dick91</td>
   </tr>
   <tr>
+    <td>Nikita Sobolev</td>
+    <td>
+      <a href="https://github.com/sobolevn">sobolevn</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Noah H</td>
     <td>
       <a href="https://github.com/nthall">nthall</a>
@@ -1523,6 +1530,13 @@ Listed in alphabetical order.
       <a href="https://github.com/saschalalala">saschalalala</a>
     </td>
     <td>saschalalala</td>
+  </tr>
+  <tr>
+    <td>Sebastian Reyes Espinosa</td>
+    <td>
+      <a href="https://github.com/sebastian-code">sebastian-code</a>
+    </td>
+    <td>sebastianreyese</td>
   </tr>
   <tr>
     <td>Simon Rey</td>
