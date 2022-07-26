@@ -7,7 +7,7 @@ binaryornot==0.4.4
 black==22.6.0
 isort==5.10.1
 flake8==4.0.1
-flake8-isort==4.1.1
+flake8-isort==4.1.2.post0
 pre-commit==2.20.0
 
 # Testing
