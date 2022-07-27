@@ -3,6 +3,20 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.07.26
+
+### Changed
+- Switch from `watchgod` to `watchfiles` ([#3791](https://github.com/cookiecutter/cookiecutter-django/pull/3791))
+- Change Django settings file used by pylint ([#3806](https://github.com/cookiecutter/cookiecutter-django/pull/3806))
+- Simplify database access in tests ([#3807](https://github.com/cookiecutter/cookiecutter-django/pull/3807))
+- Provide more context when wating for PostgreSQL takes too long ([#3782](https://github.com/cookiecutter/cookiecutter-django/pull/3782))
+### Updated
+- Update django-compressor to 4.0 ([#3802](https://github.com/cookiecutter/cookiecutter-django/pull/3802))
+- Update flake8-isort to 4.1.2.post0 ([#3809](https://github.com/cookiecutter/cookiecutter-django/pull/3809))
+- Update sphinx to 5.1.0 ([#3808](https://github.com/cookiecutter/cookiecutter-django/pull/3808))
+- Update sh to 1.14.3 ([#3798](https://github.com/cookiecutter/cookiecutter-django/pull/3798))
+- Auto-update pre-commit hooks ([#3780](https://github.com/cookiecutter/cookiecutter-django/pull/3780))
+
 ## 2022.07.22
 
 ### Updated
