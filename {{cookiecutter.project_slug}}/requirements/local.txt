@@ -1,6 +1,6 @@
 -r base.txt
 
-Werkzeug[watchdog]==2.1.2 # https://github.com/pallets/werkzeug
+Werkzeug[watchdog]==2.2.0 # https://github.com/pallets/werkzeug
 ipdb==0.13.9  # https://github.com/gotcha/ipdb
 {%- if cookiecutter.use_docker == 'y' %}
 psycopg2==2.9.3  # https://github.com/psycopg/psycopg2
