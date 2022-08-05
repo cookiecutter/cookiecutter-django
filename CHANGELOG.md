@@ -3,6 +3,50 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.08.04
+
+### Updated
+- Auto-update pre-commit hooks ([#3816](https://github.com/cookiecutter/cookiecutter-django/pull/3816))
+- Update flake8 to 5.0.4 ([#3829](https://github.com/cookiecutter/cookiecutter-django/pull/3829))
+- Update django-compressor to 4.1 ([#3823](https://github.com/cookiecutter/cookiecutter-django/pull/3823))
+- Update flake8-isort to 4.2.0 ([#3828](https://github.com/cookiecutter/cookiecutter-django/pull/3828))
+
+## 2022.08.03
+
+### Updated
+- Update django to 3.2.15 ([#3822](https://github.com/cookiecutter/cookiecutter-django/pull/3822))
+
+## 2022.07.29
+
+### Updated
+- Update sentry-sdk to 1.9.0 ([#3815](https://github.com/cookiecutter/cookiecutter-django/pull/3815))
+
+## 2022.07.28
+
+### Updated
+- Update werkzeug to 2.2.1 ([#3814](https://github.com/cookiecutter/cookiecutter-django/pull/3814))
+
+## 2022.07.27
+
+### Updated
+- Update werkzeug to 2.2.0 ([#3813](https://github.com/cookiecutter/cookiecutter-django/pull/3813))
+- Update sphinx to 5.1.1 ([#3811](https://github.com/cookiecutter/cookiecutter-django/pull/3811))
+- Update drf-spectacular to 0.23.1 ([#3812](https://github.com/cookiecutter/cookiecutter-django/pull/3812))
+
+## 2022.07.26
+
+### Changed
+- Switch from `watchgod` to `watchfiles` ([#3791](https://github.com/cookiecutter/cookiecutter-django/pull/3791))
+- Change Django settings file used by pylint ([#3806](https://github.com/cookiecutter/cookiecutter-django/pull/3806))
+- Simplify database access in tests ([#3807](https://github.com/cookiecutter/cookiecutter-django/pull/3807))
+- Provide more context when wating for PostgreSQL takes too long ([#3782](https://github.com/cookiecutter/cookiecutter-django/pull/3782))
+### Updated
+- Update django-compressor to 4.0 ([#3802](https://github.com/cookiecutter/cookiecutter-django/pull/3802))
+- Update flake8-isort to 4.1.2.post0 ([#3809](https://github.com/cookiecutter/cookiecutter-django/pull/3809))
+- Update sphinx to 5.1.0 ([#3808](https://github.com/cookiecutter/cookiecutter-django/pull/3808))
+- Update sh to 1.14.3 ([#3798](https://github.com/cookiecutter/cookiecutter-django/pull/3798))
+- Auto-update pre-commit hooks ([#3780](https://github.com/cookiecutter/cookiecutter-django/pull/3780))
+
 ## 2022.07.22
 
 ### Updated
