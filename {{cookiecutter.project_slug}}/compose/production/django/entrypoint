@@ -25,46 +25,53 @@ fi
 export DATABASE_URL="mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}"
 {%- endif %}
 
-database_ready() {
+
 python << END
 import sys
+import time
+
+suggest_unrecoverable_after = 30
+start = time.time()
 
 {%- if cookiecutter.database_engine == 'postgresql' %}
 import psycopg2
-
-try:
-    psycopg2.connect(
-        dbname="${POSTGRES_DB}",
-        user="${POSTGRES_USER}",
-        password="${POSTGRES_PASSWORD}",
-        host="${POSTGRES_HOST}",
-        port="${POSTGRES_PORT}",
-    )
-except psycopg2.OperationalError:
-    sys.exit(-1)
-sys.exit(0)
+while True:
+    try:
+        psycopg2.connect(
+            dbname="${POSTGRES_DB}",
+            user="${POSTGRES_USER}",
+            password="${POSTGRES_PASSWORD}",
+            host="${POSTGRES_HOST}",
+            port="${POSTGRES_PORT}",
+        )
+        break
+    except psycopg2.OperationalError as error:
+        sys.stderr.write("Waiting for PostgreSQL to become available...\n")
+        if time.time() - start > suggest_unrecoverable_after:
+            sys.stderr.write("  This is taking longer than expected. The following exception may be indicative of an unrecoverable error: '{}'\n".format(error))
+    time.sleep(1)
 {%- endif %}
+
 {%- if cookiecutter.database_engine == 'mysql' %}
 import MySQLdb
 
-try:
-    _db = MySQLdb._mysql.connect(
-        host="${MYSQL_HOST}",
-        user="${MYSQL_USER}",
-        password="${MYSQL_PASSWORD}",
-        database="${MYSQL_DATABASE}",
-        port=int("${MYSQL_PORT}")
-    )
-except MySQLdb._exceptions.OperationalError:
-    sys.exit(-1)
+while True:
+    try:
+        _db = MySQLdb._mysql.connect(
+            host="${MYSQL_HOST}",
+            user="${MYSQL_USER}",
+            password="${MYSQL_PASSWORD}",
+            database="${MYSQL_DATABASE}",
+            port=int("${MYSQL_PORT}")
+        )
+        break
+    except MySQLdb._exceptions.OperationalError:
+        sys.stderr.write("Waiting for MySQL to become available...\n")
+        if time.time() - start > suggest_unrecoverable_after:
+            sys.stderr.write("  This is taking longer than expected. The following exception may be indicative of an unrecoverable error: '{}'\n".format(error))
+    time.sleep(1)
 {%- endif %}
 
 END
-}
-until database_ready; do
-  >&2 echo 'Waiting for {{ cookiecutter.database_engine.upper() }} to become available...'
-  sleep 1
-done
->&2 echo '{{ cookiecutter.database_engine.upper() }} is available'
 
 exec "$@"

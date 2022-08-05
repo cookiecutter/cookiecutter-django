@@ -1007,6 +1007,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>jugglinmike</td>
+    <td>
+      <a href="https://github.com/jugglinmike">jugglinmike</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Jules Cheron</td>
     <td>
       <a href="https://github.com/jules-ch">jules-ch</a>
@@ -1332,6 +1339,13 @@ Listed in alphabetical order.
     <td>Min ho Kim</td>
     <td>
       <a href="https://github.com/minho42">minho42</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>monosans</td>
+    <td>
+      <a href="https://github.com/monosans">monosans</a>
     </td>
     <td></td>
   </tr>
