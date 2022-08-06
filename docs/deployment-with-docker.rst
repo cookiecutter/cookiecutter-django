@@ -61,7 +61,7 @@ You will probably also need to setup the Mail backend, for example by adding a `
 Optional: Use AWS IAM Role for EC2 instance
 -------------------------------------------
 
-If you are deploying to AWS, you can use the IAM role to substitute AWS credentials, after which it's safe to remove the ``AWS_ACCESS_KEY_ID`` AND ``AWS_SECRET_ACCESS_KEY`` from ``.envs/.production/.django``. To do it, create an `IAM role`_ and `attach`_ it to the existing EC2 instance or create a new EC2 instance with that role. The role should assume, at minimum, the ``AmazonS3FullAccess`` permission.
+If you are deploying to AWS, you can use the IAM role to substitute AWS credentials, after which it's safe to remove the ``DJANGO_AWS_ACCESS_KEY_ID`` AND ``DJANGO_AWS_SECRET_ACCESS_KEY`` from ``.envs/.production/.django``. To do it, create an `IAM role`_ and `attach`_ it to the existing EC2 instance or create a new EC2 instance with that role. The role should assume, at minimum, the ``AmazonS3FullAccess`` permission.
 
 .. _IAM role: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html
 .. _attach: https://aws.amazon.com/blogs/security/easily-replace-or-attach-an-iam-role-to-an-existing-ec2-instance-by-using-the-ec2-console/
@@ -160,4 +160,3 @@ Move it to ``/etc/supervisor/conf.d/{{cookiecutter.project_slug}}.conf`` and run
 For status check, run::
 
     supervisorctl status
-
