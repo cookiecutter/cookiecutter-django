@@ -14,8 +14,8 @@ source "${working_dir}/_sourced/constants.sh"
 source "${working_dir}/_sourced/messages.sh"
 
 # only export creds if not empty
-[ -z "${DJANGO_AWS_ACCESS_KEY_ID}" ] && export AWS_ACCESS_KEY_ID="${DJANGO_AWS_ACCESS_KEY_ID}"
-[ -z "${DJANGO_AWS_SECRET_ACCESS_KEY}" ] && export AWS_SECRET_ACCESS_KEY="${DJANGO_AWS_SECRET_ACCESS_KEY}"
+[ "${DJANGO_AWS_ACCESS_KEY_ID}" ] && export AWS_ACCESS_KEY_ID="${DJANGO_AWS_ACCESS_KEY_ID}"
+[ "${DJANGO_AWS_SECRET_ACCESS_KEY}" ] && export AWS_SECRET_ACCESS_KEY="${DJANGO_AWS_SECRET_ACCESS_KEY}"
 export AWS_STORAGE_BUCKET_NAME="${DJANGO_AWS_STORAGE_BUCKET_NAME}"
 
 
