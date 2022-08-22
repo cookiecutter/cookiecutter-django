@@ -3,6 +3,31 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.08.15
+
+### Updated
+- Update coverage to 6.4.3 ([#3835](https://github.com/cookiecutter/cookiecutter-django/pull/3835))
+- Update pytz to 2022.2.1 ([#3840](https://github.com/cookiecutter/cookiecutter-django/pull/3840))
+- Update sentry-sdk to 1.9.4 ([#3838](https://github.com/cookiecutter/cookiecutter-django/pull/3838))
+
+## 2022.08.09
+
+### Updated
+- Update sentry-sdk to 1.9.3 ([#3837](https://github.com/cookiecutter/cookiecutter-django/pull/3837))
+
+## 2022.08.05
+
+### Updated
+- Update sentry-sdk to 1.9.2 ([#3832](https://github.com/cookiecutter/cookiecutter-django/pull/3832))
+
+## 2022.08.04
+
+### Updated
+- Auto-update pre-commit hooks ([#3816](https://github.com/cookiecutter/cookiecutter-django/pull/3816))
+- Update flake8 to 5.0.4 ([#3829](https://github.com/cookiecutter/cookiecutter-django/pull/3829))
+- Update django-compressor to 4.1 ([#3823](https://github.com/cookiecutter/cookiecutter-django/pull/3823))
+- Update flake8-isort to 4.2.0 ([#3828](https://github.com/cookiecutter/cookiecutter-django/pull/3828))
+
 ## 2022.08.03
 
 ### Updated
