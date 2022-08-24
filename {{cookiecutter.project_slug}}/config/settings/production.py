@@ -89,7 +89,7 @@ AWS_S3_OBJECT_PARAMETERS = {
 }
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
 AWS_S3_MAX_MEMORY_SIZE = env.int(
-    "DJANGO_AWS_S3_MAX_MEMORY_SIZE", 
+    "DJANGO_AWS_S3_MAX_MEMORY_SIZE",
     default=100_000_000,  # 100MB
 )
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
