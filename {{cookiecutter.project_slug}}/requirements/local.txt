@@ -1,6 +1,6 @@
 -r base.txt
 
-Werkzeug[watchdog]==2.2.1 # https://github.com/pallets/werkzeug
+Werkzeug[watchdog]==2.2.2 # https://github.com/pallets/werkzeug
 ipdb==0.13.9  # https://github.com/gotcha/ipdb
 {%- if cookiecutter.use_docker == 'y' %}
 psycopg2==2.9.3  # https://github.com/psycopg/psycopg2
@@ -30,7 +30,7 @@ sphinx-autobuild==2021.3.14 # https://github.com/GaretJax/sphinx-autobuild
 # ------------------------------------------------------------------------------
 flake8==5.0.4  # https://github.com/PyCQA/flake8
 flake8-isort==4.2.0  # https://github.com/gforcada/flake8-isort
-coverage==6.4.3  # https://github.com/nedbat/coveragepy
+coverage==6.4.4  # https://github.com/nedbat/coveragepy
 black==22.6.0  # https://github.com/psf/black
 pylint-django==2.5.3  # https://github.com/PyCQA/pylint-django
 {%- if cookiecutter.use_celery == 'y' %}
@@ -42,7 +42,7 @@ pre-commit==2.20.0  # https://github.com/pre-commit/pre-commit
 # ------------------------------------------------------------------------------
 factory-boy==3.2.1  # https://github.com/FactoryBoy/factory_boy
 
-django-debug-toolbar==3.5.0  # https://github.com/jazzband/django-debug-toolbar
+django-debug-toolbar==3.6.0  # https://github.com/jazzband/django-debug-toolbar
 django-extensions==3.2.0  # https://github.com/django-extensions/django-extensions
 django-coverage-plugin==2.0.3  # https://github.com/nedbat/django_coverage_plugin
 pytest-django==4.5.2  # https://github.com/pytest-dev/pytest-django
