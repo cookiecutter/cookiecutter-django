@@ -1210,6 +1210,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Marcio Mazza</td>
+    <td>
+      <a href="https://github.com/marciomazza">marciomazza</a>
+    </td>
+    <td>marciomazza</td>
+  </tr>
+  <tr>
     <td>Martin Blech</td>
     <td>
       <a href="https://github.com/"></a>
