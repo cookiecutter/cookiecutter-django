@@ -1007,6 +1007,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>jugglinmike</td>
+    <td>
+      <a href="https://github.com/jugglinmike">jugglinmike</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Jules Cheron</td>
     <td>
       <a href="https://github.com/jules-ch">jules-ch</a>
@@ -1203,6 +1210,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Marcio Mazza</td>
+    <td>
+      <a href="https://github.com/marciomazza">marciomazza</a>
+    </td>
+    <td>marciomazza</td>
+  </tr>
+  <tr>
     <td>Martin Blech</td>
     <td>
       <a href="https://github.com/"></a>
@@ -1336,6 +1350,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>monosans</td>
+    <td>
+      <a href="https://github.com/monosans">monosans</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>mozillazg</td>
     <td>
       <a href="https://github.com/mozillazg">mozillazg</a>
@@ -1362,6 +1383,13 @@ Listed in alphabetical order.
       <a href="https://github.com/nicolas471">nicolas471</a>
     </td>
     <td>moby_dick91</td>
+  </tr>
+  <tr>
+    <td>Nikita Sobolev</td>
+    <td>
+      <a href="https://github.com/sobolevn">sobolevn</a>
+    </td>
+    <td></td>
   </tr>
   <tr>
     <td>Noah H</td>
@@ -1523,6 +1551,13 @@ Listed in alphabetical order.
       <a href="https://github.com/saschalalala">saschalalala</a>
     </td>
     <td>saschalalala</td>
+  </tr>
+  <tr>
+    <td>Sebastian Reyes Espinosa</td>
+    <td>
+      <a href="https://github.com/sebastian-code">sebastian-code</a>
+    </td>
+    <td>sebastianreyese</td>
   </tr>
   <tr>
     <td>Simon Rey</td>
