@@ -3,6 +3,60 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.09.15
+
+### Updated
+- Update watchfiles to 0.17.0 ([#3869](https://github.com/cookiecutter/cookiecutter-django/pull/3869))
+- Update drf-spectacular to 0.24.0 ([#3870](https://github.com/cookiecutter/cookiecutter-django/pull/3870))
+
+## 2022.09.05
+
+### Updated
+- Update sentry-sdk to 1.9.8 ([#3861](https://github.com/cookiecutter/cookiecutter-django/pull/3861))
+
+## 2022.09.02
+
+### Updated
+- Update pytest to 7.1.3 ([#3860](https://github.com/cookiecutter/cookiecutter-django/pull/3860))
+- Update sentry-sdk to 1.9.7 ([#3859](https://github.com/cookiecutter/cookiecutter-django/pull/3859))
+
+## 2022.09.01
+
+### Changed
+- Add article to README about how to use a hosted DB ([#3844](https://github.com/cookiecutter/cookiecutter-django/pull/3844))
+### Updated
+- Update sentry-sdk to 1.9.6 ([#3856](https://github.com/cookiecutter/cookiecutter-django/pull/3856))
+- Auto-update pre-commit hooks ([#3858](https://github.com/cookiecutter/cookiecutter-django/pull/3858))
+- Update black to 22.8.0 ([#3857](https://github.com/cookiecutter/cookiecutter-django/pull/3857))
+
+## 2022.08.26
+
+### Changed
+- Fix formatting in docs ([#3850](https://github.com/cookiecutter/cookiecutter-django/pull/3850))
+
+## 2022.08.24
+
+### Updated
+- Update django-debug-toolbar to 3.6.0 ([#3847](https://github.com/cookiecutter/cookiecutter-django/pull/3847))
+- Update werkzeug to 2.2.2 ([#3846](https://github.com/cookiecutter/cookiecutter-django/pull/3846))
+- Update coverage to 6.4.4 ([#3842](https://github.com/cookiecutter/cookiecutter-django/pull/3842))
+- Update uvicorn to 0.18.3 ([#3845](https://github.com/cookiecutter/cookiecutter-django/pull/3845))
+- Update sentry-sdk to 1.9.5 ([#3841](https://github.com/cookiecutter/cookiecutter-django/pull/3841))
+- Update flower to 1.2.0 ([#3836](https://github.com/cookiecutter/cookiecutter-django/pull/3836))
+- Update django-storages to 1.13.1 ([#3833](https://github.com/cookiecutter/cookiecutter-django/pull/3833))
+
+## 2022.08.15
+
+### Updated
+- Update coverage to 6.4.3 ([#3835](https://github.com/cookiecutter/cookiecutter-django/pull/3835))
+- Update pytz to 2022.2.1 ([#3840](https://github.com/cookiecutter/cookiecutter-django/pull/3840))
+- Update sentry-sdk to 1.9.4 ([#3838](https://github.com/cookiecutter/cookiecutter-django/pull/3838))
+
+## 2022.08.09
+
+### Updated
+- Update sentry-sdk to 1.9.3 ([#3837](https://github.com/cookiecutter/cookiecutter-django/pull/3837))
+
 ## 2022.08.05
 
 ### Updated
