@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.09.23
+
+### Changed
+- Reload uvicorn on html file change ([#3866](https://github.com/cookiecutter/cookiecutter-django/pull/3866))
+- Mailjet default api url does not work out of the box ([#3871](https://github.com/cookiecutter/cookiecutter-django/pull/3871))
+### Updated
+- Auto-update pre-commit hooks ([#3872](https://github.com/cookiecutter/cookiecutter-django/pull/3872))
+- Update django-extensions to 3.2.1 ([#3867](https://github.com/cookiecutter/cookiecutter-django/pull/3867))
+- Update tox to 3.26.0 ([#3864](https://github.com/cookiecutter/cookiecutter-django/pull/3864))
+- Update drf-spectacular to 0.24.1 ([#3874](https://github.com/cookiecutter/cookiecutter-django/pull/3874))
+
 ## 2022.09.15
 
 ### Updated
