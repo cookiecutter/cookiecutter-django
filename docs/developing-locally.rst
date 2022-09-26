@@ -108,7 +108,7 @@ Setup with MySQL_
 
 or if you're running asynchronously: ::
 
-    $ uvicorn config.asgi:application --host 0.0.0.0 --reload
+    $ uvicorn config.asgi:application --host 0.0.0.0 --reload --reload-include '*.html'
 
 .. _PostgreSQL: https://www.postgresql.org/download/
 .. _MySQL: https://dev.mysql.com/downloads/

@@ -377,6 +377,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Brandon Rumiser</td>
+    <td>
+      <a href="https://github.com/brumiser1550">brumiser1550</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Brent Payne</td>
     <td>
       <a href="https://github.com/brentpayne">brentpayne</a>
