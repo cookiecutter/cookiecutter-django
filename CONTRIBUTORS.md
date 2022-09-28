@@ -377,6 +377,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Brandon Rumiser</td>
+    <td>
+      <a href="https://github.com/brumiser1550">brumiser1550</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Brent Payne</td>
     <td>
       <a href="https://github.com/brentpayne">brentpayne</a>
@@ -1208,6 +1215,13 @@ Listed in alphabetical order.
       <a href="https://github.com/Manjit2003">Manjit2003</a>
     </td>
     <td></td>
+  </tr>
+  <tr>
+    <td>Marcio Mazza</td>
+    <td>
+      <a href="https://github.com/marciomazza">marciomazza</a>
+    </td>
+    <td>marciomazza</td>
   </tr>
   <tr>
     <td>Martin Blech</td>
