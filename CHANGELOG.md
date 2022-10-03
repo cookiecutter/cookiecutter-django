@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.10.02
+
+### Updated
+- Update pytz to 2022.4 ([#3891](https://github.com/cookiecutter/cookiecutter-django/pull/3891))
+
 ## 2022.09.30
 
 ### Updated
