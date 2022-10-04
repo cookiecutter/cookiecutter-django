@@ -13,7 +13,7 @@ watchfiles==0.17.0  # https://github.com/samuelcolvin/watchfiles
 
 # Testing
 # ------------------------------------------------------------------------------
-mypy==0.981  # https://github.com/python/mypy
+mypy==0.982  # https://github.com/python/mypy
 django-stubs==1.12.0  # https://github.com/typeddjango/django-stubs
 pytest==7.1.3  # https://github.com/pytest-dev/pytest
 pytest-sugar==0.9.5  # https://github.com/Frozenball/pytest-sugar
