@@ -3,6 +3,16 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.10.11
+
+### Updated
+- Auto-update pre-commit hooks ([#3899](https://github.com/cookiecutter/cookiecutter-django/pull/3899))
+- Update flake8-isort to 5.0.0 ([#3901](https://github.com/cookiecutter/cookiecutter-django/pull/3901))
+- Update gitpython to 3.1.29 ([#3902](https://github.com/cookiecutter/cookiecutter-django/pull/3902))
+- Update psycopg2 to 2.9.4 ([#3896](https://github.com/cookiecutter/cookiecutter-django/pull/3896))
+- Bump stefanzweifel/git-auto-commit-action from 4.15.0 to 4.15.1 ([#3903](https://github.com/cookiecutter/cookiecutter-django/pull/3903))
+- Update black to 22.10.0 ([#3898](https://github.com/cookiecutter/cookiecutter-django/pull/3898))
+
 ## 2022.10.04
 
 ### Updated
