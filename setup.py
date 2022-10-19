@@ -27,7 +27,7 @@ setup(
     classifiers=[
         "Development Status :: 4 - Beta",
         "Environment :: Console",
-        "Framework :: Django :: 3.2",
+        "Framework :: Django :: 4.0",
         "Intended Audience :: Developers",
         "Natural Language :: English",
         "License :: OSI Approved :: BSD License",

@@ -17,7 +17,7 @@ production-ready Django projects quickly.
 
 ## Features
 
--   For Django 3.2
+-   For Django 4.0
 -   Works with Python 3.9
 -   Renders Django projects with 100% starting test coverage
 -   Twitter [Bootstrap](https://github.com/twbs/bootstrap) v5
