@@ -1105,6 +1105,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>krati yadav</td>
+    <td>
+      <a href="https://github.com/krati5">krati5</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Krzysztof Szumny</td>
     <td>
       <a href="https://github.com/noisy">noisy</a>

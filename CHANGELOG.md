@@ -3,6 +3,51 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.10.13
+
+### Updated
+- Update pygithub to 1.56 ([#3904](https://github.com/cookiecutter/cookiecutter-django/pull/3904))
+
+## 2022.10.11
+
+### Updated
+- Auto-update pre-commit hooks ([#3899](https://github.com/cookiecutter/cookiecutter-django/pull/3899))
+- Update flake8-isort to 5.0.0 ([#3901](https://github.com/cookiecutter/cookiecutter-django/pull/3901))
+- Update gitpython to 3.1.29 ([#3902](https://github.com/cookiecutter/cookiecutter-django/pull/3902))
+- Update psycopg2 to 2.9.4 ([#3896](https://github.com/cookiecutter/cookiecutter-django/pull/3896))
+- Bump stefanzweifel/git-auto-commit-action from 4.15.0 to 4.15.1 ([#3903](https://github.com/cookiecutter/cookiecutter-django/pull/3903))
+- Update black to 22.10.0 ([#3898](https://github.com/cookiecutter/cookiecutter-django/pull/3898))
+
+## 2022.10.04
+
+### Updated
+- Update django to 3.2.16 ([#3895](https://github.com/cookiecutter/cookiecutter-django/pull/3895))
+- Update mypy to 0.982 ([#3893](https://github.com/cookiecutter/cookiecutter-django/pull/3893))
+- Auto-update pre-commit hooks ([#3894](https://github.com/cookiecutter/cookiecutter-django/pull/3894))
+
+## 2022.10.03
+
+### Updated
+- Update sentry-sdk to 1.9.10 ([#3892](https://github.com/cookiecutter/cookiecutter-django/pull/3892))
+
+## 2022.10.02
+
+### Updated
+- Update pytz to 2022.4 ([#3891](https://github.com/cookiecutter/cookiecutter-django/pull/3891))
+
+## 2022.09.30
+
+### Updated
+- Update coverage to 6.5.0 ([#3890](https://github.com/cookiecutter/cookiecutter-django/pull/3890))
+- Update mypy to 0.981 ([#3889](https://github.com/cookiecutter/cookiecutter-django/pull/3889))
+- Update sentry-sdk to 1.9.9 ([#3888](https://github.com/cookiecutter/cookiecutter-django/pull/3888))
+- Update sphinx to 5.2.3 ([#3887](https://github.com/cookiecutter/cookiecutter-django/pull/3887))
+
+## 2022.09.29
+
+### Changed
+- Remove outdated &amp; optional Sendgrid settings from production config ([#3885](https://github.com/cookiecutter/cookiecutter-django/pull/3885))
+
 ## 2022.09.27
 
 ### Updated
