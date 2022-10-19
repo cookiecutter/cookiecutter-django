@@ -46,6 +46,7 @@ DJANGO_AWS_SECRET_ACCESS_KEY            AWS_SECRET_ACCESS_KEY       n/a         
 DJANGO_AWS_STORAGE_BUCKET_NAME          AWS_STORAGE_BUCKET_NAME     n/a                                            raises error
 DJANGO_AWS_S3_REGION_NAME               AWS_S3_REGION_NAME          n/a                                            None
 DJANGO_AWS_S3_CUSTOM_DOMAIN             AWS_S3_CUSTOM_DOMAIN        n/a                                            None
+DJANGO_AWS_S3_MAX_MEMORY_SIZE           AWS_S3_MAX_MEMORY_SIZE      n/a                                            100_000_000
 DJANGO_GCP_STORAGE_BUCKET_NAME          GS_BUCKET_NAME              n/a                                            raises error
 GOOGLE_APPLICATION_CREDENTIALS          n/a                         n/a                                            raises error
 SENTRY_DSN                              SENTRY_DSN                  n/a                                            raises error
