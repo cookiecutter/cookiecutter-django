@@ -82,7 +82,7 @@ First things first.
 
 or if you're running asynchronously: ::
 
-    $ uvicorn config.asgi:application --host 0.0.0.0 --reload
+    $ uvicorn config.asgi:application --host 0.0.0.0 --reload --reload-include '*.html'
 
 .. _PostgreSQL: https://www.postgresql.org/download/
 .. _Redis: https://redis.io/download
