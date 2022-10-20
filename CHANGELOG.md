@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.10.19
+
+### Changed
+- Set AWS_S3_MAX_MEMORY_SIZE ([#3810](https://github.com/cookiecutter/cookiecutter-django/pull/3810))
+- Upgrade to Django 4.0 ([#3848](https://github.com/cookiecutter/cookiecutter-django/pull/3848))
+### Updated
+- Update pytz to 2022.5 ([#3906](https://github.com/cookiecutter/cookiecutter-django/pull/3906))
+- Update sphinx to 5.3.0 ([#3905](https://github.com/cookiecutter/cookiecutter-django/pull/3905))
+- Update django-celery-beat to 2.4.0 ([#3908](https://github.com/cookiecutter/cookiecutter-django/pull/3908))
+- Update watchfiles to 0.18.0 ([#3907](https://github.com/cookiecutter/cookiecutter-django/pull/3907))
+
 ## 2022.10.13
 
 ### Updated
