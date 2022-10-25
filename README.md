@@ -3,7 +3,7 @@
 [![Build Status](https://img.shields.io/github/workflow/status/cookiecutter/cookiecutter-django/CI/master)](https://github.com/cookiecutter/cookiecutter-django/actions?query=workflow%3ACI)
 [![Documentation Status](https://readthedocs.org/projects/cookiecutter-django/badge/?version=latest)](https://cookiecutter-django.readthedocs.io/en/latest/?badge=latest)
 [![Updates](https://pyup.io/repos/github/cookiecutter/cookiecutter-django/shield.svg)](https://pyup.io/repos/github/cookiecutter/cookiecutter-django/)
-[![Join our Discord](https://img.shields.io/badge/Discord-cookiecutter-5865F2?style=flat&logo=discord&logoColor=white)](https://discord.gg/9BrxzPKuEW)
+[![Join our Discord](https://img.shields.io/badge/Discord-cookiecutter-5865F2?style=flat&logo=discord&logoColor=white)](https://discord.gg/uFXweDQc5a)
 [![Code Helpers Badge](https://www.codetriage.com/cookiecutter/cookiecutter-django/badges/users.svg)](https://www.codetriage.com/cookiecutter/cookiecutter-django)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
@@ -17,8 +17,8 @@ production-ready Django projects quickly.
 
 ## Features
 
--   For Django 3.2
--   Works with Python 3.9
+-   For Django 4.0
+-   Works with Python 3.10
 -   Renders Django projects with 100% starting test coverage
 -   Twitter [Bootstrap](https://github.com/twbs/bootstrap) v5
 -   [12-Factor](http://12factor.net/) based settings via [django-environ](https://github.com/joke2k/django-environ)
@@ -42,7 +42,7 @@ production-ready Django projects quickly.
 *These features can be enabled during initial project setup.*
 
 -   Serve static files from Amazon S3, Google Cloud Storage or [Whitenoise](https://whitenoise.readthedocs.io/)
--   Configuration for [Celery](http://www.celeryproject.org/) and [Flower](https://github.com/mher/flower) (the latter in Docker setup only)
+-   Configuration for [Celery](https://docs.celeryq.dev) and [Flower](https://github.com/mher/flower) (the latter in Docker setup only)
 -   Integration with [MailHog](https://github.com/mailhog/MailHog) for local email testing
 -   Integration with [Sentry](https://sentry.io/welcome/) for error logging
 
@@ -121,16 +121,12 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     use_pycharm [n]: y
     use_docker [n]: n
     Select postgresql_version:
-    1 - 14.1
-    2 - 13.5
-    3 - 12.9
-    4 - 11.14
-    5 - 10.19
+    1 - 14
+    2 - 13
+    3 - 12
+    4 - 11
+    5 - 10
     Choose from 1, 2, 3, 4, 5 [1]: 1
-    Select js_task_runner:
-    1 - None
-    2 - Gulp
-    Choose from 1, 2 [1]: 1
     Select cloud_provider:
     1 - AWS
     2 - GCP
@@ -149,8 +145,11 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     Choose from 1, 2, 3, 4, 5, 6, 7, 8, 9 [1]: 1
     use_async [n]: n
     use_drf [n]: y
-    custom_bootstrap_compilation [n]: n
-    use_compressor [n]: n
+    Select frontend_pipeline:
+    1 - None
+    2 - Django Compressor
+    3 - Gulp
+    Choose from 1, 2, 3, 4 [1]: 1
     use_celery [n]: y
     use_mailhog [n]: n
     use_sentry [n]: y
@@ -189,7 +188,7 @@ For local development, see the following:
 
 -   Have questions? **Before you ask questions anywhere else**, please post your question on [Stack Overflow](http://stackoverflow.com/questions/tagged/cookiecutter-django) under the *cookiecutter-django* tag. We check there periodically for questions.
 -   If you think you found a bug or want to request a feature, please open an [issue](https://github.com/cookiecutter/cookiecutter-django/issues).
--   For anything else, you can chat with us on [Discord](https://discord.gg/9BrxzPKuEW).
+-   For anything else, you can chat with us on [Discord](https://discord.gg/uFXweDQc5a).
 
 ## For Readers of Two Scoops of Django
 
@@ -233,6 +232,7 @@ experience better.
 
 ## Articles
 
+-   [Cookiecutter Django With Amazon RDS](https://haseeburrehman.com/posts/cookiecutter-django-with-amazon-rds/) - Apr, 2, 2021
 -   [Using cookiecutter-django with Google Cloud Storage](https://ahhda.github.io/cloud/gce/django/2019/03/12/using-django-cookiecutter-cloud-storage.html) - Mar. 12, 2019
 -   [cookiecutter-django with Nginx, Route 53 and ELB](https://msaizar.com/blog/cookiecutter-django-nginx-route-53-and-elb/) - Feb. 12, 2018
 -   [cookiecutter-django and Amazon RDS](https://msaizar.com/blog/cookiecutter-django-and-amazon-rds/) - Feb. 7, 2018
@@ -245,8 +245,3 @@ experience better.
 -   [How to create a Django Application using Cookiecutter and Django 1.8](https://www.swapps.io/blog/how-to-create-a-django-application-using-cookiecutter-and-django-1-8/) - Sept. 12, 2015
 
 Have a blog or online publication? Write about your cookiecutter-django tips and tricks, then send us a pull request with the link.
-
-## Code of Conduct
-
-Everyone interacting in the Cookiecutter project's codebases, issue trackers, chat
-rooms, and mailing lists is expected to follow the [PyPA Code of Conduct](https://www.pypa.io/en/latest/code-of-conduct/).

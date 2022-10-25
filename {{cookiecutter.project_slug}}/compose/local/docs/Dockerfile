@@ -1,4 +1,4 @@
-ARG PYTHON_VERSION=3.9-slim-bullseye
+ARG PYTHON_VERSION=3.10-slim-bullseye
 
 # define an alias for the specfic python version used in this file.
 FROM python:${PYTHON_VERSION} as python
@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 COPY ./requirements /requirements
 
 # create python dependency wheels
-RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/app/wheels  \
+RUN pip wheel --no-cache-dir --wheel-dir /usr/src/app/wheels  \
   -r /requirements/local.txt -r /requirements/production.txt \
   && rm -rf /requirements
 

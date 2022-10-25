@@ -11,6 +11,7 @@ services:
       dockerfile: ./compose/local/django/Dockerfile
     image: {{ cookiecutter.project_slug }}_local_django
     container_name: {{ cookiecutter.project_slug }}_local_django
+    platform: linux/x86_64
     depends_on:
       - postgres
       {%- if cookiecutter.use_celery == 'y' %}
@@ -43,6 +44,7 @@ services:
   docs:
     image: {{ cookiecutter.project_slug }}_local_docs
     container_name: {{ cookiecutter.project_slug }}_local_docs
+    platform: linux/x86_64
     build:
       context: .
       dockerfile: ./compose/local/docs/Dockerfile
@@ -53,7 +55,7 @@ services:
       - ./config:/app/config:z
       - ./{{ cookiecutter.project_slug }}:/app/{{ cookiecutter.project_slug }}:z
     ports:
-      - "7000:7000"
+      - "9000:9000"
     command: /start-docs
   {%- if cookiecutter.use_mailhog == 'y' %}
 
@@ -105,7 +107,7 @@ services:
     command: /start-flower
 
   {%- endif %}
-  {%- if cookiecutter.js_task_runner == 'Gulp' %}
+  {%- if cookiecutter.frontend_pipeline == 'Gulp' %}
 
   node:
     build:

@@ -82,7 +82,7 @@ updates:
     schedule:
       interval: "daily"
 
-{%- if cookiecutter.js_task_runner != "None" %}
+{%- if cookiecutter.frontend_pipeline == 'Gulp' %}
 
   # Enable version updates for javascript/npm
   - package-ecosystem: "npm"

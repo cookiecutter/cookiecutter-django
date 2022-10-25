@@ -18,15 +18,11 @@
   "use_pycharm": "n",
   "use_docker": "n",
   "postgresql_version": [
-    "14.1",
-    "13.5",
-    "12.9",
-    "11.14",
-    "10.19"
-  ],
-  "js_task_runner": [
-    "None",
-    "Gulp"
+    "14",
+    "13",
+    "12",
+    "11",
+    "10"
   ],
   "cloud_provider": [
     "AWS",
@@ -47,8 +43,11 @@
   ],
   "use_async": "n",
   "use_drf": "n",
-  "custom_bootstrap_compilation": "n",
-  "use_compressor": "n",
+  "frontend_pipeline": [
+    "None",
+    "Django Compressor",
+    "Gulp"
+  ],
   "use_celery": "n",
   "use_mailhog": "n",
   "use_sentry": "n",

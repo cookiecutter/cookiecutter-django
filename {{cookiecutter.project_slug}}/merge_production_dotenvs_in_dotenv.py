@@ -1,6 +1,6 @@
 import os
+from collections.abc import Sequence
 from pathlib import Path
-from typing import Sequence
 
 import pytest
 
@@ -18,7 +18,7 @@ def merge(
 ) -> None:
     with open(output_file_path, "w") as output_file:
         for merged_file_path in merged_file_paths:
-            with open(merged_file_path, "r") as merged_file:
+            with open(merged_file_path) as merged_file:
                 merged_file_content = merged_file.read()
                 output_file.write(merged_file_content)
                 if append_linesep:
@@ -41,7 +41,7 @@ def test_merge(tmpdir_factory, merged_file_count: int, append_linesep: bool):
     for i in range(merged_file_count):
         merged_file_ord = i + 1
 
-        merged_filename = ".service{}".format(merged_file_ord)
+        merged_filename = f".service{merged_file_ord}"
         merged_file_path = tmp_dir_path / merged_filename
 
         merged_file_content = merged_filename * merged_file_ord
@@ -57,7 +57,7 @@ def test_merge(tmpdir_factory, merged_file_count: int, append_linesep: bool):
 
     merge(output_file_path, merged_file_paths, append_linesep)
 
-    with open(output_file_path, "r") as output_file:
+    with open(output_file_path) as output_file:
         actual_output_file_content = output_file.read()
 
     assert actual_output_file_content == expected_output_file_content
