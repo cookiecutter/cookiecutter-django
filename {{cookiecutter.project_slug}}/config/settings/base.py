@@ -298,6 +298,12 @@ CELERY_TASK_SOFT_TIME_LIMIT = 60
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#beat-scheduler
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 
+CELERY_BROKER_TRANSPORT_OPTIONS = {
+    # https://docs.celeryproject.org/en/stable/getting-started/brokers/redis.html#id1
+    # increase the visibility timeout to match the time of the longest ETA you’re planning to use.
+    "visibility_timeout": 60 * 60 * 1,  # default is 1 hour
+    "retry_on_timeout": True,
+}
 {%- endif %}
 # django-allauth
 # ------------------------------------------------------------------------------
