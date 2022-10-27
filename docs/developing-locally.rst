@@ -9,7 +9,7 @@ Setting Up Development Environment
 
 Make sure to have the following on your host:
 
-* Python 3.9
+* Python 3.10
 * PostgreSQL_.
 * Redis_, if using Celery
 * Cookiecutter_
@@ -18,7 +18,7 @@ First things first.
 
 #. Create a virtualenv: ::
 
-    $ python3.9 -m venv <virtual env path>
+    $ python3.10 -m venv <virtual env path>
 
 #. Activate the virtualenv you have just created: ::
 

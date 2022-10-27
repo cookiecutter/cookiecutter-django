@@ -1,4 +1,4 @@
-ARG PYTHON_VERSION=3.9-slim-bullseye
+ARG PYTHON_VERSION=3.10-slim-bullseye
 
 {% if cookiecutter.frontend_pipeline == 'Gulp' -%}
 FROM node:16-bullseye-slim as client-builder
