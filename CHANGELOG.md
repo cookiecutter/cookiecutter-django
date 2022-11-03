@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.11.02
+
+### Changed
+- fix typo in CONTRIBUTING.md ([#3932](https://github.com/cookiecutter/cookiecutter-django/pull/3932))
+### Updated
+- Update crispy-bootstrap5 to 0.7 ([#3886](https://github.com/cookiecutter/cookiecutter-django/pull/3886))
+- Update django-coverage-plugin to 2.0.4 ([#3927](https://github.com/cookiecutter/cookiecutter-django/pull/3927))
+- Update pytz to 2022.6 ([#3928](https://github.com/cookiecutter/cookiecutter-django/pull/3928))
+- Update sphinx-rtd-theme to 1.1.0 ([#3929](https://github.com/cookiecutter/cookiecutter-django/pull/3929))
+- Update pillow to 9.3.0 ([#3922](https://github.com/cookiecutter/cookiecutter-django/pull/3922))
+
 ## 2022.10.30
 
 ### Updated
