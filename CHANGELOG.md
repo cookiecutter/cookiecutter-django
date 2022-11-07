@@ -3,6 +3,16 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.11.06
+
+### Changed
+- Store extended Celery task attributes in backend ([#3855](https://github.com/cookiecutter/cookiecutter-django/pull/3855))
+- add os requirements for Ubuntu 22.04 (Jammy) ([#3930](https://github.com/cookiecutter/cookiecutter-django/pull/3930))
+### Updated
+- Update pytest-sugar to 0.9.6 ([#3937](https://github.com/cookiecutter/cookiecutter-django/pull/3937))
+- Update pygithub to 1.57 ([#3936](https://github.com/cookiecutter/cookiecutter-django/pull/3936))
+- Update sphinx-rtd-theme to 1.1.1 ([#3935](https://github.com/cookiecutter/cookiecutter-django/pull/3935))
+
 ## 2022.11.02
 
 ### Changed
