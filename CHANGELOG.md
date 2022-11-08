@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.11.07
+
+### Updated
+- Update watchfiles to 0.18.1 ([#3938](https://github.com/cookiecutter/cookiecutter-django/pull/3938))
+
 ## 2022.11.06
 
 ### Changed
