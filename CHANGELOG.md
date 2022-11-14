@@ -3,6 +3,47 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.11.11
+
+### Updated
+- Auto-update pre-commit hooks ([#3942](https://github.com/cookiecutter/cookiecutter-django/pull/3942))
+
+## 2022.11.07
+
+### Updated
+- Update watchfiles to 0.18.1 ([#3938](https://github.com/cookiecutter/cookiecutter-django/pull/3938))
+
+## 2022.11.06
+
+### Changed
+- Store extended Celery task attributes in backend ([#3855](https://github.com/cookiecutter/cookiecutter-django/pull/3855))
+- add os requirements for Ubuntu 22.04 (Jammy) ([#3930](https://github.com/cookiecutter/cookiecutter-django/pull/3930))
+### Updated
+- Update pytest-sugar to 0.9.6 ([#3937](https://github.com/cookiecutter/cookiecutter-django/pull/3937))
+- Update pygithub to 1.57 ([#3936](https://github.com/cookiecutter/cookiecutter-django/pull/3936))
+- Update sphinx-rtd-theme to 1.1.1 ([#3935](https://github.com/cookiecutter/cookiecutter-django/pull/3935))
+
+## 2022.11.02
+
+### Changed
+- fix typo in CONTRIBUTING.md ([#3932](https://github.com/cookiecutter/cookiecutter-django/pull/3932))
+### Updated
+- Update crispy-bootstrap5 to 0.7 ([#3886](https://github.com/cookiecutter/cookiecutter-django/pull/3886))
+- Update django-coverage-plugin to 2.0.4 ([#3927](https://github.com/cookiecutter/cookiecutter-django/pull/3927))
+- Update pytz to 2022.6 ([#3928](https://github.com/cookiecutter/cookiecutter-django/pull/3928))
+- Update sphinx-rtd-theme to 1.1.0 ([#3929](https://github.com/cookiecutter/cookiecutter-django/pull/3929))
+- Update pillow to 9.3.0 ([#3922](https://github.com/cookiecutter/cookiecutter-django/pull/3922))
+
+## 2022.10.30
+
+### Updated
+- Auto-update pre-commit hooks ([#3924](https://github.com/cookiecutter/cookiecutter-django/pull/3924))
+
+## 2022.10.28
+
+### Updated
+- Bump stefanzweifel/git-auto-commit-action from 4.15.2 to 4.15.3 ([#3921](https://github.com/cookiecutter/cookiecutter-django/pull/3921))
+
 ## 2022.10.26
 
 ### Updated
