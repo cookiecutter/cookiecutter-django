@@ -8,10 +8,18 @@ update: all
 # allowed: True, False
 pin: True
 
+# set the default branch
+# default: empty, the default branch on GitHub
+branch: main
+
 # add a label to pull requests, default is not set
 # requires private repo permissions, even on public repos
 # default: empty
 label_prs: update
+
+# set a global prefix for PRs
+# default: empty
+pr_prefix: "Bug #12345"
 
 requirements:
   - "requirements.txt"
