@@ -11,16 +11,16 @@ with open("README.rst") as readme_file:
     long_description = readme_file.read()
 
 setup(
-    name="cookiecutter-django",
+    name="cookiecutter-django-quickstart",
     version=version,
     description=(
         "A Cookiecutter template for creating production-ready "
         "Django projects quickly."
     ),
     long_description=long_description,
-    author="Daniel Roy Greenfeld",
-    author_email="pydanny@gmail.com",
-    url="https://github.com/cookiecutter/cookiecutter-django",
+    author="Jeh",
+    author_email="jbanimineni@packershift.io",
+    url="https://github.com/cookiecutter/cookiecutter-django-quickstart",
     packages=[],
     license="BSD",
     zip_safe=False,

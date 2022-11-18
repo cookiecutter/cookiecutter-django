@@ -14,7 +14,7 @@ permissions:
 jobs:
   auto-update:
     # Disables this workflow from running in a repository that is not part of the indicated organization/user
-    if: github.repository_owner == 'cookiecutter'
+    if: github.repository_owner == 'packershift'
     permissions:
       contents: write  # for peter-evans/create-pull-request to create branch
       pull-requests: write  # for peter-evans/create-pull-request to create a PR
