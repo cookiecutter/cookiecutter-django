@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.11.19
+
+### Updated
+- Bug #12345 Update python-slugify to 7.0.0 ([#13](https://github.com/packershift/cookiecutter-django-quickstart/pull/13))
+
 ## 2022.11.18
 
 ### Changed
