@@ -37,7 +37,7 @@ class UserAdmin(auth_admin.UserAdmin):
     )
     list_display = ["{{cookiecutter.username_type}}", "name", "is_superuser"]
     search_fields = ["name"]
-    {% if cookiecutter.username_type == "email" -%}
+    {%- if cookiecutter.username_type == "email" -%}
     ordering = ["id"]
     add_fieldsets = (
         (

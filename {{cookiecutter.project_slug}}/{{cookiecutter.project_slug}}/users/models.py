@@ -4,11 +4,11 @@ from django.contrib.auth.models import AbstractUser, UserManager as DjangoUserMa
 {%- else %}
 from django.contrib.auth.models import AbstractUser
 {%- endif %}
-from django.db.models import CharField, EmailField
+from django.db.models import CharField{%- if cookiecutter.username_type == "email" %}, EmailField{% endif %}
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
-{% if cookiecutter.username_type == "email" -%}
+{%- if cookiecutter.username_type == "email" -%}
 class UserManager(DjangoUserManager):
     def _create_user(self, email, password, **extra_fields):
         """
@@ -49,7 +49,7 @@ class User(AbstractUser):
 
     #: First and last name do not cover name patterns around the globe
     name = CharField(_("Name of User"), blank=True, max_length=255)
-    {% if cookiecutter.username_type == "email" -%}
+    {%- if cookiecutter.username_type == "email" -%}
     username = None  # type: ignore
     email = EmailField(_("email address"), unique=True)
     {%- endif %}
