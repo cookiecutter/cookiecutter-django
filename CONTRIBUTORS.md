@@ -167,6 +167,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Adin Hodovic</td>
+    <td>
+      <a href="https://github.com/adinhodovic">adinhodovic</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Agam Dua</td>
     <td>
       <a href="https://github.com/"></a>
