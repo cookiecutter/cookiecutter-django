@@ -108,6 +108,10 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     author_name [Daniel Roy Greenfeld]: Daniel Greenfeld
     domain_name [example.com]: myreddit.com
     email [daniel-greenfeld@example.com]: pydanny@gmail.com
+    Select username_type:
+    1 - username
+    2 - email
+    Choose from 1, 2 [1]: 1
     version [0.1.0]: 0.0.1
     Select open_source_license:
     1 - MIT
