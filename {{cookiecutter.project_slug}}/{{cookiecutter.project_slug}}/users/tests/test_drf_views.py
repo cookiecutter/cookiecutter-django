@@ -25,7 +25,6 @@ class TestUserViewSet:
 
         assert response.data == {
             {% if cookiecutter.username_type == "email" -%}
-            "email": user.email,
             "url": f"http://testserver/api/users/{user.pk}/",
             {%- else %}
             "username": user.username,

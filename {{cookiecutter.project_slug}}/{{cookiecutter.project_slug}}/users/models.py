@@ -1,14 +1,14 @@
-{% if cookiecutter.username_type == "email" -%}
+{%- if cookiecutter.username_type == "email" -%}
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import AbstractUser, UserManager as DjangoUserManager
 {%- else %}
 from django.contrib.auth.models import AbstractUser
 {%- endif %}
-from django.db.models import CharField
+from django.db.models import CharField, EmailField
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
-
+{% if cookiecutter.username_type == "email" -%}
 class UserManager(DjangoUserManager):
     def _create_user(self, email, password, **extra_fields):
         """
@@ -38,7 +38,7 @@ class UserManager(DjangoUserManager):
 
         return self._create_user(email, password, **extra_fields)
 
-
+{%- endif %}
 
 class User(AbstractUser):
     """
@@ -51,12 +51,16 @@ class User(AbstractUser):
     name = CharField(_("Name of User"), blank=True, max_length=255)
     {% if cookiecutter.username_type == "email" -%}
     username = None  # type: ignore
+    email = EmailField(_("email address"), unique=True)
     {%- endif %}
     first_name = None  # type: ignore
     last_name = None  # type: ignore
 
-    {% if cookiecutter.username_type == "email" -%}
+    {%- if cookiecutter.username_type == "email" -%}
     USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
+
+    objects = UserManager()
     {%- endif %}
 
     def get_absolute_url(self):
@@ -66,7 +70,7 @@ class User(AbstractUser):
             str: URL for user detail.
 
         """
-        {% if cookiecutter.username_type == "email" -%}
+        {%- if cookiecutter.username_type == "email" -%}
         return reverse("users:detail", kwargs={"id": self.id})
         {%- else %}
         return reverse("users:detail", kwargs={"username": self.username})

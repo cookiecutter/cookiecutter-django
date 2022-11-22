@@ -39,7 +39,7 @@ class TestUserUpdateView:
 
         view.request = request
 
-        {% if cookiecutter.username_type == "email" -%}
+        {%- if cookiecutter.username_type == "email" -%}
         assert view.get_success_url() == f"/users/{user.pk}/"
         {%- else %}
         assert view.get_success_url() == f"/users/{user.username}/"
@@ -83,7 +83,7 @@ class TestUserRedirectView:
 
         view.request = request
 
-        {% if cookiecutter.username_type == "email" -%}
+        {%- if cookiecutter.username_type == "email" -%}
         assert view.get_redirect_url() == f"/users/{user.pk}/"
         {%- else %}
         assert view.get_redirect_url() == f"/users/{user.username}/"
@@ -95,7 +95,7 @@ class TestUserDetailView:
         request = rf.get("/fake-url/")
         request.user = UserFactory()
 
-        {% if cookiecutter.username_type == "email" -%}
+        {%- if cookiecutter.username_type == "email" -%}
         response = user_detail_view(request, pk=user.pk)
         {%- else %}
         response = user_detail_view(request, username=user.username)
@@ -107,7 +107,7 @@ class TestUserDetailView:
         request = rf.get("/fake-url/")
         request.user = AnonymousUser()
 
-        {% if cookiecutter.username_type == "email" -%}
+        {%- if cookiecutter.username_type == "email" -%}
         response = user_detail_view(request, pk=user.pk)
         {%- else %}
         response = user_detail_view(request, username=user.username)

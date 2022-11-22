@@ -4,7 +4,7 @@ from {{ cookiecutter.project_slug }}.users.models import User
 
 
 def test_detail(user: User):
-    {% if cookiecutter.username_type == "email" -%}
+    {%- if cookiecutter.username_type == "email" -%}
     assert (
         reverse("users:detail", kwargs={"pk": user.pk})
         == f"/users/{user.pk}/"

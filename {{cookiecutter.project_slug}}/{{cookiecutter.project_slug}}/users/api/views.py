@@ -14,7 +14,7 @@ class UserViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericV
     serializer_class = UserSerializer
     queryset = User.objects.all()
     {% if cookiecutter.username_type == "email" -%}
-    lookup_field = "id"
+    lookup_field = "pk"
     {%- else %}
     lookup_field = "username"
     {%- endif %}

@@ -42,6 +42,7 @@ class Migration(migrations.Migration):
                         verbose_name="superuser status",
                     ),
                 ),
+                {%- if cookiecutter.username_type == "email" -%}
                 (
                     "username",
                     models.CharField(
@@ -63,6 +64,14 @@ class Migration(migrations.Migration):
                         blank=True, max_length=254, verbose_name="email address"
                     ),
                 ),
+                {%- else %}
+                (
+                    "email",
+                    models.EmailField(
+                        unique=True, max_length=254, verbose_name="email address"
+                    ),
+                ),
+                {%- endif %}
                 (
                     "is_staff",
                     models.BooleanField(
