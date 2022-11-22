@@ -1,7 +1,7 @@
 {%- if cookiecutter.username_type == "email" -%}
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import AbstractUser, UserManager as DjangoUserManager
-{%- else %}
+{%- else -%}
 from django.contrib.auth.models import AbstractUser
 {%- endif %}
 from django.db.models import CharField{%- if cookiecutter.username_type == "email" %}, EmailField{% endif %}
@@ -37,8 +37,8 @@ class UserManager(DjangoUserManager):
             raise ValueError("Superuser must have is_superuser=True.")
 
         return self._create_user(email, password, **extra_fields)
-
 {%- endif %}
+
 
 class User(AbstractUser):
     """
