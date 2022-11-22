@@ -3,6 +3,8 @@ import django.contrib.auth.validators
 from django.db import migrations, models
 import django.utils.timezone
 
+import {{cookiecutter.project_slug}}.users.models
+
 
 class Migration(migrations.Migration):
 
@@ -118,7 +120,11 @@ class Migration(migrations.Migration):
                 "abstract": False,
             },
             managers=[
+                {% if cookiecutter.username_type == "email" -%}
+                ("objects", {{cookiecutter.project_slug}}.users.models.UserManager()),
+                {%- else %}
                 ("objects", django.contrib.auth.models.UserManager()),
+                {%- endif %}
             ],
         ),
     ]

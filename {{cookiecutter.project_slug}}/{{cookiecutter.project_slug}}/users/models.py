@@ -1,7 +1,43 @@
+{% if cookiecutter.username_type == "email" -%}
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth.models import AbstractUser, UserManager as DjangoUserManager
+{%- else %}
 from django.contrib.auth.models import AbstractUser
+{%- endif %}
 from django.db.models import CharField
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
+
+
+class UserManager(DjangoUserManager):
+    def _create_user(self, email, password, **extra_fields):
+        """
+        Create and save a user with the given email and password.
+        """
+        if not email:
+            raise ValueError("The given email must be set")
+        email = self.normalize_email(email)
+        user = self.model(email=email, **extra_fields)
+        user.password = make_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_user(self, email, password=None, **extra_fields):
+        extra_fields.setdefault("is_staff", False)
+        extra_fields.setdefault("is_superuser", False)
+        return self._create_user(email, password, **extra_fields)
+
+    def create_superuser(self, email, password=None, **extra_fields):
+        extra_fields.setdefault("is_staff", True)
+        extra_fields.setdefault("is_superuser", True)
+
+        if extra_fields.get("is_staff") is not True:
+            raise ValueError("Superuser must have is_staff=True.")
+        if extra_fields.get("is_superuser") is not True:
+            raise ValueError("Superuser must have is_superuser=True.")
+
+        return self._create_user(email, password, **extra_fields)
+
 
 
 class User(AbstractUser):
@@ -13,8 +49,15 @@ class User(AbstractUser):
 
     #: First and last name do not cover name patterns around the globe
     name = CharField(_("Name of User"), blank=True, max_length=255)
+    {% if cookiecutter.username_type == "email" -%}
+    username = None  # type: ignore
+    {%- endif %}
     first_name = None  # type: ignore
     last_name = None  # type: ignore
+
+    {% if cookiecutter.username_type == "email" -%}
+    USERNAME_FIELD = "email"
+    {%- endif %}
 
     def get_absolute_url(self):
         """Get url for user's detail view.
@@ -23,4 +66,8 @@ class User(AbstractUser):
             str: URL for user detail.
 
         """
+        {% if cookiecutter.username_type == "email" -%}
+        return reverse("users:detail", kwargs={"id": self.id})
+        {%- else %}
         return reverse("users:detail", kwargs={"username": self.username})
+        {%- endif %}
