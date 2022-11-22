@@ -1161,6 +1161,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Leifur Halldor Asgeirsson</td>
+    <td>
+      <a href="https://github.com/leifurhauks">leifurhauks</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Leo won</td>
     <td>
       <a href="https://github.com/leollon">leollon</a>
