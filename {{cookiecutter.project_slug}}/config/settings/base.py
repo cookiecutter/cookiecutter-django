@@ -283,6 +283,8 @@ if USE_TZ:
 CELERY_BROKER_URL = env("CELERY_BROKER_URL")
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#std:setting-result_backend
 CELERY_RESULT_BACKEND = CELERY_BROKER_URL
+# https://docs.celeryq.dev/en/stable/userguide/configuration.html#result-extended
+CELERY_RESULT_EXTENDED = True
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#std:setting-accept_content
 CELERY_ACCEPT_CONTENT = ["json"]
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#std:setting-task_serializer
@@ -297,6 +299,8 @@ CELERY_TASK_TIME_LIMIT = 5 * 60
 CELERY_TASK_SOFT_TIME_LIMIT = 60
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#beat-scheduler
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
+# https://docs.celeryq.dev/en/stable/userguide/configuration.html#worker-send-task-events
+CELERY_WORKER_SEND_TASK_EVENTS = True
 
 {%- endif %}
 # django-allauth

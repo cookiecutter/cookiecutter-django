@@ -139,6 +139,13 @@ Listed in alphabetical order.
     <td>abdadeel_</td>
   </tr>
   <tr>
+    <td>Abe Hanoka</td>
+    <td>
+      <a href="https://github.com/abe-101">abe-101</a>
+    </td>
+    <td>abe__101</td>
+  </tr>
+  <tr>
     <td>Adam Bogdał</td>
     <td>
       <a href="https://github.com/bogdal">bogdal</a>
@@ -156,6 +163,13 @@ Listed in alphabetical order.
     <td>Adam Steele</td>
     <td>
       <a href="https://github.com/adammsteele">adammsteele</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Adin Hodovic</td>
+    <td>
+      <a href="https://github.com/adinhodovic">adinhodovic</a>
     </td>
     <td></td>
   </tr>
@@ -1143,6 +1157,13 @@ Listed in alphabetical order.
     <td>LECbg</td>
     <td>
       <a href="https://github.com/LECbg">LECbg</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Leifur Halldor Asgeirsson</td>
+    <td>
+      <a href="https://github.com/leifurhauks">leifurhauks</a>
     </td>
     <td></td>
   </tr>
