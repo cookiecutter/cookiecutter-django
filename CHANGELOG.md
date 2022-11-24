@@ -3,6 +3,16 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.11.23
+
+### Changed
+- Fix graceful shutdown of local dev containers and use watchfiles for beat + flower ([#3925](https://github.com/cookiecutter/cookiecutter-django/pull/3925))
+- feat(celery): Enable sending the sent task event by default ([#3961](https://github.com/cookiecutter/cookiecutter-django/pull/3961))
+### Updated
+- Bump stefanzweifel/git-auto-commit-action from 4.15.3 to 4.15.4 ([#3940](https://github.com/cookiecutter/cookiecutter-django/pull/3940))
+- Update django-model-utils to 4.3.1 ([#3948](https://github.com/cookiecutter/cookiecutter-django/pull/3948))
+- Update flake8-isort to 5.0.3 ([#3952](https://github.com/cookiecutter/cookiecutter-django/pull/3952))
+
 ## 2022.11.22
 
 ### Changed
