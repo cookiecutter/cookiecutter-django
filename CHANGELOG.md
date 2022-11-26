@@ -3,6 +3,16 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.11.25
+
+### Updated
+- Bug #12345 Update python-slugify to 7.0.0 ([#17](https://github.com/packershift/cookiecutter-django-quickstart/pull/17))
+- Auto-update pre-commit hooks ([#22](https://github.com/packershift/cookiecutter-django-quickstart/pull/22))
+- Bug #12345 Update flake8 to 6.0.0 ([#23](https://github.com/packershift/cookiecutter-django-quickstart/pull/23))
+- Bug #12345 Update uvicorn to 0.20.0 ([#18](https://github.com/packershift/cookiecutter-django-quickstart/pull/18))
+- Bug #12345 Update redis to 4.3.5 ([#20](https://github.com/packershift/cookiecutter-django-quickstart/pull/20))
+- Bug #12345 Update sentry-sdk to 1.11.1 ([#21](https://github.com/packershift/cookiecutter-django-quickstart/pull/21))
+
 ## 2022.11.19
 
 ### Updated
