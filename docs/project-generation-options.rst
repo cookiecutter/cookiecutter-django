@@ -66,7 +66,8 @@ cloud_provider:
 
     1. AWS_
     2. GCP_
-    3. None
+    3. AZURE_
+    4. None
 
     Note that if you choose no cloud provider, media files won't work.
 
