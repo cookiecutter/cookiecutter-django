@@ -608,6 +608,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>David</td>
+    <td>
+      <a href="https://github.com/buckldav">buckldav</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>David Díaz</td>
     <td>
       <a href="https://github.com/ddiazpinto">ddiazpinto</a>
