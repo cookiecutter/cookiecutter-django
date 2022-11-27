@@ -25,6 +25,7 @@ Contents
    deployment-with-docker
    docker-postgres-backups
    websocket
+   security
    faq
    troubleshooting
 
