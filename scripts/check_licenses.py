@@ -1,14 +1,12 @@
-"""Unit tests for licenses"""
+
 import os
 import re
 from pprint import pprint
 from pathlib import Path
 
-import pytest
-
 
 # script to check if licenses generated have placeholders not replaced with cookiecutter rendering
-def test_scripts_for_placeholders():
+def check_scripts_for_placeholders():
     brackets = []
     for filename in os.listdir('../{{cookiecutter.project_slug}}/licenses'):
         file = open('../{{cookiecutter.project_slug}}/licenses/' + filename, 'r', encoding="utf8")
@@ -35,3 +33,6 @@ def test_scripts_for_placeholders():
         print()
         pprint(brackets)
     assert(len(brackets) == 0)
+
+if __name__ == "__main__":
+    check_scripts_for_placeholders()
