@@ -14,3 +14,13 @@ class AccountAdapter(DefaultAccountAdapter):
 class SocialAccountAdapter(DefaultSocialAccountAdapter):
     def is_open_for_signup(self, request: HttpRequest, sociallogin: Any):
         return getattr(settings, "ACCOUNT_ALLOW_REGISTRATION", True)
+
+    def populate_user(self, request, sociallogin, data):
+        user = sociallogin.user
+        if name := data.get("name"):
+            user.name = name
+        elif first_name := data.get("first_name"):
+            user.name = first_name
+            if last_name := data.get("last_name"):
+                user.name += f" {last_name}"
+        return super().populate_user(request, sociallogin, data)
