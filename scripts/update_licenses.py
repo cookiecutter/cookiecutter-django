@@ -8,12 +8,12 @@ from github import Github
 CURRENT_FILE = Path(__file__)
 ROOT = CURRENT_FILE.parents[1]
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", None)
-GITHUB_TOKEN = "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"
 
 def main() -> None:
     """
     Script entry point.
     """
+    titles_dict = {}
     repo = Github(login_or_token=GITHUB_TOKEN).get_repo("github/choosealicense.com")
     license_dir = ROOT / "{{cookiecutter.project_slug}}" / "licenses"
     license_dir.mkdir(exist_ok=True)
@@ -29,7 +29,7 @@ def main() -> None:
 
     # write the titles dictionary to a json file and put it in workflows so it can be accessed by other files
     with open('licenses.json', 'w') as licenses_dict:
-        licenses_dict.write(json.dumps(titles_dict))
+        json.dump(titles_dict, licenses_dict, indent=2)
     # Put "Not open source" at front so people know it's an option
     front_options = [
         "Not open source",
