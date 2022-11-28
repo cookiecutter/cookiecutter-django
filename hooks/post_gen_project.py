@@ -14,8 +14,7 @@ import os
 import random
 import shutil
 import string
-os.chdir('../scripts/')
-from update_licenses import titles_dict
+import json
 
 try:
     # Inspired by
@@ -332,6 +331,8 @@ def handle_licenses():
     with open(os.path.join("licenses", "-temporary-placeholder.txt")) as f:
         selected_title = f.readline()
 
+    with open('../licenses.json', 'r') as f:
+        titles_dict = json.load(f)
     # access the title to filename dictionary to find the correct file
     # using a dictionary instead of looping reduces time complexity
     with open(os.path.join("licenses", titles_dict[selected_title])) as f:

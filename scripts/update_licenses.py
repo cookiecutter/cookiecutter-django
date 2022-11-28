@@ -8,9 +8,7 @@ from github import Github
 CURRENT_FILE = Path(__file__)
 ROOT = CURRENT_FILE.parents[1]
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", None)
-
-# dictionary declared here to be exported to post_gen_project, for faster license access
-titles_dict = {}
+GITHUB_TOKEN = "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"
 
 def main() -> None:
     """
@@ -19,7 +17,6 @@ def main() -> None:
     repo = Github(login_or_token=GITHUB_TOKEN).get_repo("github/choosealicense.com")
     license_dir = ROOT / "{{cookiecutter.project_slug}}" / "licenses"
     license_dir.mkdir(exist_ok=True)
-    global titles_dict
     for file in repo.get_contents("_licenses", "gh-pages"):
         content = codecs.decode(file.decoded_content)
         # make below line into a dictionary mapping to filename
@@ -29,6 +26,10 @@ def main() -> None:
         if not path.is_file():
             path.touch()
             (license_dir / file.name).write_text(replace_content_options(content))
+
+    # write the titles dictionary to a json file and put it in workflows so it can be accessed by other files
+    with open('licenses.json', 'w') as licenses_dict:
+        licenses_dict.write(json.dumps(titles_dict))
     # Put "Not open source" at front so people know it's an option
     front_options = [
         "Not open source",
