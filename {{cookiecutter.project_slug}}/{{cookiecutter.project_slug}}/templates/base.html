@@ -82,7 +82,7 @@
               {% if request.user.is_authenticated %}
                 <li class="nav-item">
                   {# URL provided by django-allauth/account/urls.py #}
-                  <a class="nav-link" href="{% endraw %}{% if cookiecutter.username_type == "email" %}{% raw %}{{ request.user.pk }}{% endraw %}{% else %}{% raw %}{{ request.user.username }}{% endraw %}{% endif %}{% raw %}">{% translate "My Profile" %}</a>
+                  <a class="nav-link" href="{% endraw %}{% if cookiecutter.username_type == "email" %}{% raw %}{% url 'users:detail' request.user.pk %}{% endraw %}{% else %}{% raw %}{% url 'users:detail' request.user.username %}{% endraw %}{% endif %}{% raw %}">{% translate "My Profile" %}</a>
                 </li>
                 <li class="nav-item">
                   {# URL provided by django-allauth/account/urls.py #}
