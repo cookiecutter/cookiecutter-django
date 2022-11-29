@@ -2,10 +2,9 @@
 import os
 import re
 from pprint import pprint
-from pathlib import Path
 
 
-# script to check if licenses generated have placeholders not replaced with cookiecutter rendering
+# script to check if licenses generated have placeholders not replaced
 def check_scripts_for_placeholders():
     brackets = []
     for filename in os.listdir('../{{cookiecutter.project_slug}}/licenses'):
@@ -13,8 +12,9 @@ def check_scripts_for_placeholders():
 
         # 'found' stores all found bracket instances
         found = []
-        # dashes counts the '---\n' lines in the licenses. it skips instances of brackets until after the first 2 as to
-        # skip the jekyll header
+
+        # dashes counts the '---\n' lines in the licenses.
+        # it skips instances of brackets until after 2 as to skip the jekyll header
         dashes = 0
         for i, line in enumerate(file.readlines()):
             if line == '---\n':
@@ -26,7 +26,8 @@ def check_scripts_for_placeholders():
             if line != []:
                 found += (i, line)
 
-        # add any found instaces of bracket placeholders to the brackets array, and print it after the loop is executed
+        # add any found instances of placeholders to the brackets array
+        # print it after the loop is executed
         if found != []:
             brackets += (filename, found)
     if len(brackets) > 0:

@@ -21,13 +21,12 @@ def main() -> None:
         content = codecs.decode(file.decoded_content)
         # make below line into a dictionary mapping to filename
         titles_dict[content.split("\n", maxsplit=2)[1].replace("title: ", "")] = file.name
-        #titles.append(content.split("\n", maxsplit=2)[1].replace("title: ", ""))
         path = license_dir / file.name
         if not path.is_file():
             path.touch()
             (license_dir / file.name).write_text(replace_content_options(content))
 
-    # write the titles dictionary to a json file and put it in workflows so it can be accessed by other files
+    # write the titles dictionary to a json file so it can be accessed by other files
     with open('{{cookiecutter.project_slug}}/licenses/licenses.json', 'w') as licenses_dict:
         json.dump(titles_dict, licenses_dict, indent=2)
     # Put "Not open source" at front so people know it's an option

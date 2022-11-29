@@ -10,11 +10,11 @@ TODO: restrict Cookiecutter Django project initialization to
 """
 from __future__ import print_function
 
+import json
 import os
 import random
 import shutil
 import string
-import json
 
 try:
     # Inspired by
@@ -343,9 +343,11 @@ def handle_licenses():
     with open(os.path.join("licenses", titles_dict[selected_title])) as f:
         contents = f.readlines()
 
-    with open(special_license_files.get(titles_dict[selected_title], "LICENSE"), "w") as f:
+    with open(
+        special_license_files.get(titles_dict[selected_title], "LICENSE"), "w"
+    ) as f:
         # +2 to get rid of the --- and and an extra new line
-        f.writelines(contents[contents.index("---\n", 1) + 2:])
+        f.writelines(contents[contents.index("---\n", 1) + 2 :])
 
     shutil.rmtree("licenses")
 
