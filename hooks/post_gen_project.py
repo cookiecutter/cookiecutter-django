@@ -331,6 +331,11 @@ def handle_licenses():
     with open(os.path.join("licenses", "-temporary-placeholder.txt")) as f:
         selected_title = f.readline()
 
+    if selected_title == "Not open source":
+        os.remove("CONTRIBUTORS.txt")
+        shutil.rmtree("licenses")
+        return
+
     with open(os.path.join("licenses", "licenses.json")) as f:
         titles_dict = json.load(f)
     # access the title to filename dictionary to find the correct file
@@ -342,8 +347,6 @@ def handle_licenses():
         # +2 to get rid of the --- and and an extra new line
         f.writelines(contents[contents.index("---\n", 1) + 2:])
 
-    if selected_title == "Not open source":
-        os.remove("CONTRIBUTORS.txt")
     shutil.rmtree("licenses")
 
 
