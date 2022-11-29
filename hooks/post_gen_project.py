@@ -331,7 +331,7 @@ def handle_licenses():
     with open(os.path.join("licenses", "-temporary-placeholder.txt")) as f:
         selected_title = f.readline()
 
-    with open('licenses.json', 'r') as f:
+    with open(os.path.join("cookiecutter-django", "licenses.json")) as f:
         titles_dict = json.load(f)
     # access the title to filename dictionary to find the correct file
     # using a dictionary instead of looping reduces time complexity
