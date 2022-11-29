@@ -28,7 +28,7 @@ def main() -> None:
             (license_dir / file.name).write_text(replace_content_options(content))
 
     # write the titles dictionary to a json file and put it in workflows so it can be accessed by other files
-    with open('licenses.json', 'w') as licenses_dict:
+    with open('{{cookiecutter.project_slug}}/licenses/licenses.json', 'w') as licenses_dict:
         json.dump(titles_dict, licenses_dict, indent=2)
     # Put "Not open source" at front so people know it's an option
     front_options = [
