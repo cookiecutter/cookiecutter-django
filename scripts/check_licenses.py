@@ -1,4 +1,3 @@
-
 import os
 import re
 from pprint import pprint
@@ -7,8 +6,10 @@ from pprint import pprint
 # script to check if licenses generated have placeholders not replaced
 def check_scripts_for_placeholders():
     brackets = []
-    for filename in os.listdir('../{{cookiecutter.project_slug}}/licenses'):
-        file = open('../{{cookiecutter.project_slug}}/licenses/' + filename, 'r', encoding="utf8")
+    for filename in os.listdir("../{{cookiecutter.project_slug}}/licenses"):
+        file = open(
+            "../{{cookiecutter.project_slug}}/licenses/" + filename, encoding="utf8"
+        )
 
         # 'found' stores all found bracket instances
         found = []
@@ -17,12 +18,12 @@ def check_scripts_for_placeholders():
         # it skips instances of brackets until after 2 as to skip the jekyll header
         dashes = 0
         for i, line in enumerate(file.readlines()):
-            if line == '---\n':
+            if line == "---\n":
                 dashes += 1
             # skips any possible brackets until the jekyll header is skipped
             if dashes < 2:
                 continue
-            line = re.findall(r'\[.*\]', line)
+            line = re.findall(r"\[.*\]", line)
             if line != []:
                 found += (i, line)
 
@@ -33,7 +34,8 @@ def check_scripts_for_placeholders():
     if len(brackets) > 0:
         print()
         pprint(brackets)
-    assert(len(brackets) == 0)
+    assert len(brackets) == 0
+
 
 if __name__ == "__main__":
     check_scripts_for_placeholders()

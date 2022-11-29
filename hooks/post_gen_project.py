@@ -347,7 +347,7 @@ def handle_licenses():
         special_license_files.get(titles_dict[selected_title], "LICENSE"), "w"
     ) as f:
         # +2 to get rid of the --- and and an extra new line
-        f.writelines(contents[contents.index("---\n", 1) + 2 :])
+        f.writelines(contents[contents.index("---\n", 1) + 2:])
 
     shutil.rmtree("licenses")
 
