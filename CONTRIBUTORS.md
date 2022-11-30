@@ -1546,6 +1546,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>rguptar</td>
+    <td>
+      <a href="https://github.com/rguptar">rguptar</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Richard Hajdu</td>
     <td>
       <a href="https://github.com/Tusky">Tusky</a>
