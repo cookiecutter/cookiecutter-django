@@ -20,6 +20,8 @@ hiredis==2.0.0  # https://github.com/redis/hiredis-py
 django-storages[boto3]==1.13.1  # https://github.com/jschneier/django-storages
 {%- elif cookiecutter.cloud_provider == 'GCP' %}
 django-storages[google]==1.13.1  # https://github.com/jschneier/django-storages
+{%- elif cookiecutter.cloud_provider == 'Azure' %}
+django-storages[azure]==1.13.1  # https://github.com/jschneier/django-storages
 {%- endif %}
 {%- if cookiecutter.mail_service == 'Mailgun' %}
 django-anymail[mailgun]==8.6  # https://github.com/anymail/django-anymail

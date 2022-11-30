@@ -29,7 +29,7 @@ production-ready Django projects quickly.
 -   Optional basic ASGI setup for Websockets
 -   Optional custom static build using Gulp and livereload
 -   Send emails via [Anymail](https://github.com/anymail/django-anymail) (using [Mailgun](http://www.mailgun.com/) by default or Amazon SES if AWS is selected cloud provider, but switchable)
--   Media storage using Amazon S3 or Google Cloud Storage
+-   Media storage using Amazon S3, Google Cloud Storage or Azure Storage
 -   Docker support using [docker-compose](https://github.com/docker/compose) for development and production (using [Traefik](https://traefik.io/) with [LetsEncrypt](https://letsencrypt.org/) support)
 -   [Procfile](https://devcenter.heroku.com/articles/procfile) for deploying to Heroku
 -   Instructions for deploying to [PythonAnywhere](https://www.pythonanywhere.com/)
@@ -41,7 +41,7 @@ production-ready Django projects quickly.
 
 *These features can be enabled during initial project setup.*
 
--   Serve static files from Amazon S3, Google Cloud Storage or [Whitenoise](https://whitenoise.readthedocs.io/)
+-   Serve static files from Amazon S3, Google Cloud Storage, Azure Storage or [Whitenoise](https://whitenoise.readthedocs.io/)
 -   Configuration for [Celery](https://docs.celeryq.dev) and [Flower](https://github.com/mher/flower) (the latter in Docker setup only)
 -   Integration with [MailHog](https://github.com/mailhog/MailHog) for local email testing
 -   Integration with [Sentry](https://sentry.io/welcome/) for error logging
