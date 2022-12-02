@@ -7,12 +7,12 @@ binaryornot==0.4.4
 black==22.10.0
 isort==5.10.1
 flake8==5.0.4
-flake8-isort==5.0.0
+flake8-isort==5.0.3
 pre-commit==2.20.0
 
 # Testing
 # ------------------------------------------------------------------------------
-tox==3.27.0
+tox==3.27.1
 pytest==7.2.0
 pytest-cookies==0.6.1
 pytest-instafail==0.4.2

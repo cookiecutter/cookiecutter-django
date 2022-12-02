@@ -27,6 +27,7 @@
   "cloud_provider": [
     "AWS",
     "GCP",
+    "Azure",
     "None"
   ],
   "mail_service": [

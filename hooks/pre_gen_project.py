@@ -72,11 +72,8 @@ if (
     sys.exit(1)
 
 if (
-    "{{ cookiecutter.cloud_provider }}" == "GCP"
-    and "{{ cookiecutter.mail_service }}" == "Amazon SES"
-) or (
-    "{{ cookiecutter.cloud_provider }}" == "None"
-    and "{{ cookiecutter.mail_service }}" == "Amazon SES"
+    "{{ cookiecutter.mail_service }}" == "Amazon SES"
+    and "{{ cookiecutter.cloud_provider }}" != "AWS"
 ):
     print(
         "You should either use AWS or select a different "
