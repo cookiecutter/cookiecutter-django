@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.12.01
+
+### Updated
+- Bug #12345 Update flake8-isort to 5.0.3 ([#24](https://github.com/packershift/cookiecutter-django-quickstart/pull/24))
+- Auto-update pre-commit hooks ([#25](https://github.com/packershift/cookiecutter-django-quickstart/pull/25))
+
 ## 2022.11.25
 
 ### Updated
