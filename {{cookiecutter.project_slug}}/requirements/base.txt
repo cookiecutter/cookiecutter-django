@@ -49,5 +49,5 @@ drf-spectacular==0.24.2  # https://github.com/tfranzel/drf-spectacular
 
 # Project
 # ------------------------------------------------------------------------------
-fontawesomefree==6.1.1
-django-import-export==2.7.1
+fontawesomefree==6.2.1 # https://github.com/FortAwesome/Font-Awesome
+django-import-export==3.0.1 # https://github.com/django-import-export/django-import-export
