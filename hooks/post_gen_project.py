@@ -331,7 +331,7 @@ def handle_licenses():
     with open(os.path.join("licenses", "-temporary-placeholder.txt")) as f:
         selected_title = f.readline().rstrip()
 
-    if selected_title == "Not open source\n":
+    if selected_title == "Not open source":
         os.remove("CONTRIBUTORS.txt")
         shutil.rmtree("licenses")
         return
