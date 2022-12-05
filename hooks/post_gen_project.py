@@ -328,8 +328,8 @@ def handle_licenses():
         "GNU Lesser General Public License v3.0": "COPYING.LESSER",
         "The Unlicense": "UNLICENSE",
     }
-    with open(os.path.join("licenses", "-temporary-placeholder.txt")) as f:
-        selected_title = f.readline().rstrip()
+
+    selected_title = "{{ cookiecutter.open_source_license }}"
 
     if selected_title == "Not open source":
         os.remove("CONTRIBUTORS.txt")
