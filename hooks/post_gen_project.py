@@ -329,7 +329,7 @@ def handle_licenses():
         "The Unlicense": "UNLICENSE",
     }
 
-    selected_title = "{{ cookiecutter.open_source_license }}"
+    selected_title = """{{ cookiecutter.open_source_license }}"""
 
     if selected_title == "Not open source":
         os.remove("CONTRIBUTORS.txt")
