@@ -10,11 +10,11 @@ TODO: restrict Cookiecutter Django project initialization to
 """
 from __future__ import print_function
 
+import json
 import os
 import random
 import shutil
 import string
-import json
 
 try:
     # Inspired by
@@ -328,22 +328,28 @@ def handle_licenses():
         "GNU Lesser General Public License v3.0": "COPYING.LESSER",
         "The Unlicense": "UNLICENSE",
     }
-    with open(os.path.join("licenses", "-temporary-placeholder.txt")) as f:
-        selected_title = f.readline()
 
-    with open('../licenses.json', 'r') as f:
+    selected_title = """{{ cookiecutter.open_source_license }}"""
+
+    if selected_title == "Not open source":
+        os.remove("CONTRIBUTORS.txt")
+        shutil.rmtree("licenses")
+        return
+
+    with open(os.path.join("licenses", "licenses.json")) as f:
         titles_dict = json.load(f)
     # access the title to filename dictionary to find the correct file
     # using a dictionary instead of looping reduces time complexity
     with open(os.path.join("licenses", titles_dict[selected_title])) as f:
         contents = f.readlines()
 
-    with open(special_license_files.get(titles_dict[selected_title], "LICENSE"), "w") as f:
+    with open(
+        special_license_files.get(titles_dict[selected_title], "LICENSE"), "w"
+    ) as f:
         # +2 to get rid of the --- and and an extra new line
-        f.writelines(contents[contents.index("---\n", 1) + 2:])
+        i = contents.index("---\n", 1) + 2
+        f.writelines(contents[i:])
 
-    if selected_title == "Not open source":
-        os.remove("CONTRIBUTORS.txt")
     shutil.rmtree("licenses")
 
 
