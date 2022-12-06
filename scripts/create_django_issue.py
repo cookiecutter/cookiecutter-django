@@ -11,8 +11,9 @@ from __future__ import annotations
 import os
 import re
 import sys
+from collections.abc import Iterable
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Iterable, NamedTuple
+from typing import TYPE_CHECKING, Any, NamedTuple
 
 import requests
 from github import Github
@@ -107,7 +108,7 @@ def get_all_latest_django_versions(
     current_minor_version = DjVersion.parse(current_version_str)
     newer_versions: set[DjVersion] = set()
     for django_version in get_django_versions():
-        if _django_max_version >= django_version >= current_minor_version:
+        if current_minor_version < django_version <= _django_max_version:
             newer_versions.add(django_version)
 
     return current_minor_version, sorted(newer_versions, reverse=True)

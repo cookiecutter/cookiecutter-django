@@ -55,18 +55,19 @@ use_docker:
 postgresql_version:
     Select a PostgreSQL_ version to use. The choices are:
 
-    1. 14.1
-    2. 13.5
-    3. 12.9
-    4. 11.14
-    5. 10.19
+    1. 14
+    2. 13
+    3. 12
+    4. 11
+    5. 10
 
 cloud_provider:
     Select a cloud provider for static & media files. The choices are:
 
     1. AWS_
     2. GCP_
-    3. None
+    3. Azure_
+    4. None
 
     Note that if you choose no cloud provider, media files won't work.
 
@@ -151,6 +152,7 @@ debug:
 
 .. _AWS: https://aws.amazon.com/s3/
 .. _GCP: https://cloud.google.com/storage/
+.. _Azure: https://azure.microsoft.com/en-us/products/storage/blobs/
 
 .. _Amazon SES: https://aws.amazon.com/ses/
 .. _Mailgun: https://www.mailgun.com

@@ -5,19 +5,24 @@ on:
     branches:
       - master
 
+permissions:
+  contents: read
+
 jobs:
   build:
     # Disables this workflow from running in a repository that is not part of the indicated organization/user
     if: github.repository_owner == 'cookiecutter'
+    permissions:
+      contents: write  # for stefanzweifel/git-auto-commit-action to push code in repo
 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
-          python-version: "3.9"
+          python-version: "3.10"
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -26,7 +31,7 @@ jobs:
         run: python scripts/update_contributors.py
 
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4.14.1
+        uses: stefanzweifel/git-auto-commit-action@v4.16.0
         with:
           commit_message: Update Contributors
           file_pattern: CONTRIBUTORS.md .github/contributors.json

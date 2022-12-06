@@ -42,7 +42,7 @@ function pathsConfig(appName) {
   }
 }
 
-var paths = pathsConfig()
+const paths = pathsConfig()
 
 ////////////////////////////////
 // Tasks
@@ -50,12 +50,12 @@ var paths = pathsConfig()
 
 // Styles autoprefixing and minification
 function styles() {
-  var processCss = [
+  const processCss = [
       autoprefixer(), // adds vendor prefixes
       pixrem(),       // add fallbacks for rem units
   ]
 
-  var minifyCss = [
+  const minifyCss = [
       cssnano({ preset: 'default' })   // minify result
   ]
 
@@ -104,15 +104,18 @@ function imgCompression() {
 {%- if cookiecutter.use_async == 'y' -%}
 // Run django server
 function asyncRunServer() {
-  var cmd = spawn('uvicorn', ['config.asgi:application', '--reload'], {stdio: 'inherit'})
+  const cmd = spawn('gunicorn', [
+      'config.asgi', '-k', 'uvicorn.workers.UvicornWorker', '--reload'
+      ], {stdio: 'inherit'}
+  )
   cmd.on('close', function(code) {
-    console.log('uvicorn exited with code ' + code)
+    console.log('gunicorn exited with code ' + code)
   })
 }
 {%- else %}
 // Run django server
 function runServer(cb) {
-  var cmd = spawn('python', ['manage.py', 'runserver'], {stdio: 'inherit'})
+  const cmd = spawn('python', ['manage.py', 'runserver'], {stdio: 'inherit'})
   cmd.on('close', function(code) {
     console.log('runServer exited with code ' + code)
     cb(code)

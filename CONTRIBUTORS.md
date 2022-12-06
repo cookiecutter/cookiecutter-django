@@ -139,6 +139,13 @@ Listed in alphabetical order.
     <td>abdadeel_</td>
   </tr>
   <tr>
+    <td>Abe Hanoka</td>
+    <td>
+      <a href="https://github.com/abe-101">abe-101</a>
+    </td>
+    <td>abe__101</td>
+  </tr>
+  <tr>
     <td>Adam Bogdał</td>
     <td>
       <a href="https://github.com/bogdal">bogdal</a>
@@ -156,6 +163,13 @@ Listed in alphabetical order.
     <td>Adam Steele</td>
     <td>
       <a href="https://github.com/adammsteele">adammsteele</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Adin Hodovic</td>
+    <td>
+      <a href="https://github.com/adinhodovic">adinhodovic</a>
     </td>
     <td></td>
   </tr>
@@ -377,6 +391,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Brandon Rumiser</td>
+    <td>
+      <a href="https://github.com/brumiser1550">brumiser1550</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Brent Payne</td>
     <td>
       <a href="https://github.com/brentpayne">brentpayne</a>
@@ -583,6 +604,13 @@ Listed in alphabetical order.
     <td>Daniele Tricoli</td>
     <td>
       <a href="https://github.com/eriol">eriol</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>David</td>
+    <td>
+      <a href="https://github.com/buckldav">buckldav</a>
     </td>
     <td></td>
   </tr>
@@ -1007,6 +1035,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>jugglinmike</td>
+    <td>
+      <a href="https://github.com/jugglinmike">jugglinmike</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Jules Cheron</td>
     <td>
       <a href="https://github.com/jules-ch">jules-ch</a>
@@ -1091,6 +1126,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>krati yadav</td>
+    <td>
+      <a href="https://github.com/krati5">krati5</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Krzysztof Szumny</td>
     <td>
       <a href="https://github.com/noisy">noisy</a>
@@ -1122,6 +1164,13 @@ Listed in alphabetical order.
     <td>LECbg</td>
     <td>
       <a href="https://github.com/LECbg">LECbg</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Leifur Halldor Asgeirsson</td>
+    <td>
+      <a href="https://github.com/leifurhauks">leifurhauks</a>
     </td>
     <td></td>
   </tr>
@@ -1201,6 +1250,13 @@ Listed in alphabetical order.
       <a href="https://github.com/Manjit2003">Manjit2003</a>
     </td>
     <td></td>
+  </tr>
+  <tr>
+    <td>Marcio Mazza</td>
+    <td>
+      <a href="https://github.com/marciomazza">marciomazza</a>
+    </td>
+    <td>marciomazza</td>
   </tr>
   <tr>
     <td>Martin Blech</td>
@@ -1336,6 +1392,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>monosans</td>
+    <td>
+      <a href="https://github.com/monosans">monosans</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>mozillazg</td>
     <td>
       <a href="https://github.com/mozillazg">mozillazg</a>
@@ -1350,11 +1413,25 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Naveen</td>
+    <td>
+      <a href="https://github.com/naveensrinivasan">naveensrinivasan</a>
+    </td>
+    <td>snaveen</td>
+  </tr>
+  <tr>
     <td>Nico Stefani</td>
     <td>
       <a href="https://github.com/nicolas471">nicolas471</a>
     </td>
     <td>moby_dick91</td>
+  </tr>
+  <tr>
+    <td>Nikita Sobolev</td>
+    <td>
+      <a href="https://github.com/sobolevn">sobolevn</a>
+    </td>
+    <td></td>
   </tr>
   <tr>
     <td>Noah H</td>
@@ -1469,6 +1546,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>rguptar</td>
+    <td>
+      <a href="https://github.com/rguptar">rguptar</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Richard Hajdu</td>
     <td>
       <a href="https://github.com/Tusky">Tusky</a>
@@ -1516,6 +1600,13 @@ Listed in alphabetical order.
       <a href="https://github.com/saschalalala">saschalalala</a>
     </td>
     <td>saschalalala</td>
+  </tr>
+  <tr>
+    <td>Sebastian Reyes Espinosa</td>
+    <td>
+      <a href="https://github.com/sebastian-code">sebastian-code</a>
+    </td>
+    <td>sebastianreyese</td>
   </tr>
   <tr>
     <td>Simon Rey</td>

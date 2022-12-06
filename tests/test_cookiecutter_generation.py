@@ -47,15 +47,17 @@ SUPPORTED_COMBINATIONS = [
     {"use_pycharm": "n"},
     {"use_docker": "y"},
     {"use_docker": "n"},
-    {"postgresql_version": "14.1"},
-    {"postgresql_version": "13.5"},
-    {"postgresql_version": "12.9"},
-    {"postgresql_version": "11.14"},
-    {"postgresql_version": "10.19"},
+    {"postgresql_version": "14"},
+    {"postgresql_version": "13"},
+    {"postgresql_version": "12"},
+    {"postgresql_version": "11"},
+    {"postgresql_version": "10"},
     {"cloud_provider": "AWS", "use_whitenoise": "y"},
     {"cloud_provider": "AWS", "use_whitenoise": "n"},
     {"cloud_provider": "GCP", "use_whitenoise": "y"},
     {"cloud_provider": "GCP", "use_whitenoise": "n"},
+    {"cloud_provider": "Azure", "use_whitenoise": "y"},
+    {"cloud_provider": "Azure", "use_whitenoise": "n"},
     {"cloud_provider": "None", "use_whitenoise": "y", "mail_service": "Mailgun"},
     {"cloud_provider": "None", "use_whitenoise": "y", "mail_service": "Mailjet"},
     {"cloud_provider": "None", "use_whitenoise": "y", "mail_service": "Mandrill"},
@@ -82,13 +84,22 @@ SUPPORTED_COMBINATIONS = [
     {"cloud_provider": "GCP", "mail_service": "SendinBlue"},
     {"cloud_provider": "GCP", "mail_service": "SparkPost"},
     {"cloud_provider": "GCP", "mail_service": "Other SMTP"},
-    # Note: cloud_providers GCP and None with mail_service Amazon SES is not supported
+    {"cloud_provider": "Azure", "mail_service": "Mailgun"},
+    {"cloud_provider": "Azure", "mail_service": "Mailjet"},
+    {"cloud_provider": "Azure", "mail_service": "Mandrill"},
+    {"cloud_provider": "Azure", "mail_service": "Postmark"},
+    {"cloud_provider": "Azure", "mail_service": "Sendgrid"},
+    {"cloud_provider": "Azure", "mail_service": "SendinBlue"},
+    {"cloud_provider": "Azure", "mail_service": "SparkPost"},
+    {"cloud_provider": "Azure", "mail_service": "Other SMTP"},
+    # Note: cloud_providers GCP, Azure, and None
+    # with mail_service Amazon SES is not supported
     {"use_async": "y"},
     {"use_async": "n"},
     {"use_drf": "y"},
     {"use_drf": "n"},
     {"frontend_pipeline": "None"},
-    {"frontend_pipeline": "django-compressor"},
+    {"frontend_pipeline": "Django Compressor"},
     {"frontend_pipeline": "Gulp"},
     {"frontend_pipeline": "Webpack"},
     {"use_celery": "y"},
@@ -114,6 +125,7 @@ SUPPORTED_COMBINATIONS = [
 UNSUPPORTED_COMBINATIONS = [
     {"cloud_provider": "None", "use_whitenoise": "n"},
     {"cloud_provider": "GCP", "mail_service": "Amazon SES"},
+    {"cloud_provider": "Azure", "mail_service": "Amazon SES"},
     {"cloud_provider": "None", "mail_service": "Amazon SES"},
 ]
 
@@ -139,7 +151,7 @@ def check_paths(paths):
         if is_binary(path):
             continue
 
-        for line in open(path, "r"):
+        for line in open(path):
             match = RE_OBJ.search(line)
             assert match is None, f"cookiecutter variable not replaced in {path}"
 
@@ -204,7 +216,7 @@ def test_travis_invokes_pytest(cookies, context, use_docker, expected_test_scrip
     assert result.project_path.name == context["project_slug"]
     assert result.project_path.is_dir()
 
-    with open(f"{result.project_path}/.travis.yml", "r") as travis_yml:
+    with open(f"{result.project_path}/.travis.yml") as travis_yml:
         try:
             yml = yaml.safe_load(travis_yml)["jobs"]["include"]
             assert yml[0]["script"] == ["flake8"]
@@ -231,7 +243,7 @@ def test_gitlab_invokes_flake8_and_pytest(
     assert result.project_path.name == context["project_slug"]
     assert result.project_path.is_dir()
 
-    with open(f"{result.project_path}/.gitlab-ci.yml", "r") as gitlab_yml:
+    with open(f"{result.project_path}/.gitlab-ci.yml") as gitlab_yml:
         try:
             gitlab_config = yaml.safe_load(gitlab_yml)
             assert gitlab_config["flake8"]["script"] == ["flake8"]
@@ -258,7 +270,7 @@ def test_github_invokes_linter_and_pytest(
     assert result.project_path.name == context["project_slug"]
     assert result.project_path.is_dir()
 
-    with open(f"{result.project_path}/.github/workflows/ci.yml", "r") as github_yml:
+    with open(f"{result.project_path}/.github/workflows/ci.yml") as github_yml:
         try:
             github_config = yaml.safe_load(github_yml)
             linter_present = False
@@ -309,6 +321,6 @@ def test_pycharm_docs_removed(cookies, context, use_pycharm, pycharm_docs_exist)
     context.update({"use_pycharm": use_pycharm})
     result = cookies.bake(extra_context=context)
 
-    with open(f"{result.project_path}/docs/index.rst", "r") as f:
+    with open(f"{result.project_path}/docs/index.rst") as f:
         has_pycharm_docs = "pycharm/configuration" in f.read()
         assert has_pycharm_docs is pycharm_docs_exist
