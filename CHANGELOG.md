@@ -3,6 +3,14 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.12.05
+
+### Updated
+- Auto-update pre-commit hooks ([#27](https://github.com/packershift/cookiecutter-django-quickstart/pull/27))
+- Bug #12345 Update redis to 4.4.0 ([#29](https://github.com/packershift/cookiecutter-django-quickstart/pull/29))
+- Bug #12345 Update django-debug-toolbar to 3.8.1 ([#28](https://github.com/packershift/cookiecutter-django-quickstart/pull/28))
+- Bump stefanzweifel/git-auto-commit-action from 4.15.4 to 4.16.0 ([#26](https://github.com/packershift/cookiecutter-django-quickstart/pull/26))
+
 ## 2022.12.01
 
 ### Updated
