@@ -368,5 +368,15 @@ sentry_sdk.init(
     traces_sample_rate=env.float("SENTRY_TRACES_SAMPLE_RATE", default=0.0),
 )
 {% endif %}
+{% if cookiecutter.use_drf == "y" -%}
+
+# django-rest-framework
+# -------------------------------------------------------------------------------
+# Tools that generate code samples can use SERVERS to point to the correct domain
+SPECTACULAR_SETTINGS["SERVERS"] = [  # noqa F405
+    {"url": "https://{{ cookiecutter.domain_name }}", "description": "Production server"}
+]
+
+{%- endif %}
 # Your stuff...
 # ------------------------------------------------------------------------------
