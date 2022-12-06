@@ -10,7 +10,7 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/django/Dockerfile
-      {%- if cookiecutter.use_whitenoise == 'n' %}
+      {%- if cookiecutter.frontend_pipeline == 'Webpack' and cookiecutter.use_whitenoise == 'n' %}
       args:
         # These variable can be defined in an .env file in the root of the repo
         {%- if cookiecutter.cloud_provider == 'AWS' %}
