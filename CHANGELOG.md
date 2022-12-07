@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.12.06
+
+### Updated
+- Bug #12345 Update django-coverage-plugin to 3.0.0 ([#30](https://github.com/packershift/cookiecutter-django-quickstart/pull/30))
+
 ## 2022.12.05
 
 ### Updated
