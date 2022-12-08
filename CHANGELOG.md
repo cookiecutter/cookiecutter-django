@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.12.07
+
+### Updated
+- Auto-update pre-commit hooks ([#31](https://github.com/packershift/cookiecutter-django-quickstart/pull/31))
+
 ## 2022.12.06
 
 ### Updated
