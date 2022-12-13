@@ -14,11 +14,11 @@ watchfiles==0.18.1  # https://github.com/samuelcolvin/watchfiles
 # Testing
 # ------------------------------------------------------------------------------
 mypy==0.982  # https://github.com/python/mypy
-django-stubs==1.12.0  # https://github.com/typeddjango/django-stubs
+django-stubs==1.13.1  # https://github.com/typeddjango/django-stubs
 pytest==7.2.0  # https://github.com/pytest-dev/pytest
 pytest-sugar==0.9.6  # https://github.com/Frozenball/pytest-sugar
 {%- if cookiecutter.use_drf == "y" %}
-djangorestframework-stubs==1.7.0  # https://github.com/typeddjango/djangorestframework-stubs
+djangorestframework-stubs==1.8.0  # https://github.com/typeddjango/djangorestframework-stubs
 {%- endif %}
 
 # Documentation
@@ -32,7 +32,7 @@ sphinx-rtd-theme==1.0.0 # https://pypi.org/project/sphinx-rtd-theme/
 flake8==6.0.0  # https://github.com/PyCQA/flake8
 flake8-isort==5.0.3  # https://github.com/gforcada/flake8-isort
 coverage==6.5.0  # https://github.com/nedbat/coveragepy
-black==22.10.0  # https://github.com/psf/black
+black==22.12.0  # https://github.com/psf/black
 pylint-django==2.5.3  # https://github.com/PyCQA/pylint-django
 {%- if cookiecutter.use_celery == 'y' %}
 pylint-celery==0.3  # https://github.com/PyCQA/pylint-celery

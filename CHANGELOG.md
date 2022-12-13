@@ -3,6 +3,42 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.12.10
+
+### Updated
+- Update tox to 4.0.5 ([#3993](https://github.com/cookiecutter/cookiecutter-django/pull/3993))
+- Auto-update pre-commit hooks ([#3991](https://github.com/cookiecutter/cookiecutter-django/pull/3991))
+
+## 2022.12.09
+
+### Changed
+- Remove bind option mounts for docker compose volumes ([#3981](https://github.com/cookiecutter/cookiecutter-django/pull/3981))
+### Updated
+- Update djangorestframework-stubs to 1.8.0 ([#3990](https://github.com/cookiecutter/cookiecutter-django/pull/3990))
+- Update black to 22.12.0 ([#3988](https://github.com/cookiecutter/cookiecutter-django/pull/3988))
+
+## 2022.12.08
+
+### Updated
+- Update tox to 4.0.3 ([#3987](https://github.com/cookiecutter/cookiecutter-django/pull/3987))
+- Update tox to 4.0.2 ([#3985](https://github.com/cookiecutter/cookiecutter-django/pull/3985))
+- Update django-stubs to 1.13.1 ([#3986](https://github.com/cookiecutter/cookiecutter-django/pull/3986))
+
+## 2022.12.07
+
+### Updated
+- Auto-update pre-commit hooks ([#3983](https://github.com/cookiecutter/cookiecutter-django/pull/3983))
+
+## 2022.12.06
+
+### Changed
+- Simplify production `DATABASES` setting to extend base definition ([#3969](https://github.com/cookiecutter/cookiecutter-django/pull/3969))
+### Fixed
+- Only set `SERVERS` for `drf-spectacular` in production ([#3609](https://github.com/cookiecutter/cookiecutter-django/pull/3609))
+### Updated
+- Update django-coverage-plugin to 3.0.0 ([#3979](https://github.com/cookiecutter/cookiecutter-django/pull/3979))
+- Bump stefanzweifel/git-auto-commit-action from 4.15.4 to 4.16.0 ([#3978](https://github.com/cookiecutter/cookiecutter-django/pull/3978))
+
 ## 2022.12.04
 
 ### Updated
