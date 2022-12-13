@@ -1448,6 +1448,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Omer-5</td>
+    <td>
+      <a href="https://github.com/Omer-5">Omer-5</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Pablo</td>
     <td>
       <a href="https://github.com/oubiga">oubiga</a>
