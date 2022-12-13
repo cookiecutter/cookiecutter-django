@@ -24,9 +24,8 @@ First things first.
 
     $ source <virtual env path>/bin/activate
 
-#. Install cookiecutter-django: ::
-
-    $ cookiecutter gh:cookiecutter/cookiecutter-django
+#.
+    .. include:: generate-project-block.rst
 
 #. Install development requirements: ::
 
