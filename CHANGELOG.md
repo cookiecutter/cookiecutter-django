@@ -3,6 +3,16 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.12.14
+
+### Updated
+- Bug #12345 Update hiredis to 2.1.0 ([#49](https://github.com/packershift/cookiecutter-django-quickstart/pull/49))
+- Auto-update pre-commit hooks ([#48](https://github.com/packershift/cookiecutter-django-quickstart/pull/48))
+- Bug #12345 Update isort to 5.11.2 ([#47](https://github.com/packershift/cookiecutter-django-quickstart/pull/47))
+- Bug #12345 Update drf-spectacular to 0.25.0 ([#46](https://github.com/packershift/cookiecutter-django-quickstart/pull/46))
+- Bug #12345 Update tox to 4.0.9 ([#45](https://github.com/packershift/cookiecutter-django-quickstart/pull/45))
+- Bug #12345 Update ipdb to 0.13.11 ([#44](https://github.com/packershift/cookiecutter-django-quickstart/pull/44))
+
 ## 2022.12.13
 
 ### Updated
