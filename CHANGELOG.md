@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.12.16
+
+### Updated
+- Bug #12345 Update drf-spectacular to 0.25.1 ([#52](https://github.com/packershift/cookiecutter-django-quickstart/pull/52))
+- Bug #12345 Update sentry-sdk to 1.12.0 ([#51](https://github.com/packershift/cookiecutter-django-quickstart/pull/51))
+
 ## 2022.12.15
 
 ### Updated
