@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.12.17
+
+### Updated
+- Bug #12345 Update isort to 5.11.3 ([#55](https://github.com/packershift/cookiecutter-django-quickstart/pull/55))
+- Bug #12345 Update tox to 4.0.12 ([#54](https://github.com/packershift/cookiecutter-django-quickstart/pull/54))
+- Auto-update pre-commit hooks ([#53](https://github.com/packershift/cookiecutter-django-quickstart/pull/53))
+
 ## 2022.12.16
 
 ### Updated
