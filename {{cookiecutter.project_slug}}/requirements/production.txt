@@ -32,7 +32,7 @@ django-anymail[mailjet]==9.0  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Mandrill' %}
 django-anymail[mandrill]==9.0  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Postmark' %}
-django-anymail[postmark]==8.6  # https://github.com/anymail/django-anymail
+django-anymail[postmark]==9.0  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Sendgrid' %}
 django-anymail[sendgrid]==8.6  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'SendinBlue' %}
