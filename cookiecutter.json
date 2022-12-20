@@ -17,6 +17,7 @@
   "windows": "n",
   "use_pycharm": "n",
   "use_docker": "n",
+  "django_port": "8000",
   "postgresql_version": [
     "14",
     "13",
