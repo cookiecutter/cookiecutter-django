@@ -1,6 +1,6 @@
 # Cookiecutter Django
 
-[![Build Status](https://img.shields.io/github/workflow/status/cookiecutter/cookiecutter-django/CI/master)](https://github.com/cookiecutter/cookiecutter-django/actions?query=workflow%3ACI)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/cookiecutter/cookiecutter-django/ci.yml?branch=master)](https://github.com/cookiecutter/cookiecutter-django/actions/workflows/ci.yml?query=branch%3Amaster)
 [![Documentation Status](https://readthedocs.org/projects/cookiecutter-django/badge/?version=latest)](https://cookiecutter-django.readthedocs.io/en/latest/?badge=latest)
 [![Updates](https://pyup.io/repos/github/cookiecutter/cookiecutter-django/shield.svg)](https://pyup.io/repos/github/cookiecutter/cookiecutter-django/)
 [![Join our Discord](https://img.shields.io/badge/Discord-cookiecutter-5865F2?style=flat&logo=discord&logoColor=white)](https://discord.gg/uFXweDQc5a)
@@ -17,8 +17,8 @@ production-ready Django projects quickly.
 
 ## Features
 
--   For Django 3.2
--   Works with Python 3.9
+-   For Django 4.0
+-   Works with Python 3.10
 -   Renders Django projects with 100% starting test coverage
 -   Twitter [Bootstrap](https://github.com/twbs/bootstrap) v5
 -   [12-Factor](http://12factor.net/) based settings via [django-environ](https://github.com/joke2k/django-environ)
@@ -29,7 +29,7 @@ production-ready Django projects quickly.
 -   Optional basic ASGI setup for Websockets
 -   Optional custom static build using Gulp and livereload
 -   Send emails via [Anymail](https://github.com/anymail/django-anymail) (using [Mailgun](http://www.mailgun.com/) by default or Amazon SES if AWS is selected cloud provider, but switchable)
--   Media storage using Amazon S3 or Google Cloud Storage
+-   Media storage using Amazon S3, Google Cloud Storage or Azure Storage
 -   Docker support using [docker-compose](https://github.com/docker/compose) for development and production (using [Traefik](https://traefik.io/) with [LetsEncrypt](https://letsencrypt.org/) support)
 -   [Procfile](https://devcenter.heroku.com/articles/procfile) for deploying to Heroku
 -   Instructions for deploying to [PythonAnywhere](https://www.pythonanywhere.com/)
@@ -41,7 +41,7 @@ production-ready Django projects quickly.
 
 *These features can be enabled during initial project setup.*
 
--   Serve static files from Amazon S3, Google Cloud Storage or [Whitenoise](https://whitenoise.readthedocs.io/)
+-   Serve static files from Amazon S3, Google Cloud Storage, Azure Storage or [Whitenoise](https://whitenoise.readthedocs.io/)
 -   Configuration for [Celery](https://docs.celeryq.dev) and [Flower](https://github.com/mher/flower) (the latter in Docker setup only)
 -   Integration with [MailHog](https://github.com/mailhog/MailHog) for local email testing
 -   Integration with [Sentry](https://sentry.io/welcome/) for error logging
@@ -232,6 +232,7 @@ experience better.
 
 ## Articles
 
+-   [Cookiecutter Django With Amazon RDS](https://haseeburrehman.com/posts/cookiecutter-django-with-amazon-rds/) - Apr, 2, 2021
 -   [Using cookiecutter-django with Google Cloud Storage](https://ahhda.github.io/cloud/gce/django/2019/03/12/using-django-cookiecutter-cloud-storage.html) - Mar. 12, 2019
 -   [cookiecutter-django with Nginx, Route 53 and ELB](https://msaizar.com/blog/cookiecutter-django-nginx-route-53-and-elb/) - Feb. 12, 2018
 -   [cookiecutter-django and Amazon RDS](https://msaizar.com/blog/cookiecutter-django-and-amazon-rds/) - Feb. 7, 2018

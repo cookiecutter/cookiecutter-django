@@ -22,8 +22,6 @@ ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["{{ cookiecutter.domai
 
 # DATABASES
 # ------------------------------------------------------------------------------
-DATABASES["default"] = env.db("DATABASE_URL")  # noqa F405
-DATABASES["default"]["ATOMIC_REQUESTS"] = True  # noqa F405
 DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)  # noqa F405
 
 # CACHES
@@ -88,6 +86,11 @@ AWS_S3_OBJECT_PARAMETERS = {
     "CacheControl": f"max-age={_AWS_EXPIRY}, s-maxage={_AWS_EXPIRY}, must-revalidate"
 }
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+AWS_S3_MAX_MEMORY_SIZE = env.int(
+    "DJANGO_AWS_S3_MAX_MEMORY_SIZE",
+    default=100_000_000,  # 100MB
+)
+# https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
 AWS_S3_REGION_NAME = env("DJANGO_AWS_S3_REGION_NAME", default=None)
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#cloudfront
 AWS_S3_CUSTOM_DOMAIN = env("DJANGO_AWS_S3_CUSTOM_DOMAIN", default=None)
@@ -95,6 +98,10 @@ aws_s3_domain = AWS_S3_CUSTOM_DOMAIN or f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws
 {% elif cookiecutter.cloud_provider == 'GCP' %}
 GS_BUCKET_NAME = env("DJANGO_GCP_STORAGE_BUCKET_NAME")
 GS_DEFAULT_ACL = "publicRead"
+{% elif cookiecutter.cloud_provider == 'Azure' %}
+AZURE_ACCOUNT_KEY = env("DJANGO_AZURE_ACCOUNT_KEY")
+AZURE_ACCOUNT_NAME = env("DJANGO_AZURE_ACCOUNT_NAME")
+AZURE_CONTAINER = env("DJANGO_AZURE_CONTAINER_NAME")
 {% endif -%}
 
 {% if cookiecutter.cloud_provider != 'None' or cookiecutter.use_whitenoise == 'y' -%}
@@ -111,6 +118,9 @@ STATIC_URL = f"https://{aws_s3_domain}/static/"
 STATICFILES_STORAGE = "{{cookiecutter.project_slug}}.utils.storages.StaticRootGoogleCloudStorage"
 COLLECTFAST_STRATEGY = "collectfast.strategies.gcloud.GoogleCloudStrategy"
 STATIC_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/static/"
+{% elif cookiecutter.cloud_provider == 'Azure' -%}
+STATICFILES_STORAGE = "{{cookiecutter.project_slug}}.utils.storages.StaticRootAzureStorage"
+STATIC_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/static/"
 {% endif -%}
 
 # MEDIA
@@ -121,6 +131,9 @@ MEDIA_URL = f"https://{aws_s3_domain}/media/"
 {%- elif cookiecutter.cloud_provider == 'GCP' %}
 DEFAULT_FILE_STORAGE = "{{cookiecutter.project_slug}}.utils.storages.MediaRootGoogleCloudStorage"
 MEDIA_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/media/"
+{%- elif cookiecutter.cloud_provider == 'Azure' %}
+DEFAULT_FILE_STORAGE = "{{cookiecutter.project_slug}}.utils.storages.MediaRootAzureStorage"
+MEDIA_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/media/"
 {%- endif %}
 
 # EMAIL
@@ -167,7 +180,6 @@ EMAIL_BACKEND = "anymail.backends.mailjet.EmailBackend"
 ANYMAIL = {
     "MAILJET_API_KEY": env("MAILJET_API_KEY"),
     "MAILJET_SECRET_KEY": env("MAILJET_SECRET_KEY"),
-    "MAILJET_API_URL": env("MAILJET_API_URL", default="https://api.mailjet.com/v3"),
 }
 {%- elif cookiecutter.mail_service == 'Mandrill' %}
 # https://anymail.readthedocs.io/en/stable/esps/mandrill/
@@ -190,8 +202,6 @@ ANYMAIL = {
 EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
 ANYMAIL = {
     "SENDGRID_API_KEY": env("SENDGRID_API_KEY"),
-    "SENDGRID_GENERATE_MESSAGE_ID": env("SENDGRID_GENERATE_MESSAGE_ID"),
-    "SENDGRID_MERGE_FIELD_FORMAT": env("SENDGRID_MERGE_FIELD_FORMAT"),
     "SENDGRID_API_URL": env("SENDGRID_API_URL", default="https://api.sendgrid.com/v3/"),
 }
 {%- elif cookiecutter.mail_service == 'SendinBlue' %}
@@ -226,7 +236,7 @@ COMPRESS_ENABLED = env.bool("COMPRESS_ENABLED", default=True)
 {%- if cookiecutter.cloud_provider == 'None' %}
 # https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_STORAGE
 COMPRESS_STORAGE = "compressor.storage.GzipCompressorFileStorage"
-{%- elif cookiecutter.cloud_provider in ('AWS', 'GCP') and cookiecutter.use_whitenoise == 'n' %}
+{%- elif cookiecutter.cloud_provider in ('AWS', 'GCP', 'Azure') and cookiecutter.use_whitenoise == 'n' %}
 # https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_STORAGE
 COMPRESS_STORAGE = STATICFILES_STORAGE
 {%- endif %}
@@ -358,5 +368,15 @@ sentry_sdk.init(
     traces_sample_rate=env.float("SENTRY_TRACES_SAMPLE_RATE", default=0.0),
 )
 {% endif %}
+{% if cookiecutter.use_drf == "y" -%}
+
+# django-rest-framework
+# -------------------------------------------------------------------------------
+# Tools that generate code samples can use SERVERS to point to the correct domain
+SPECTACULAR_SETTINGS["SERVERS"] = [  # noqa F405
+    {"url": "https://{{ cookiecutter.domain_name }}", "description": "Production server"}
+]
+
+{%- endif %}
 # Your stuff...
 # ------------------------------------------------------------------------------

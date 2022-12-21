@@ -139,6 +139,13 @@ Listed in alphabetical order.
     <td>abdadeel_</td>
   </tr>
   <tr>
+    <td>Abe Hanoka</td>
+    <td>
+      <a href="https://github.com/abe-101">abe-101</a>
+    </td>
+    <td>abe__101</td>
+  </tr>
+  <tr>
     <td>Adam Bogdał</td>
     <td>
       <a href="https://github.com/bogdal">bogdal</a>
@@ -156,6 +163,13 @@ Listed in alphabetical order.
     <td>Adam Steele</td>
     <td>
       <a href="https://github.com/adammsteele">adammsteele</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Adin Hodovic</td>
+    <td>
+      <a href="https://github.com/adinhodovic">adinhodovic</a>
     </td>
     <td></td>
   </tr>
@@ -377,6 +391,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Brandon Rumiser</td>
+    <td>
+      <a href="https://github.com/brumiser1550">brumiser1550</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Brent Payne</td>
     <td>
       <a href="https://github.com/brentpayne">brentpayne</a>
@@ -583,6 +604,13 @@ Listed in alphabetical order.
     <td>Daniele Tricoli</td>
     <td>
       <a href="https://github.com/eriol">eriol</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>David</td>
+    <td>
+      <a href="https://github.com/buckldav">buckldav</a>
     </td>
     <td></td>
   </tr>
@@ -1098,6 +1126,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>krati yadav</td>
+    <td>
+      <a href="https://github.com/krati5">krati5</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Krzysztof Szumny</td>
     <td>
       <a href="https://github.com/noisy">noisy</a>
@@ -1129,6 +1164,13 @@ Listed in alphabetical order.
     <td>LECbg</td>
     <td>
       <a href="https://github.com/LECbg">LECbg</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Leifur Halldor Asgeirsson</td>
+    <td>
+      <a href="https://github.com/leifurhauks">leifurhauks</a>
     </td>
     <td></td>
   </tr>
@@ -1406,6 +1448,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Omer-5</td>
+    <td>
+      <a href="https://github.com/Omer-5">Omer-5</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Pablo</td>
     <td>
       <a href="https://github.com/oubiga">oubiga</a>
@@ -1500,6 +1549,13 @@ Listed in alphabetical order.
     <td>René Muhl</td>
     <td>
       <a href="https://github.com/rm--">rm--</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>rguptar</td>
+    <td>
+      <a href="https://github.com/rguptar">rguptar</a>
     </td>
     <td></td>
   </tr>
@@ -1612,6 +1668,13 @@ Listed in alphabetical order.
     <td>Sławek Ehlert</td>
     <td>
       <a href="https://github.com/slafs">slafs</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>TAKAHASHI Shuuji</td>
+    <td>
+      <a href="https://github.com/shuuji3">shuuji3</a>
     </td>
     <td></td>
   </tr>
