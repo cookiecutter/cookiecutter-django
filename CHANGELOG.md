@@ -3,6 +3,23 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.12.21
+
+### Changed
+- Retry when trying to store a Celery result in backend ([#3996](https://github.com/cookiecutter/cookiecutter-django/pull/3996))
+- Update image URL for build status shield badge ([#4018](https://github.com/cookiecutter/cookiecutter-django/pull/4018))
+### Updated
+- Update pytz to 2022.7 ([#4020](https://github.com/cookiecutter/cookiecutter-django/pull/4020))
+- Update ipdb to 0.13.11 ([#4019](https://github.com/cookiecutter/cookiecutter-django/pull/4019))
+- Update tox to 4.0.16 ([#4017](https://github.com/cookiecutter/cookiecutter-django/pull/4017))
+- Update sentry-sdk to 1.12.1 ([#4014](https://github.com/cookiecutter/cookiecutter-django/pull/4014))
+- Update coverage to 7.0.0 ([#4013](https://github.com/cookiecutter/cookiecutter-django/pull/4013))
+- Update django-anymail to 9.0 ([#4012](https://github.com/cookiecutter/cookiecutter-django/pull/4012))
+- Auto-update pre-commit hooks ([#4005](https://github.com/cookiecutter/cookiecutter-django/pull/4005))
+- Update isort to 5.11.3 ([#4010](https://github.com/cookiecutter/cookiecutter-django/pull/4010))
+- Update drf-spectacular to 0.25.1 ([#4009](https://github.com/cookiecutter/cookiecutter-django/pull/4009))
+- Update hiredis to 2.1.0 ([#4006](https://github.com/cookiecutter/cookiecutter-django/pull/4006))
+
 ## 2022.12.13
 
 ### Changed
