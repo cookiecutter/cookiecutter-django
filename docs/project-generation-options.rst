@@ -52,7 +52,7 @@ use_pycharm:
 use_docker:
     Indicates whether the project should be configured to use Docker_ and `Docker Compose`_.
 
-docker_port:
+django_port:
     External port for the django app when run as docker container
 
 postgresql_version:

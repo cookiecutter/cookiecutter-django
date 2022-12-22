@@ -120,7 +120,7 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     windows [n]: n
     use_pycharm [n]: y
     use_docker [n]: n
-    docker_port [8000]: 8000
+    django_port [8000]: 8000
     Select postgresql_version:
     1 - 14
     2 - 13
