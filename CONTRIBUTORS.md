@@ -1672,6 +1672,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>TAKAHASHI Shuuji</td>
+    <td>
+      <a href="https://github.com/shuuji3">shuuji3</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Tames McTigue</td>
     <td>
       <a href="https://github.com/Tamerz">Tamerz</a>

@@ -1,4 +1,4 @@
-pytz==2022.6  # https://github.com/stub42/pytz
+pytz==2022.7  # https://github.com/stub42/pytz
 python-slugify==7.0.0  # https://github.com/un33k/python-slugify
 Pillow==9.3.0  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.frontend_pipeline == 'Django Compressor' %}
@@ -14,7 +14,7 @@ whitenoise==6.2.0  # https://github.com/evansd/whitenoise
 {%- endif %}
 redis==4.4.0  # https://github.com/redis/redis-py
 {%- if cookiecutter.use_docker == "y" or cookiecutter.windows == "n" %}
-hiredis==2.0.0  # https://github.com/redis/hiredis-py
+hiredis==2.1.0  # https://github.com/redis/hiredis-py
 {%- endif %}
 {%- if cookiecutter.use_celery == "y" %}
 celery==5.2.7  # pyup: < 6.0  # https://github.com/celery/celery
@@ -44,5 +44,5 @@ django-redis==5.2.0  # https://github.com/jazzband/django-redis
 djangorestframework==3.14.0  # https://github.com/encode/django-rest-framework
 django-cors-headers==3.13.0 # https://github.com/adamchainz/django-cors-headers
 # DRF-spectacular for api documentation
-drf-spectacular==0.24.2  # https://github.com/tfranzel/drf-spectacular 
+drf-spectacular==0.25.1  # https://github.com/tfranzel/drf-spectacular 
 {%- endif %}
