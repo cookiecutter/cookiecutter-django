@@ -15,6 +15,7 @@ class SocialAccountAdapter(DefaultSocialAccountAdapter):
     def is_open_for_signup(self, request: HttpRequest, sociallogin: Any):
         return getattr(settings, "ACCOUNT_ALLOW_REGISTRATION", True)
 
+        def populate_user(self, request, sociallogin, data):
         """
         Populates user information from social provider info
         See: https://django-allauth.readthedocs.io/en/latest/advanced.html?highlight=populate_user#creating-and-populating-user-instances
