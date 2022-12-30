@@ -33,7 +33,7 @@ You should build your tests to provide the highest level of **code coverage**. Y
 Once the tests are complete, in order to see the code coverage, run the following command: ::
 
    $ coverage report
-   
+
 If you're running the project locally with Docker, use these commands instead: ::
 
    $ docker-compose -f local.yml run --rm django coverage run -m pytest
