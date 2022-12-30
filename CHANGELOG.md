@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2022.12.29
+
+### Updated
+- Bug #12345 Update gitpython to 3.1.30 ([#67](https://github.com/packershift/cookiecutter-django-quickstart/pull/67))
+
 ## 2022.12.27
 
 ### Updated
