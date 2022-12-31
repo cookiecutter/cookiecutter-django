@@ -24,9 +24,8 @@ First things first.
 
     $ source <virtual env path>/bin/activate
 
-#. Install cookiecutter-django: ::
-
-    $ cookiecutter gh:cookiecutter/cookiecutter-django
+#.
+    .. include:: generate-project-block.rst
 
 #. Install development requirements: ::
 
@@ -43,6 +42,7 @@ First things first.
 #. Create a new PostgreSQL database using createdb_: ::
 
     $ createdb --username=postgres <project_slug>
+
    ``project_slug`` is what you have entered as the project_slug at the setup stage.
 
    .. note::
