@@ -1448,6 +1448,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Omer-5</td>
+    <td>
+      <a href="https://github.com/Omer-5">Omer-5</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Pablo</td>
     <td>
       <a href="https://github.com/oubiga">oubiga</a>
@@ -1661,6 +1668,13 @@ Listed in alphabetical order.
     <td>Sławek Ehlert</td>
     <td>
       <a href="https://github.com/slafs">slafs</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>TAKAHASHI Shuuji</td>
+    <td>
+      <a href="https://github.com/shuuji3">shuuji3</a>
     </td>
     <td></td>
   </tr>
