@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.01.02
+
+### Updated
+- Bug #12345 Update pillow to 9.4.0 ([#72](https://github.com/packershift/cookiecutter-django-quickstart/pull/72))
+
 ## 2022.12.31
 
 ### Updated
