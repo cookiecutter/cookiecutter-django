@@ -141,15 +141,23 @@ In production, we have Mailgun_ configured to have your back!
 Celery
 ------
 
-If the project is configured to use Celery as a task scheduler then by default tasks are set to run on the main thread
-when developing locally. If you have the appropriate setup on your local machine then set the following
-in ``config/settings/local.py``::
+If the project is configured to use Celery as a task scheduler then, by default, tasks are set to run on the main thread when developing locally instead of getting sent to a broker. However, if you have Redis setup on your local machine, you can set the following in ``config/settings/local.py``::
 
     CELERY_TASK_ALWAYS_EAGER = False
 
-To run Celery locally, make sure redis-server is installed (instructions are available at https://redis.io/topics/quickstart), run the server in one terminal with `redis-server`, and then start celery in another terminal with the following command::
+The project comes with a simple task for manual testing purposes, inside `<project_slug>/users/tasks.py`. To queue that task locally, start the Django shell, import the task, and call `delay()` on it::
 
-    celery -A config.celery_app worker --loglevel=info
+    $ python manage.py shell 
+    >> from <project_slug>.users.tasks import get_users_count
+    >> get_users_count.delay()
+    
+Next, make sure `redis-server` is installed (per instructions at https://redis.io/topics/quickstart) and run the server in one terminal::
+    
+    $ redis-server
+
+Now that a task is queued and Redis is running, the final step is to start the Celery worker locally. In another terminal, run the following command::
+
+    $ celery -A config.celery_app worker --loglevel=info
 
 
 Sass Compilation & Live Reloading
