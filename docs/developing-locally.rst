@@ -147,12 +147,12 @@ If the project is configured to use Celery as a task scheduler then, by default,
 
 The project comes with a simple task for manual testing purposes, inside `<project_slug>/users/tasks.py`. To queue that task locally, start the Django shell, import the task, and call `delay()` on it::
 
-    $ python manage.py shell 
+    $ python manage.py shell
     >> from <project_slug>.users.tasks import get_users_count
     >> get_users_count.delay()
-    
+
 Next, make sure `redis-server` is installed (per instructions at https://redis.io/topics/quickstart) and run the server in one terminal::
-    
+
     $ redis-server
 
 Now that a task is queued and Redis is running, the final step is to start the Celery worker locally. In another terminal, run the following command::
