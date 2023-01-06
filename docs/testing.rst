@@ -28,10 +28,15 @@ Coverage
 
 You should build your tests to provide the highest level of **code coverage**. You can run the ``pytest`` with code ``coverage`` by typing in the following command: ::
 
-   $ docker-compose -f local.yml run --rm django coverage run -m pytest
+   $ coverage run -m pytest
 
 Once the tests are complete, in order to see the code coverage, run the following command: ::
 
+   $ coverage report
+
+If you're running the project locally with Docker, use these commands instead: ::
+
+   $ docker-compose -f local.yml run --rm django coverage run -m pytest
    $ docker-compose -f local.yml run --rm django coverage report
 
 .. note::
@@ -53,4 +58,4 @@ Once the tests are complete, in order to see the code coverage, run the followin
 .. _develop locally with docker: ./developing-locally-docker.html
 .. _customize: https://docs.pytest.org/en/latest/customize.html
 .. _unittest: https://docs.python.org/3/library/unittest.html#module-unittest
-.. _configuring: https://coverage.readthedocs.io/en/v4.5.x/config.html
+.. _configuring: https://coverage.readthedocs.io/en/latest/config.html
