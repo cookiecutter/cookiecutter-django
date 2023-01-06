@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.01.05
+
+### Updated
+- Bug #12345 Update tox to 4.2.3 ([#79](https://github.com/packershift/cookiecutter-django-quickstart/pull/79))
+- Bug #12345 Update tox to 4.2.2 ([#78](https://github.com/packershift/cookiecutter-django-quickstart/pull/78))
+
 ## 2023.01.04
 
 ### Updated
