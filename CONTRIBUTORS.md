@@ -1574,6 +1574,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Robin</td>
+    <td>
+      <a href="https://github.com/Kaffeetasse">Kaffeetasse</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Roman Afanaskin</td>
     <td>
       <a href="https://github.com/siauPatrick">siauPatrick</a>
