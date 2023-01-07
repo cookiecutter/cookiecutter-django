@@ -5,7 +5,7 @@ Pillow==9.4.0  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %}
 rcssmin==1.1.0 --install-option="--without-c-extensions"  # https://github.com/ndparker/rcssmin
 {%- else %}
-rcssmin==1.1.0  # https://github.com/ndparker/rcssmin
+rcssmin==1.1.1  # https://github.com/ndparker/rcssmin
 {%- endif %}
 {%- endif %}
 argon2-cffi==21.3.0  # https://github.com/hynek/argon2_cffi
@@ -36,7 +36,7 @@ django-allauth==0.52.0  # https://github.com/pennersr/django-allauth
 django-crispy-forms==1.14.0  # https://github.com/django-crispy-forms/django-crispy-forms
 crispy-bootstrap5==0.7  # https://github.com/django-crispy-forms/crispy-bootstrap5
 {%- if cookiecutter.frontend_pipeline == 'Django Compressor' %}
-django-compressor==4.1  # https://github.com/django-compressor/django-compressor
+django-compressor==4.3  # https://github.com/django-compressor/django-compressor
 {%- endif %}
 django-redis==5.2.0  # https://github.com/jazzband/django-redis
 {%- if cookiecutter.use_drf == 'y' %}
