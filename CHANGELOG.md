@@ -3,6 +3,14 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.01.06
+
+### Changed
+- Add `.git` to `.dockerignore` ([#4054](https://github.com/cookiecutter/cookiecutter-django/pull/4054))
+- Fix link and add non-Docker commands to testing page in the docs ([#4036](https://github.com/cookiecutter/cookiecutter-django/pull/4036))
+### Updated
+- Update tox to 4.2.3 ([#4051](https://github.com/cookiecutter/cookiecutter-django/pull/4051))
+
 ## 2023.01.04
 
 ### Changed
