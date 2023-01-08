@@ -1,0 +1,309 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-08 13:24+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/account_inactive.html:5
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/account_inactive.html:8
+msgid "Account Inactive"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/account_inactive.html:10
+msgid "This account is inactive."
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/email.html:7
+msgid "Account"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/email.html:10
+msgid "E-mail Addresses"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/email.html:13
+msgid "The following e-mail addresses are associated with your account:"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/email.html:27
+msgid "Verified"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/email.html:29
+msgid "Unverified"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/email.html:31
+msgid "Primary"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/email.html:37
+msgid "Make Primary"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/email.html:38
+msgid "Re-send Verification"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/email.html:39
+msgid "Remove"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/email.html:46
+msgid "Warning:"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/email.html:46
+msgid ""
+"You currently do not have any e-mail address set up. You should really add "
+"an e-mail address so you can receive notifications, reset your password, etc."
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/email.html:51
+msgid "Add E-mail Address"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/email.html:56
+msgid "Add E-mail"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/email.html:66
+msgid "Do you really want to remove the selected e-mail address?"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/email_confirm.html:6
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/email_confirm.html:10
+msgid "Confirm E-mail Address"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/email_confirm.html:16
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/email_confirm.html:20
+msgid "Confirm"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/email_confirm.html:27
+#, python-format
+msgid ""
+"This e-mail confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/login.html:7
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/login.html:11
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/login.html:56
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/base.html:100
+msgid "Sign In"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/login.html:17
+msgid "Please sign in with one of your existing third party accounts:"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/login.html:19
+#, python-format
+msgid ""
+"Or, <a href=\"%(signup_url)s\">sign up</a> for a %(site_name)s account and "
+"sign in below:"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/login.html:32
+msgid "or"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/login.html:41
+#, python-format
+msgid ""
+"If you have not created an account yet, then please <a "
+"href=\"%(signup_url)s\">sign up</a> first."
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/login.html:55
+msgid "Forgot Password?"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/logout.html:5
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/logout.html:8
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/logout.html:17
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/base.html:89
+msgid "Sign Out"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/logout.html:10
+msgid "Are you sure you want to sign out?"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_change.html:6
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_change.html:9
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_change.html:14
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_reset_from_key.html:5
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_reset_from_key.html:8
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_reset_from_key_done.html:4
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_reset_from_key_done.html:7
+msgid "Change Password"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_reset.html:7
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_reset.html:11
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_reset_done.html:6
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_reset_done.html:9
+msgid "Password Reset"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_reset.html:16
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll send you "
+"an e-mail allowing you to reset it."
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_reset.html:21
+msgid "Reset My Password"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_reset.html:24
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_reset_done.html:15
+msgid ""
+"We have sent you an e-mail. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_reset_from_key.html:8
+msgid "Bad Token"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_reset_from_key.html:12
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_reset_from_key.html:18
+msgid "change password"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_reset_from_key.html:21
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_reset_from_key_done.html:8
+msgid "Your password is now changed."
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_set.html:6
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_set.html:9
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/password_set.html:14
+msgid "Set Password"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/signup.html:6
+msgid "Signup"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/signup.html:9
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/signup.html:19
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/base.html:95
+msgid "Sign Up"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/signup.html:11
+#, python-format
+msgid ""
+"Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/signup_closed.html:5
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/signup_closed.html:8
+msgid "Sign Up Closed"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/signup_closed.html:10
+msgid "We are sorry, but the sign up is currently closed."
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/verification_sent.html:5
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/verification_sent.html:8
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/verified_email_required.html:5
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/verified_email_required.html:8
+msgid "Verify Your E-mail Address"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/verification_sent.html:10
+msgid ""
+"We have sent an e-mail to you for verification. Follow the link provided to "
+"finalize the signup process. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/verified_email_required.html:12
+msgid ""
+"This part of the site requires us to verify that\n"
+"you are who you claim to be. For this purpose, we require that you\n"
+"verify ownership of your e-mail address. "
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/verified_email_required.html:16
+msgid ""
+"We have sent an e-mail to you for\n"
+"verification. Please click on the link inside this e-mail. Please\n"
+"contact us if you do not receive it within a few minutes."
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/account/verified_email_required.html:20
+#, python-format
+msgid ""
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
+"mail address</a>."
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/templates/base.html:85
+msgid "My Profile"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/users/admin.py:18
+msgid "Personal info"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/users/admin.py:20
+msgid "Permissions"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/users/admin.py:31
+msgid "Important dates"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/users/apps.py:7
+msgid "Users"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/users/forms.py:25
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/users/tests/test_forms.py:36
+msgid "This username has already been taken."
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/users/models.py:15
+msgid "Name of User"
+msgstr ""
+
+#: output/cookiecutters/cookiecutter-django/{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/users/views.py:25
+msgid "Information successfully updated"
+msgstr ""
