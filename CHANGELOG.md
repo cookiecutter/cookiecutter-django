@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.01.07
+
+### Updated
+- Update tox to 4.2.6 ([#4064](https://github.com/cookiecutter/cookiecutter-django/pull/4064))
+- Update django-storages to 1.13.2 ([#4057](https://github.com/cookiecutter/cookiecutter-django/pull/4057))
+- Update isort to 5.11.4 ([#4058](https://github.com/cookiecutter/cookiecutter-django/pull/4058))
+- Update rcssmin to 1.1.1 ([#4060](https://github.com/cookiecutter/cookiecutter-django/pull/4060))
+- Update django-compressor to 4.3 ([#4063](https://github.com/cookiecutter/cookiecutter-django/pull/4063))
+
 ## 2023.01.06
 
 ### Changed
