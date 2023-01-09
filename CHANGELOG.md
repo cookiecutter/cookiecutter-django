@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.01.08
+
+### Updated
+- Bug #12345 Update coverage to 7.0.4 ([#85](https://github.com/packershift/cookiecutter-django-quickstart/pull/85))
+- Bug #12345 Update sphinx to 6.1.2 ([#84](https://github.com/packershift/cookiecutter-django-quickstart/pull/84))
+
 ## 2023.01.07
 
 ### Updated
