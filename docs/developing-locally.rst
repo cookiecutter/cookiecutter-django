@@ -145,19 +145,28 @@ If the project is configured to use Celery as a task scheduler then, by default,
 
     CELERY_TASK_ALWAYS_EAGER = False
 
+Next, make sure `redis-server` is installed (per the `Getting started with Redis`_ guide) and run the server in one terminal::
+
+    $ redis-server
+
+Start the Celery worker by running the following command in another terminal::
+
+    $ celery -A config.celery_app worker --loglevel=info
+
+That Celery worker should be running whenever your app is running, typically as a background process,
+so that it can pick up any tasks that get queued. Learn more from the `Celery Workers Guide`_.
+
 The project comes with a simple task for manual testing purposes, inside `<project_slug>/users/tasks.py`. To queue that task locally, start the Django shell, import the task, and call `delay()` on it::
 
     $ python manage.py shell
     >> from <project_slug>.users.tasks import get_users_count
     >> get_users_count.delay()
 
-Next, make sure `redis-server` is installed (per instructions at https://redis.io/docs/getting-started/) and run the server in one terminal::
+You can also use Django admin to queue up tasks, thanks to the `django-celerybeat`_ package.
 
-    $ redis-server
-
-Now that a task is queued and Redis is running, the final step is to start the Celery worker locally. In another terminal, run the following command::
-
-    $ celery -A config.celery_app worker --loglevel=info
+.. _Getting started with Redis guide: https://redis.io/docs/getting-started/
+.. _Celery Workers Guide: https://docs.celeryq.dev/en/stable/userguide/workers.html
+.. _django-celerybeat: https://django-celery-beat.readthedocs.io/en/latest/
 
 
 Sass Compilation & Live Reloading
