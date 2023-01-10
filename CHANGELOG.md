@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.01.09
+
+### Updated
+- Bug #12345 Update redis to 4.4.1 ([#86](https://github.com/packershift/cookiecutter-django-quickstart/pull/86))
+
 ## 2023.01.08
 
 ### Updated
