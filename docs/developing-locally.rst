@@ -151,7 +151,7 @@ The project comes with a simple task for manual testing purposes, inside `<proje
     >> from <project_slug>.users.tasks import get_users_count
     >> get_users_count.delay()
 
-Next, make sure `redis-server` is installed (per instructions at https://redis.io/topics/quickstart) and run the server in one terminal::
+Next, make sure `redis-server` is installed (per instructions at https://redis.io/docs/getting-started/) and run the server in one terminal::
 
     $ redis-server
 
