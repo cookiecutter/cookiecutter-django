@@ -3,6 +3,71 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.01.08
+
+### Updated
+- Update redis to 4.4.1 ([#4068](https://github.com/cookiecutter/cookiecutter-django/pull/4068))
+- Update coverage to 7.0.4 ([#4067](https://github.com/cookiecutter/cookiecutter-django/pull/4067))
+
+## 2023.01.07
+
+### Updated
+- Update tox to 4.2.6 ([#4064](https://github.com/cookiecutter/cookiecutter-django/pull/4064))
+- Update django-storages to 1.13.2 ([#4057](https://github.com/cookiecutter/cookiecutter-django/pull/4057))
+- Update isort to 5.11.4 ([#4058](https://github.com/cookiecutter/cookiecutter-django/pull/4058))
+- Update rcssmin to 1.1.1 ([#4060](https://github.com/cookiecutter/cookiecutter-django/pull/4060))
+- Update django-compressor to 4.3 ([#4063](https://github.com/cookiecutter/cookiecutter-django/pull/4063))
+
+## 2023.01.06
+
+### Changed
+- Add `.git` to `.dockerignore` ([#4054](https://github.com/cookiecutter/cookiecutter-django/pull/4054))
+- Fix link and add non-Docker commands to testing page in the docs ([#4036](https://github.com/cookiecutter/cookiecutter-django/pull/4036))
+### Updated
+- Update tox to 4.2.3 ([#4051](https://github.com/cookiecutter/cookiecutter-django/pull/4051))
+
+## 2023.01.04
+
+### Changed
+- Fix typo on test settings ([#4049](https://github.com/cookiecutter/cookiecutter-django/pull/4049))
+### Updated
+- Update tox to 4.2.2 ([#4050](https://github.com/cookiecutter/cookiecutter-django/pull/4050))
+- Update tox to 4.2.1 ([#4046](https://github.com/cookiecutter/cookiecutter-django/pull/4046))
+- Update coverage to 7.0.3 ([#4047](https://github.com/cookiecutter/cookiecutter-django/pull/4047))
+
+## 2023.01.03
+
+### Updated
+- Update flake8-isort to 6.0.0 ([#4022](https://github.com/cookiecutter/cookiecutter-django/pull/4022))
+- Update tox to 4.1.3 ([#4041](https://github.com/cookiecutter/cookiecutter-django/pull/4041))
+- Update pillow to 9.4.0 ([#4040](https://github.com/cookiecutter/cookiecutter-django/pull/4040))
+- Update gitpython to 3.1.30 ([#4032](https://github.com/cookiecutter/cookiecutter-django/pull/4032))
+- Update coverage to 7.0.2 ([#4042](https://github.com/cookiecutter/cookiecutter-django/pull/4042))
+- Update whitenoise to 6.3.0 ([#4044](https://github.com/cookiecutter/cookiecutter-django/pull/4044))
+
+## 2022.12.29
+
+### Updated
+- Update tox to 4.1.0 ([#4035](https://github.com/cookiecutter/cookiecutter-django/pull/4035))
+- Update tox to 4.0.19 ([#4030](https://github.com/cookiecutter/cookiecutter-django/pull/4030))
+- Update django-allauth to 0.52.0 ([#4033](https://github.com/cookiecutter/cookiecutter-django/pull/4033))
+
+## 2022.12.26
+
+### Updated
+- Update tox to 4.0.17 ([#4027](https://github.com/cookiecutter/cookiecutter-django/pull/4027))
+- Update pre-commit to 2.21.0 ([#4026](https://github.com/cookiecutter/cookiecutter-django/pull/4026))
+
+## 2022.12.25
+
+### Updated
+- Auto-update pre-commit hooks ([#4021](https://github.com/cookiecutter/cookiecutter-django/pull/4021))
+
+## 2022.12.24
+
+### Updated
+- Update coverage to 7.0.1 ([#4024](https://github.com/cookiecutter/cookiecutter-django/pull/4024))
+
 ## 2022.12.21
 
 ### Changed

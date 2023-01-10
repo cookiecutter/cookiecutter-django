@@ -1462,6 +1462,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Pamela Fox</td>
+    <td>
+      <a href="https://github.com/pamelafox">pamelafox</a>
+    </td>
+    <td>pamelafox</td>
+  </tr>
+  <tr>
     <td>Parbhat Puri</td>
     <td>
       <a href="https://github.com/parbhat">parbhat</a>
@@ -1563,6 +1570,13 @@ Listed in alphabetical order.
     <td>Richard Hajdu</td>
     <td>
       <a href="https://github.com/Tusky">Tusky</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Robin</td>
+    <td>
+      <a href="https://github.com/Kaffeetasse">Kaffeetasse</a>
     </td>
     <td></td>
   </tr>
@@ -1705,6 +1719,13 @@ Listed in alphabetical order.
       <a href="https://github.com/thibault">thibault</a>
     </td>
     <td>thibault</td>
+  </tr>
+  <tr>
+    <td>Thomas Booij</td>
+    <td>
+      <a href="https://github.com/ThomasBooij95">ThomasBooij95</a>
+    </td>
+    <td></td>
   </tr>
   <tr>
     <td>Théo Segonds</td>

@@ -11,17 +11,17 @@ Collectfast==2.2.0  # https://github.com/antonagestam/collectfast
 sentry-sdk==1.12.1  # https://github.com/getsentry/sentry-python
 {%- endif %}
 {%- if cookiecutter.use_docker == "n" and cookiecutter.windows == "y" %}
-hiredis==2.1.0  # https://github.com/redis/hiredis-py
+hiredis==2.1.1  # https://github.com/redis/hiredis-py
 {%- endif %}
 
 # Django
 # ------------------------------------------------------------------------------
 {%- if cookiecutter.cloud_provider == 'AWS' %}
-django-storages[boto3]==1.13.1  # https://github.com/jschneier/django-storages
+django-storages[boto3]==1.13.2  # https://github.com/jschneier/django-storages
 {%- elif cookiecutter.cloud_provider == 'GCP' %}
-django-storages[google]==1.13.1  # https://github.com/jschneier/django-storages
+django-storages[google]==1.13.2  # https://github.com/jschneier/django-storages
 {%- elif cookiecutter.cloud_provider == 'Azure' %}
-django-storages[azure]==1.13.1  # https://github.com/jschneier/django-storages
+django-storages[azure]==1.13.2  # https://github.com/jschneier/django-storages
 {%- endif %}
 {%- if cookiecutter.mail_service == 'Mailgun' %}
 django-anymail[mailgun]==9.0  # https://github.com/anymail/django-anymail
