@@ -3,9 +3,6 @@ Getting Up and Running Locally With Docker
 
 .. index:: Docker
 
-The steps below will get you up and running with a local development environment.
-All of these commands assume you are in the root of your generated project.
-
 .. note::
 
     If you're new to Docker, please be aware that some resources are cached system-wide
@@ -19,10 +16,16 @@ Prerequisites
 * Docker; if you don't have it yet, follow the `installation instructions`_;
 * Docker Compose; refer to the official documentation for the `installation guide`_.
 * Pre-commit; refer to the official documentation for the `pre-commit`_.
+* Cookiecutter; refer to the official GitHub repository of `Cookiecutter`_
 
 .. _`installation instructions`: https://docs.docker.com/install/#supported-platforms
 .. _`installation guide`: https://docs.docker.com/compose/install/
 .. _`pre-commit`: https://pre-commit.com/#install
+.. _`Cookiecutter`: https://github.com/cookiecutter/cookiecutter
+
+Before Getting Started
+----------------------
+.. include:: generate-project-block.rst
 
 Build the Stack
 ---------------
