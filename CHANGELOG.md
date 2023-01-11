@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.01.10
+
+### Changed
+- Add dump.rdb to gitignore ([#4062](https://github.com/cookiecutter/cookiecutter-django/pull/4062))
+### Fixed
+- Exclude `.venv` from code style checks ([#4069](https://github.com/cookiecutter/cookiecutter-django/pull/4069))
+### Updated
+- Update hiredis to 2.1.1 ([#4070](https://github.com/cookiecutter/cookiecutter-django/pull/4070))
+
 ## 2023.01.08
 
 ### Updated
