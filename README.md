@@ -88,7 +88,7 @@ First, get Cookiecutter. Trust me, it's awesome:
 
 Now run it against this repo:
 
-    $ cookiecutter https://github.com/cookiecutter/cookiecutter-django
+    $ cookiecutter https://github.com/Waterloo-Data/wld.sh-leaseeye-cookiecutter-django.git
 
 You'll be prompted for some values. Provide them, then a Django project will be created for you.
 
