@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.01.15
+
+### Updated
+- Bug #12345 Update pytz to 2022.7.1 ([#92](https://github.com/packershift/cookiecutter-django-quickstart/pull/92))
+- Bug #12345 Update pytest to 7.2.1 ([#91](https://github.com/packershift/cookiecutter-django-quickstart/pull/91))
+
 ## 2023.01.13
 
 ### Updated
