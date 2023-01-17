@@ -141,15 +141,32 @@ In production, we have Mailgun_ configured to have your back!
 Celery
 ------
 
-If the project is configured to use Celery as a task scheduler then by default tasks are set to run on the main thread
-when developing locally. If you have the appropriate setup on your local machine then set the following
-in ``config/settings/local.py``::
+If the project is configured to use Celery as a task scheduler then, by default, tasks are set to run on the main thread when developing locally instead of getting sent to a broker. However, if you have Redis setup on your local machine, you can set the following in ``config/settings/local.py``::
 
     CELERY_TASK_ALWAYS_EAGER = False
 
-To run Celery locally, make sure redis-server is installed (instructions are available at https://redis.io/topics/quickstart), run the server in one terminal with `redis-server`, and then start celery in another terminal with the following command::
+Next, make sure `redis-server` is installed (per the `Getting started with Redis`_ guide) and run the server in one terminal::
 
-    celery -A config.celery_app worker --loglevel=info
+    $ redis-server
+
+Start the Celery worker by running the following command in another terminal::
+
+    $ celery -A config.celery_app worker --loglevel=info
+
+That Celery worker should be running whenever your app is running, typically as a background process,
+so that it can pick up any tasks that get queued. Learn more from the `Celery Workers Guide`_.
+
+The project comes with a simple task for manual testing purposes, inside `<project_slug>/users/tasks.py`. To queue that task locally, start the Django shell, import the task, and call `delay()` on it::
+
+    $ python manage.py shell
+    >> from <project_slug>.users.tasks import get_users_count
+    >> get_users_count.delay()
+
+You can also use Django admin to queue up tasks, thanks to the `django-celerybeat`_ package.
+
+.. _Getting started with Redis guide: https://redis.io/docs/getting-started/
+.. _Celery Workers Guide: https://docs.celeryq.dev/en/stable/userguide/workers.html
+.. _django-celerybeat: https://django-celery-beat.readthedocs.io/en/latest/
 
 
 Sass Compilation & Live Reloading
