@@ -56,6 +56,8 @@ SUPPORTED_COMBINATIONS = [
     {"cloud_provider": "AWS", "use_whitenoise": "n"},
     {"cloud_provider": "GCP", "use_whitenoise": "y"},
     {"cloud_provider": "GCP", "use_whitenoise": "n"},
+    {"cloud_provider": "Azure", "use_whitenoise": "y"},
+    {"cloud_provider": "Azure", "use_whitenoise": "n"},
     {"cloud_provider": "None", "use_whitenoise": "y", "mail_service": "Mailgun"},
     {"cloud_provider": "None", "use_whitenoise": "y", "mail_service": "Mailjet"},
     {"cloud_provider": "None", "use_whitenoise": "y", "mail_service": "Mandrill"},
@@ -82,7 +84,16 @@ SUPPORTED_COMBINATIONS = [
     {"cloud_provider": "GCP", "mail_service": "SendinBlue"},
     {"cloud_provider": "GCP", "mail_service": "SparkPost"},
     {"cloud_provider": "GCP", "mail_service": "Other SMTP"},
-    # Note: cloud_providers GCP and None with mail_service Amazon SES is not supported
+    {"cloud_provider": "Azure", "mail_service": "Mailgun"},
+    {"cloud_provider": "Azure", "mail_service": "Mailjet"},
+    {"cloud_provider": "Azure", "mail_service": "Mandrill"},
+    {"cloud_provider": "Azure", "mail_service": "Postmark"},
+    {"cloud_provider": "Azure", "mail_service": "Sendgrid"},
+    {"cloud_provider": "Azure", "mail_service": "SendinBlue"},
+    {"cloud_provider": "Azure", "mail_service": "SparkPost"},
+    {"cloud_provider": "Azure", "mail_service": "Other SMTP"},
+    # Note: cloud_providers GCP, Azure, and None
+    # with mail_service Amazon SES is not supported
     {"use_async": "y"},
     {"use_async": "n"},
     {"use_drf": "y"},
@@ -113,6 +124,7 @@ SUPPORTED_COMBINATIONS = [
 UNSUPPORTED_COMBINATIONS = [
     {"cloud_provider": "None", "use_whitenoise": "n"},
     {"cloud_provider": "GCP", "mail_service": "Amazon SES"},
+    {"cloud_provider": "Azure", "mail_service": "Amazon SES"},
     {"cloud_provider": "None", "mail_service": "Amazon SES"},
 ]
 
