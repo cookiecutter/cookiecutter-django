@@ -61,5 +61,7 @@
     "Github"
   ],
   "keep_local_envs_in_vcs": "y",
-  "debug": "n"
+  "debug": "n",
+  "include_custom_app": "n",
+  "custom_app_name": "core",
 }

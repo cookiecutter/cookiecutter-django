@@ -91,6 +91,9 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "{{ cookiecutter.project_slug }}.users",
+    {%- if cookiecutter.include_custom_app == "y" %}
+    "{{ cookiecutter.custom_app_name }}",
+    {%- endif %}
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
