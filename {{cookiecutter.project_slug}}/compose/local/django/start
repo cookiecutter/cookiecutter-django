@@ -6,10 +6,11 @@ set -o nounset
 
 {%- if cookiecutter.include_custom_app %}
 python manage.py makemigrations {{ cookiecutter.custom_app_name }}
+{%- endif %}
+python manage.py migrate
+{%- if cookiecutter.include_custom_app %}
 python manage.py loaddata --app {{ cookiecutter.custom_app_name }} initial_data.json
 {%- endif %}
-
-python manage.py migrate
 {%- if cookiecutter.use_async == 'y' %}
 exec uvicorn config.asgi:application --host 0.0.0.0 --reload --reload-include '*.html'
 {%- else %}
