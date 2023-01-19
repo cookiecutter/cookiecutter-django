@@ -85,13 +85,13 @@ function scripts() {
 
 // Vendor Javascript minification
 function vendorScripts() {
-  return src(paths.vendorsJs)
+  return src(paths.vendorsJs, { sourcemaps: true })
     .pipe(concat('vendors.js'))
     .pipe(dest(paths.js))
     .pipe(plumber()) // Checks for errors
     .pipe(uglify()) // Minifies the js
     .pipe(rename({ suffix: '.min' }))
-    .pipe(dest(paths.js))
+    .pipe(dest(paths.js, { sourcemaps: '.' }))
 }
 
 // Image compression
