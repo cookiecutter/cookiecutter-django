@@ -1448,11 +1448,25 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Omer-5</td>
+    <td>
+      <a href="https://github.com/Omer-5">Omer-5</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Pablo</td>
     <td>
       <a href="https://github.com/oubiga">oubiga</a>
     </td>
     <td></td>
+  </tr>
+  <tr>
+    <td>Pamela Fox</td>
+    <td>
+      <a href="https://github.com/pamelafox">pamelafox</a>
+    </td>
+    <td>pamelafox</td>
   </tr>
   <tr>
     <td>Parbhat Puri</td>
@@ -1556,6 +1570,13 @@ Listed in alphabetical order.
     <td>Richard Hajdu</td>
     <td>
       <a href="https://github.com/Tusky">Tusky</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Robin</td>
+    <td>
+      <a href="https://github.com/Kaffeetasse">Kaffeetasse</a>
     </td>
     <td></td>
   </tr>
@@ -1665,6 +1686,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>TAKAHASHI Shuuji</td>
+    <td>
+      <a href="https://github.com/shuuji3">shuuji3</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Tames McTigue</td>
     <td>
       <a href="https://github.com/Tamerz">Tamerz</a>
@@ -1691,6 +1719,13 @@ Listed in alphabetical order.
       <a href="https://github.com/thibault">thibault</a>
     </td>
     <td>thibault</td>
+  </tr>
+  <tr>
+    <td>Thomas Booij</td>
+    <td>
+      <a href="https://github.com/ThomasBooij95">ThomasBooij95</a>
+    </td>
+    <td></td>
   </tr>
   <tr>
     <td>Théo Segonds</td>

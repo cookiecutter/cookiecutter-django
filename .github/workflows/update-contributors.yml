@@ -29,6 +29,8 @@ jobs:
           pip install -r requirements.txt
       - name: Update list
         run: python scripts/update_contributors.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4.16.0
