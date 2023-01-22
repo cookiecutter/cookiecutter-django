@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.01.21
+
+### Updated
+- Update django-stubs to 1.13.2 ([#4093](https://github.com/cookiecutter/cookiecutter-django/pull/4093))
+
 ## 2023.01.19
 
 ### Fixed
