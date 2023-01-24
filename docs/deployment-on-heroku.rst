@@ -11,14 +11,18 @@ Run these commands to deploy the project to Heroku:
 .. code-block:: bash
 
     heroku create --buildpack heroku/python
-
-    heroku addons:create heroku-postgresql:hobby-dev
+    
+    # Note: heroku no longer has a free tier postgres. See below for tiers
+    # https://elements.heroku.com/addons/heroku-postgresql
+    heroku addons:create heroku-postgresql:mini
     # On Windows use double quotes for the time zone, e.g.
     # heroku pg:backups schedule --at "02:00 America/Los_Angeles" DATABASE_URL
     heroku pg:backups schedule --at '02:00 America/Los_Angeles' DATABASE_URL
     heroku pg:promote DATABASE_URL
 
-    heroku addons:create heroku-redis:hobby-dev
+    # Note: heroku no longer has a free tier redis. See below for tiers
+    # https://elements.heroku.com/addons/heroku-redis#pricing
+    heroku addons:create heroku-redis:mini
 
     # Assuming you chose Mailgun as mail service (see below for others)
     heroku addons:create mailgun:starter
