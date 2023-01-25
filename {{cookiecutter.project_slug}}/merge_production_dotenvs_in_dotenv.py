@@ -18,13 +18,12 @@ def merge(
     merged_files: Sequence[Path],
     append_linesep: bool = True,
 ) -> None:
-    with open(output_file, "w") as output_file:
-        for merged_file_path in merged_files:
-            with open(merged_file_path) as merged_file:
-                merged_file_content = merged_file.read()
-                output_file.write(merged_file_content)
-                if append_linesep:
-                    output_file.write(os.linesep)
+    merged_content = ""
+    for merged_file_path in merged_files:
+        merged_content += merged_file_path.read_text()
+        if append_linesep:
+            merged_content += os.linesep
+    output_file.write_text(merged_content)
 
 
 def main():
