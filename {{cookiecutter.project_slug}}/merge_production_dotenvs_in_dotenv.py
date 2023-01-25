@@ -30,37 +30,29 @@ def main():
     merge(DOTENV_FILE, PRODUCTION_DOTENV_FILES)
 
 
-@pytest.mark.parametrize("merged_file_count", range(3))
+@pytest.mark.parametrize("files_count", range(3))
 @pytest.mark.parametrize("append_linesep", [True, False])
-def test_merge(tmpdir_factory, merged_file_count: int, append_linesep: bool):
-    tmp_dir = Path(str(tmpdir_factory.getbasetemp()))
-
-    output_file = tmp_dir / ".env"
+def test_merge(tmp_path: Path, files_count: int, append_linesep: bool):
+    output_file = tmp_path / ".env"
 
     expected_output_file_content = ""
-    merged_files = []
-    for i in range(merged_file_count):
-        merged_file_ord = i + 1
+    files_to_merge = []
+    for num in range(1, files_count + 1):
+        merge_filename = f".service{num}"
+        merge_file = tmp_path / merge_filename
 
-        merged_filename = f".service{merged_file_ord}"
-        merged_file = tmp_dir / merged_filename
+        merge_file_content = merge_filename * num
+        merge_file.write_text(merge_file_content)
 
-        merged_file_content = merged_filename * merged_file_ord
-
-        with open(merged_file, "w+") as file:
-            file.write(merged_file_content)
-
-        expected_output_file_content += merged_file_content
+        expected_output_file_content += merge_file_content
         if append_linesep:
             expected_output_file_content += os.linesep
 
-        merged_files.append(merged_file)
+        files_to_merge.append(merge_file)
 
-    merge(output_file, merged_files, append_linesep)
+    merge(output_file, files_to_merge, append_linesep)
 
-    with open(output_file) as output_file:
-        actual_output_file_content = output_file.read()
-
+    actual_output_file_content = output_file.read_text()
     assert actual_output_file_content == expected_output_file_content
 
 
