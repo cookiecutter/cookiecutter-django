@@ -134,11 +134,11 @@ def _fixture_id(ctx):
     return "-".join(f"{key}:{value}" for key, value in ctx.items())
 
 
-def build_files_list(root_dir):
+def build_files_list(base_dir):
     """Build a list containing absolute paths to the generated files."""
     return [
         os.path.join(dirpath, file_path)
-        for dirpath, subdirs, files in os.walk(root_dir)
+        for dirpath, subdirs, files in os.walk(base_dir)
         for file_path in files
     ]
 
