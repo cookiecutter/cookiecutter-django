@@ -1476,6 +1476,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Patrick Tran</td>
+    <td>
+      <a href="https://github.com/theptrk">theptrk</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Pawan Chaurasia</td>
     <td>
       <a href="https://github.com/rjsnh1522">rjsnh1522</a>
