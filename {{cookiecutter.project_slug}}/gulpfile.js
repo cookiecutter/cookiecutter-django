@@ -8,14 +8,12 @@ const pjson = require('./package.json')
 
 // Plugins
 const autoprefixer = require('autoprefixer')
-const browserSync = require('browser-sync').create()
 const concat = require('gulp-concat')
 const cssnano = require ('cssnano')
 const imagemin = require('gulp-imagemin')
 const pixrem = require('pixrem')
 const plumber = require('gulp-plumber')
 const postcss = require('gulp-postcss')
-const reload = browserSync.reload
 const rename = require('gulp-rename')
 const sass = require('gulp-sass')(require('sass'))
 const spawn = require('child_process').spawn
@@ -123,42 +121,10 @@ function runServer(cb) {
 }
 {%- endif %}
 
-// Browser sync server for live reload
-function initBrowserSync() {
-  browserSync.init(
-    [
-      `${paths.css}/*.css`,
-      `${paths.js}/*.js`,
-      `${paths.templates}/*.html`
-    ], {
-      {%- if cookiecutter.use_docker == 'y' %}
-      // https://www.browsersync.io/docs/options/#option-open
-      // Disable as it doesn't work from inside a container
-      open: false,
-      {%- endif %}
-      // https://www.browsersync.io/docs/options/#option-proxy
-      proxy:  {
-        {%- if cookiecutter.use_docker == 'n' %}
-        target: '127.0.0.1:8000',
-        {%- else %}
-        target: 'django:8000',
-        {%- endif %}
-        proxyReq: [
-          function(proxyReq, req) {
-            // Assign proxy "host" header same as current request at Browsersync server
-            proxyReq.setHeader('Host', req.headers.host)
-          }
-        ]
-      }
-    }
-  )
-}
-
 // Watch
 function watchPaths() {
   watch(`${paths.sass}/*.scss`{% if cookiecutter.windows == 'y' %}, { usePolling: true }{% endif %}, styles)
-  watch(`${paths.templates}/**/*.html`{% if cookiecutter.windows == 'y' %}, { usePolling: true }{% endif %}).on("change", reload)
-  watch([`${paths.js}/*.js`, `!${paths.js}/*.min.js`]{% if cookiecutter.windows == 'y' %}, { usePolling: true }{% endif %}, scripts).on("change", reload)
+  watch([`${paths.js}/*.js`, `!${paths.js}/*.min.js`]{% if cookiecutter.windows == 'y' %}, { usePolling: true }{% endif %}, scripts)
 }
 
 // Generate all assets
@@ -178,7 +144,6 @@ const dev = parallel(
   runServer,
   {%- endif %}
   {%- endif %}
-  initBrowserSync,
   watchPaths
 )
 
