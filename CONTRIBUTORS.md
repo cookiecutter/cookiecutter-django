@@ -1742,6 +1742,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>tildebox</td>
+    <td>
+      <a href="https://github.com/tildebox">tildebox</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Tim Claessens</td>
     <td>
       <a href="https://github.com/timclaessens">timclaessens</a>
