@@ -15,12 +15,12 @@ DOTENV_FILE = BASE_DIR / ".env"
 
 def merge(
     output_file: Path,
-    merged_files: Sequence[Path],
+    files_to_merge: Sequence[Path],
     append_linesep: bool = True,
 ) -> None:
     merged_content = ""
-    for merged_file_path in merged_files:
-        merged_content += merged_file_path.read_text()
+    for merge_file in files_to_merge:
+        merged_content += merge_file.read_text()
         if append_linesep:
             merged_content += os.linesep
     output_file.write_text(merged_content)
