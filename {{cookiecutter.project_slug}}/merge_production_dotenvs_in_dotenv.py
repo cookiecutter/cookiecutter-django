@@ -24,9 +24,5 @@ def merge(
     output_file.write_text(merged_content)
 
 
-def main():
-    merge(DOTENV_FILE, PRODUCTION_DOTENV_FILES)
-
-
 if __name__ == "__main__":
-    main()
+    merge(DOTENV_FILE, PRODUCTION_DOTENV_FILES)
