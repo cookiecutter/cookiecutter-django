@@ -293,6 +293,7 @@ def set_flags_in_settings_files():
 def remove_envs_and_associated_files():
     shutil.rmtree(".envs")
     os.remove("merge_production_dotenvs_in_dotenv.py")
+    shutil.rmtree("tests")
 
 
 def remove_celery_compose_dirs():
