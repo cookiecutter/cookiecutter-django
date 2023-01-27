@@ -29,7 +29,7 @@ jobs:
           - windows-latest
           - macOS-latest
 
-    name: "Run tests"
+    name: "pytest ${{ matrix.os }}"
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
@@ -56,7 +56,7 @@ jobs:
           - name: Webpack
             args: "frontend_pipeline=Webpack"
 
-    name: "${{ matrix.script.name }} Docker"
+    name: "Docker ${{ matrix.script.name }}"
     runs-on: ubuntu-latest
     env:
       DOCKER_BUILDKIT: 1
@@ -85,7 +85,7 @@ jobs:
           - name: Webpack
             args: "frontend_pipeline=Webpack"
 
-    name: "${{ matrix.script.name }} Bare metal"
+    name: "Bare metal ${{ matrix.script.name }}"
     runs-on: ubuntu-latest
     services:
       redis:
