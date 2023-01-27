@@ -1,22 +1,27 @@
-from django.test import RequestFactory
+import pytest
+from rest_framework.test import APIRequestFactory
 
 from {{ cookiecutter.project_slug }}.users.api.views import UserViewSet
 from {{ cookiecutter.project_slug }}.users.models import User
 
 
 class TestUserViewSet:
-    def test_get_queryset(self, user: User, rf: RequestFactory):
+    @pytest.fixture
+    def api_rf(self) -> APIRequestFactory:
+        return APIRequestFactory()
+
+    def test_get_queryset(self, user: User, api_rf: APIRequestFactory):
         view = UserViewSet()
-        request = rf.get("/fake-url/")
+        request = api_rf.get("/fake-url/")
         request.user = user
 
         view.request = request
 
         assert user in view.get_queryset()
 
-    def test_me(self, user: User, rf: RequestFactory):
+    def test_me(self, user: User, api_rf: APIRequestFactory):
         view = UserViewSet()
-        request = rf.get("/fake-url/")
+        request = api_rf.get("/fake-url/")
         request.user = user
 
         view.request = request
