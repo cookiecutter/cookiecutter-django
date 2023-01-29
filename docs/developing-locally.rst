@@ -9,7 +9,7 @@ Setting Up Development Environment
 
 Make sure to have the following on your host:
 
-* Python 3.9
+* Python 3.10
 * PostgreSQL_.
 * Redis_, if using Celery
 * Cookiecutter_
@@ -18,15 +18,14 @@ First things first.
 
 #. Create a virtualenv: ::
 
-    $ python3.9 -m venv <virtual env path>
+    $ python3.10 -m venv <virtual env path>
 
 #. Activate the virtualenv you have just created: ::
 
     $ source <virtual env path>/bin/activate
 
-#. Install cookiecutter-django: ::
-
-    $ cookiecutter gh:pydanny/cookiecutter-django
+#.
+    .. include:: generate-project-block.rst
 
 #. Install development requirements: ::
 
@@ -42,7 +41,9 @@ First things first.
 
 #. Create a new PostgreSQL database using createdb_: ::
 
-    $ createdb <what you have entered as the project_slug at setup stage> -U postgres --password <password>
+    $ createdb --username=postgres <project_slug>
+
+   ``project_slug`` is what you have entered as the project_slug at the setup stage.
 
    .. note::
 
@@ -81,13 +82,13 @@ First things first.
 
 or if you're running asynchronously: ::
 
-    $ uvicorn config.asgi:application --host 0.0.0.0 --reload
+    $ uvicorn config.asgi:application --host 0.0.0.0 --reload --reload-include '*.html'
 
 .. _PostgreSQL: https://www.postgresql.org/download/
 .. _Redis: https://redis.io/download
 .. _CookieCutter: https://github.com/cookiecutter/cookiecutter
 .. _createdb: https://www.postgresql.org/docs/current/static/app-createdb.html
-.. _initial PostgreSQL set up: http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html
+.. _initial PostgreSQL set up: https://web.archive.org/web/20190303010033/http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html
 .. _postgres documentation: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
 .. _pre-commit: https://pre-commit.com/
 .. _direnv: https://direnv.net/
@@ -140,22 +141,55 @@ In production, we have Mailgun_ configured to have your back!
 Celery
 ------
 
-If the project is configured to use Celery as a task scheduler then by default tasks are set to run on the main thread
-when developing locally. If you have the appropriate setup on your local machine then set the following
-in ``config/settings/local.py``::
+If the project is configured to use Celery as a task scheduler then, by default, tasks are set to run on the main thread when developing locally instead of getting sent to a broker. However, if you have Redis setup on your local machine, you can set the following in ``config/settings/local.py``::
 
     CELERY_TASK_ALWAYS_EAGER = False
-    
-To run Celery locally, make sure redis-server is installed (instructions are available at https://redis.io/topics/quickstart), run the server in one terminal with `redis-server`, and then start celery in another terminal with the following command::
-    
-    celery -A config.celery_app worker --loglevel=info
+
+Next, make sure `redis-server` is installed (per the `Getting started with Redis`_ guide) and run the server in one terminal::
+
+    $ redis-server
+
+Start the Celery worker by running the following command in another terminal::
+
+    $ celery -A config.celery_app worker --loglevel=info
+
+That Celery worker should be running whenever your app is running, typically as a background process,
+so that it can pick up any tasks that get queued. Learn more from the `Celery Workers Guide`_.
+
+The project comes with a simple task for manual testing purposes, inside `<project_slug>/users/tasks.py`. To queue that task locally, start the Django shell, import the task, and call `delay()` on it::
+
+    $ python manage.py shell
+    >> from <project_slug>.users.tasks import get_users_count
+    >> get_users_count.delay()
+
+You can also use Django admin to queue up tasks, thanks to the `django-celerybeat`_ package.
+
+.. _Getting started with Redis guide: https://redis.io/docs/getting-started/
+.. _Celery Workers Guide: https://docs.celeryq.dev/en/stable/userguide/workers.html
+.. _django-celerybeat: https://django-celery-beat.readthedocs.io/en/latest/
 
 
 Sass Compilation & Live Reloading
 ---------------------------------
 
-If you’d like to take advantage of live reloading and Sass compilation you can do so with a little
-bit of preparation, see :ref:`sass-compilation-live-reload`.
+If you've opted for Gulp as front-end pipeline, the project comes configured with `Sass`_ compilation and `live reloading`_. As you change you Sass/JS source files, the task runner will automatically rebuild the corresponding CSS and JS assets and reload them in your browser without refreshing the page.
+
+#. Make sure that `Node.js`_ v16 is installed on your machine.
+#. In the project root, install the JS dependencies with::
+
+    $ npm install
+
+#. Now - with your virtualenv activated - start the application by running::
+
+    $ npm run dev
+
+   The app will now run with live reloading enabled, applying front-end changes dynamically.
+
+.. note:: The task will start 2 processes in parallel: the static assets build loop on one side, and the Django server on the other. You do NOT need to run Django as your would normally with ``manage.py runserver``.
+
+.. _Node.js: http://nodejs.org/download/
+.. _Sass: https://sass-lang.com/
+.. _live reloading: https://browsersync.io
 
 Summary
 -------

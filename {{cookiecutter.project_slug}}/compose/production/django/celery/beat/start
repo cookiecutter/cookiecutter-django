@@ -5,4 +5,4 @@ set -o pipefail
 set -o nounset
 
 
-celery -A config.celery_app beat -l INFO
+exec celery -A config.celery_app beat -l INFO

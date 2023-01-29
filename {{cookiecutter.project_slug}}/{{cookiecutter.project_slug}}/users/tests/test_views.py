@@ -4,11 +4,11 @@ from django.contrib import messages
 from django.contrib.auth.models import AnonymousUser
 from django.contrib.messages.middleware import MessageMiddleware
 from django.contrib.sessions.middleware import SessionMiddleware
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponseRedirect
 from django.test import RequestFactory
 from django.urls import reverse
 
-from {{ cookiecutter.project_slug }}.users.forms import UserChangeForm
+from {{ cookiecutter.project_slug }}.users.forms import UserAdminChangeForm
 from {{ cookiecutter.project_slug }}.users.models import User
 from {{ cookiecutter.project_slug }}.users.tests.factories import UserFactory
 from {{ cookiecutter.project_slug }}.users.views import (
@@ -62,8 +62,9 @@ class TestUserUpdateView:
         view.request = request
 
         # Initialize the form
-        form = UserChangeForm()
-        form.cleaned_data = []
+        form = UserAdminChangeForm()
+        form.cleaned_data = {}
+        form.instance = user
         view.form_valid(form)
 
         messages_sent = [m.message for m in messages.get_messages(request)]
@@ -97,5 +98,6 @@ class TestUserDetailView:
         response = user_detail_view(request, username=user.username)
         login_url = reverse(settings.LOGIN_URL)
 
+        assert isinstance(response, HttpResponseRedirect)
         assert response.status_code == 302
         assert response.url == f"{login_url}?next=/fake-url/"

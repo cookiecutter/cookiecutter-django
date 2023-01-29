@@ -1,8 +1,5 @@
-{% if cookiecutter.custom_bootstrap_compilation == 'y' %}
 @import "custom_bootstrap_vars";
 @import "bootstrap";
-{% endif %}
-
 
 
 // project specific CSS goes here

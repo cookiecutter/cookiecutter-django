@@ -47,5 +47,5 @@ Others
 
 #. To create a new app using the recommended directory structure, run `django-admin startapp --template=../startapp_template myappname` from inside the project root. This template can be customized to suit your needs. (see `startapp`_)
 
-.. _#528: https://github.com/pydanny/cookiecutter-django/issues/528#issuecomment-212650373
+.. _#528: https://github.com/cookiecutter/cookiecutter-django/issues/528#issuecomment-212650373
 .. _startapp: https://docs.djangoproject.com/en/dev/ref/django-admin/#startapp

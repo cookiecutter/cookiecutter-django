@@ -7,6 +7,6 @@ build:
   image: testing
 
 python:
-  version: 3.9
+  version: 3.10
   install:
     - requirements: requirements/local.txt

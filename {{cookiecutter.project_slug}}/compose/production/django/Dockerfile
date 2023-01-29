@@ -1,7 +1,7 @@
-ARG PYTHON_VERSION=3.9-slim-buster
+ARG PYTHON_VERSION=3.10-slim-bullseye
 
-{% if cookiecutter.js_task_runner == 'Gulp' -%}
-FROM node:10-stretch-slim as client-builder
+{% if cookiecutter.frontend_pipeline == 'Gulp' -%}
+FROM node:16-bullseye-slim as client-builder
 
 ARG APP_HOME=/app
 WORKDIR ${APP_HOME}
@@ -99,7 +99,7 @@ RUN chmod +x /start-flower
 
 
 # copy application code to WORKDIR
-{%- if cookiecutter.js_task_runner == 'Gulp' %}
+{%- if cookiecutter.frontend_pipeline == 'Gulp' %}
 COPY --from=client-builder --chown=django:django ${APP_HOME} ${APP_HOME}
 {% else %}
 COPY --chown=django:django . ${APP_HOME}

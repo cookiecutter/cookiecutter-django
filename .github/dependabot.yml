@@ -1,11 +1,19 @@
 # Config for Dependabot updates. See Documentation here:
-# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+# https://docs.github.com/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
 
 version: 2
 updates:
-  # Update Github actions in workflows
+  # Update GitHub actions in workflows
   - package-ecosystem: "github-actions"
     directory: "/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "update"
+
+  # Update npm packages
+  - package-ecosystem: "npm"
+    directory: "{{cookiecutter.project_slug}}/"
     schedule:
       interval: "daily"
     labels:

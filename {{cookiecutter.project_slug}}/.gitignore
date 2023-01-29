@@ -326,14 +326,25 @@ Session.vim
 # Auto-generated tag files
 tags
 
+# Redis dump file
+dump.rdb
+
 ### Project template
-{% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' %}
+{%- if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' %}
 MailHog
 {%- endif %}
 {{ cookiecutter.project_slug }}/media/
 
 .pytest_cache/
 
-{% if cookiecutter.use_docker == 'y' %}
+{%- if cookiecutter.use_docker == 'y' %}
 .ipython/
+{%- endif %}
+
+{%- if cookiecutter.frontend_pipeline == 'Gulp' %}
+project.css
+project.min.css
+vendors.js
+*.min.js
+*.min.js.map
 {%- endif %}

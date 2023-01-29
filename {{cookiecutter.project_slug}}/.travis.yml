@@ -2,7 +2,7 @@ dist: focal
 
 language: python
 python:
-  - "3.9"
+  - "3.10"
 
 services:
   - {% if cookiecutter.use_docker == 'y' %}docker{% else %}postgresql{% endif %}
@@ -37,7 +37,7 @@ jobs:
         - sudo apt-get install -qq libsqlite3-dev libxml2 libxml2-dev libssl-dev libbz2-dev wget curl llvm
       language: python
       python:
-        - "3.9"
+        - "3.10"
       install:
         - pip install -r requirements/local.txt
       script:
