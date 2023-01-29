@@ -10,6 +10,7 @@ TODO: restrict Cookiecutter Django project initialization to
 """
 from __future__ import print_function
 
+import json
 import os
 import random
 import shutil
@@ -87,21 +88,113 @@ def remove_heroku_build_hooks():
     shutil.rmtree("bin")
 
 
+def remove_sass_files():
+    shutil.rmtree(os.path.join("{{cookiecutter.project_slug}}", "static", "sass"))
+
+
 def remove_gulp_files():
     file_names = ["gulpfile.js"]
     for file_name in file_names:
         os.remove(file_name)
-    remove_sass_files()
 
 
-def remove_sass_files():
-    shutil.rmtree(os.path.join("{{cookiecutter.project_slug}}", "static", "sass"))
+def remove_webpack_files():
+    shutil.rmtree("webpack")
+    remove_vendors_js()
+
+
+def remove_vendors_js():
+    vendors_js_path = os.path.join(
+        "{{ cookiecutter.project_slug }}",
+        "static",
+        "js",
+        "vendors.js",
+    )
+    if os.path.exists(vendors_js_path):
+        os.remove(vendors_js_path)
 
 
 def remove_packagejson_file():
     file_names = ["package.json"]
     for file_name in file_names:
         os.remove(file_name)
+
+
+def update_package_json(remove_dev_deps=None, remove_keys=None, scripts=None):
+    remove_dev_deps = remove_dev_deps or []
+    remove_keys = remove_keys or []
+    scripts = scripts or {}
+    with open("package.json", mode="r") as fd:
+        content = json.load(fd)
+    for package_name in remove_dev_deps:
+        content["devDependencies"].pop(package_name)
+    for key in remove_keys:
+        content.pop(key)
+    content["scripts"].update(scripts)
+    with open("package.json", mode="w") as fd:
+        json.dump(content, fd, ensure_ascii=False, indent=2)
+        fd.write("\n")
+
+
+def handle_js_runner(choice, use_docker, use_async):
+    if choice == "Gulp":
+        update_package_json(
+            remove_dev_deps=[
+                "@babel/core",
+                "@babel/preset-env",
+                "babel-loader",
+                "concurrently",
+                "css-loader",
+                "mini-css-extract-plugin",
+                "postcss-loader",
+                "postcss-preset-env",
+                "sass-loader",
+                "webpack",
+                "webpack-bundle-tracker",
+                "webpack-cli",
+                "webpack-dev-server",
+                "webpack-merge",
+            ],
+            remove_keys=["babel"],
+            scripts={
+                "dev": "gulp",
+                "build": "gulp generate-assets",
+            },
+        )
+        remove_webpack_files()
+    elif choice == "Webpack":
+        scripts = {
+            "dev": "webpack serve --config webpack/dev.config.js",
+            "build": "webpack --config webpack/prod.config.js",
+        }
+        remove_dev_deps = [
+            "browser-sync",
+            "cssnano",
+            "gulp",
+            "gulp-imagemin",
+            "gulp-plumber",
+            "gulp-postcss",
+            "gulp-rename",
+            "gulp-sass",
+            "gulp-uglify-es",
+        ]
+        if not use_docker:
+            dev_django_cmd = (
+                "uvicorn config.asgi:application --reload"
+                if use_async
+                else "python manage.py runserver_plus"
+            )
+            scripts.update(
+                {
+                    "dev": "concurrently npm:dev:*",
+                    "dev:webpack": "webpack serve --config webpack/dev.config.js",
+                    "dev:django": dev_django_cmd,
+                }
+            )
+        else:
+            remove_dev_deps.append("concurrently")
+        update_package_json(remove_dev_deps=remove_dev_deps, scripts=scripts)
+        remove_gulp_files()
 
 
 def remove_celery_files():
@@ -384,13 +477,21 @@ def main():
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
             append_to_gitignore_file("!.envs/.local/")
 
-    if "{{ cookiecutter.frontend_pipeline }}" != "Gulp":
+    if "{{ cookiecutter.frontend_pipeline }}" in ["None", "Django Compressor"]:
         remove_gulp_files()
+        remove_webpack_files()
+        remove_sass_files()
         remove_packagejson_file()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_node_dockerfile()
+    else:
+        handle_js_runner(
+            "{{ cookiecutter.frontend_pipeline }}",
+            use_docker=("{{ cookiecutter.use_docker }}".lower() == "y"),
+            use_async=("{{ cookiecutter.use_async }}".lower() == "y"),
+        )
 
-    if "{{ cookiecutter.cloud_provider}}" == "None":
+    if "{{ cookiecutter.cloud_provider }}" == "None":
         print(
             WARNING + "You chose not to use a cloud provider, "
             "media files won't be served in production." + TERMINATOR

@@ -95,7 +95,10 @@ frontend_pipeline:
 
     1. None
     2. `Django Compressor`_
-    3. `Gulp`_: support Bootstrap recompilation with real-time variables alteration.
+    3. `Gulp`_
+    4. `Webpack`_
+
+Both Gulp and Webpack support Bootstrap recompilation with real-time variables alteration.
 
 use_celery:
     Indicates whether the project should be configured to use Celery_.
@@ -145,6 +148,7 @@ debug:
 .. _PostgreSQL: https://www.postgresql.org/docs/
 
 .. _Gulp: https://github.com/gulpjs/gulp
+.. _Webpack: https://webpack.js.org
 
 .. _AWS: https://aws.amazon.com/s3/
 .. _GCP: https://cloud.google.com/storage/

@@ -101,6 +101,7 @@ SUPPORTED_COMBINATIONS = [
     {"frontend_pipeline": "None"},
     {"frontend_pipeline": "Django Compressor"},
     {"frontend_pipeline": "Gulp"},
+    {"frontend_pipeline": "Webpack"},
     {"use_celery": "y"},
     {"use_celery": "n"},
     {"use_mailhog": "y"},
