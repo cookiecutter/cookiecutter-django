@@ -24,7 +24,7 @@
     "node-sass-tilde-importer": "^1.0.2",
     "pixrem": "^5.0.0",
     "postcss": "^8.3.11",
-    "postcss-loader": "^6.2.1",
+    "postcss-loader": "^7.0.2",
     "postcss-preset-env": "^7.0.2",
     "sass": "^1.43.4",
     "sass-loader": "^12.4.0",
