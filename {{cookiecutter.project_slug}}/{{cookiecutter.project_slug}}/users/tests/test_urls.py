@@ -1,9 +1,6 @@
-import pytest
-from django.urls import reverse, resolve
+from django.urls import resolve, reverse
 
 from {{ cookiecutter.project_slug }}.users.models import User
-
-pytestmark = pytest.mark.django_db
 
 
 def test_detail(user: User):

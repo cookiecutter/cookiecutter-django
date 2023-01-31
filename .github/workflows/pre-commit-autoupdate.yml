@@ -1,0 +1,47 @@
+# Run pre-commit autoupdate every day at midnight
+# and create a pull request if any changes
+
+name: Pre-commit auto-update
+
+on:
+  schedule:
+    - cron: "15 2 * * *"
+  workflow_dispatch: # to trigger manually
+
+permissions:
+  contents: read
+
+jobs:
+  auto-update:
+    # Disables this workflow from running in a repository that is not part of the indicated organization/user
+    if: github.repository_owner == 'cookiecutter'
+    permissions:
+      contents: write  # for peter-evans/create-pull-request to create branch
+      pull-requests: write  # for peter-evans/create-pull-request to create a PR
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install pre-commit
+        run: pip install pre-commit
+
+      - name: Autoupdate template
+        run: pre-commit autoupdate
+
+      - name: Autoupdate generated projects
+        working-directory: "{{cookiecutter.project_slug}}"
+        run: pre-commit autoupdate
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: update/pre-commit-autoupdate
+          title: Auto-update pre-commit hooks
+          commit-message: Auto-update pre-commit hooks
+          body: Update versions of tools in pre-commit configs to latest version
+          labels: update

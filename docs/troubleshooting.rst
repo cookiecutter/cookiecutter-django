@@ -1,5 +1,5 @@
 Troubleshooting
-=====================================
+===============
 
 This page contains some advice about errors and problems commonly encountered during the development of Cookiecutter Django applications.
 
@@ -38,6 +38,16 @@ To fix this, you can either:
 .. _rm: https://docs.docker.com/engine/reference/commandline/volume_rm/
 .. _prune: https://docs.docker.com/v17.09/engine/reference/commandline/system_prune/
 
+Variable is not set. Defaulting to a blank string
+-------------------------------------------------
+
+Example::
+
+    WARN[0000] The "DJANGO_AWS_STORAGE_BUCKET_NAME" variable is not set. Defaulting to a blank string.
+    WARN[0000] The "DJANGO_AWS_S3_CUSTOM_DOMAIN" variable is not set. Defaulting to a blank string.
+
+You have probably opted for Docker + Webpack without Whitenoise. This is a know limitation of the combination, which needs a little bit of manual intervention. See the :ref:`dedicated section about it <webpack-whitenoise-limitation>`.
+
 Others
 ------
 
@@ -47,5 +57,5 @@ Others
 
 #. New apps not getting created in project root: This is the expected behavior, because cookiecutter-django does not change the way that django startapp works, you'll have to fix this manually (see `#1725`_)
 
-.. _#528: https://github.com/pydanny/cookiecutter-django/issues/528#issuecomment-212650373
-.. _#1725: https://github.com/pydanny/cookiecutter-django/issues/1725#issuecomment-407493176
+.. _#528: https://github.com/cookiecutter/cookiecutter-django/issues/528#issuecomment-212650373
+.. _#1725: https://github.com/cookiecutter/cookiecutter-django/issues/1725#issuecomment-407493176

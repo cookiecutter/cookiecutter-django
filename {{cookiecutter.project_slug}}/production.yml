@@ -13,6 +13,19 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/django/Dockerfile
+      {%- if cookiecutter.frontend_pipeline == 'Webpack' and cookiecutter.use_whitenoise == 'n' %}
+      args:
+        # These variable can be defined in an .env file in the root of the repo
+        {%- if cookiecutter.cloud_provider == 'AWS' %}
+        DJANGO_AWS_STORAGE_BUCKET_NAME: ${DJANGO_AWS_STORAGE_BUCKET_NAME}
+        DJANGO_AWS_S3_CUSTOM_DOMAIN: ${DJANGO_AWS_S3_CUSTOM_DOMAIN}
+        {%- elif cookiecutter.cloud_provider == 'GCP' %}
+        DJANGO_GCP_STORAGE_BUCKET_NAME: ${DJANGO_GCP_STORAGE_BUCKET_NAME}
+        {%- elif cookiecutter.cloud_provider == 'Azure' %}
+        DJANGO_AZURE_ACCOUNT_NAME: ${DJANGO_AZURE_ACCOUNT_NAME}
+        {%- endif %}
+      {%- endif %}
+
     image: {{ cookiecutter.project_slug }}_production_django
     {%- if cookiecutter.cloud_provider == 'nginx' %}
     volumes:
@@ -49,9 +62,12 @@ services:
     ports:
       - "0.0.0.0:80:80"
       - "0.0.0.0:443:443"
+      {%- if cookiecutter.use_celery == 'y' %}
+      - "0.0.0.0:5555:5555"
+      {%- endif %}
 
   redis:
-    image: redis:5.0
+    image: redis:6
   {%- if cookiecutter.use_celery == 'y' %}
 
   celeryworker:
@@ -67,13 +83,10 @@ services:
   flower:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_flower
-    ports:
-      - "5555:5555"
     command: /start-flower
-
   {%- endif %}
+  {%- if cookiecutter.cloud_provider == 'AWS' %}
 
-  {% if cookiecutter.cloud_provider == 'AWS' %}
   awscli:
     build:
       context: .
@@ -81,7 +94,7 @@ services:
     env_file:
       - ./.envs/.production/.django
     volumes:
-      - production_postgres_data_backups:/backups
+      - production_postgres_data_backups:/backups:z
   {%- endif %}
   {%- if cookiecutter.cloud_provider == 'nginx' %}
   nginx:

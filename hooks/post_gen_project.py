@@ -5,10 +5,12 @@ NOTE:
     can potentially be run in Python 2.x environment
     (at least so we presume in `pre_gen_project.py`).
 
-TODO: ? restrict Cookiecutter Django project initialization to Python 3.x environments only
+TODO: restrict Cookiecutter Django project initialization to
+      Python 3.x environments only
 """
 from __future__ import print_function
 
+import json
 import os
 import random
 import shutil
@@ -59,6 +61,10 @@ def remove_docker_files():
     file_names = ["local.yml", "production.yml", ".dockerignore"]
     for file_name in file_names:
         os.remove(file_name)
+    if "{{ cookiecutter.use_pycharm }}".lower() == "y":
+        file_names = ["docker_compose_up_django.xml", "docker_compose_up_docs.xml"]
+        for file_name in file_names:
+            os.remove(os.path.join(".idea", "runConfigurations", file_name))
 
 
 def remove_utility_files():
@@ -75,6 +81,15 @@ def remove_heroku_files():
             # don't remove the file if we are using travisci but not using heroku
             continue
         os.remove(file_name)
+    remove_heroku_build_hooks()
+
+
+def remove_heroku_build_hooks():
+    shutil.rmtree("bin")
+
+
+def remove_sass_files():
+    shutil.rmtree(os.path.join("{{cookiecutter.project_slug}}", "static", "sass"))
 
 
 def remove_gulp_files():
@@ -83,10 +98,103 @@ def remove_gulp_files():
         os.remove(file_name)
 
 
+def remove_webpack_files():
+    shutil.rmtree("webpack")
+    remove_vendors_js()
+
+
+def remove_vendors_js():
+    vendors_js_path = os.path.join(
+        "{{ cookiecutter.project_slug }}",
+        "static",
+        "js",
+        "vendors.js",
+    )
+    if os.path.exists(vendors_js_path):
+        os.remove(vendors_js_path)
+
+
 def remove_packagejson_file():
     file_names = ["package.json"]
     for file_name in file_names:
         os.remove(file_name)
+
+
+def update_package_json(remove_dev_deps=None, remove_keys=None, scripts=None):
+    remove_dev_deps = remove_dev_deps or []
+    remove_keys = remove_keys or []
+    scripts = scripts or {}
+    with open("package.json", mode="r") as fd:
+        content = json.load(fd)
+    for package_name in remove_dev_deps:
+        content["devDependencies"].pop(package_name)
+    for key in remove_keys:
+        content.pop(key)
+    content["scripts"].update(scripts)
+    with open("package.json", mode="w") as fd:
+        json.dump(content, fd, ensure_ascii=False, indent=2)
+        fd.write("\n")
+
+
+def handle_js_runner(choice, use_docker, use_async):
+    if choice == "Gulp":
+        update_package_json(
+            remove_dev_deps=[
+                "@babel/core",
+                "@babel/preset-env",
+                "babel-loader",
+                "concurrently",
+                "css-loader",
+                "mini-css-extract-plugin",
+                "postcss-loader",
+                "postcss-preset-env",
+                "sass-loader",
+                "webpack",
+                "webpack-bundle-tracker",
+                "webpack-cli",
+                "webpack-dev-server",
+                "webpack-merge",
+            ],
+            remove_keys=["babel"],
+            scripts={
+                "dev": "gulp",
+                "build": "gulp generate-assets",
+            },
+        )
+        remove_webpack_files()
+    elif choice == "Webpack":
+        scripts = {
+            "dev": "webpack serve --config webpack/dev.config.js",
+            "build": "webpack --config webpack/prod.config.js",
+        }
+        remove_dev_deps = [
+            "browser-sync",
+            "cssnano",
+            "gulp",
+            "gulp-imagemin",
+            "gulp-plumber",
+            "gulp-postcss",
+            "gulp-rename",
+            "gulp-sass",
+            "gulp-uglify-es",
+        ]
+        if not use_docker:
+            dev_django_cmd = (
+                "uvicorn config.asgi:application --reload"
+                if use_async
+                else "python manage.py runserver_plus"
+            )
+            scripts.update(
+                {
+                    "dev": "concurrently npm:dev:*",
+                    "dev:webpack": "webpack serve --config webpack/dev.config.js",
+                    "dev:django": dev_django_cmd,
+                }
+            )
+        else:
+            remove_dev_deps.append("concurrently")
+        update_package_json(remove_dev_deps=remove_dev_deps, scripts=scripts)
+        remove_gulp_files()
 
 
 def remove_celery_files():
@@ -101,6 +209,15 @@ def remove_celery_files():
         os.remove(file_name)
 
 
+def remove_async_files():
+    file_names = [
+        os.path.join("config", "asgi.py"),
+        os.path.join("config", "websocket.py"),
+    ]
+    for file_name in file_names:
+        os.remove(file_name)
+
+
 def remove_dottravisyml_file():
     os.remove(".travis.yml")
 
@@ -109,11 +226,8 @@ def remove_dotgitlabciyml_file():
     os.remove(".gitlab-ci.yml")
 
 
-def append_to_project_gitignore(path):
-    gitignore_file_path = ".gitignore"
-    with open(gitignore_file_path, "a") as gitignore_file:
-        gitignore_file.write(path)
-        gitignore_file.write(os.linesep)
+def remove_dotgithub_folder():
+    shutil.rmtree(".github")
 
 
 def generate_random_string(
@@ -146,8 +260,8 @@ def set_flag(file_path, flag, value=None, formatted=None, *args, **kwargs):
         random_string = generate_random_string(*args, **kwargs)
         if random_string is None:
             print(
-                "We couldn't find a secure pseudo-random number generator on your system. "
-                "Please, make sure to manually {} later.".format(flag)
+                "We couldn't find a secure pseudo-random number generator on your "
+                "system. Please, make sure to manually {} later.".format(flag)
             )
             random_string = flag
         if formatted is not None:
@@ -230,10 +344,10 @@ def set_celery_flower_password(file_path, value=None):
     return celery_flower_password
 
 
-def append_to_gitignore_file(s):
+def append_to_gitignore_file(ignored_line):
     with open(".gitignore", "a") as gitignore_file:
-        gitignore_file.write(s)
-        gitignore_file.write(os.linesep)
+        gitignore_file.write(ignored_line)
+        gitignore_file.write("\n")
 
 
 def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):
@@ -272,6 +386,7 @@ def set_flags_in_settings_files():
 def remove_envs_and_associated_files():
     shutil.rmtree(".envs")
     os.remove("merge_production_dotenvs_in_dotenv.py")
+    shutil.rmtree("tests")
 
 
 def remove_celery_compose_dirs():
@@ -290,6 +405,25 @@ def remove_aws_dockerfile():
 def remove_drf_starter_files():
     os.remove(os.path.join("config", "api_router.py"))
     shutil.rmtree(os.path.join("{{cookiecutter.project_slug}}", "users", "api"))
+    os.remove(
+        os.path.join(
+            "{{cookiecutter.project_slug}}", "users", "tests", "test_drf_urls.py"
+        )
+    )
+    os.remove(
+        os.path.join(
+            "{{cookiecutter.project_slug}}", "users", "tests", "test_drf_views.py"
+        )
+    )
+    os.remove(
+        os.path.join(
+            "{{cookiecutter.project_slug}}", "users", "tests", "test_swagger.py"
+        )
+    )
+
+
+def remove_storages_module():
+    os.remove(os.path.join("{{cookiecutter.project_slug}}", "utils", "storages.py"))
 
 
 def main():
@@ -317,12 +451,14 @@ def main():
 
     if (
         "{{ cookiecutter.use_docker }}".lower() == "y"
-        and "{{ cookiecutter.cloud_provider}}".lower() != "aws"
+        and "{{ cookiecutter.cloud_provider}}" != "AWS"
     ):
         remove_aws_dockerfile()
 
     if "{{ cookiecutter.use_heroku }}".lower() == "n":
         remove_heroku_files()
+    elif "{{ cookiecutter.frontend_pipeline }}" != "Django Compressor":
+        remove_heroku_build_hooks()
 
     if (
         "{{ cookiecutter.use_docker }}".lower() == "n"
@@ -341,31 +477,46 @@ def main():
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
             append_to_gitignore_file("!.envs/.local/")
 
-    if "{{ cookiecutter.js_task_runner}}".lower() == "none":
+    if "{{ cookiecutter.frontend_pipeline }}" in ["None", "Django Compressor"]:
         remove_gulp_files()
+        remove_webpack_files()
+        remove_sass_files()
         remove_packagejson_file()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_node_dockerfile()
+    else:
+        handle_js_runner(
+            "{{ cookiecutter.frontend_pipeline }}",
+            use_docker=("{{ cookiecutter.use_docker }}".lower() == "y"),
+            use_async=("{{ cookiecutter.use_async }}".lower() == "y"),
+        )
 
-    if "{{ cookiecutter.cloud_provider}}".lower() == "none":
+    if "{{ cookiecutter.cloud_provider }}" == "None":
         print(
             WARNING + "You chose not to use a cloud provider, "
             "media files won't be served in production." + TERMINATOR
         )
+        remove_storages_module()
 
     if "{{ cookiecutter.use_celery }}".lower() == "n":
         remove_celery_files()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_celery_compose_dirs()
 
-    if "{{ cookiecutter.ci_tool }}".lower() != "travis":
+    if "{{ cookiecutter.ci_tool }}" != "Travis":
         remove_dottravisyml_file()
 
-    if "{{ cookiecutter.ci_tool }}".lower() != "gitlab":
+    if "{{ cookiecutter.ci_tool }}" != "Gitlab":
         remove_dotgitlabciyml_file()
+
+    if "{{ cookiecutter.ci_tool }}" != "Github":
+        remove_dotgithub_folder()
 
     if "{{ cookiecutter.use_drf }}".lower() == "n":
         remove_drf_starter_files()
+
+    if "{{ cookiecutter.use_async }}".lower() == "n":
+        remove_async_files()
 
     print(SUCCESS + "Project initialized, keep up the good work!" + TERMINATOR)
 

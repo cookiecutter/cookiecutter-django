@@ -27,4 +27,3 @@ message_info "Cleaning the directory ${BACKUP_DIR_PATH}"
 rm -rf ${BACKUP_DIR_PATH}/*
 
 message_success "Finished uploading and cleaning."
-
