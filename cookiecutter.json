@@ -28,7 +28,6 @@
     "AWS",
     "GCP",
     "Azure",
-    "nginx",
     "None"
   ],
   "mail_service": [

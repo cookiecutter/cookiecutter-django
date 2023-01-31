@@ -57,7 +57,7 @@ http:
         # https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
     {%- endif %}
-    {%- if cookiecutter.cloud_provider == 'nginx' %}
+    {%- if cookiecutter.cloud_provider == 'None' %}
 
     web-media-router:
       rule: "Host(`{{ cookiecutter.domain_name }}`) && PathPrefix(`/media/`)"
@@ -89,7 +89,8 @@ http:
         servers:
           - url: http://flower:5555
     {%- endif %}
-    {%- if cookiecutter.cloud_provider == 'nginx' %}
+    {%- if cookiecutter.cloud_provider == 'None' %}
+
     django-media:
       loadBalancer:
         servers:

@@ -4,7 +4,7 @@ volumes:
   production_postgres_data: {}
   production_postgres_data_backups: {}
   production_traefik: {}
-  {%- if cookiecutter.cloud_provider == 'nginx' %}
+  {%- if cookiecutter.cloud_provider == 'None' %}
   production_django_media: {}
   {%- endif %}
 
@@ -27,7 +27,7 @@ services:
       {%- endif %}
 
     image: {{ cookiecutter.project_slug }}_production_django
-    {%- if cookiecutter.cloud_provider == 'nginx' %}
+    {%- if cookiecutter.cloud_provider == 'None' %}
     volumes:
       - production_django_media:/app/{{ cookiecutter.project_slug }}/media
     {%- endif %}
@@ -96,7 +96,7 @@ services:
     volumes:
       - production_postgres_data_backups:/backups:z
   {%- endif %}
-  {%- if cookiecutter.cloud_provider == 'nginx' %}
+  {%- if cookiecutter.cloud_provider == 'None' %}
   nginx:
     build:
       context: .
