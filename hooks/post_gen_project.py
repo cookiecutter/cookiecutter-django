@@ -491,7 +491,14 @@ def main():
             use_async=("{{ cookiecutter.use_async }}".lower() == "y"),
         )
 
-    if "{{ cookiecutter.cloud_provider }}" == "None":
+    if (
+        "{{ cookiecutter.cloud_provider }}" == "None"
+        and "{{ cookiecutter.use_docker }}".lower() == "n"
+    ):
+        print(
+            WARNING + "You chose to not use any cloud providers nor Docker, "
+            "media files won't be served in production." + TERMINATOR
+        )
         remove_storages_module()
 
     if "{{ cookiecutter.use_celery }}".lower() == "n":
