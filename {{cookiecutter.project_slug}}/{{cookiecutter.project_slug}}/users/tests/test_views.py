@@ -6,6 +6,7 @@ from django.contrib.messages.middleware import MessageMiddleware
 from django.contrib.sessions.middleware import SessionMiddleware
 from django.http import HttpRequest, HttpResponseRedirect
 from django.test import RequestFactory
+from django.test.client import Client
 from django.urls import reverse
 
 from {{ cookiecutter.project_slug }}.users.forms import UserAdminChangeForm
@@ -89,6 +90,13 @@ class TestUserDetailView:
 
         response = user_detail_view(request, username=user.username)
 
+        assert response.status_code == 200
+
+    def test_authenticated_integration(self, user: User, client: Client):
+        client.force_login(UserFactory())
+        response = client.get(
+            reverse("users:detail", kwargs={"username": user.username})
+        )
         assert response.status_code == 200
 
     def test_not_authenticated(self, user: User, rf: RequestFactory):
