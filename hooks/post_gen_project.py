@@ -101,6 +101,13 @@ def remove_gulp_files():
 def remove_webpack_files():
     shutil.rmtree("webpack")
     remove_vendors_js()
+    os.remove(
+        os.path.join(
+            "{{ cookiecutter.project_slug }}",
+            "utils",
+            "loaders.py",
+        )
+    )
 
 
 def remove_vendors_js():
