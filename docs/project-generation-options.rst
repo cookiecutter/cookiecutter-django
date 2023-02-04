@@ -46,6 +46,9 @@ timezone:
 windows:
     Indicates whether the project should be configured for development on Windows.
 
+use_sqlite:
+    Indicates whether the project should be configured for SQlite.  Requires Windows.
+
 use_pycharm:
     Indicates whether the project should be configured for development with PyCharm_.
 

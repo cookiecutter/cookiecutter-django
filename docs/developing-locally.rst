@@ -14,6 +14,8 @@ Make sure to have the following on your host:
 * Redis_, if using Celery
 * Cookiecutter_
 
+And if using Windows, you will also need the rust compiler.
+
 First things first.
 
 #. Create a virtualenv: ::

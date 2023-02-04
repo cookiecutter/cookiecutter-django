@@ -2,9 +2,9 @@
 
 Werkzeug[watchdog]==2.2.2 # https://github.com/pallets/werkzeug
 ipdb==0.13.11  # https://github.com/gotcha/ipdb
-{%- if cookiecutter.use_docker == 'y' %}
+{%- if cookiecutter.use_docker == 'y' and cookiecutter.use_postgresql == 'y' %}
 psycopg2==2.9.5  # https://github.com/psycopg/psycopg2
-{%- else %}
+{%- elif cookiecutter.use_postgresql == 'y'  %}
 psycopg2-binary==2.9.5  # https://github.com/psycopg/psycopg2
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' or cookiecutter.use_celery == 'y' %}

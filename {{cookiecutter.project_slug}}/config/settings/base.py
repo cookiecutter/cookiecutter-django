@@ -38,7 +38,7 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-{% if cookiecutter.use_docker == "y" -%}
+{% if cookiecutter.use_docker == "y" or cookiecutter.use_sqlite == "y" -%}
 DATABASES = {"default": env.db("DATABASE_URL")}
 {%- else %}
 DATABASES = {

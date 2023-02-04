@@ -2,11 +2,12 @@ pytz==2022.7.1  # https://github.com/stub42/pytz
 python-slugify==8.0.0  # https://github.com/un33k/python-slugify
 Pillow==9.4.0  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.frontend_pipeline == 'Django Compressor' %}
-{%- if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %}
-rcssmin==1.1.0 --install-option="--without-c-extensions"  # https://github.com/ndparker/rcssmin
-{%- else %}
+# BUG: prevents Django Compressor from installing on windows.  I was able to install rcssmin==1.1.1  without issues
+# {#%- if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %#}
+# rcssmin==1.1.0 --install-option="--without-c-extensions"  # https://github.com/ndparker/rcssmin
+# {%- else %}
 rcssmin==1.1.1  # https://github.com/ndparker/rcssmin
-{%- endif %}
+# {#%- endif %#}
 {%- endif %}
 argon2-cffi==21.3.0  # https://github.com/hynek/argon2_cffi
 {%- if cookiecutter.use_whitenoise == 'y' %}
