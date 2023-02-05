@@ -706,6 +706,13 @@ Listed in alphabetical order.
     <td>dudanogueira</td>
   </tr>
   <tr>
+    <td>duffn</td>
+    <td>
+      <a href="https://github.com/duffn">duffn</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Dónal Adams</td>
     <td>
       <a href="https://github.com/epileptic-fish">epileptic-fish</a>
