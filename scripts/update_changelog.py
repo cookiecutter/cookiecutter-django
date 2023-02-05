@@ -82,14 +82,20 @@ def group_pulls_by_change_type(
     grouped_pulls = {
         "Changed": [],
         "Fixed": [],
+        "Documentation": [],
         "Updated": [],
     }
     for pull in pull_requests_list:
         label_names = {label.name for label in pull.labels}
+        if "project infrastructure" in label_names:
+            # Don't mention it in the changelog
+            continue
         if "update" in label_names:
             group_name = "Updated"
         elif "bug" in label_names:
             group_name = "Fixed"
+        elif "docs" in label_names:
+            group_name = "Documentation"
         else:
             group_name = "Changed"
         grouped_pulls[group_name].append(pull)
