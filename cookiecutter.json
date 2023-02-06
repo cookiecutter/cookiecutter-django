@@ -18,19 +18,16 @@
   "use_pycharm": "n",
   "use_docker": "n",
   "postgresql_version": [
-    "11.3",
-    "10.8",
-    "9.6",
-    "9.5",
-    "9.4"
-  ],
-  "js_task_runner": [
-    "None",
-    "Gulp"
+    "14",
+    "13",
+    "12",
+    "11",
+    "10"
   ],
   "cloud_provider": [
     "AWS",
     "GCP",
+    "Azure",
     "None"
   ],
   "mail_service": [
@@ -46,8 +43,12 @@
   ],
   "use_async": "n",
   "use_drf": "n",
-  "custom_bootstrap_compilation": "n",
-  "use_compressor": "n",
+  "frontend_pipeline": [
+    "None",
+    "Django Compressor",
+    "Gulp",
+    "Webpack"
+  ],
   "use_celery": "n",
   "use_mailhog": "n",
   "use_sentry": "n",
@@ -56,9 +57,9 @@
   "ci_tool": [
     "None",
     "Travis",
-    "Gitlab"
+    "Gitlab",
+    "Github"
   ],
   "keep_local_envs_in_vcs": "y",
-
   "debug": "n"
 }

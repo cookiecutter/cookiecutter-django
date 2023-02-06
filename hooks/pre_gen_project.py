@@ -4,7 +4,8 @@ NOTE:
     as the whole Cookiecutter Django project initialization
     can potentially be run in Python 2.x environment.
 
-TODO: ? restrict Cookiecutter Django project initialization to Python 3.x environments only
+TODO: restrict Cookiecutter Django project initialization
+      to Python 3.x environments only
 """
 from __future__ import print_function
 
@@ -35,11 +36,11 @@ if "{{ cookiecutter.use_docker }}".lower() == "n":
     if python_major_version == 2:
         print(
             WARNING + "You're running cookiecutter under Python 2, but the generated "
-            "project requires Python 3.8+. Do you want to proceed (y/n)? " + TERMINATOR
+            "project requires Python 3.10+. Do you want to proceed (y/n)? " + TERMINATOR
         )
         yes_options, no_options = frozenset(["y"]), frozenset(["n"])
         while True:
-            choice = raw_input().lower()
+            choice = raw_input().lower()  # noqa: F821
             if choice in yes_options:
                 break
 
@@ -65,18 +66,17 @@ if (
     and "{{ cookiecutter.cloud_provider }}" == "None"
 ):
     print(
-        "You should either use Whitenoise or select a Cloud Provider to serve static files"
+        "You should either use Whitenoise or select a "
+        "Cloud Provider to serve static files"
     )
     sys.exit(1)
 
 if (
-    "{{ cookiecutter.cloud_provider }}" == "GCP"
-    and "{{ cookiecutter.mail_service }}" == "Amazon SES"
-) or (
-    "{{ cookiecutter.cloud_provider }}" == "None"
-    and "{{ cookiecutter.mail_service }}" == "Amazon SES"
+    "{{ cookiecutter.mail_service }}" == "Amazon SES"
+    and "{{ cookiecutter.cloud_provider }}" != "AWS"
 ):
     print(
-        "You should either use AWS or select a different Mail Service for sending emails."
+        "You should either use AWS or select a different "
+        "Mail Service for sending emails."
     )
     sys.exit(1)

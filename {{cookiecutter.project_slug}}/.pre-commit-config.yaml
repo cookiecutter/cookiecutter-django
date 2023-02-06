@@ -1,24 +1,39 @@
-exclude: 'docs|node_modules|migrations|.git|.tox'
+exclude: "^docs/|/migrations/"
 default_stages: [commit]
-fail_fast: true
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: master
+    rev: v4.4.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-yaml
 
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.3.1
+    hooks:
+      - id: pyupgrade
+        args: [--py310-plus]
+
   - repo: https://github.com/psf/black
-    rev: 19.10b0
+    rev: 23.1.0
     hooks:
       - id: black
 
-  - repo: https://gitlab.com/pycqa/flake8
-    rev: 3.8.1
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.0.0
     hooks:
       - id: flake8
-        args: ['--config=setup.cfg']
+        args: ["--config=setup.cfg"]
         additional_dependencies: [flake8-isort]
 
+# sets up .pre-commit-ci.yaml to ensure pre-commit dependencies stay up to date
+ci:
+  autoupdate_schedule: weekly
+  skip: []
+  submodules: false

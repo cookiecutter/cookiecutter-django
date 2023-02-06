@@ -1,38 +1,50 @@
 {
   "name": "{{cookiecutter.project_slug}}",
   "version": "{{ cookiecutter.version }}",
-  "dependencies": {},
   "devDependencies": {
-    {% if cookiecutter.js_task_runner == 'Gulp' -%}
-    {% if cookiecutter.custom_bootstrap_compilation == 'y' -%}
-    "bootstrap": "4.3.1",
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@popperjs/core": "^2.10.2",
+    "autoprefixer": "^10.4.0",
+    "babel-loader": "^8.2.3",
+    "bootstrap": "^5.1.3",
+    "browser-sync": "^2.27.7",
+    "css-loader": "^6.5.1",
     "gulp-concat": "^2.6.1",
-    "jquery": "3.3.1",
-    "popper.js": "1.14.3",
-    {% endif -%}
-    "autoprefixer": "^9.4.7",
-    "browser-sync": "^2.14.0",
-    "cssnano": "^4.1.10",
-    "gulp": "^4.0.0",
-    "gulp-imagemin": "^5.0.3",
+    "concurrently": "^7.0.0",
+    "cssnano": "^5.0.11",
+    "gulp": "^4.0.2",
+    "gulp-imagemin": "^7.1.0",
     "gulp-plumber": "^1.2.1",
-    "gulp-postcss": "^8.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^4.0.2",
-    "gulp-uglify-es": "^1.0.4",
-    "pixrem": "^5.0.0"
-    {%- endif %}
+    "gulp-postcss": "^9.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-uglify-es": "^3.0.0",
+    "mini-css-extract-plugin": "^2.4.5",
+    "node-sass-tilde-importer": "^1.0.2",
+    "pixrem": "^5.0.0",
+    "postcss": "^8.3.11",
+    "postcss-loader": "^6.2.1",
+    "postcss-preset-env": "^7.0.2",
+    "sass": "^1.43.4",
+    "sass-loader": "^12.4.0",
+    "webpack": "^5.65.0",
+    "webpack-bundle-tracker": "^1.4.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0",
+    "webpack-merge": "^5.8.0"
   },
   "engines": {
-    "node": ">=8"
+    "node": "16"
   },
   "browserslist": [
     "last 2 versions"
   ],
+  "babel": {
+    "presets": ["@babel/preset-env"]
+  },
   "scripts": {
-    {% if cookiecutter.js_task_runner == 'Gulp' -%}
-    "dev": "gulp",
-    "build": "gulp generate-assets"
-    {%- endif %}
+    "dev": "",
+    "build": ""
   }
 }

@@ -7,7 +7,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-{% elif cookiecutter.open_source_license == 'BSD' %}
+{%- elif cookiecutter.open_source_license == 'BSD' %}
 Copyright (c) {% now 'utc', '%Y' %}, {{ cookiecutter.author_name }}
 All rights reserved.
 
@@ -35,7 +35,7 @@ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
 OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 OF THE POSSIBILITY OF SUCH DAMAGE.
-{% elif cookiecutter.open_source_license == 'GPLv3' %}
+{%- elif cookiecutter.open_source_license == 'GPLv3' %}
 Copyright (c) {% now 'utc', '%Y' %}, {{ cookiecutter.author_name }}
 
 This program is free software: you can redistribute it and/or modify
@@ -50,7 +50,7 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
-{% elif cookiecutter.open_source_license == 'Apache Software License 2.0' %}
+{%- elif cookiecutter.open_source_license == 'Apache Software License 2.0' %}
 
                                  Apache License
                            Version 2.0, January 2004
@@ -242,4 +242,4 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-{% endif %}
+{%- endif %}

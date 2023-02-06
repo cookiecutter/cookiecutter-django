@@ -69,6 +69,14 @@ if env("USE_DOCKER") == "yes":
 
     hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
     INTERNAL_IPS += [".".join(ip.split(".")[:-1] + ["1"]) for ip in ips]
+    {%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
+    try:
+        _, _, ips = socket.gethostbyname_ex("node")
+        INTERNAL_IPS.extend(ips)
+    except socket.gaierror:
+        # The node container isn't started (yet?)
+        pass
+    {%- endif %}
 {%- endif %}
 
 # django-extensions
@@ -80,11 +88,17 @@ INSTALLED_APPS += ["django_extensions"]  # noqa F405
 # Celery
 # ------------------------------------------------------------------------------
 {% if cookiecutter.use_docker == 'n' -%}
-# http://docs.celeryproject.org/en/latest/userguide/configuration.html#task-always-eager
+# https://docs.celeryq.dev/en/stable/userguide/configuration.html#task-always-eager
 CELERY_TASK_ALWAYS_EAGER = True
 {%- endif %}
-# http://docs.celeryproject.org/en/latest/userguide/configuration.html#task-eager-propagates
+# https://docs.celeryq.dev/en/stable/userguide/configuration.html#task-eager-propagates
 CELERY_TASK_EAGER_PROPAGATES = True
+
+{%- endif %}
+{%- if cookiecutter.frontend_pipeline == 'Webpack' %}
+# django-webpack-loader
+# ------------------------------------------------------------------------------
+WEBPACK_LOADER["DEFAULT"]["CACHE"] = not DEBUG  # noqa F405
 
 {%- endif %}
 # Your stuff...
