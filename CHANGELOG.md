@@ -3,6 +3,20 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.02.06
+
+### Changed
+- Change `RequestFactory` to `APIRequestFactory` in tests for API views ([#4110](https://github.com/cookiecutter/cookiecutter-django/pull/4110))
+### Fixed
+- Fix django-webpack-loader setup when running tests ([#4128](https://github.com/cookiecutter/cookiecutter-django/pull/4128))
+### Documentation
+- Added AWS ECS Full Deployment Article to README ([#2630](https://github.com/cookiecutter/cookiecutter-django/pull/2630))
+### Updated
+- Update hiredis to 2.2.1 ([#4123](https://github.com/cookiecutter/cookiecutter-django/pull/4123))
+- Update tox to 4.4.4 ([#4133](https://github.com/cookiecutter/cookiecutter-django/pull/4133))
+- Update django to 4.0.9 ([#4134](https://github.com/cookiecutter/cookiecutter-django/pull/4134))
+- Update django-webpack-loader to 1.8.1 ([#4132](https://github.com/cookiecutter/cookiecutter-django/pull/4132))
+
 ## 2023.02.05
 
 ### Documentation
