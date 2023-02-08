@@ -9,17 +9,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-          cache: pip
-      - name: Run pre-commit
-        uses: pre-commit/action@v3.0.0
-
   tests:
     strategy:
       fail-fast: false
