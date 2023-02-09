@@ -232,7 +232,7 @@ def test_travis_invokes_pytest(cookies, context, use_docker, expected_test_scrip
         ("y", "docker-compose -f local.yml run django pytest"),
     ],
 )
-def test_gitlab_invokes_flake8_and_pytest(
+def test_gitlab_invokes_precommit_and_pytest(
     cookies, context, use_docker, expected_test_script
 ):
     context.update({"ci_tool": "Gitlab", "use_docker": use_docker})
@@ -246,7 +246,9 @@ def test_gitlab_invokes_flake8_and_pytest(
     with open(f"{result.project_path}/.gitlab-ci.yml") as gitlab_yml:
         try:
             gitlab_config = yaml.safe_load(gitlab_yml)
-            assert gitlab_config["flake8"]["script"] == ["flake8"]
+            assert gitlab_config["precommit"]["script"] == [
+                "pre-commit run --show-diff-on-failure --color=always --all-files"
+            ]
             assert gitlab_config["pytest"]["script"] == [expected_test_script]
         except yaml.YAMLError as e:
             pytest.fail(e)
