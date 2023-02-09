@@ -32,6 +32,9 @@ jobs:
           python-version: "3.10"
           cache: pip
 
+      {%- if cookiecutter.open_source_license != 'Not open source' %}
+      # Consider using pre-commit.ci for open source project
+      {%- endif %}
       - name: Run pre-commit
         uses: pre-commit/action@v2.0.3
 
