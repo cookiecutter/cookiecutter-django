@@ -80,3 +80,8 @@ if (
         "Mail Service for sending emails."
     )
     sys.exit(1)
+
+"""
+{{ cookiecutter.update({ "domain_name": cookiecutter.domain_name | trim }) }}
+{{ cookiecutter.update({ "email": cookiecutter.email | trim }) }}
+"""
