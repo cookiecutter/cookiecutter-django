@@ -63,6 +63,20 @@ celery -A config.celery_app worker -l info
 
 Please note: For Celery's import magic to work, it is important *where* the celery commands are run. If you are in the same folder with *manage.py*, you should be right.
 
+To run a celery beat:
+
+``` bash
+cd {{cookiecutter.project_slug}}
+celery -A config.celery_app beat
+```
+
+or you can run worker with beat:
+
+``` bash
+cd {{cookiecutter.project_slug}}
+celery -A config.celery_app worker -B -l info
+```
+
 {%- endif %}
 {%- if cookiecutter.use_mailhog == "y" %}
 
