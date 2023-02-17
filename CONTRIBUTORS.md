@@ -643,6 +643,13 @@ Listed in alphabetical order.
     <td>jangeador</td>
   </tr>
   <tr>
+    <td>Delphine LEMIRE</td>
+    <td>
+      <a href="https://github.com/DelphineLemire">DelphineLemire</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Demetris Stavrou</td>
     <td>
       <a href="https://github.com/demestav">demestav</a>
