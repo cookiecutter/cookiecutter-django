@@ -643,6 +643,13 @@ Listed in alphabetical order.
     <td>jangeador</td>
   </tr>
   <tr>
+    <td>Delphine LEMIRE</td>
+    <td>
+      <a href="https://github.com/DelphineLemire">DelphineLemire</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Demetris Stavrou</td>
     <td>
       <a href="https://github.com/demestav">demestav</a>
@@ -704,6 +711,13 @@ Listed in alphabetical order.
       <a href="https://github.com/dudanogueira">dudanogueira</a>
     </td>
     <td>dudanogueira</td>
+  </tr>
+  <tr>
+    <td>duffn</td>
+    <td>
+      <a href="https://github.com/duffn">duffn</a>
+    </td>
+    <td></td>
   </tr>
   <tr>
     <td>Dónal Adams</td>
@@ -898,6 +912,13 @@ Listed in alphabetical order.
     <td>Henrique G. G. Pereira</td>
     <td>
       <a href="https://github.com/ikkebr">ikkebr</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Hoai-Thu Vuong</td>
+    <td>
+      <a href="https://github.com/thuvh">thuvh</a>
     </td>
     <td></td>
   </tr>

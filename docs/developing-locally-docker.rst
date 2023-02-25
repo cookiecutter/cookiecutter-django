@@ -213,6 +213,11 @@ By default, it's enabled both in local and production environments (``local.yml`
 
 .. _`Flower`: https://github.com/mher/flower
 
+Using Webpack or Gulp
+~~~~~~~~~~~~~~~~~~~~~
+
+When using Webpack or Gulp as the ``frontend_pipeline`` option, you should access your application at the address of the ``node`` service in order to see your correct styles. This is http://localhost:3000 by default. When using any of the other ``frontend_pipeline`` options, you should use the address of the ``django`` service, http://localhost:8000.
+
 Developing locally with HTTPS
 -----------------------------
 
