@@ -190,4 +190,4 @@ For status check, run::
 Media files without cloud provider
 ----------------------------------
 
-If you chose no cloud provider and Docker, the media files will be served by an nginx service, from a ``production_django_media`` volume. Make sure to keep this around to avoid loosing any media files.
+If you chose no cloud provider and Docker, the media files will be served by an nginx service, from a ``production_django_media`` volume. Make sure to keep this around to avoid losing any media files.
