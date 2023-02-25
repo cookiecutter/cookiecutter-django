@@ -63,14 +63,14 @@ celery -A config.celery_app worker -l info
 
 Please note: For Celery's import magic to work, it is important *where* the celery commands are run. If you are in the same folder with *manage.py*, you should be right.
 
-To run a celery beat:
+To run [periodic tasks](https://docs.celeryq.dev/en/stable/userguide/periodic-tasks.html), you'll need to start the celery beat scheduler service. You can start it as a standalone process:
 
 ``` bash
 cd {{cookiecutter.project_slug}}
 celery -A config.celery_app beat
 ```
 
-or you can run worker with beat:
+or you can embed the beat service inside a worker with the `-B` option (not recommended for production use):
 
 ``` bash
 cd {{cookiecutter.project_slug}}
