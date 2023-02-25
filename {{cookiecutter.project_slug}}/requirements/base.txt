@@ -1,5 +1,5 @@
 pytz==2022.7.1  # https://github.com/stub42/pytz
-python-slugify==8.0.0  # https://github.com/un33k/python-slugify
+python-slugify==8.0.1  # https://github.com/un33k/python-slugify
 Pillow==9.4.0  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.frontend_pipeline == 'Django Compressor' %}
 {%- if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %}
@@ -10,11 +10,11 @@ rcssmin==1.1.1  # https://github.com/ndparker/rcssmin
 {%- endif %}
 argon2-cffi==21.3.0  # https://github.com/hynek/argon2_cffi
 {%- if cookiecutter.use_whitenoise == 'y' %}
-whitenoise==6.3.0  # https://github.com/evansd/whitenoise
+whitenoise==6.4.0  # https://github.com/evansd/whitenoise
 {%- endif %}
 redis==4.5.1  # https://github.com/redis/redis-py
 {%- if cookiecutter.use_docker == "y" or cookiecutter.windows == "n" %}
-hiredis==2.2.1  # https://github.com/redis/hiredis-py
+hiredis==2.2.2  # https://github.com/redis/hiredis-py
 {%- endif %}
 {%- if cookiecutter.use_celery == "y" %}
 celery==5.2.7  # pyup: < 6.0  # https://github.com/celery/celery
@@ -29,11 +29,11 @@ uvicorn[standard]==0.20.0  # https://github.com/encode/uvicorn
 
 # Django
 # ------------------------------------------------------------------------------
-django==4.0.9  # pyup: < 4.1  # https://www.djangoproject.com/
+django==4.0.10  # pyup: < 4.1  # https://www.djangoproject.com/
 django-environ==0.9.0  # https://github.com/joke2k/django-environ
 django-model-utils==4.3.1  # https://github.com/jazzband/django-model-utils
 django-allauth==0.52.0  # https://github.com/pennersr/django-allauth
-django-crispy-forms==1.14.0  # https://github.com/django-crispy-forms/django-crispy-forms
+django-crispy-forms==2.0  # https://github.com/django-crispy-forms/django-crispy-forms
 crispy-bootstrap5==0.7  # https://github.com/django-crispy-forms/crispy-bootstrap5
 {%- if cookiecutter.frontend_pipeline == 'Django Compressor' %}
 django-compressor==4.3.1  # https://github.com/django-compressor/django-compressor
@@ -42,7 +42,7 @@ django-redis==5.2.0  # https://github.com/jazzband/django-redis
 {%- if cookiecutter.use_drf == 'y' %}
 # Django REST Framework
 djangorestframework==3.14.0  # https://github.com/encode/django-rest-framework
-django-cors-headers==3.13.0  # https://github.com/adamchainz/django-cors-headers
+django-cors-headers==3.14.0  # https://github.com/adamchainz/django-cors-headers
 # DRF-spectacular for api documentation
 drf-spectacular==0.25.1  # https://github.com/tfranzel/drf-spectacular
 {%- endif %}
