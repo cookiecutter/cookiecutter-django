@@ -14,7 +14,7 @@ build:
 sphinx:
   configuration: docs/conf.py
 
-# Version of Python and requirements required to build the docs
+# Python requirements required to build your docs
 python:
   install:
     - requirements: requirements/local.txt
