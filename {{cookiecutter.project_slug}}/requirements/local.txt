@@ -14,7 +14,7 @@ watchfiles==0.18.1  # https://github.com/samuelcolvin/watchfiles
 # Testing
 # ------------------------------------------------------------------------------
 mypy==1.0.1  # https://github.com/python/mypy
-django-stubs==1.14.0  # https://github.com/typeddjango/django-stubs
+django-stubs==1.15.0  # https://github.com/typeddjango/django-stubs
 pytest==7.2.1  # https://github.com/pytest-dev/pytest
 pytest-sugar==0.9.6  # https://github.com/Frozenball/pytest-sugar
 {%- if cookiecutter.use_drf == "y" %}
