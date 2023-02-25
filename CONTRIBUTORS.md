@@ -916,6 +916,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Hoai-Thu Vuong</td>
+    <td>
+      <a href="https://github.com/thuvh">thuvh</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Howie Zhao</td>
     <td>
       <a href="https://github.com/howiezhao">howiezhao</a>
