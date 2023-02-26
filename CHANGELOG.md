@@ -3,6 +3,29 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.02.25
+
+### Changed
+- Run linting with pre-commit on GitLab ([#4150](https://github.com/cookiecutter/cookiecutter-django/pull/4150))
+### Fixed
+- Disable caching for linter job on GitHub actions ([#4166](https://github.com/cookiecutter/cookiecutter-django/pull/4166))
+### Documentation
+- Add instuction to run celery beat ([#4162](https://github.com/cookiecutter/cookiecutter-django/pull/4162))
+### Updated
+- Bump garland/aws-cli-docker from 1.15.47 to 1.16.140 ([#4136](https://github.com/cookiecutter/cookiecutter-django/pull/4136))
+- Update djangorestframework-stubs to 1.9.1 ([#4184](https://github.com/cookiecutter/cookiecutter-django/pull/4184))
+- Update whitenoise to 6.4.0 ([#4180](https://github.com/cookiecutter/cookiecutter-django/pull/4180))
+- Update django-stubs to 1.15.0 ([#4183](https://github.com/cookiecutter/cookiecutter-django/pull/4183))
+- Update django-crispy-forms to 2.0 ([#4158](https://github.com/cookiecutter/cookiecutter-django/pull/4158))
+- Update django-cors-headers to 3.14.0 ([#4181](https://github.com/cookiecutter/cookiecutter-django/pull/4181))
+- Update python-slugify to 8.0.1 ([#4178](https://github.com/cookiecutter/cookiecutter-django/pull/4178))
+- Update pre-commit to 3.1.0 ([#4176](https://github.com/cookiecutter/cookiecutter-django/pull/4176))
+- Update mypy to 1.0.1 ([#4168](https://github.com/cookiecutter/cookiecutter-django/pull/4168))
+- Update werkzeug to 2.2.3 ([#4160](https://github.com/cookiecutter/cookiecutter-django/pull/4160))
+- Update coverage to 7.2.0 ([#4177](https://github.com/cookiecutter/cookiecutter-django/pull/4177))
+- Update django to 4.0.10 ([#4159](https://github.com/cookiecutter/cookiecutter-django/pull/4159))
+- Update hiredis to 2.2.2 ([#4156](https://github.com/cookiecutter/cookiecutter-django/pull/4156))
+
 ## 2023.02.17
 
 ### Changed
