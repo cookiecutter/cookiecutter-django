@@ -3,6 +3,14 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.02.26
+
+### Changed
+- Fix readthedocs config file for generated project ([#4172](https://github.com/cookiecutter/cookiecutter-django/pull/4172))
+### Updated
+- Bump traefik from v2.2.11 to 2.9.8 ([#4164](https://github.com/cookiecutter/cookiecutter-django/pull/4164))
+- Update coverage to 7.2.1 ([#4186](https://github.com/cookiecutter/cookiecutter-django/pull/4186))
+
 ## 2023.02.25
 
 ### Changed
