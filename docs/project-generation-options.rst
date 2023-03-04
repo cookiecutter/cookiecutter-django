@@ -69,7 +69,7 @@ cloud_provider:
     3. Azure_
     4. None
 
-    Note that if you choose no cloud provider, media files won't work.
+    If you choose no cloud provider and docker, the production stack will serve the media files via an nginx Docker service. Without Docker, the media files won't work.
 
 mail_service:
     Select an email service that Django-Anymail provides
