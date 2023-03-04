@@ -1,5 +1,3 @@
-ARG PYTHON_VERSION=3.10-slim-bullseye
-
 {% if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] -%}
 FROM node:16-bullseye-slim as client-builder
 
@@ -28,7 +26,7 @@ RUN npm run build
 {%- endif %}
 
 # define an alias for the specfic python version used in this file.
-FROM python:${PYTHON_VERSION} as python
+FROM python:3.10.9-slim-bullseye as python
 
 # Python build stage
 FROM python as python-build-stage
