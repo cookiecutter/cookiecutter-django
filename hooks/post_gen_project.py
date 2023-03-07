@@ -480,8 +480,8 @@ def main():
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
             print(
                 INFO + ".env(s) are only utilized when Docker Compose and/or "
-                "Heroku support is enabled so keeping them does not "
-                "make sense given your current setup." + TERMINATOR
+                "Heroku and/or VS Code Dev Container support is enabled so "
+                "keeping them does not make sense given your current setup." + TERMINATOR
             )
         remove_envs_and_associated_files()
     else:
