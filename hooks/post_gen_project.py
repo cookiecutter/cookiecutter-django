@@ -475,7 +475,7 @@ def main():
     if (
         "{{ cookiecutter.use_docker }}".lower() == "n"
         and "{{ cookiecutter.use_heroku }}".lower() == "n"
-        and "{{ cookiecutter.use_vscode_devconatiner }}".lower() == "n"
+        and "{{ cookiecutter.use_vscode_devcontainer }}".lower() == "n"
     ):
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
             print(
