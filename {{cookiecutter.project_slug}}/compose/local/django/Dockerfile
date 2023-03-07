@@ -35,6 +35,18 @@ ENV BUILD_ENV ${BUILD_ENVIRONMENT}
 
 WORKDIR ${APP_HOME}
 
+{% if cookiecutter.vscode_devcontainer == "y" %}
+# VS Code devcontainer dependencies and utils
+RUN apt-get update && apt-get install --no-install-recommends -y \
+  sudo git bash-completion nano
+
+# Create vscode user and add it to sudoers
+RUN groupadd --gid 1000 vscode \
+  && useradd --uid 1000 --gid vscode --shell /bin/bash --create-home vscode \
+  && echo vscode ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/vscode \
+  && chmod 0440 /etc/sudoers.d/vscode
+{% endif %}
+
 # Install required system dependencies
 RUN apt-get update && apt-get install --no-install-recommends -y \
   # psycopg2 dependencies
@@ -51,7 +63,7 @@ COPY --from=python-build-stage /usr/src/app/wheels  /wheels/
 
 # use wheels to install python dependencies
 RUN pip install --no-cache-dir --no-index --find-links=/wheels/ /wheels/* \
-	&& rm -rf /wheels/
+  && rm -rf /wheels/
 
 COPY ./compose/production/django/entrypoint /entrypoint
 RUN sed -i 's/\r$//g' /entrypoint

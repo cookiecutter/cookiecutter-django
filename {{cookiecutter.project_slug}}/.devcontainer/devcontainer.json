@@ -1,0 +1,72 @@
+// For format details, see https://containers.dev/implementors/json_reference/
+{
+    "name": "{{cookiecutter.project_slug}}_dev",
+    "dockerComposeFile": [
+        "../local.yml"
+    ],
+    "init": true,
+    "mounts": [
+        {
+            "source": "./.history/bash_history",
+            "target": "/home/vscode/.bash_history",
+            "type": "bind"
+        },
+        {
+            "source": "/tmp",
+            "target": "/tmp",
+            "type": "bind"
+        }
+    ],
+    // Tells devcontainer.json supporting services / tools whether they should run
+    // /bin/sh -c "while sleep 1000; do :; done" when starting the container instead of the container’s default command
+    "overrideCommand": true,
+    "service": "django",
+    // "remoteEnv": {"PATH": "/home/vscode/.local/bin:${containerEnv:PATH}"},
+    "remoteUser": "vscode",
+    "workspaceFolder": "/app",
+    // Set *default* container specific settings.json values on container create.
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "editor.formatOnSave": true,
+                "python.analysis.autoImportCompletions": true,
+                "python.analysis.typeCheckingMode": "basic",
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                // "python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
+                "python.formatting.blackPath": "/usr/local/bin/black",
+                "python.formatting.provider": "black",
+                // "python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
+                // "python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
+                "python.linting.enabled": true,
+                "python.linting.flake8Enabled": true,
+                "python.linting.flake8Path": "/usr/local/bin/flake8",
+                "python.linting.mypyEnabled": true,
+                "python.linting.mypyPath": "/usr/local/bin/mypy",
+                "python.linting.pycodestylePath": "/usr/local/bin/pycodestyle",
+                // "python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
+                "python.linting.pylintEnabled": true,
+                "python.linting.pylintPath": "/usr/local/bin/pylint",
+                "python.languageServer": "Pylance"
+            },
+            // https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_vs-code-specific-properties
+            // Add the IDs of extensions you want installed when the container is created.
+            "extensions": [
+                "davidanson.vscode-markdownlint",
+                "mrmlnc.vscode-duplicate",
+                "visualstudioexptteam.vscodeintellicode",
+                "visualstudioexptteam.intellicode-api-usage-examples",
+                // python
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                // django
+                "batisteo.vscode-django"
+            ]
+        }
+    },
+    // Uncomment the next line if you want start specific services in your Docker Compose config.
+    // "runServices": [],
+    // Uncomment the next line if you want to keep your containers running after VS Code shuts down.
+    // "shutdownAction": "none",
+    // Uncomment the next line to run commands after the container is created.
+    "postCreateCommand": "cat .devcontainer/bashrc.override.sh >> ~/.bashrc"
+}
