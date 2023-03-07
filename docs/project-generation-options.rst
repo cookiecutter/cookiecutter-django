@@ -52,6 +52,9 @@ use_pycharm:
 use_docker:
     Indicates whether the project should be configured to use Docker_ and `Docker Compose`_.
 
+use_vscode_devcontainer:
+    Indicates whether the project should be configured to use `VS Code Dev Container`_.
+
 postgresql_version:
     Select a PostgreSQL_ version to use. The choices are:
 
@@ -144,6 +147,8 @@ debug:
 
 .. _Docker: https://github.com/docker/docker
 .. _Docker Compose: https://docs.docker.com/compose/
+
+.. _VS Code Dev Container: https://github.com/microsoft/vscode-dev-containers
 
 .. _PostgreSQL: https://www.postgresql.org/docs/
 
