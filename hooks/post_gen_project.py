@@ -45,13 +45,6 @@ def remove_gplv3_files():
         os.remove(file_name)
 
 
-def remove_vscode_devcontainer_files():
-    dir_paths = [".devcontainer", ".history"]
-    for dir_path in dir_paths:
-        if os.path.exists(dir_path):
-            shutil.rmtree(dir_path)
-
-
 def remove_pycharm_files():
     idea_dir_path = ".idea"
     if os.path.exists(idea_dir_path):
@@ -65,15 +58,34 @@ def remove_pycharm_files():
 def remove_docker_files():
     if "{{ cookiecutter.use_vscode_devcontainer }}".lower() == "n":
         shutil.rmtree("compose")
-
         file_names = ["local.yml", "production.yml", ".dockerignore"]
-        for file_name in file_names:
-            os.remove(file_name)
+    else:
+        shutil.rmtree("compose/production")
+        file_names = ["production.yml"]
+        
+    for file_name in file_names:
+        os.remove(file_name)
 
     if "{{ cookiecutter.use_pycharm }}".lower() == "y":
         file_names = ["docker_compose_up_django.xml", "docker_compose_up_docs.xml"]
         for file_name in file_names:
             os.remove(os.path.join(".idea", "runConfigurations", file_name))
+
+
+def remove_vscode_devcontainer_files():
+    dir_path = ".devcontainer"
+    if os.path.exists(dir_path):
+        shutil.rmtree(dir_path)
+
+
+def create_vscode_devcontainer_bash_history_file():
+    history_dir_path = ".history"
+    if not os.path.exists(history_dir_path):
+        os.mkdir(history_dir_path)
+    
+    history_file_path = ".history/bash_history"
+    with open(history_file_path, 'a'):
+        pass
 
 
 def remove_utility_files():
@@ -460,6 +472,8 @@ def main():
 
     if "{{ cookiecutter.use_vscode_devcontainer }}".lower() == "n":
         remove_vscode_devcontainer_files()
+    else:
+        create_vscode_devcontainer_bash_history_file()
 
     if (
         "{{ cookiecutter.use_docker }}".lower() == "y"
