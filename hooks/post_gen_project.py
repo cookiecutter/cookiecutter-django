@@ -61,7 +61,7 @@ def remove_docker_files():
         file_names = ["local.yml", "production.yml", ".dockerignore"]
     else:
         file_names = ["production.yml"]
-        
+
     for file_name in file_names:
         os.remove(file_name)
 
@@ -81,9 +81,9 @@ def create_vscode_devcontainer_bash_history_file():
     history_dir_path = ".history"
     if not os.path.exists(history_dir_path):
         os.mkdir(history_dir_path)
-    
+
     history_file_path = ".history/bash_history"
-    with open(history_file_path, 'a'):
+    with open(history_file_path, "a"):
         pass
 
 
@@ -494,7 +494,8 @@ def main():
             print(
                 INFO + ".env(s) are only utilized when Docker Compose and/or "
                 "Heroku and/or VS Code Dev Container support is enabled so "
-                "keeping them does not make sense given your current setup." + TERMINATOR
+                "keeping them does not make sense given your current setup."
+                + TERMINATOR
             )
         remove_envs_and_associated_files()
     else:
