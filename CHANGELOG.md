@@ -3,6 +3,12 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.03.07
+
+### Updated
+- Update mypy to 1.1.1 ([#4196](https://github.com/cookiecutter/cookiecutter-django/pull/4196))
+- Update django-environ to 0.10.0 ([#4195](https://github.com/cookiecutter/cookiecutter-django/pull/4195))
+
 ## 2023.03.04
 
 ### Changed
