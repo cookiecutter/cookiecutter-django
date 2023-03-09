@@ -29,24 +29,34 @@
         "vscode": {
             "settings": {
                 "editor.formatOnSave": true,
-                "python.analysis.autoImportCompletions": true,
-                "python.analysis.typeCheckingMode": "basic",
-                "python.defaultInterpreterPath": "/usr/local/bin/python",
-                // "python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
-                "python.formatting.blackPath": "/usr/local/bin/black",
-                "python.formatting.provider": "black",
-                // "python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
-                // "python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
-                "python.linting.enabled": true,
-                "python.linting.flake8Enabled": true,
-                "python.linting.flake8Path": "/usr/local/bin/flake8",
-                "python.linting.mypyEnabled": true,
-                "python.linting.mypyPath": "/usr/local/bin/mypy",
-                "python.linting.pycodestylePath": "/usr/local/bin/pycodestyle",
-                // "python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
-                "python.linting.pylintEnabled": true,
-                "python.linting.pylintPath": "/usr/local/bin/pylint",
-                "python.languageServer": "Pylance"
+                "isort.args": [
+                    "--profile",
+                    "black"
+                ],
+                "[python]": {
+                    "analysis.autoImportCompletions": true,
+                    "analysis.typeCheckingMode": "basic",
+                    "defaultInterpreterPath": "/usr/local/bin/python",
+                    "editor.codeActionsOnSave": {
+                        "source.organizeImports": true
+                    },
+                    //"editor.defaultFormatter": "ms-python.black-formatter",
+                    // "formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
+                    "formatting.blackPath": "/usr/local/bin/black",
+                    "formatting.provider": "black",
+                    // "formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
+                    "languageServer": "Pylance",
+                    // "linting.banditPath": "/usr/local/py-utils/bin/bandit",
+                    "linting.enabled": true,
+                    "linting.flake8Enabled": true,
+                    "linting.flake8Path": "/usr/local/bin/flake8",
+                    "linting.mypyEnabled": true,
+                    "linting.mypyPath": "/usr/local/bin/mypy",
+                    "linting.pycodestylePath": "/usr/local/bin/pycodestyle",
+                    // "linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
+                    "linting.pylintEnabled": true,
+                    "linting.pylintPath": "/usr/local/bin/pylint"
+                }
             },
             // https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_vs-code-specific-properties
             // Add the IDs of extensions you want installed when the container is created.
@@ -58,6 +68,7 @@
                 // python
                 "ms-python.python",
                 "ms-python.vscode-pylance",
+                "ms-python.isort",
                 // django
                 "batisteo.vscode-django"
             ]
