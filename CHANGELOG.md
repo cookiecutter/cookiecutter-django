@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.03.09
+
+### Fixed
+- Fix the omit configuration for coverage ([#4201](https://github.com/cookiecutter/cookiecutter-django/pull/4201))
+### Updated
+- Update ipdb to 0.13.13 ([#4202](https://github.com/cookiecutter/cookiecutter-django/pull/4202))
+
 ## 2023.03.07
 
 ### Updated
