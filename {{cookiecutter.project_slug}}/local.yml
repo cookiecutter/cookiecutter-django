@@ -11,7 +11,6 @@ services:
       dockerfile: ./compose/local/django/Dockerfile
     image: {{ cookiecutter.project_slug }}_local_django
     container_name: {{ cookiecutter.project_slug }}_local_django
-    platform: linux/x86_64
     depends_on:
       - postgres
       {%- if cookiecutter.use_celery == 'y' %}
@@ -36,15 +35,14 @@ services:
     image: {{ cookiecutter.project_slug }}_production_postgres
     container_name: {{ cookiecutter.project_slug }}_local_postgres
     volumes:
-      - {{ cookiecutter.project_slug }}_local_postgres_data:/var/lib/postgresql/data:Z
-      - {{ cookiecutter.project_slug }}_local_postgres_data_backups:/backups:z
+      - {{ cookiecutter.project_slug }}_local_postgres_data:/var/lib/postgresql/data
+      - {{ cookiecutter.project_slug }}_local_postgres_data_backups:/backups
     env_file:
       - ./.envs/.local/.postgres
 
   docs:
     image: {{ cookiecutter.project_slug }}_local_docs
     container_name: {{ cookiecutter.project_slug }}_local_docs
-    platform: linux/x86_64
     build:
       context: .
       dockerfile: ./compose/local/docs/Dockerfile
@@ -107,7 +105,7 @@ services:
     command: /start-flower
 
   {%- endif %}
-  {%- if cookiecutter.frontend_pipeline == 'Gulp' %}
+  {%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
 
   node:
     build:
@@ -124,7 +122,9 @@ services:
     command: npm run dev
     ports:
       - "3000:3000"
+      {%- if cookiecutter.frontend_pipeline == 'Gulp' %}
       # Expose browsersync UI: https://www.browsersync.io/docs/options/#option-ui
       - "3001:3001"
+      {%- endif %}
 
   {%- endif %}

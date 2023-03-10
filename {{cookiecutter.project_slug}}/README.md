@@ -63,6 +63,20 @@ celery -A config.celery_app worker -l info
 
 Please note: For Celery's import magic to work, it is important *where* the celery commands are run. If you are in the same folder with *manage.py*, you should be right.
 
+To run [periodic tasks](https://docs.celeryq.dev/en/stable/userguide/periodic-tasks.html), you'll need to start the celery beat scheduler service. You can start it as a standalone process:
+
+``` bash
+cd {{cookiecutter.project_slug}}
+celery -A config.celery_app beat
+```
+
+or you can embed the beat service inside a worker with the `-B` option (not recommended for production use):
+
+``` bash
+cd {{cookiecutter.project_slug}}
+celery -A config.celery_app worker -B -l info
+```
+
 {%- endif %}
 {%- if cookiecutter.use_mailhog == "y" %}
 
@@ -128,13 +142,14 @@ See detailed [cookiecutter-django Heroku documentation](http://cookiecutter-djan
 See detailed [cookiecutter-django Docker documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html).
 
 {%- endif %}
-{%- if cookiecutter.frontend_pipeline == 'Gulp' %}
+{%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
+
 ### Custom Bootstrap Compilation
 
 The generated CSS is set up with automatic Bootstrap recompilation with variables of your choice.
 Bootstrap v5 is installed using npm and customised by tweaking your variables in `static/sass/custom_bootstrap_vars`.
 
-You can find a list of available variables [in the bootstrap source](https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss), or get explanations on them in the [Bootstrap docs](https://getbootstrap.com/docs/5.1/customize/sass/).
+You can find a list of available variables [in the bootstrap source](https://github.com/twbs/bootstrap/blob/v5.1.3/scss/_variables.scss), or get explanations on them in the [Bootstrap docs](https://getbootstrap.com/docs/5.1/customize/sass/).
 
-Bootstrap's javascript as well as its dependencies is concatenated into a single file: `static/js/vendors.js`.
+Bootstrap's javascript as well as its dependencies are concatenated into a single file: `static/js/vendors.js`.
 {%- endif %}

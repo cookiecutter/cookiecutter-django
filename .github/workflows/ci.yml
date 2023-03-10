@@ -2,6 +2,7 @@ name: CI
 
 on:
   push:
+    branches: [ "master", "main" ]
   pull_request:
 
 concurrency:
@@ -9,17 +10,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-          cache: pip
-      - name: Run pre-commit
-        uses: pre-commit/action@v3.0.0
-
   tests:
     strategy:
       fail-fast: false
@@ -29,7 +19,7 @@ jobs:
           - windows-latest
           - macOS-latest
 
-    name: "Run tests"
+    name: "pytest ${{ matrix.os }}"
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
@@ -49,10 +39,14 @@ jobs:
         script:
           - name: Basic
             args: ""
-          - name: Extended
-            args: "use_celery=y use_drf=y frontend_pipeline=Gulp"
+          - name: Celery & DRF
+            args: "use_celery=y use_drf=y"
+          - name: Gulp
+            args: "frontend_pipeline=Gulp"
+          - name: Webpack
+            args: "frontend_pipeline=Webpack"
 
-    name: "${{ matrix.script.name }} Docker"
+    name: "Docker ${{ matrix.script.name }}"
     runs-on: ubuntu-latest
     env:
       DOCKER_BUILDKIT: 1
@@ -74,12 +68,14 @@ jobs:
       fail-fast: false
       matrix:
         script:
-          - name: With Celery
+          - name: Celery
             args: "use_celery=y frontend_pipeline='Django Compressor'"
-          - name: With Gulp
-            args: "frontend_pipeline='Gulp'"
+          - name: Gulp
+            args: "frontend_pipeline=Gulp"
+          - name: Webpack
+            args: "frontend_pipeline=Webpack"
 
-    name: "${{ matrix.script.name }} Bare metal"
+    name: "Bare metal ${{ matrix.script.name }}"
     runs-on: ubuntu-latest
     services:
       redis:

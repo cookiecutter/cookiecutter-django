@@ -7,21 +7,26 @@ variables:
   POSTGRES_PASSWORD: ''
   POSTGRES_DB: 'test_{{ cookiecutter.project_slug }}'
   POSTGRES_HOST_AUTH_METHOD: trust
-  {% if cookiecutter.use_celery == 'y' -%}
+  {%- if cookiecutter.use_celery == 'y' %}
   CELERY_BROKER_URL: 'redis://redis:6379/0'
   {%- endif %}
 
-flake8:
+precommit:
   stage: lint
-  image: python:3.10-alpine
+  image: python:3.10
+  variables:
+    PRE_COMMIT_HOME: ${CI_PROJECT_DIR}/.cache/pre-commit
+  cache:
+    paths:
+      - ${PRE_COMMIT_HOME}
   before_script:
-    - pip install -q flake8
+    - pip install -q pre-commit
   script:
-    - flake8
+    - pre-commit run --show-diff-on-failure --color=always --all-files
 
 pytest:
   stage: test
-  {% if cookiecutter.use_docker == 'y' -%}
+  {%- if cookiecutter.use_docker == 'y' %}
   image: docker/compose:1.29.2
   tags:
     - docker
@@ -34,7 +39,7 @@ pytest:
     - docker-compose -f local.yml up -d
   script:
     - docker-compose -f local.yml run django pytest
-  {%- else -%}
+  {%- else %}
   image: python:3.10
   tags:
     - python
@@ -42,11 +47,8 @@ pytest:
     - postgres:{{ cookiecutter.postgresql_version }}
   variables:
     DATABASE_URL: pgsql://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
-
   before_script:
     - pip install -r requirements/local.txt
-
   script:
     - pytest
   {%- endif %}
-
