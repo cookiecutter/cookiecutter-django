@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
                         verbose_name="superuser status",
                     ),
                 ),
-                {%- if cookiecutter.username_type == "email" -%}
+                {%- if cookiecutter.username_type == "username" -%}
                 (
                     "username",
                     models.CharField(
