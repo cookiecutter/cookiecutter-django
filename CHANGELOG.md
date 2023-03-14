@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.03.13
+
+### Updated
+- Update uvicorn to 0.21.0 ([#4203](https://github.com/cookiecutter/cookiecutter-django/pull/4203))
+- Update django-anymail to 9.1 ([#4206](https://github.com/cookiecutter/cookiecutter-django/pull/4206))
+- Update tox to 4.4.7 ([#4207](https://github.com/cookiecutter/cookiecutter-django/pull/4207))
+
 ## 2023.03.09
 
 ### Fixed
