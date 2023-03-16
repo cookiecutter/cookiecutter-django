@@ -57,6 +57,18 @@ http:
         # https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
     {%- endif %}
+    {%- if cookiecutter.cloud_provider == 'None' %}
+
+    web-media-router:
+      rule: "Host(`{{ cookiecutter.domain_name }}`) && PathPrefix(`/media/`)"
+      entryPoints:
+        - web-secure
+      middlewares:
+        - csrf
+      service: django-media
+      tls:
+        certResolver: letsencrypt
+    {%- endif %}
 
   middlewares:
     csrf:
@@ -76,6 +88,13 @@ http:
       loadBalancer:
         servers:
           - url: http://flower:5555
+    {%- endif %}
+    {%- if cookiecutter.cloud_provider == 'None' %}
+
+    django-media:
+      loadBalancer:
+        servers:
+          - url: http://nginx:80
     {%- endif %}
 
 providers:

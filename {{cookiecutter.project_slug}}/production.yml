@@ -4,6 +4,9 @@ volumes:
   production_postgres_data: {}
   production_postgres_data_backups: {}
   production_traefik: {}
+  {%- if cookiecutter.cloud_provider == 'None' %}
+  production_django_media: {}
+  {%- endif %}
 
 services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
@@ -24,6 +27,10 @@ services:
       {%- endif %}
 
     image: {{ cookiecutter.project_slug }}_production_django
+    {%- if cookiecutter.cloud_provider == 'None' %}
+    volumes:
+      - production_django_media:/app/{{ cookiecutter.project_slug }}/media
+    {%- endif %}
     depends_on:
       - postgres
       - redis
@@ -88,4 +95,15 @@ services:
       - ./.envs/.production/.django
     volumes:
       - production_postgres_data_backups:/backups:z
+  {%- endif %}
+  {%- if cookiecutter.cloud_provider == 'None' %}
+  nginx:
+    build:
+      context: .
+      dockerfile: ./compose/production/nginx/Dockerfile
+    image: {{ cookiecutter.project_slug }}_local_nginx
+    depends_on:
+      - django
+    volumes:
+      - production_django_media:/usr/share/nginx/media:ro
   {%- endif %}
