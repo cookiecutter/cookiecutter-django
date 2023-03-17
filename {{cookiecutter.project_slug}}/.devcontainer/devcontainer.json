@@ -8,7 +8,7 @@
     "mounts": [
         {
             "source": "./.history/bash_history",
-            "target": "/home/vscode/.bash_history",
+            "target": "/home/dev-user/.bash_history",
             "type": "bind"
         },
         {
@@ -21,11 +21,12 @@
     // /bin/sh -c "while sleep 1000; do :; done" when starting the container instead of the container’s default command
     "overrideCommand": true,
     "service": "django",
-    // "remoteEnv": {"PATH": "/home/vscode/.local/bin:${containerEnv:PATH}"},
-    "remoteUser": "vscode",
+    // "remoteEnv": {"PATH": "/home/dev-user/.local/bin:${containerEnv:PATH}"},
+    "remoteUser": "dev-user",
     "workspaceFolder": "/app",
     // Set *default* container specific settings.json values on container create.
     "customizations": {
+        {% if cookiecutter.editor == "VS Code" %}
         "vscode": {
             "settings": {
                 "editor.formatOnSave": true,
@@ -73,6 +74,7 @@
                 "batisteo.vscode-django"
             ]
         }
+        {% endif %}
     },
     // Uncomment the next line if you want start specific services in your Docker Compose config.
     // "runServices": [],

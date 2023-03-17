@@ -55,29 +55,7 @@ def remove_pycharm_files():
         shutil.rmtree(docs_dir_path)
 
 
-def remove_docker_files():
-    if "{{ cookiecutter.use_vscode_devcontainer }}".lower() == "n":
-        shutil.rmtree("compose")
-        file_names = ["local.yml", "production.yml", ".dockerignore"]
-    else:
-        file_names = ["production.yml"]
-
-    for file_name in file_names:
-        os.remove(file_name)
-
-    if "{{ cookiecutter.use_pycharm }}".lower() == "y":
-        file_names = ["docker_compose_up_django.xml", "docker_compose_up_docs.xml"]
-        for file_name in file_names:
-            os.remove(os.path.join(".idea", "runConfigurations", file_name))
-
-
-def remove_vscode_devcontainer_files():
-    dir_path = ".devcontainer"
-    if os.path.exists(dir_path):
-        shutil.rmtree(dir_path)
-
-
-def create_vscode_devcontainer_bash_history_file():
+def create_devcontainer_bash_history_file():
     history_dir_path = ".history"
     if not os.path.exists(history_dir_path):
         os.mkdir(history_dir_path)
@@ -85,6 +63,19 @@ def create_vscode_devcontainer_bash_history_file():
     history_file_path = ".history/bash_history"
     with open(history_file_path, "a"):
         pass
+
+
+def remove_docker_files():
+    shutil.rmtree(".devcontainer")
+    shutil.rmtree("compose")
+
+    file_names = ["local.yml", "production.yml", ".dockerignore"]
+    for file_name in file_names:
+        os.remove(file_name)
+    if "{{ cookiecutter.editor }}".lower() == "PyCharm":
+        file_names = ["docker_compose_up_django.xml", "docker_compose_up_docs.xml"]
+        for file_name in file_names:
+            os.remove(os.path.join(".idea", "runConfigurations", file_name))
 
 
 def remove_utility_files():
@@ -461,18 +452,15 @@ def main():
     if "{{ cookiecutter.open_source_license}}" != "GPLv3":
         remove_gplv3_files()
 
-    if "{{ cookiecutter.use_pycharm }}".lower() == "n":
+    if "{{ cookiecutter.editor }}".lower() != "PyCharm":
         remove_pycharm_files()
 
     if "{{ cookiecutter.use_docker }}".lower() == "y":
         remove_utility_files()
+        create_devcontainer_bash_history_file()
     else:
         remove_docker_files()
 
-    if "{{ cookiecutter.use_vscode_devcontainer }}".lower() == "n":
-        remove_vscode_devcontainer_files()
-    else:
-        create_vscode_devcontainer_bash_history_file()
 
     if (
         "{{ cookiecutter.use_docker }}".lower() == "y"
@@ -488,14 +476,12 @@ def main():
     if (
         "{{ cookiecutter.use_docker }}".lower() == "n"
         and "{{ cookiecutter.use_heroku }}".lower() == "n"
-        and "{{ cookiecutter.use_vscode_devcontainer }}".lower() == "n"
     ):
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
             print(
                 INFO + ".env(s) are only utilized when Docker Compose and/or "
-                "Heroku and/or VS Code Dev Container support is enabled so "
-                "keeping them does not make sense given your current setup."
-                + TERMINATOR
+                "Heroku support is enabled so keeping them does not make sense "
+                "given your current setup." + TERMINATOR
             )
         remove_envs_and_associated_files()
     else:

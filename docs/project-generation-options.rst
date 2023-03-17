@@ -46,14 +46,15 @@ timezone:
 windows:
     Indicates whether the project should be configured for development on Windows.
 
-use_pycharm:
-    Indicates whether the project should be configured for development with PyCharm_.
+editor:
+    Select an editor to use. The choices are:
+
+    1. None
+    2. PyCharm_
+    3. `VS Code`_
 
 use_docker:
-    Indicates whether the project should be configured to use Docker_ and `Docker Compose`_.
-
-use_vscode_devcontainer:
-    Indicates whether the project should be configured to use `VS Code Dev Container`_.
+    Indicates whether the project should be configured to use Docker_, `Docker Compose`_ and `devcontainer`_.
 
 postgresql_version:
     Select a PostgreSQL_ version to use. The choices are:
@@ -144,11 +145,11 @@ debug:
 .. _Apache Software License 2.0: http://www.apache.org/licenses/LICENSE-2.0
 
 .. _PyCharm: https://www.jetbrains.com/pycharm/
+.. _VS Code: https://github.com/microsoft/vscode
 
 .. _Docker: https://github.com/docker/docker
 .. _Docker Compose: https://docs.docker.com/compose/
-
-.. _VS Code Dev Container: https://github.com/microsoft/vscode-dev-containers
+.. _devcontainer: https://containers.dev/
 
 .. _PostgreSQL: https://www.postgresql.org/docs/
 
