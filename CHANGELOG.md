@@ -3,6 +3,23 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.03.16
+
+### Changed
+- Pin base Python Docker images to bugfix ([#4194](https://github.com/cookiecutter/cookiecutter-django/pull/4194))
+### Fixed
+- Trim leading and trailing space in `domain_name` and `email` ([#4163](https://github.com/cookiecutter/cookiecutter-django/pull/4163))
+### Updated
+- Update djangorestframework-stubs to 1.10.0 ([#4217](https://github.com/cookiecutter/cookiecutter-django/pull/4217))
+- Update django-stubs to 1.16.0 ([#4216](https://github.com/cookiecutter/cookiecutter-django/pull/4216))
+- Update coverage to 7.2.2 ([#4218](https://github.com/cookiecutter/cookiecutter-django/pull/4218))
+- Update sentry-sdk to 1.17.0 ([#4215](https://github.com/cookiecutter/cookiecutter-django/pull/4215))
+- Bump Docker python image from 3.10.9 to 3.10.10 on production Django ([#4214](https://github.com/cookiecutter/cookiecutter-django/pull/4214))
+- Bump Docker python image from 3.10.9-slim-bullseye to 3.10.10-slim-bullseye for docs ([#4213](https://github.com/cookiecutter/cookiecutter-django/pull/4213))
+- Bump Docker python image from 3.10.9-slim-bullseye to 3.10.10-slim-bullseye for local Django service ([#4212](https://github.com/cookiecutter/cookiecutter-django/pull/4212))
+- Update uvicorn to 0.21.1 ([#4211](https://github.com/cookiecutter/cookiecutter-django/pull/4211))
+- Update django-allauth to 0.53.0 ([#4210](https://github.com/cookiecutter/cookiecutter-django/pull/4210))
+
 ## 2023.03.14
 
 ### Updated
