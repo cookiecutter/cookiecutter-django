@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.03.18
+
+### Updated
+- Update drf-spectacular to 0.26.1 ([#4221](https://github.com/cookiecutter/cookiecutter-django/pull/4221))
+- Update pygithub to 1.58.1 ([#4220](https://github.com/cookiecutter/cookiecutter-django/pull/4220))
+- Update pre-commit to 3.2.0 ([#4219](https://github.com/cookiecutter/cookiecutter-django/pull/4219))
+
 ## 2023.03.16
 
 ### Changed
