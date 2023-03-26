@@ -14,3 +14,7 @@ source /entrypoint
 set +o errexit
 set +o pipefail
 set +o nounset
+
+# start ssh-agent
+# https://code.visualstudio.com/docs/remote/troubleshooting
+eval "$(ssh-agent -s)"

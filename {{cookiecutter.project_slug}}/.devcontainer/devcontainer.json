@@ -12,8 +12,13 @@
             "type": "bind"
         },
         {
-            "source": "/tmp",
+            "source": "~/.ssh",
             "target": "/tmp",
+            "type": "bind"
+        },
+        {
+            "source": "~/.ssh",
+            "target": "/home/dev-user/.ssh",
             "type": "bind"
         }
     ],
