@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.03.29
+
+### Updated
+- Update redis to 4.5.4 ([#4239](https://github.com/cookiecutter/cookiecutter-django/pull/4239))
+- Update pytz to 2023.3 ([#4238](https://github.com/cookiecutter/cookiecutter-django/pull/4238))
+- Update black to 23.3.0 ([#4236](https://github.com/cookiecutter/cookiecutter-django/pull/4236))
+
 ## 2023.03.27
 
 ### Updated
