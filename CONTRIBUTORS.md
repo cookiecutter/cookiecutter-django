@@ -293,6 +293,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Arkadiusz Michał Ryś</td>
+    <td>
+      <a href="https://github.com/arrys">arrys</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Arnav Choudhury</td>
     <td>
       <a href="https://github.com/arnav13081994">arnav13081994</a>
@@ -1430,6 +1437,13 @@ Listed in alphabetical order.
     <td>mpoli</td>
     <td>
       <a href="https://github.com/mpoli">mpoli</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>mpsantos</td>
+    <td>
+      <a href="https://github.com/mpsantos">mpsantos</a>
     </td>
     <td></td>
   </tr>

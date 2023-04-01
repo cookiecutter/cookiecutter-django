@@ -27,6 +27,9 @@ updates:
     directory: "{{cookiecutter.project_slug}}/compose/local/django/"
     schedule:
       interval: "daily"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
     labels:
       - "update"
 
@@ -34,6 +37,9 @@ updates:
     directory: "{{cookiecutter.project_slug}}/compose/local/docs/"
     schedule:
       interval: "daily"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
     labels:
       - "update"
 
@@ -55,6 +61,9 @@ updates:
     directory: "{{cookiecutter.project_slug}}/compose/production/django/"
     schedule:
       interval: "daily"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
     labels:
       - "update"
 
