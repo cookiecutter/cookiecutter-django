@@ -61,7 +61,7 @@ http:
 
     web-media-router:
       {%- if cookiecutter.domain_name.count('.') == 1 %}
-      rule: "(Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`))&& PathPrefix(`/media/`)"
+      rule: "(Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)) && PathPrefix(`/media/`)"
       {%- else %}
       rule: "Host(`{{ cookiecutter.domain_name }}`) && PathPrefix(`/media/`)"
       {%- endif %}
