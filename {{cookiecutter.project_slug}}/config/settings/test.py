@@ -27,12 +27,12 @@ EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
 
 # DEBUGGING FOR TEMPLATES
 # ------------------------------------------------------------------------------
-TEMPLATES[0]["OPTIONS"]["debug"] = True  # type: ignore # noqa F405
+TEMPLATES[0]["OPTIONS"]["debug"] = True  # type: ignore # noqa: F405
 
 {%- if cookiecutter.frontend_pipeline == 'Webpack' %}
 # django-webpack-loader
 # ------------------------------------------------------------------------------
-WEBPACK_LOADER["DEFAULT"][  # noqa F405
+WEBPACK_LOADER["DEFAULT"][  # noqa: F405
     "LOADER_CLASS"
 ] = "webpack_loader.loader.FakeWebpackLoader"
 
