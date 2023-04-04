@@ -182,7 +182,7 @@ def handle_js_runner(choice, use_docker, use_async):
             dev_django_cmd = (
                 "uvicorn config.asgi:application --reload"
                 if use_async
-                else "python manage.py runserver_plus"
+                else "python manage.py runserver"
             )
             scripts.update(
                 {
