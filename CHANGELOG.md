@@ -3,6 +3,14 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.04.03
+
+### Changed
+- fix: Syntax for ignoring specific noqa errors ([#4250](https://github.com/cookiecutter/cookiecutter-django/pull/4250))
+### Updated
+- Update psycopg2-binary to 2.9.6 ([#4249](https://github.com/cookiecutter/cookiecutter-django/pull/4249))
+- Update psycopg2 to 2.9.6 ([#4248](https://github.com/cookiecutter/cookiecutter-django/pull/4248))
+
 ## 2023.04.01
 
 ### Updated
