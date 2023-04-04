@@ -38,7 +38,7 @@ jobs:
       matrix:
         script:
           - name: Basic
-            args: ""
+            args: "ci_tool=Gitlab"
           - name: Celery & DRF
             args: "use_celery=y use_drf=y"
           - name: Gulp
@@ -73,7 +73,9 @@ jobs:
           - name: Gulp
             args: "frontend_pipeline=Gulp"
           - name: Webpack
-            args: "frontend_pipeline=Webpack"
+            args: "frontend_pipeline=Webpack use_heroku=y"
+          - name: Email Username
+            args: "username_type=email ci_tool=Github"
 
     name: "Bare metal ${{ matrix.script.name }}"
     runs-on: ubuntu-latest
