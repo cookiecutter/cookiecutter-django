@@ -6,7 +6,7 @@ updates:
   # Update GitHub actions in workflows
   - package-ecosystem: "github-actions"
     directory: "/"
-    # Check for updates to GitHub Actions every weekday
+    # Every weekday
     schedule:
       interval: "daily"
 
@@ -19,55 +19,61 @@ updates:
   - package-ecosystem: "docker"
     # Look for a `Dockerfile` in the `compose/local/django` directory
     directory: "compose/local/django/"
-    # Check for updates to GitHub Actions every weekday
+    # Every weekday
     schedule:
       interval: "daily"
+    # Ignore minor version updates (3.10 -> 3.11) but update patch versions
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
 
-  # Enable version updates for Docker
   - package-ecosystem: "docker"
     # Look for a `Dockerfile` in the `compose/local/docs` directory
     directory: "compose/local/docs/"
-    # Check for updates to GitHub Actions every weekday
+    # Every weekday
     schedule:
       interval: "daily"
+    # Ignore minor version updates (3.10 -> 3.11) but update patch versions
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
 
-  # Enable version updates for Docker
   - package-ecosystem: "docker"
     # Look for a `Dockerfile` in the `compose/local/node` directory
     directory: "compose/local/node/"
-    # Check for updates to GitHub Actions every weekday
+    # Every weekday
     schedule:
       interval: "daily"
 
-  # Enable version updates for Docker
   - package-ecosystem: "docker"
     # Look for a `Dockerfile` in the `compose/production/aws` directory
     directory: "compose/production/aws/"
-    # Check for updates to GitHub Actions every weekday
+    # Every weekday
     schedule:
       interval: "daily"
 
-  # Enable version updates for Docker
   - package-ecosystem: "docker"
     # Look for a `Dockerfile` in the `compose/production/django` directory
     directory: "compose/production/django/"
-    # Check for updates to GitHub Actions every weekday
+    # Every weekday
     schedule:
       interval: "daily"
+    # Ignore minor version updates (3.10 -> 3.11) but update patch versions
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
 
-  # Enable version updates for Docker
   - package-ecosystem: "docker"
     # Look for a `Dockerfile` in the `compose/production/postgres` directory
     directory: "compose/production/postgres/"
-    # Check for updates to GitHub Actions every weekday
+    # Every weekday
     schedule:
       interval: "daily"
 
-  # Enable version updates for Docker
   - package-ecosystem: "docker"
     # Look for a `Dockerfile` in the `compose/production/traefik` directory
     directory: "compose/production/traefik/"
-    # Check for updates to GitHub Actions every weekday
+    # Every weekday
     schedule:
       interval: "daily"
 
@@ -78,7 +84,7 @@ updates:
     # Look for a `requirements.txt` in the `root` directory
     # also 'setup.cfg', 'runtime.txt' and 'requirements/*.txt'
     directory: "/"
-    # Check for updates to GitHub Actions every weekday
+    # Every weekday
     schedule:
       interval: "daily"
 
@@ -86,9 +92,9 @@ updates:
 
   # Enable version updates for javascript/npm
   - package-ecosystem: "npm"
-    # Look for a `packages.json' in the `root` directory
+    # Look for a `packages.json` in the `root` directory
     directory: "/"
-    # Check for updates to GitHub Actions every weekday
+    # Every weekday
     schedule:
       interval: "daily"
 

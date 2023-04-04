@@ -5,7 +5,7 @@ except ImportError:
     from distutils.core import setup
 
 # We use calendar versioning
-version = "2023.03.09"
+version = "2023.04.03"
 
 with open("README.rst") as readme_file:
     long_description = readme_file.read()
@@ -27,7 +27,7 @@ setup(
     classifiers=[
         "Development Status :: 4 - Beta",
         "Environment :: Console",
-        "Framework :: Django :: 4.0",
+        "Framework :: Django :: 4.1",
         "Intended Audience :: Developers",
         "Natural Language :: English",
         "License :: OSI Approved :: BSD License",

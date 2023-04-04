@@ -2,8 +2,10 @@
 import logging
 
 import sentry_sdk
+
 {%- if cookiecutter.use_celery == 'y' %}
 from sentry_sdk.integrations.celery import CeleryIntegration
+
 {%- endif %}
 from sentry_sdk.integrations.django import DjangoIntegration
 from sentry_sdk.integrations.logging import LoggingIntegration
@@ -22,7 +24,7 @@ ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["{{ cookiecutter.domai
 
 # DATABASES
 # ------------------------------------------------------------------------------
-DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)  # noqa F405
+DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)  # noqa: F405
 
 # CACHES
 # ------------------------------------------------------------------------------
@@ -68,7 +70,7 @@ SECURE_CONTENT_TYPE_NOSNIFF = env.bool(
 # STORAGES
 # ------------------------------------------------------------------------------
 # https://django-storages.readthedocs.io/en/latest/#installation
-INSTALLED_APPS += ["storages"]  # noqa F405
+INSTALLED_APPS += ["storages"]  # noqa: F405
 {%- endif -%}
 {% if cookiecutter.cloud_provider == 'AWS' %}
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
@@ -159,7 +161,7 @@ ADMIN_URL = env("DJANGO_ADMIN_URL")
 # Anymail
 # ------------------------------------------------------------------------------
 # https://anymail.readthedocs.io/en/stable/installation/#installing-anymail
-INSTALLED_APPS += ["anymail"]  # noqa F405
+INSTALLED_APPS += ["anymail"]  # noqa: F405
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
 # https://anymail.readthedocs.io/en/stable/installation/#anymail-settings-reference
 {%- if cookiecutter.mail_service == 'Mailgun' %}
@@ -241,7 +243,7 @@ COMPRESS_STORAGE = "compressor.storage.GzipCompressorFileStorage"
 COMPRESS_STORAGE = STATICFILES_STORAGE
 {%- endif %}
 # https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_URL
-COMPRESS_URL = STATIC_URL{% if cookiecutter.use_whitenoise == 'y' or cookiecutter.cloud_provider == 'None' %}  # noqa F405{% endif %}
+COMPRESS_URL = STATIC_URL{% if cookiecutter.use_whitenoise == 'y' or cookiecutter.cloud_provider == 'None' %}  # noqa: F405{% endif %}
 {%- if cookiecutter.use_whitenoise == 'y' %}
 # https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
 COMPRESS_OFFLINE = True  # Offline compression is required when using Whitenoise
@@ -259,7 +261,7 @@ COMPRESS_FILTERS = {
 # Collectfast
 # ------------------------------------------------------------------------------
 # https://github.com/antonagestam/collectfast#installation
-INSTALLED_APPS = ["collectfast"] + INSTALLED_APPS  # noqa F405
+INSTALLED_APPS = ["collectfast"] + INSTALLED_APPS  # noqa: F405
 {% endif %}
 # LOGGING
 # ------------------------------------------------------------------------------
@@ -373,7 +375,7 @@ sentry_sdk.init(
 # django-rest-framework
 # -------------------------------------------------------------------------------
 # Tools that generate code samples can use SERVERS to point to the correct domain
-SPECTACULAR_SETTINGS["SERVERS"] = [  # noqa F405
+SPECTACULAR_SETTINGS["SERVERS"] = [  # noqa: F405
     {"url": "https://{{ cookiecutter.domain_name }}", "description": "Production server"}
 ]
 

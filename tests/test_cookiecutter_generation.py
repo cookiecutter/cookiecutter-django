@@ -319,10 +319,29 @@ def test_error_if_incompatible(cookies, context, invalid_context):
     ],
 )
 def test_pycharm_docs_removed(cookies, context, use_pycharm, pycharm_docs_exist):
-    """."""
     context.update({"use_pycharm": use_pycharm})
     result = cookies.bake(extra_context=context)
 
     with open(f"{result.project_path}/docs/index.rst") as f:
         has_pycharm_docs = "pycharm/configuration" in f.read()
         assert has_pycharm_docs is pycharm_docs_exist
+
+
+def test_trim_domain_email(cookies, context):
+    """Check that leading and trailing spaces are trimmed in domain and email."""
+    context.update(
+        {
+            "use_docker": "y",
+            "domain_name": "   example.com   ",
+            "email": "  me@example.com  ",
+        }
+    )
+    result = cookies.bake(extra_context=context)
+
+    assert result.exit_code == 0
+
+    prod_django_env = result.project_path / ".envs" / ".production" / ".django"
+    assert "DJANGO_ALLOWED_HOSTS=.example.com" in prod_django_env.read_text()
+
+    base_settings = result.project_path / "config" / "settings" / "base.py"
+    assert '"me@example.com"' in base_settings.read_text()
