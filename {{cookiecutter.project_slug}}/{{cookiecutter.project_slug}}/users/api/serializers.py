@@ -7,7 +7,7 @@ User = get_user_model()
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        {% if cookiecutter.username_type == "email" -%}
+        {%- if cookiecutter.username_type == "email" %}
         fields = ["name", "url"]
 
         extra_kwargs = {
