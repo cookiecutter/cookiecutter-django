@@ -1,14 +1,16 @@
 {%- if cookiecutter.username_type == "email" %}
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth.models import AbstractUser, UserManager as DjangoUserManager
-{%- else %}
+{%- endif -%}
 from django.contrib.auth.models import AbstractUser
+{%- if cookiecutter.username_type == "email" %}
+from django.contrib.auth.models import UserManager as DjangoUserManager
 {%- endif %}
 from django.db.models import CharField{% if cookiecutter.username_type == "email" %}, EmailField{% endif %}
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-
 {%- if cookiecutter.username_type == "email" %}
+
+
 class UserManager(DjangoUserManager):
     def _create_user(self, email, password, **extra_fields):
         """
