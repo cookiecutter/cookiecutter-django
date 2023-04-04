@@ -7,7 +7,6 @@ from factory.django import DjangoModelFactory
 
 
 class UserFactory(DjangoModelFactory):
-
     {% if cookiecutter.username_type == "username" -%}
     username = Faker("user_name")
     {%- endif %}
