@@ -1427,6 +1427,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Morten Kaae</td>
+    <td>
+      <a href="https://github.com/MortenKaae">MortenKaae</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>mozillazg</td>
     <td>
       <a href="https://github.com/mozillazg">mozillazg</a>
