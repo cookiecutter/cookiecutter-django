@@ -45,6 +45,24 @@ def remove_gplv3_files():
         os.remove(file_name)
 
 
+def remove_custom_user_manager_files():
+    os.remove(
+        os.path.join(
+            "{{cookiecutter.project_slug}}",
+            "users",
+            "managers.py",
+        )
+    )
+    os.remove(
+        os.path.join(
+            "{{cookiecutter.project_slug}}",
+            "users",
+            "tests",
+            "test_managers.py",
+        )
+    )
+
+
 def remove_pycharm_files():
     idea_dir_path = ".idea"
     if os.path.exists(idea_dir_path):
@@ -440,6 +458,9 @@ def main():
         remove_open_source_files()
     if "{{ cookiecutter.open_source_license}}" != "GPLv3":
         remove_gplv3_files()
+
+    if "{{ cookiecutter.username_type }}" == "username":
+        remove_custom_user_manager_files()
 
     if "{{ cookiecutter.use_pycharm }}".lower() == "n":
         remove_pycharm_files()
