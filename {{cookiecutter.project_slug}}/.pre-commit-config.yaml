@@ -1,4 +1,4 @@
-exclude: "^docs/|/migrations/"
+exclude: '^docs/|/migrations/'
 default_stages: [commit]
 
 repos:
@@ -44,7 +44,7 @@ repos:
     rev: 6.0.0
     hooks:
       - id: flake8
-        args: ["--config=setup.cfg"]
+        args: ['--config=setup.cfg']
         additional_dependencies: [flake8-isort]
 
 # sets up .pre-commit-ci.yaml to ensure pre-commit dependencies stay up to date
