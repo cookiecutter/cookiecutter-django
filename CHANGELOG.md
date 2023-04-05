@@ -3,6 +3,18 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.04.04
+
+### Changed
+- Upgrade to Django 4.1 ([#4028](https://github.com/cookiecutter/cookiecutter-django/pull/4028))
+- Remove deprecated security setting ([#4247](https://github.com/cookiecutter/cookiecutter-django/pull/4247))
+### Fixed
+- Replace `runserver_plus` with `runserver` ([#4255](https://github.com/cookiecutter/cookiecutter-django/pull/4255))
+- Fix traefik rule priority for media router ([#4244](https://github.com/cookiecutter/cookiecutter-django/pull/4244))
+### Updated
+- Update sentry-sdk to 1.19.0 ([#4254](https://github.com/cookiecutter/cookiecutter-django/pull/4254))
+- Update django-debug-toolbar to 4.0.0 ([#4251](https://github.com/cookiecutter/cookiecutter-django/pull/4251))
+
 ## 2023.04.03
 
 ### Changed
