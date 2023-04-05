@@ -5,7 +5,6 @@
   "author_name": "Daniel Roy Greenfeld",
   "domain_name": "example.com",
   "email": "{{ cookiecutter.author_name.lower() | trim() |replace(' ', '-') }}@{{ cookiecutter.domain_name.lower() | trim() }}",
-  "username_type": ["username", "email"],
   "version": "0.1.0",
   "open_source_license": [
     "MIT",
@@ -14,6 +13,7 @@
     "Apache Software License 2.0",
     "Not open source"
   ],
+  "username_type": ["username", "email"],
   "timezone": "UTC",
   "windows": "n",
   "use_pycharm": "n",
