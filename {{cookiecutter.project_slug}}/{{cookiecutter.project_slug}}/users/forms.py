@@ -30,11 +30,11 @@ class UserAdminCreationForm(admin_forms.UserCreationForm):
         fields = ("email",)
         field_classes = {"email": EmailField}
         error_messages = {
-            "email": {"unique": _("This email has already been taken.")}
+            "email": {"unique": _("This email has already been taken.")},
         }
         {%- else %}
         error_messages = {
-            "username": {"unique": _("This username has already been taken.")}
+            "username": {"unique": _("This username has already been taken.")},
         }
         {%- endif %}
 
