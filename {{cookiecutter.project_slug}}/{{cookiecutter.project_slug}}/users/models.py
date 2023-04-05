@@ -65,15 +65,15 @@ class User(AbstractUser):
     objects = UserManager()
     {%- endif %}
 
-    def get_absolute_url(self):
-        """Get url for user's detail view.
+    def get_absolute_url(self) -> str:
+        """Get URL for user's detail view.
 
         Returns:
             str: URL for user detail.
 
         """
         {%- if cookiecutter.username_type == "email" %}
-        return reverse("users:detail", kwargs={"id": self.id})
+        return reverse("users:detail", kwargs={"pk": self.id})
         {%- else %}
         return reverse("users:detail", kwargs={"username": self.username})
         {%- endif %}
