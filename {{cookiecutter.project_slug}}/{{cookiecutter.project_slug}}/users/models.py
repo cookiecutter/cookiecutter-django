@@ -1,6 +1,6 @@
-{%- if cookiecutter.username_type == "email" %}
+{%- if cookiecutter.username_type == "email" -%}
 from django.contrib.auth.hashers import make_password
-{%- endif -%}
+{% endif -%}
 from django.contrib.auth.models import AbstractUser
 {%- if cookiecutter.username_type == "email" %}
 from django.contrib.auth.models import UserManager as DjangoUserManager
