@@ -7,7 +7,15 @@ repos:
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
+      - id: check-json
+      - id: check-toml
+      - id: check-xml
       - id: check-yaml
+      - id: debug-statements
+      - id: check-builtin-literals
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: detect-private-key
 
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.3.1
