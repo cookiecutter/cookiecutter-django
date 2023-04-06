@@ -25,7 +25,9 @@ updates:
     # Ignore minor version updates (3.10 -> 3.11) but update patch versions
     ignore:
       - dependency-name: "*"
-        update-types: ["version-update:semver-major", "version-update:semver-minor"]
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
 
   - package-ecosystem: "docker"
     # Look for a `Dockerfile` in the `compose/local/docs` directory
@@ -36,7 +38,9 @@ updates:
     # Ignore minor version updates (3.10 -> 3.11) but update patch versions
     ignore:
       - dependency-name: "*"
-        update-types: ["version-update:semver-major", "version-update:semver-minor"]
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
 
   - package-ecosystem: "docker"
     # Look for a `Dockerfile` in the `compose/local/node` directory
@@ -61,7 +65,9 @@ updates:
     # Ignore minor version updates (3.10 -> 3.11) but update patch versions
     ignore:
       - dependency-name: "*"
-        update-types: ["version-update:semver-major", "version-update:semver-minor"]
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
 
   - package-ecosystem: "docker"
     # Look for a `Dockerfile` in the `compose/production/postgres` directory
