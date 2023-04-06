@@ -14,14 +14,13 @@ repos:
       - id: debug-statements
       - id: check-builtin-literals
       - id: check-case-conflict
-      - id: check-docstring-first
       - id: detect-private-key
 
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: 'v3.0.0-alpha.6'
     hooks:
       - id: prettier
-        args: ['--tab-width', '2', '--single-quote']
+        args: ['--tab-width', '2']
 
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.3.1
