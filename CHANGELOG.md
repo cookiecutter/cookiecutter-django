@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.04.05
+
+### Changed
+- Update indent for nginx config file ([#4260](https://github.com/cookiecutter/cookiecutter-django/pull/4260))
+### Updated
+- Update tox to 4.4.11 ([#4262](https://github.com/cookiecutter/cookiecutter-django/pull/4262))
+- Update django to 4.1.8 ([#4258](https://github.com/cookiecutter/cookiecutter-django/pull/4258))
+- Update pre-commit to 3.2.2 ([#4259](https://github.com/cookiecutter/cookiecutter-django/pull/4259))
+
 ## 2023.04.04
 
 ### Changed
