@@ -34,9 +34,10 @@ Make sure your project is fully committed and pushed up to Bitbucket or Github o
 
     git clone <my-repo-url>  # you can also use hg
     cd my-project-name
-    mkvirtualenv --python=/usr/bin/python3.11 my-project-name
+    mkvirtualenv --python=/usr/bin/python3.10 my-project-name
     pip install -r requirements/production.txt  # may take a few minutes
 
+.. note:: Although Cookiecutter Django generates a project for Python 3.11, however at time of writing PythonAnywhere only supports Python 3.10, hence why we're using this here, which shouldn't be a problem. You may try changing the python version to 3.11 on the line ``mkvirtualenv`` above and see if it works. If it does, please let us know, or even better, submit a pull request to update this section.
 
 Setting environment variables in the console
 --------------------------------------------
