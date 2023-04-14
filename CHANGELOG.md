@@ -3,6 +3,11 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.04.13
+
+### Updated
+- Update tox to 4.4.12 ([#4271](https://github.com/cookiecutter/cookiecutter-django/pull/4271))
+
 ## 2023.04.10
 
 ### Updated
