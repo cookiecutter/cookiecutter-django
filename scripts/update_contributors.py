@@ -44,15 +44,9 @@ def iter_recent_authors():
     git CLI to work with Github usernames.
     """
     repo = Github(login_or_token=GITHUB_TOKEN, per_page=5).get_repo(GITHUB_REPO)
-    recent_pulls = repo.get_pulls(
-        state="closed", sort="updated", direction="desc"
-    ).get_page(0)
+    recent_pulls = repo.get_pulls(state="closed", sort="updated", direction="desc").get_page(0)
     for pull in recent_pulls:
-        if (
-            pull.merged
-            and pull.user.type == "User"
-            and pull.user.login not in BOT_LOGINS
-        ):
+        if pull.merged and pull.user.type == "User" and pull.user.login not in BOT_LOGINS:
             yield pull.user
 
 
@@ -96,9 +90,7 @@ def write_md_file(contributors):
     core_contributors = [c for c in contributors if c.get("is_core", False)]
     other_contributors = (c for c in contributors if not c.get("is_core", False))
     other_contributors = sorted(other_contributors, key=lambda c: c["name"].lower())
-    content = template.render(
-        core_contributors=core_contributors, other_contributors=other_contributors
-    )
+    content = template.render(core_contributors=core_contributors, other_contributors=other_contributors)
 
     file_path = ROOT / "CONTRIBUTORS.md"
     file_path.write_text(content)
@@ -106,7 +98,5 @@ def write_md_file(contributors):
 
 if __name__ == "__main__":
     if GITHUB_REPO is None:
-        raise RuntimeError(
-            "No github repo, please set the environment variable GITHUB_REPOSITORY"
-        )
+        raise RuntimeError("No github repo, please set the environment variable GITHUB_REPOSITORY")
     main()

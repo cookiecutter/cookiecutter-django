@@ -56,15 +56,11 @@ CSRF_COOKIE_SECURE = True
 # TODO: set this to 60 seconds first and then to 518400 once you prove the former works
 SECURE_HSTS_SECONDS = 60
 # https://docs.djangoproject.com/en/dev/ref/settings/#secure-hsts-include-subdomains
-SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool(
-    "DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True
-)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool("DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True)
 # https://docs.djangoproject.com/en/dev/ref/settings/#secure-hsts-preload
 SECURE_HSTS_PRELOAD = env.bool("DJANGO_SECURE_HSTS_PRELOAD", default=True)
 # https://docs.djangoproject.com/en/dev/ref/middleware/#x-content-type-options-nosniff
-SECURE_CONTENT_TYPE_NOSNIFF = env.bool(
-    "DJANGO_SECURE_CONTENT_TYPE_NOSNIFF", default=True
-)
+SECURE_CONTENT_TYPE_NOSNIFF = env.bool("DJANGO_SECURE_CONTENT_TYPE_NOSNIFF", default=True)
 
 {% if cookiecutter.cloud_provider != 'None' -%}
 # STORAGES
@@ -85,7 +81,7 @@ AWS_QUERYSTRING_AUTH = False
 _AWS_EXPIRY = 60 * 60 * 24 * 7
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
 AWS_S3_OBJECT_PARAMETERS = {
-    "CacheControl": f"max-age={_AWS_EXPIRY}, s-maxage={_AWS_EXPIRY}, must-revalidate"
+    "CacheControl": f"max-age={_AWS_EXPIRY}, s-maxage={_AWS_EXPIRY}, must-revalidate",
 }
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
 AWS_S3_MAX_MEMORY_SIZE = env.int(
@@ -188,9 +184,7 @@ ANYMAIL = {
 EMAIL_BACKEND = "anymail.backends.mandrill.EmailBackend"
 ANYMAIL = {
     "MANDRILL_API_KEY": env("MANDRILL_API_KEY"),
-    "MANDRILL_API_URL": env(
-        "MANDRILL_API_URL", default="https://mandrillapp.com/api/1.0"
-    ),
+    "MANDRILL_API_URL": env("MANDRILL_API_URL", default="https://mandrillapp.com/api/1.0"),
 }
 {%- elif cookiecutter.mail_service == 'Postmark' %}
 # https://anymail.readthedocs.io/en/stable/esps/postmark/
@@ -211,18 +205,14 @@ ANYMAIL = {
 EMAIL_BACKEND = "anymail.backends.sendinblue.EmailBackend"
 ANYMAIL = {
     "SENDINBLUE_API_KEY": env("SENDINBLUE_API_KEY"),
-    "SENDINBLUE_API_URL": env(
-        "SENDINBLUE_API_URL", default="https://api.sendinblue.com/v3/"
-    ),
+    "SENDINBLUE_API_URL": env("SENDINBLUE_API_URL", default="https://api.sendinblue.com/v3/"),
 }
 {%- elif cookiecutter.mail_service == 'SparkPost' %}
 # https://anymail.readthedocs.io/en/stable/esps/sparkpost/
 EMAIL_BACKEND = "anymail.backends.sparkpost.EmailBackend"
 ANYMAIL = {
     "SPARKPOST_API_KEY": env("SPARKPOST_API_KEY"),
-    "SPARKPOST_API_URL": env(
-        "SPARKPOST_API_URL", default="https://api.sparkpost.com/api/v1"
-    ),
+    "SPARKPOST_API_URL": env("SPARKPOST_API_URL", default="https://api.sparkpost.com/api/v1"),
 }
 {%- elif cookiecutter.mail_service == 'Other SMTP' %}
 # https://anymail.readthedocs.io/en/stable/esps
@@ -278,9 +268,8 @@ LOGGING = {
     "filters": {"require_debug_false": {"()": "django.utils.log.RequireDebugFalse"}},
     "formatters": {
         "verbose": {
-            "format": "%(levelname)s %(asctime)s %(module)s "
-            "%(process)d %(thread)d %(message)s"
-        }
+            "format": "%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s",
+        },
     },
     "handlers": {
         "mail_admins": {
@@ -314,9 +303,8 @@ LOGGING = {
     "disable_existing_loggers": True,
     "formatters": {
         "verbose": {
-            "format": "%(levelname)s %(asctime)s %(module)s "
-            "%(process)d %(thread)d %(message)s"
-        }
+            "format": "%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s",
+        },
     },
     "handlers": {
         "console": {
@@ -376,7 +364,7 @@ sentry_sdk.init(
 # -------------------------------------------------------------------------------
 # Tools that generate code samples can use SERVERS to point to the correct domain
 SPECTACULAR_SETTINGS["SERVERS"] = [  # noqa: F405
-    {"url": "https://{{ cookiecutter.domain_name }}", "description": "Production server"}
+    {"url": "https://{{ cookiecutter.domain_name }}", "description": "Production server"},
 ]
 
 {%- endif %}
