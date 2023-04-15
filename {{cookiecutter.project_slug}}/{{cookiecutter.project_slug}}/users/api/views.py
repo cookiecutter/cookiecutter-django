@@ -13,7 +13,11 @@ User = get_user_model()
 class UserViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
     serializer_class = UserSerializer
     queryset = User.objects.all()
+    {%- if cookiecutter.username_type == "email" %}
+    lookup_field = "pk"
+    {%- else %}
     lookup_field = "username"
+    {%- endif %}
 
     def get_queryset(self, *args, **kwargs):
         assert isinstance(self.request.user.id, int)

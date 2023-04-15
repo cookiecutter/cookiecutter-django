@@ -118,6 +118,10 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     4 - Apache Software License 2.0
     5 - Not open source
     Choose from 1, 2, 3, 4, 5 [1]: 1
+    Select username_type:
+    1 - username
+    2 - email
+    Choose from 1, 2 [1]: 1
     timezone [UTC]: America/Los_Angeles
     windows [n]: n
     use_pycharm [n]: y

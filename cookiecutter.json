@@ -13,6 +13,7 @@
     "Apache Software License 2.0",
     "Not open source"
   ],
+  "username_type": ["username", "email"],
   "timezone": "UTC",
   "windows": "n",
   "use_pycharm": "n",

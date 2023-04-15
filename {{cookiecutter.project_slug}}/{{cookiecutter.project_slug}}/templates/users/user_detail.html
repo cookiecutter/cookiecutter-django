@@ -1,7 +1,7 @@
 {% raw %}{% extends "base.html" %}
 {% load static %}
 
-{% block title %}User: {{ object.username }}{% endblock %}
+{% block title %}User: {% endraw %}{% if cookiecutter.username_type == "email" %}{% raw %}{{ object.name }}{% endraw %}{% else %}{% raw %}{{ object.username }}{% endraw %}{% endif %}{% raw %}{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -9,7 +9,7 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <h2>{{ object.username }}</h2>
+      <h2>{% endraw %}{% if cookiecutter.username_type == "email" %}{% raw %}{{ object.name }}{% endraw %}{% else %}{% raw %}{{ object.username }}{% endraw %}{% endif %}{% raw %}</h2>
       {% if object.name %}
         <p>{{ object.name }}</p>
       {% endif %}

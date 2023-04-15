@@ -3,6 +3,8 @@ import django.contrib.auth.validators
 from django.db import migrations, models
 import django.utils.timezone
 
+import {{cookiecutter.project_slug}}.users.models
+
 
 class Migration(migrations.Migration):
 
@@ -40,6 +42,7 @@ class Migration(migrations.Migration):
                         verbose_name="superuser status",
                     ),
                 ),
+                {%- if cookiecutter.username_type == "username" -%}
                 (
                     "username",
                     models.CharField(
@@ -61,6 +64,14 @@ class Migration(migrations.Migration):
                         blank=True, max_length=254, verbose_name="email address"
                     ),
                 ),
+                {%- else %}
+                (
+                    "email",
+                    models.EmailField(
+                        unique=True, max_length=254, verbose_name="email address"
+                    ),
+                ),
+                {%- endif %}
                 (
                     "is_staff",
                     models.BooleanField(
@@ -118,7 +129,11 @@ class Migration(migrations.Migration):
                 "abstract": False,
             },
             managers=[
+                {%- if cookiecutter.username_type == "email" %}
+                ("objects", {{cookiecutter.project_slug}}.users.models.UserManager()),
+                {%- else %}
                 ("objects", django.contrib.auth.models.UserManager()),
+                {%- endif %}
             ],
         ),
     ]

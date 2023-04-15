@@ -24,6 +24,13 @@ author_name:
 email:
     The email address you want to identify yourself in the project.
 
+username_type:
+    The type of username you want to use in the project. This can be either
+    ``username`` or ``email``. If you choose ``username``, the ``email`` field
+    will be included. If you choose ``email``, the ``username`` field will be
+    excluded. It is best practice to always include an email field, so there is
+    no option for having just the ``username`` field.
+
 domain_name:
     The domain name you plan to use for your project once it goes live.
     Note that it can be safely changed later on whenever you need to.
