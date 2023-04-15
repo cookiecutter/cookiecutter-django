@@ -189,7 +189,7 @@ def test_flake8_passes(cookies, context_override):
         pytest.fail(e.stdout.decode())
 
 
-@pytest.mark.skipif(AUTOFIXABLE_STYLES, reason="Black is auto-fixable")
+@pytest.mark.skipif(not AUTOFIXABLE_STYLES, reason="Black is auto-fixable")
 @pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
 def test_black_passes(cookies, context_override):
     """Check whether generated project passes black style."""
