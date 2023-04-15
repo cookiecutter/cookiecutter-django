@@ -4,7 +4,7 @@ log:
 entryPoints:
   web:
     # http
-    address: ":80"
+    address: ':80'
     http:
       # https://docs.traefik.io/routing/entrypoints/#entrypoint
       redirections:
@@ -13,18 +13,18 @@ entryPoints:
 
   web-secure:
     # https
-    address: ":443"
+    address: ':443'
   {%- if cookiecutter.use_celery == 'y' %}
 
   flower:
-    address: ":5555"
+    address: ':5555'
   {%- endif %}
 
 certificatesResolvers:
   letsencrypt:
     # https://docs.traefik.io/master/https/acme/#lets-encrypt
     acme:
-      email: "{{ cookiecutter.email }}"
+      email: '{{ cookiecutter.email }}'
       storage: /etc/traefik/acme/acme.json
       # https://docs.traefik.io/master/https/acme/#httpchallenge
       httpChallenge:
@@ -34,9 +34,9 @@ http:
   routers:
     web-secure-router:
       {%- if cookiecutter.domain_name.count('.') == 1 %}
-      rule: "Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)"
+      rule: 'Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)'
       {%- else %}
-      rule: "Host(`{{ cookiecutter.domain_name }}`)"
+      rule: 'Host(`{{ cookiecutter.domain_name }}`)'
       {%- endif %}
       entryPoints:
         - web-secure
@@ -49,7 +49,7 @@ http:
     {%- if cookiecutter.use_celery == 'y' %}
 
     flower-secure-router:
-      rule: "Host(`{{ cookiecutter.domain_name }}`)"
+      rule: 'Host(`{{ cookiecutter.domain_name }}`)'
       entryPoints:
         - flower
       service: flower
@@ -61,9 +61,9 @@ http:
 
     web-media-router:
       {%- if cookiecutter.domain_name.count('.') == 1 %}
-      rule: "(Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)) && PathPrefix(`/media/`)"
+      rule: '(Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)) && PathPrefix(`/media/`)'
       {%- else %}
-      rule: "Host(`{{ cookiecutter.domain_name }}`) && PathPrefix(`/media/`)"
+      rule: 'Host(`{{ cookiecutter.domain_name }}`) && PathPrefix(`/media/`)'
       {%- endif %}
       entryPoints:
         - web-secure
@@ -79,7 +79,7 @@ http:
       # https://docs.traefik.io/master/middlewares/headers/#hostsproxyheaders
       # https://docs.djangoproject.com/en/dev/ref/csrf/#ajax
       headers:
-        hostsProxyHeaders: ["X-CSRFToken"]
+        hostsProxyHeaders: ['X-CSRFToken']
 
   services:
     django:

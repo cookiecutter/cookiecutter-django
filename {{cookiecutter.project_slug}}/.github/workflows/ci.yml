@@ -7,12 +7,12 @@ env:
 
 on:
   pull_request:
-    branches: [ "master", "main" ]
-    paths-ignore: [ "docs/**" ]
+    branches: ['master', 'main']
+    paths-ignore: ['docs/**']
 
   push:
-    branches: [ "master", "main" ]
-    paths-ignore: [ "docs/**" ]
+    branches: ['master', 'main']
+    paths-ignore: ['docs/**']
 
 concurrency:
   group: {% raw %}${{ github.head_ref || github.run_id }}{% endraw %}
@@ -22,14 +22,13 @@ jobs:
   linter:
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout Code Repository
         uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
       {%- if cookiecutter.open_source_license != 'Not open source' %}
       # Consider using pre-commit.ci for open source project
@@ -58,35 +57,34 @@ jobs:
 
     env:
       {%- if cookiecutter.use_celery == 'y' %}
-      CELERY_BROKER_URL: "redis://localhost:6379/0"
+      CELERY_BROKER_URL: 'redis://localhost:6379/0'
       {%- endif %}
       # postgres://user:password@host:port/database
-      DATABASE_URL: "postgres://postgres:postgres@localhost:5432/postgres"
+      DATABASE_URL: 'postgres://postgres:postgres@localhost:5432/postgres'
     {%- endif %}
 
     steps:
-
       - name: Checkout Code Repository
         uses: actions/checkout@v3
       {%- if cookiecutter.use_docker == 'y' %}
 
       - name: Build the Stack
-        run:  docker-compose -f local.yml build
+        run: docker-compose -f local.yml build
 
       - name: Run DB Migrations
-        run:  docker-compose -f local.yml run --rm django python manage.py migrate
+        run: docker-compose -f local.yml run --rm django python manage.py migrate
 
       - name: Run Django Tests
-        run:  docker-compose -f local.yml run django pytest
+        run: docker-compose -f local.yml run django pytest
 
       - name: Tear down the Stack
-        run:  docker-compose -f local.yml down
+        run: docker-compose -f local.yml down
       {%- else %}
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: '3.11'
           cache: pip
           cache-dependency-path: |
             requirements/base.txt
@@ -98,5 +96,5 @@ jobs:
           pip install -r requirements/local.txt
 
       - name: Test with pytest
-        run:  pytest
+        run: pytest
       {%- endif %}

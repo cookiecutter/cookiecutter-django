@@ -1,4 +1,4 @@
-exclude: "^docs/|/migrations/"
+exclude: '^docs/|/migrations/'
 default_stages: [commit]
 
 repos:
@@ -7,7 +7,22 @@ repos:
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
+      - id: check-json
+      - id: check-toml
+      - id: check-xml
       - id: check-yaml
+      - id: debug-statements
+      - id: check-builtin-literals
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: detect-private-key
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.0.0-alpha.6
+    hooks:
+      - id: prettier
+        args: ['--tab-width', '2', '--single-quote']
+        exclude: {{cookiecutter.project_slug}}/templates/
 
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.3.1
@@ -29,7 +44,7 @@ repos:
     rev: 6.0.0
     hooks:
       - id: flake8
-        args: ["--config=setup.cfg"]
+        args: ['--config=setup.cfg']
         additional_dependencies: [flake8-isort]
 
 # sets up .pre-commit-ci.yaml to ensure pre-commit dependencies stay up to date

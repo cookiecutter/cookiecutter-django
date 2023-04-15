@@ -3,29 +3,29 @@
 ////////////////////////////////
 
 // Gulp and package
-const { src, dest, parallel, series, watch } = require('gulp')
-const pjson = require('./package.json')
+const { src, dest, parallel, series, watch } = require('gulp');
+const pjson = require('./package.json');
 
 // Plugins
-const autoprefixer = require('autoprefixer')
-const browserSync = require('browser-sync').create()
-const concat = require('gulp-concat')
+const autoprefixer = require('autoprefixer');
+const browserSync = require('browser-sync').create();
+const concat = require('gulp-concat');
 const tildeImporter = require('node-sass-tilde-importer');
-const cssnano = require ('cssnano')
-const imagemin = require('gulp-imagemin')
-const pixrem = require('pixrem')
-const plumber = require('gulp-plumber')
-const postcss = require('gulp-postcss')
-const reload = browserSync.reload
-const rename = require('gulp-rename')
-const sass = require('gulp-sass')(require('sass'))
-const spawn = require('child_process').spawn
-const uglify = require('gulp-uglify-es').default
+const cssnano = require('cssnano');
+const imagemin = require('gulp-imagemin');
+const pixrem = require('pixrem');
+const plumber = require('gulp-plumber');
+const postcss = require('gulp-postcss');
+const reload = browserSync.reload;
+const rename = require('gulp-rename');
+const sass = require('gulp-sass')(require('sass'));
+const spawn = require('child_process').spawn;
+const uglify = require('gulp-uglify-es').default;
 
 // Relative paths function
 function pathsConfig(appName) {
-  this.app = `./${pjson.name}`
-  const vendorsRoot = 'node_modules'
+  this.app = `./${pjson.name}`;
+  const vendorsRoot = 'node_modules';
 
   return {
     vendorsJs: [
@@ -39,10 +39,10 @@ function pathsConfig(appName) {
     fonts: `${this.app}/static/fonts`,
     images: `${this.app}/static/images`,
     js: `${this.app}/static/js`,
-  }
+  };
 }
 
-const paths = pathsConfig()
+const paths = pathsConfig();
 
 ////////////////////////////////
 // Tasks
@@ -51,27 +51,27 @@ const paths = pathsConfig()
 // Styles autoprefixing and minification
 function styles() {
   const processCss = [
-      autoprefixer(), // adds vendor prefixes
-      pixrem(),       // add fallbacks for rem units
-  ]
+    autoprefixer(), // adds vendor prefixes
+    pixrem(), // add fallbacks for rem units
+  ];
 
   const minifyCss = [
-      cssnano({ preset: 'default' })   // minify result
-  ]
+    cssnano({ preset: 'default' }), // minify result
+  ];
 
   return src(`${paths.sass}/project.scss`)
-    .pipe(sass({
-      importer: tildeImporter,
-      includePaths: [
-        paths.sass
-      ]
-    }).on('error', sass.logError))
+    .pipe(
+      sass({
+        importer: tildeImporter,
+        includePaths: [paths.sass],
+      }).on('error', sass.logError),
+    )
     .pipe(plumber()) // Checks for errors
     .pipe(postcss(processCss))
     .pipe(dest(paths.css))
     .pipe(rename({ suffix: '.min' }))
     .pipe(postcss(minifyCss)) // Minifies the result
-    .pipe(dest(paths.css))
+    .pipe(dest(paths.css));
 }
 
 // Javascript minification
@@ -80,7 +80,7 @@ function scripts() {
     .pipe(plumber()) // Checks for errors
     .pipe(uglify()) // Minifies the js
     .pipe(rename({ suffix: '.min' }))
-    .pipe(dest(paths.js))
+    .pipe(dest(paths.js));
 }
 
 // Vendor Javascript minification
@@ -91,97 +91,91 @@ function vendorScripts() {
     .pipe(plumber()) // Checks for errors
     .pipe(uglify()) // Minifies the js
     .pipe(rename({ suffix: '.min' }))
-    .pipe(dest(paths.js, { sourcemaps: '.' }))
+    .pipe(dest(paths.js, { sourcemaps: '.' }));
 }
 
 // Image compression
 function imgCompression() {
   return src(`${paths.images}/*`)
     .pipe(imagemin()) // Compresses PNG, JPEG, GIF and SVG images
-    .pipe(dest(paths.images))
+    .pipe(dest(paths.images));
 }
 
 {%- if cookiecutter.use_async == 'y' -%}
 // Run django server
 function asyncRunServer() {
-  const cmd = spawn('gunicorn', [
-      'config.asgi', '-k', 'uvicorn.workers.UvicornWorker', '--reload'
-      ], {stdio: 'inherit'}
-  )
-  cmd.on('close', function(code) {
-    console.log('gunicorn exited with code ' + code)
+  const cmd = spawn(
+    'gunicorn',
+    ['config.asgi', '-k', 'uvicorn.workers.UvicornWorker', '--reload'],
+    {stdio: 'inherit'},
+  );
+  cmd.on('close', function (code) {
+    console.log('gunicorn exited with code ' + code);
   })
 }
 {%- else %}
 // Run django server
 function runServer(cb) {
-  const cmd = spawn('python', ['manage.py', 'runserver'], {stdio: 'inherit'})
-  cmd.on('close', function(code) {
-    console.log('runServer exited with code ' + code)
-    cb(code)
-  })
+  const cmd = spawn('python', ['manage.py', 'runserver'], { stdio: 'inherit' });
+  cmd.on('close', function (code) {
+    console.log('runServer exited with code ' + code);
+    cb(code);
+  });
 }
 {%- endif %}
 
 // Browser sync server for live reload
 function initBrowserSync() {
   browserSync.init(
-    [
-      `${paths.css}/*.css`,
-      `${paths.js}/*.js`,
-      `${paths.templates}/*.html`
-    ], {
+    [`${paths.css}/*.css`, `${paths.js}/*.js`, `${paths.templates}/*.html`],
+    {
       {%- if cookiecutter.use_docker == 'y' %}
       // https://www.browsersync.io/docs/options/#option-open
       // Disable as it doesn't work from inside a container
       open: false,
       {%- endif %}
       // https://www.browsersync.io/docs/options/#option-proxy
-      proxy:  {
+      proxy: {
         {%- if cookiecutter.use_docker == 'n' %}
         target: '127.0.0.1:8000',
         {%- else %}
         target: 'django:8000',
         {%- endif %}
         proxyReq: [
-          function(proxyReq, req) {
-            // Assign proxy "host" header same as current request at Browsersync server
-            proxyReq.setHeader('Host', req.headers.host)
-          }
-        ]
-      }
-    }
-  )
+          function (proxyReq, req) {
+            // Assign proxy 'host' header same as current request at Browsersync server
+            proxyReq.setHeader('Host', req.headers.host);
+          },
+        ],
+      },
+    },
+  );
 }
 
 // Watch
 function watchPaths() {
-  watch(`${paths.sass}/*.scss`{% if cookiecutter.windows == 'y' %}, { usePolling: true }{% endif %}, styles)
-  watch(`${paths.templates}/**/*.html`{% if cookiecutter.windows == 'y' %}, { usePolling: true }{% endif %}).on("change", reload)
-  watch([`${paths.js}/*.js`, `!${paths.js}/*.min.js`]{% if cookiecutter.windows == 'y' %}, { usePolling: true }{% endif %}, scripts).on("change", reload)
+  watch(`${paths.sass}/*.scss`{% if cookiecutter.windows == 'y' %}, { usePolling: true }{% endif %}, styles);
+  watch(`${paths.templates}/**/*.html`{% if cookiecutter.windows == 'y' %}, { usePolling: true }{% endif %}).on('change', reload);
+  watch([`${paths.js}/*.js`, `!${paths.js}/*.min.js`]{% if cookiecutter.windows == 'y' %}, { usePolling: true }{% endif %}, scripts).on(
+    'change',
+    reload,
+  );
 }
 
 // Generate all assets
-const generateAssets = parallel(
-  styles,
-  scripts,
-  vendorScripts,
-  imgCompression
-)
+const generateAssets = parallel(styles, scripts, vendorScripts, imgCompression);
 
 // Set up dev environment
-const dev = parallel(
-  {%- if cookiecutter.use_docker == 'n' %}
-  {%- if cookiecutter.use_async == 'y' %}
-  asyncRunServer,
-  {%- else %}
-  runServer,
-  {%- endif %}
-  {%- endif %}
-  initBrowserSync,
-  watchPaths
-)
+{%- if cookiecutter.use_docker == 'n' %}
+{%- if cookiecutter.use_async == 'y' %}
+const dev = parallel(asyncRunServer, initBrowserSync, watchPaths);
+{%- else %}
+const dev = parallel(runServer, initBrowserSync, watchPaths);
+{%- endif %}
+{%- else %}
+const dev = parallel(initBrowserSync, watchPaths);
+{%- endif %}
 
-exports.default = series(generateAssets, dev)
-exports["generate-assets"] = generateAssets
-exports["dev"] = dev
+exports.default = series(generateAssets, dev);
+exports['generate-assets'] = generateAssets;
+exports['dev'] = dev;
