@@ -239,8 +239,7 @@ texinfo_documents = [
         "Cookiecutter Django documentation",
         "Daniel Roy Greenfeld",
         "Cookiecutter Django",
-        "A Cookiecutter template for creating production-ready "
-        "Django projects quickly.",
+        "A Cookiecutter template for creating production-ready " "Django projects quickly.",
         "Miscellaneous",
     )
 ]
