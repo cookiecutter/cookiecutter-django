@@ -45,6 +45,24 @@ def remove_gplv3_files():
         os.remove(file_name)
 
 
+def remove_custom_user_manager_files():
+    os.remove(
+        os.path.join(
+            "{{cookiecutter.project_slug}}",
+            "users",
+            "managers.py",
+        )
+    )
+    os.remove(
+        os.path.join(
+            "{{cookiecutter.project_slug}}",
+            "users",
+            "tests",
+            "test_managers.py",
+        )
+    )
+
+
 def remove_pycharm_files():
     idea_dir_path = ".idea"
     if os.path.exists(idea_dir_path):
@@ -193,7 +211,7 @@ def handle_js_runner(choice, use_docker, use_async):
             dev_django_cmd = (
                 "uvicorn config.asgi:application --reload"
                 if use_async
-                else "python manage.py runserver_plus"
+                else "python manage.py runserver"
             )
             scripts.update(
                 {
@@ -452,6 +470,9 @@ def main():
     if "{{ cookiecutter.open_source_license}}" != "GPLv3":
         remove_gplv3_files()
 
+    if "{{ cookiecutter.username_type }}" == "username":
+        remove_custom_user_manager_files()
+
     if "{{ cookiecutter.editor }}".lower() != "PyCharm":
         remove_pycharm_files()
 
@@ -460,7 +481,6 @@ def main():
         create_devcontainer_bash_history_file()
     else:
         remove_docker_files()
-
 
     if (
         "{{ cookiecutter.use_docker }}".lower() == "y"

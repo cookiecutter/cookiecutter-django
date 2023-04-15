@@ -29,7 +29,11 @@ class TestUserViewSet:
         response = view.me(request)  # type: ignore
 
         assert response.data == {
+            {%- if cookiecutter.username_type == "email" %}
+            "url": f"http://testserver/api/users/{user.pk}/",
+            {%- else %}
             "username": user.username,
-            "name": user.name,
             "url": f"http://testserver/api/users/{user.username}/",
+            {%- endif %}
+            "name": user.name,
         }

@@ -14,13 +14,6 @@ cd .cache/docker
 cookiecutter ../../ --no-input --overwrite-if-exists use_docker=y "$@"
 cd my_awesome_project
 
-# Lint by running pre-commit on all files
-# Needs a git repo to find the project root
-# We don't have git inside Docker, so run it outside
-git init
-git add .
-pre-commit run --show-diff-on-failure -a
-
 # make sure all images build
 docker-compose -f local.yml build
 

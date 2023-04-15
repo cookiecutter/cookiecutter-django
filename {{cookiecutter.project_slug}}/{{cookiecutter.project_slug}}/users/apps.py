@@ -8,6 +8,6 @@ class UsersConfig(AppConfig):
 
     def ready(self):
         try:
-            import {{ cookiecutter.project_slug }}.users.signals  # noqa F401
+            import {{ cookiecutter.project_slug }}.users.signals  # noqa: F401
         except ImportError:
             pass

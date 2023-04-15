@@ -1,12 +1,11 @@
-@import "custom_bootstrap_vars";
-@import "~bootstrap/scss/bootstrap";
-
+@import 'custom_bootstrap_vars';
+@import '~bootstrap/scss/bootstrap';
 
 // project specific CSS goes here
 
-////////////////////////////////
-		//Variables//
-////////////////////////////////
+///////////////
+// Variables //
+///////////////
 
 // Alert colors
 
@@ -17,9 +16,9 @@ $pink: #f2dede;
 $dark-pink: #eed3d7;
 $red: #b94a48;
 
-////////////////////////////////
-		//Alerts//
-////////////////////////////////
+////////////
+// Alerts //
+////////////
 
 // bootstrap alert CSS, translated to the django-standard levels of
 // debug, info, success, warning, error

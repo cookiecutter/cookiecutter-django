@@ -25,7 +25,7 @@ services:
       - ./.envs/.local/.django
       - ./.envs/.local/.postgres
     ports:
-      - "8000:8000"
+      - '8000:8000'
     command: /start
 
   postgres:
@@ -53,7 +53,7 @@ services:
       - ./config:/app/config:z
       - ./{{ cookiecutter.project_slug }}:/app/{{ cookiecutter.project_slug }}:z
     ports:
-      - "9000:9000"
+      - '9000:9000'
     command: /start-docs
   {%- if cookiecutter.use_mailhog == 'y' %}
 
@@ -101,7 +101,7 @@ services:
     image: {{ cookiecutter.project_slug }}_local_flower
     container_name: {{ cookiecutter.project_slug }}_local_flower
     ports:
-      - "5555:5555"
+      - '5555:5555'
     command: /start-flower
 
   {%- endif %}
@@ -121,10 +121,10 @@ services:
       - /app/node_modules
     command: npm run dev
     ports:
-      - "3000:3000"
+      - '3000:3000'
       {%- if cookiecutter.frontend_pipeline == 'Gulp' %}
       # Expose browsersync UI: https://www.browsersync.io/docs/options/#option-ui
-      - "3001:3001"
+      - '3001:3001'
       {%- endif %}
 
   {%- endif %}
