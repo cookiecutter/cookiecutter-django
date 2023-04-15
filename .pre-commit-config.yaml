@@ -1,4 +1,4 @@
-exclude: "{{cookiecutter.project_slug}}|.github/contributors.json|CHANGELOG.md"
+exclude: "{{cookiecutter.project_slug}}|.github/contributors.json|CHANGELOG.md|CONTRIBUTORS.md"
 default_stages: [commit]
 
 repos:
