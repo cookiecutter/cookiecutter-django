@@ -204,6 +204,18 @@ def test_black_passes(cookies, context_override):
         pytest.fail(e.stdout.decode())
 
 
+@pytest.mark.skipif(not AUTOFIXABLE_STYLES, reason="isort is auto-fixable")
+@pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
+def test_isort_passes(cookies, context_override):
+    """Check whether generated project passes isort style."""
+    result = cookies.bake(extra_context=context_override)
+
+    try:
+        sh.isort(_cwd=str(result.project_path))
+    except sh.ErrorReturnCode as e:
+        pytest.fail(e.stdout.decode())
+
+
 @pytest.mark.parametrize(
     ["use_docker", "expected_test_script"],
     [
