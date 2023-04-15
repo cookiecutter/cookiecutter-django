@@ -3,6 +3,31 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.04.13
+
+### Updated
+- Update tox to 4.4.12 ([#4271](https://github.com/cookiecutter/cookiecutter-django/pull/4271))
+
+## 2023.04.10
+
+### Updated
+- Update pytest-sugar to 0.9.7 ([#4269](https://github.com/cookiecutter/cookiecutter-django/pull/4269))
+- Update pytest to 7.3.0 ([#4268](https://github.com/cookiecutter/cookiecutter-django/pull/4268))
+
+## 2023.04.07
+
+### Updated
+- Upgrade traefik to 2.9.10 ([#4267](https://github.com/cookiecutter/cookiecutter-django/pull/4267))
+
+## 2023.04.05
+
+### Changed
+- Update indent for nginx config file ([#4260](https://github.com/cookiecutter/cookiecutter-django/pull/4260))
+### Updated
+- Update tox to 4.4.11 ([#4262](https://github.com/cookiecutter/cookiecutter-django/pull/4262))
+- Update django to 4.1.8 ([#4258](https://github.com/cookiecutter/cookiecutter-django/pull/4258))
+- Update pre-commit to 3.2.2 ([#4259](https://github.com/cookiecutter/cookiecutter-django/pull/4259))
+
 ## 2023.04.04
 
 ### Changed

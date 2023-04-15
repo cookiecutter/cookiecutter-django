@@ -33,9 +33,9 @@ To run all tests using various versions of python in virtualenvs defined in tox.
 It is possible to test with a specific version of python. To do this, the command
 is:
 
-    $ tox -e py310
+    $ tox -e py311
 
-This will run pytest with the python3.10 interpreter, for example.
+This will run pytest with the python3.11 interpreter, for example.
 
 To run a particular test with tox for against your current Python version:
 
