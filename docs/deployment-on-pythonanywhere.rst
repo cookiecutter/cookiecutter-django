@@ -37,6 +37,7 @@ Make sure your project is fully committed and pushed up to Bitbucket or Github o
     mkvirtualenv --python=/usr/bin/python3.10 my-project-name
     pip install -r requirements/production.txt  # may take a few minutes
 
+.. note:: We're creating the virtualenv using Python 3.10 (``--python=/usr/bin/python3.10```), although Cookiecutter Django generates a project for Python 3.11. This is because, at time of writing, PythonAnywhere only supports Python 3.10. It shouldn't be a problem, but if is, you may try changing the Python version to 3.11 and see if it works. If it does, please let us know, or even better, submit a pull request to update this section.
 
 Setting environment variables in the console
 --------------------------------------------
