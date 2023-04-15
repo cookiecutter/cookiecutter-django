@@ -7,12 +7,12 @@ env:
 
 on:
   pull_request:
-    branches: [ 'master', 'main' ]
-    paths-ignore: [ 'docs/**' ]
+    branches: ['master', 'main']
+    paths-ignore: ['docs/**']
 
   push:
-    branches: [ 'master', 'main' ]
-    paths-ignore: [ 'docs/**' ]
+    branches: ['master', 'main']
+    paths-ignore: ['docs/**']
 
 concurrency:
   group: {% raw %}${{ github.head_ref || github.run_id }}{% endraw %}
@@ -22,7 +22,6 @@ jobs:
   linter:
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout Code Repository
         uses: actions/checkout@v3
 
@@ -65,7 +64,6 @@ jobs:
     {%- endif %}
 
     steps:
-
       - name: Checkout Code Repository
         uses: actions/checkout@v3
       {%- if cookiecutter.use_docker == 'y' %}
