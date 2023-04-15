@@ -10,8 +10,13 @@ User = get_user_model()
 
 class UserDetailView(LoginRequiredMixin, DetailView):
     model = User
+    {%- if cookiecutter.username_type == "email" %}
+    slug_field = "id"
+    slug_url_kwarg = "id"
+    {%- else %}
     slug_field = "username"
     slug_url_kwarg = "username"
+    {%- endif %}
 
 
 user_detail_view = UserDetailView.as_view()
@@ -39,7 +44,11 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
     permanent = False
 
     def get_redirect_url(self):
+        {%- if cookiecutter.username_type == "email" %}
+        return reverse("users:detail", kwargs={"pk": self.request.user.pk})
+        {%- else %}
         return reverse("users:detail", kwargs={"username": self.request.user.username})
+        {%- endif %}
 
 
 user_redirect_view = UserRedirectView.as_view()
