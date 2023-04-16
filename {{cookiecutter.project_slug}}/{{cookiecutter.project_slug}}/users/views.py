@@ -8,34 +8,6 @@ from django.views.generic import DetailView, RedirectView, UpdateView
 User = get_user_model()
 
 
-class UserDetailView(LoginRequiredMixin, DetailView):
-    model = User
-    {%- if cookiecutter.username_type == "email" %}
-    slug_field = "id"
-    slug_url_kwarg = "id"
-    {%- else %}
-    slug_field = "username"
-    slug_url_kwarg = "username"
-    {%- endif %}
-
-
-user_detail_view = UserDetailView.as_view()
-
-
-class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
-    model = User
-    fields = ["name"]
-    success_message = _("Information successfully updated")
-
-    def get_success_url(self):
-        assert self.request.user.is_authenticated  # for mypy to know that the user is authenticated
-        return self.request.user.get_absolute_url()
-
-    def get_object(self):
-        return self.request.user
-
-
-user_update_view = UserUpdateView.as_view()
 
 
 class UserRedirectView(LoginRequiredMixin, RedirectView):
@@ -45,7 +17,7 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
         {%- if cookiecutter.username_type == "email" %}
         return reverse("users:detail", kwargs={"pk": self.request.user.pk})
         {%- else %}
-        return reverse("users:detail", kwargs={"username": self.request.user.username})
+        return reverse("users:detail", kwargs={"email": self.request.user.email})
         {%- endif %}
 
 

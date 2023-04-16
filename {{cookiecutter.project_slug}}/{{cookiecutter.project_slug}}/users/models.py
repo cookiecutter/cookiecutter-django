@@ -8,7 +8,7 @@ from {{ cookiecutter.project_slug }}.users.managers import UserManager
 {%- endif %}
 
 
-class User(AbstractUser):
+class Account(AbstractUser):
     """
     Default custom user model for {{cookiecutter.project_name}}.
     If adding fields that need to be filled at user signup,
