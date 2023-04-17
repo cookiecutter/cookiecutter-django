@@ -147,7 +147,7 @@ This tells our computer that all future commands are specifically for the dev1 m
 Add 3rd party python packages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To install and especially to keep a new 3rd party django package, you cannot use ``pip install <package_name>``, that would only add the package to the container. But your container is ephemeral, you will want to modify the image from which it is built.
+To install a new 3rd party python package, you cannot use ``pip install <package_name>``, that would only add the package to the container. The container is ephemeral, so that new library won't be persisted if you run another container. Instead, you should modify the Docker image:
 You have to modify the relevant requirement file: base, local or production by adding: ::
 
     <package_name> == <package_version>
