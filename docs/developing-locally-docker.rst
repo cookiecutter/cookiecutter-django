@@ -144,6 +144,14 @@ This tells our computer that all future commands are specifically for the dev1 m
 
     $ eval "$(docker-machine env dev1)"
 
+Add 3rd party python packages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To install and especially to keep a new 3rd party django package, you cannot use ``pip install <package_name>``, that would only add the package to the container. But your container is ephemeral, you will want to modify the image from which it is built.
+You have to modify the relevant requirement file: base, local or production by adding: ::
+
+    <package_name> == <package_version>
+
 Debugging
 ~~~~~~~~~
 
