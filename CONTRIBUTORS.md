@@ -370,6 +370,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Birtibu</td>
+    <td>
+      <a href="https://github.com/Birtibu">Birtibu</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Bo Lopker</td>
     <td>
       <a href="https://github.com/blopker">blopker</a>
