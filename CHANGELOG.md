@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.04.24
+
+
+### Updated
+
+- Auto-update pre-commit hooks ([#4286](https://github.com/cookiecutter/cookiecutter-django/pull/4286))
+
+- Update sphinx to 6.2.0 ([#4285](https://github.com/cookiecutter/cookiecutter-django/pull/4285))
+
 ## 2023.04.19
 
 
