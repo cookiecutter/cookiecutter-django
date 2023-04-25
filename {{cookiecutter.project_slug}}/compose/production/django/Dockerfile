@@ -24,7 +24,7 @@ ENV DJANGO_AZURE_ACCOUNT_NAME=${DJANGO_AZURE_ACCOUNT_NAME}
 RUN npm run build
 
 {%- endif %}
-# define an alias for the specfic python version used in this file.
+# define an alias for the specific python version used in this file.
 FROM python:3.11.3-slim-bullseye as python
 
 # Python build stage
