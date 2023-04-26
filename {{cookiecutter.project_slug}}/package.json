@@ -11,7 +11,7 @@
     "browser-sync": "^2.27.7",
     "css-loader": "^6.5.1",
     "gulp-concat": "^2.6.1",
-    "concurrently": "^7.0.0",
+    "concurrently": "^8.0.1",
     "cssnano": "^5.0.11",
     "gulp": "^4.0.2",
     "gulp-imagemin": "^7.1.0",
