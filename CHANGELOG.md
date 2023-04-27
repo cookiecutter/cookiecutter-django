@@ -3,6 +3,23 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.04.26
+
+
+### Updated
+
+- Upgrade cssnano to v6.0.0 ([#4233](https://github.com/cookiecutter/cookiecutter-django/pull/4233))
+
+- Upgrade concurrently to 8.0.1 ([#4237](https://github.com/cookiecutter/cookiecutter-django/pull/4237))
+
+- Upgrade to node v18 ([#4294](https://github.com/cookiecutter/cookiecutter-django/pull/4294))
+
+- Update coverage to 7.2.3 ([#4297](https://github.com/cookiecutter/cookiecutter-django/pull/4297))
+
+- Update mypy to 1.2.0 ([#4295](https://github.com/cookiecutter/cookiecutter-django/pull/4295))
+
+- Update werkzeug to 2.3.0 ([#4296](https://github.com/cookiecutter/cookiecutter-django/pull/4296))
+
 ## 2023.04.25
 
 
