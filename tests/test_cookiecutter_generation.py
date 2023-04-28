@@ -1,3 +1,4 @@
+import glob
 import os
 import re
 import sys
@@ -24,6 +25,7 @@ elif sys.platform.startswith("darwin") and os.getenv("CI"):
 # automatically by running pre-commit after generation however they are tedious
 # to fix in the template, so we don't insist too much in fixing them.
 AUTOFIXABLE_STYLES = os.getenv("AUTOFIXABLE_STYLES") == "1"
+auto_fixable = pytest.mark.skipif(not AUTOFIXABLE_STYLES, reason="auto-fixable")
 
 
 @pytest.fixture
@@ -185,7 +187,7 @@ def test_flake8_passes(cookies, context_override):
         pytest.fail(e.stdout.decode())
 
 
-@pytest.mark.skipif(not AUTOFIXABLE_STYLES, reason="Black is auto-fixable")
+@auto_fixable
 @pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
 def test_black_passes(cookies, context_override):
     """Check whether generated project passes black style."""
@@ -204,7 +206,7 @@ def test_black_passes(cookies, context_override):
         pytest.fail(e.stdout.decode())
 
 
-@pytest.mark.skipif(not AUTOFIXABLE_STYLES, reason="isort is auto-fixable")
+@auto_fixable
 @pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
 def test_isort_passes(cookies, context_override):
     """Check whether generated project passes isort style."""
@@ -212,6 +214,27 @@ def test_isort_passes(cookies, context_override):
 
     try:
         sh.isort(_cwd=str(result.project_path))
+    except sh.ErrorReturnCode as e:
+        pytest.fail(e.stdout.decode())
+
+
+@auto_fixable
+@pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
+def test_django_upgrade_passes(cookies, context_override):
+    """Check whether generated project passes django-upgrade."""
+    result = cookies.bake(extra_context=context_override)
+
+    python_files = [
+        file_path.removeprefix(f"{result.project_path}/")
+        for file_path in glob.glob(str(result.project_path / "**" / "*.py"), recursive=True)
+    ]
+    try:
+        sh.django_upgrade(
+            "--target-version",
+            "4.1",
+            *python_files,
+            _cwd=str(result.project_path),
+        )
     except sh.ErrorReturnCode as e:
         pytest.fail(e.stdout.decode())
 
