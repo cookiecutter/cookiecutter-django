@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.05.09
+
+
+### Updated
+
+- Update werkzeug to 2.3.4 ([#4325](https://github.com/cookiecutter/cookiecutter-django/pull/4325))
+
 ## 2023.05.08
 
 
