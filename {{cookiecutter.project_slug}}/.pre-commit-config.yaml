@@ -25,10 +25,10 @@ repos:
         exclude: '{{cookiecutter.project_slug}}/templates/'
 
   - repo: https://github.com/adamchainz/django-upgrade
-    rev: "1.13.0"
+    rev: '1.13.0'
     hooks:
       - id: django-upgrade
-        args: ["--target-version", "4.1"]
+        args: ['--target-version', '4.1']
 
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.4.0
