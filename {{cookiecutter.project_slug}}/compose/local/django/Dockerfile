@@ -1,7 +1,5 @@
-ARG PYTHON_VERSION=3.10-slim-bullseye
-
-# define an alias for the specfic python version used in this file.
-FROM python:${PYTHON_VERSION} as python
+# define an alias for the specific python version used in this file.
+FROM python:3.11.3-slim-bullseye as python
 
 # Python build stage
 FROM python as python-build-stage

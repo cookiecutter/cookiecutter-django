@@ -1,29 +1,29 @@
 -r base.txt
 
-Werkzeug[watchdog]==2.2.2 # https://github.com/pallets/werkzeug
-ipdb==0.13.11  # https://github.com/gotcha/ipdb
+Werkzeug[watchdog]==2.3.4 # https://github.com/pallets/werkzeug
+ipdb==0.13.13  # https://github.com/gotcha/ipdb
 {%- if cookiecutter.use_docker == 'y' %}
-psycopg2==2.9.5  # https://github.com/psycopg/psycopg2
+psycopg2==2.9.6  # https://github.com/psycopg/psycopg2
 {%- else %}
-psycopg2-binary==2.9.5  # https://github.com/psycopg/psycopg2
+psycopg2-binary==2.9.6  # https://github.com/psycopg/psycopg2
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' or cookiecutter.use_celery == 'y' %}
-watchfiles==0.18.1  # https://github.com/samuelcolvin/watchfiles
+watchfiles==0.19.0  # https://github.com/samuelcolvin/watchfiles
 {%- endif %}
 
 # Testing
 # ------------------------------------------------------------------------------
-mypy==0.982  # https://github.com/python/mypy
-django-stubs==1.13.1  # https://github.com/typeddjango/django-stubs
-pytest==7.2.1  # https://github.com/pytest-dev/pytest
-pytest-sugar==0.9.6  # https://github.com/Frozenball/pytest-sugar
+mypy==1.2.0  # https://github.com/python/mypy
+django-stubs==4.2.0  # https://github.com/typeddjango/django-stubs
+pytest==7.3.1  # https://github.com/pytest-dev/pytest
+pytest-sugar==0.9.7  # https://github.com/Frozenball/pytest-sugar
 {%- if cookiecutter.use_drf == "y" %}
-djangorestframework-stubs==1.8.0  # https://github.com/typeddjango/djangorestframework-stubs
+djangorestframework-stubs==3.14.0  # https://github.com/typeddjango/djangorestframework-stubs
 {%- endif %}
 
 # Documentation
 # ------------------------------------------------------------------------------
-sphinx==5.3.0  # https://github.com/sphinx-doc/sphinx
+sphinx==6.2.1  # https://github.com/sphinx-doc/sphinx
 sphinx-autobuild==2021.3.14 # https://github.com/GaretJax/sphinx-autobuild
 sphinx-rtd-theme==1.0.0 # https://pypi.org/project/sphinx-rtd-theme/
 
@@ -31,19 +31,19 @@ sphinx-rtd-theme==1.0.0 # https://pypi.org/project/sphinx-rtd-theme/
 # ------------------------------------------------------------------------------
 flake8==6.0.0  # https://github.com/PyCQA/flake8
 flake8-isort==6.0.0  # https://github.com/gforcada/flake8-isort
-coverage==7.0.4  # https://github.com/nedbat/coveragepy
-black==22.12.0  # https://github.com/psf/black
+coverage==7.2.5  # https://github.com/nedbat/coveragepy
+black==23.3.0  # https://github.com/psf/black
 pylint-django==2.5.3  # https://github.com/PyCQA/pylint-django
 {%- if cookiecutter.use_celery == 'y' %}
 pylint-celery==0.3  # https://github.com/PyCQA/pylint-celery
 {%- endif %}
-pre-commit==2.21.0  # https://github.com/pre-commit/pre-commit
+pre-commit==3.3.1  # https://github.com/pre-commit/pre-commit
 
 # Django
 # ------------------------------------------------------------------------------
 factory-boy==3.2.1  # https://github.com/FactoryBoy/factory_boy
 
-django-debug-toolbar==3.8.1  # https://github.com/jazzband/django-debug-toolbar
+django-debug-toolbar==4.0.0  # https://github.com/jazzband/django-debug-toolbar
 django-extensions==3.2.1  # https://github.com/django-extensions/django-extensions
 django-coverage-plugin==3.0.0  # https://github.com/nedbat/django_coverage_plugin
 pytest-django==4.5.2  # https://github.com/pytest-dev/pytest-django
