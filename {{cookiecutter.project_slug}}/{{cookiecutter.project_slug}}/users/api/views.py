@@ -1,3 +1,4 @@
+import uuid
 from django.contrib.auth import get_user_model
 from rest_framework import status
 from rest_framework.decorators import action
@@ -16,8 +17,8 @@ class UserViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericV
     lookup_field = "uuid"
 
     def get_queryset(self, *args, **kwargs):
-        assert isinstance(self.request.user.id, int)
-        return self.queryset.filter(id=self.request.user.id)
+        assert isinstance(self.request.user.uuid, uuid.UUID)
+        return self.queryset.filter(uuid=self.request.user.uuid)
 
     @action(detail=False)
     def me(self, request):
