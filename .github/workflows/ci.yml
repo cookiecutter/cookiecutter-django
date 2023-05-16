@@ -74,8 +74,8 @@ jobs:
             args: "frontend_pipeline=Gulp"
           - name: Webpack
             args: "frontend_pipeline=Webpack use_heroku=y"
-          - name: Email Username
-            args: "username_type=email ci_tool=Github"
+          - name: Email
+            args: "ci_tool=Github"
 
     name: "Bare metal ${{ matrix.script.name }}"
     runs-on: ubuntu-latest
