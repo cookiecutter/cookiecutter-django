@@ -1,5 +1,5 @@
 Troubleshooting
-=====================================
+===============
 
 This page contains some advice about errors and problems commonly encountered during the development of Cookiecutter Django applications.
 
@@ -37,6 +37,16 @@ To fix this, you can either:
 .. _ls: https://docs.docker.com/engine/reference/commandline/volume_ls/
 .. _rm: https://docs.docker.com/engine/reference/commandline/volume_rm/
 .. _prune: https://docs.docker.com/v17.09/engine/reference/commandline/system_prune/
+
+Variable is not set. Defaulting to a blank string
+-------------------------------------------------
+
+Example::
+
+    WARN[0000] The "DJANGO_AWS_STORAGE_BUCKET_NAME" variable is not set. Defaulting to a blank string.
+    WARN[0000] The "DJANGO_AWS_S3_CUSTOM_DOMAIN" variable is not set. Defaulting to a blank string.
+
+You have probably opted for Docker + Webpack without Whitenoise. This is a know limitation of the combination, which needs a little bit of manual intervention. See the :ref:`dedicated section about it <webpack-whitenoise-limitation>`.
 
 Others
 ------

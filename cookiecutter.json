@@ -4,7 +4,7 @@
   "description": "Behold My Awesome Project!",
   "author_name": "Alejandro Franco",
   "domain_name": "example.com",
-  "email": "{{ cookiecutter.author_name.lower()|replace(' ', '-') }}@example.com",
+  "email": "{{ cookiecutter.author_name.lower() | trim() |replace(' ', '-') }}@{{ cookiecutter.domain_name.lower() | trim() }}",
   "version": "0.1.0",
   "open_source_license": [
     "MIT",
@@ -13,23 +13,13 @@
     "Apache Software License 2.0",
     "Not open source"
   ],
+//  "username_type": ["username", "email"],
   "timezone": "UTC",
   "windows": "n",
   "use_pycharm": "n",
   "use_docker": "n",
-  "postgresql_version": [
-    "14",
-    "13",
-    "12",
-    "11",
-    "10"
-  ],
-  "cloud_provider": [
-    "AWS",
-    "GCP",
-    "Azure",
-    "None"
-  ],
+  "postgresql_version": ["14", "13", "12", "11", "10"],
+  "cloud_provider": ["AWS", "GCP", "Azure", "None"],
   "mail_service": [
     "Mailgun",
     "Amazon SES",
@@ -43,22 +33,13 @@
   ],
   "use_async": "n",
   "use_drf": "n",
-  "frontend_pipeline": [
-    "None",
-    "Django Compressor",
-    "Gulp"
-  ],
+  "frontend_pipeline": ["None", "Django Compressor", "Gulp", "Webpack"],
   "use_celery": "n",
   "use_mailhog": "n",
   "use_sentry": "n",
   "use_whitenoise": "n",
   "use_heroku": "n",
-  "ci_tool": [
-    "None",
-    "Travis",
-    "Gitlab",
-    "Github"
-  ],
+  "ci_tool": ["None", "Travis", "Gitlab", "Github"],
   "keep_local_envs_in_vcs": "y",
   "debug": "n"
 }

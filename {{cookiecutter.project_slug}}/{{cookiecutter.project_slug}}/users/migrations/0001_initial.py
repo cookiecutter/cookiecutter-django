@@ -1,7 +1,10 @@
+import django.contrib.auth.models
+import django.contrib.auth.validators
 from django.db import migrations, models
 import django.utils.timezone
-import {{ cookiecutter.project_slug }}.users.models
 import uuid
+
+import {{cookiecutter.project_slug}}.users.models
 
 
 class Migration(migrations.Migration):
