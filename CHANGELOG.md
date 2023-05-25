@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.05.24
+
+
+### Fixed
+
+- Prevent Celery restarts on media file changes ([#4352](https://github.com/cookiecutter/cookiecutter-django/pull/4352))
+
+### Updated
+
+- Update coverage to 7.2.6 ([#4351](https://github.com/cookiecutter/cookiecutter-django/pull/4351))
+
 ## 2023.05.23
 
 
