@@ -20,3 +20,4 @@ then
   python manage.py compress
 fi
 python manage.py collectstatic --noinput
+python manage.py compilemessages --noinput
