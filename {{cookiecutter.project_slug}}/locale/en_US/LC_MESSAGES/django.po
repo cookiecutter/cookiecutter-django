@@ -1,0 +1,4 @@
+# Translations for {{ cookiecutter.project_name }}
+# Copyright (C) {% now 'utc', '%Y' %} {{ cookiecutter.author_name }}
+# This file is distributed under the same license as the {{ cookiecutter.project_name }} package.
+# {{ cookiecutter.author_name }} <{{ cookiecutter.email }}>, {% now 'utc', '%Y' %}.
