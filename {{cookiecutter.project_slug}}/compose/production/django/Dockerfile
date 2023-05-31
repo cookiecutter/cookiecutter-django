@@ -121,4 +121,6 @@ RUN chown django:django ${APP_HOME}
 
 USER django
 
+RUN python manage.py compilemessages
+
 ENTRYPOINT ["/entrypoint"]
