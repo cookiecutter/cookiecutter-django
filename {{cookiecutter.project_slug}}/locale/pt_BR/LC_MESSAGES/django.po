@@ -20,74 +20,77 @@ msgstr ""
 #: my_awesome_project/templates/account/account_inactive.html:5
 #: my_awesome_project/templates/account/account_inactive.html:8
 msgid "Account Inactive"
-msgstr ""
+msgstr "Conta Inativa"
 
 #: my_awesome_project/templates/account/account_inactive.html:10
 msgid "This account is inactive."
-msgstr ""
+msgstr "Esta conta está inativa."
 
 #: my_awesome_project/templates/account/email.html:7
 msgid "Account"
-msgstr ""
+msgstr "Conta"
 
 #: my_awesome_project/templates/account/email.html:10
 msgid "E-mail Addresses"
-msgstr ""
+msgstr "Endereços de E-mail"
 
 #: my_awesome_project/templates/account/email.html:13
 msgid "The following e-mail addresses are associated with your account:"
-msgstr ""
+msgstr "Os seguintes endereços de e-mail estão associados à sua conta:"
 
 #: my_awesome_project/templates/account/email.html:27
 msgid "Verified"
-msgstr ""
+msgstr "Verificado"
 
 #: my_awesome_project/templates/account/email.html:29
 msgid "Unverified"
-msgstr ""
+msgstr "Não verificado"
 
 #: my_awesome_project/templates/account/email.html:31
 msgid "Primary"
-msgstr ""
+msgstr "Primário"
 
 #: my_awesome_project/templates/account/email.html:37
 msgid "Make Primary"
-msgstr ""
+msgstr "Tornar Primário"
 
 #: my_awesome_project/templates/account/email.html:38
 msgid "Re-send Verification"
-msgstr ""
+msgstr "Reenviar verificação"
 
 #: my_awesome_project/templates/account/email.html:39
 msgid "Remove"
-msgstr ""
+msgstr "Remover"
 
 #: my_awesome_project/templates/account/email.html:46
 msgid "Warning:"
-msgstr ""
+msgstr "Aviso:"
 
 #: my_awesome_project/templates/account/email.html:46
 msgid ""
 "You currently do not have any e-mail address set up. You should really add "
 "an e-mail address so you can receive notifications, reset your password, etc."
 msgstr ""
+"No momento, você não tem nenhum endereço de e-mail configurado. Você "
+"realmente deve adicionar um endereço de e-mail para receber notificações, "
+"redefinir sua senha etc."
 
 #: my_awesome_project/templates/account/email.html:51
 msgid "Add E-mail Address"
-msgstr ""
+msgstr "Adicionar Endereço de E-mail"
 
 #: my_awesome_project/templates/account/email.html:56
 msgid "Add E-mail"
-msgstr ""
+msgstr "Adicionar E-mail"
 
 #: my_awesome_project/templates/account/email.html:66
 msgid "Do you really want to remove the selected e-mail address?"
-msgstr ""
+msgstr "Você realmente deseja remover o endereço de e-mail selecionado?"
 
 #: my_awesome_project/templates/account/email_confirm.html:6
 #: my_awesome_project/templates/account/email_confirm.html:10
 msgid "Confirm E-mail Address"
-msgstr ""
+msgstr "Confirme o endereço de e-mail"
 
 #: my_awesome_project/templates/account/email_confirm.html:16
 #, python-format
@@ -95,61 +98,65 @@ msgid ""
 "Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
 "address for user %(user_display)s."
 msgstr ""
+"Confirme se <a href=\"mailto:%(email)s\">%(email)s</a> é um endereço de "
+"e-mail do usuário %(user_display)s."
 
 #: my_awesome_project/templates/account/email_confirm.html:20
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #: my_awesome_project/templates/account/email_confirm.html:27
 #, python-format
 msgid ""
 "This e-mail confirmation link expired or is invalid. Please <a href="
 "\"%(email_url)s\">issue a new e-mail confirmation request</a>."
-msgstr ""
+msgstr "Este link de confirmação de e-mail expirou ou é inválido. "
+"Por favor, <a href=\"%(email_url)s\">emita um novo pedido de confirmação por e-mail</a>."
 
 #: my_awesome_project/templates/account/login.html:7
 #: my_awesome_project/templates/account/login.html:11
 #: my_awesome_project/templates/account/login.html:56
 #: my_awesome_project/templates/base.html:72
 msgid "Sign In"
-msgstr ""
+msgstr "Entrar"
 
 #: my_awesome_project/templates/account/login.html:17
 msgid "Please sign in with one of your existing third party accounts:"
-msgstr ""
+msgstr "Faça login com uma de suas contas de terceiros existentes:"
 
 #: my_awesome_project/templates/account/login.html:19
 #, python-format
 msgid ""
 "Or, <a href=\"%(signup_url)s\">sign up</a> for a %(site_name)s account and "
 "sign in below:"
-msgstr ""
+msgstr "Ou, <a href=\"%(signup_url)s\">cadastre-se</a> para uma conta em %(site_name)s e entre abaixo:"
 
 #: my_awesome_project/templates/account/login.html:32
 msgid "or"
-msgstr ""
+msgstr "or"
 
 #: my_awesome_project/templates/account/login.html:41
 #, python-format
 msgid ""
 "If you have not created an account yet, then please <a href=\"%(signup_url)s"
 "\">sign up</a> first."
-msgstr ""
+msgstr "Se você ainda não criou uma conta, <a href=\"%(signup_url)s"
+"\">registre-se primeiro</a>."
 
 #: my_awesome_project/templates/account/login.html:55
 msgid "Forgot Password?"
-msgstr ""
+msgstr "Esqueceu sua senha?"
 
 #: my_awesome_project/templates/account/logout.html:5
 #: my_awesome_project/templates/account/logout.html:8
 #: my_awesome_project/templates/account/logout.html:17
 #: my_awesome_project/templates/base.html:61
 msgid "Sign Out"
-msgstr ""
+msgstr "Sair"
 
 #: my_awesome_project/templates/account/logout.html:10
 msgid "Are you sure you want to sign out?"
-msgstr ""
+msgstr "Você tem certeza que deseja sair?"
 
 #: my_awesome_project/templates/account/password_change.html:6
 #: my_awesome_project/templates/account/password_change.html:9
@@ -159,38 +166,38 @@ msgstr ""
 #: my_awesome_project/templates/account/password_reset_from_key_done.html:4
 #: my_awesome_project/templates/account/password_reset_from_key_done.html:7
 msgid "Change Password"
-msgstr ""
+msgstr "Alterar Senha"
 
 #: my_awesome_project/templates/account/password_reset.html:7
 #: my_awesome_project/templates/account/password_reset.html:11
 #: my_awesome_project/templates/account/password_reset_done.html:6
 #: my_awesome_project/templates/account/password_reset_done.html:9
 msgid "Password Reset"
-msgstr ""
+msgstr "Redefinição de senha"
 
 #: my_awesome_project/templates/account/password_reset.html:16
 msgid ""
 "Forgotten your password? Enter your e-mail address below, and we'll send you "
 "an e-mail allowing you to reset it."
-msgstr ""
+msgstr "Esqueceu sua senha? Digite seu endereço de e-mail abaixo e enviaremos um e-mail permitindo que você o redefina."
 
 #: my_awesome_project/templates/account/password_reset.html:21
 msgid "Reset My Password"
-msgstr ""
+msgstr "Resetar minha senha"
 
 #: my_awesome_project/templates/account/password_reset.html:24
 msgid "Please contact us if you have any trouble resetting your password."
-msgstr ""
+msgstr "Entre em contato conosco se tiver algum problema para redefinir sua senha."
 
 #: my_awesome_project/templates/account/password_reset_done.html:15
 msgid ""
 "We have sent you an e-mail. Please contact us if you do not receive it "
 "within a few minutes."
-msgstr ""
+msgstr "Enviamos um e-mail para você. Entre em contato conosco se você não recebê-lo dentro de alguns minutos."
 
 #: my_awesome_project/templates/account/password_reset_from_key.html:8
 msgid "Bad Token"
-msgstr ""
+msgstr "Token Inválido"
 
 #: my_awesome_project/templates/account/password_reset_from_key.html:12
 #, python-format
@@ -198,107 +205,112 @@ msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
 "a>."
-msgstr ""
+msgstr "O link de redefinição de senha era inválido, possivelmente porque já foi usado. "
+"<a href=\"%(passwd_reset_url)s\">Solicite uma nova redefinição de senha</a>."
 
 #: my_awesome_project/templates/account/password_reset_from_key.html:18
 msgid "change password"
-msgstr ""
+msgstr "alterar senha"
 
 #: my_awesome_project/templates/account/password_reset_from_key.html:21
 #: my_awesome_project/templates/account/password_reset_from_key_done.html:8
 msgid "Your password is now changed."
-msgstr ""
+msgstr "Sua senha agora foi alterada."
 
 #: my_awesome_project/templates/account/password_set.html:6
 #: my_awesome_project/templates/account/password_set.html:9
 #: my_awesome_project/templates/account/password_set.html:14
 msgid "Set Password"
-msgstr ""
+msgstr "Definir Senha"
 
 #: my_awesome_project/templates/account/signup.html:6
 msgid "Signup"
-msgstr ""
+msgstr "Cadastro"
 
 #: my_awesome_project/templates/account/signup.html:9
 #: my_awesome_project/templates/account/signup.html:19
 #: my_awesome_project/templates/base.html:67
 msgid "Sign Up"
-msgstr ""
+msgstr "Cadastro"
 
 #: my_awesome_project/templates/account/signup.html:11
 #, python-format
 msgid ""
 "Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
-msgstr ""
+msgstr "já tem uma conta? Então, por favor, faça <a href=\"%(login_url)s\">login</a>."
 
 #: my_awesome_project/templates/account/signup_closed.html:5
 #: my_awesome_project/templates/account/signup_closed.html:8
 msgid "Sign Up Closed"
-msgstr ""
+msgstr "Inscrições encerradas"
 
 #: my_awesome_project/templates/account/signup_closed.html:10
 msgid "We are sorry, but the sign up is currently closed."
-msgstr ""
+msgstr "Lamentamos, mas as inscrições estão encerradas no momento."
 
 #: my_awesome_project/templates/account/verification_sent.html:5
 #: my_awesome_project/templates/account/verification_sent.html:8
 #: my_awesome_project/templates/account/verified_email_required.html:5
 #: my_awesome_project/templates/account/verified_email_required.html:8
 msgid "Verify Your E-mail Address"
-msgstr ""
+msgstr "Verifique seu endereço de e-mail"
 
 #: my_awesome_project/templates/account/verification_sent.html:10
 msgid ""
 "We have sent an e-mail to you for verification. Follow the link provided to "
 "finalize the signup process. Please contact us if you do not receive it "
 "within a few minutes."
-msgstr ""
+msgstr "Enviamos um e-mail para você para verificação. Siga o link fornecido para finalizar o processo de inscrição. Entre em contato conosco se você não recebê-lo dentro de alguns minutos."
 
 #: my_awesome_project/templates/account/verified_email_required.html:12
 msgid ""
 "This part of the site requires us to verify that\n"
 "you are who you claim to be. For this purpose, we require that you\n"
 "verify ownership of your e-mail address. "
-msgstr ""
+msgstr "Esta parte do site exige que verifiquemos se você é quem afirma ser.\n"
+"Para esse fim, exigimos que você verifique a propriedade\n"
+"do seu endereço de e-mail."
 
 #: my_awesome_project/templates/account/verified_email_required.html:16
 msgid ""
 "We have sent an e-mail to you for\n"
 "verification. Please click on the link inside this e-mail. Please\n"
 "contact us if you do not receive it within a few minutes."
-msgstr ""
+msgstr "Enviamos um e-mail para você para verificação.\n"
+"Por favor, clique no link dentro deste e-mail.\n"
+"Entre em contato conosco se você não recebê-lo dentro de alguns minutos."
 
 #: my_awesome_project/templates/account/verified_email_required.html:20
 #, python-format
 msgid ""
 "<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
 "mail address</a>."
-msgstr ""
+msgstr "<strong>Nota</strong>: você ainda pode <a href=\"%(email_url)s\">alterar seu endereço de e-mail</a>."
 
 #: my_awesome_project/templates/base.html:57
 msgid "My Profile"
-msgstr ""
+msgstr "Meu perfil"
 
 #: my_awesome_project/users/admin.py:17
 msgid "Personal info"
-msgstr ""
+msgstr "Informação pessoal"
 
 #: my_awesome_project/users/admin.py:19
 msgid "Permissions"
-msgstr ""
+msgstr "Permissões"
 
 #: my_awesome_project/users/admin.py:30
 msgid "Important dates"
-msgstr ""
+msgstr "Datas importantes"
 
 #: my_awesome_project/users/apps.py:7
 msgid "Users"
-msgstr ""
+msgstr "Usuários"
 
 #: my_awesome_project/users/forms.py:24
 #: my_awesome_project/users/tests/test_forms.py:36
 msgid "This username has already been taken."
-msgstr ""
+msgstr "Este nome de usuário já foi usado."
 
 #: my_awesome_project/users/models.py:15
 msgid "Name of User"
@@ -306,4 +318,4 @@ msgstr "Nome do Usuário"
 
 #: my_awesome_project/users/views.py:23
 msgid "Information successfully updated"
-msgstr ""
+msgstr "Informação atualizada com sucesso"
