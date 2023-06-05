@@ -183,7 +183,7 @@ msgstr "Esqueceu sua senha? Digite seu endereço de e-mail abaixo e enviaremos u
 
 #: {{cookiecutter.project_slug}}/templates/account/password_reset.html:21
 msgid "Reset My Password"
-msgstr "Resetar minha senha"
+msgstr "Redefinir minha senha"
 
 #: {{cookiecutter.project_slug}}/templates/account/password_reset.html:24
 msgid "Please contact us if you have any trouble resetting your password."
