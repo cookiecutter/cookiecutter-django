@@ -1,6 +1,8 @@
 Translations
 ============
 
+Start by configuring `LANGUAGES` at settings, by uncommenting languages you are willing to support.
+
 Translations will be placed in this folder when running:
 
     python manage.py makemessages --all
