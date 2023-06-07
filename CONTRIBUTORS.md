@@ -1315,6 +1315,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Matheus Jardim Bernardes</td>
+    <td>
+      <a href="https://github.com/matheusjardimb">matheusjardimb</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Mathijs Hoogland</td>
     <td>
       <a href="https://github.com/MathijsHoogland">MathijsHoogland</a>
