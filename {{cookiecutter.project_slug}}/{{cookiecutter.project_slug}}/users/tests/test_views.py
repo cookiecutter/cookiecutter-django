@@ -7,6 +7,7 @@ from django.contrib.sessions.middleware import SessionMiddleware
 from django.http import HttpRequest, HttpResponseRedirect
 from django.test import RequestFactory
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 
 from {{ cookiecutter.project_slug }}.users.forms import UserAdminChangeForm
 from {{ cookiecutter.project_slug }}.users.models import User
@@ -72,7 +73,7 @@ class TestUserUpdateView:
         view.form_valid(form)
 
         messages_sent = [m.message for m in messages.get_messages(request)]
-        assert messages_sent == ["Information successfully updated"]
+        assert messages_sent == [_("Information successfully updated")]
 
 
 class TestUserRedirectView:
