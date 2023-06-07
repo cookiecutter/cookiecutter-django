@@ -1,6 +1,6 @@
 # Translations
 
-Translations strings will be placed in this folder when running:
+Start by configuring the `LANGUAGES` settings in `base.py`, by uncommenting languages you are willing to support. Then, translations strings will be placed in this folder when running:
 
 ```bash
 {% if cookiecutter.use_docker == 'y' %}docker-compose -f local.yml run --rm django {% endif %}python manage.py makemessages -all --no-location
@@ -27,6 +27,6 @@ The production image runs `compilemessages` automatically at build time, so as l
 
 ## Add a new language
 
-1. Update/add the [`LANGUAGES` setting](https://docs.djangoproject.com/en/stable/ref/settings/#std-setting-LANGUAGES) to your project's base settings.
+1. Update the [`LANGUAGES` setting](https://docs.djangoproject.com/en/stable/ref/settings/#std-setting-LANGUAGES) to your project's base settings.
 2. Create the locale folder for the language next to this file, e.g. `fr_FR` for French. Make sure the case is correct.
 3. Run `makemessages` (as instructed above) to generate the PO files for the new language.
