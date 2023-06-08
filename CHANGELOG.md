@@ -3,6 +3,27 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.06.07
+
+
+### Changed
+
+- Replace `runserver` with `runserver_plus` ([#4373](https://github.com/cookiecutter/cookiecutter-django/pull/4373))
+
+- Add translations for Brazilian Portuguese ([#4367](https://github.com/cookiecutter/cookiecutter-django/pull/4367))
+
+### Updated
+
+- Update sentry-sdk to 1.25.1 ([#4376](https://github.com/cookiecutter/cookiecutter-django/pull/4376))
+
+- Update django-extensions to 3.2.3 ([#4372](https://github.com/cookiecutter/cookiecutter-django/pull/4372))
+
+- Update djangorestframework-stubs to 3.14.1 ([#4366](https://github.com/cookiecutter/cookiecutter-django/pull/4366))
+
+- Update django-stubs to 4.2.1 ([#4365](https://github.com/cookiecutter/cookiecutter-django/pull/4365))
+
+- Update mypy to 1.3.0 ([#4327](https://github.com/cookiecutter/cookiecutter-django/pull/4327))
+
 ## 2023.06.02
 
 

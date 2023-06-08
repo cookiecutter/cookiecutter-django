@@ -190,7 +190,9 @@ def handle_js_runner(choice, use_docker, use_async):
             "gulp-uglify-es",
         ]
         if not use_docker:
-            dev_django_cmd = "uvicorn config.asgi:application --reload" if use_async else "python manage.py runserver"
+            dev_django_cmd = (
+                "uvicorn config.asgi:application --reload" if use_async else "python manage.py runserver_plus"
+            )
             scripts.update(
                 {
                     "dev": "concurrently npm:dev:*",
