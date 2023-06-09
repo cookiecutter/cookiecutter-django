@@ -238,8 +238,10 @@ def remove_dotgitlabciyml_file():
 def remove_dotgithub_folder():
     shutil.rmtree(".github")
 
+
 def remove_dotdrone_file():
     os.remove(".drone.yml")
+
 
 def generate_random_string(length, using_digits=False, using_ascii_letters=False, using_punctuation=False):
     """
