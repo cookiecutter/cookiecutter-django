@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
+{%- if cookiecutter.frontend_pipeline == "Django Compressor" %}
 
-{%- if "{{ cookiecutter.frontend_pipeline }}" == "Django Compressor" %}
 compress_enabled() {
 python << END
 import sys
@@ -21,5 +21,6 @@ then
   python manage.py compress
 fi
 {%- endif %}
+
 python manage.py collectstatic --noinput
 python manage.py compilemessages -i site-packages
