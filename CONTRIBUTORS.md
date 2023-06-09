@@ -370,6 +370,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Birtibu</td>
+    <td>
+      <a href="https://github.com/Birtibu">Birtibu</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Bo Lopker</td>
     <td>
       <a href="https://github.com/blopker">blopker</a>
@@ -1304,6 +1311,13 @@ Listed in alphabetical order.
     <td>Mateusz Ostaszewski</td>
     <td>
       <a href="https://github.com/mostaszewski">mostaszewski</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Matheus Jardim Bernardes</td>
+    <td>
+      <a href="https://github.com/matheusjardimb">matheusjardimb</a>
     </td>
     <td></td>
   </tr>

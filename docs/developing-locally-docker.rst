@@ -144,6 +144,19 @@ This tells our computer that all future commands are specifically for the dev1 m
 
     $ eval "$(docker-machine env dev1)"
 
+Add 3rd party python packages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To install a new 3rd party python package, you cannot use ``pip install <package_name>``, that would only add the package to the container. The container is ephemeral, so that new library won't be persisted if you run another container. Instead, you should modify the Docker image:
+You have to modify the relevant requirement file: base, local or production by adding: ::
+
+    <package_name>==<package_version>
+
+To get this change picked up, you'll need to rebuild the image(s) and restart the running container: ::
+
+    docker-compose -f local.yml build
+    docker-compose -f local.yml up
+
 Debugging
 ~~~~~~~~~
 

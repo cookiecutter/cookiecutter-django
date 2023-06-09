@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Run tests
-        run: pytest tests
+        run: pytest -n auto tests
 
   docker:
     strategy:
@@ -110,6 +110,6 @@ jobs:
         run: pip install -r requirements.txt
       - uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "18"
       - name: Bare Metal ${{ matrix.script.name }}
         run: sh tests/test_bare.sh ${{ matrix.script.args }}

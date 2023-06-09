@@ -1,0 +1,12 @@
+# Translations for the {{ cookiecutter.project_name }} project
+# Copyright (C) {% now 'utc', '%Y' %} {{ cookiecutter.author_name }}
+# {{ cookiecutter.author_name }} <{{ cookiecutter.email }}>, {% now 'utc', '%Y' %}.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: {{ cookiecutter.version }}\n"
+"Language: en-US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"

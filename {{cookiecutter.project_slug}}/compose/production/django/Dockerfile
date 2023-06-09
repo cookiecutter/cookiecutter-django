@@ -1,5 +1,5 @@
 {% if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] -%}
-FROM node:16-bullseye-slim as client-builder
+FROM node:18-bullseye-slim as client-builder
 
 ARG APP_HOME=/app
 WORKDIR ${APP_HOME}
@@ -24,8 +24,8 @@ ENV DJANGO_AZURE_ACCOUNT_NAME=${DJANGO_AZURE_ACCOUNT_NAME}
 RUN npm run build
 
 {%- endif %}
-# define an alias for the specfic python version used in this file.
-FROM python:3.11.3-slim-bullseye as python
+# define an alias for the specific python version used in this file.
+FROM python:3.11.4-slim-bullseye as python
 
 # Python build stage
 FROM python as python-build-stage
@@ -120,5 +120,9 @@ COPY --chown=django:django . ${APP_HOME}
 RUN chown django:django ${APP_HOME}
 
 USER django
+
+RUN DATABASE_URL="" \
+  DJANGO_SETTINGS_MODULE="config.settings.test" \
+  python manage.py compilemessages
 
 ENTRYPOINT ["/entrypoint"]

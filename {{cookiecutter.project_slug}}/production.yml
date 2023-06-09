@@ -97,6 +97,7 @@ services:
       - production_postgres_data_backups:/backups:z
   {%- endif %}
   {%- if cookiecutter.cloud_provider == 'None' %}
+
   nginx:
     build:
       context: .

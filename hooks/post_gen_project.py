@@ -107,10 +107,6 @@ def remove_heroku_files():
             # don't remove the file if we are using travisci but not using heroku
             continue
         os.remove(file_name)
-    remove_heroku_build_hooks()
-
-
-def remove_heroku_build_hooks():
     shutil.rmtree("bin")
 
 
@@ -205,7 +201,9 @@ def handle_js_runner(choice, use_docker, use_async):
             "gulp-uglify-es",
         ]
         if not use_docker:
-            dev_django_cmd = "uvicorn config.asgi:application --reload" if use_async else "python manage.py runserver"
+            dev_django_cmd = (
+                "uvicorn config.asgi:application --reload" if use_async else "python manage.py runserver_plus"
+            )
             scripts.update(
                 {
                     "dev": "concurrently npm:dev:*",
@@ -454,8 +452,6 @@ def main():
 
     if "{{ cookiecutter.use_heroku }}".lower() == "n":
         remove_heroku_files()
-    elif "{{ cookiecutter.frontend_pipeline }}" != "Django Compressor":
-        remove_heroku_build_hooks()
 
     if "{{ cookiecutter.use_docker }}".lower() == "n" and "{{ cookiecutter.use_heroku }}".lower() == "n":
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
