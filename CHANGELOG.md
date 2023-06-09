@@ -3,6 +3,25 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.06.08
+
+
+### Fixed
+
+- Fix failure in user view test caused by translations ([#4374](https://github.com/cookiecutter/cookiecutter-django/pull/4374))
+
+### Updated
+
+- Update to Python 3.11.4 in production Docker compose ([#4378](https://github.com/cookiecutter/cookiecutter-django/pull/4378))
+
+- Update to Python 3.11.4 in docs Docker compose ([#4379](https://github.com/cookiecutter/cookiecutter-django/pull/4379))
+
+- Update to Python 3.11.4 in local Docker compose ([#4380](https://github.com/cookiecutter/cookiecutter-django/pull/4380))
+
+- Update celery to 5.3.0 ([#4369](https://github.com/cookiecutter/cookiecutter-django/pull/4369))
+
+- Update werkzeug to 2.3.5 ([#4377](https://github.com/cookiecutter/cookiecutter-django/pull/4377))
+
 ## 2023.06.07
 
 
