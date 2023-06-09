@@ -36,7 +36,7 @@ steps:
   - docker-compose -f local.yml up -d
   - docker-compose -f local.yml run django pytest
   {%- else %}
-  image: python
+  image: python:3.11
   commands:
   - pip install -r requirements/local.txt
   - pytest
