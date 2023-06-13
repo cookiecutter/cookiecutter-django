@@ -1,150 +1,194 @@
-{% raw %}{% load static i18n {% endraw %}
-{%- if cookiecutter.frontend_pipeline == 'Django Compressor' %}compress
-{%- endif %}{% raw %}%}{% endraw %}
-{%- if cookiecutter.frontend_pipeline == 'Webpack' %}{% raw %}{% load render_bundle from webpack_loader %}{% endraw %}
+{% raw %}
+{% load static i18n {% endraw %}
+
+{%- if cookiecutter.frontend_pipeline == 'Django Compressor' %}compress{%- endif %}{% raw %}%}{% endraw %}
+  {%- if cookiecutter.frontend_pipeline == 'Webpack' %}{% raw %}
+    {% load render_bundle from webpack_loader %}
+
+  {% endraw %}
 {%- endif %}{% raw %}<!DOCTYPE html>
 {% get_current_language as LANGUAGE_CODE %}
 <html lang="{{ LANGUAGE_CODE }}">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}{% endraw %}{{ cookiecutter.project_name }}{% raw %}{% endblock title %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{% endraw %}{{ cookiecutter.description }}{% raw %}">
-    <meta name="author" content="{% endraw %}{{ cookiecutter.author_name }}{% raw %}">
-
-    <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
-
-    {% block css %}
-    {%- endraw %}
-    {%- if cookiecutter.frontend_pipeline in ['None', 'Django Compressor'] %}
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>
+      {% block title %}
+      {% endraw %}{{ cookiecutter.project_name }}{% raw %}
+    {% endblock title %}
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+        content="{% endraw %}{{ cookiecutter.description }}{% raw %}" />
+  <meta name="author"
+        content="{% endraw %}{{ cookiecutter.author_name }}{% raw %}" />
+  <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}" />
+  {% block css %}
+  {%- endraw %}
+  {%- if cookiecutter.frontend_pipeline in ['None', 'Django Compressor'] %}
     {%- raw %}
     <!-- Latest compiled and minified Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    {%- endraw %}
-    {%- endif %}
-    {%- raw %}
-    <!-- Your stuff: Third-party CSS libraries go here -->
-
-    <!-- This file stores project-specific CSS -->
-    {%- endraw %}{% if cookiecutter.frontend_pipeline == 'None' %}{% raw %}
-    <link href="{% static 'css/project.css' %}" rel="stylesheet">
-    {%- endraw %}{% elif cookiecutter.frontend_pipeline == 'Django Compressor' %}{% raw %}
-    {% compress css %}
-    <link href="{% static 'css/project.css' %}" rel="stylesheet">
-    {% endcompress %}
-    {%- endraw %}{% elif cookiecutter.frontend_pipeline == 'Gulp' %}{% raw %}
-    <link href="{% static 'css/project.min.css' %}" rel="stylesheet">
-    {%- endraw %}{% elif cookiecutter.frontend_pipeline == "Webpack" %}{% raw %}
-    {% render_bundle 'project' 'css' %}
-    {%- endraw %}{% endif %}{% raw %}
-    {% endblock %}
-    <!-- Le javascript
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+          integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+  {%- endraw %}
+{%- endif %}
+{%- raw %}
+<!-- Your stuff: Third-party CSS libraries go here -->
+<!-- This file stores project-specific CSS -->
+{%- endraw %}
+{% if cookiecutter.frontend_pipeline == 'None' %}
+  {% raw %}
+  <link href="{% static 'css/project.css' %}" rel="stylesheet" />
+{%- endraw %}
+{% elif cookiecutter.frontend_pipeline == 'Django Compressor' %}
+{% raw %}
+{% compress css %}
+  <link href="{% static 'css/project.css' %}" rel="stylesheet" />
+{% endcompress %}
+{%- endraw %}
+{% elif cookiecutter.frontend_pipeline == 'Gulp' %}
+{% raw %}
+<link href="{% static 'css/project.min.css' %}" rel="stylesheet" />
+{%- endraw %}
+{% elif cookiecutter.frontend_pipeline == "Webpack" %}
+{% raw %}
+{% render_bundle 'project' 'css' %}
+{%- endraw %}
+{% endif %}
+{% raw %}
+{% endblock css %}
+<!-- Le javascript
     ================================================== -->
-    {# Placed at the top of the document so pages load faster with defer #}
-    {% block javascript %}
-      {%- endraw %}{% if cookiecutter.frontend_pipeline == 'Gulp' %}{% raw %}
-      <!-- Vendor dependencies bundled as one file -->
-      <script defer src="{% static 'js/vendors.min.js' %}"></script>
-      {%- endraw %}{% elif cookiecutter.frontend_pipeline == "Webpack" %}{% raw %}
-      <!-- Vendor dependencies bundled as one file -->
-      {% render_bundle 'vendors' 'js' attrs='defer' %}
-      {%- endraw %}{% else %}{% raw %}
-      <!-- Bootstrap JS -->
-      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <!-- Your stuff: Third-party javascript libraries go here -->
-      {%- endraw %}{% endif %}{% raw %}
-
-      <!-- place project specific Javascript in this file -->
-      {%- endraw %}{% if cookiecutter.frontend_pipeline == 'None' %}{% raw %}
-      <script defer src="{% static 'js/project.js' %}"></script>
-      {%- endraw %}{% elif cookiecutter.frontend_pipeline == 'Django Compressor' %}{% raw %}
-      {% compress js %}
-      <script defer src="{% static 'js/project.js' %}"></script>
-      {% endcompress %}
-      {%- endraw %}{% elif cookiecutter.frontend_pipeline == 'Gulp' %}{% raw %}
-      <script defer src="{% static 'js/project.min.js' %}"></script>
-      {%- endraw %}{% elif cookiecutter.frontend_pipeline == "Webpack" %}{% raw %}
-      {% render_bundle 'project' 'js' attrs='defer' %}
-      {%- endraw %}{% endif %}{% raw %}
-
-    {% endblock javascript %}
-
-  </head>
-
-  <body>
-
-    <div class="mb-1">
-      <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <div class="container-fluid">
-          <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand" href="{% url 'home' %}">{% endraw %}{{ cookiecutter.project_name }}{% raw %}</a>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="{% url 'home' %}">Home <span class="visually-hidden">(current)</span></a>
-              </li>
+{# Placed at the top of the document so pages load faster with defer #}
+{% block javascript %}
+{%- endraw %}
+{% if cookiecutter.frontend_pipeline == 'Gulp' %}
+  {% raw %}
+  <!-- Vendor dependencies bundled as one file -->
+  <script defer src="{% static 'js/vendors.min.js' %}"></script>
+{%- endraw %}
+{% elif cookiecutter.frontend_pipeline == "Webpack" %}
+{% raw %}
+<!-- Vendor dependencies bundled as one file -->
+{% render_bundle 'vendors' 'js' attrs='defer' %}
+{%- endraw %}
+{% else %}
+{% raw %}
+<!-- Bootstrap JS -->
+<script defer
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
+        integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+<!-- Your stuff: Third-party javascript libraries go here -->
+{%- endraw %}
+{% endif %}
+{% raw %}
+<!-- place project specific Javascript in this file -->
+{%- endraw %}
+{% if cookiecutter.frontend_pipeline == 'None' %}
+  {% raw %}
+  <script defer src="{% static 'js/project.js' %}"></script>
+{%- endraw %}
+{% elif cookiecutter.frontend_pipeline == 'Django Compressor' %}
+{% raw %}
+{% compress js %}
+  <script defer src="{% static 'js/project.js' %}"></script>
+{% endcompress %}
+{%- endraw %}
+{% elif cookiecutter.frontend_pipeline == 'Gulp' %}
+{% raw %}
+<script defer src="{% static 'js/project.min.js' %}"></script>
+{%- endraw %}
+{% elif cookiecutter.frontend_pipeline == "Webpack" %}
+{% raw %}
+{% render_bundle 'project' 'js' attrs='defer' %}
+{%- endraw %}
+{% endif %}
+{% raw %}
+{% endblock javascript %}
+</head>
+<body>
+  <div class="mb-1">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler navbar-toggler-right"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="{% url 'home' %}">{% endraw %}{{ cookiecutter.project_name }}{% raw %}</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'home' %}">Home <span class="visually-hidden">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+            {% if request.user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">About</a>
+                <a class="nav-link"
+                   href="{% endraw %}{% if cookiecutter.username_type == "email" %}{% raw %}{% url 'users:detail' request.user.pk %}{% endraw %}{% else %}{% raw %}{% url 'users:detail' request.user.username %}{% endraw %}{% endif %}{% raw %}">{% translate "My Profile" %}</a>
               </li>
-              {% if request.user.is_authenticated %}
-                <li class="nav-item">
-                  <a class="nav-link" href="{% endraw %}{% if cookiecutter.username_type == "email" %}{% raw %}{% url 'users:detail' request.user.pk %}{% endraw %}{% else %}{% raw %}{% url 'users:detail' request.user.username %}{% endraw %}{% endif %}{% raw %}">{% translate "My Profile" %}</a>
-                </li>
-                <li class="nav-item">
-                  {# URL provided by django-allauth/account/urls.py #}
-                  <a class="nav-link" href="{% url 'account_logout' %}">{% translate "Sign Out" %}</a>
-                </li>
-              {% else %}
-                {% if ACCOUNT_ALLOW_REGISTRATION %}
               <li class="nav-item">
                 {# URL provided by django-allauth/account/urls.py #}
-                <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% translate "Sign Up" %}</a>
+                <a class="nav-link" href="{% url 'account_logout' %}">{% translate "Sign Out" %}</a>
               </li>
-              {% endif %}
+            {% else %}
+              {% if ACCOUNT_ALLOW_REGISTRATION %}
                 <li class="nav-item">
                   {# URL provided by django-allauth/account/urls.py #}
-                  <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% translate "Sign In" %}</a>
+                  <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% translate "Sign Up" %}</a>
                 </li>
               {% endif %}
-            </ul>
-          </div>
+              <li class="nav-item">
+                {# URL provided by django-allauth/account/urls.py #}
+                <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% translate "Sign In" %}</a>
+              </li>
+            {% endif %}
+          </ul>
         </div>
-      </nav>
-
-    </div>
-
-    <div class="container">
-
-      {% if messages %}
-        {% for message in messages %}
-          <div class="alert alert-dismissible {% if message.tags %}alert-{{ message.tags }}{% endif %}">
-            {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        {% endfor %}
-      {% endif %}
-
-      {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
-      {% endblock content %}
-
-    </div> <!-- /container -->
-
-    {% block modal %}{% endblock modal %}
-
-    {% block inline_javascript %}
+      </div>
+    </nav>
+  </div>
+  <div class="container">
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-dismissible {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+          {{ message }}
+          <button type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"></button>
+        </div>
+      {% endfor %}
+    {% endif %}
+    {% block content %}
+      <p>Use this document as a way to quick start any new project.</p>
+    {% endblock content %}
+  </div>
+  <!-- /container -->
+  {% block modal %}
+  {% endblock modal %}
+  {% block inline_javascript %}
     {% comment %}
     Script tags with only code, no src (defer by default). To run
     with a "defer" so that you run inline code:
     <script>
-      window.addEventListener('DOMContentLoaded', () => {/* Run whatever you want */});
+      window.addEventListener('DOMContentLoaded', () => {
+        /* Run whatever you want */
+      });
     </script>
     {% endcomment %}
-    {% endblock inline_javascript %}
-  </body>
+  {% endblock inline_javascript %}
+</body>
 </html>
 {%- endraw %}
