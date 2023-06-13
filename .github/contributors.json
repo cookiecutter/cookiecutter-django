@@ -54,6 +54,12 @@
     "is_core": true
   },
   {
+    "name": "Jelmer Draaijer",
+    "github_login": "foarsitter",
+    "twitter_username": "",
+    "is_core": true
+  },
+  {
     "name": "18",
     "github_login": "dezoito",
     "twitter_username": ""
@@ -551,11 +557,6 @@
   {
     "name": "Jan Van Bruggen",
     "github_login": "jvanbrug",
-    "twitter_username": ""
-  },
-  {
-    "name": "Jelmer Draaijer",
-    "github_login": "foarsitter",
     "twitter_username": ""
   },
   {
