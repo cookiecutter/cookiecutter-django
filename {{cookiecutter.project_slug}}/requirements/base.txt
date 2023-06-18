@@ -19,7 +19,7 @@ hiredis==2.2.3  # https://github.com/redis/hiredis-py
 celery==5.3.0  # pyup: < 6.0  # https://github.com/celery/celery
 django-celery-beat==2.5.0  # https://github.com/celery/django-celery-beat
 {%- if cookiecutter.use_docker == 'y' %}
-flower==1.2.0  # https://github.com/mher/flower
+flower==2.0.0  # https://github.com/mher/flower
 {%- endif %}
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' %}
