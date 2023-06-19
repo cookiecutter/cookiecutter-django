@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.06.18
+
+
+### Changed
+
+- Fix missing celery env variable when running compilemessages ([#4403](https://github.com/cookiecutter/cookiecutter-django/pull/4403))
+
+### Updated
+
+- Update flower to 2.0.0 ([#4402](https://github.com/cookiecutter/cookiecutter-django/pull/4402))
+
 ## 2023.06.17
 
 
