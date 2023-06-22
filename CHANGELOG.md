@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.06.21
+
+
+### Updated
+
+- Upgrade traefik to 2.10.3 ([#4408](https://github.com/cookiecutter/cookiecutter-django/pull/4408))
+
 ## 2023.06.19
 
 
