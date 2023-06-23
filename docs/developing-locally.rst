@@ -187,6 +187,12 @@ If you've opted for Gulp or Webpack as front-end pipeline, the project comes con
 
 .. note:: The task will start 2 processes in parallel: the static assets build loop on one side, and the Django server on the other. You do NOT need to run Django as your would normally with ``manage.py runserver``.
 
+Using Webpack or Gulp
+~~~~~~~~~~~~~~~~~~~~~
+
+When using Webpack or Gulp as the ``frontend_pipeline`` option, you should access your application at the address of the ``node`` service in order to see your correct styles. This is http://localhost:3000 by default. When using any of the other ``frontend_pipeline`` options, you should use the address of the ``django`` service, http://localhost:8000.
+
+
 .. _Node.js: http://nodejs.org/download/
 .. _Sass: https://sass-lang.com/
 .. _live reloading: https://browsersync.io
