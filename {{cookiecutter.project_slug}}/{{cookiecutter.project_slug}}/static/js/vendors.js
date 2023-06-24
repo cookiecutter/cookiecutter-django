@@ -1,2 +1,2 @@
-import '@popperjs/core';
-import 'bootstrap';
+import Alpine from 'alpinejs';
+import 'htmx.org';
