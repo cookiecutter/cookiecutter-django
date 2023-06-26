@@ -44,14 +44,6 @@ repos:
     hooks:
       - id: flake8
 
-  - repo: https://github.com/Riverside-Healthcare/djLint
-    rev: v1.31.0
-    hooks:
-      - id: djlint-reformat-jinja
-        types_or: [html]
-      - id: djlint-jinja
-        types_or: [html]
-
 ci:
   autoupdate_schedule: weekly
   skip: []
