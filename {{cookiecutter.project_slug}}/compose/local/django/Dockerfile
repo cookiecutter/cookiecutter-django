@@ -23,6 +23,9 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   libharfbuzz-dev \
   libfribidi-dev \
   libxcb1-dev \
+  # needed for cryptography on some architectures
+  rustc-mozilla \
+  cargo-mozilla \
   # psycopg2 dependencies
   libpq-dev
 
