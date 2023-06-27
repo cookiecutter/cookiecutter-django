@@ -12,6 +12,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   build-essential \
   # needed to build cffi on some architectures
   libffi-dev \
+  # needed to build Pillow on some architectures
+  zlib1g-dev \
   # psycopg2 dependencies
   libpq-dev
 
