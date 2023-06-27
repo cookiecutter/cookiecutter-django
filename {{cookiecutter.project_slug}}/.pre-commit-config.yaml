@@ -16,6 +16,7 @@ repos:
       - id: check-case-conflict
       - id: check-docstring-first
       - id: detect-private-key
+{%- if cookiecutter.frontend_pipeline in ["Webpack", "Gulp"] %}
 
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v3.0.0-alpha.9-for-vscode
@@ -23,6 +24,7 @@ repos:
       - id: prettier
         args: ['--tab-width', '2', '--single-quote']
         exclude: '{{cookiecutter.project_slug}}/templates/'
+{%- endif %}
 
   - repo: https://github.com/adamchainz/django-upgrade
     rev: '1.14.0'
