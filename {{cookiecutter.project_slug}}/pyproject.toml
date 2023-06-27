@@ -1,0 +1,112 @@
+# ==== pytest ====
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--ds=config.settings.test --reuse-db"
+python_files = [
+    "tests.py",
+    "test_*.py",
+]
+{%- if cookiecutter.frontend_pipeline == 'Gulp' %}
+norecursedirs = ["node_modules"]
+{%- endif %}
+
+# ==== Coverage ====
+[tool.coverage.run]
+include = ["{{cookiecutter.project_slug}}/**"]
+omit = ["*/migrations/*", "*/tests/*"]
+plugins = ["django_coverage_plugin"]
+
+
+# ==== black ====
+[tool.black]
+line-length = 119
+target-version = ['py311']
+
+
+# ==== isort ====
+[tool.isort]
+profile = "black"
+line_length = 119
+known_first_party = [
+    "{{cookiecutter.project_slug}}",
+    "config",
+]
+skip = ["venv/"]
+skip_glob = ["**/migrations/*.py"]
+
+
+# ==== mypy ====
+[tool.mypy]
+python_version = "3.11"
+check_untyped_defs = true
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
+plugins = [
+    "mypy_django_plugin.main",
+{%- if cookiecutter.use_drf == "y" %}
+    "mypy_drf_plugin.main",
+{%- endif %}
+]
+
+[[tool.mypy.overrides]]
+# Django migrations should not produce any errors:
+module = "*.migrations.*"
+ignore_errors = true
+
+[tool.django-stubs]
+django_settings_module = "config.settings.test"
+
+
+# ==== PyLint ====
+[tool.pylint.MASTER]
+load-plugins = [
+    "pylint_django",
+{%- if cookiecutter.use_celery == "y" %}
+    "pylint_celery",
+{%- endif %}
+]
+django-settings-module = "config.settings.local"
+
+[tool.pylint.FORMAT]
+max-line-length = 119
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = [
+    "missing-docstring",
+    "invalid-name",
+]
+
+[tool.pylint.DESIGN]
+max-parents = 13
+
+[tool.pylint.TYPECHECK]
+generated-members = [
+    "REQUEST",
+    "acl_users",
+    "aq_parent",
+    "[a-zA-Z]+_set{1,2}",
+    "save",
+    "delete",
+]
+
+
+# ==== djLint ====
+[tool.djlint]
+blank_line_after_tag = "load,extends"
+close_void_tags = true
+format_css = true
+format_js = true
+# TODO: remove T002 when fixed https://github.com/Riverside-Healthcare/djLint/issues/687
+ignore = "H006,H030,H031,T002"
+include = "H017,H035"
+indent = 2
+max_line_length = 119
+profile = "django"
+
+[tool.djlint.css]
+indent_size = 2
+
+[tool.djlint.js]
+indent_size = 2

@@ -1,4 +1,4 @@
-exclude: "^docs/|/migrations/"
+exclude: '^docs/|/migrations/'
 default_stages: [commit]
 
 repos:
@@ -7,21 +7,44 @@ repos:
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
+      - id: check-json
+      - id: check-toml
+      - id: check-xml
       - id: check-yaml
+      - id: debug-statements
+      - id: check-builtin-literals
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: detect-private-key
+{%- if cookiecutter.frontend_pipeline in ["Webpack", "Gulp"] %}
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.0.0-alpha.9-for-vscode
+    hooks:
+      - id: prettier
+        args: ['--tab-width', '2', '--single-quote']
+        exclude: '{{cookiecutter.project_slug}}/templates/'
+{%- endif %}
+
+  - repo: https://github.com/adamchainz/django-upgrade
+    rev: '1.14.0'
+    hooks:
+      - id: django-upgrade
+        args: ['--target-version', '4.1']
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.2.2
+    rev: v3.7.0
     hooks:
       - id: pyupgrade
-        args: [--py310-plus]
+        args: [--py311-plus]
 
   - repo: https://github.com/psf/black
-    rev: 22.10.0
+    rev: 23.3.0
     hooks:
       - id: black
 
   - repo: https://github.com/PyCQA/isort
-    rev: 5.10.1
+    rev: 5.12.0
     hooks:
       - id: isort
 
@@ -29,8 +52,12 @@ repos:
     rev: 6.0.0
     hooks:
       - id: flake8
-        args: ["--config=setup.cfg"]
-        additional_dependencies: [flake8-isort]
+
+  - repo: https://github.com/Riverside-Healthcare/djLint
+    rev: v1.31.1
+    hooks:
+      - id: djlint-reformat-django
+      - id: djlint-django
 
 # sets up .pre-commit-ci.yaml to ensure pre-commit dependencies stay up to date
 ci:

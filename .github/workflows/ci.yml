@@ -2,6 +2,7 @@ name: CI
 
 on:
   push:
+    branches: ["master", "main"]
   pull_request:
 
 concurrency:
@@ -9,17 +10,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-          cache: pip
-      - name: Run pre-commit
-        uses: pre-commit/action@v3.0.0
-
   tests:
     strategy:
       fail-fast: false
@@ -29,18 +19,18 @@ jobs:
           - windows-latest
           - macOS-latest
 
-    name: "Run tests"
+    name: "pytest ${{ matrix.os }}"
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
-          python-version: "3.10"
+          python-version: "3.11"
           cache: pip
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Run tests
-        run: pytest tests
+        run: pytest -n auto tests
 
   docker:
     strategy:
@@ -48,11 +38,15 @@ jobs:
       matrix:
         script:
           - name: Basic
-            args: ""
-          - name: Extended
-            args: "use_celery=y use_drf=y frontend_pipeline=Gulp"
+            args: "ci_tool=Gitlab"
+          - name: Celery & DRF
+            args: "use_celery=y use_drf=y"
+          - name: Gulp
+            args: "frontend_pipeline=Gulp"
+          - name: Webpack
+            args: "frontend_pipeline=Webpack"
 
-    name: "${{ matrix.script.name }} Docker"
+    name: "Docker ${{ matrix.script.name }}"
     runs-on: ubuntu-latest
     env:
       DOCKER_BUILDKIT: 1
@@ -62,7 +56,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
-          python-version: "3.10"
+          python-version: "3.11"
           cache: pip
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -74,12 +68,16 @@ jobs:
       fail-fast: false
       matrix:
         script:
-          - name: With Celery
+          - name: Celery
             args: "use_celery=y frontend_pipeline='Django Compressor'"
-          - name: With Gulp
-            args: "frontend_pipeline='Gulp'"
+          - name: Gulp
+            args: "frontend_pipeline=Gulp"
+          - name: Webpack
+            args: "frontend_pipeline=Webpack use_heroku=y"
+          - name: Email Username
+            args: "username_type=email ci_tool=Github"
 
-    name: "${{ matrix.script.name }} Bare metal"
+    name: "Bare metal ${{ matrix.script.name }}"
     runs-on: ubuntu-latest
     services:
       redis:
@@ -102,7 +100,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
-          python-version: "3.10"
+          python-version: "3.11"
           cache: pip
           cache-dependency-path: |
             requirements.txt
@@ -112,6 +110,6 @@ jobs:
         run: pip install -r requirements.txt
       - uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "18"
       - name: Bare Metal ${{ matrix.script.name }}
         run: sh tests/test_bare.sh ${{ matrix.script.args }}

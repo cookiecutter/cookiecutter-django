@@ -326,6 +326,9 @@ Session.vim
 # Auto-generated tag files
 tags
 
+# Redis dump file
+dump.rdb
+
 ### Project template
 {%- if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' %}
 MailHog
@@ -343,4 +346,9 @@ project.css
 project.min.css
 vendors.js
 *.min.js
+*.min.js.map
+{%- endif %}
+{%- if cookiecutter.frontend_pipeline == 'Webpack' %}
+{{ cookiecutter.project_slug }}/static/webpack_bundles/
+webpack-stats.json
 {%- endif %}

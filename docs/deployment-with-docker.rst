@@ -84,6 +84,32 @@ You can read more about this feature and how to configure it, at `Automatic HTTP
 
 .. _Automatic HTTPS: https://docs.traefik.io/https/acme/
 
+.. _webpack-whitenoise-limitation:
+
+Webpack without Whitenoise limitation
+-------------------------------------
+
+If you opt for Webpack without Whitenoise, Webpack needs to know the static URL at build time, when running ``docker-compose build`` (See ``webpack/prod.config.js``). Depending on your setup, this URL may come from the following environment variables:
+
+- ``AWS_STORAGE_BUCKET_NAME``
+- ``DJANGO_AWS_S3_CUSTOM_DOMAIN``
+- ``DJANGO_GCP_STORAGE_BUCKET_NAME``
+- ``DJANGO_AZURE_CONTAINER_NAME``
+
+The Django settings are getting these values at runtime via the ``.envs/.production/.django`` file , but Docker does not read this file at build time, it only look for a ``.env`` in the root of the project. Failing to pass the values correctly will result in a page without CSS styles nor javascript.
+
+To solve this, you can either:
+
+1. merge all the env files into ``.env`` by running::
+
+     merge_production_dotenvs_in_dotenv.py
+
+2. create a ``.env`` file in the root of the project with just variables you need. You'll need to also define them in ``.envs/.production/.django`` (hence duplicating them).
+3. set these variables when running the build command::
+
+     DJANGO_AWS_S3_CUSTOM_DOMAIN=example.com docker-compose -f production.yml build``.
+
+None of these options are ideal, we're open to suggestions on how to improve this. If you think you have one, please open an issue or a pull request.
 
 (Optional) Postgres Data Volume Modifications
 ---------------------------------------------
@@ -161,3 +187,7 @@ For status check, run::
 
     supervisorctl status
 
+Media files without cloud provider
+----------------------------------
+
+If you chose no cloud provider and Docker, the media files will be served by an nginx service, from a ``production_django_media`` volume. Make sure to keep this around to avoid losing any media files.

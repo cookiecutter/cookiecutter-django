@@ -3,9 +3,6 @@ Getting Up and Running Locally With Docker
 
 .. index:: Docker
 
-The steps below will get you up and running with a local development environment.
-All of these commands assume you are in the root of your generated project.
-
 .. note::
 
     If you're new to Docker, please be aware that some resources are cached system-wide
@@ -19,10 +16,16 @@ Prerequisites
 * Docker; if you don't have it yet, follow the `installation instructions`_;
 * Docker Compose; refer to the official documentation for the `installation guide`_.
 * Pre-commit; refer to the official documentation for the `pre-commit`_.
+* Cookiecutter; refer to the official GitHub repository of `Cookiecutter`_
 
 .. _`installation instructions`: https://docs.docker.com/install/#supported-platforms
 .. _`installation guide`: https://docs.docker.com/compose/install/
 .. _`pre-commit`: https://pre-commit.com/#install
+.. _`Cookiecutter`: https://github.com/cookiecutter/cookiecutter
+
+Before Getting Started
+----------------------
+.. include:: generate-project-block.rst
 
 Build the Stack
 ---------------
@@ -141,6 +144,19 @@ This tells our computer that all future commands are specifically for the dev1 m
 
     $ eval "$(docker-machine env dev1)"
 
+Add 3rd party python packages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To install a new 3rd party python package, you cannot use ``pip install <package_name>``, that would only add the package to the container. The container is ephemeral, so that new library won't be persisted if you run another container. Instead, you should modify the Docker image:
+You have to modify the relevant requirement file: base, local or production by adding: ::
+
+    <package_name>==<package_version>
+
+To get this change picked up, you'll need to rebuild the image(s) and restart the running container: ::
+
+    docker-compose -f local.yml build
+    docker-compose -f local.yml up
+
 Debugging
 ~~~~~~~~~
 
@@ -209,6 +225,11 @@ Prerequisites:
 By default, it's enabled both in local and production environments (``local.yml`` and ``production.yml`` Docker Compose configs, respectively) through a ``flower`` service. For added security, ``flower`` requires its clients to provide authentication credentials specified as the corresponding environments' ``.envs/.local/.django`` and ``.envs/.production/.django`` ``CELERY_FLOWER_USER`` and ``CELERY_FLOWER_PASSWORD`` environment variables. Check out ``localhost:5555`` and see for yourself.
 
 .. _`Flower`: https://github.com/mher/flower
+
+Using Webpack or Gulp
+~~~~~~~~~~~~~~~~~~~~~
+
+When using Webpack or Gulp as the ``frontend_pipeline`` option, you should access your application at the address of the ``node`` service in order to see your correct styles. This is http://localhost:3000 by default. When using any of the other ``frontend_pipeline`` options, you should use the address of the ``django`` service, http://localhost:8000.
 
 Developing locally with HTTPS
 -----------------------------
