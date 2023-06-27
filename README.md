@@ -56,10 +56,11 @@ _These features can be enabled during initial project setup._
 
 ## Support this Project!
 
-This project is run by volunteers. Please support them in their efforts to maintain and improve Cookiecutter Django:
+This project is an open source project run by volunteers. You can sponsor us via [OpenCollective](https://opencollective.com/cookiecutter-django) or individually via GitHub Sponsors:
 
 - Daniel Roy Greenfeld, Project Lead ([GitHub](https://github.com/pydanny), [Patreon](https://www.patreon.com/danielroygreenfeld)): expertise in Django and AWS ELB.
 - Fabio C. Barrionuevo, Core Developer ([GitHub](https://github.com/luzfcb)): expertise in Python/Django, hands-on DevOps and frontend experience.
+- Bruno Alla, Core Developer ([GitHub](https://github.com/browniebroke)): expertise in Python/Django and DevOps.
 - Nikita Shupeyko, Core Developer ([GitHub](https://github.com/webyneter)): expertise in Python/Django, hands-on DevOps and frontend experience.
 
 Projects that provide financial support to the maintainers:
