@@ -1,18 +1,36 @@
 {% raw %}{% extends "base.html" %}
+
 {% load crispy_forms_tags %}
 
-{% block title %}{% endraw %}{% if cookiecutter.username_type == "email" %}{% raw %}{{ user.name }}{% endraw %}{% else %}{% raw %}{{ user.username }}{% endraw %}{% endif %}{% raw %}{% endblock %}
-
+{% block title %}
+{% endraw %}
+{% if cookiecutter.username_type == "email" %}
+  {% raw %}{{ user.name }}{% endraw %}
+{% else %}
+  {% raw %}{{ user.username }}{% endraw %}
+{% endif %}
+{% raw %}
+{% endblock title %}
 {% block content %}
-  <h1>{% endraw %}{% if cookiecutter.username_type == "email" %}{% raw %}{{ user.name }}{% endraw %}{% else %}{% raw %}{{ user.username }}{% endraw %}{% endif %}{% raw %}</h1>
-  <form class="form-horizontal" method="post" action="{% url 'users:update' %}">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <div class="control-group">
-      <div class="controls">
-        <button type="submit" class="btn btn-primary">Update</button>
-      </div>
+  <h1>
+  {% endraw %}
+  {% if cookiecutter.username_type == "email" %}
+    {% raw %}{{ user.name }}{% endraw %}
+  {% else %}
+    {% raw %}{{ user.username }}{% endraw %}
+  {% endif %}
+  {% raw %}
+</h1>
+<form class="form-horizontal"
+      method="post"
+      action="{% url 'users:update' %}">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" class="btn btn-primary">Update</button>
     </div>
-  </form>
-{% endblock %}
+  </div>
+</form>
+{% endblock content %}
 {%- endraw %}
