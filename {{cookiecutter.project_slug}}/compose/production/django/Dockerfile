@@ -39,7 +39,16 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   # needed to build cffi on some architectures
   libffi-dev \
   # needed to build Pillow on some architectures
+  libtiff5-dev \
+  libjpeg-dev \
+  libopenjp2-7-dev \
   zlib1g-dev \
+  libfreetype6-dev \
+  liblcms2-dev \
+  libwebp-dev \
+  libharfbuzz-dev \
+  libfribidi-dev \
+  libxcb1-dev \
   # psycopg2 dependencies
   libpq-dev
 

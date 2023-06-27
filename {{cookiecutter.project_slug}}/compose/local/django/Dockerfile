@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   libffi-dev \
   # needed to build Pillow on some architectures
   libtiff5-dev \
-  libjpeg8-dev \
+  libjpeg-dev \
   libopenjp2-7-dev \
   zlib1g-dev \
   libfreetype6-dev \
