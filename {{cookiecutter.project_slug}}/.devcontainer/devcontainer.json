@@ -42,7 +42,9 @@
                     "editor.codeActionsOnSave": {
                         "source.organizeImports": true
                     },
-                    //"editor.defaultFormatter": "ms-python.black-formatter",
+                    // Uncomment when fixed
+                    // https://github.com/microsoft/vscode-remote-release/issues/8474
+                    // "editor.defaultFormatter": "ms-python.black-formatter",
                     "formatting.blackPath": "/usr/local/bin/black",
                     "formatting.provider": "black",
                     "languageServer": "Pylance",
@@ -69,6 +71,7 @@
                 "ms-python.python",
                 "ms-python.vscode-pylance",
                 "ms-python.isort",
+                "ms-python.black-formatter",
                 // django
                 "batisteo.vscode-django"
             ]
