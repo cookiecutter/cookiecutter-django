@@ -231,7 +231,7 @@ def test_django_upgrade_passes(cookies, context_override):
     try:
         sh.django_upgrade(
             "--target-version",
-            "4.1",
+            "4.2",
             *python_files,
             _cwd=str(result.project_path),
         )
