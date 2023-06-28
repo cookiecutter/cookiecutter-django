@@ -7,7 +7,7 @@
     "init": true,
     "mounts": [
         {
-            "source": "./.history/bash_history",
+            "source": "./.devcontainer/bash_history",
             "target": "/home/dev-user/.bash_history",
             "type": "bind"
         },

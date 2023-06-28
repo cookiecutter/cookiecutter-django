@@ -73,16 +73,6 @@ def remove_pycharm_files():
         shutil.rmtree(docs_dir_path)
 
 
-def create_devcontainer_bash_history_file():
-    history_dir_path = ".history"
-    if not os.path.exists(history_dir_path):
-        os.mkdir(history_dir_path)
-
-    history_file_path = ".history/bash_history"
-    with open(history_file_path, "a"):
-        pass
-
-
 def remove_docker_files():
     shutil.rmtree(".devcontainer")
     shutil.rmtree("compose")
@@ -443,7 +433,6 @@ def main():
 
     if "{{ cookiecutter.use_docker }}".lower() == "y":
         remove_utility_files()
-        create_devcontainer_bash_history_file()
     else:
         remove_docker_files()
 

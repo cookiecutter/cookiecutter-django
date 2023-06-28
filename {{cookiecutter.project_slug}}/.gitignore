@@ -161,9 +161,8 @@ typings/
 !.vscode/extensions.json
 *.code-workspace
 
-# Local History for Visual Studio Code
-.history/
-
+# Local History for devcontainer
+.devcontainer/bash_history
 
 {% if cookiecutter.editor == 'PyCharm' -%}
 # Provided default Pycharm Run/Debug Configurations should be tracked by git
