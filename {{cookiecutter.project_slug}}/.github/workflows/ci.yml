@@ -49,7 +49,7 @@ jobs:
           - 6379:6379
       {%- endif %}
       postgres:
-        image: postgres:12
+        image: postgres:{{ cookiecutter.postgresql_version }}
         ports:
           - 5432:5432
         env:
