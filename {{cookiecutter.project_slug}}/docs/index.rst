@@ -4,17 +4,15 @@
    contain the root `toctree` directive.
 
 Welcome to {{ cookiecutter.project_name }}'s documentation!
-====================================================================
-
-Contents:
+======================================================================
 
 .. toctree::
    :maxdepth: 2
+   :caption: Contents:
 
-   install
-   deploy
-   docker_ec2
-   tests
+   howto{% if cookiecutter.use_pycharm == 'y' %}
+   pycharm/configuration{% endif %}
+   users
 
 
 

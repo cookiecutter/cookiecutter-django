@@ -7,8 +7,8 @@ Deployment with Docker
 Prerequisites
 -------------
 
-* Docker 1.10+.
-* Docker Compose 1.6+
+* Docker 17.05+.
+* Docker Compose 1.17+
 
 
 Understanding the Docker Compose Setup
@@ -19,13 +19,15 @@ Before you begin, check out the ``production.yml`` file in the root of this proj
 * ``django``: your application running behind ``Gunicorn``;
 * ``postgres``: PostgreSQL database with the application's relational data;
 * ``redis``: Redis instance for caching;
-* ``caddy``: Caddy web server with HTTPS on by default.
+* ``traefik``: Traefik reverse proxy with HTTPS on by default.
 
 Provided you have opted for Celery (via setting ``use_celery`` to ``y``) there are three more services:
 
 * ``celeryworker`` running a Celery worker process;
 * ``celerybeat`` running a Celery beat process;
-* ``flower`` running Flower_ (for more info, check out :ref:`CeleryFlower` instructions for local environment).
+* ``flower`` running Flower_.
+
+The ``flower`` service is served by Traefik over HTTPS, through the port ``5555``. For more information about Flower and its login credentials, check out :ref:`CeleryFlower` instructions for local environment.
 
 .. _`Flower`: https://github.com/mher/flower
 
@@ -35,12 +37,25 @@ Configuring the Stack
 
 The majority of services above are configured through the use of environment variables. Just check out :ref:`envs` and you will know the drill.
 
-To obtain logs and information about crashes in a production setup, make sure that you have access to an external Sentry instance (e.g. by creating an account with `sentry.io`_), and set the ``SENTRY_DSN`` variable.
+To obtain logs and information about crashes in a production setup, make sure that you have access to an external Sentry instance (e.g. by creating an account with `sentry.io`_), and set the ``SENTRY_DSN`` variable. Logs of level `logging.ERROR` are sent as Sentry events. Therefore, in order to send a Sentry event use:
+
+.. code-block:: python
+
+    import logging
+    logging.error("This event is sent to Sentry", extra={"<example_key>": "<example_value>"})
+
+The `extra` parameter allows you to send additional information about the context of this error.
+
 
 You will probably also need to setup the Mail backend, for example by adding a `Mailgun`_ API key and a `Mailgun`_ sender domain, otherwise, the account creation view will crash and result in a 500 error when the backend attempts to send an email to the account owner.
 
 .. _sentry.io: https://sentry.io/welcome
 .. _Mailgun: https://mailgun.com
+
+
+.. warning::
+
+    .. include:: mailgun.rst
 
 
 Optional: Use AWS IAM Role for EC2 instance
@@ -63,12 +78,38 @@ It is always better to deploy a site behind HTTPS and will become crucial as the
 
 * Access to the Django admin is set up by default to require HTTPS in production or once *live*.
 
-The Caddy web server used in the default configuration will get you a valid certificate from Lets Encrypt and update it automatically. All you need to do to enable this is to make sure that your DNS records are pointing to the server Caddy runs on.
+The Traefik reverse proxy used in the default configuration will get you a valid certificate from Lets Encrypt and update it automatically. All you need to do to enable this is to make sure that your DNS records are pointing to the server Traefik runs on.
 
-You can read more about this here at `Automatic HTTPS`_ in the Caddy docs.
+You can read more about this feature and how to configure it, at `Automatic HTTPS`_ in the Traefik docs.
 
-.. _Automatic HTTPS: https://caddyserver.com/docs/automatic-https
+.. _Automatic HTTPS: https://docs.traefik.io/https/acme/
 
+.. _webpack-whitenoise-limitation:
+
+Webpack without Whitenoise limitation
+-------------------------------------
+
+If you opt for Webpack without Whitenoise, Webpack needs to know the static URL at build time, when running ``docker-compose build`` (See ``webpack/prod.config.js``). Depending on your setup, this URL may come from the following environment variables:
+
+- ``AWS_STORAGE_BUCKET_NAME``
+- ``DJANGO_AWS_S3_CUSTOM_DOMAIN``
+- ``DJANGO_GCP_STORAGE_BUCKET_NAME``
+- ``DJANGO_AZURE_CONTAINER_NAME``
+
+The Django settings are getting these values at runtime via the ``.envs/.production/.django`` file , but Docker does not read this file at build time, it only look for a ``.env`` in the root of the project. Failing to pass the values correctly will result in a page without CSS styles nor javascript.
+
+To solve this, you can either:
+
+1. merge all the env files into ``.env`` by running::
+
+     merge_production_dotenvs_in_dotenv.py
+
+2. create a ``.env`` file in the root of the project with just variables you need. You'll need to also define them in ``.envs/.production/.django`` (hence duplicating them).
+3. set these variables when running the build command::
+
+     DJANGO_AWS_S3_CUSTOM_DOMAIN=example.com docker-compose -f production.yml build``.
+
+None of these options are ideal, we're open to suggestions on how to improve this. If you think you have one, please open an issue or a pull request.
 
 (Optional) Postgres Data Volume Modifications
 ---------------------------------------------
@@ -109,10 +150,10 @@ To check the logs out, run::
 
 If you want to scale your application, run::
 
-   docker-compose -f production.yml scale django=4
-   docker-compose -f production.yml scale celeryworker=2
+   docker-compose -f production.yml up --scale django=4
+   docker-compose -f production.yml up --scale celeryworker=2
 
-.. warning:: don't try to scale ``postgres``, ``celerybeat``, or ``caddy``.
+.. warning:: don't try to scale ``postgres``, ``celerybeat``, or ``traefik``.
 
 To see how your containers are doing run::
 
@@ -139,8 +180,14 @@ If you are using ``supervisor``, you can use this file as a starting point::
 Move it to ``/etc/supervisor/conf.d/{{cookiecutter.project_slug}}.conf`` and run::
 
     supervisorctl reread
+    supervisorctl update
     supervisorctl start {{cookiecutter.project_slug}}
 
 For status check, run::
 
     supervisorctl status
+
+Media files without cloud provider
+----------------------------------
+
+If you chose no cloud provider and Docker, the media files will be served by an nginx service, from a ``production_django_media`` volume. Make sure to keep this around to avoid losing any media files.

@@ -1,0 +1,115 @@
+name: CI
+
+on:
+  push:
+    branches: ["master", "main"]
+  pull_request:
+
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macOS-latest
+
+    name: "pytest ${{ matrix.os }}"
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run tests
+        run: pytest -n auto tests
+
+  docker:
+    strategy:
+      fail-fast: false
+      matrix:
+        script:
+          - name: Basic
+            args: "ci_tool=Gitlab"
+          - name: Celery & DRF
+            args: "use_celery=y use_drf=y"
+          - name: Gulp
+            args: "frontend_pipeline=Gulp"
+          - name: Webpack
+            args: "frontend_pipeline=Webpack"
+
+    name: "Docker ${{ matrix.script.name }}"
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_BUILDKIT: 1
+      COMPOSE_DOCKER_CLI_BUILD: 1
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Docker ${{ matrix.script.name }}
+        run: sh tests/test_docker.sh ${{ matrix.script.args }}
+
+  bare:
+    strategy:
+      fail-fast: false
+      matrix:
+        script:
+          - name: Celery
+            args: "use_celery=y frontend_pipeline='Django Compressor'"
+          - name: Gulp
+            args: "frontend_pipeline=Gulp"
+          - name: Webpack
+            args: "frontend_pipeline=Webpack use_heroku=y"
+          - name: Email Username
+            args: "username_type=email ci_tool=Github"
+
+    name: "Bare metal ${{ matrix.script.name }}"
+    runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis:5.0
+        ports:
+          - 6379:6379
+      postgres:
+        image: postgres:12
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_PASSWORD: postgres
+
+    env:
+      CELERY_BROKER_URL: "redis://localhost:6379/0"
+      # postgres://user:password@host:port/database
+      DATABASE_URL: "postgres://postgres:postgres@localhost:5432/postgres"
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            {{cookiecutter.project_slug}}/requirements/base.txt
+            {{cookiecutter.project_slug}}/requirements/local.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - name: Bare Metal ${{ matrix.script.name }}
+        run: sh tests/test_bare.sh ${{ matrix.script.args }}

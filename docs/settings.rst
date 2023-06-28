@@ -22,7 +22,6 @@ DATABASE_URL                            DATABASES                   auto w/ Dock
 DJANGO_ADMIN_URL                        n/a                         'admin/'                                       raises error
 DJANGO_DEBUG                            DEBUG                       True                                           False
 DJANGO_SECRET_KEY                       SECRET_KEY                  auto-generated                                 raises error
-DJANGO_SECURE_BROWSER_XSS_FILTER        SECURE_BROWSER_XSS_FILTER   n/a                                            True
 DJANGO_SECURE_SSL_REDIRECT              SECURE_SSL_REDIRECT         n/a                                            True
 DJANGO_SECURE_CONTENT_TYPE_NOSNIFF      SECURE_CONTENT_TYPE_NOSNIFF n/a                                            True
 DJANGO_SECURE_FRAME_DENY                SECURE_FRAME_DENY           n/a                                            True
@@ -44,11 +43,36 @@ CELERY_BROKER_URL                       CELERY_BROKER_URL           auto w/ Dock
 DJANGO_AWS_ACCESS_KEY_ID                AWS_ACCESS_KEY_ID           n/a                                            raises error
 DJANGO_AWS_SECRET_ACCESS_KEY            AWS_SECRET_ACCESS_KEY       n/a                                            raises error
 DJANGO_AWS_STORAGE_BUCKET_NAME          AWS_STORAGE_BUCKET_NAME     n/a                                            raises error
+DJANGO_AWS_S3_REGION_NAME               AWS_S3_REGION_NAME          n/a                                            None
+DJANGO_AWS_S3_CUSTOM_DOMAIN             AWS_S3_CUSTOM_DOMAIN        n/a                                            None
+DJANGO_AWS_S3_MAX_MEMORY_SIZE           AWS_S3_MAX_MEMORY_SIZE      n/a                                            100_000_000
+DJANGO_GCP_STORAGE_BUCKET_NAME          GS_BUCKET_NAME              n/a                                            raises error
+GOOGLE_APPLICATION_CREDENTIALS          n/a                         n/a                                            raises error
+DJANGO_AZURE_ACCOUNT_KEY                AZURE_ACCOUNT_KEY           n/a                                            raises error
+DJANGO_AZURE_ACCOUNT_NAME               AZURE_ACCOUNT_NAME          n/a                                            raises error
+DJANGO_AZURE_CONTAINER_NAME             AZURE_CONTAINER             n/a                                            raises error
 SENTRY_DSN                              SENTRY_DSN                  n/a                                            raises error
-DJANGO_SENTRY_CLIENT                    SENTRY_CLIENT               n/a                                            raven.contrib.django.raven_compat.DjangoClient
+SENTRY_ENVIRONMENT                      n/a                         n/a                                            production
+SENTRY_TRACES_SAMPLE_RATE               n/a                         n/a                                            0.0
 DJANGO_SENTRY_LOG_LEVEL                 SENTRY_LOG_LEVEL            n/a                                            logging.INFO
-MAILGUN_API_KEY                         MAILGUN_ACCESS_KEY          n/a                                            raises error
+MAILGUN_API_KEY                         MAILGUN_API_KEY             n/a                                            raises error
 MAILGUN_DOMAIN                          MAILGUN_SENDER_DOMAIN       n/a                                            raises error
+MAILGUN_API_URL                         n/a                         n/a                                            "https://api.mailgun.net/v3"
+MAILJET_API_KEY                         MAILJET_API_KEY             n/a                                            raises error
+MAILJET_SECRET_KEY                      MAILJET_SECRET_KEY          n/a                                            raises error
+MAILJET_API_URL                         n/a                         n/a                                            "https://api.mailjet.com/v3"
+MANDRILL_API_KEY                        MANDRILL_API_KEY            n/a                                            raises error
+MANDRILL_API_URL                        n/a                         n/a                                            "https://mandrillapp.com/api/1.0"
+POSTMARK_SERVER_TOKEN                   POSTMARK_SERVER_TOKEN       n/a                                            raises error
+POSTMARK_API_URL                        n/a                         n/a                                            "https://api.postmarkapp.com/"
+SENDGRID_API_KEY                        SENDGRID_API_KEY            n/a                                            raises error
+SENDGRID_GENERATE_MESSAGE_ID            True                        n/a                                            raises error
+SENDGRID_MERGE_FIELD_FORMAT             None                        n/a                                            raises error
+SENDGRID_API_URL                        n/a                         n/a                                            "https://api.sendgrid.com/v3/"
+SENDINBLUE_API_KEY                      SENDINBLUE_API_KEY          n/a                                            raises error
+SENDINBLUE_API_URL                      n/a                         n/a                                            "https://api.sendinblue.com/v3/"
+SPARKPOST_API_KEY                       SPARKPOST_API_KEY           n/a                                            raises error
+SPARKPOST_API_URL                       n/a                         n/a                                            "https://api.sparkpost.com/api/v1"
 ======================================= =========================== ============================================== ======================================================================
 
 --------------------------

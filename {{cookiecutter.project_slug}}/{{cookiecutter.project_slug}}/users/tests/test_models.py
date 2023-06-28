@@ -1,8 +1,9 @@
-import pytest
-from django.conf import settings
-
-pytestmark = pytest.mark.django_db
+from {{ cookiecutter.project_slug }}.users.models import User
 
 
-def test_user_get_absolute_url(user: settings.AUTH_USER_MODEL):
+def test_user_get_absolute_url(user: User):
+    {%- if cookiecutter.username_type == "email" %}
+    assert user.get_absolute_url() == f"/users/{user.pk}/"
+    {%- else %}
     assert user.get_absolute_url() == f"/users/{user.username}/"
+    {%- endif %}

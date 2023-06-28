@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+{%- if cookiecutter.frontend_pipeline == "Django Compressor" %}
+
+compress_enabled() {
+python << END
+import sys
+
+from environ import Env
+
+env = Env(COMPRESS_ENABLED=(bool, True))
+if env('COMPRESS_ENABLED'):
+    sys.exit(0)
+else:
+    sys.exit(1)
+
+END
+}
+
+if compress_enabled
+then
+  python manage.py compress
+fi
+{%- endif %}
+
+python manage.py collectstatic --noinput
+python manage.py compilemessages -i site-packages

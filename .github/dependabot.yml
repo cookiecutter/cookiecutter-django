@@ -1,0 +1,88 @@
+# Config for Dependabot updates. See Documentation here:
+# https://docs.github.com/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  # Update GitHub actions in workflows
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "update"
+
+  # Update npm packages
+  - package-ecosystem: "npm"
+    directory: "{{cookiecutter.project_slug}}/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "update"
+
+  # Enable version updates for Docker
+  # We need to specify each Dockerfile in a separate entry because Dependabot doesn't
+  # support wildcards or recursively checking subdirectories. Check this issue for updates:
+  # https://github.com/dependabot/dependabot-core/issues/2178
+  - package-ecosystem: "docker"
+    directory: "{{cookiecutter.project_slug}}/compose/local/django/"
+    schedule:
+      interval: "daily"
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+    labels:
+      - "update"
+
+  - package-ecosystem: "docker"
+    directory: "{{cookiecutter.project_slug}}/compose/local/docs/"
+    schedule:
+      interval: "daily"
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+    labels:
+      - "update"
+
+  - package-ecosystem: "docker"
+    directory: "{{cookiecutter.project_slug}}/compose/local/node/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "update"
+
+  - package-ecosystem: "docker"
+    directory: "{{cookiecutter.project_slug}}/compose/production/aws/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "update"
+
+  - package-ecosystem: "docker"
+    directory: "{{cookiecutter.project_slug}}/compose/production/django/"
+    schedule:
+      interval: "daily"
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+    labels:
+      - "update"
+
+  - package-ecosystem: "docker"
+    directory: "{{cookiecutter.project_slug}}/compose/production/postgres/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "update"
+
+  - package-ecosystem: "docker"
+    directory: "{{cookiecutter.project_slug}}/compose/production/traefik/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "update"

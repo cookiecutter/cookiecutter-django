@@ -1,0 +1,23 @@
+#!/bin/sh
+
+### Download a file from your Amazon S3 bucket to the postgres /backups folder
+###
+### Usage:
+###     $ docker-compose -f production.yml run --rm awscli <1>
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+working_dir="$(dirname ${0})"
+source "${working_dir}/_sourced/constants.sh"
+source "${working_dir}/_sourced/messages.sh"
+
+export AWS_ACCESS_KEY_ID="${DJANGO_AWS_ACCESS_KEY_ID}"
+export AWS_SECRET_ACCESS_KEY="${DJANGO_AWS_SECRET_ACCESS_KEY}"
+export AWS_STORAGE_BUCKET_NAME="${DJANGO_AWS_STORAGE_BUCKET_NAME}"
+
+
+aws s3 cp s3://${AWS_STORAGE_BUCKET_NAME}${BACKUP_DIR_PATH}/${1} ${BACKUP_DIR_PATH}/${1}
+
+message_success "Finished downloading ${1}."

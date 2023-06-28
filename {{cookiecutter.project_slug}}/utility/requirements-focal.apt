@@ -1,0 +1,23 @@
+##basic build dependencies of various Django apps for Ubuntu Focal 20.04
+#build-essential metapackage install: make, gcc, g++,
+build-essential
+#required to translate
+gettext
+python3-dev
+
+##shared dependencies of:
+##Pillow, pylibmc
+zlib1g-dev
+
+##Postgresql and psycopg2 dependencies
+libpq-dev
+
+##Pillow dependencies
+libtiff5-dev
+libjpeg8-dev
+libfreetype6-dev
+liblcms2-dev
+libwebp-dev
+
+##django-extensions
+graphviz-dev

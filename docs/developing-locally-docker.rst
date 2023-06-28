@@ -3,8 +3,11 @@ Getting Up and Running Locally With Docker
 
 .. index:: Docker
 
-The steps below will get you up and running with a local development environment.
-All of these commands assume you are in the root of your generated project.
+.. note::
+
+    If you're new to Docker, please be aware that some resources are cached system-wide
+    and might reappear if you generate a project multiple times with the same name (e.g.
+    :ref:`this issue with Postgres <docker-postgres-auth-failed>`).
 
 
 Prerequisites
@@ -12,21 +15,17 @@ Prerequisites
 
 * Docker; if you don't have it yet, follow the `installation instructions`_;
 * Docker Compose; refer to the official documentation for the `installation guide`_.
+* Pre-commit; refer to the official documentation for the `pre-commit`_.
+* Cookiecutter; refer to the official GitHub repository of `Cookiecutter`_
 
 .. _`installation instructions`: https://docs.docker.com/install/#supported-platforms
 .. _`installation guide`: https://docs.docker.com/compose/install/
+.. _`pre-commit`: https://pre-commit.com/#install
+.. _`Cookiecutter`: https://github.com/cookiecutter/cookiecutter
 
-
-Attention, Windows Users
-------------------------
-
-Currently PostgreSQL (``psycopg2`` python package) is not installed inside Docker containers for Windows users, while it is required by the generated Django project. To fix this, add ``psycopg2`` to the list of requirements inside ``requirements/base.txt``::
-
-    # Python-PostgreSQL Database Adapter
-    psycopg2==2.6.2
-
-Doing this will prevent the project from being installed in an Windows-only environment (thus without usage of Docker). If you want to use this project without Docker, make sure to remove ``psycopg2`` from the requirements again.
-
+Before Getting Started
+----------------------
+.. include:: generate-project-block.rst
 
 Build the Stack
 ---------------
@@ -36,6 +35,13 @@ This can take a while, especially the first time you run this particular command
     $ docker-compose -f local.yml build
 
 Generally, if you want to emulate production environment use ``production.yml`` instead. And this is true for any other actions you might need to perform: whenever a switch is required, just do it!
+
+Before doing any git commit, `pre-commit`_ should be installed globally on your local machine, and then::
+
+    $ git init
+    $ pre-commit install
+
+Failing to do so will result with a bunch of CI and Linter errors that can be avoided with pre-commit.
 
 
 Run the Stack
@@ -105,7 +111,6 @@ The most important thing for us here now is ``env_file`` section enlisting ``./.
     │   ├── .django
     │   └── .postgres
     └── .production
-        ├── .caddy
         ├── .django
         └── .postgres
 
@@ -120,9 +125,9 @@ Consider the aforementioned ``.envs/.local/.postgres``: ::
     POSTGRES_USER=XgOWtQtJecsAbaIyslwGvFvPawftNaqO
     POSTGRES_PASSWORD=jSljDz4whHuwO3aJIgVBrqEml5Ycbghorep4uVJ4xjDYQu0LfuTZdctj7y0YcCLu
 
-The three envs we are presented with here are ``POSTGRES_DB``, ``POSTGRES_USER``, and ``POSTGRES_PASSWORD`` (by the way, their values have also been generated for you). You might have figured out already where these definitions will end up; it's all the same with ``django`` and ``caddy`` service container envs.
+The three envs we are presented with here are ``POSTGRES_DB``, ``POSTGRES_USER``, and ``POSTGRES_PASSWORD`` (by the way, their values have also been generated for you). You might have figured out already where these definitions will end up; it's all the same with ``django`` service container envs.
 
-One final touch: should you ever need to merge ``.envs/production/*`` in a single ``.env`` run the ``merge_production_dotenvs_in_dotenv.py``: ::
+One final touch: should you ever need to merge ``.envs/.production/*`` in a single ``.env`` run the ``merge_production_dotenvs_in_dotenv.py``: ::
 
     $ python merge_production_dotenvs_in_dotenv.py
 
@@ -138,6 +143,19 @@ Activate a Docker Machine
 This tells our computer that all future commands are specifically for the dev1 machine. Using the ``eval`` command we can switch machines as needed.::
 
     $ eval "$(docker-machine env dev1)"
+
+Add 3rd party python packages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To install a new 3rd party python package, you cannot use ``pip install <package_name>``, that would only add the package to the container. The container is ephemeral, so that new library won't be persisted if you run another container. Instead, you should modify the Docker image:
+You have to modify the relevant requirement file: base, local or production by adding: ::
+
+    <package_name>==<package_version>
+
+To get this change picked up, you'll need to rebuild the image(s) and restart the running container: ::
+
+    docker-compose -f local.yml build
+    docker-compose -f local.yml up
 
 Debugging
 ~~~~~~~~~
@@ -160,17 +178,37 @@ django-debug-toolbar
 In order for ``django-debug-toolbar`` to work designate your Docker Machine IP with ``INTERNAL_IPS`` in ``local.py``.
 
 
+docker
+""""""
+
+The ``container_name`` from the yml file can be used to check on containers with docker commands, for example: ::
+
+    $ docker logs <project_slug>_local_celeryworker
+    $ docker top <project_slug>_local_celeryworker
+
+
+Notice that the ``container_name`` is generated dynamically using your project slug as a prefix
+
 Mailhog
 ~~~~~~~
 
 When developing locally you can go with MailHog_ for email testing provided ``use_mailhog`` was set to ``y`` on setup. To proceed,
 
-#. make sure ``mailhog`` container is up and running;
+#. make sure ``<project_slug>_local_mailhog`` container is up and running;
 
 #. open up ``http://127.0.0.1:8025``.
 
 .. _Mailhog: https://github.com/mailhog/MailHog/
 
+.. _`CeleryTasks`:
+
+Celery tasks in local development
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+When not using docker Celery tasks are set to run in Eager mode, so that a full stack is not needed. When using docker the task scheduler will be used by default.
+
+If you need tasks to be executed on the main thread during development set ``CELERY_TASK_ALWAYS_EAGER = True`` in ``config/settings/local.py``.
+
+Possible uses could be for testing, or ease of profiling with DJDT.
 
 .. _`CeleryFlower`:
 
@@ -187,3 +225,101 @@ Prerequisites:
 By default, it's enabled both in local and production environments (``local.yml`` and ``production.yml`` Docker Compose configs, respectively) through a ``flower`` service. For added security, ``flower`` requires its clients to provide authentication credentials specified as the corresponding environments' ``.envs/.local/.django`` and ``.envs/.production/.django`` ``CELERY_FLOWER_USER`` and ``CELERY_FLOWER_PASSWORD`` environment variables. Check out ``localhost:5555`` and see for yourself.
 
 .. _`Flower`: https://github.com/mher/flower
+
+Using Webpack or Gulp
+~~~~~~~~~~~~~~~~~~~~~
+
+When using Webpack or Gulp as the ``frontend_pipeline`` option, you should access your application at the address of the ``node`` service in order to see your correct styles. This is http://localhost:3000 by default. When using any of the other ``frontend_pipeline`` options, you should use the address of the ``django`` service, http://localhost:8000.
+
+Developing locally with HTTPS
+-----------------------------
+
+Increasingly it is becoming necessary to develop software in a secure environment in order that there are very few changes when deploying to production. Recently Facebook changed their policies for apps/sites that use Facebook login which requires the use of an HTTPS URL for the OAuth redirect URL. So if you want to use the ``users`` application with a OAuth provider such as Facebook, securing your communication to the local development environment will be necessary.
+
+In order to create a secure environment, we need to have a trusted SSL certificate installed in our Docker application.
+
+#.  **Let's Encrypt**
+
+    The official line from Let’s Encrypt is:
+
+    [For local development section] ... The best option: Generate your own certificate, either self-signed or signed by a local root, and trust it in your operating system’s trust store. Then use that certificate in your local web server. See below for details.
+
+    See `letsencrypt.org - certificates-for-localhost`_
+
+    .. _`letsencrypt.org - certificates-for-localhost`: https://letsencrypt.org/docs/certificates-for-localhost/
+
+#.  **mkcert: Valid Https Certificates For Localhost**
+
+    `mkcert`_ is a simple by design tool that hides all the arcane knowledge required to generate valid TLS certificates. It works for any hostname or IP, including localhost. It supports macOS, Linux, and Windows, and Firefox, Chrome and Java. It even works on mobile devices with a couple manual steps.
+
+    See https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/
+
+    .. _`mkcert`:  https://github.com/FiloSottile/mkcert/blob/master/README.md#supported-root-stores
+
+After installing a trusted TLS certificate, configure your docker installation. We are going to configure an ``nginx`` reverse-proxy server. This makes sure that it does not interfere with our ``traefik`` configuration that is reserved for production environments.
+
+These are the places that you should configure to secure your local environment.
+
+certs
+~~~~~
+
+Take the certificates that you generated and place them in a folder called ``certs`` in the project's root folder. Assuming that you registered your local hostname as ``my-dev-env.local``, the certificates you will put in the folder should have the names ``my-dev-env.local.crt`` and ``my-dev-env.local.key``.
+
+local.yml
+~~~~~~~~~
+
+#. Add the ``nginx-proxy`` service. ::
+
+    ...
+
+    nginx-proxy:
+      image: jwilder/nginx-proxy:alpine
+      container_name: nginx-proxy
+      ports:
+        - "80:80"
+        - "443:443"
+      volumes:
+        - /var/run/docker.sock:/tmp/docker.sock:ro
+        - ./certs:/etc/nginx/certs
+      restart: always
+      depends_on:
+        - django
+
+    ...
+
+#. Link the ``nginx-proxy`` to ``django`` through environment variables.
+
+   ``django`` already has an ``.env`` file connected to it. Add the following variables. You should do this especially if you are working with a team and you want to keep your local environment details to yourself.
+
+   ::
+
+      # HTTPS
+      # ------------------------------------------------------------------------------
+      VIRTUAL_HOST=my-dev-env.local
+      VIRTUAL_PORT=8000
+
+   The services run behind the reverse proxy.
+
+config/settings/local.py
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+You should allow the new hostname. ::
+
+  ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "my-dev-env.local"]
+
+Rebuild your ``docker`` application. ::
+
+  $ docker-compose -f local.yml up -d --build
+
+Go to your browser and type in your URL bar ``https://my-dev-env.local``
+
+See `https with nginx`_ for more information on this configuration.
+
+  .. _`https with nginx`: https://codewithhugo.com/docker-compose-local-https/
+
+.gitignore
+~~~~~~~~~~
+
+Add ``certs/*`` to the ``.gitignore`` file. This allows the folder to be included in the repo but its contents to be ignored.
+
+*This configuration is for local development environments only. Do not use this for production since you might expose your local* ``rootCA-key.pem``.

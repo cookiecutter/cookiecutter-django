@@ -159,6 +159,10 @@ typings/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
 
 
 {% if cookiecutter.use_pycharm == 'y' -%}
@@ -321,29 +325,30 @@ Session.vim
 
 # Auto-generated tag files
 tags
-{% if cookiecutter.use_docker == 'n' %}
 
-### VirtualEnv template
-# Virtualenv
-# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
-[Bb]in
-[Ii]nclude
-[Ll]ib
-[Ll]ib64
-[Ss]cripts
-pyvenv.cfg
-pip-selfcheck.json
-.env
-{% endif %}
+# Redis dump file
+dump.rdb
 
 ### Project template
-{% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' %}
+{%- if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' %}
 MailHog
 {%- endif %}
 {{ cookiecutter.project_slug }}/media/
 
 .pytest_cache/
 
-{% if cookiecutter.use_docker == 'y' %}
+{%- if cookiecutter.use_docker == 'y' %}
 .ipython/
+{%- endif %}
+
+{%- if cookiecutter.frontend_pipeline == 'Gulp' %}
+project.css
+project.min.css
+vendors.js
+*.min.js
+*.min.js.map
+{%- endif %}
+{%- if cookiecutter.frontend_pipeline == 'Webpack' %}
+{{ cookiecutter.project_slug }}/static/webpack_bundles/
+webpack-stats.json
 {%- endif %}
