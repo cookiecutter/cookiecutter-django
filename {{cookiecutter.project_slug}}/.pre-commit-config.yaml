@@ -30,7 +30,7 @@ repos:
     rev: '1.14.0'
     hooks:
       - id: django-upgrade
-        args: ['--target-version', '4.1']
+        args: ['--target-version', '4.2']
 
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.7.0
