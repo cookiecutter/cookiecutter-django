@@ -74,6 +74,13 @@ accept and merge pull requests.
     </td>
     <td>sfdye</td>
   </tr>
+  <tr>
+    <td>Jelmer Draaijer</td>
+    <td>
+      <a href="https://github.com/foarsitter">foarsitter</a>
+    </td>
+    <td></td>
+  </tr>
 </table>
 
 _Audrey is also the creator of Cookiecutter. Audrey and Daniel are on
@@ -1003,13 +1010,6 @@ Listed in alphabetical order.
     <td>Jan Van Bruggen</td>
     <td>
       <a href="https://github.com/jvanbrug">jvanbrug</a>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Jelmer Draaijer</td>
-    <td>
-      <a href="https://github.com/foarsitter">foarsitter</a>
     </td>
     <td></td>
   </tr>
