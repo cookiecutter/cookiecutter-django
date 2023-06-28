@@ -35,10 +35,6 @@
         "vscode": {
             "settings": {
                 "editor.formatOnSave": true,
-                "isort.args": [
-                    "--profile",
-                    "black"
-                ],
                 "[python]": {
                     "analysis.autoImportCompletions": true,
                     "analysis.typeCheckingMode": "basic",
