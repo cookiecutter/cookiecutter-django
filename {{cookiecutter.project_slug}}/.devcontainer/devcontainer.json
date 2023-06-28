@@ -43,10 +43,8 @@
                         "source.organizeImports": true
                     },
                     //"editor.defaultFormatter": "ms-python.black-formatter",
-                    // "formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
                     "formatting.blackPath": "/usr/local/bin/black",
                     "formatting.provider": "black",
-                    // "formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
                     "languageServer": "Pylance",
                     // "linting.banditPath": "/usr/local/py-utils/bin/bandit",
                     "linting.enabled": true,
