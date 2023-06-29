@@ -1,12 +1,7 @@
-from __future__ import annotations
-
-import typing
-
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
-if typing.TYPE_CHECKING:
-    from {{ cookiecutter.project_slug }}.users.models import User as UserType
+from {{ cookiecutter.project_slug }}.users.models import User as UserType
 
 
 User = get_user_model()
