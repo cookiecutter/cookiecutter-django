@@ -56,6 +56,7 @@ SUPPORTED_COMBINATIONS = [
     {"use_pycharm": "n"},
     {"use_docker": "y"},
     {"use_docker": "n"},
+    {"postgresql_version": "15"},
     {"postgresql_version": "14"},
     {"postgresql_version": "13"},
     {"postgresql_version": "12"},
