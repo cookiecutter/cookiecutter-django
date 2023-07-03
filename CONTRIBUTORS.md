@@ -1308,6 +1308,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>masavini</td>
+    <td>
+      <a href="https://github.com/masavini">masavini</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Mateusz Ostaszewski</td>
     <td>
       <a href="https://github.com/mostaszewski">mostaszewski</a>
