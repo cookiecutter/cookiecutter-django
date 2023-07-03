@@ -16,7 +16,7 @@
   "username_type": ["username", "email"],
   "timezone": "UTC",
   "windows": "n",
-  "use_pycharm": "n",
+  "editor": ["None", "PyCharm", "VS Code"],
   "use_docker": "n",
   "postgresql_version": ["14", "13", "12", "11", "10"],
   "cloud_provider": ["AWS", "GCP", "Azure", "None"],

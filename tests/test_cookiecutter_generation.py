@@ -52,8 +52,9 @@ SUPPORTED_COMBINATIONS = [
     {"open_source_license": "Not open source"},
     {"windows": "y"},
     {"windows": "n"},
-    {"use_pycharm": "y"},
-    {"use_pycharm": "n"},
+    {"editor": "None"},
+    {"editor": "PyCharm"},
+    {"editor": "VS Code"},
     {"use_docker": "y"},
     {"use_docker": "n"},
     {"postgresql_version": "14"},
@@ -373,14 +374,15 @@ def test_error_if_incompatible(cookies, context, invalid_context):
 
 
 @pytest.mark.parametrize(
-    ["use_pycharm", "pycharm_docs_exist"],
+    ["editor", "pycharm_docs_exist"],
     [
-        ("n", False),
-        ("y", True),
+        ("None", False),
+        ("PyCharm", True),
+        ("VS Code", False),
     ],
 )
-def test_pycharm_docs_removed(cookies, context, use_pycharm, pycharm_docs_exist):
-    context.update({"use_pycharm": use_pycharm})
+def test_pycharm_docs_removed(cookies, context, editor, pycharm_docs_exist):
+    context.update({"editor": editor})
     result = cookies.bake(extra_context=context)
 
     with open(f"{result.project_path}/docs/index.rst") as f:

@@ -126,7 +126,11 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     Choose from 1, 2 [1]: 1
     timezone [UTC]: America/Los_Angeles
     windows [n]: n
-    use_pycharm [n]: y
+    Select an editor to use. The choices are:
+    1 - None
+    2 - PyCharm
+    3 - VS Code
+    Choose from 1, 2, 3 [1]: 1
     use_docker [n]: n
     Select postgresql_version:
     1 - 14
