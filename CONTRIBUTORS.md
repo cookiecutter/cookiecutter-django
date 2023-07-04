@@ -1070,6 +1070,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Joseph Hanna</td>
+    <td>
+      <a href="https://github.com/sanchimenea">sanchimenea</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>jugglinmike</td>
     <td>
       <a href="https://github.com/jugglinmike">jugglinmike</a>
