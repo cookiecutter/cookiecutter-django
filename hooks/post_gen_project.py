@@ -74,12 +74,13 @@ def remove_pycharm_files():
 
 
 def remove_docker_files():
+    shutil.rmtree(".devcontainer")
     shutil.rmtree("compose")
 
     file_names = ["local.yml", "production.yml", ".dockerignore"]
     for file_name in file_names:
         os.remove(file_name)
-    if "{{ cookiecutter.use_pycharm }}".lower() == "y":
+    if "{{ cookiecutter.editor }}".lower() == "PyCharm":
         file_names = ["docker_compose_up_django.xml", "docker_compose_up_docs.xml"]
         for file_name in file_names:
             os.remove(os.path.join(".idea", "runConfigurations", file_name))
@@ -96,10 +97,6 @@ def remove_heroku_files():
             # don't remove the file if we are using travisci but not using heroku
             continue
         os.remove(file_name)
-    remove_heroku_build_hooks()
-
-
-def remove_heroku_build_hooks():
     shutil.rmtree("bin")
 
 
@@ -194,7 +191,9 @@ def handle_js_runner(choice, use_docker, use_async):
             "gulp-uglify-es",
         ]
         if not use_docker:
-            dev_django_cmd = "uvicorn config.asgi:application --reload" if use_async else "python manage.py runserver"
+            dev_django_cmd = (
+                "uvicorn config.asgi:application --reload" if use_async else "python manage.py runserver_plus"
+            )
             scripts.update(
                 {
                     "dev": "concurrently npm:dev:*",
@@ -429,7 +428,7 @@ def main():
     if "{{ cookiecutter.username_type }}" == "username":
         remove_custom_user_manager_files()
 
-    if "{{ cookiecutter.use_pycharm }}".lower() == "n":
+    if "{{ cookiecutter.editor }}".lower() != "PyCharm":
         remove_pycharm_files()
 
     if "{{ cookiecutter.use_docker }}".lower() == "y":
@@ -442,15 +441,13 @@ def main():
 
     if "{{ cookiecutter.use_heroku }}".lower() == "n":
         remove_heroku_files()
-    elif "{{ cookiecutter.frontend_pipeline }}" != "Django Compressor":
-        remove_heroku_build_hooks()
 
     if "{{ cookiecutter.use_docker }}".lower() == "n" and "{{ cookiecutter.use_heroku }}".lower() == "n":
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
             print(
                 INFO + ".env(s) are only utilized when Docker Compose and/or "
-                "Heroku support is enabled so keeping them does not "
-                "make sense given your current setup." + TERMINATOR
+                "Heroku support is enabled so keeping them does not make sense "
+                "given your current setup." + TERMINATOR
             )
         remove_envs_and_associated_files()
     else:

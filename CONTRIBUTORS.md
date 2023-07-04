@@ -74,6 +74,13 @@ accept and merge pull requests.
     </td>
     <td>sfdye</td>
   </tr>
+  <tr>
+    <td>Jelmer Draaijer</td>
+    <td>
+      <a href="https://github.com/foarsitter">foarsitter</a>
+    </td>
+    <td></td>
+  </tr>
 </table>
 
 _Audrey is also the creator of Cookiecutter. Audrey and Daniel are on
@@ -1007,13 +1014,6 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
-    <td>Jelmer Draaijer</td>
-    <td>
-      <a href="https://github.com/foarsitter">foarsitter</a>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
     <td>Jens Nilsson</td>
     <td>
       <a href="https://github.com/phiberjenz">phiberjenz</a>
@@ -1066,6 +1066,13 @@ Listed in alphabetical order.
     <td>Jorge Valdez</td>
     <td>
       <a href="https://github.com/jorgeavaldez">jorgeavaldez</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Joseph Hanna</td>
+    <td>
+      <a href="https://github.com/sanchimenea">sanchimenea</a>
     </td>
     <td></td>
   </tr>
@@ -1308,9 +1315,23 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>masavini</td>
+    <td>
+      <a href="https://github.com/masavini">masavini</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Mateusz Ostaszewski</td>
     <td>
       <a href="https://github.com/mostaszewski">mostaszewski</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Matheus Jardim Bernardes</td>
+    <td>
+      <a href="https://github.com/matheusjardimb">matheusjardimb</a>
     </td>
     <td></td>
   </tr>

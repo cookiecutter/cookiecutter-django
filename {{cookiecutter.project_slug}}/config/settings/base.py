@@ -26,6 +26,12 @@ DEBUG = env.bool("DJANGO_DEBUG", False)
 TIME_ZONE = "{{ cookiecutter.timezone }}"
 # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
 LANGUAGE_CODE = "en-us"
+# https://docs.djangoproject.com/en/dev/ref/settings/#languages
+# from django.utils.translation import gettext_lazy as _
+# LANGUAGES = [
+#     ('en', _('English')),
+#     ('pt-br', _('Português')),
+# ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
@@ -244,6 +250,9 @@ ADMIN_URL = "admin/"
 ADMINS = [("""{{cookiecutter.author_name}}""", "{{cookiecutter.email}}")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
+# https://cookiecutter-django.readthedocs.io/en/latest/settings.html#other-environment-settings
+# Force the `admin` sign in process to go through the `django-allauth` workflow
+DJANGO_ADMIN_FORCE_ALLAUTH = env.bool('DJANGO_ADMIN_FORCE_ALLAUTH', default=False)
 
 # LOGGING
 # ------------------------------------------------------------------------------

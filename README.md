@@ -19,7 +19,7 @@ production-ready Django projects quickly.
 
 ## Features
 
-- For Django 4.1
+- For Django 4.2
 - Works with Python 3.11
 - Renders Django projects with 100% starting test coverage
 - Twitter [Bootstrap](https://github.com/twbs/bootstrap) v5
@@ -51,15 +51,16 @@ _These features can be enabled during initial project setup._
 ## Constraints
 
 - Only maintained 3rd party libraries are used.
-- Uses PostgreSQL everywhere: 10.19 - 14.1 ([MySQL fork](https://github.com/mabdullahadeel/cookiecutter-django-mysql) also available).
+- Uses PostgreSQL everywhere: 10 - 15 ([MySQL fork](https://github.com/mabdullahadeel/cookiecutter-django-mysql) also available).
 - Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
 ## Support this Project!
 
-This project is run by volunteers. Please support them in their efforts to maintain and improve Cookiecutter Django:
+This project is an open source project run by volunteers. You can sponsor us via [OpenCollective](https://opencollective.com/cookiecutter-django) or individually via GitHub Sponsors:
 
 - Daniel Roy Greenfeld, Project Lead ([GitHub](https://github.com/pydanny), [Patreon](https://www.patreon.com/danielroygreenfeld)): expertise in Django and AWS ELB.
 - Fabio C. Barrionuevo, Core Developer ([GitHub](https://github.com/luzfcb)): expertise in Python/Django, hands-on DevOps and frontend experience.
+- Bruno Alla, Core Developer ([GitHub](https://github.com/browniebroke)): expertise in Python/Django and DevOps.
 - Nikita Shupeyko, Core Developer ([GitHub](https://github.com/webyneter)): expertise in Python/Django, hands-on DevOps and frontend experience.
 
 Projects that provide financial support to the maintainers:
@@ -125,14 +126,19 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     Choose from 1, 2 [1]: 1
     timezone [UTC]: America/Los_Angeles
     windows [n]: n
-    use_pycharm [n]: y
+    Select an editor to use. The choices are:
+    1 - None
+    2 - PyCharm
+    3 - VS Code
+    Choose from 1, 2, 3 [1]: 1
     use_docker [n]: n
     Select postgresql_version:
-    1 - 14
-    2 - 13
-    3 - 12
-    4 - 11
-    5 - 10
+    1 - 15
+    2 - 14
+    3 - 13
+    4 - 12
+    5 - 11
+    6 - 10
     Choose from 1, 2, 3, 4, 5 [1]: 1
     Select cloud_provider:
     1 - AWS
