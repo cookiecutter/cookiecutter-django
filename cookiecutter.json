@@ -18,7 +18,7 @@
   "windows": "n",
   "editor": ["None", "PyCharm", "VS Code"],
   "use_docker": "n",
-  "postgresql_version": ["14", "13", "12", "11", "10"],
+  "postgresql_version": ["15", "14", "13", "12", "11", "10"],
   "cloud_provider": ["AWS", "GCP", "Azure", "None"],
   "mail_service": [
     "Mailgun",
