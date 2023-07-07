@@ -22,7 +22,6 @@ DATABASE_URL                            DATABASES                   auto w/ Dock
 DJANGO_ADMIN_URL                        n/a                         'admin/'                                       raises error
 DJANGO_DEBUG                            DEBUG                       True                                           False
 DJANGO_SECRET_KEY                       SECRET_KEY                  auto-generated                                 raises error
-DJANGO_SECURE_BROWSER_XSS_FILTER        SECURE_BROWSER_XSS_FILTER   n/a                                            True
 DJANGO_SECURE_SSL_REDIRECT              SECURE_SSL_REDIRECT         n/a                                            True
 DJANGO_SECURE_CONTENT_TYPE_NOSNIFF      SECURE_CONTENT_TYPE_NOSNIFF n/a                                            True
 DJANGO_SECURE_FRAME_DENY                SECURE_FRAME_DENY           n/a                                            True
@@ -82,3 +81,6 @@ Other Environment Settings
 
 DJANGO_ACCOUNT_ALLOW_REGISTRATION (=True)
     Allow enable or disable user registration through `django-allauth` without disabling other characteristics like authentication and account management. (Django Setting: ACCOUNT_ALLOW_REGISTRATION)
+
+DJANGO_ADMIN_FORCE_ALLAUTH (=False)
+    Force the `admin` sign in process to go through the `django-allauth` workflow.

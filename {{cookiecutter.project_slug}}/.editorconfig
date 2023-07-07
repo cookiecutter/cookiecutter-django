@@ -22,6 +22,6 @@ trim_trailing_whitespace = false
 [Makefile]
 indent_style = tab
 
-[nginx.conf]
+[default.conf]
 indent_style = space
 indent_size = 2

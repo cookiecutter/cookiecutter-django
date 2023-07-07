@@ -74,10 +74,17 @@ accept and merge pull requests.
     </td>
     <td>sfdye</td>
   </tr>
+  <tr>
+    <td>Jelmer Draaijer</td>
+    <td>
+      <a href="https://github.com/foarsitter">foarsitter</a>
+    </td>
+    <td></td>
+  </tr>
 </table>
 
-*Audrey is also the creator of Cookiecutter. Audrey and Daniel are on
-the Cookiecutter core team.*
+_Audrey is also the creator of Cookiecutter. Audrey and Daniel are on
+the Cookiecutter core team._
 
 ## Other Contributors
 
@@ -293,6 +300,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Arkadiusz Michał Ryś</td>
+    <td>
+      <a href="https://github.com/arrys">arrys</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Arnav Choudhury</td>
     <td>
       <a href="https://github.com/arnav13081994">arnav13081994</a>
@@ -359,6 +373,13 @@ Listed in alphabetical order.
     <td>Bert de Miranda</td>
     <td>
       <a href="https://github.com/bertdemiranda">bertdemiranda</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Birtibu</td>
+    <td>
+      <a href="https://github.com/Birtibu">Birtibu</a>
     </td>
     <td></td>
   </tr>
@@ -643,6 +664,13 @@ Listed in alphabetical order.
     <td>jangeador</td>
   </tr>
   <tr>
+    <td>Delphine LEMIRE</td>
+    <td>
+      <a href="https://github.com/DelphineLemire">DelphineLemire</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Demetris Stavrou</td>
     <td>
       <a href="https://github.com/demestav">demestav</a>
@@ -704,6 +732,13 @@ Listed in alphabetical order.
       <a href="https://github.com/dudanogueira">dudanogueira</a>
     </td>
     <td>dudanogueira</td>
+  </tr>
+  <tr>
+    <td>duffn</td>
+    <td>
+      <a href="https://github.com/duffn">duffn</a>
+    </td>
+    <td></td>
   </tr>
   <tr>
     <td>Dónal Adams</td>
@@ -902,6 +937,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Hoai-Thu Vuong</td>
+    <td>
+      <a href="https://github.com/thuvh">thuvh</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Howie Zhao</td>
     <td>
       <a href="https://github.com/howiezhao">howiezhao</a>
@@ -972,13 +1014,6 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
-    <td>Jelmer Draaijer</td>
-    <td>
-      <a href="https://github.com/foarsitter">foarsitter</a>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
     <td>Jens Nilsson</td>
     <td>
       <a href="https://github.com/phiberjenz">phiberjenz</a>
@@ -1031,6 +1066,13 @@ Listed in alphabetical order.
     <td>Jorge Valdez</td>
     <td>
       <a href="https://github.com/jorgeavaldez">jorgeavaldez</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Joseph Hanna</td>
+    <td>
+      <a href="https://github.com/sanchimenea">sanchimenea</a>
     </td>
     <td></td>
   </tr>
@@ -1273,9 +1315,23 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>masavini</td>
+    <td>
+      <a href="https://github.com/masavini">masavini</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Mateusz Ostaszewski</td>
     <td>
       <a href="https://github.com/mostaszewski">mostaszewski</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Matheus Jardim Bernardes</td>
+    <td>
+      <a href="https://github.com/matheusjardimb">matheusjardimb</a>
     </td>
     <td></td>
   </tr>
@@ -1399,6 +1455,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Morten Kaae</td>
+    <td>
+      <a href="https://github.com/MortenKaae">MortenKaae</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>mozillazg</td>
     <td>
       <a href="https://github.com/mozillazg">mozillazg</a>
@@ -1409,6 +1472,13 @@ Listed in alphabetical order.
     <td>mpoli</td>
     <td>
       <a href="https://github.com/mpoli">mpoli</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>mpsantos</td>
+    <td>
+      <a href="https://github.com/mpsantos">mpsantos</a>
     </td>
     <td></td>
   </tr>
@@ -1472,6 +1542,13 @@ Listed in alphabetical order.
     <td>Parbhat Puri</td>
     <td>
       <a href="https://github.com/parbhat">parbhat</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Patrick Tran</td>
+    <td>
+      <a href="https://github.com/theptrk">theptrk</a>
     </td>
     <td></td>
   </tr>
@@ -1735,6 +1812,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>tildebox</td>
+    <td>
+      <a href="https://github.com/tildebox">tildebox</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Tim Claessens</td>
     <td>
       <a href="https://github.com/timclaessens">timclaessens</a>
@@ -1909,6 +1993,6 @@ Listed in alphabetical order.
 The following haven't provided code directly, but have provided
 guidance and advice.
 
--   Jannis Leidel
--   Nate Aune
--   Barry Morrison
+- Jannis Leidel
+- Nate Aune
+- Barry Morrison

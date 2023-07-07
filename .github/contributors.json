@@ -54,6 +54,12 @@
     "is_core": true
   },
   {
+    "name": "Jelmer Draaijer",
+    "github_login": "foarsitter",
+    "twitter_username": "",
+    "is_core": true
+  },
+  {
     "name": "18",
     "github_login": "dezoito",
     "twitter_username": ""
@@ -551,11 +557,6 @@
   {
     "name": "Jan Van Bruggen",
     "github_login": "jvanbrug",
-    "twitter_username": ""
-  },
-  {
-    "name": "Jelmer Draaijer",
-    "github_login": "foarsitter",
     "twitter_username": ""
   },
   {
@@ -1346,6 +1347,66 @@
   {
     "name": "Robin",
     "github_login": "Kaffeetasse",
+    "twitter_username": ""
+  },
+  {
+    "name": "Patrick Tran",
+    "github_login": "theptrk",
+    "twitter_username": ""
+  },
+  {
+    "name": "tildebox",
+    "github_login": "tildebox",
+    "twitter_username": ""
+  },
+  {
+    "name": "duffn",
+    "github_login": "duffn",
+    "twitter_username": ""
+  },
+  {
+    "name": "Delphine LEMIRE",
+    "github_login": "DelphineLemire",
+    "twitter_username": ""
+  },
+  {
+    "name": "Hoai-Thu Vuong",
+    "github_login": "thuvh",
+    "twitter_username": ""
+  },
+  {
+    "name": "Arkadiusz Michał Ryś",
+    "github_login": "arrys",
+    "twitter_username": ""
+  },
+  {
+    "name": "mpsantos",
+    "github_login": "mpsantos",
+    "twitter_username": ""
+  },
+  {
+    "name": "Morten Kaae",
+    "github_login": "MortenKaae",
+    "twitter_username": ""
+  },
+  {
+    "name": "Birtibu",
+    "github_login": "Birtibu",
+    "twitter_username": ""
+  },
+  {
+    "name": "Matheus Jardim Bernardes",
+    "github_login": "matheusjardimb",
+    "twitter_username": ""
+  },
+  {
+    "name": "masavini",
+    "github_login": "masavini",
+    "twitter_username": ""
+  },
+  {
+    "name": "Joseph Hanna",
+    "github_login": "sanchimenea",
     "twitter_username": ""
   }
 ]
