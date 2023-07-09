@@ -1840,6 +1840,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>tmajerech</td>
+    <td>
+      <a href="https://github.com/tmajerech">tmajerech</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Tom Atkins</td>
     <td>
       <a href="https://github.com/knitatoms">knitatoms</a>
