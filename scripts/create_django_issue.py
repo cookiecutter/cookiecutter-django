@@ -183,8 +183,7 @@ class GitHubManager:
                 continue
             issue_version = DjVersion.parse(matches.group(1))
             if self.base_dj_version > issue_version:
-                issue.edit(state="closed")
-                print(f"Closed issue {issue.title} (ID: [{issue.id}]({issue.url}))")
+                self.close_issue(issue)
             else:
                 self.existing_issues[issue_version] = issue
 
@@ -269,6 +268,11 @@ class GitHubManager:
             issue = self.repo.create_issue(f"[Update Django] Django {needed_dj_version}", description)
             issue.add_to_labels(f"django{needed_dj_version}")
 
+    @staticmethod
+    def close_issue(issue: Issue):
+        issue.edit(state="closed")
+        print(f"Closed issue {issue.title} (ID: [{issue.id}]({issue.url}))")
+
     def generate(self):
         for version in self.needed_dj_versions:
             print(f"Handling GitHub issue for Django {version}")
@@ -280,10 +284,15 @@ class GitHubManager:
 def main(django_max_version=None) -> None:
     # Check if there are any djs
     current_dj, latest_djs = get_all_latest_django_versions(django_max_version=django_max_version)
-    if not latest_djs:
-        sys.exit(0)
+
+    # Run the setup, which might close old issues
     manager = GitHubManager(current_dj, latest_djs)
     manager.setup()
+
+    if not latest_djs:
+        print("No new Django versions to update. Exiting...")
+        sys.exit(0)
+
     manager.generate()
 
 
