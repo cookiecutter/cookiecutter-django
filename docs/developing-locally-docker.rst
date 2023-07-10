@@ -66,6 +66,8 @@ To run in a detached (background) mode, just::
     $ docker-compose up -d
 
 
+The site should start and be accessible at http://localhost:3000 if you selected Webpack or Gulp as frontend pipeline and http://localhost:8000 otherwise.
+
 Execute Management Commands
 ---------------------------
 
@@ -229,7 +231,12 @@ By default, it's enabled both in local and production environments (``local.yml`
 Using Webpack or Gulp
 ~~~~~~~~~~~~~~~~~~~~~
 
-When using Webpack or Gulp as the ``frontend_pipeline`` option, you should access your application at the address of the ``node`` service in order to see your correct styles. This is http://localhost:3000 by default. When using any of the other ``frontend_pipeline`` options, you should use the address of the ``django`` service, http://localhost:8000.
+If you've opted for Gulp or Webpack as front-end pipeline, the project comes configured with `Sass`_ compilation and `live reloading`_. As you change your Sass/JS source files, the task runner will automatically rebuild the corresponding CSS and JS assets and reload them in your browser without refreshing the page.
+
+The stack comes with a dedicated node service to build the static assets, watch for changes and proxy requests to the Django app with live reloading scripts injected in the response. For everything to work smoothly, you need to access the application at the port served by the node service, which is http://localhost:3000 by default.
+
+.. _Sass: https://sass-lang.com/
+.. _live reloading: https://browsersync.io
 
 Developing locally with HTTPS
 -----------------------------
