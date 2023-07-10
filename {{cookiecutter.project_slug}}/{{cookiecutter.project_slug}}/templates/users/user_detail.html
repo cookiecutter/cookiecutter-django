@@ -23,10 +23,17 @@
           {% raw %}{{ object.username }}{% endraw %}
         {% endif %}
       </h2>
-      {% if cookiecutter.username_type == "username" %}{% raw %}{% if object.name %}<p>{{ object.name }}</p>{% endif %}{% endraw %}{% endif %}
+      {%- if cookiecutter.username_type == "username" %}
+      {%- raw %}
+      {% if object.name %}
+        <p>{{ object.name }}</p>
+      {% endif %}
+      {%- endraw %}
+      {%- endif %}
     </div>
   </div>
-  {% raw %}{% if object == request.user %}
+  {%- raw %}
+  {% if object == request.user %}
     <!-- Action buttons -->
     <div class="row">
       <div class="col-sm-12">
