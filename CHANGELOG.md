@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.07.09
+
+
+### Fixed
+
+- Fix missing run configurations when PyCharm is selected ([#4441](https://github.com/cookiecutter/cookiecutter-django/pull/4441))
+
 ## 2023.07.08
 
 
