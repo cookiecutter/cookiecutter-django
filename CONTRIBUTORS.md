@@ -1910,6 +1910,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>villancikos</td>
+    <td>
+      <a href="https://github.com/villancikos">villancikos</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Vitaly Babiy</td>
     <td>
       <a href="https://github.com/"></a>
