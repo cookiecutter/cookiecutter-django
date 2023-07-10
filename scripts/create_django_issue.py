@@ -182,7 +182,7 @@ class GitHubManager:
             if not matches:
                 continue
             issue_version = DjVersion.parse(matches.group(1))
-            if self.base_dj_version > issue_version:
+            if self.base_dj_version >= issue_version:
                 self.close_issue(issue)
             else:
                 self.existing_issues[issue_version] = issue
