@@ -3,6 +3,29 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.07.10
+
+
+### Fixed
+
+- Prevent user&#39;s name being shown twice on user details page if username is set to email ([#4436](https://github.com/cookiecutter/cookiecutter-django/pull/4436))
+
+- Add missing trailing space in `EMAIL_SUBJECT_PREFIX` setting ([#4434](https://github.com/cookiecutter/cookiecutter-django/pull/4434))
+
+### Documentation
+
+- Clarify documentation on which port to use to access the application when using Webpack or Gulp ([#4413](https://github.com/cookiecutter/cookiecutter-django/pull/4413))
+
+### Updated
+
+- Update django-coverage-plugin to 3.1.0 ([#4446](https://github.com/cookiecutter/cookiecutter-django/pull/4446))
+
+- Update pillow to 10.0.0 ([#4432](https://github.com/cookiecutter/cookiecutter-django/pull/4432))
+
+- Update django-cors-headers to 4.2.0 ([#4445](https://github.com/cookiecutter/cookiecutter-django/pull/4445))
+
+- Update sentry-sdk to 1.28.0 ([#4444](https://github.com/cookiecutter/cookiecutter-django/pull/4444))
+
 ## 2023.07.09
 
 
