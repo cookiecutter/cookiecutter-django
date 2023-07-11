@@ -1,4 +1,4 @@
-cookiecutter==2.2.2
+cookiecutter==2.2.3
 sh==2.0.4; sys_platform != "win32"
 binaryornot==0.4.4
 
