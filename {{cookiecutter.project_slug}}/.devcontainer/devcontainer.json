@@ -12,7 +12,7 @@
             "type": "bind"
         },
         {
-            "source": "~/.ssh",
+            "source": "/tmp",
             "target": "/tmp",
             "type": "bind"
         },
