@@ -110,24 +110,24 @@ AZURE_CONTAINER = env("DJANGO_AZURE_CONTAINER_NAME")
 {% endif -%}
 {% if cookiecutter.use_whitenoise == 'y' -%}
 STORAGES["staticfiles"] = {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    }
+    "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+}
 {% elif cookiecutter.cloud_provider == 'AWS' -%}
 STORAGES["staticfiles"] = {
-        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.StaticRootS3Boto3Storage",
-    }
+    "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.StaticRootS3Boto3Storage",
+}
 COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
 STATIC_URL = f"https://{aws_s3_domain}/static/"
 {% elif cookiecutter.cloud_provider == 'GCP' -%}
 STORAGES["staticfiles"] = {
-        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.StaticRootGoogleCloudStorage",
-    }
+    "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.StaticRootGoogleCloudStorage",
+}
 COLLECTFAST_STRATEGY = "collectfast.strategies.gcloud.GoogleCloudStrategy"
 STATIC_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/static/"
 {% elif cookiecutter.cloud_provider == 'Azure' -%}
 STORAGES["staticfiles"] = {
-        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.StaticRootAzureStorage",
-    }
+    "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.StaticRootAzureStorage",
+}
 STATIC_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/static/"
 {% endif -%}
 
@@ -135,18 +135,18 @@ STATIC_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/static/"
 # ------------------------------------------------------------------------------
 {%- if cookiecutter.cloud_provider == 'AWS' %}
 STORAGES["default"] = {
-        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.MediaRootS3Boto3Storage",
-    }
+    "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.MediaRootS3Boto3Storage",
+}
 MEDIA_URL = f"https://{aws_s3_domain}/media/"
 {%- elif cookiecutter.cloud_provider == 'GCP' %}
 STORAGES["default"] = {
-        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.MediaRootGoogleCloudStorage",
-    }
+    "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.MediaRootGoogleCloudStorage",
+}
 MEDIA_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/media/"
 {%- elif cookiecutter.cloud_provider == 'Azure' %}
 STORAGES["default"] = {
-        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.MediaRootAzureStorage",
-    }
+    "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.MediaRootAzureStorage",
+}
 MEDIA_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/media/"
 {%- endif %}
 
