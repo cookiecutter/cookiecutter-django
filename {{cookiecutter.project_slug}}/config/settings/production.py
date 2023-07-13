@@ -62,8 +62,6 @@ SECURE_HSTS_PRELOAD = env.bool("DJANGO_SECURE_HSTS_PRELOAD", default=True)
 # https://docs.djangoproject.com/en/dev/ref/middleware/#x-content-type-options-nosniff
 SECURE_CONTENT_TYPE_NOSNIFF = env.bool("DJANGO_SECURE_CONTENT_TYPE_NOSNIFF", default=True)
 
-STORAGES = dict()
-
 {% if cookiecutter.cloud_provider != 'None' -%}
 # STORAGES
 # ------------------------------------------------------------------------------
@@ -105,49 +103,51 @@ AZURE_CONTAINER = env("DJANGO_AZURE_CONTAINER_NAME")
 {% endif -%}
 
 {% if cookiecutter.cloud_provider != 'None' or cookiecutter.use_whitenoise == 'y' -%}
-# STATIC
+# STATIC & MEDIA
 # ------------------------
-{% endif -%}
-{% if cookiecutter.use_whitenoise == 'y' -%}
-STORAGES["staticfiles"] = {
-    "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+STORAGES = {
+{%- if cookiecutter.use_whitenoise == 'y' -%}
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    }
+{%- elif cookiecutter.cloud_provider == 'AWS' -%}
+    "default": {
+        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.MediaRootS3Boto3Storage",
+    },
+    "staticfiles": {
+        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.StaticRootS3Boto3Storage",
+    }
+{%- elif cookiecutter.cloud_provider == 'GCP' -%}
+    "default": {
+        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.MediaRootGoogleCloudStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.StaticRootGoogleCloudStorage",
+    }
+{%- elif cookiecutter.cloud_provider == 'Azure' -%}
+    "default": {
+        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.MediaRootAzureStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.StaticRootAzureStorage",
+    }
+{%- endif -%}
 }
-{% elif cookiecutter.cloud_provider == 'AWS' -%}
-STORAGES["staticfiles"] = {
-    "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.StaticRootS3Boto3Storage",
-}
-COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
-STATIC_URL = f"https://{aws_s3_domain}/static/"
-{% elif cookiecutter.cloud_provider == 'GCP' -%}
-STORAGES["staticfiles"] = {
-    "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.StaticRootGoogleCloudStorage",
-}
-COLLECTFAST_STRATEGY = "collectfast.strategies.gcloud.GoogleCloudStrategy"
-STATIC_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/static/"
-{% elif cookiecutter.cloud_provider == 'Azure' -%}
-STORAGES["staticfiles"] = {
-    "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.StaticRootAzureStorage",
-}
-STATIC_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/static/"
 {% endif -%}
 
-# MEDIA
+# MEDIA_URL, STATIC_URL & COLLECTFAST_STRATEGY
 # ------------------------------------------------------------------------------
 {%- if cookiecutter.cloud_provider == 'AWS' %}
-STORAGES["default"] = {
-    "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.MediaRootS3Boto3Storage",
-}
 MEDIA_URL = f"https://{aws_s3_domain}/media/"
+COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
+STATIC_URL = f"https://{aws_s3_domain}/static/"
 {%- elif cookiecutter.cloud_provider == 'GCP' %}
-STORAGES["default"] = {
-    "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.MediaRootGoogleCloudStorage",
-}
 MEDIA_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/media/"
+COLLECTFAST_STRATEGY = "collectfast.strategies.gcloud.GoogleCloudStrategy"
+STATIC_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/static/"
 {%- elif cookiecutter.cloud_provider == 'Azure' %}
-STORAGES["default"] = {
-    "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.MediaRootAzureStorage",
-}
 MEDIA_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/media/"
+STATIC_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/static/"
 {%- endif %}
 
 # EMAIL
