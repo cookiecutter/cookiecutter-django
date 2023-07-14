@@ -5,4 +5,5 @@ set -o nounset
 
 
 rm -f './celerybeat.pid'
+python manage.py migrate django_celery_beat
 exec watchfiles --filter python celery.__main__.main --args '-A config.celery_app beat -l INFO'
