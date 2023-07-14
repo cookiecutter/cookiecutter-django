@@ -135,8 +135,6 @@ STORAGES = {
 }
 {%- endif %}
 
-# MEDIA_URL, STATIC_URL & COLLECTFAST_STRATEGY
-# ------------------------------------------------------------------------------
 {%- if cookiecutter.cloud_provider == 'AWS' %}
 MEDIA_URL = f"https://{aws_s3_domain}/media/"
 COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
