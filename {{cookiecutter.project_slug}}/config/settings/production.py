@@ -106,34 +106,34 @@ AZURE_CONTAINER = env("DJANGO_AZURE_CONTAINER_NAME")
 # STATIC & MEDIA
 # ------------------------
 STORAGES = {
-{%- if cookiecutter.use_whitenoise == 'y' -%}
+{%- if cookiecutter.use_whitenoise == 'y' %}
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    }
-{%- elif cookiecutter.cloud_provider == 'AWS' -%}
+    },
+{%- elif cookiecutter.cloud_provider == 'AWS' %}
     "default": {
         "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.MediaRootS3Boto3Storage",
     },
     "staticfiles": {
         "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.StaticRootS3Boto3Storage",
-    }
-{%- elif cookiecutter.cloud_provider == 'GCP' -%}
+    },
+{%- elif cookiecutter.cloud_provider == 'GCP' %}
     "default": {
         "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.MediaRootGoogleCloudStorage",
     },
     "staticfiles": {
         "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.StaticRootGoogleCloudStorage",
-    }
-{%- elif cookiecutter.cloud_provider == 'Azure' -%}
+    },
+{%- elif cookiecutter.cloud_provider == 'Azure' %}
     "default": {
         "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.MediaRootAzureStorage",
     },
     "staticfiles": {
         "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.StaticRootAzureStorage",
-    }
-{%- endif -%}
+    },
+{%- endif %}
 }
-{% endif -%}
+{%- endif %}
 
 # MEDIA_URL, STATIC_URL & COLLECTFAST_STRATEGY
 # ------------------------------------------------------------------------------
