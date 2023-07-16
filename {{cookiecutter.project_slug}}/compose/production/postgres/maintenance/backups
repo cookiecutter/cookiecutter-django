@@ -4,7 +4,7 @@
 ### View backups.
 ###
 ### Usage:
-###     $ docker-compose -f <environment>.yml (exec |run --rm) postgres backups
+###     $ docker compose -f <environment>.yml (exec |run --rm) postgres backups
 
 
 set -o errexit

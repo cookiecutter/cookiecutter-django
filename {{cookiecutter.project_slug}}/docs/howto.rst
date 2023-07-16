@@ -8,14 +8,14 @@ Documentation can be written as rst files in `{{cookiecutter.project_slug}}/docs
 
 {% if cookiecutter.use_docker == 'n' %}
 To build and serve docs, use the command::
-    
-    make livehtml 
-    
-from inside the `{{cookiecutter.project_slug}}/docs` directory. 
+
+    make livehtml
+
+from inside the `{{cookiecutter.project_slug}}/docs` directory.
 {% else %}
 To build and serve docs, use the commands::
-    
-    docker-compose -f local.yml up docs
+
+    docker compose -f local.yml up docs
 
 {% endif %}
 
@@ -34,12 +34,12 @@ For an in-use example, see the `page source <_sources/users.rst.txt>`_ for :ref:
 
 To compile all docstrings automatically into documentation source files, use the command:
     ::
-    
+
         make apidocs
 
 {% if cookiecutter.use_docker == 'y' %}
 This can be done in the docker container:
-    :: 
-        
+    ::
+
         docker run --rm docs make apidocs
 {% endif -%}

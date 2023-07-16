@@ -24,13 +24,13 @@ Examples of logs::
 If you recreate the project multiple times with the same name, Docker would preserve the volumes for the postgres container between projects. Here is what happens:
 
 #. You generate the project the first time. The .env postgres file is populated with the random password
-#. You run the docker-compose and the containers are created. The postgres container creates the database based on the .env file credentials
+#. You run the docker compose and the containers are created. The postgres container creates the database based on the .env file credentials
 #. You "regenerate" the project with the same name, so the postgres .env file is populated with a new random password
-#. You run docker-compose. Since the names of the containers are the same, docker will try to start them (not create them from scratch i.e. it won't execute the Dockerfile to recreate the database). When this happens, it tries to start the database based on the new credentials which do not match the ones that the database was created with, and you get the error message above.
+#. You run docker compose. Since the names of the containers are the same, docker will try to start them (not create them from scratch i.e. it won't execute the Dockerfile to recreate the database). When this happens, it tries to start the database based on the new credentials which do not match the ones that the database was created with, and you get the error message above.
 
 To fix this, you can either:
 
-- Clear your project-related Docker cache with ``docker-compose -f local.yml down --volumes --rmi all``.
+- Clear your project-related Docker cache with ``docker compose -f local.yml down --volumes --rmi all``.
 - Use the Docker volume sub-commands to find volumes (`ls`_) and remove them (`rm`_).
 - Use the `prune`_ command to clear system-wide (use with care!).
 
