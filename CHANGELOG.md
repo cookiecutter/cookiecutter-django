@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.07.18
+
+
+### Updated
+
+- Update gunicorn to 21.1.0 ([#4470](https://github.com/cookiecutter/cookiecutter-django/pull/4470))
+
+- Update uvicorn to 0.23.1 ([#4468](https://github.com/cookiecutter/cookiecutter-django/pull/4468))
+
+- Update gunicorn to 21.0.1 ([#4466](https://github.com/cookiecutter/cookiecutter-django/pull/4466))
+
 ## 2023.07.13
 
 
