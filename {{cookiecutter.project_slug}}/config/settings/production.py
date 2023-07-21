@@ -107,6 +107,9 @@ AZURE_CONTAINER = env("DJANGO_AZURE_CONTAINER_NAME")
 # ------------------------
 STORAGES = {
 {%- if cookiecutter.use_whitenoise == 'y' %}
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
