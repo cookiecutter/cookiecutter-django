@@ -189,7 +189,7 @@ Create a git repo and push it there:
     $ git add .
     $ git commit -m "first awesome commit"
     $ git remote add origin git@github.com:pydanny/redditclone.git
-    $ git push -u origin master
+    $ git push -u origin main
 
 Now take a look at your repo. Don't forget to carefully look at the generated README. Awesome, right?
 
