@@ -3,7 +3,7 @@
 ### Download a file from your Amazon S3 bucket to the postgres /backups folder
 ###
 ### Usage:
-###     $ docker-compose -f production.yml run --rm awscli <1>
+###     $ docker compose -f production.yml run --rm awscli <1>
 
 set -o errexit
 set -o pipefail

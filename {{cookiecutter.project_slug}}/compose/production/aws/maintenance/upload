@@ -3,7 +3,7 @@
 ### Upload the /backups folder to Amazon S3
 ###
 ### Usage:
-###     $ docker-compose -f production.yml run --rm awscli upload
+###     $ docker compose -f production.yml run --rm awscli upload
 
 set -o errexit
 set -o pipefail

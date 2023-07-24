@@ -32,7 +32,7 @@ Build the Stack
 
 This can take a while, especially the first time you run this particular command on your development system::
 
-    $ docker-compose -f local.yml build
+    $ docker compose -f local.yml build
 
 Generally, if you want to emulate production environment use ``production.yml`` instead. And this is true for any other actions you might need to perform: whenever a switch is required, just do it!
 
@@ -51,7 +51,7 @@ This brings up both Django and PostgreSQL. The first time it is run it might tak
 
 Open a terminal at the project root and run the following for local development::
 
-    $ docker-compose -f local.yml up
+    $ docker compose -f local.yml up
 
 You can also set the environment variable ``COMPOSE_FILE`` pointing to ``local.yml`` like this::
 
@@ -59,11 +59,11 @@ You can also set the environment variable ``COMPOSE_FILE`` pointing to ``local.y
 
 And then run::
 
-    $ docker-compose up
+    $ docker compose up
 
 To run in a detached (background) mode, just::
 
-    $ docker-compose up -d
+    $ docker compose up -d
 
 
 The site should start and be accessible at http://localhost:3000 if you selected Webpack or Gulp as frontend pipeline and http://localhost:8000 otherwise.
@@ -71,10 +71,10 @@ The site should start and be accessible at http://localhost:3000 if you selected
 Execute Management Commands
 ---------------------------
 
-As with any shell command that we wish to run in our container, this is done using the ``docker-compose -f local.yml run --rm`` command: ::
+As with any shell command that we wish to run in our container, this is done using the ``docker compose -f local.yml run --rm`` command: ::
 
-    $ docker-compose -f local.yml run --rm django python manage.py migrate
-    $ docker-compose -f local.yml run --rm django python manage.py createsuperuser
+    $ docker compose -f local.yml run --rm django python manage.py migrate
+    $ docker compose -f local.yml run --rm django python manage.py createsuperuser
 
 Here, ``django`` is the target service we are executing the commands against.
 
@@ -156,8 +156,8 @@ You have to modify the relevant requirement file: base, local or production by a
 
 To get this change picked up, you'll need to rebuild the image(s) and restart the running container: ::
 
-    docker-compose -f local.yml build
-    docker-compose -f local.yml up
+    docker compose -f local.yml build
+    docker compose -f local.yml up
 
 Debugging
 ~~~~~~~~~
@@ -171,7 +171,7 @@ If you are using the following within your code to debug: ::
 
 Then you may need to run the following for it to work as desired: ::
 
-    $ docker-compose -f local.yml run --rm --service-ports django
+    $ docker compose -f local.yml run --rm --service-ports django
 
 
 django-debug-toolbar
@@ -316,7 +316,7 @@ You should allow the new hostname. ::
 
 Rebuild your ``docker`` application. ::
 
-  $ docker-compose -f local.yml up -d --build
+  $ docker compose -f local.yml up -d --build
 
 Go to your browser and type in your URL bar ``https://my-dev-env.local``
 
