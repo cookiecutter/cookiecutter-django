@@ -330,3 +330,26 @@ See `https with nginx`_ for more information on this configuration.
 Add ``certs/*`` to the ``.gitignore`` file. This allows the folder to be included in the repo but its contents to be ignored.
 
 *This configuration is for local development environments only. Do not use this for production since you might expose your local* ``rootCA-key.pem``.
+
+Webpack
+~~~~~~~
+
+If you are using Webpack:
+
+1. On the ``nginx-proxy`` service in ``local.yml``, change ``depends_on`` to ``node`` instead of ``django``.
+
+2. On the ``node`` service in ``local.yml``, add the following environment configuration:
+
+   ::
+
+     environment:
+       - VIRTUAL_HOST=my-dev-env.local
+       - VIRTUAL_PORT=3000
+
+3. Add the following configuration to the ``devServer`` section of ``webpack/dev.config.js``:
+
+   ::
+
+     client: {
+         webSocketURL: 'auto://0.0.0.0:0/ws', // note the `:0` after `0.0.0.0`
+     },
