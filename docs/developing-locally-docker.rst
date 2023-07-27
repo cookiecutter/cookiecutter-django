@@ -340,12 +340,16 @@ If you are using Webpack:
 
 2. On the ``node`` service in ``local.yml``, add the following environment configuration:
 
-    environment:
-      - VIRTUAL_HOST=my-dev-env.local
-      - VIRTUAL_PORT=3000
+   ::
+
+     environment:
+       - VIRTUAL_HOST=my-dev-env.local
+       - VIRTUAL_PORT=3000
 
 3. Add the following configuration to the ``devServer`` section of ``webpack/dev.config.js``:
 
-    client: {
-            webSocketURL: 'auto://0.0.0.0:0/ws', // note the `:0` after `0.0.0.0`
-    },
+   ::
+
+     client: {
+         webSocketURL: 'auto://0.0.0.0:0/ws', // note the `:0` after `0.0.0.0`
+     },
