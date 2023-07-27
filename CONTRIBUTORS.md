@@ -937,6 +937,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>hleroy</td>
+    <td>
+      <a href="https://github.com/hleroy">hleroy</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Hoai-Thu Vuong</td>
     <td>
       <a href="https://github.com/thuvh">thuvh</a>
