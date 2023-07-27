@@ -77,7 +77,7 @@ As with any shell command that we wish to run in our container, this is done usi
     $ docker compose -f local.yml run --rm django python manage.py createsuperuser
 
 Here, ``django`` is the target service we are executing the commands against.
-
+Also, please note that the ``docker exec`` does not work for running management commands.
 
 (Optionally) Designate your Docker Development Server IP
 --------------------------------------------------------
