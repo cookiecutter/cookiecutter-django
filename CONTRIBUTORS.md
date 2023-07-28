@@ -1721,6 +1721,13 @@ Listed in alphabetical order.
     <td>sebastianreyese</td>
   </tr>
   <tr>
+    <td>Shayan Karimi</td>
+    <td>
+      <a href="https://github.com/shywn-mrk">shywn-mrk</a>
+    </td>
+    <td>shywn_mrk</td>
+  </tr>
+  <tr>
     <td>Simon Rey</td>
     <td>
       <a href="https://github.com/eqqe">eqqe</a>
