@@ -238,6 +238,10 @@ def remove_dotgithub_folder():
     shutil.rmtree(".github")
 
 
+def remove_dotdrone_file():
+    os.remove(".drone.yml")
+
+
 def generate_random_string(length, using_digits=False, using_ascii_letters=False, using_punctuation=False):
     """
     Example:
@@ -490,6 +494,9 @@ def main():
 
     if "{{ cookiecutter.ci_tool }}" != "Github":
         remove_dotgithub_folder()
+
+    if "{{ cookiecutter.ci_tool }}" != "Drone":
+        remove_dotdrone_file()
 
     if "{{ cookiecutter.use_drf }}".lower() == "n":
         remove_drf_starter_files()
