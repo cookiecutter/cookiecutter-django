@@ -7,7 +7,7 @@ except ImportError:
 # We use calendar versioning
 version = "2023.07.28"
 
-with open("README.rst") as readme_file:
+with open("README.md") as readme_file:
     long_description = readme_file.read()
 
 setup(
