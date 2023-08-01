@@ -23,7 +23,7 @@ production-ready Django projects quickly.
 - Works with Python 3.11
 - Renders Django projects with 100% starting test coverage
 - Twitter [Bootstrap](https://github.com/twbs/bootstrap) v5
-- [12-Factor](http://12factor.net/) based settings via [django-environ](https://github.com/joke2k/django-environ)
+- [12-Factor](https://12factor.net) based settings via [django-environ](https://github.com/joke2k/django-environ)
 - Secure by default. We believe in SSL.
 - Optimized development and production settings
 - Registration via [django-allauth](https://github.com/pennersr/django-allauth)

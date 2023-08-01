@@ -3,6 +3,127 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.07.30
+
+
+### Fixed
+
+- Fix `README.md` file extension in `setup.py` ([#4488](https://github.com/cookiecutter/cookiecutter-django/pull/4488))
+
+## 2023.07.28
+
+
+### Changed
+
+- Add support for Drone CI ([#4382](https://github.com/cookiecutter/cookiecutter-django/pull/4382))
+
+## 2023.07.27
+
+
+### Documentation
+
+- Document that `docker exec` does not work for running management commands ([#4487](https://github.com/cookiecutter/cookiecutter-django/pull/4487))
+
+- Add Webpack instructions for developping locally with HTTPS ([#4486](https://github.com/cookiecutter/cookiecutter-django/pull/4486))
+
+## 2023.07.25
+
+
+### Updated
+
+- Upgrade to traefik 2.10.4 ([#4483](https://github.com/cookiecutter/cookiecutter-django/pull/4483))
+
+## 2023.07.24
+
+
+### Fixed
+
+- Add missing custom CRSF error page in prod ([#4464](https://github.com/cookiecutter/cookiecutter-django/pull/4464))
+
+### Documentation
+
+- Replace `docker-compose` by `docker compose` in docs ([#4463](https://github.com/cookiecutter/cookiecutter-django/pull/4463))
+
+### Updated
+
+- Update drf-spectacular to 0.26.4 ([#4481](https://github.com/cookiecutter/cookiecutter-django/pull/4481))
+
+## 2023.07.20
+
+
+### Updated
+
+- Update djlint to 1.32.1 ([#4475](https://github.com/cookiecutter/cookiecutter-django/pull/4475))
+
+## 2023.07.19
+
+
+### Updated
+
+- Update factory-boy to 3.3.0 ([#4472](https://github.com/cookiecutter/cookiecutter-django/pull/4472))
+
+- Update gunicorn to 21.2.0 ([#4473](https://github.com/cookiecutter/cookiecutter-django/pull/4473))
+
+- Update djlint to 1.32.0 ([#4471](https://github.com/cookiecutter/cookiecutter-django/pull/4471))
+
+## 2023.07.18
+
+
+### Updated
+
+- Update gunicorn to 21.1.0 ([#4470](https://github.com/cookiecutter/cookiecutter-django/pull/4470))
+
+- Update uvicorn to 0.23.1 ([#4468](https://github.com/cookiecutter/cookiecutter-django/pull/4468))
+
+- Update gunicorn to 21.0.1 ([#4466](https://github.com/cookiecutter/cookiecutter-django/pull/4466))
+
+## 2023.07.13
+
+
+### Updated
+
+- Update sentry-sdk to 1.28.1 ([#4458](https://github.com/cookiecutter/cookiecutter-django/pull/4458))
+
+## 2023.07.11
+
+
+### Changed
+
+- Improve type hints for `UserSerializer` ([#4429](https://github.com/cookiecutter/cookiecutter-django/pull/4429))
+
+- [pre-commit.ci] pre-commit autoupdate ([#4453](https://github.com/cookiecutter/cookiecutter-django/pull/4453))
+
+### Fixed
+
+- Fix `/tmp` bind mount in devcontainer config ([#4455](https://github.com/cookiecutter/cookiecutter-django/pull/4455))
+
+### Updated
+
+- Update black to 23.7.0 ([#4452](https://github.com/cookiecutter/cookiecutter-django/pull/4452))
+
+## 2023.07.10
+
+
+### Fixed
+
+- Prevent user&#39;s name being shown twice on user details page if username is set to email ([#4436](https://github.com/cookiecutter/cookiecutter-django/pull/4436))
+
+- Add missing trailing space in `EMAIL_SUBJECT_PREFIX` setting ([#4434](https://github.com/cookiecutter/cookiecutter-django/pull/4434))
+
+### Documentation
+
+- Clarify documentation on which port to use to access the application when using Webpack or Gulp ([#4413](https://github.com/cookiecutter/cookiecutter-django/pull/4413))
+
+### Updated
+
+- Update django-coverage-plugin to 3.1.0 ([#4446](https://github.com/cookiecutter/cookiecutter-django/pull/4446))
+
+- Update pillow to 10.0.0 ([#4432](https://github.com/cookiecutter/cookiecutter-django/pull/4432))
+
+- Update django-cors-headers to 4.2.0 ([#4445](https://github.com/cookiecutter/cookiecutter-django/pull/4445))
+
+- Update sentry-sdk to 1.28.0 ([#4444](https://github.com/cookiecutter/cookiecutter-django/pull/4444))
+
 ## 2023.07.09
 
 

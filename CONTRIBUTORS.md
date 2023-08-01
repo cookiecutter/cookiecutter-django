@@ -937,6 +937,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>hleroy</td>
+    <td>
+      <a href="https://github.com/hleroy">hleroy</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Hoai-Thu Vuong</td>
     <td>
       <a href="https://github.com/thuvh">thuvh</a>
@@ -954,6 +961,13 @@ Listed in alphabetical order.
     <td>Ian Lee</td>
     <td>
       <a href="https://github.com/IanLee1521">IanLee1521</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Imran Rahman</td>
+    <td>
+      <a href="https://github.com/infraredCoding">infraredCoding</a>
     </td>
     <td></td>
   </tr>
@@ -1686,6 +1700,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Sadra Yahyapour</td>
+    <td>
+      <a href="https://github.com/lnxpy">lnxpy</a>
+    </td>
+    <td>lnxpylnxpy</td>
+  </tr>
+  <tr>
     <td>Sam Collins</td>
     <td>
       <a href="https://github.com/MightySCollins">MightySCollins</a>
@@ -1705,6 +1726,13 @@ Listed in alphabetical order.
       <a href="https://github.com/sebastian-code">sebastian-code</a>
     </td>
     <td>sebastianreyese</td>
+  </tr>
+  <tr>
+    <td>Shayan Karimi</td>
+    <td>
+      <a href="https://github.com/shywn-mrk">shywn-mrk</a>
+    </td>
+    <td>shywn_mrk</td>
   </tr>
   <tr>
     <td>Simon Rey</td>
