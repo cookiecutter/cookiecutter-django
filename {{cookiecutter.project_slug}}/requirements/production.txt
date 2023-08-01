@@ -24,21 +24,21 @@ django-storages[google]==1.13.2  # https://github.com/jschneier/django-storages
 django-storages[azure]==1.13.2  # https://github.com/jschneier/django-storages
 {%- endif %}
 {%- if cookiecutter.mail_service == 'Mailgun' %}
-django-anymail[mailgun]==10.0  # https://github.com/anymail/django-anymail
+django-anymail[mailgun]==10.1  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Amazon SES' %}
-django-anymail[amazon-ses]==10.0  # https://github.com/anymail/django-anymail
+django-anymail[amazon-ses]==10.1  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Mailjet' %}
-django-anymail[mailjet]==10.0  # https://github.com/anymail/django-anymail
+django-anymail[mailjet]==10.1  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Mandrill' %}
-django-anymail[mandrill]==10.0  # https://github.com/anymail/django-anymail
+django-anymail[mandrill]==10.1  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Postmark' %}
-django-anymail[postmark]==10.0  # https://github.com/anymail/django-anymail
+django-anymail[postmark]==10.1  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Sendgrid' %}
-django-anymail[sendgrid]==10.0  # https://github.com/anymail/django-anymail
+django-anymail[sendgrid]==10.1  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'SendinBlue' %}
-django-anymail[sendinblue]==10.0  # https://github.com/anymail/django-anymail
+django-anymail[sendinblue]==10.1  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'SparkPost' %}
-django-anymail[sparkpost]==10.0  # https://github.com/anymail/django-anymail
+django-anymail[sparkpost]==10.1  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Other SMTP' %}
-django-anymail==10.0  # https://github.com/anymail/django-anymail
+django-anymail==10.1  # https://github.com/anymail/django-anymail
 {%- endif %}
