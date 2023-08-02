@@ -3,6 +3,25 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.08.01
+
+
+### Updated
+
+- Auto-update pre-commit hooks ([#4499](https://github.com/cookiecutter/cookiecutter-django/pull/4499))
+
+- Update django-anymail to 10.1 ([#4497](https://github.com/cookiecutter/cookiecutter-django/pull/4497))
+
+- Update sentry-sdk to 1.29.2 ([#4496](https://github.com/cookiecutter/cookiecutter-django/pull/4496))
+
+- Update django to 4.2.4 ([#4495](https://github.com/cookiecutter/cookiecutter-django/pull/4495))
+
+- Update flake8 to 6.1.0 ([#4489](https://github.com/cookiecutter/cookiecutter-django/pull/4489))
+
+- Update uvicorn to 0.23.2 ([#4490](https://github.com/cookiecutter/cookiecutter-django/pull/4490))
+
+- Update sentry-sdk to 1.29.1 ([#4494](https://github.com/cookiecutter/cookiecutter-django/pull/4494))
+
 ## 2023.07.30
 
 
