@@ -127,7 +127,7 @@ msgstr "Ou, <a href=\"%(signup_url)s\">cadastre-se</a> para uma conta em %(site_
 
 #: {{cookiecutter.project_slug}}/templates/account/login.html:32
 msgid "or"
-msgstr "or"
+msgstr "ou"
 
 #: {{cookiecutter.project_slug}}/templates/account/login.html:41
 #, python-format
