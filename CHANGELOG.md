@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.08.10
+
+
+### Fixed
+
+- Corrected &#39;or&#39; translation to pt-br ([#4507](https://github.com/cookiecutter/cookiecutter-django/pull/4507))
+
 ## 2023.08.04
 
 
