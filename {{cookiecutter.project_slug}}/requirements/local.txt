@@ -14,11 +14,11 @@ watchfiles==0.19.0  # https://github.com/samuelcolvin/watchfiles
 # Testing
 # ------------------------------------------------------------------------------
 mypy==1.4.1  # https://github.com/python/mypy
-django-stubs==4.2.3  # https://github.com/typeddjango/django-stubs
+django-stubs[compatible-mypy]==4.2.3  # https://github.com/typeddjango/django-stubs
 pytest==7.4.0  # https://github.com/pytest-dev/pytest
 pytest-sugar==0.9.7  # https://github.com/Frozenball/pytest-sugar
 {%- if cookiecutter.use_drf == "y" %}
-djangorestframework-stubs==3.14.2  # https://github.com/typeddjango/djangorestframework-stubs
+djangorestframework-stubs[compatible-mypy]==3.14.2  # https://github.com/typeddjango/djangorestframework-stubs
 {%- endif %}
 
 # Documentation
