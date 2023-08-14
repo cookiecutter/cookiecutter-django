@@ -183,6 +183,7 @@ def handle_js_runner(choice, use_docker, use_async):
             "browser-sync",
             "cssnano",
             "gulp",
+            "gulp-concat",
             "gulp-imagemin",
             "gulp-plumber",
             "gulp-postcss",
