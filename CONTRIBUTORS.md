@@ -797,6 +797,13 @@ Listed in alphabetical order.
     <td>fabaff</td>
   </tr>
   <tr>
+    <td>Fateme Fouladkar</td>
+    <td>
+      <a href="https://github.com/FatemeFouladkar">FatemeFouladkar</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Felipe Arruda</td>
     <td>
       <a href="https://github.com/arruda">arruda</a>
