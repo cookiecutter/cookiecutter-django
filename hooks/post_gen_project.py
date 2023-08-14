@@ -207,6 +207,24 @@ def handle_js_runner(choice, use_docker, use_async):
         remove_gulp_files()
 
 
+def remove_prettier_pre_commit():
+    with open(".pre-commit-config.yaml", "r") as fd:
+        content = fd.readlines()
+
+    removing = False
+    new_lines = []
+    for line in content:
+        if removing and "- repo:" in line:
+            removing = False
+        if "mirrors-prettier" in line:
+            removing = True
+        if not removing:
+            new_lines.append(line)
+
+    with open(".pre-commit-config.yaml", "w") as fd:
+        fd.writelines(new_lines)
+
+
 def remove_celery_files():
     file_names = [
         os.path.join("config", "celery_app.py"),
@@ -236,6 +254,10 @@ def remove_dotgitlabciyml_file():
 
 def remove_dotgithub_folder():
     shutil.rmtree(".github")
+
+
+def remove_dotdrone_file():
+    os.remove(".drone.yml")
 
 
 def generate_random_string(length, using_digits=False, using_ascii_letters=False, using_punctuation=False):
@@ -461,6 +483,7 @@ def main():
         remove_webpack_files()
         remove_sass_files()
         remove_packagejson_file()
+        remove_prettier_pre_commit()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_node_dockerfile()
     else:
@@ -490,6 +513,9 @@ def main():
 
     if "{{ cookiecutter.ci_tool }}" != "Github":
         remove_dotgithub_folder()
+
+    if "{{ cookiecutter.ci_tool }}" != "Drone":
+        remove_dotdrone_file()
 
     if "{{ cookiecutter.use_drf }}".lower() == "n":
         remove_drf_starter_files()

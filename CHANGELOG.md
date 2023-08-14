@@ -3,6 +3,91 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.08.10
+
+
+### Fixed
+
+- Corrected &#39;or&#39; translation to pt-br ([#4507](https://github.com/cookiecutter/cookiecutter-django/pull/4507))
+
+## 2023.08.04
+
+
+### Updated
+
+- Auto-update pre-commit hooks ([#4503](https://github.com/cookiecutter/cookiecutter-django/pull/4503))
+
+## 2023.08.01
+
+
+### Updated
+
+- Auto-update pre-commit hooks ([#4499](https://github.com/cookiecutter/cookiecutter-django/pull/4499))
+
+- Update django-anymail to 10.1 ([#4497](https://github.com/cookiecutter/cookiecutter-django/pull/4497))
+
+- Update sentry-sdk to 1.29.2 ([#4496](https://github.com/cookiecutter/cookiecutter-django/pull/4496))
+
+- Update django to 4.2.4 ([#4495](https://github.com/cookiecutter/cookiecutter-django/pull/4495))
+
+- Update flake8 to 6.1.0 ([#4489](https://github.com/cookiecutter/cookiecutter-django/pull/4489))
+
+- Update uvicorn to 0.23.2 ([#4490](https://github.com/cookiecutter/cookiecutter-django/pull/4490))
+
+- Update sentry-sdk to 1.29.1 ([#4494](https://github.com/cookiecutter/cookiecutter-django/pull/4494))
+
+## 2023.07.30
+
+
+### Fixed
+
+- Fix `README.md` file extension in `setup.py` ([#4488](https://github.com/cookiecutter/cookiecutter-django/pull/4488))
+
+## 2023.07.28
+
+
+### Changed
+
+- Add support for Drone CI ([#4382](https://github.com/cookiecutter/cookiecutter-django/pull/4382))
+
+## 2023.07.27
+
+
+### Documentation
+
+- Document that `docker exec` does not work for running management commands ([#4487](https://github.com/cookiecutter/cookiecutter-django/pull/4487))
+
+- Add Webpack instructions for developping locally with HTTPS ([#4486](https://github.com/cookiecutter/cookiecutter-django/pull/4486))
+
+## 2023.07.25
+
+
+### Updated
+
+- Upgrade to traefik 2.10.4 ([#4483](https://github.com/cookiecutter/cookiecutter-django/pull/4483))
+
+## 2023.07.24
+
+
+### Fixed
+
+- Add missing custom CRSF error page in prod ([#4464](https://github.com/cookiecutter/cookiecutter-django/pull/4464))
+
+### Documentation
+
+- Replace `docker-compose` by `docker compose` in docs ([#4463](https://github.com/cookiecutter/cookiecutter-django/pull/4463))
+
+### Updated
+
+- Update drf-spectacular to 0.26.4 ([#4481](https://github.com/cookiecutter/cookiecutter-django/pull/4481))
+
+## 2023.07.20
+
+
+### Updated
+
+- Update djlint to 1.32.1 ([#4475](https://github.com/cookiecutter/cookiecutter-django/pull/4475))
+
 ## 2023.07.19
 
 

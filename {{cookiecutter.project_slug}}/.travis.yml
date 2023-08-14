@@ -17,16 +17,16 @@ jobs:
     - name: "Django Test"
     {%- if cookiecutter.use_docker == 'y' %}
       before_script:
-        - docker-compose -v
+        - docker compose -v
         - docker -v
-        - docker-compose -f local.yml build
+        - docker compose -f local.yml build
         # Ensure celerybeat does not crash due to non-existent tables
-        - docker-compose -f local.yml run --rm django python manage.py migrate
-        - docker-compose -f local.yml up -d
+        - docker compose -f local.yml run --rm django python manage.py migrate
+        - docker compose -f local.yml up -d
       script:
-        - "docker-compose -f local.yml run django pytest"
+        - "docker compose -f local.yml run django pytest"
       after_failure:
-        - docker-compose -f local.yml logs
+        - docker compose -f local.yml logs
     {%- else %}
       before_install:
         - sudo apt-get update -qq
