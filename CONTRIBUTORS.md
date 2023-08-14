@@ -2042,6 +2042,13 @@ Listed in alphabetical order.
     </td>
     <td></td>
   </tr>
+  <tr>
+    <td>zhaoruibing</td>
+    <td>
+      <a href="https://github.com/zhaoruibing">zhaoruibing</a>
+    </td>
+    <td></td>
+  </tr>
 </table>
 
 ### Special Thanks
