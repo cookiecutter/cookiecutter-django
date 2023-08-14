@@ -1819,6 +1819,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Tharushan</td>
+    <td>
+      <a href="https://github.com/Tharushan">Tharushan</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Thibault J.</td>
     <td>
       <a href="https://github.com/thibault">thibault</a>
