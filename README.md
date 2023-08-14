@@ -247,6 +247,7 @@ experience better.
 
 ## Articles
 
+- [How to Make Your Own Django Cookiecutter Template!](https://medium.com/@FatemeFouladkar/how-to-make-your-own-django-cookiecutter-template-a753d4cbb8c2) - Aug. 10, 2023
 - [Cookiecutter Django With Amazon RDS](https://haseeburrehman.com/posts/cookiecutter-django-with-amazon-rds/) - Apr, 2, 2021
 - [Complete Walkthrough: Blue/Green Deployment to AWS ECS using GitHub actions](https://github.com/Andrew-Chen-Wang/cookiecutter-django-ecs-github) - June 10, 2020
 - [Using cookiecutter-django with Google Cloud Storage](https://ahhda.github.io/cloud/gce/django/2019/03/12/using-django-cookiecutter-cloud-storage.html) - Mar. 12, 2019
