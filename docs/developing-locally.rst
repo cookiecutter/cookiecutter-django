@@ -80,9 +80,11 @@ First things first.
 
     $ python manage.py runserver 0.0.0.0:8000
 
-or if you're running asynchronously: ::
+   or if you're running asynchronously: ::
 
     $ uvicorn config.asgi:application --host 0.0.0.0 --reload --reload-include '*.html'
+
+   If you've opted for Webpack or Gulp as frontend pipeline, please see the :ref:`dedicated section <bare-metal-webpack-gulp>` below.
 
 .. _PostgreSQL: https://www.postgresql.org/download/
 .. _Redis: https://redis.io/download
@@ -169,10 +171,12 @@ You can also use Django admin to queue up tasks, thanks to the `django-celerybea
 .. _django-celerybeat: https://django-celery-beat.readthedocs.io/en/latest/
 
 
-Sass Compilation & Live Reloading
----------------------------------
+.. _bare-metal-webpack-gulp:
 
-If you've opted for Gulp or Webpack as front-end pipeline, the project comes configured with `Sass`_ compilation and `live reloading`_. As you change you Sass/JS source files, the task runner will automatically rebuild the corresponding CSS and JS assets and reload them in your browser without refreshing the page.
+Using Webpack or Gulp
+---------------------
+
+If you've opted for Gulp or Webpack as front-end pipeline, the project comes configured with `Sass`_ compilation and `live reloading`_. As you change your Sass/JS source files, the task runner will automatically rebuild the corresponding CSS and JS assets and reload them in your browser without refreshing the page.
 
 #. Make sure that `Node.js`_ v18 is installed on your machine.
 #. In the project root, install the JS dependencies with::
@@ -183,9 +187,12 @@ If you've opted for Gulp or Webpack as front-end pipeline, the project comes con
 
     $ npm run dev
 
-   The app will now run with live reloading enabled, applying front-end changes dynamically.
+   This will start 2 processes in parallel: the static assets build loop on one side, and the Django server on the other.
 
-.. note:: The task will start 2 processes in parallel: the static assets build loop on one side, and the Django server on the other. You do NOT need to run Django as your would normally with ``manage.py runserver``.
+#. Access your application at the address of the ``node`` service in order to see your correct styles. This is http://localhost:3000 by default.
+
+   .. note:: Do NOT access the application using the Django port (8000 by default), as it will result in broken styles and 404s when accessing static assets.
+
 
 .. _Node.js: http://nodejs.org/download/
 .. _Sass: https://sass-lang.com/

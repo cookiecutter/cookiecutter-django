@@ -74,6 +74,13 @@ accept and merge pull requests.
     </td>
     <td>sfdye</td>
   </tr>
+  <tr>
+    <td>Jelmer Draaijer</td>
+    <td>
+      <a href="https://github.com/foarsitter">foarsitter</a>
+    </td>
+    <td></td>
+  </tr>
 </table>
 
 _Audrey is also the creator of Cookiecutter. Audrey and Daniel are on
@@ -790,6 +797,13 @@ Listed in alphabetical order.
     <td>fabaff</td>
   </tr>
   <tr>
+    <td>Fateme Fouladkar</td>
+    <td>
+      <a href="https://github.com/FatemeFouladkar">FatemeFouladkar</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Felipe Arruda</td>
     <td>
       <a href="https://github.com/arruda">arruda</a>
@@ -930,6 +944,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>hleroy</td>
+    <td>
+      <a href="https://github.com/hleroy">hleroy</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Hoai-Thu Vuong</td>
     <td>
       <a href="https://github.com/thuvh">thuvh</a>
@@ -947,6 +968,13 @@ Listed in alphabetical order.
     <td>Ian Lee</td>
     <td>
       <a href="https://github.com/IanLee1521">IanLee1521</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Imran Rahman</td>
+    <td>
+      <a href="https://github.com/infraredCoding">infraredCoding</a>
     </td>
     <td></td>
   </tr>
@@ -1007,13 +1035,6 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
-    <td>Jelmer Draaijer</td>
-    <td>
-      <a href="https://github.com/foarsitter">foarsitter</a>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
     <td>Jens Nilsson</td>
     <td>
       <a href="https://github.com/phiberjenz">phiberjenz</a>
@@ -1066,6 +1087,13 @@ Listed in alphabetical order.
     <td>Jorge Valdez</td>
     <td>
       <a href="https://github.com/jorgeavaldez">jorgeavaldez</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Joseph Hanna</td>
+    <td>
+      <a href="https://github.com/sanchimenea">sanchimenea</a>
     </td>
     <td></td>
   </tr>
@@ -1304,6 +1332,13 @@ Listed in alphabetical order.
     <td>Martin Saizar</td>
     <td>
       <a href="https://github.com/msaizar">msaizar</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>masavini</td>
+    <td>
+      <a href="https://github.com/masavini">masavini</a>
     </td>
     <td></td>
   </tr>
@@ -1672,6 +1707,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Sadra Yahyapour</td>
+    <td>
+      <a href="https://github.com/lnxpy">lnxpy</a>
+    </td>
+    <td>lnxpylnxpy</td>
+  </tr>
+  <tr>
     <td>Sam Collins</td>
     <td>
       <a href="https://github.com/MightySCollins">MightySCollins</a>
@@ -1691,6 +1733,13 @@ Listed in alphabetical order.
       <a href="https://github.com/sebastian-code">sebastian-code</a>
     </td>
     <td>sebastianreyese</td>
+  </tr>
+  <tr>
+    <td>Shayan Karimi</td>
+    <td>
+      <a href="https://github.com/shywn-mrk">shywn-mrk</a>
+    </td>
+    <td>shywn_mrk</td>
   </tr>
   <tr>
     <td>Simon Rey</td>
@@ -1777,6 +1826,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Tharushan</td>
+    <td>
+      <a href="https://github.com/Tharushan">Tharushan</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Thibault J.</td>
     <td>
       <a href="https://github.com/thibault">thibault</a>
@@ -1822,6 +1878,13 @@ Listed in alphabetical order.
     <td>Timm Simpkins</td>
     <td>
       <a href="https://github.com/PoDuck">PoDuck</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>tmajerech</td>
+    <td>
+      <a href="https://github.com/tmajerech">tmajerech</a>
     </td>
     <td></td>
   </tr>
@@ -1885,6 +1948,13 @@ Listed in alphabetical order.
     <td>Vikas Yadav</td>
     <td>
       <a href="https://github.com/vik-y">vik-y</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>villancikos</td>
+    <td>
+      <a href="https://github.com/villancikos">villancikos</a>
     </td>
     <td></td>
   </tr>
@@ -1969,6 +2039,13 @@ Listed in alphabetical order.
     <td>Zach Borboa</td>
     <td>
       <a href="https://github.com/zachborboa">zachborboa</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>zhaoruibing</td>
+    <td>
+      <a href="https://github.com/zhaoruibing">zhaoruibing</a>
     </td>
     <td></td>
   </tr>

@@ -1,0 +1,87 @@
+// For format details, see https://containers.dev/implementors/json_reference/
+{
+    "name": "{{cookiecutter.project_slug}}_dev",
+    "dockerComposeFile": [
+        "../local.yml"
+    ],
+    "init": true,
+    "mounts": [
+        {
+            "source": "./.devcontainer/bash_history",
+            "target": "/home/dev-user/.bash_history",
+            "type": "bind"
+        },
+        {
+            "source": "/tmp",
+            "target": "/tmp",
+            "type": "bind"
+        },
+        {
+            "source": "~/.ssh",
+            "target": "/home/dev-user/.ssh",
+            "type": "bind"
+        }
+    ],
+    // Tells devcontainer.json supporting services / tools whether they should run
+    // /bin/sh -c "while sleep 1000; do :; done" when starting the container instead of the container’s default command
+    "overrideCommand": false,
+    "service": "django",
+    // "remoteEnv": {"PATH": "/home/dev-user/.local/bin:${containerEnv:PATH}"},
+    "remoteUser": "dev-user",
+    "workspaceFolder": "/app",
+    // Set *default* container specific settings.json values on container create.
+    "customizations": {
+        {%- if cookiecutter.editor == "VS Code" %}
+        "vscode": {
+            "settings": {
+                "editor.formatOnSave": true,
+                "[python]": {
+                    "analysis.autoImportCompletions": true,
+                    "analysis.typeCheckingMode": "basic",
+                    "defaultInterpreterPath": "/usr/local/bin/python",
+                    "editor.codeActionsOnSave": {
+                        "source.organizeImports": true
+                    },
+                    // Uncomment when fixed
+                    // https://github.com/microsoft/vscode-remote-release/issues/8474
+                    // "editor.defaultFormatter": "ms-python.black-formatter",
+                    "formatting.blackPath": "/usr/local/bin/black",
+                    "formatting.provider": "black",
+                    "languageServer": "Pylance",
+                    // "linting.banditPath": "/usr/local/py-utils/bin/bandit",
+                    "linting.enabled": true,
+                    "linting.flake8Enabled": true,
+                    "linting.flake8Path": "/usr/local/bin/flake8",
+                    "linting.mypyEnabled": true,
+                    "linting.mypyPath": "/usr/local/bin/mypy",
+                    "linting.pycodestylePath": "/usr/local/bin/pycodestyle",
+                    // "linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
+                    "linting.pylintEnabled": true,
+                    "linting.pylintPath": "/usr/local/bin/pylint"
+                }
+            },
+            // https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_vs-code-specific-properties
+            // Add the IDs of extensions you want installed when the container is created.
+            "extensions": [
+                "davidanson.vscode-markdownlint",
+                "mrmlnc.vscode-duplicate",
+                "visualstudioexptteam.vscodeintellicode",
+                "visualstudioexptteam.intellicode-api-usage-examples",
+                // python
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.isort",
+                "ms-python.black-formatter",
+                // django
+                "batisteo.vscode-django"
+            ]
+        }
+        {%- endif %}
+    },
+    // Uncomment the next line if you want start specific services in your Docker Compose config.
+    // "runServices": [],
+    // Uncomment the next line if you want to keep your containers running after VS Code shuts down.
+    // "shutdownAction": "none",
+    // Uncomment the next line to run commands after the container is created.
+    "postCreateCommand": "cat .devcontainer/bashrc.override.sh >> ~/.bashrc"
+}

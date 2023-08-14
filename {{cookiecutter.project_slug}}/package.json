@@ -25,7 +25,7 @@
     "pixrem": "^5.0.0",
     "postcss": "^8.3.11",
     "postcss-loader": "^7.0.2",
-    "postcss-preset-env": "^8.0.1",
+    "postcss-preset-env": "^9.0.0",
     "sass": "^1.43.4",
     "sass-loader": "^13.2.0",
     "webpack": "^5.65.0",
