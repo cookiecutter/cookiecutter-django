@@ -3,6 +3,33 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.08.14
+
+
+### Changed
+
+- Install Django and DRF stubs with `compatible-mypy` extra (as per offical recommendation) ([#4361](https://github.com/cookiecutter/cookiecutter-django/pull/4361))
+
+-  Fix `overrideCommand` value in `devcontainer` so that the `django` container can run (#4517) ([#4517](https://github.com/cookiecutter/cookiecutter-django/pull/4517))
+
+### Fixed
+
+- Prevent error in data migration caused by long project name ([#4525](https://github.com/cookiecutter/cookiecutter-django/pull/4525))
+
+- Remove unused gulp-concat when Webpack is selected ([#4520](https://github.com/cookiecutter/cookiecutter-django/pull/4520))
+
+- Exclude env files from container image (add .envs/ to .dockerignore) ([#4476](https://github.com/cookiecutter/cookiecutter-django/pull/4476))
+
+### Updated
+
+- Update werkzeug to 2.3.7 ([#4521](https://github.com/cookiecutter/cookiecutter-django/pull/4521))
+
+- Update coverage to 7.3.0 ([#4516](https://github.com/cookiecutter/cookiecutter-django/pull/4516))
+
+- Update django-debug-toolbar to 4.2.0 ([#4511](https://github.com/cookiecutter/cookiecutter-django/pull/4511))
+
+- Update flower to 2.0.1 ([#4518](https://github.com/cookiecutter/cookiecutter-django/pull/4518))
+
 ## 2023.08.10
 
 
