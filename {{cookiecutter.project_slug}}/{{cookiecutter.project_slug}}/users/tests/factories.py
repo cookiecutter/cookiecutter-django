@@ -35,7 +35,7 @@ class UserFactory(DjangoModelFactory):
         if create and results and not cls._meta.skip_postgeneration_save:
             # Some post-generation hooks ran, and may have modified us.
             instance.save()
-    
+
     class Meta:
         model = get_user_model()
         django_get_or_create = ["{{cookiecutter.username_type}}"]
