@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.08.19
+
+
+### Changed
+
+- Override `_after_postgeneration` to force save in `UserFactory` ([#4534](https://github.com/cookiecutter/cookiecutter-django/pull/4534))
+
 ## 2023.08.17
 
 
