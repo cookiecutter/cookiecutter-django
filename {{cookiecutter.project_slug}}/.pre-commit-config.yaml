@@ -50,6 +50,7 @@ repos:
     rev: 6.1.0
     hooks:
       - id: flake8
+        args: [ '--config=setup.cfg' ]
 
   - repo: https://github.com/Riverside-Healthcare/djLint
     rev: v1.32.1
