@@ -1000,6 +1000,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>itisnotyourenv</td>
+    <td>
+      <a href="https://github.com/itisnotyourenv">itisnotyourenv</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Ivan Khomutov</td>
     <td>
       <a href="https://github.com/ikhomutov">ikhomutov</a>
