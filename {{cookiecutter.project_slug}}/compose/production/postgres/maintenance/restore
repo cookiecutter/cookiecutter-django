@@ -7,7 +7,7 @@
 ###     <1> filename of an existing backup.
 ###
 ### Usage:
-###     $ docker-compose -f <environment>.yml (exec |run --rm) postgres restore <1>
+###     $ docker compose -f <environment>.yml (exec |run --rm) postgres restore <1>
 
 
 set -o errexit

@@ -1,7 +1,8 @@
 {% raw %}{% extends "base.html" %}
+
 {% load crispy_forms_tags %}
 
-{% block title %}{{ user }}{% endblock %}
+{% block title %}{{ user }}{% endblock title %}
 
 {% block content %}
   <h1>{{ user }}</h1>
@@ -14,5 +15,5 @@
       </div>
     </div>
   </form>
-{% endblock %}
+{% endblock content %}
 {%- endraw %}
