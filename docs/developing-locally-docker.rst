@@ -32,7 +32,7 @@ Build the Stack
 
 This can take a while, especially the first time you run this particular command on your development system::
 
-    $ docker-compose -f local.yml build
+    $ docker compose -f local.yml build
 
 Generally, if you want to emulate production environment use ``production.yml`` instead. And this is true for any other actions you might need to perform: whenever a switch is required, just do it!
 
@@ -51,7 +51,7 @@ This brings up both Django and PostgreSQL. The first time it is run it might tak
 
 Open a terminal at the project root and run the following for local development::
 
-    $ docker-compose -f local.yml up
+    $ docker compose -f local.yml up
 
 You can also set the environment variable ``COMPOSE_FILE`` pointing to ``local.yml`` like this::
 
@@ -59,23 +59,25 @@ You can also set the environment variable ``COMPOSE_FILE`` pointing to ``local.y
 
 And then run::
 
-    $ docker-compose up
+    $ docker compose up
 
 To run in a detached (background) mode, just::
 
-    $ docker-compose up -d
+    $ docker compose up -d
 
+
+The site should start and be accessible at http://localhost:3000 if you selected Webpack or Gulp as frontend pipeline and http://localhost:8000 otherwise.
 
 Execute Management Commands
 ---------------------------
 
-As with any shell command that we wish to run in our container, this is done using the ``docker-compose -f local.yml run --rm`` command: ::
+As with any shell command that we wish to run in our container, this is done using the ``docker compose -f local.yml run --rm`` command: ::
 
-    $ docker-compose -f local.yml run --rm django python manage.py migrate
-    $ docker-compose -f local.yml run --rm django python manage.py createsuperuser
+    $ docker compose -f local.yml run --rm django python manage.py migrate
+    $ docker compose -f local.yml run --rm django python manage.py createsuperuser
 
 Here, ``django`` is the target service we are executing the commands against.
-
+Also, please note that the ``docker exec`` does not work for running management commands.
 
 (Optionally) Designate your Docker Development Server IP
 --------------------------------------------------------
@@ -154,8 +156,8 @@ You have to modify the relevant requirement file: base, local or production by a
 
 To get this change picked up, you'll need to rebuild the image(s) and restart the running container: ::
 
-    docker-compose -f local.yml build
-    docker-compose -f local.yml up
+    docker compose -f local.yml build
+    docker compose -f local.yml up
 
 Debugging
 ~~~~~~~~~
@@ -169,7 +171,7 @@ If you are using the following within your code to debug: ::
 
 Then you may need to run the following for it to work as desired: ::
 
-    $ docker-compose -f local.yml run --rm --service-ports django
+    $ docker compose -f local.yml run --rm --service-ports django
 
 
 django-debug-toolbar
@@ -229,7 +231,12 @@ By default, it's enabled both in local and production environments (``local.yml`
 Using Webpack or Gulp
 ~~~~~~~~~~~~~~~~~~~~~
 
-When using Webpack or Gulp as the ``frontend_pipeline`` option, you should access your application at the address of the ``node`` service in order to see your correct styles. This is http://localhost:3000 by default. When using any of the other ``frontend_pipeline`` options, you should use the address of the ``django`` service, http://localhost:8000.
+If you've opted for Gulp or Webpack as front-end pipeline, the project comes configured with `Sass`_ compilation and `live reloading`_. As you change your Sass/JS source files, the task runner will automatically rebuild the corresponding CSS and JS assets and reload them in your browser without refreshing the page.
+
+The stack comes with a dedicated node service to build the static assets, watch for changes and proxy requests to the Django app with live reloading scripts injected in the response. For everything to work smoothly, you need to access the application at the port served by the node service, which is http://localhost:3000 by default.
+
+.. _Sass: https://sass-lang.com/
+.. _live reloading: https://browsersync.io
 
 Developing locally with HTTPS
 -----------------------------
@@ -309,7 +316,7 @@ You should allow the new hostname. ::
 
 Rebuild your ``docker`` application. ::
 
-  $ docker-compose -f local.yml up -d --build
+  $ docker compose -f local.yml up -d --build
 
 Go to your browser and type in your URL bar ``https://my-dev-env.local``
 
@@ -323,3 +330,26 @@ See `https with nginx`_ for more information on this configuration.
 Add ``certs/*`` to the ``.gitignore`` file. This allows the folder to be included in the repo but its contents to be ignored.
 
 *This configuration is for local development environments only. Do not use this for production since you might expose your local* ``rootCA-key.pem``.
+
+Webpack
+~~~~~~~
+
+If you are using Webpack:
+
+1. On the ``nginx-proxy`` service in ``local.yml``, change ``depends_on`` to ``node`` instead of ``django``.
+
+2. On the ``node`` service in ``local.yml``, add the following environment configuration:
+
+   ::
+
+     environment:
+       - VIRTUAL_HOST=my-dev-env.local
+       - VIRTUAL_PORT=3000
+
+3. Add the following configuration to the ``devServer`` section of ``webpack/dev.config.js``:
+
+   ::
+
+     client: {
+         webSocketURL: 'auto://0.0.0.0:0/ws', // note the `:0` after `0.0.0.0`
+     },

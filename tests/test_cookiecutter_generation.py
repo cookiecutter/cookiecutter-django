@@ -50,10 +50,12 @@ SUPPORTED_COMBINATIONS = [
     {"open_source_license": "Not open source"},
     {"windows": "y"},
     {"windows": "n"},
-    {"use_pycharm": "y"},
-    {"use_pycharm": "n"},
+    {"editor": "None"},
+    {"editor": "PyCharm"},
+    {"editor": "VS Code"},
     {"use_docker": "y"},
     {"use_docker": "n"},
+    {"postgresql_version": "15"},
     {"postgresql_version": "14"},
     {"postgresql_version": "13"},
     {"postgresql_version": "12"},
@@ -123,6 +125,7 @@ SUPPORTED_COMBINATIONS = [
     {"ci_tool": "Travis"},
     {"ci_tool": "Gitlab"},
     {"ci_tool": "Github"},
+    {"ci_tool": "Drone"},
     {"keep_local_envs_in_vcs": "y"},
     {"keep_local_envs_in_vcs": "n"},
     {"debug": "y"},
@@ -229,10 +232,36 @@ def test_django_upgrade_passes(cookies, context_override):
     try:
         sh.django_upgrade(
             "--target-version",
-            "4.1",
+            "4.2",
             *python_files,
             _cwd=str(result.project_path),
         )
+    except sh.ErrorReturnCode as e:
+        pytest.fail(e.stdout.decode())
+
+
+@pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
+def test_djlint_lint_passes(cookies, context_override):
+    """Check whether generated project passes djLint --lint."""
+    result = cookies.bake(extra_context=context_override)
+
+    autofixable_rules = "H014,T001"
+    # TODO: remove T002 when fixed https://github.com/Riverside-Healthcare/djLint/issues/687
+    ignored_rules = "H006,H030,H031,T002"
+    try:
+        sh.djlint("--lint", "--ignore", f"{autofixable_rules},{ignored_rules}", ".", _cwd=str(result.project_path))
+    except sh.ErrorReturnCode as e:
+        pytest.fail(e.stdout.decode())
+
+
+@auto_fixable
+@pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
+def test_djlint_check_passes(cookies, context_override):
+    """Check whether generated project passes djLint --check."""
+    result = cookies.bake(extra_context=context_override)
+
+    try:
+        sh.djlint("--check", ".", _cwd=str(result.project_path))
     except sh.ErrorReturnCode as e:
         pytest.fail(e.stdout.decode())
 
@@ -241,7 +270,7 @@ def test_django_upgrade_passes(cookies, context_override):
     ["use_docker", "expected_test_script"],
     [
         ("n", "pytest"),
-        ("y", "docker-compose -f local.yml run django pytest"),
+        ("y", "docker compose -f local.yml run django pytest"),
     ],
 )
 def test_travis_invokes_pytest(cookies, context, use_docker, expected_test_script):
@@ -266,7 +295,7 @@ def test_travis_invokes_pytest(cookies, context, use_docker, expected_test_scrip
     ["use_docker", "expected_test_script"],
     [
         ("n", "pytest"),
-        ("y", "docker-compose -f local.yml run django pytest"),
+        ("y", "docker compose -f local.yml run django pytest"),
     ],
 )
 def test_gitlab_invokes_precommit_and_pytest(cookies, context, use_docker, expected_test_script):
@@ -293,7 +322,7 @@ def test_gitlab_invokes_precommit_and_pytest(cookies, context, use_docker, expec
     ["use_docker", "expected_test_script"],
     [
         ("n", "pytest"),
-        ("y", "docker-compose -f local.yml run django pytest"),
+        ("y", "docker compose -f local.yml run django pytest"),
     ],
 )
 def test_github_invokes_linter_and_pytest(cookies, context, use_docker, expected_test_script):
@@ -345,14 +374,15 @@ def test_error_if_incompatible(cookies, context, invalid_context):
 
 
 @pytest.mark.parametrize(
-    ["use_pycharm", "pycharm_docs_exist"],
+    ["editor", "pycharm_docs_exist"],
     [
-        ("n", False),
-        ("y", True),
+        ("None", False),
+        ("PyCharm", True),
+        ("VS Code", False),
     ],
 )
-def test_pycharm_docs_removed(cookies, context, use_pycharm, pycharm_docs_exist):
-    context.update({"use_pycharm": use_pycharm})
+def test_pycharm_docs_removed(cookies, context, editor, pycharm_docs_exist):
+    context.update({"editor": editor})
     result = cookies.bake(extra_context=context)
 
     with open(f"{result.project_path}/docs/index.rst") as f:

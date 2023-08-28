@@ -54,6 +54,12 @@
     "is_core": true
   },
   {
+    "name": "Jelmer Draaijer",
+    "github_login": "foarsitter",
+    "twitter_username": "",
+    "is_core": true
+  },
+  {
     "name": "18",
     "github_login": "dezoito",
     "twitter_username": ""
@@ -551,11 +557,6 @@
   {
     "name": "Jan Van Bruggen",
     "github_login": "jvanbrug",
-    "twitter_username": ""
-  },
-  {
-    "name": "Jelmer Draaijer",
-    "github_login": "foarsitter",
     "twitter_username": ""
   },
   {
@@ -1391,6 +1392,76 @@
   {
     "name": "Birtibu",
     "github_login": "Birtibu",
+    "twitter_username": ""
+  },
+  {
+    "name": "Matheus Jardim Bernardes",
+    "github_login": "matheusjardimb",
+    "twitter_username": ""
+  },
+  {
+    "name": "masavini",
+    "github_login": "masavini",
+    "twitter_username": ""
+  },
+  {
+    "name": "Joseph Hanna",
+    "github_login": "sanchimenea",
+    "twitter_username": ""
+  },
+  {
+    "name": "tmajerech",
+    "github_login": "tmajerech",
+    "twitter_username": ""
+  },
+  {
+    "name": "villancikos",
+    "github_login": "villancikos",
+    "twitter_username": ""
+  },
+  {
+    "name": "Imran Rahman",
+    "github_login": "infraredCoding",
+    "twitter_username": ""
+  },
+  {
+    "name": "hleroy",
+    "github_login": "hleroy",
+    "twitter_username": ""
+  },
+  {
+    "name": "Shayan Karimi",
+    "github_login": "shywn-mrk",
+    "twitter_username": "shywn_mrk"
+  },
+  {
+    "name": "Sadra Yahyapour",
+    "github_login": "lnxpy",
+    "twitter_username": "lnxpylnxpy"
+  },
+  {
+    "name": "Tharushan",
+    "github_login": "Tharushan",
+    "twitter_username": ""
+  },
+  {
+    "name": "Fateme Fouladkar",
+    "github_login": "FatemeFouladkar",
+    "twitter_username": ""
+  },
+  {
+    "name": "zhaoruibing",
+    "github_login": "zhaoruibing",
+    "twitter_username": ""
+  },
+  {
+    "name": "MinWoo Sung",
+    "github_login": "SungMinWoo",
+    "twitter_username": ""
+  },
+  {
+    "name": "itisnotyourenv",
+    "github_login": "itisnotyourenv",
     "twitter_username": ""
   }
 ]

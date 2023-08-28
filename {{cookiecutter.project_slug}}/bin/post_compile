@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+{%- if cookiecutter.frontend_pipeline == "Django Compressor" %}
 
 compress_enabled() {
 python << END
@@ -19,4 +20,7 @@ if compress_enabled
 then
   python manage.py compress
 fi
+{%- endif %}
+
 python manage.py collectstatic --noinput
+python manage.py compilemessages -i site-packages
