@@ -1000,6 +1000,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>itisnotyourenv</td>
+    <td>
+      <a href="https://github.com/itisnotyourenv">itisnotyourenv</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Ivan Khomutov</td>
     <td>
       <a href="https://github.com/ikhomutov">ikhomutov</a>
@@ -1465,6 +1472,13 @@ Listed in alphabetical order.
     <td>Min ho Kim</td>
     <td>
       <a href="https://github.com/minho42">minho42</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>MinWoo Sung</td>
+    <td>
+      <a href="https://github.com/SungMinWoo">SungMinWoo</a>
     </td>
     <td></td>
   </tr>
