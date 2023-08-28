@@ -1,0 +1,335 @@
+# Translations for the {{ cookiecutter.project_name }} project
+# Copyright (C) {% now 'utc', '%Y' %} {{ cookiecutter.author_name }}
+# {{ cookiecutter.author_name }} <{{ cookiecutter.email }}>, {% now 'utc', '%Y' %}.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: {{ cookiecutter.version }}\n"
+"Language: fr-FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: {{cookiecutter.project_slug}}/templates/account/account_inactive.html:5
+#: {{cookiecutter.project_slug}}/templates/account/account_inactive.html:8
+msgid "Account Inactive"
+msgstr "Compte inactif"
+
+#: {{cookiecutter.project_slug}}/templates/account/account_inactive.html:10
+msgid "This account is inactive."
+msgstr "Ce compte est inactif."
+
+#: {{cookiecutter.project_slug}}/templates/account/email.html:7
+msgid "Account"
+msgstr "Compte"
+
+#: {{cookiecutter.project_slug}}/templates/account/email.html:10
+msgid "E-mail Addresses"
+msgstr "Adresses e-mail"
+
+#: {{cookiecutter.project_slug}}/templates/account/email.html:13
+msgid "The following e-mail addresses are associated with your account:"
+msgstr "Les adresses e-mail suivantes sont associées à votre compte :"
+
+#: {{cookiecutter.project_slug}}/templates/account/email.html:27
+msgid "Verified"
+msgstr "Vérifié"
+
+#: {{cookiecutter.project_slug}}/templates/account/email.html:29
+msgid "Unverified"
+msgstr "Non vérifié"
+
+#: {{cookiecutter.project_slug}}/templates/account/email.html:31
+msgid "Primary"
+msgstr "Primaire"
+
+#: {{cookiecutter.project_slug}}/templates/account/email.html:37
+msgid "Make Primary"
+msgstr "Changer Primaire"
+
+#: {{cookiecutter.project_slug}}/templates/account/email.html:38
+msgid "Re-send Verification"
+msgstr "Renvoyer vérification"
+
+#: {{cookiecutter.project_slug}}/templates/account/email.html:39
+msgid "Remove"
+msgstr "Supprimer"
+
+#: {{cookiecutter.project_slug}}/templates/account/email.html:46
+msgid "Warning:"
+msgstr "Avertissement:"
+
+#: {{cookiecutter.project_slug}}/templates/account/email.html:46
+msgid ""
+"You currently do not have any e-mail address set up. You should really add "
+"an e-mail address so you can receive notifications, reset your password, etc."
+msgstr ""
+"Vous n'avez actuellement aucune adresse e-mail configurée. Vous devriez ajouter "
+"une adresse e-mail pour reçevoir des notifications, réinitialiser votre mot "
+"de passe, etc."
+
+#: {{cookiecutter.project_slug}}/templates/account/email.html:51
+msgid "Add E-mail Address"
+msgstr "Ajouter une adresse e-mail"
+
+#: {{cookiecutter.project_slug}}/templates/account/email.html:56
+msgid "Add E-mail"
+msgstr "Ajouter e-mail"
+
+#: {{cookiecutter.project_slug}}/templates/account/email.html:66
+msgid "Do you really want to remove the selected e-mail address?"
+msgstr "Voulez-vous vraiment supprimer l'adresse e-mail sélectionnée ?"
+
+#: {{cookiecutter.project_slug}}/templates/account/email_confirm.html:6
+#: {{cookiecutter.project_slug}}/templates/account/email_confirm.html:10
+msgid "Confirm E-mail Address"
+msgstr "Confirmez votre adresse email"
+
+#: {{cookiecutter.project_slug}}/templates/account/email_confirm.html:16
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail "
+"address for user %(user_display)s."
+msgstr ""
+"Veuillez confirmer que <a href=\"mailto:%(email)s\">%(email)s</a> est un e-mail "
+"adresse de l'utilisateur %(user_display)s."
+
+#: {{cookiecutter.project_slug}}/templates/account/email_confirm.html:20
+msgid "Confirm"
+msgstr "Confirm"
+
+#: {{cookiecutter.project_slug}}/templates/account/email_confirm.html:27
+#, python-format
+msgid ""
+"This e-mail confirmation link expired or is invalid. Please <a href="
+"\"%(email_url)s\">issue a new e-mail confirmation request</a>."
+msgstr ""
+"Ce lien de confirmation par e-mail a expiré ou n'est pas valide. Veuillez"
+ "<a href=\"%(email_url)s\">émettre une nouvelle demande de confirmation "
+"par e-mail</a>."
+
+#: {{cookiecutter.project_slug}}/templates/account/login.html:7
+#: {{cookiecutter.project_slug}}/templates/account/login.html:11
+#: {{cookiecutter.project_slug}}/templates/account/login.html:56
+#: {{cookiecutter.project_slug}}/templates/base.html:72
+msgid "Sign In"
+msgstr "S'identifier"
+
+#: {{cookiecutter.project_slug}}/templates/account/login.html:17
+msgid "Please sign in with one of your existing third party accounts:"
+msgstr "Veuillez vous connecter avec l'un de vos comptes tiers existants :"
+
+#: {{cookiecutter.project_slug}}/templates/account/login.html:19
+#, python-format
+msgid ""
+"Or, <a href=\"%(signup_url)s\">sign up</a> for a %(site_name)s account and "
+"sign in below:"
+msgstr ""
+"Ou, <a href=\"%(signup_url)s\">créez</a> un compte %(site_name)s et "
+"connectez-vous ci-dessous :"
+
+#: {{cookiecutter.project_slug}}/templates/account/login.html:32
+msgid "or"
+msgstr "ou"
+
+#: {{cookiecutter.project_slug}}/templates/account/login.html:41
+#, python-format
+msgid ""
+"If you have not created an account yet, then please <a href=\"%(signup_url)s"
+"\">sign up</a> first."
+msgstr ""
+"Si vous n'avez pas encore créé de compte, veuillez d'abord <a href=\"%(signup_url)s"
+"\">vous inscrire</a>."
+
+#: {{cookiecutter.project_slug}}/templates/account/login.html:55
+msgid "Forgot Password?"
+msgstr "Mot de passe oublié?"
+
+#: {{cookiecutter.project_slug}}/templates/account/logout.html:5
+#: {{cookiecutter.project_slug}}/templates/account/logout.html:8
+#: {{cookiecutter.project_slug}}/templates/account/logout.html:17
+#: {{cookiecutter.project_slug}}/templates/base.html:61
+msgid "Sign Out"
+msgstr "Se déconnecter"
+
+#: {{cookiecutter.project_slug}}/templates/account/logout.html:10
+msgid "Are you sure you want to sign out?"
+msgstr "Êtes-vous certain de vouloir vous déconnecter?"
+
+#: {{cookiecutter.project_slug}}/templates/account/password_change.html:6
+#: {{cookiecutter.project_slug}}/templates/account/password_change.html:9
+#: {{cookiecutter.project_slug}}/templates/account/password_change.html:14
+#: {{cookiecutter.project_slug}}/templates/account/password_reset_from_key.html:5
+#: {{cookiecutter.project_slug}}/templates/account/password_reset_from_key.html:8
+#: {{cookiecutter.project_slug}}/templates/account/password_reset_from_key_done.html:4
+#: {{cookiecutter.project_slug}}/templates/account/password_reset_from_key_done.html:7
+msgid "Change Password"
+msgstr "Changer le mot de passe"
+
+#: {{cookiecutter.project_slug}}/templates/account/password_reset.html:7
+#: {{cookiecutter.project_slug}}/templates/account/password_reset.html:11
+#: {{cookiecutter.project_slug}}/templates/account/password_reset_done.html:6
+#: {{cookiecutter.project_slug}}/templates/account/password_reset_done.html:9
+msgid "Password Reset"
+msgstr "Réinitialisation du mot de passe"
+
+#: {{cookiecutter.project_slug}}/templates/account/password_reset.html:16
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll send you "
+"an e-mail allowing you to reset it."
+msgstr ""
+"Mot de passe oublié? Entrez votre adresse e-mail ci-dessous, et nous vous "
+"enverrons un e-mail vous permettant de le réinitialiser."
+
+#: {{cookiecutter.project_slug}}/templates/account/password_reset.html:21
+msgid "Reset My Password"
+msgstr "Réinitialiser mon mot de passe"
+
+#: {{cookiecutter.project_slug}}/templates/account/password_reset.html:24
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr ""
+"Veuillez nous contacter si vous rencontrez des difficultés pour réinitialiser"
+"votre mot de passe."
+
+#: {{cookiecutter.project_slug}}/templates/account/password_reset_done.html:15
+msgid ""
+"We have sent you an e-mail. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+"Nous vous avons envoyé un e-mail. Veuillez nous contacter si vous ne le "
+"recevez pas d'ici quelques minutes."
+
+#: {{cookiecutter.project_slug}}/templates/account/password_reset_from_key.html:8
+msgid "Bad Token"
+msgstr "Token Invalide"
+
+#: {{cookiecutter.project_slug}}/templates/account/password_reset_from_key.html:12
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+"Le lien de réinitialisation du mot de passe n'était pas valide, peut-être parce "
+"qu'il a déjà été utilisé. Veuillez faire une <a href=\"%(passwd_reset_url)s\"> "
+"nouvelle demande de réinitialisation de mot de passe</a>."
+
+#: {{cookiecutter.project_slug}}/templates/account/password_reset_from_key.html:18
+msgid "change password"
+msgstr "changer le mot de passe"
+
+#: {{cookiecutter.project_slug}}/templates/account/password_reset_from_key.html:21
+#: {{cookiecutter.project_slug}}/templates/account/password_reset_from_key_done.html:8
+msgid "Your password is now changed."
+msgstr "Votre mot de passe est maintenant modifié."
+
+#: {{cookiecutter.project_slug}}/templates/account/password_set.html:6
+#: {{cookiecutter.project_slug}}/templates/account/password_set.html:9
+#: {{cookiecutter.project_slug}}/templates/account/password_set.html:14
+msgid "Set Password"
+msgstr "Définir le mot de passe"
+
+#: {{cookiecutter.project_slug}}/templates/account/signup.html:6
+msgid "Signup"
+msgstr "S'inscrire"
+
+#: {{cookiecutter.project_slug}}/templates/account/signup.html:9
+#: {{cookiecutter.project_slug}}/templates/account/signup.html:19
+#: {{cookiecutter.project_slug}}/templates/base.html:67
+msgid "Sign Up"
+msgstr "S'inscrire"
+
+#: {{cookiecutter.project_slug}}/templates/account/signup.html:11
+#, python-format
+msgid ""
+"Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
+msgstr ""
+"Vous avez déjà un compte? Alors veuillez <a href=\"%(login_url)s\">vous connecter</a>."
+
+#: {{cookiecutter.project_slug}}/templates/account/signup_closed.html:5
+#: {{cookiecutter.project_slug}}/templates/account/signup_closed.html:8
+msgid "Sign Up Closed"
+msgstr "Inscriptions closes"
+
+#: {{cookiecutter.project_slug}}/templates/account/signup_closed.html:10
+msgid "We are sorry, but the sign up is currently closed."
+msgstr "Désolé, mais l'inscription est actuellement fermée."
+
+#: {{cookiecutter.project_slug}}/templates/account/verification_sent.html:5
+#: {{cookiecutter.project_slug}}/templates/account/verification_sent.html:8
+#: {{cookiecutter.project_slug}}/templates/account/verified_email_required.html:5
+#: {{cookiecutter.project_slug}}/templates/account/verified_email_required.html:8
+msgid "Verify Your E-mail Address"
+msgstr "Vérifiez votre adresse e-mail"
+
+#: {{cookiecutter.project_slug}}/templates/account/verification_sent.html:10
+msgid ""
+"We have sent an e-mail to you for verification. Follow the link provided to "
+"finalize the signup process. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr "Nous vous avons envoyé un e-mail pour vérification. Suivez le lien fourni "
+"pour finalisez le processus d'inscription. Veuillez nous contacter si vous ne le "
+"recevez pas d'ici quelques minutes."
+
+#: {{cookiecutter.project_slug}}/templates/account/verified_email_required.html:12
+msgid ""
+"This part of the site requires us to verify that\n"
+"you are who you claim to be. For this purpose, we require that you\n"
+"verify ownership of your e-mail address. "
+msgstr ""
+"Cette partie du site nous oblige à vérifier que\n"
+"vous êtes qui vous prétendez être. Nous vous demandons donc de\n"
+"vérifier la propriété de votre adresse e-mail."
+
+#: {{cookiecutter.project_slug}}/templates/account/verified_email_required.html:16
+msgid ""
+"We have sent an e-mail to you for\n"
+"verification. Please click on the link inside this e-mail. Please\n"
+"contact us if you do not receive it within a few minutes."
+msgstr ""
+"Nous vous avons envoyé un e-mail pour\n"
+"vérification. Veuillez cliquer sur le lien contenu dans cet e-mail. Veuillez nous\n"
+"contacter si vous ne le recevez pas d'ici quelques minutes."
+
+#: {{cookiecutter.project_slug}}/templates/account/verified_email_required.html:20
+#, python-format
+msgid ""
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
+"mail address</a>."
+msgstr ""
+"<strong>Remarque :</strong> vous pouvez toujours <a href=\"%(email_url)s\">changer votre e-"
+"adresse e-mail</a>."
+
+#: {{cookiecutter.project_slug}}/templates/base.html:57
+msgid "My Profile"
+msgstr "Mon Profil"
+
+#: {{cookiecutter.project_slug}}/users/admin.py:17
+msgid "Personal info"
+msgstr "Personal info"
+
+#: {{cookiecutter.project_slug}}/users/admin.py:19
+msgid "Permissions"
+msgstr "Permissions"
+
+#: {{cookiecutter.project_slug}}/users/admin.py:30
+msgid "Important dates"
+msgstr "Dates importantes"
+
+#: {{cookiecutter.project_slug}}/users/apps.py:7
+msgid "Users"
+msgstr "Utilisateurs"
+
+#: {{cookiecutter.project_slug}}/users/forms.py:24
+#: {{cookiecutter.project_slug}}/users/tests/test_forms.py:36
+msgid "This username has already been taken."
+msgstr "Ce nom d'utilisateur est déjà pris."
+
+#: {{cookiecutter.project_slug}}/users/models.py:15
+msgid "Name of User"
+msgstr "Nom de l'utilisateur"
+
+#: {{cookiecutter.project_slug}}/users/views.py:23
+msgid "Information successfully updated"
+msgstr "Informations mises à jour avec succès"
