@@ -1,0 +1,48 @@
+kind: pipeline
+name: default
+
+environment:
+  POSTGRES_USER: '{{ cookiecutter.project_slug }}'
+  POSTGRES_PASSWORD: ''
+  POSTGRES_DB: 'test_{{ cookiecutter.project_slug }}'
+  POSTGRES_HOST_AUTH_METHOD: trust
+  {%- if cookiecutter.use_celery == 'y' %}
+  CELERY_BROKER_URL: 'redis://redis:6379/0'
+  {%- endif %}
+
+steps:
+- name: lint
+  pull: if-not-exists
+  image: python:3.11
+  environment:
+    PRE_COMMIT_HOME: ${CI_PROJECT_DIR}/.cache/pre-commit
+  volumes:
+  - name: pre-commit cache
+    path: ${PRE_COMMIT_HOME}
+  commands:
+  - export PRE_COMMIT_HOME=$CI_PROJECT_DIR/.cache/pre-commit
+  - pip install -q pre-commit
+  - pre-commit run --show-diff-on-failure --color=always --all-files
+
+- name: test
+  pull: if-not-exists
+  {%- if cookiecutter.use_docker == 'y' %}
+  image: docker/compose:1.29.2
+  environment:
+    DATABASE_URL: pgsql://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
+  commands:
+  - docker-compose -f local.yml build
+  - docker-compose -f local.yml run --rm django python manage.py migrate
+  - docker-compose -f local.yml up -d
+  - docker-compose -f local.yml run django pytest
+  {%- else %}
+  image: python:3.11
+  commands:
+  - pip install -r requirements/local.txt
+  - pytest
+  {%- endif%}
+
+volumes:
+- name: pre-commit cache
+  host:
+    path: /tmp/drone/cache/pre-commit

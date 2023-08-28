@@ -75,7 +75,7 @@ jobs:
           - name: Webpack
             args: "frontend_pipeline=Webpack use_heroku=y"
           - name: Email Username
-            args: "username_type=email ci_tool=Github"
+            args: "username_type=email ci_tool=Github project_name='Something superduper long - the great amazing project' project_slug=my_awesome_project"
 
     name: "Bare metal ${{ matrix.script.name }}"
     runs-on: ubuntu-latest
