@@ -1469,6 +1469,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>MinWoo Sung</td>
+    <td>
+      <a href="https://github.com/SungMinWoo">SungMinWoo</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>monosans</td>
     <td>
       <a href="https://github.com/monosans">monosans</a>
