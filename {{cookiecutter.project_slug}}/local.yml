@@ -16,7 +16,7 @@ services:
       {%- if cookiecutter.use_celery == 'y' %}
       - redis
       {%- endif %}
-      {%- if cookiecutter.use_mailhog == 'y' %}
+      {%- if cookiecutter.use_mailpit == 'y' %}
       - mailhog
       {%- endif %}
     volumes:
@@ -55,7 +55,7 @@ services:
     ports:
       - '9000:9000'
     command: /start-docs
-  {%- if cookiecutter.use_mailhog == 'y' %}
+  {%- if cookiecutter.use_mailpit == 'y' %}
 
   mailpit:
     image: axllent/mailpit:v1.8
@@ -77,7 +77,7 @@ services:
     depends_on:
       - redis
       - postgres
-      {%- if cookiecutter.use_mailhog == 'y' %}
+      {%- if cookiecutter.use_mailpit == 'y' %}
       - mailhog
       {%- endif %}
     ports: []
@@ -90,7 +90,7 @@ services:
     depends_on:
       - redis
       - postgres
-      {%- if cookiecutter.use_mailhog == 'y' %}
+      {%- if cookiecutter.use_mailpit == 'y' %}
       - mailhog
       {%- endif %}
     ports: []

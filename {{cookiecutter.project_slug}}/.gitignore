@@ -329,7 +329,7 @@ tags
 dump.rdb
 
 ### Project template
-{%- if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' %}
+{%- if cookiecutter.use_mailpit == 'y' and cookiecutter.use_docker == 'n' %}
 MailHog
 {%- endif %}
 {{ cookiecutter.project_slug }}/media/
