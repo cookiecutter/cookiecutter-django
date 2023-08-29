@@ -57,9 +57,9 @@ services:
     command: /start-docs
   {%- if cookiecutter.use_mailhog == 'y' %}
 
-  mailhog:
-    image: mailhog/mailhog:v1.0.0
-    container_name: {{ cookiecutter.project_slug }}_local_mailhog
+  mailpit:
+    image: axllent/mailpit:v1.8
+    container_name: {{ cookiecutter.project_slug }}_local_mailpit
     ports:
       - "8025:8025"
 
