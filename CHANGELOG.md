@@ -3,6 +3,27 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.08.28
+
+
+### Changed
+
+- Add French translations ([#4454](https://github.com/cookiecutter/cookiecutter-django/pull/4454))
+
+- Change `MEDIA_URL` to an absolute URL in tests ([#4460](https://github.com/cookiecutter/cookiecutter-django/pull/4460))
+
+### Fixed
+
+- Fix a small compatibility issue between black and flake8 ([#4541](https://github.com/cookiecutter/cookiecutter-django/pull/4541))
+
+### Updated
+
+- Update django-allauth to 0.55.0 ([#4535](https://github.com/cookiecutter/cookiecutter-django/pull/4535))
+
+- Update watchfiles to 0.20.0 ([#4537](https://github.com/cookiecutter/cookiecutter-django/pull/4537))
+
+- Update Python version from 3.11.4 to 3.11.5 ([#4542](https://github.com/cookiecutter/cookiecutter-django/pull/4542))
+
 ## 2023.08.19
 
 
