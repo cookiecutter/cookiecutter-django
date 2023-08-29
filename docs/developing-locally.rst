@@ -102,7 +102,7 @@ Setup Email Backend
 MailHog
 ~~~~~~~
 
-.. note:: In order for the project to support MailHog_ it must have been bootstrapped with ``use_mailhog`` set to ``y``.
+.. note:: In order for the project to support MailHog_ it must have been bootstrapped with ``use_mailpit`` set to ``y``.
 
 MailHog is used to receive emails during development, it is written in Go and has no external dependencies.
 
@@ -131,7 +131,7 @@ Now you have your own mail server running locally, ready to receive whatever you
 Console
 ~~~~~~~
 
-.. note:: If you have generated your project with ``use_mailhog`` set to ``n`` this will be a default setup.
+.. note:: If you have generated your project with ``use_mailpit`` set to ``n`` this will be a default setup.
 
 Alternatively, deliver emails over console via ``EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'``.
 

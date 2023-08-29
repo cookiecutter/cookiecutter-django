@@ -165,7 +165,7 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     4 - Webpack
     Choose from 1, 2, 3, 4 [1]: 1
     use_celery [n]: y
-    use_mailhog [n]: n
+    use_mailpit [n]: n
     use_sentry [n]: y
     use_whitenoise [n]: n
     use_heroku [n]: y

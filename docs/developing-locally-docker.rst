@@ -194,7 +194,7 @@ Notice that the ``container_name`` is generated dynamically using your project s
 Mailhog
 ~~~~~~~
 
-When developing locally you can go with MailHog_ for email testing provided ``use_mailhog`` was set to ``y`` on setup. To proceed,
+When developing locally you can go with MailHog_ for email testing provided ``use_mailpit`` was set to ``y`` on setup. To proceed,
 
 #. make sure ``<project_slug>_local_mailhog`` container is up and running;
 

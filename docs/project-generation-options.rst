@@ -115,7 +115,7 @@ Both Gulp and Webpack support Bootstrap recompilation with real-time variables a
 use_celery:
     Indicates whether the project should be configured to use Celery_.
 
-use_mailhog:
+use_mailpit:
     Indicates whether the project should be configured to use MailHog_.
 
 use_sentry:
