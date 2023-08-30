@@ -116,7 +116,7 @@ use_celery:
     Indicates whether the project should be configured to use Celery_.
 
 use_mailpit:
-    Indicates whether the project should be configured to use MailHog_.
+    Indicates whether the project should be configured to use Mailpit_.
 
 use_sentry:
     Indicates whether the project should be configured to use Sentry_.
@@ -185,7 +185,7 @@ debug:
 
 .. _Celery: https://github.com/celery/celery
 
-.. _MailHog: https://github.com/mailhog/MailHog
+.. _Mailpit: https://github.com/axllent/mailpit
 
 .. _Sentry: https://github.com/getsentry/sentry
 

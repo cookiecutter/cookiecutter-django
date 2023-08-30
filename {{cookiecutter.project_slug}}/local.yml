@@ -17,7 +17,7 @@ services:
       - redis
       {%- endif %}
       {%- if cookiecutter.use_mailpit == 'y' %}
-      - mailhog
+      - mailpit
       {%- endif %}
     volumes:
       - .:/app:z
@@ -78,7 +78,7 @@ services:
       - redis
       - postgres
       {%- if cookiecutter.use_mailpit == 'y' %}
-      - mailhog
+      - mailpit
       {%- endif %}
     ports: []
     command: /start-celeryworker
@@ -91,7 +91,7 @@ services:
       - redis
       - postgres
       {%- if cookiecutter.use_mailpit == 'y' %}
-      - mailhog
+      - mailpit
       {%- endif %}
     ports: []
     command: /start-celerybeat
