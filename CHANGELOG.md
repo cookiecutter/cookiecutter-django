@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.08.30
+
+
+### Updated
+
+- Update django-environ to 0.11.0 ([#4548](https://github.com/cookiecutter/cookiecutter-django/pull/4548))
+
 ## 2023.08.29
 
 
