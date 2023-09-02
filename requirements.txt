@@ -14,7 +14,7 @@ pre-commit==3.4.0
 # Testing
 # ------------------------------------------------------------------------------
 tox==4.11.1
-pytest==7.4.0
+pytest==7.4.1
 pytest-xdist==3.3.1
 pytest-cookies==0.7.0
 pytest-instafail==0.5.0
