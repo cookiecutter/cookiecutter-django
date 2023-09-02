@@ -3,6 +3,9 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.09.01
+
+
 ## 2023.08.31
 
 
