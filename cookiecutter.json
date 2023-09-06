@@ -35,7 +35,7 @@
   "use_drf": "n",
   "frontend_pipeline": ["None", "Django Compressor", "Gulp", "Webpack"],
   "use_celery": "n",
-  "use_mailhog": "n",
+  "use_mailpit": "n",
   "use_sentry": "n",
   "use_whitenoise": "n",
   "use_heroku": "n",

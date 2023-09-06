@@ -16,8 +16,8 @@ services:
       {%- if cookiecutter.use_celery == 'y' %}
       - redis
       {%- endif %}
-      {%- if cookiecutter.use_mailhog == 'y' %}
-      - mailhog
+      {%- if cookiecutter.use_mailpit == 'y' %}
+      - mailpit
       {%- endif %}
     volumes:
       - .:/app:z
@@ -55,11 +55,11 @@ services:
     ports:
       - '9000:9000'
     command: /start-docs
-  {%- if cookiecutter.use_mailhog == 'y' %}
+  {%- if cookiecutter.use_mailpit == 'y' %}
 
-  mailhog:
-    image: mailhog/mailhog:v1.0.0
-    container_name: {{ cookiecutter.project_slug }}_local_mailhog
+  mailpit:
+    image: axllent/mailpit:v1.8
+    container_name: {{ cookiecutter.project_slug }}_local_mailpit
     ports:
       - "8025:8025"
 
@@ -77,8 +77,8 @@ services:
     depends_on:
       - redis
       - postgres
-      {%- if cookiecutter.use_mailhog == 'y' %}
-      - mailhog
+      {%- if cookiecutter.use_mailpit == 'y' %}
+      - mailpit
       {%- endif %}
     ports: []
     command: /start-celeryworker
@@ -90,8 +90,8 @@ services:
     depends_on:
       - redis
       - postgres
-      {%- if cookiecutter.use_mailhog == 'y' %}
-      - mailhog
+      {%- if cookiecutter.use_mailpit == 'y' %}
+      - mailpit
       {%- endif %}
     ports: []
     command: /start-celerybeat
