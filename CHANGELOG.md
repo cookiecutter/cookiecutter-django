@@ -3,6 +3,21 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.09.06
+
+
+### Changed
+
+- Replace Mailhog with Mailpit ([#4551](https://github.com/cookiecutter/cookiecutter-django/pull/4551))
+
+### Updated
+
+- Update sphinx to 7.2.5 ([#4569](https://github.com/cookiecutter/cookiecutter-django/pull/4569))
+
+- Bump actions/checkout from 3 to 4 ([#4565](https://github.com/cookiecutter/cookiecutter-django/pull/4565))
+
+- Update coverage to 7.3.1 ([#4567](https://github.com/cookiecutter/cookiecutter-django/pull/4567))
+
 ## 2023.09.04
 
 
