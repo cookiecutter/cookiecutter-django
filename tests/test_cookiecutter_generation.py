@@ -43,6 +43,7 @@ def context():
 
 
 SUPPORTED_COMBINATIONS = [
+    {"username_type": "email"},
     {"open_source_license": "MIT"},
     {"open_source_license": "BSD"},
     {"open_source_license": "GPLv3"},
