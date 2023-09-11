@@ -2,12 +2,12 @@
 from storages.backends.s3 import S3Storage
 
 
-class StaticRootS3Boto3Storage(S3Storage):
+class StaticRootS3Storage(S3Storage):
     location = "static"
     default_acl = "public-read"
 
 
-class MediaRootS3Boto3Storage(S3Storage):
+class MediaRootS3Storage(S3Storage):
     location = "media"
     file_overwrite = False
 {%- elif cookiecutter.cloud_provider == 'GCP' -%}
