@@ -1945,6 +1945,13 @@ Listed in alphabetical order.
     <td>egregors</td>
   </tr>
   <tr>
+    <td>Vageeshan Mankala</td>
+    <td>
+      <a href="https://github.com/vagi8">vagi8</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>vascop</td>
     <td>
       <a href="https://github.com/vascop">vascop</a>

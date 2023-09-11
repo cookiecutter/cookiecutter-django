@@ -45,7 +45,7 @@ _These features can be enabled during initial project setup._
 
 - Serve static files from Amazon S3, Google Cloud Storage, Azure Storage or [Whitenoise](https://whitenoise.readthedocs.io/)
 - Configuration for [Celery](https://docs.celeryq.dev) and [Flower](https://github.com/mher/flower) (the latter in Docker setup only)
-- Integration with [MailHog](https://github.com/mailhog/MailHog) for local email testing
+- Integration with [Mailpit](https://github.com/axllent/mailpit/) for local email testing
 - Integration with [Sentry](https://sentry.io/welcome/) for error logging
 
 ## Constraints
@@ -165,7 +165,7 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     4 - Webpack
     Choose from 1, 2, 3, 4 [1]: 1
     use_celery [n]: y
-    use_mailhog [n]: n
+    use_mailpit [n]: n
     use_sentry [n]: y
     use_whitenoise [n]: n
     use_heroku [n]: y
