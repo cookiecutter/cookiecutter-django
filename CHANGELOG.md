@@ -3,6 +3,38 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.09.13
+
+
+### Updated
+
+- Update sentry-sdk to 1.31.0 ([#4582](https://github.com/cookiecutter/cookiecutter-django/pull/4582))
+
+## 2023.09.12
+
+
+### Updated
+
+- Update django-storages to 1.14 ([#4564](https://github.com/cookiecutter/cookiecutter-django/pull/4564))
+
+## 2023.09.11
+
+
+### Updated
+
+- Auto-update pre-commit hooks ([#4579](https://github.com/cookiecutter/cookiecutter-django/pull/4579))
+
+- Update black to 23.9.1 ([#4580](https://github.com/cookiecutter/cookiecutter-django/pull/4580))
+
+- Update django-allauth to 0.56.1 ([#4576](https://github.com/cookiecutter/cookiecutter-django/pull/4576))
+
+## 2023.09.08
+
+
+### Updated
+
+- Update pytest to 7.4.2 ([#4573](https://github.com/cookiecutter/cookiecutter-django/pull/4573))
+
 ## 2023.09.07
 
 
