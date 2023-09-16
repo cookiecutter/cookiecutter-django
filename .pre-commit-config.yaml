@@ -23,7 +23,7 @@ repos:
         args: ["--tab-width", "2"]
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.10.1
+    rev: v3.11.0
     hooks:
       - id: pyupgrade
         args: [--py311-plus]
