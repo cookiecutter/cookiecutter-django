@@ -31,7 +31,7 @@ repos:
         args: ['--target-version', '4.2']
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.11.0
+    rev: v3.11.1
     hooks:
       - id: pyupgrade
         args: [--py311-plus]
@@ -52,7 +52,7 @@ repos:
       - id: flake8
 
   - repo: https://github.com/Riverside-Healthcare/djLint
-    rev: v1.33.0
+    rev: v1.34.0
     hooks:
       - id: djlint-reformat-django
       - id: djlint-django
