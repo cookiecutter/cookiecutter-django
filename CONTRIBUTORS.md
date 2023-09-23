@@ -797,6 +797,13 @@ Listed in alphabetical order.
     <td>fabaff</td>
   </tr>
   <tr>
+    <td>Fateme Fouladkar</td>
+    <td>
+      <a href="https://github.com/FatemeFouladkar">FatemeFouladkar</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Felipe Arruda</td>
     <td>
       <a href="https://github.com/arruda">arruda</a>
@@ -937,6 +944,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>hleroy</td>
+    <td>
+      <a href="https://github.com/hleroy">hleroy</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Hoai-Thu Vuong</td>
     <td>
       <a href="https://github.com/thuvh">thuvh</a>
@@ -982,6 +996,13 @@ Listed in alphabetical order.
     <td>Isaac12x</td>
     <td>
       <a href="https://github.com/Isaac12x">Isaac12x</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>itisnotyourenv</td>
+    <td>
+      <a href="https://github.com/itisnotyourenv">itisnotyourenv</a>
     </td>
     <td></td>
   </tr>
@@ -1455,6 +1476,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>MinWoo Sung</td>
+    <td>
+      <a href="https://github.com/SungMinWoo">SungMinWoo</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>monosans</td>
     <td>
       <a href="https://github.com/monosans">monosans</a>
@@ -1693,6 +1721,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Sadra Yahyapour</td>
+    <td>
+      <a href="https://github.com/lnxpy">lnxpy</a>
+    </td>
+    <td>lnxpylnxpy</td>
+  </tr>
+  <tr>
     <td>Sam Collins</td>
     <td>
       <a href="https://github.com/MightySCollins">MightySCollins</a>
@@ -1712,6 +1747,13 @@ Listed in alphabetical order.
       <a href="https://github.com/sebastian-code">sebastian-code</a>
     </td>
     <td>sebastianreyese</td>
+  </tr>
+  <tr>
+    <td>Shayan Karimi</td>
+    <td>
+      <a href="https://github.com/shywn-mrk">shywn-mrk</a>
+    </td>
+    <td>shywn_mrk</td>
   </tr>
   <tr>
     <td>Simon Rey</td>
@@ -1794,6 +1836,13 @@ Listed in alphabetical order.
     <td>Taylor Baldwin</td>
     <td>
       <a href="https://github.com/"></a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Tharushan</td>
+    <td>
+      <a href="https://github.com/Tharushan">Tharushan</a>
     </td>
     <td></td>
   </tr>
@@ -1894,6 +1943,13 @@ Listed in alphabetical order.
       <a href="https://github.com/Egregors">Egregors</a>
     </td>
     <td>egregors</td>
+  </tr>
+  <tr>
+    <td>Vageeshan Mankala</td>
+    <td>
+      <a href="https://github.com/vagi8">vagi8</a>
+    </td>
+    <td></td>
   </tr>
   <tr>
     <td>vascop</td>
@@ -2004,6 +2060,13 @@ Listed in alphabetical order.
     <td>Zach Borboa</td>
     <td>
       <a href="https://github.com/zachborboa">zachborboa</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>zhaoruibing</td>
+    <td>
+      <a href="https://github.com/zhaoruibing">zhaoruibing</a>
     </td>
     <td></td>
   </tr>

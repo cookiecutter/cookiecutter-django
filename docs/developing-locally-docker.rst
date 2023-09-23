@@ -77,7 +77,7 @@ As with any shell command that we wish to run in our container, this is done usi
     $ docker compose -f local.yml run --rm django python manage.py createsuperuser
 
 Here, ``django`` is the target service we are executing the commands against.
-
+Also, please note that the ``docker exec`` does not work for running management commands.
 
 (Optionally) Designate your Docker Development Server IP
 --------------------------------------------------------
@@ -191,16 +191,16 @@ The ``container_name`` from the yml file can be used to check on containers with
 
 Notice that the ``container_name`` is generated dynamically using your project slug as a prefix
 
-Mailhog
+Mailpit
 ~~~~~~~
 
-When developing locally you can go with MailHog_ for email testing provided ``use_mailhog`` was set to ``y`` on setup. To proceed,
+When developing locally you can go with Mailpit_ for email testing provided ``use_mailpit`` was set to ``y`` on setup. To proceed,
 
-#. make sure ``<project_slug>_local_mailhog`` container is up and running;
+#. make sure ``<project_slug>_local_mailpit`` container is up and running;
 
 #. open up ``http://127.0.0.1:8025``.
 
-.. _Mailhog: https://github.com/mailhog/MailHog/
+.. _Mailpit: https://github.com/axllent/mailpit/
 
 .. _`CeleryTasks`:
 
@@ -330,3 +330,26 @@ See `https with nginx`_ for more information on this configuration.
 Add ``certs/*`` to the ``.gitignore`` file. This allows the folder to be included in the repo but its contents to be ignored.
 
 *This configuration is for local development environments only. Do not use this for production since you might expose your local* ``rootCA-key.pem``.
+
+Webpack
+~~~~~~~
+
+If you are using Webpack:
+
+1. On the ``nginx-proxy`` service in ``local.yml``, change ``depends_on`` to ``node`` instead of ``django``.
+
+2. On the ``node`` service in ``local.yml``, add the following environment configuration:
+
+   ::
+
+     environment:
+       - VIRTUAL_HOST=my-dev-env.local
+       - VIRTUAL_PORT=3000
+
+3. Add the following configuration to the ``devServer`` section of ``webpack/dev.config.js``:
+
+   ::
+
+     client: {
+         webSocketURL: 'auto://0.0.0.0:0/ws', // note the `:0` after `0.0.0.0`
+     },

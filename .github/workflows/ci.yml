@@ -22,7 +22,7 @@ jobs:
     name: "pytest ${{ matrix.os }}"
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
         with:
           python-version: "3.11"
@@ -53,7 +53,7 @@ jobs:
       COMPOSE_DOCKER_CLI_BUILD: 1
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
         with:
           python-version: "3.11"
@@ -75,7 +75,7 @@ jobs:
           - name: Webpack
             args: "frontend_pipeline=Webpack use_heroku=y"
           - name: Email Username
-            args: "username_type=email ci_tool=Github"
+            args: "username_type=email ci_tool=Github project_name='Something superduper long - the great amazing project' project_slug=my_awesome_project"
 
     name: "Bare metal ${{ matrix.script.name }}"
     runs-on: ubuntu-latest
@@ -97,7 +97,7 @@ jobs:
       DATABASE_URL: "postgres://postgres:postgres@localhost:5432/postgres"
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
         with:
           python-version: "3.11"
