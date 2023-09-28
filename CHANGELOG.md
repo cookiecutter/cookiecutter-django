@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.09.27
+
+
+### Fixed
+
+- Fix ownership for /start-flower script in production Dockerfile ([#4603](https://github.com/cookiecutter/cookiecutter-django/pull/4603))
+
 ## 2023.09.26
 
 
