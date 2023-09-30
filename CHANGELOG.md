@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.09.29
+
+
+### Updated
+
+- Update django-storages to 1.14.1 ([#4604](https://github.com/cookiecutter/cookiecutter-django/pull/4604))
+
 ## 2023.09.28
 
 
