@@ -3,6 +3,21 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.10.03
+
+
+### Changed
+
+- [pre-commit.ci] pre-commit autoupdate ([#4613](https://github.com/cookiecutter/cookiecutter-django/pull/4613))
+
+### Updated
+
+- Bump prod Python docker image from 3.11.5 to 3.11.6 ([#4611](https://github.com/cookiecutter/cookiecutter-django/pull/4611))
+
+- Bump local Python docker image from 3.11.5 to 3.11.6 ([#4612](https://github.com/cookiecutter/cookiecutter-django/pull/4612))
+
+- Auto-update pre-commit hooks ([#4610](https://github.com/cookiecutter/cookiecutter-django/pull/4610))
+
 ## 2023.09.29
 
 
