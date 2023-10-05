@@ -23,14 +23,14 @@ repos:
         args: ["--tab-width", "2"]
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.10.1
+    rev: v3.14.0
     hooks:
       - id: pyupgrade
         args: [--py311-plus]
         exclude: hooks/
 
   - repo: https://github.com/psf/black
-    rev: 23.7.0
+    rev: 23.9.1
     hooks:
       - id: black
 

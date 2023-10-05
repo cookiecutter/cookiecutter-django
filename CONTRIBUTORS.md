@@ -1014,6 +1014,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Jakub Boukal</td>
+    <td>
+      <a href="https://github.com/SukiCZ">SukiCZ</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Jakub Musko</td>
     <td>
       <a href="https://github.com/umgelurgel">umgelurgel</a>
@@ -1943,6 +1950,13 @@ Listed in alphabetical order.
       <a href="https://github.com/Egregors">Egregors</a>
     </td>
     <td>egregors</td>
+  </tr>
+  <tr>
+    <td>Vageeshan Mankala</td>
+    <td>
+      <a href="https://github.com/vagi8">vagi8</a>
+    </td>
+    <td></td>
   </tr>
   <tr>
     <td>vascop</td>
