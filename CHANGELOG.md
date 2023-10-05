@@ -3,6 +3,21 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.10.04
+
+
+### Updated
+
+- Update django to 4.2.6 ([#4617](https://github.com/cookiecutter/cookiecutter-django/pull/4617))
+
+- Update coverage to 7.3.2 ([#4616](https://github.com/cookiecutter/cookiecutter-django/pull/4616))
+
+- Update werkzeug to 3.0.0 ([#4608](https://github.com/cookiecutter/cookiecutter-django/pull/4608))
+
+- Update django-redis to 5.4.0 ([#4609](https://github.com/cookiecutter/cookiecutter-django/pull/4609))
+
+- Bump docs Python docker image from 3.11.5 to 3.11.6 ([#4615](https://github.com/cookiecutter/cookiecutter-django/pull/4615))
+
 ## 2023.10.03
 
 
