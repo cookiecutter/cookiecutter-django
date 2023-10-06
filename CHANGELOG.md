@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.10.05
+
+
+### Updated
+
+- Update djangorestframework-stubs to 3.14.3 ([#4618](https://github.com/cookiecutter/cookiecutter-django/pull/4618))
+
+- Update django-stubs to 4.2.4 ([#4566](https://github.com/cookiecutter/cookiecutter-django/pull/4566))
+
+- Update mypy to 1.5.1 ([#4568](https://github.com/cookiecutter/cookiecutter-django/pull/4568))
+
 ## 2023.10.04
 
 
