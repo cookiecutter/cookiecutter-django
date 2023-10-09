@@ -17,7 +17,7 @@ hiredis==2.2.3  # https://github.com/redis/hiredis-py
 # Django
 # ------------------------------------------------------------------------------
 {%- if cookiecutter.cloud_provider == 'AWS' %}
-django-storages[s3]==1.14.1  # https://github.com/jschneier/django-storages
+django-storages[s3]==1.14.2  # https://github.com/jschneier/django-storages
 {%- elif cookiecutter.cloud_provider == 'GCP' %}
 django-storages[google]==1.14.1  # https://github.com/jschneier/django-storages
 {%- elif cookiecutter.cloud_provider == 'Azure' %}
