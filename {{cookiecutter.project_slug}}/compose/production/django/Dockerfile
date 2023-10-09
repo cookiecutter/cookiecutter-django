@@ -25,7 +25,7 @@ RUN npm run build
 
 {%- endif %}
 # define an alias for the specific python version used in this file.
-FROM python:3.11.5-slim-bullseye as python
+FROM python:3.11.6-slim-bullseye as python
 
 # Python build stage
 FROM python as python-build-stage
@@ -103,7 +103,7 @@ RUN sed -i 's/\r$//g' /start-celerybeat
 RUN chmod +x /start-celerybeat
 
 
-COPY ./compose/production/django/celery/flower/start /start-flower
+COPY --chown=django:django ./compose/production/django/celery/flower/start /start-flower
 RUN sed -i 's/\r$//g' /start-flower
 RUN chmod +x /start-flower
 {%- endif %}
