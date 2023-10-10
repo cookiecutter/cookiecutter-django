@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.10.09
+
+
+### Updated
+
+- Bump stefanzweifel/git-auto-commit-action from 4.16.0 to 5.0.0 ([#4621](https://github.com/cookiecutter/cookiecutter-django/pull/4621))
+
+- Update django-storages to 1.14.2 ([#4620](https://github.com/cookiecutter/cookiecutter-django/pull/4620))
+
 ## 2023.10.08
 
 
