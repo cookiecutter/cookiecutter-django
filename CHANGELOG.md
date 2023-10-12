@@ -3,6 +3,154 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.10.09
+
+
+### Updated
+
+- Bump stefanzweifel/git-auto-commit-action from 4.16.0 to 5.0.0 ([#4621](https://github.com/cookiecutter/cookiecutter-django/pull/4621))
+
+- Update django-storages to 1.14.2 ([#4620](https://github.com/cookiecutter/cookiecutter-django/pull/4620))
+
+## 2023.10.08
+
+
+### Updated
+
+- Auto-update pre-commit hooks ([#4619](https://github.com/cookiecutter/cookiecutter-django/pull/4619))
+
+## 2023.10.05
+
+
+### Updated
+
+- Update djangorestframework-stubs to 3.14.3 ([#4618](https://github.com/cookiecutter/cookiecutter-django/pull/4618))
+
+- Update django-stubs to 4.2.4 ([#4566](https://github.com/cookiecutter/cookiecutter-django/pull/4566))
+
+- Update mypy to 1.5.1 ([#4568](https://github.com/cookiecutter/cookiecutter-django/pull/4568))
+
+## 2023.10.04
+
+
+### Updated
+
+- Update django to 4.2.6 ([#4617](https://github.com/cookiecutter/cookiecutter-django/pull/4617))
+
+- Update coverage to 7.3.2 ([#4616](https://github.com/cookiecutter/cookiecutter-django/pull/4616))
+
+- Update werkzeug to 3.0.0 ([#4608](https://github.com/cookiecutter/cookiecutter-django/pull/4608))
+
+- Update django-redis to 5.4.0 ([#4609](https://github.com/cookiecutter/cookiecutter-django/pull/4609))
+
+- Bump docs Python docker image from 3.11.5 to 3.11.6 ([#4615](https://github.com/cookiecutter/cookiecutter-django/pull/4615))
+
+## 2023.10.03
+
+
+### Changed
+
+- [pre-commit.ci] pre-commit autoupdate ([#4613](https://github.com/cookiecutter/cookiecutter-django/pull/4613))
+
+### Updated
+
+- Bump prod Python docker image from 3.11.5 to 3.11.6 ([#4611](https://github.com/cookiecutter/cookiecutter-django/pull/4611))
+
+- Bump local Python docker image from 3.11.5 to 3.11.6 ([#4612](https://github.com/cookiecutter/cookiecutter-django/pull/4612))
+
+- Auto-update pre-commit hooks ([#4610](https://github.com/cookiecutter/cookiecutter-django/pull/4610))
+
+## 2023.09.29
+
+
+### Updated
+
+- Update django-storages to 1.14.1 ([#4604](https://github.com/cookiecutter/cookiecutter-django/pull/4604))
+
+## 2023.09.28
+
+
+### Updated
+
+- Update psycopg to 3.1.12 ([#4601](https://github.com/cookiecutter/cookiecutter-django/pull/4601))
+
+## 2023.09.27
+
+
+### Fixed
+
+- Fix ownership for /start-flower script in production Dockerfile ([#4603](https://github.com/cookiecutter/cookiecutter-django/pull/4603))
+
+## 2023.09.26
+
+
+### Updated
+
+- Update redis to 5.0.1 ([#4600](https://github.com/cookiecutter/cookiecutter-django/pull/4600))
+
+## 2023.09.25
+
+
+### Updated
+
+- Update django-upgrade to 1.15.0 ([#4598](https://github.com/cookiecutter/cookiecutter-django/pull/4598))
+
+- Update django-allauth to 0.57.0 ([#4597](https://github.com/cookiecutter/cookiecutter-django/pull/4597))
+
+- Auto-update pre-commit hooks ([#4596](https://github.com/cookiecutter/cookiecutter-django/pull/4596))
+
+## 2023.09.23
+
+
+### Updated
+
+- Update psycopg to 3.1.11 ([#4595](https://github.com/cookiecutter/cookiecutter-django/pull/4595))
+
+- Auto-update pre-commit hooks ([#4591](https://github.com/cookiecutter/cookiecutter-django/pull/4591))
+
+- Update drf-spectacular to 0.26.5 ([#4594](https://github.com/cookiecutter/cookiecutter-django/pull/4594))
+
+## 2023.09.21
+
+
+### Updated
+
+- Auto-update pre-commit hooks ([#4589](https://github.com/cookiecutter/cookiecutter-django/pull/4589))
+
+- Update djlint to 1.34.0 ([#4590](https://github.com/cookiecutter/cookiecutter-django/pull/4590))
+
+## 2023.09.19
+
+
+### Updated
+
+- Auto-update pre-commit hooks ([#4588](https://github.com/cookiecutter/cookiecutter-django/pull/4588))
+
+- Update djlint to 1.33.0 ([#4587](https://github.com/cookiecutter/cookiecutter-django/pull/4587))
+
+## 2023.09.16
+
+
+### Updated
+
+- Auto-update pre-commit hooks ([#4586](https://github.com/cookiecutter/cookiecutter-django/pull/4586))
+
+## 2023.09.15
+
+
+### Updated
+
+- Update flake8-isort to 6.1.0 ([#4585](https://github.com/cookiecutter/cookiecutter-django/pull/4585))
+
+- Update pillow to 10.0.1 ([#4584](https://github.com/cookiecutter/cookiecutter-django/pull/4584))
+
+## 2023.09.14
+
+
+### Updated
+
+- Update sphinx to 7.2.6 ([#4583](https://github.com/cookiecutter/cookiecutter-django/pull/4583))
+
 ## 2023.09.13
 
 

@@ -1014,6 +1014,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Jakub Boukal</td>
+    <td>
+      <a href="https://github.com/SukiCZ">SukiCZ</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Jakub Musko</td>
     <td>
       <a href="https://github.com/umgelurgel">umgelurgel</a>
