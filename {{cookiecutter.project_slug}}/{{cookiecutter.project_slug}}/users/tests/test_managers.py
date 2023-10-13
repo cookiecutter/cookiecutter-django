@@ -10,6 +10,8 @@ from {{ cookiecutter.project_slug }}.users.models import User
 class TestUserManager:
     def test_create_user(self):
         user = User.objects.create_user(
+            first_name="John",
+            last_name="Doe",
             email="john@example.com",
             password="something-r@nd0m!",
         )
@@ -21,6 +23,8 @@ class TestUserManager:
 
     def test_create_superuser(self):
         user = User.objects.create_superuser(
+            first_name="Admin",
+            last_name="User",
             email="admin@example.com",
             password="something-r@nd0m!",
         )
@@ -31,6 +35,8 @@ class TestUserManager:
 
     def test_create_superuser_username_ignored(self):
         user = User.objects.create_superuser(
+            first_name="Test",
+            last_name="User",
             email="test@example.com",
             password="something-r@nd0m!",
         )
@@ -45,6 +51,10 @@ def test_createsuperuser_command():
         "createsuperuser",
         "--email",
         "henry@example.com",
+        "--first_name",
+        "Henry",
+        "--last_name",
+        "Ford",
         interactive=False,
         stdout=out,
     )

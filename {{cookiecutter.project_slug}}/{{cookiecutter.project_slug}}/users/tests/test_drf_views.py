@@ -29,7 +29,9 @@ class TestUserViewSet:
         response = view.me(request)  # type: ignore
 
         assert response.data == {
-            "email": user.uuid,
+            "email": user.email,
+            "uuid": str(user.uuid),
             "first_name": user.first_name,
+            "last_name": user.last_name,
             "url": f"http://testserver/api/users/{user.uuid}/",
         }

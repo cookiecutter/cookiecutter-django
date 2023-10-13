@@ -22,6 +22,8 @@ class TestUserAdmin:
         response = admin_client.post(
             url,
             data={
+                "first_name": "New",
+                "last_name": "Admin",
                 "email": "new-admin@example.com",
                 "password1": "My_R@ndom-P@ssw0rd",
                 "password2": "My_R@ndom-P@ssw0rd",

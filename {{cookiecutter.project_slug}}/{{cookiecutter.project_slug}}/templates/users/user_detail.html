@@ -2,19 +2,22 @@
 
 {% load static %}
 
-{% block title %}User: {{ object }}{% endblock title %}
-
+{% block title %}
+  User: {% endraw %}
+    {% raw %}{{ object.first_name }}{% endraw %}
+  {% raw %}
+{% endblock title %}
 {% block content %}
-<div class="container">
-
-  <div class="row">
-    <div class="col-sm-12">
-
-      <h2>{{ object }}</h2>
-      <p>{{ object.first_name }}</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>
+        {% endraw %}
+          {% raw %}{{ object.first_name }}{% endraw %}
+      </h2>
     </div>
   </div>
-  {%- raw %}
+  {% raw %}
   {% if object == request.user %}
     <!-- Action buttons -->
     <div class="row">
@@ -30,4 +33,4 @@
   {% endif %}
 </div>
 {% endblock content %}
-{%- endraw %}
+{% endraw %}
