@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.10.12
+
+
+### Updated
+
+- Update django-cors-headers to 4.3.0 ([#4625](https://github.com/cookiecutter/cookiecutter-django/pull/4625))
+
+- Update whitenoise to 6.6.0 ([#4624](https://github.com/cookiecutter/cookiecutter-django/pull/4624))
+
+- Update sentry-sdk to 1.32.0 ([#4623](https://github.com/cookiecutter/cookiecutter-django/pull/4623))
+
+- Bump traefik from 2.10.4 to 2.10.5 ([#4626](https://github.com/cookiecutter/cookiecutter-django/pull/4626))
+
 ## 2023.10.09
 
 
