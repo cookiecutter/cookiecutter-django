@@ -7,7 +7,11 @@ repos:
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
-      - id: check-json
+        exclude: '\.min\.(css|js)$'
+        exclude_types:
+          - svg
+          - map
+      # - id: check-json
       - id: check-toml
       - id: check-xml
       - id: check-yaml
@@ -55,7 +59,11 @@ repos:
     rev: v1.34.0
     hooks:
       - id: djlint-reformat-django
+        files: "templates"
+        exclude: r'gto_supply/static/.*'
       - id: djlint-django
+        files: "templates"
+        exclude: r'gto_supply/static/.*'
 
 # sets up .pre-commit-ci.yaml to ensure pre-commit dependencies stay up to date
 ci:
