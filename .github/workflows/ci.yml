@@ -127,8 +127,8 @@ jobs:
         run: pip install cookiecutter
       - name: Generate project
         run: cookiecutter . --no-input project_slug=test_project
-      - name: Install production dependencies
-        run: pip install -r test_project/requirements/production.txt
+      - name: Install project dependencies
+        run: pip install -r test_project/requirements.txt
       - name: Run Django deployment checks
         working-directory: test_project
         run: python manage.py check --deploy
