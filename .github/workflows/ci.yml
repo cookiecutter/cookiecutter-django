@@ -116,19 +116,20 @@ jobs:
 
 
   production-check:
+    name: "Production check"
     runs-on: ubuntu-latest
+    needs: [bare, docker]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
         with:
           python-version: "3.11"
           cache: pip
-      - name: Install Cookiecutter
-        run: pip install cookiecutter
-      - name: Generate project
-        run: cookiecutter . --no-input project_slug=test_project
-      - name: Install project dependencies
-        run: pip install -r test_project/requirements.txt
-      - name: Run Django deployment checks
-        working-directory: test_project
-        run: python manage.py check --deploy
+          cache-dependency-path: |
+            requirements.txt
+            {{cookiecutter.project_slug}}/requirements/base.txt
+            {{cookiecutter.project_slug}}/requirements/local.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Production check
+        run: sh tests/test_production.sh
