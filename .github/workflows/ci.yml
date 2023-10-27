@@ -113,3 +113,16 @@ jobs:
           node-version: "18"
       - name: Bare Metal ${{ matrix.script.name }}
         run: sh tests/test_bare.sh ${{ matrix.script.args }}
+
+  production-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install production dependencies
+        run: pip install -r {{cookiecutter.project_slug}}/requirements/production.txt
+      - name: Run Django deployment checks
+        run: python manage.py check --deploy
