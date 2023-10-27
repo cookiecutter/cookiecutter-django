@@ -114,6 +114,7 @@ jobs:
       - name: Bare Metal ${{ matrix.script.name }}
         run: sh tests/test_bare.sh ${{ matrix.script.args }}
 
+
   production-check:
     runs-on: ubuntu-latest
     steps:
@@ -122,7 +123,10 @@ jobs:
         with:
           python-version: "3.11"
           cache: pip
+      - name: Generate project
+        run: cookiecutter . --no-input project_slug=test_project
       - name: Install production dependencies
-        run: pip install -r {{cookiecutter.project_slug}}/requirements/production.txt
+        run: pip install -r test_project/requirements/production.txt
       - name: Run Django deployment checks
+        working-directory: test_project
         run: python manage.py check --deploy
