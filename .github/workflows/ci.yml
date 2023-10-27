@@ -114,6 +114,7 @@ jobs:
       - name: Bare Metal ${{ matrix.script.name }}
         run: sh tests/test_bare.sh ${{ matrix.script.args }}
 
+        
   production-check:
     runs-on: ubuntu-latest
     steps:
