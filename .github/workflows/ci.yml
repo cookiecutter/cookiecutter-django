@@ -123,6 +123,8 @@ jobs:
         with:
           python-version: "3.11"
           cache: pip
+      - name: Install Cookiecutter
+        run: pip install cookiecutter
       - name: Generate project
         run: cookiecutter . --no-input project_slug=test_project
       - name: Install production dependencies
