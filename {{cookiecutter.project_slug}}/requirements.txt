@@ -1,3 +1,3 @@
-# This file is expected by Heroku.
+# This file is expected by Heroku/Railway.
 
 -r requirements/production.txt
