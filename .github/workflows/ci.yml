@@ -114,7 +114,6 @@ jobs:
       - name: Bare Metal ${{ matrix.script.name }}
         run: sh tests/test_bare.sh ${{ matrix.script.args }}
 
-
   production-check:
     name: "Production check"
     runs-on: ubuntu-latest
@@ -127,9 +126,8 @@ jobs:
           cache: pip
           cache-dependency-path: |
             requirements.txt
-            {{cookiecutter.project_slug}}/requirements/base.txt
-            {{cookiecutter.project_slug}}/requirements/local.txt
+            {{cookiecutter.project_slug}}/requirements/prod.txt
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r {{cookiecutter.project_slug}}/requirements/prod.txt
       - name: Production check
-        run: sh tests/test_production.sh
+        run: python manage.py check --deploy
