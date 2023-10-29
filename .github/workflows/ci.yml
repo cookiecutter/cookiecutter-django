@@ -131,3 +131,4 @@ jobs:
         run: pip install -r {{cookiecutter.project_slug}}/requirements/production.txt
       - name: Production check
         run: python manage.py check --deploy
+        
