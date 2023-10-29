@@ -128,6 +128,6 @@ jobs:
             requirements.txt
             {{cookiecutter.project_slug}}/requirements/production.txt
       - name: Install dependencies
-        run: pip install -r {{cookiecutter.project_slug}}/requirements/prod.txt
+        run: pip install -r {{cookiecutter.project_slug}}/requirements/production.txt
       - name: Production check
         run: python manage.py check --deploy
