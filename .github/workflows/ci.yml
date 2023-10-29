@@ -126,7 +126,7 @@ jobs:
           cache: pip
           cache-dependency-path: |
             requirements.txt
-            {{cookiecutter.project_slug}}/requirements/prod.txt
+            {{cookiecutter.project_slug}}/requirements/production.txt
       - name: Install dependencies
         run: pip install -r {{cookiecutter.project_slug}}/requirements/prod.txt
       - name: Production check
