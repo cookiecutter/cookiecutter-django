@@ -27,8 +27,7 @@ class SocialAccountAdapter(DefaultSocialAccountAdapter):
 
         See: https://django-allauth.readthedocs.io/en/latest/advanced.html?#creating-and-populating-user-instances
         """
-        super().populate_user(request, sociallogin, data)
-        user = sociallogin.user
+        user = super().populate_user(request, sociallogin, data)
         if not user.name:
             if name := data.get("name"):
                 user.name = name
