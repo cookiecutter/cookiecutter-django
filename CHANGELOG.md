@@ -3,6 +3,23 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.10.31
+
+
+### Updated
+
+- Update pytest-django to 4.6.0 ([#4656](https://github.com/cookiecutter/cookiecutter-django/pull/4656))
+
+- Update pytest to 7.4.3 ([#4654](https://github.com/cookiecutter/cookiecutter-django/pull/4654))
+
+- Update werkzeug to 3.0.1 ([#4655](https://github.com/cookiecutter/cookiecutter-django/pull/4655))
+
+- Update sentry-sdk to 1.33.1 ([#4653](https://github.com/cookiecutter/cookiecutter-django/pull/4653))
+
+- Update sentry-sdk to 1.33.0 ([#4652](https://github.com/cookiecutter/cookiecutter-django/pull/4652))
+
+- Update crispy-bootstrap5 to 2023.10 ([#4651](https://github.com/cookiecutter/cookiecutter-django/pull/4651))
+
 ## 2023.10.26
 
 
