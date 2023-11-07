@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.11.06
+
+
+### Changed
+
+- Add `rmbackup` script to remove backups from `postgres/backups`. Fixes: #4663 ([#4664](https://github.com/cookiecutter/cookiecutter-django/pull/4664))
+
+### Updated
+
+- Update django-allauth to 0.58.2 ([#4667](https://github.com/cookiecutter/cookiecutter-django/pull/4667))
+
+- Update uvicorn to 0.24.0.post1 ([#4666](https://github.com/cookiecutter/cookiecutter-django/pull/4666))
+
 ## 2023.11.04
 
 
