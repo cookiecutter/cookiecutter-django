@@ -3,6 +3,129 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.11.09
+
+
+### Updated
+
+- Auto-update pre-commit hooks ([#4673](https://github.com/cookiecutter/cookiecutter-django/pull/4673))
+
+- Update black to 23.11.0 ([#4674](https://github.com/cookiecutter/cookiecutter-django/pull/4674))
+
+## 2023.11.08
+
+
+### Updated
+
+- Update pytest-django to 4.7.0 ([#4672](https://github.com/cookiecutter/cookiecutter-django/pull/4672))
+
+## 2023.11.06
+
+
+### Changed
+
+- Add `rmbackup` script to remove backups from `postgres/backups`. Fixes: #4663 ([#4664](https://github.com/cookiecutter/cookiecutter-django/pull/4664))
+
+### Updated
+
+- Update django-allauth to 0.58.2 ([#4667](https://github.com/cookiecutter/cookiecutter-django/pull/4667))
+
+- Update uvicorn to 0.24.0.post1 ([#4666](https://github.com/cookiecutter/cookiecutter-django/pull/4666))
+
+## 2023.11.04
+
+
+### Updated
+
+- Update uvicorn to 0.24.0 ([#4665](https://github.com/cookiecutter/cookiecutter-django/pull/4665))
+
+## 2023.11.03
+
+
+### Updated
+
+- Update flake8-isort to 6.1.1 ([#4662](https://github.com/cookiecutter/cookiecutter-django/pull/4662))
+
+## 2023.11.02
+
+
+### Updated
+
+- Update sentry-sdk to 1.34.0 ([#4660](https://github.com/cookiecutter/cookiecutter-django/pull/4660))
+
+## 2023.11.01
+
+
+### Updated
+
+- Update django to 4.2.7 ([#4658](https://github.com/cookiecutter/cookiecutter-django/pull/4658))
+
+- Update django-stubs to 4.2.6 ([#4657](https://github.com/cookiecutter/cookiecutter-django/pull/4657))
+
+## 2023.10.31
+
+
+### Updated
+
+- Update pytest-django to 4.6.0 ([#4656](https://github.com/cookiecutter/cookiecutter-django/pull/4656))
+
+- Update pytest to 7.4.3 ([#4654](https://github.com/cookiecutter/cookiecutter-django/pull/4654))
+
+- Update werkzeug to 3.0.1 ([#4655](https://github.com/cookiecutter/cookiecutter-django/pull/4655))
+
+- Update sentry-sdk to 1.33.1 ([#4653](https://github.com/cookiecutter/cookiecutter-django/pull/4653))
+
+- Update sentry-sdk to 1.33.0 ([#4652](https://github.com/cookiecutter/cookiecutter-django/pull/4652))
+
+- Update crispy-bootstrap5 to 2023.10 ([#4651](https://github.com/cookiecutter/cookiecutter-django/pull/4651))
+
+## 2023.10.26
+
+
+### Updated
+
+- Update django-anymail to 10.2 ([#4645](https://github.com/cookiecutter/cookiecutter-django/pull/4645))
+
+## 2023.10.24
+
+
+### Updated
+
+- Update black to 23.10.1 ([#4639](https://github.com/cookiecutter/cookiecutter-django/pull/4639))
+
+- Auto-update pre-commit hooks ([#4641](https://github.com/cookiecutter/cookiecutter-django/pull/4641))
+
+## 2023.10.23
+
+
+### Updated
+
+- Update pylint-django to 2.5.5 ([#4638](https://github.com/cookiecutter/cookiecutter-django/pull/4638))
+
+## 2023.10.19
+
+
+### Updated
+
+- Update mypy to 1.6.1 ([#4634](https://github.com/cookiecutter/cookiecutter-django/pull/4634))
+
+- Update djangorestframework-stubs to 3.14.4 ([#4637](https://github.com/cookiecutter/cookiecutter-django/pull/4637))
+
+- Update django-stubs to 4.2.5 ([#4636](https://github.com/cookiecutter/cookiecutter-django/pull/4636))
+
+## 2023.10.17
+
+
+### Updated
+
+- Auto-update pre-commit hooks ([#4633](https://github.com/cookiecutter/cookiecutter-django/pull/4633))
+
+- Update black to 23.10.0 ([#4632](https://github.com/cookiecutter/cookiecutter-django/pull/4632))
+
+- Update pillow to 10.1.0 ([#4630](https://github.com/cookiecutter/cookiecutter-django/pull/4630))
+
+- Update django-crispy-forms to 2.1 ([#4629](https://github.com/cookiecutter/cookiecutter-django/pull/4629))
+
 ## 2023.10.13
 
 

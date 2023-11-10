@@ -108,7 +108,7 @@ jobs:
             {{cookiecutter.project_slug}}/requirements/local.txt
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: "18"
       - name: Bare Metal ${{ matrix.script.name }}
