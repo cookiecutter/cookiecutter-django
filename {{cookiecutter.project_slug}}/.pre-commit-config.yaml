@@ -1,4 +1,4 @@
-exclude: '^docs/|/migrations/'
+exclude: '^docs/|/migrations/|devcontainer.json'
 default_stages: [commit]
 
 repos:
