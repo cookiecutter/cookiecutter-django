@@ -29,12 +29,15 @@ jobs:
           config: >
             {
               "answered": {
+                "delay": 864000,
                 "message": "Assuming the question was answered, this will be automatically closed now."
               },
               "solved": {
+                "delay": 864000,
                 "message": "Assuming the original issue was solved, it will be automatically closed now."
               },
               "waiting": {
+                "delay": 864000,
                 "message": "Automatically closing after waiting for additional info. To re-open, please provide the additional information requested."
               }
             }
