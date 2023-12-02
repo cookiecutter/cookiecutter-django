@@ -874,6 +874,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>GitBib</td>
+    <td>
+      <a href="https://github.com/GitBib">GitBib</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Glenn Wiskur</td>
     <td>
       <a href="https://github.com/gwiskur">gwiskur</a>
