@@ -3,6 +3,62 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.12.04
+
+
+### Updated
+
+- Update django to 4.2.8 ([#4713](https://github.com/cookiecutter/cookiecutter-django/pull/4713))
+
+- Bump node from 18 to 20 ([#4283](https://github.com/cookiecutter/cookiecutter-django/pull/4283))
+
+- Update psycopg to 3.1.14 ([#4711](https://github.com/cookiecutter/cookiecutter-django/pull/4711))
+
+## 2023.12.02
+
+
+### Updated
+
+-  Update mailpit to latest ([#4710](https://github.com/cookiecutter/cookiecutter-django/pull/4710))
+
+## 2023.11.30
+
+
+### Fixed
+
+- Removed tmp mount in devcontainer.json. Fix #4686 ([#4708](https://github.com/cookiecutter/cookiecutter-django/pull/4708))
+
+### Updated
+
+- Bump traefik from 2.10.5 to 2.10.6 ([#4706](https://github.com/cookiecutter/cookiecutter-django/pull/4706))
+
+## 2023.11.29
+
+
+### Updated
+
+- Update sentry-sdk to 1.38.0 ([#4705](https://github.com/cookiecutter/cookiecutter-django/pull/4705))
+
+## 2023.11.28
+
+
+### Fixed
+
+- Excludes devcontainer.json from the pre-commit ([#4702](https://github.com/cookiecutter/cookiecutter-django/pull/4702))
+
+### Updated
+
+- Update sphinx-rtd-theme to 2.0.0 ([#4700](https://github.com/cookiecutter/cookiecutter-django/pull/4700))
+
+## 2023.11.24
+
+
+### Updated
+
+- Update sentry-sdk to 1.37.1 ([#4696](https://github.com/cookiecutter/cookiecutter-django/pull/4696))
+
+- Update sentry-sdk to 1.37.0 ([#4695](https://github.com/cookiecutter/cookiecutter-django/pull/4695))
+
 ## 2023.11.22
 
 

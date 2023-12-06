@@ -58,7 +58,7 @@ services:
   {%- if cookiecutter.use_mailpit == 'y' %}
 
   mailpit:
-    image: axllent/mailpit:v1.8
+    image: axllent/mailpit:latest
     container_name: {{ cookiecutter.project_slug }}_local_mailpit
     ports:
       - "8025:8025"
