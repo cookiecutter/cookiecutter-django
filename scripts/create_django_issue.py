@@ -212,7 +212,7 @@ class GitHubManager:
         for classifier in package_info["info"]["classifiers"]:
             # Usually in the form of "Framework :: Django :: 3.2"
             tokens = classifier.split(" ")
-            if len(tokens) >= 5 and tokens[2].lower() == "django":
+            if len(tokens) >= 5 and tokens[2].lower() == "django" and "." in tokens[4]:
                 version = DjVersion.parse(tokens[4])
                 if len(version) == 2:
                     supported_dj_versions.append(version)
