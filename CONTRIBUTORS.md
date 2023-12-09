@@ -832,6 +832,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Freddy</td>
+    <td>
+      <a href="https://github.com/Hraesvelg">Hraesvelg</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Fuzzwah</td>
     <td>
       <a href="https://github.com/Fuzzwah">Fuzzwah</a>
