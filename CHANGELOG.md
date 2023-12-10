@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2023.12.09
+
+
+### Changed
+
+- Add missing __init__.py file to api module ([#4726](https://github.com/cookiecutter/cookiecutter-django/pull/4726))
+
 ## 2023.12.07
 
 
