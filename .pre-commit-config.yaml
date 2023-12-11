@@ -47,6 +47,12 @@ repos:
     hooks:
       - id: flake8
 
+  - repo: https://github.com/adamchainz/django-upgrade
+    rev: "1.15.0" # replace with latest tag on GitHub
+    hooks:
+      - id: django-upgrade
+        args: [--target-version, "4.2"]
+
 ci:
   autoupdate_schedule: weekly
   skip: []
