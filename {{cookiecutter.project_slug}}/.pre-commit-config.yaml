@@ -21,7 +21,7 @@ repos:
       - id: detect-private-key
 
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v4.0.0-alpha.3-1
+    rev: v4.0.0-alpha.4
     hooks:
       - id: prettier
         args: ['--tab-width', '2', '--single-quote']
