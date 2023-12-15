@@ -3,9 +3,9 @@
 Werkzeug[watchdog]==3.0.1 # https://github.com/pallets/werkzeug
 ipdb==0.13.13  # https://github.com/gotcha/ipdb
 {%- if cookiecutter.use_docker == 'y' %}
-psycopg[c]==3.1.14  # https://github.com/psycopg/psycopg
+psycopg[c]==3.1.15  # https://github.com/psycopg/psycopg
 {%- else %}
-psycopg[binary]==3.1.14  # https://github.com/psycopg/psycopg
+psycopg[binary]==3.1.15  # https://github.com/psycopg/psycopg
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' or cookiecutter.use_celery == 'y' %}
 watchfiles==0.21.0  # https://github.com/samuelcolvin/watchfiles
