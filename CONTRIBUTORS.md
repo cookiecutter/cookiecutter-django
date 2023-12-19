@@ -195,6 +195,13 @@ Listed in alphabetical order.
     <td>scaramagus</td>
   </tr>
   <tr>
+    <td>aiden</td>
+    <td>
+      <a href="https://github.com/anyidea">anyidea</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Alberto Sanchez</td>
     <td>
       <a href="https://github.com/alb3rto">alb3rto</a>
