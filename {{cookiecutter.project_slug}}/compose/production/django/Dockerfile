@@ -1,5 +1,5 @@
 {% if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] -%}
-FROM node:20-bullseye-slim as client-builder
+FROM node:20-bookworm-slim as client-builder
 
 ARG APP_HOME=/app
 WORKDIR ${APP_HOME}
@@ -25,7 +25,7 @@ RUN npm run build
 
 {%- endif %}
 # define an alias for the specific python version used in this file.
-FROM python:3.11.7-slim-bullseye as python
+FROM python:3.11.7-slim-bookworm as python
 
 # Python build stage
 FROM python as python-build-stage
