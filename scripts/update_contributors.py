@@ -104,7 +104,7 @@ class CitationCFFFile:
         """Read the version string from setup.py, or return today's date if not found."""
         setup_path = root_path / "setup.py"
         version_pattern = re.compile(r"version\s*=\s*['\"]([^'\"]+)['\"]")
-        with open(setup_path, 'r', encoding='utf-8') as file:
+        with open(setup_path, encoding="utf-8") as file:
             for line in file:
                 match = version_pattern.search(line)
                 if match:
@@ -143,10 +143,10 @@ class CitationCFFFile:
             "production-ready Django projects quickly.",
             "notes": "This project has received contributions from many individuals, "
             "for which we are grateful. For a full list of contributors, see the CONTRIBUTORS.md in the repository",
-            "repository-code": "https://github.com/cookiecutter/cookiecutter-django"
+            "repository-code": "https://github.com/cookiecutter/cookiecutter-django",
         }
 
-        with open(self.output_path, 'w', encoding='utf-8') as file:
+        with open(self.output_path, "w", encoding="utf-8") as file:
             yaml.dump(cff_content, file, default_flow_style=False)
 
 
@@ -161,8 +161,6 @@ def write_md_file(contributors):
 
     file_path = ROOT / "CONTRIBUTORS.md"
     file_path.write_text(content)
-
-
 
 
 if __name__ == "__main__":
