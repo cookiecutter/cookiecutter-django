@@ -1,7 +1,10 @@
 import json
 import os
+import re
+from datetime import datetime
 from pathlib import Path
 
+import yaml
 from github import Github
 from github.NamedUser import NamedUser
 from jinja2 import Template
@@ -34,6 +37,10 @@ def main() -> None:
 
     # Generate MD file from JSON file
     write_md_file(contrib_file.content)
+
+    # Generate cff file from JSON file
+    cff_writer = CitationCFFFile()
+    cff_writer.save_cff(contrib_file.content)
 
 
 def iter_recent_authors():
@@ -83,6 +90,66 @@ class ContributorsJSONFile:
         self.file_path.write_text(text_content)
 
 
+class CitationCFFFile:
+    """Helper to interact with the CITATION.cff file."""
+
+    cff_dict: dict
+
+    def __init__(self, output_path: Path = ROOT / "CITATION.cff") -> None:
+        """Read initial content."""
+        self.output_path = output_path
+
+    @staticmethod
+    def read_version_from_setup(root_path: Path) -> str:
+        """Read the version string from setup.py, or return today's date if not found."""
+        setup_path = root_path / "setup.py"
+        version_pattern = re.compile(r"version\s*=\s*['\"]([^'\"]+)['\"]")
+        with open(setup_path, 'r', encoding='utf-8') as file:
+            for line in file:
+                match = version_pattern.search(line)
+                if match:
+                    return match.group(1)
+        # Return today's date in the format YYYY-MM-DD if no version is found
+        return datetime.now().strftime("%Y-%m-%d")
+
+    @staticmethod
+    def parse_contributor_dict(contributor: dict) -> dict:
+        """extract the `name` field and split on the first space. return a dict
+        where the first value is the `family-names` and the rest is the `given-names`
+        if there is no split, the whole string is the `family-names` and the given-names is empty
+        """
+        name = contributor.get("name", "")
+        name_parts = name.split(" ", 1)
+        if len(name_parts) == 1:
+            return {"family-names": name_parts[0], "given-names": ""}
+        else:
+            return {"family-names": name_parts[1], "given-names": name_parts[0]}
+
+    def save_cff(self, contributors: list) -> dict:
+        """Provide default content for CITATION.cff."""
+        version_date = self.read_version_from_setup(ROOT)
+
+        core_contribs = [self.parse_contributor_dict(c) for c in contributors if c.get("is_core", False)]
+        core_contribs.append({"name": "Community Contributors"})
+
+        cff_content = {
+            "cff-version": "1.2.0",
+            "message": "If you use this software, please cite it as below.",
+            "title": "cookiecutter-django",
+            "version": version_date,
+            "date-released": version_date,
+            "authors": core_contribs,
+            "abstract": "Cookiecutter Django is a framework for jumpstarting "
+            "production-ready Django projects quickly.",
+            "notes": "This project has received contributions from many individuals, "
+            "for which we are grateful. For a full list of contributors, see the CONTRIBUTORS.md in the repository",
+            "repository-code": "https://github.com/cookiecutter/cookiecutter-django"
+        }
+
+        with open(self.output_path, 'w', encoding='utf-8') as file:
+            yaml.dump(cff_content, file, default_flow_style=False)
+
+
 def write_md_file(contributors):
     """Generate markdown file from Jinja template."""
     contributors_template = ROOT / ".github" / "CONTRIBUTORS-template.md"
@@ -94,6 +161,8 @@ def write_md_file(contributors):
 
     file_path = ROOT / "CONTRIBUTORS.md"
     file_path.write_text(content)
+
+
 
 
 if __name__ == "__main__":
