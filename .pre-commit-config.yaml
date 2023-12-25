@@ -20,7 +20,7 @@ repos:
       - id: detect-private-key
 
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: "v4.0.0-alpha.5"
+    rev: "v4.0.0-alpha.8"
     hooks:
       - id: prettier
         args: ["--tab-width", "2"]
@@ -33,7 +33,7 @@ repos:
         exclude: hooks/
 
   - repo: https://github.com/psf/black
-    rev: 23.12.0
+    rev: 23.12.1
     hooks:
       - id: black
 
