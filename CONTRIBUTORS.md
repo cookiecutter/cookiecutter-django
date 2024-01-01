@@ -1483,6 +1483,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Michael V. Battista</td>
+    <td>
+      <a href="https://github.com/mvbattista">mvbattista</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Michael Gecht</td>
     <td>
       <a href="https://github.com/mimischi">mimischi</a>
