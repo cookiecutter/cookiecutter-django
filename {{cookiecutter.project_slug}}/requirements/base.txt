@@ -28,7 +28,7 @@ uvicorn[standard]==0.24.0.post1  # https://github.com/encode/uvicorn
 
 # Django
 # ------------------------------------------------------------------------------
-django==4.2.8  # pyup: < 5.0  # https://www.djangoproject.com/
+django==4.2.9  # pyup: < 5.0  # https://www.djangoproject.com/
 django-environ==0.11.2  # https://github.com/joke2k/django-environ
 django-model-utils==4.3.1  # https://github.com/jazzband/django-model-utils
 django-allauth==0.59.0  # https://github.com/pennersr/django-allauth
