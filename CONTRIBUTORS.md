@@ -1497,6 +1497,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Michael V. Battista</td>
+    <td>
+      <a href="https://github.com/mvbattista">mvbattista</a>
+    </td>
+    <td>mvbattista</td>
+  </tr>
+  <tr>
     <td>Mike97M</td>
     <td>
       <a href="https://github.com/Mike97M">Mike97M</a>
