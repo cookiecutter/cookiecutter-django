@@ -25,7 +25,7 @@ class SocialAccountAdapter(DefaultSocialAccountAdapter):
         """
         Populates user information from social provider info.
 
-        See: https://django-allauth.readthedocs.io/en/latest/advanced.html?#creating-and-populating-user-instances
+        See: https://docs.allauth.org/en/latest/socialaccount/advanced.html#creating-and-populating-user-instances
         """
         user = super().populate_user(request, sociallogin, data)
         if not user.name:
