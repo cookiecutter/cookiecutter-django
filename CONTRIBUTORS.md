@@ -1581,6 +1581,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Nix Siow</td>
+    <td>
+      <a href="https://github.com/nixsiow">nixsiow</a>
+    </td>
+    <td>nixsiow</td>
+  </tr>
+  <tr>
     <td>Noah H</td>
     <td>
       <a href="https://github.com/nthall">nthall</a>
