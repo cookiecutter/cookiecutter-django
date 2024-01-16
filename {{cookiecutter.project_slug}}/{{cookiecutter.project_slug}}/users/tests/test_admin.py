@@ -65,7 +65,8 @@ class TestUserAdmin:
             pass
 
     @pytest.mark.django_db
-    def test_allauth_login(self, rf, settings, force_allauth):  # pylint: disable=unused-argument
+    @pytest.mark.usefixtures("force_allauth")
+    def test_allauth_login(self, rf):
         request = rf.get("/fake-url")
         request.user = AnonymousUser()
         response = admin.site.login(request)
