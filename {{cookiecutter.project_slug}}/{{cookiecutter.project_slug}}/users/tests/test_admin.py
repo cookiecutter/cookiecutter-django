@@ -4,6 +4,7 @@ import pytest
 from django.contrib import admin
 from django.contrib.auth.models import AnonymousUser
 from django.urls import reverse
+from pytest_django.asserts import assertRedirects
 
 from {{ cookiecutter.project_slug }}.users.models import User
 
@@ -66,10 +67,11 @@ class TestUserAdmin:
 
     @pytest.mark.django_db
     @pytest.mark.usefixtures("force_allauth")
-    def test_allauth_login(self, rf):
+    def test_allauth_login(self, rf, settings):
         request = rf.get("/fake-url")
         request.user = AnonymousUser()
         response = admin.site.login(request)
 
         # The `admin` login view should redirect to the `allauth` login view
-        assert response.status_code == 302
+        target_url = reverse(settings.LOGIN_URL) + "?next=" + request.path
+        assertRedirects(response, target_url, fetch_redirect_response=False)
