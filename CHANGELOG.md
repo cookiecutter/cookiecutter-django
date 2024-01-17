@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.01.16
+
+
+### Updated
+
+- Bump sass-loader from 13.3.3 to 14.0.0 in /{{cookiecutter.project_slug}} ([#4791](https://github.com/cookiecutter/cookiecutter-django/pull/4791))
+
 ## 2024.01.15
 
 
