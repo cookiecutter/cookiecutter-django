@@ -33,12 +33,12 @@ pytest:
   services:
     - docker:dind
   before_script:
-    - docker-compose -f local.yml build
+    - docker compose -f local.yml build
     # Ensure celerybeat does not crash due to non-existent tables
-    - docker-compose -f local.yml run --rm django python manage.py migrate
-    - docker-compose -f local.yml up -d
+    - docker compose -f local.yml run --rm django python manage.py migrate
+    - docker compose -f local.yml up -d
   script:
-    - docker-compose -f local.yml run django pytest
+    - docker compose -f local.yml run django pytest
   {%- else %}
   image: python:3.11
   tags:

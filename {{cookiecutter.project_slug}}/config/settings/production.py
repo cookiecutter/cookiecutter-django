@@ -109,28 +109,28 @@ AZURE_CONTAINER = env("DJANGO_AZURE_CONTAINER_NAME")
 {% if cookiecutter.use_whitenoise == 'y' -%}
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 {% elif cookiecutter.cloud_provider == 'AWS' -%}
-STATICFILES_STORAGE = "{{cookiecutter.project_slug}}.utils.storages.StaticRootS3Boto3Storage"
+STATICFILES_STORAGE = "{{cookiecutter.project_slug}}.utils.storages.StaticS3Storage"
 COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
 STATIC_URL = f"https://{aws_s3_domain}/static/"
 {% elif cookiecutter.cloud_provider == 'GCP' -%}
-STATICFILES_STORAGE = "{{cookiecutter.project_slug}}.utils.storages.StaticRootGoogleCloudStorage"
+STATICFILES_STORAGE = "{{cookiecutter.project_slug}}.utils.storages.StaticGoogleCloudStorage"
 COLLECTFAST_STRATEGY = "collectfast.strategies.gcloud.GoogleCloudStrategy"
 STATIC_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/static/"
 {% elif cookiecutter.cloud_provider == 'Azure' -%}
-STATICFILES_STORAGE = "{{cookiecutter.project_slug}}.utils.storages.StaticRootAzureStorage"
+STATICFILES_STORAGE = "{{cookiecutter.project_slug}}.utils.storages.StaticAzureStorage"
 STATIC_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/static/"
 {% endif -%}
 
 # MEDIA
 # ------------------------------------------------------------------------------
 {%- if cookiecutter.cloud_provider == 'AWS' %}
-DEFAULT_FILE_STORAGE = "{{cookiecutter.project_slug}}.utils.storages.MediaRootS3Boto3Storage"
+DEFAULT_FILE_STORAGE = "{{cookiecutter.project_slug}}.utils.storages.MediaS3Storage"
 MEDIA_URL = f"https://{aws_s3_domain}/media/"
 {%- elif cookiecutter.cloud_provider == 'GCP' %}
-DEFAULT_FILE_STORAGE = "{{cookiecutter.project_slug}}.utils.storages.MediaRootGoogleCloudStorage"
+DEFAULT_FILE_STORAGE = "{{cookiecutter.project_slug}}.utils.storages.MediaGoogleCloudStorage"
 MEDIA_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/media/"
 {%- elif cookiecutter.cloud_provider == 'Azure' %}
-DEFAULT_FILE_STORAGE = "{{cookiecutter.project_slug}}.utils.storages.MediaRootAzureStorage"
+DEFAULT_FILE_STORAGE = "{{cookiecutter.project_slug}}.utils.storages.MediaAzureStorage"
 MEDIA_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/media/"
 {%- endif %}
 

@@ -23,7 +23,7 @@ production-ready Django projects quickly.
 - Works with Python 3.11
 - Renders Django projects with 100% starting test coverage
 - Twitter [Bootstrap](https://github.com/twbs/bootstrap) v5
-- [12-Factor](http://12factor.net/) based settings via [django-environ](https://github.com/joke2k/django-environ)
+- [12-Factor](https://12factor.net) based settings via [django-environ](https://github.com/joke2k/django-environ)
 - Secure by default. We believe in SSL.
 - Optimized development and production settings
 - Registration via [django-allauth](https://github.com/pennersr/django-allauth)
@@ -45,7 +45,7 @@ _These features can be enabled during initial project setup._
 
 - Serve static files from Amazon S3, Google Cloud Storage, Azure Storage or [Whitenoise](https://whitenoise.readthedocs.io/)
 - Configuration for [Celery](https://docs.celeryq.dev) and [Flower](https://github.com/mher/flower) (the latter in Docker setup only)
-- Integration with [MailHog](https://github.com/mailhog/MailHog) for local email testing
+- Integration with [Mailpit](https://github.com/axllent/mailpit/) for local email testing
 - Integration with [Sentry](https://sentry.io/welcome/) for error logging
 
 ## Constraints
@@ -165,7 +165,7 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     4 - Webpack
     Choose from 1, 2, 3, 4 [1]: 1
     use_celery [n]: y
-    use_mailhog [n]: n
+    use_mailpit [n]: n
     use_sentry [n]: y
     use_whitenoise [n]: n
     use_heroku [n]: y
@@ -203,6 +203,8 @@ For local development, see the following:
 - Have questions? **Before you ask questions anywhere else**, please post your question on [Stack Overflow](http://stackoverflow.com/questions/tagged/cookiecutter-django) under the _cookiecutter-django_ tag. We check there periodically for questions.
 - If you think you found a bug or want to request a feature, please open an [issue](https://github.com/cookiecutter/cookiecutter-django/issues).
 - For anything else, you can chat with us on [Discord](https://discord.gg/uFXweDQc5a).
+
+<img src="https://opencollective.com/cookiecutter-django/contributors.svg?width=890&button=false" alt="Contributors">
 
 ## For Readers of Two Scoops of Django
 
@@ -247,6 +249,7 @@ experience better.
 
 ## Articles
 
+- [How to Make Your Own Django Cookiecutter Template!](https://medium.com/@FatemeFouladkar/how-to-make-your-own-django-cookiecutter-template-a753d4cbb8c2) - Aug. 10, 2023
 - [Cookiecutter Django With Amazon RDS](https://haseeburrehman.com/posts/cookiecutter-django-with-amazon-rds/) - Apr, 2, 2021
 - [Complete Walkthrough: Blue/Green Deployment to AWS ECS using GitHub actions](https://github.com/Andrew-Chen-Wang/cookiecutter-django-ecs-github) - June 10, 2020
 - [Using cookiecutter-django with Google Cloud Storage](https://ahhda.github.io/cloud/gce/django/2019/03/12/using-django-cookiecutter-cloud-storage.html) - Mar. 12, 2019

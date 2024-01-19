@@ -32,6 +32,9 @@ def main() -> None:
 
     # Group pull requests by type of change
     grouped_pulls = group_pulls_by_change_type(merged_pulls)
+    if not any(grouped_pulls.values()):
+        print("Pull requests merged aren't worth a changelog mention.")
+        return
 
     # Generate portion of markdown
     release_changes_summary = generate_md(grouped_pulls)
