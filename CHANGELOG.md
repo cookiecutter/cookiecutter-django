@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.01.19
+
+
+### Updated
+
+- Update drf-spectacular to 0.27.1 ([#4797](https://github.com/cookiecutter/cookiecutter-django/pull/4797))
+
 ## 2024.01.17
 
 
