@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.01.21
+
+
+### Documentation
+
+- Update traefik doc links ([#4798](https://github.com/cookiecutter/cookiecutter-django/pull/4798))
+
+### Updated
+
+- Bump browser-sync from 2.29.3 to 3.0.2 in /{{cookiecutter.project_slug}} ([#4765](https://github.com/cookiecutter/cookiecutter-django/pull/4765))
+
 ## 2024.01.19
 
 
