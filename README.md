@@ -45,7 +45,7 @@ _These features can be enabled during initial project setup._
 
 - Serve static files from Amazon S3, Google Cloud Storage, Azure Storage or [Whitenoise](https://whitenoise.readthedocs.io/)
 - Configuration for [Celery](https://docs.celeryq.dev) and [Flower](https://github.com/mher/flower) (the latter in Docker setup only)
-- Integration with [MailHog](https://github.com/mailhog/MailHog) for local email testing
+- Integration with [Mailpit](https://github.com/axllent/mailpit/) for local email testing
 - Integration with [Sentry](https://sentry.io/welcome/) for error logging
 
 ## Constraints
@@ -165,7 +165,7 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     4 - Webpack
     Choose from 1, 2, 3, 4 [1]: 1
     use_celery [n]: y
-    use_mailhog [n]: n
+    use_mailpit [n]: n
     use_sentry [n]: y
     use_whitenoise [n]: n
     use_heroku [n]: y
@@ -203,6 +203,8 @@ For local development, see the following:
 - Have questions? **Before you ask questions anywhere else**, please post your question on [Stack Overflow](http://stackoverflow.com/questions/tagged/cookiecutter-django) under the _cookiecutter-django_ tag. We check there periodically for questions.
 - If you think you found a bug or want to request a feature, please open an [issue](https://github.com/cookiecutter/cookiecutter-django/issues).
 - For anything else, you can chat with us on [Discord](https://discord.gg/uFXweDQc5a).
+
+<img src="https://opencollective.com/cookiecutter-django/contributors.svg?width=890&button=false" alt="Contributors">
 
 ## For Readers of Two Scoops of Django
 

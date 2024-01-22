@@ -92,7 +92,15 @@ You will see something like ::
 
 Backup to Amazon S3
 ----------------------------------
+
 For uploading your backups to Amazon S3 you can use the aws cli container. There is an upload command for uploading the postgres /backups directory recursively and there is a download command for downloading a specific backup. The default S3 environment variables are used. ::
 
     $ docker compose -f production.yml run --rm awscli upload
     $ docker compose -f production.yml run --rm awscli download backup_2018_03_13T09_05_07.sql.gz
+
+Remove Backup
+----------------------------------
+
+To remove backup you can use the ``rmbackup`` command. This will remove the backup from the ``/backups`` directory. ::
+
+    $ docker compose -f local.yml exec postgres rmbackup backup_2018_03_13T09_05_07.sql.gz
