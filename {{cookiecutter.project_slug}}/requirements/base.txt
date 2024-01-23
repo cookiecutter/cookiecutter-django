@@ -1,5 +1,5 @@
 python-slugify==8.0.1  # https://github.com/un33k/python-slugify
-Pillow==10.1.0  # https://github.com/python-pillow/Pillow
+Pillow==10.2.0  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.frontend_pipeline == 'Django Compressor' %}
 {%- if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %}
 rcssmin==1.1.0 --install-option="--without-c-extensions"  # https://github.com/ndparker/rcssmin
@@ -13,7 +13,7 @@ whitenoise==6.6.0  # https://github.com/evansd/whitenoise
 {%- endif %}
 redis==5.0.1  # https://github.com/redis/redis-py
 {%- if cookiecutter.use_docker == "y" or cookiecutter.windows == "n" %}
-hiredis==2.2.3  # https://github.com/redis/hiredis-py
+hiredis==2.3.2  # https://github.com/redis/hiredis-py
 {%- endif %}
 {%- if cookiecutter.use_celery == "y" %}
 celery==5.3.6  # pyup: < 6.0  # https://github.com/celery/celery
@@ -23,15 +23,15 @@ flower==2.0.1  # https://github.com/mher/flower
 {%- endif %}
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' %}
-uvicorn[standard]==0.24.0.post1  # https://github.com/encode/uvicorn
+uvicorn[standard]==0.26.0  # https://github.com/encode/uvicorn
 {%- endif %}
 
 # Django
 # ------------------------------------------------------------------------------
-django==4.2.7  # pyup: < 5.0  # https://www.djangoproject.com/
+django==4.2.9  # pyup: < 5.0  # https://www.djangoproject.com/
 django-environ==0.11.2  # https://github.com/joke2k/django-environ
 django-model-utils==4.3.1  # https://github.com/jazzband/django-model-utils
-django-allauth==0.58.2  # https://github.com/pennersr/django-allauth
+django-allauth==0.60.1  # https://github.com/pennersr/django-allauth
 django-crispy-forms==2.1  # https://github.com/django-crispy-forms/django-crispy-forms
 crispy-bootstrap5==2023.10  # https://github.com/django-crispy-forms/crispy-bootstrap5
 {%- if cookiecutter.frontend_pipeline == 'Django Compressor' %}
@@ -43,13 +43,13 @@ django-redis==5.4.0  # https://github.com/jazzband/django-redis
 djangorestframework==3.14.0  # https://github.com/encode/django-rest-framework
 django-cors-headers==4.3.1  # https://github.com/adamchainz/django-cors-headers
 # DRF-spectacular for api documentation
-drf-spectacular==0.26.5  # https://github.com/tfranzel/drf-spectacular
+drf-spectacular==0.27.1  # https://github.com/tfranzel/drf-spectacular
 {%- endif %}
 {%- if cookiecutter.frontend_pipeline == 'Webpack' %}
-django-webpack-loader==2.0.1  # https://github.com/django-webpack/django-webpack-loader
+django-webpack-loader==3.0.1  # https://github.com/django-webpack/django-webpack-loader
 {%- endif %}
 
 # Project
 # ------------------------------------------------------------------------------
-fontawesomefree==6.4.2 # https://github.com/FortAwesome/Font-Awesome
-django-import-export==3.3.3 # https://github.com/django-import-export/django-import-export
+fontawesomefree==6.5.1 # https://github.com/FortAwesome/Font-Awesome
+django-import-export==3.3.6 # https://github.com/django-import-export/django-import-export

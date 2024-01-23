@@ -9,7 +9,7 @@ updates:
     schedule:
       interval: "daily"
     labels:
-      - "update"
+      - "project infrastructure"
 
   # Update npm packages
   - package-ecosystem: "npm"
