@@ -39,5 +39,9 @@ jobs:
               "waiting": {
                 "delay": 864000,
                 "message": "Automatically closing after waiting for additional info. To re-open, please provide the additional information requested."
+              },
+              "wontfix": {
+                "delay": 864000,
+                "message": "As discussed, we won't be implementing this. Automatically closing."
               }
             }
