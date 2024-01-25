@@ -115,24 +115,47 @@ STORAGES = {
     },
 {%- elif cookiecutter.cloud_provider == 'AWS' %}
     "default": {
-        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.MediaS3Storage",
+        "BACKEND": "storages.backends.s3.S3Storage",
+        "OPTIONS": {
+            "location": "media",
+            "file_overwrite": False,
+        },
     },
     "staticfiles": {
-        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.StaticS3Storage",
+        "BACKEND": "storages.backends.s3.S3Storage",
+        "OPTIONS": {
+            "location": "static",
+            "default_acl": "public-read",
+        },
     },
 {%- elif cookiecutter.cloud_provider == 'GCP' %}
     "default": {
-        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.MediaGoogleCloudStorage",
+        "BACKEND": "storages.backends.gcloud.GoogleCloudStorage",
+        "OPTIONS": {
+            "location": "media",
+            "file_overwrite": False,
+        },
     },
     "staticfiles": {
-        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.StaticGoogleCloudStorage",
+        "BACKEND": "storages.backends.gcloud.GoogleCloudStorage",
+        "OPTIONS": {
+            "location": "static",
+            "default_acl": "publicRead",
+        },
     },
 {%- elif cookiecutter.cloud_provider == 'Azure' %}
     "default": {
-        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.MediaAzureStorage",
+        "BACKEND": "storages.backends.azure_storage.AzureStorage",
+        "OPTIONS": {
+            "location": "media",
+            "file_overwrite": False,
+        },
     },
     "staticfiles": {
-        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.StaticAzureStorage",
+        "BACKEND": "storages.backends.azure_storage.AzureStorage",
+        "OPTIONS": {
+            "location": "static",
+        },
     },
 {%- endif %}
 }
