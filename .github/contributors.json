@@ -1508,5 +1508,10 @@
     "name": "Nix Siow",
     "github_login": "nixsiow",
     "twitter_username": "nixsiow"
+  },
+  {
+    "name": "Jens Kaeske",
+    "github_login": "jkaeske",
+    "twitter_username": ""
   }
 ]

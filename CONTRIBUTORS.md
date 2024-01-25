@@ -1077,6 +1077,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Jens Kaeske</td>
+    <td>
+      <a href="https://github.com/jkaeske">jkaeske</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Jens Nilsson</td>
     <td>
       <a href="https://github.com/phiberjenz">phiberjenz</a>
