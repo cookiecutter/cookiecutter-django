@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.01.24
+
+
+### Changed
+
+- Migrate to the unified `STORAGES` setting added in Django 4.2 ([#4477](https://github.com/cookiecutter/cookiecutter-django/pull/4477))
+
+### Updated
+
+- Update uvicorn to 0.27.0 ([#4800](https://github.com/cookiecutter/cookiecutter-django/pull/4800))
+
 ## 2024.01.21
 
 
