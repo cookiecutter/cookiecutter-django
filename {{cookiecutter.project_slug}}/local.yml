@@ -58,7 +58,7 @@ services:
   {%- if cookiecutter.use_mailpit == 'y' %}
 
   mailpit:
-    image: axllent/mailpit:latest
+    image: docker.io/axllent/mailpit:latest
     container_name: {{ cookiecutter.project_slug }}_local_mailpit
     ports:
       - "8025:8025"
@@ -67,7 +67,7 @@ services:
   {%- if cookiecutter.use_celery == 'y' %}
 
   redis:
-    image: redis:6
+    image: docker.io/redis:6
     container_name: {{ cookiecutter.project_slug }}_local_redis
 
   celeryworker:
