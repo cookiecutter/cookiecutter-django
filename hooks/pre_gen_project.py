@@ -7,6 +7,7 @@ NOTE:
 TODO: restrict Cookiecutter Django project initialization
       to Python 3.x environments only
 """
+
 from __future__ import print_function
 
 import sys
