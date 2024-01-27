@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.01.26
+
+
+### Updated
+
+- Update black to 24.1.0 ([#4806](https://github.com/cookiecutter/cookiecutter-django/pull/4806))
+
 ## 2024.01.25
 
 
