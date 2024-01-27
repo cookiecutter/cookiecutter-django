@@ -45,16 +45,16 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 try:
-    { % if cookiecutter.use_docker == "y" - %}
+    {%- if cookiecutter.use_docker == "y" %}
     DATABASES = {"default": env.db("DATABASE_URL")}
-    { % - else %}
+    {%- else %}
     DATABASES = {
         "default": env.db(
             "DATABASE_URL",
             default="postgres://{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.project_slug}}",
         ),
     }
-    { % - endif %}
+    {%- endif %}
 except environ.ImproperlyConfigured:
     DATABASES = {
         "default": {
@@ -297,7 +297,11 @@ if USE_TZ:
     # https://docs.celeryq.dev/en/stable/userguide/configuration.html#std:setting-timezone
     CELERY_TIMEZONE = TIME_ZONE
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#std:setting-broker_url
-CELERY_BROKER_URL = env("CELERY_BROKER_URL")
+try:
+    CELERY_BROKER_URL = env("CELERY_BROKER_URL")
+except environ.ImproperlyConfigured:
+    CELERY_BROKER_URL = env("REDIS_URL")
+
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#std:setting-result_backend
 CELERY_RESULT_BACKEND = CELERY_BROKER_URL
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#result-extended
