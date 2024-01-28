@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.01.27
+
+
+### Changed
+
+- Do not show webpack devserver overlay for warnings ([#4809](https://github.com/cookiecutter/cookiecutter-django/pull/4809))
+
+### Updated
+
+- Update python-slugify to 8.0.2 ([#4805](https://github.com/cookiecutter/cookiecutter-django/pull/4805))
+
+- Update coverage to 7.4.1 ([#4807](https://github.com/cookiecutter/cookiecutter-django/pull/4807))
+
 ## 2024.01.26
 
 
