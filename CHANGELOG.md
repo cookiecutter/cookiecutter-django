@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.01.30
+
+
+### Updated
+
+- Update pytest-django to 4.8.0 ([#4823](https://github.com/cookiecutter/cookiecutter-django/pull/4823))
+
+- Update sentry-sdk to 1.40.0 ([#4822](https://github.com/cookiecutter/cookiecutter-django/pull/4822))
+
+- Update uvicorn to 0.27.0.post1 ([#4818](https://github.com/cookiecutter/cookiecutter-django/pull/4818))
+
 ## 2024.01.29
 
 
