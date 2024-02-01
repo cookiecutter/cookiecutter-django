@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.01.31
+
+
+### Updated
+
+- Update python-slugify to 8.0.3 ([#4826](https://github.com/cookiecutter/cookiecutter-django/pull/4826))
+
 ## 2024.01.30
 
 
