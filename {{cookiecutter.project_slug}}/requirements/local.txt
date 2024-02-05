@@ -3,9 +3,9 @@
 Werkzeug[watchdog]==3.0.1 # https://github.com/pallets/werkzeug
 ipdb==0.13.13  # https://github.com/gotcha/ipdb
 {%- if cookiecutter.use_docker == 'y' %}
-psycopg[c]==3.1.17  # https://github.com/psycopg/psycopg
+psycopg[c]==3.1.18  # https://github.com/psycopg/psycopg
 {%- else %}
-psycopg[binary]==3.1.17  # https://github.com/psycopg/psycopg
+psycopg[binary]==3.1.18  # https://github.com/psycopg/psycopg
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' or cookiecutter.use_celery == 'y' %}
 watchfiles==0.21.0  # https://github.com/samuelcolvin/watchfiles
@@ -16,7 +16,7 @@ watchfiles==0.21.0  # https://github.com/samuelcolvin/watchfiles
 mypy==1.7.1  # https://github.com/python/mypy
 django-stubs[compatible-mypy]==4.2.7  # https://github.com/typeddjango/django-stubs
 pytest==8.0.0  # https://github.com/pytest-dev/pytest
-pytest-sugar==0.9.7  # https://github.com/Frozenball/pytest-sugar
+pytest-sugar==1.0.0  # https://github.com/Frozenball/pytest-sugar
 {%- if cookiecutter.use_drf == "y" %}
 djangorestframework-stubs[compatible-mypy]==3.14.5  # https://github.com/typeddjango/djangorestframework-stubs
 {%- endif %}
@@ -24,14 +24,14 @@ djangorestframework-stubs[compatible-mypy]==3.14.5  # https://github.com/typeddj
 # Documentation
 # ------------------------------------------------------------------------------
 sphinx==7.2.6  # https://github.com/sphinx-doc/sphinx
-sphinx-autobuild==2021.3.14 # https://github.com/GaretJax/sphinx-autobuild
+sphinx-autobuild==2024.2.4 # https://github.com/GaretJax/sphinx-autobuild
 
 # Code quality
 # ------------------------------------------------------------------------------
 flake8==7.0.0  # https://github.com/PyCQA/flake8
 flake8-isort==6.1.1  # https://github.com/gforcada/flake8-isort
 coverage==7.4.1  # https://github.com/nedbat/coveragepy
-black==24.1.0  # https://github.com/psf/black
+black==24.1.1  # https://github.com/psf/black
 djlint==1.34.1  # https://github.com/Riverside-Healthcare/djLint
 pylint-django==2.5.5  # https://github.com/PyCQA/pylint-django
 {%- if cookiecutter.use_celery == 'y' %}
@@ -43,7 +43,7 @@ pre-commit==3.6.0  # https://github.com/pre-commit/pre-commit
 # ------------------------------------------------------------------------------
 factory-boy==3.3.0  # https://github.com/FactoryBoy/factory_boy
 
-django-debug-toolbar==4.2.0  # https://github.com/jazzband/django-debug-toolbar
+django-debug-toolbar==4.3.0  # https://github.com/jazzband/django-debug-toolbar
 django-extensions==3.2.3  # https://github.com/django-extensions/django-extensions
 django-coverage-plugin==3.1.0  # https://github.com/nedbat/django_coverage_plugin
-pytest-django==4.7.0  # https://github.com/pytest-dev/pytest-django
+pytest-django==4.8.0  # https://github.com/pytest-dev/pytest-django

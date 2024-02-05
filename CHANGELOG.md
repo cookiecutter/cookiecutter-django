@@ -3,6 +3,41 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.01.31
+
+
+### Updated
+
+- Update python-slugify to 8.0.3 ([#4826](https://github.com/cookiecutter/cookiecutter-django/pull/4826))
+
+## 2024.01.30
+
+
+### Updated
+
+- Update pytest-django to 4.8.0 ([#4823](https://github.com/cookiecutter/cookiecutter-django/pull/4823))
+
+- Update sentry-sdk to 1.40.0 ([#4822](https://github.com/cookiecutter/cookiecutter-django/pull/4822))
+
+- Update uvicorn to 0.27.0.post1 ([#4818](https://github.com/cookiecutter/cookiecutter-django/pull/4818))
+
+## 2024.01.29
+
+
+### Changed
+
+- Fix deprecation warning about renaming of `webpack_loader.loader` to `webpack_loader.loaders` ([#4815](https://github.com/cookiecutter/cookiecutter-django/pull/4815))
+
+### Documentation
+
+- Update mention of coverage config file to `pyproject.toml` in documentation ([#4816](https://github.com/cookiecutter/cookiecutter-django/pull/4816))
+
+### Updated
+
+- Update black to 24.1.1 ([#4814](https://github.com/cookiecutter/cookiecutter-django/pull/4814))
+
+- Auto-update pre-commit hooks ([#4817](https://github.com/cookiecutter/cookiecutter-django/pull/4817))
+
 ## 2024.01.27
 
 

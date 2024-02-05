@@ -965,6 +965,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>henningbra</td>
+    <td>
+      <a href="https://github.com/henningbra">henningbra</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Henrique G. G. Pereira</td>
     <td>
       <a href="https://github.com/ikkebr">ikkebr</a>
