@@ -16,25 +16,6 @@ include = ["{{cookiecutter.project_slug}}/**"]
 omit = ["*/migrations/*", "*/tests/*"]
 plugins = ["django_coverage_plugin"]
 
-
-# ==== black ====
-[tool.black]
-line-length = 119
-target-version = ['py311']
-
-
-# ==== isort ====
-[tool.isort]
-profile = "black"
-line_length = 119
-known_first_party = [
-    "{{cookiecutter.project_slug}}",
-    "config",
-]
-skip = ["venv/"]
-skip_glob = ["**/migrations/*.py"]
-
-
 # ==== mypy ====
 [tool.mypy]
 python_version = "3.11"
@@ -58,40 +39,6 @@ ignore_errors = true
 [tool.django-stubs]
 django_settings_module = "config.settings.test"
 
-
-# ==== PyLint ====
-[tool.pylint.MASTER]
-load-plugins = [
-    "pylint_django",
-{%- if cookiecutter.use_celery == "y" %}
-    "pylint_celery",
-{%- endif %}
-]
-django-settings-module = "config.settings.local"
-
-[tool.pylint.FORMAT]
-max-line-length = 119
-
-[tool.pylint."MESSAGES CONTROL"]
-disable = [
-    "missing-docstring",
-    "invalid-name",
-]
-
-[tool.pylint.DESIGN]
-max-parents = 13
-
-[tool.pylint.TYPECHECK]
-generated-members = [
-    "REQUEST",
-    "acl_users",
-    "aq_parent",
-    "[a-zA-Z]+_set{1,2}",
-    "save",
-    "delete",
-]
-
-
 # ==== djLint ====
 [tool.djlint]
 blank_line_after_tag = "load,extends"
@@ -110,3 +57,112 @@ indent_size = 2
 
 [tool.djlint.js]
 indent_size = 2
+
+[tool.ruff]
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+    "*/migrations/*.py",
+    "staticfiles/*"
+]
+# Same as Django: https://github.com/cookiecutter/cookiecutter-django/issues/4792.
+line-length = 88
+indent-width = 4
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+  "F",
+  "E",
+  "W",
+  "C90",
+  "I",
+  "N",
+  "UP",
+  "YTT",
+  # "ANN", # flake8-annotations: we should support this in the future but 100+ errors atm
+  "ASYNC",
+  "S",
+  "BLE",
+  "FBT",
+  "B",
+  "A",
+  "COM",
+  "C4",
+  "DTZ",
+  "T10",
+  "DJ",
+  "EM",
+  "EXE",
+  "FA",
+  'ISC',
+  "ICN",
+  "G",
+  'INP',
+  'PIE',
+  "T20",
+  'PYI',
+  'PT',
+  "Q",
+  "RSE",
+  "RET",
+  "SLF",
+  "SLOT",
+  "SIM",
+  "TID",
+  "TCH",
+  "INT",
+  # "ARG", # Unused function argument
+  "PTH",
+  "ERA",
+  "PD",
+  "PGH",
+  "PL",
+  "TRY",
+  "FLY",
+  # "NPY",
+  # "AIR",
+  "PERF",
+  # "FURB",
+  # "LOG",
+  "RUF"
+]
+ignore = [
+  "S101", # Use of assert detected https://docs.astral.sh/ruff/rules/assert/
+  "RUF012", # Mutable class attributes should be annotated with `typing.ClassVar`
+  "SIM102" # sometimes it's better to nest
+]
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.ruff.lint.isort]
+force-single-line = true
