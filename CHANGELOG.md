@@ -3,6 +3,21 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.02.05
+
+
+### Updated
+
+- Update pytest to 8.0.0 ([#4813](https://github.com/cookiecutter/cookiecutter-django/pull/4813))
+
+- Update pytest-sugar to 1.0.0 ([#4828](https://github.com/cookiecutter/cookiecutter-django/pull/4828))
+
+- Update sphinx-autobuild to 2024.2.4 ([#4830](https://github.com/cookiecutter/cookiecutter-django/pull/4830))
+
+- Update django-debug-toolbar to 4.3.0 ([#4829](https://github.com/cookiecutter/cookiecutter-django/pull/4829))
+
+- Update psycopg to 3.1.18 ([#4831](https://github.com/cookiecutter/cookiecutter-django/pull/4831))
+
 ## 2024.01.31
 
 
