@@ -1,8 +1,13 @@
+from typing import TYPE_CHECKING
+
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import UserManager as DjangoUserManager
 
+if TYPE_CHECKING:
+    from {{ cookiecutter.project_slug }}.users.models import User  # noqa: F401
 
-class UserManager(DjangoUserManager):
+
+class UserManager(DjangoUserManager["User"]):
     """Custom manager for the User model."""
 
     def _create_user(self, email: str, password: str | None, **extra_fields):
@@ -17,12 +22,12 @@ class UserManager(DjangoUserManager):
         user.save(using=self._db)
         return user
 
-    def create_user(self, email: str, password: str | None = None, **extra_fields):
+    def create_user(self, email: str, password: str | None = None, **extra_fields):  # type: ignore[override]
         extra_fields.setdefault("is_staff", False)
         extra_fields.setdefault("is_superuser", False)
         return self._create_user(email, password, **extra_fields)
 
-    def create_superuser(self, email: str, password: str | None = None, **extra_fields):
+    def create_superuser(self, email: str, password: str | None = None, **extra_fields):  # type: ignore[override]
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
 
