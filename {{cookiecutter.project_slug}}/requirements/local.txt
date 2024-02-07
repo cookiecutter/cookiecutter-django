@@ -1,4 +1,4 @@
--r base.txt
+-r production.txt
 
 Werkzeug[watchdog]==3.0.1 # https://github.com/pallets/werkzeug
 ipdb==0.13.13  # https://github.com/gotcha/ipdb
