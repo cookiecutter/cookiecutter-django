@@ -1,0 +1,18 @@
+{% raw %}{% extends "base.html" %}
+{% load i18n %}
+{% block bodyclass %}bg-light{% endblock bodyclass %}
+
+{% block css %}{{ block.super }}{% endblock css %}
+{% block title %}
+  {% block head_title %}
+    {% trans "Sign In" %}
+  {% endblock head_title %}
+{% endblock title %}
+{% block body %}
+  <div class="d-flex align-items-center h-100 py-4">
+    <div class="m-auto py-4 my-4">
+      {% block content %}
+      {% endblock content %}
+    </div>
+  </div>
+{% endblock body %}{% endraw %}
