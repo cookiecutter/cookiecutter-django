@@ -83,6 +83,7 @@ THIRD_PARTY_APPS = [
     "crispy_bootstrap5",
     "allauth",
     "allauth.account",
+    "allauth.mfa",
     "allauth.socialaccount",
 {%- if cookiecutter.use_celery == 'y' %}
     "django_celery_beat",
