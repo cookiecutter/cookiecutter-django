@@ -3,6 +3,25 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.02.07
+
+
+### Changed
+
+- Extend docker test with deploy check ([#4838](https://github.com/cookiecutter/cookiecutter-django/pull/4838))
+
+- Generic UserManager ([#4836](https://github.com/cookiecutter/cookiecutter-django/pull/4836))
+
+### Updated
+
+- Update django-allauth to 0.61.0 ([#4839](https://github.com/cookiecutter/cookiecutter-django/pull/4839))
+
+- Bump gulp-postcss to 10.0.0 ([#4835](https://github.com/cookiecutter/cookiecutter-django/pull/4835))
+
+- Update sentry-sdk to 1.40.2 ([#4837](https://github.com/cookiecutter/cookiecutter-django/pull/4837))
+
+- Update django to 4.2.10 ([#4833](https://github.com/cookiecutter/cookiecutter-django/pull/4833))
+
 ## 2024.02.05
 
 
