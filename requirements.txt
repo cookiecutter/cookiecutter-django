@@ -7,7 +7,7 @@ binaryornot==0.4.4
 black==24.1.1
 isort==5.13.2
 flake8==7.0.0
-django-upgrade==1.15.0
+django-upgrade==1.16.0
 djlint==1.34.1
 pre-commit==3.6.0
 
