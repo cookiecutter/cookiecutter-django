@@ -4,7 +4,7 @@
 ### Create a database backup.
 ###
 ### Usage:
-###     $ docker-compose -f <environment>.yml (exec |run --rm) postgres backup
+###     $ docker compose -f <environment>.yml (exec |run --rm) postgres backup
 
 
 set -o errexit

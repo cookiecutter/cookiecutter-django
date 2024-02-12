@@ -1,3 +1,7 @@
+{%- if cookiecutter.username_type == "email" %}
+from typing import ClassVar
+{%- endif %}
+
 from django.contrib.auth.models import AbstractUser
 from django.db.models import CharField{% if cookiecutter.username_type == "email" %}, EmailField{% endif %}
 from django.urls import reverse
@@ -26,7 +30,7 @@ class User(AbstractUser):
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
-    objects = UserManager()
+    objects: ClassVar[UserManager] = UserManager()
     {%- endif %}
 
     def get_absolute_url(self) -> str:

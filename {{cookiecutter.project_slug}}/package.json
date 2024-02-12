@@ -8,7 +8,7 @@
     "autoprefixer": "^10.4.0",
     "babel-loader": "^9.1.2",
     "bootstrap": "^5.2.3",
-    "browser-sync": "^2.27.7",
+    "browser-sync": "^3.0.2",
     "css-loader": "^6.5.1",
     "gulp-concat": "^2.6.1",
     "concurrently": "^8.0.1",
@@ -16,7 +16,7 @@
     "gulp": "^4.0.2",
     "gulp-imagemin": "^7.1.0",
     "gulp-plumber": "^1.2.1",
-    "gulp-postcss": "^9.0.1",
+    "gulp-postcss": "^10.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.0.0",
     "gulp-uglify-es": "^3.0.0",
@@ -24,18 +24,18 @@
     "node-sass-tilde-importer": "^1.0.2",
     "pixrem": "^5.0.0",
     "postcss": "^8.3.11",
-    "postcss-loader": "^7.0.2",
+    "postcss-loader": "^8.0.0",
     "postcss-preset-env": "^9.0.0",
     "sass": "^1.43.4",
-    "sass-loader": "^13.2.0",
+    "sass-loader": "^14.0.0",
     "webpack": "^5.65.0",
-    "webpack-bundle-tracker": "^2.0.0",
+    "webpack-bundle-tracker": "^3.0.1",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.6.0",
     "webpack-merge": "^5.8.0"
   },
   "engines": {
-    "node": "18"
+    "node": "20"
   },
   "browserslist": [
     "last 2 versions"

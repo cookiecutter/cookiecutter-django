@@ -35,11 +35,11 @@
   "use_drf": "n",
   "frontend_pipeline": ["None", "Django Compressor", "Gulp", "Webpack"],
   "use_celery": "n",
-  "use_mailhog": "n",
+  "use_mailpit": "n",
   "use_sentry": "n",
   "use_whitenoise": "n",
   "use_heroku": "n",
-  "ci_tool": ["None", "Travis", "Gitlab", "Github"],
+  "ci_tool": ["None", "Travis", "Gitlab", "Github", "Drone"],
   "keep_local_envs_in_vcs": "y",
   "debug": "n"
 }

@@ -8,6 +8,7 @@ NOTE:
 TODO: restrict Cookiecutter Django project initialization to
       Python 3.x environments only
 """
+
 from __future__ import print_function
 
 import json
@@ -80,7 +81,7 @@ def remove_docker_files():
     file_names = ["local.yml", "production.yml", ".dockerignore"]
     for file_name in file_names:
         os.remove(file_name)
-    if "{{ cookiecutter.editor }}".lower() == "PyCharm":
+    if "{{ cookiecutter.editor }}" == "PyCharm":
         file_names = ["docker_compose_up_django.xml", "docker_compose_up_docs.xml"]
         for file_name in file_names:
             os.remove(os.path.join(".idea", "runConfigurations", file_name))
@@ -183,6 +184,7 @@ def handle_js_runner(choice, use_docker, use_async):
             "browser-sync",
             "cssnano",
             "gulp",
+            "gulp-concat",
             "gulp-imagemin",
             "gulp-plumber",
             "gulp-postcss",
@@ -205,6 +207,24 @@ def handle_js_runner(choice, use_docker, use_async):
             remove_dev_deps.append("concurrently")
         update_package_json(remove_dev_deps=remove_dev_deps, scripts=scripts)
         remove_gulp_files()
+
+
+def remove_prettier_pre_commit():
+    with open(".pre-commit-config.yaml", "r") as fd:
+        content = fd.readlines()
+
+    removing = False
+    new_lines = []
+    for line in content:
+        if removing and "- repo:" in line:
+            removing = False
+        if "mirrors-prettier" in line:
+            removing = True
+        if not removing:
+            new_lines.append(line)
+
+    with open(".pre-commit-config.yaml", "w") as fd:
+        fd.writelines(new_lines)
 
 
 def remove_celery_files():
@@ -236,6 +256,10 @@ def remove_dotgitlabciyml_file():
 
 def remove_dotgithub_folder():
     shutil.rmtree(".github")
+
+
+def remove_dotdrone_file():
+    os.remove(".drone.yml")
 
 
 def generate_random_string(length, using_digits=False, using_ascii_letters=False, using_punctuation=False):
@@ -406,10 +430,6 @@ def remove_drf_starter_files():
     os.remove(os.path.join("{{cookiecutter.project_slug}}", "users", "tests", "test_swagger.py"))
 
 
-def remove_storages_module():
-    os.remove(os.path.join("{{cookiecutter.project_slug}}", "utils", "storages.py"))
-
-
 def main():
     debug = "{{ cookiecutter.debug }}".lower() == "y"
 
@@ -428,7 +448,7 @@ def main():
     if "{{ cookiecutter.username_type }}" == "username":
         remove_custom_user_manager_files()
 
-    if "{{ cookiecutter.editor }}".lower() != "PyCharm":
+    if "{{ cookiecutter.editor }}" != "PyCharm":
         remove_pycharm_files()
 
     if "{{ cookiecutter.use_docker }}".lower() == "y":
@@ -461,6 +481,7 @@ def main():
         remove_webpack_files()
         remove_sass_files()
         remove_packagejson_file()
+        remove_prettier_pre_commit()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_node_dockerfile()
     else:
@@ -475,7 +496,6 @@ def main():
             WARNING + "You chose to not use any cloud providers nor Docker, "
             "media files won't be served in production." + TERMINATOR
         )
-        remove_storages_module()
 
     if "{{ cookiecutter.use_celery }}".lower() == "n":
         remove_celery_files()
@@ -490,6 +510,9 @@ def main():
 
     if "{{ cookiecutter.ci_tool }}" != "Github":
         remove_dotgithub_folder()
+
+    if "{{ cookiecutter.ci_tool }}" != "Drone":
+        remove_dotdrone_file()
 
     if "{{ cookiecutter.use_drf }}".lower() == "n":
         remove_drf_starter_files()

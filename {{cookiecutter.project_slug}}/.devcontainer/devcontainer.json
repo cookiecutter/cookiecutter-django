@@ -13,18 +13,13 @@
         },
         {
             "source": "~/.ssh",
-            "target": "/tmp",
-            "type": "bind"
-        },
-        {
-            "source": "~/.ssh",
             "target": "/home/dev-user/.ssh",
             "type": "bind"
         }
     ],
     // Tells devcontainer.json supporting services / tools whether they should run
     // /bin/sh -c "while sleep 1000; do :; done" when starting the container instead of the container’s default command
-    "overrideCommand": true,
+    "overrideCommand": false,
     "service": "django",
     // "remoteEnv": {"PATH": "/home/dev-user/.local/bin:${containerEnv:PATH}"},
     "remoteUser": "dev-user",

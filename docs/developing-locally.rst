@@ -80,9 +80,11 @@ First things first.
 
     $ python manage.py runserver 0.0.0.0:8000
 
-or if you're running asynchronously: ::
+   or if you're running asynchronously: ::
 
     $ uvicorn config.asgi:application --host 0.0.0.0 --reload --reload-include '*.html'
+
+   If you've opted for Webpack or Gulp as frontend pipeline, please see the :ref:`dedicated section <bare-metal-webpack-gulp>` below.
 
 .. _PostgreSQL: https://www.postgresql.org/download/
 .. _Redis: https://redis.io/download
@@ -97,39 +99,37 @@ or if you're running asynchronously: ::
 Setup Email Backend
 -------------------
 
-MailHog
+Mailpit
 ~~~~~~~
 
-.. note:: In order for the project to support MailHog_ it must have been bootstrapped with ``use_mailhog`` set to ``y``.
+.. note:: In order for the project to support Mailpit_ it must have been bootstrapped with ``use_mailpit`` set to ``y``.
 
-MailHog is used to receive emails during development, it is written in Go and has no external dependencies.
+Mailpit is used to receive emails during development, it is written in Go and has no external dependencies.
 
 For instance, one of the packages we depend upon, ``django-allauth`` sends verification emails to new users signing up as well as to the existing ones who have not yet verified themselves.
 
-#. `Download the latest MailHog release`_ for your OS.
+#. `Download the latest Mailpit release`_ for your OS.
 
-#. Rename the build to ``MailHog``.
-
-#. Copy the file to the project root.
+#. Copy the binary file to the project root.
 
 #. Make it executable: ::
 
-    $ chmod +x MailHog
+    $ chmod +x mailpit
 
 #. Spin up another terminal window and start it there: ::
 
-    ./MailHog
+    ./mailpit
 
 #. Check out `<http://127.0.0.1:8025/>`_ to see how it goes.
 
 Now you have your own mail server running locally, ready to receive whatever you send it.
 
-.. _`Download the latest MailHog release`: https://github.com/mailhog/MailHog
+.. _`Download the latest Mailpit release`: https://github.com/axllent/mailpit
 
 Console
 ~~~~~~~
 
-.. note:: If you have generated your project with ``use_mailhog`` set to ``n`` this will be a default setup.
+.. note:: If you have generated your project with ``use_mailpit`` set to ``n`` this will be a default setup.
 
 Alternatively, deliver emails over console via ``EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'``.
 
@@ -169,10 +169,12 @@ You can also use Django admin to queue up tasks, thanks to the `django-celerybea
 .. _django-celerybeat: https://django-celery-beat.readthedocs.io/en/latest/
 
 
-Sass Compilation & Live Reloading
----------------------------------
+.. _bare-metal-webpack-gulp:
 
-If you've opted for Gulp or Webpack as front-end pipeline, the project comes configured with `Sass`_ compilation and `live reloading`_. As you change you Sass/JS source files, the task runner will automatically rebuild the corresponding CSS and JS assets and reload them in your browser without refreshing the page.
+Using Webpack or Gulp
+---------------------
+
+If you've opted for Gulp or Webpack as front-end pipeline, the project comes configured with `Sass`_ compilation and `live reloading`_. As you change your Sass/JS source files, the task runner will automatically rebuild the corresponding CSS and JS assets and reload them in your browser without refreshing the page.
 
 #. Make sure that `Node.js`_ v18 is installed on your machine.
 #. In the project root, install the JS dependencies with::
@@ -183,9 +185,12 @@ If you've opted for Gulp or Webpack as front-end pipeline, the project comes con
 
     $ npm run dev
 
-   The app will now run with live reloading enabled, applying front-end changes dynamically.
+   This will start 2 processes in parallel: the static assets build loop on one side, and the Django server on the other.
 
-.. note:: The task will start 2 processes in parallel: the static assets build loop on one side, and the Django server on the other. You do NOT need to run Django as your would normally with ``manage.py runserver``.
+#. Access your application at the address of the ``node`` service in order to see your correct styles. This is http://localhost:3000 by default.
+
+   .. note:: Do NOT access the application using the Django port (8000 by default), as it will result in broken styles and 404s when accessing static assets.
+
 
 .. _Node.js: http://nodejs.org/download/
 .. _Sass: https://sass-lang.com/
