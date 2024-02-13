@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.02.12
+
+
+### Updated
+
+- Update django-model-utils to 4.4.0 ([#4850](https://github.com/cookiecutter/cookiecutter-django/pull/4850))
+
+- Update pre-commit to 3.6.1 ([#4849](https://github.com/cookiecutter/cookiecutter-django/pull/4849))
+
+- Update django-upgrade to 1.16.0 ([#4851](https://github.com/cookiecutter/cookiecutter-django/pull/4851))
+
+- Auto-update pre-commit hooks ([#4852](https://github.com/cookiecutter/cookiecutter-django/pull/4852))
+
 ## 2024.02.09
 
 
