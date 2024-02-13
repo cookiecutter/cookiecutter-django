@@ -4,9 +4,7 @@ binaryornot==0.4.4
 
 # Code quality
 # ------------------------------------------------------------------------------
-black==24.2.0
-isort==5.13.2
-flake8==7.0.0
+ruff==0.2.1
 django-upgrade==1.16.0
 djlint==1.34.1
 pre-commit==3.6.1

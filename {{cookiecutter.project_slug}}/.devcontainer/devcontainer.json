@@ -37,22 +37,11 @@
                     "editor.codeActionsOnSave": {
                         "source.organizeImports": true
                     },
-                    // Uncomment when fixed
-                    // https://github.com/microsoft/vscode-remote-release/issues/8474
-                    // "editor.defaultFormatter": "ms-python.black-formatter",
-                    "formatting.blackPath": "/usr/local/bin/black",
-                    "formatting.provider": "black",
+                    "editor.defaultFormatter": "charliermarsh.ruff",
                     "languageServer": "Pylance",
-                    // "linting.banditPath": "/usr/local/py-utils/bin/bandit",
                     "linting.enabled": true,
-                    "linting.flake8Enabled": true,
-                    "linting.flake8Path": "/usr/local/bin/flake8",
                     "linting.mypyEnabled": true,
                     "linting.mypyPath": "/usr/local/bin/mypy",
-                    "linting.pycodestylePath": "/usr/local/bin/pycodestyle",
-                    // "linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
-                    "linting.pylintEnabled": true,
-                    "linting.pylintPath": "/usr/local/bin/pylint"
                 }
             },
             // https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_vs-code-specific-properties

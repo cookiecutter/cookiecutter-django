@@ -1,9 +1,12 @@
 {%- if cookiecutter.username_type == "email" %}
 from typing import ClassVar
-{%- endif %}
 
+{% endif -%}
 from django.contrib.auth.models import AbstractUser
-from django.db.models import CharField{% if cookiecutter.username_type == "email" %}, EmailField{% endif %}
+from django.db.models import CharField
+{%- if cookiecutter.username_type == "email" %}
+from django.db.models import EmailField
+{%- endif %}
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 {%- if cookiecutter.username_type == "email" %}
@@ -21,11 +24,11 @@ class User(AbstractUser):
 
     # First and last name do not cover name patterns around the globe
     name = CharField(_("Name of User"), blank=True, max_length=255)
-    first_name = None  # type: ignore
-    last_name = None  # type: ignore
+    first_name = None  # type: ignore[assignment]
+    last_name = None  # type: ignore[assignment]
     {%- if cookiecutter.username_type == "email" %}
     email = EmailField(_("email address"), unique=True)
-    username = None  # type: ignore
+    username = None  # type: ignore[assignment]
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
