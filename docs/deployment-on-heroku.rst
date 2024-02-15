@@ -85,8 +85,6 @@ it's in the ``Procfile``, but is turned off by default:
 
 .. code-block:: bash
 
-    # Set the broker URL to Redis
-    heroku config:set CELERY_BROKER_URL=`heroku config:get REDIS_URL`
     # Scale dyno to 1 instance
     heroku ps:scale worker=1
 
