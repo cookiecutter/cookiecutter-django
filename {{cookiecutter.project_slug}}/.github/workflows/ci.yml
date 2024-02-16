@@ -36,7 +36,7 @@ jobs:
       - name: Run pre-commit
         uses: pre-commit/action@v3.0.0
 
-  # With no caching at all the entire ci process takes 4m 30s to complete!
+  # With no caching at all the entire ci process takes 3m to complete!
   pytest:
     runs-on: ubuntu-latest
     {%- if cookiecutter.use_docker == 'n' %}
@@ -69,7 +69,7 @@ jobs:
       {%- if cookiecutter.use_docker == 'y' %}
 
       - name: Build the Stack
-        run: docker compose -f local.yml build
+        run: docker compose -f local.yml build django
 
       - name: Run DB Migrations
         run: docker compose -f local.yml run --rm django python manage.py migrate
