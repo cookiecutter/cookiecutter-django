@@ -1,10 +1,10 @@
 from collections.abc import Sequence
 from typing import Any
 
-from django.contrib.auth import get_user_model
 from factory import Faker, post_generation
 from factory.django import DjangoModelFactory
 
+from {{ cookiecutter.project_slug }}.users.models import User
 
 class UserFactory(DjangoModelFactory):
     {%- if cookiecutter.username_type == "username" %}
@@ -37,5 +37,5 @@ class UserFactory(DjangoModelFactory):
             instance.save()
 
     class Meta:
-        model = get_user_model()
+        model = User
         django_get_or_create = ["{{cookiecutter.username_type}}"]
