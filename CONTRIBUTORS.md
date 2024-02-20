@@ -965,6 +965,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>henningbra</td>
+    <td>
+      <a href="https://github.com/henningbra">henningbra</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Henrique G. G. Pereira</td>
     <td>
       <a href="https://github.com/ikkebr">ikkebr</a>
@@ -1073,6 +1080,13 @@ Listed in alphabetical order.
     <td>Jan Van Bruggen</td>
     <td>
       <a href="https://github.com/jvanbrug">jvanbrug</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Jens Kaeske</td>
+    <td>
+      <a href="https://github.com/jkaeske">jkaeske</a>
     </td>
     <td></td>
   </tr>
@@ -1633,6 +1647,13 @@ Listed in alphabetical order.
     <td>Patrick Tran</td>
     <td>
       <a href="https://github.com/theptrk">theptrk</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Paul Wulff</td>
+    <td>
+      <a href="https://github.com/mtmpaulwulff">mtmpaulwulff</a>
     </td>
     <td></td>
   </tr>

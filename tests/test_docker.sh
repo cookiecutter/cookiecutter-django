@@ -30,7 +30,17 @@ docker compose -f local.yml run django python manage.py makemigrations --dry-run
 docker compose -f local.yml run django python manage.py makemessages --all
 
 # Make sure the check doesn't raise any warnings
-docker compose -f local.yml run django python manage.py check --fail-level WARNING
+docker compose -f local.yml run \
+  -e DJANGO_SECRET_KEY="$(openssl rand -base64 64)" \
+  -e REDIS_URL=redis://redis:6379/0 \
+  -e CELERY_BROKER_URL=redis://redis:6379/0 \
+  -e DJANGO_AWS_ACCESS_KEY_ID=x \
+  -e DJANGO_AWS_SECRET_ACCESS_KEY=x \
+  -e DJANGO_AWS_STORAGE_BUCKET_NAME=x \
+  -e DJANGO_ADMIN_URL=x \
+  -e MAILGUN_API_KEY=x \
+  -e MAILGUN_DOMAIN=x \
+  django python manage.py check --settings=config.settings.production --deploy --database default --fail-level WARNING
 
 # Generate the HTML for the documentation
 docker compose -f local.yml run docs make html

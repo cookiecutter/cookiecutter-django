@@ -7,6 +7,7 @@ from django.utils.translation import gettext_lazy as _
 from {{ cookiecutter.project_slug }}.users.forms import UserAdminChangeForm, UserAdminCreationForm
 from {{ cookiecutter.project_slug }}.users.models import User
 
+
 if settings.DJANGO_ADMIN_FORCE_ALLAUTH:
     # Force the `admin` sign in process to go through the `django-allauth` workflow:
     # https://docs.allauth.org/en/latest/common/admin.html#admin

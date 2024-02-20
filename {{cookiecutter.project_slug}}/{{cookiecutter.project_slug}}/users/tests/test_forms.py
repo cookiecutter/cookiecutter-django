@@ -1,6 +1,5 @@
-"""
-Module for all Form Tests.
-"""
+"""Module for all Form Tests."""
+
 from django.utils.translation import gettext_lazy as _
 
 from {{ cookiecutter.project_slug }}.users.forms import UserAdminCreationForm
@@ -31,7 +30,7 @@ class TestUserAdminCreationForm:
                 {%- endif %}
                 "password1": user.password,
                 "password2": user.password,
-            }
+            },
         )
 
         assert not form.is_valid()
