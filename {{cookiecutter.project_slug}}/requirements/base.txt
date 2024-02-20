@@ -23,7 +23,7 @@ flower==2.0.1  # https://github.com/mher/flower
 {%- endif %}
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' %}
-uvicorn[standard]==0.27.0.post1  # https://github.com/encode/uvicorn
+uvicorn[standard]==0.27.1  # https://github.com/encode/uvicorn
 {%- endif %}
 
 # Django

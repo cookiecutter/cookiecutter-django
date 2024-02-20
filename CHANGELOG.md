@@ -3,6 +3,63 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.02.19
+
+
+### Updated
+
+- Update sentry-sdk to 1.40.5 ([#4876](https://github.com/cookiecutter/cookiecutter-django/pull/4876))
+
+## 2024.02.17
+
+
+### Updated
+
+- Update pytest to 8.0.1 ([#4870](https://github.com/cookiecutter/cookiecutter-django/pull/4870))
+
+## 2024.02.16
+
+
+### Changed
+
+- Speed up GitHub CI for Docker setup ([#4863](https://github.com/cookiecutter/cookiecutter-django/pull/4863))
+
+### Documentation
+
+- Add link to the ruff repository in requirements ([#4866](https://github.com/cookiecutter/cookiecutter-django/pull/4866))
+
+## 2024.02.13
+
+
+### Changed
+
+- Ruff linting &amp; formatting ([#4834](https://github.com/cookiecutter/cookiecutter-django/pull/4834))
+
+### Updated
+
+- Update uvicorn to 0.27.1 ([#4848](https://github.com/cookiecutter/cookiecutter-django/pull/4848))
+
+- Update sentry-sdk to 1.40.4 ([#4858](https://github.com/cookiecutter/cookiecutter-django/pull/4858))
+
+- Bump traefik to 2.11.0 ([#4857](https://github.com/cookiecutter/cookiecutter-django/pull/4857))
+
+- Auto-update pre-commit hooks ([#4855](https://github.com/cookiecutter/cookiecutter-django/pull/4855))
+
+- Update black to 24.2.0 ([#4853](https://github.com/cookiecutter/cookiecutter-django/pull/4853))
+
+## 2024.02.12
+
+
+### Updated
+
+- Update django-model-utils to 4.4.0 ([#4850](https://github.com/cookiecutter/cookiecutter-django/pull/4850))
+
+- Update pre-commit to 3.6.1 ([#4849](https://github.com/cookiecutter/cookiecutter-django/pull/4849))
+
+- Update django-upgrade to 1.16.0 ([#4851](https://github.com/cookiecutter/cookiecutter-django/pull/4851))
+
+- Auto-update pre-commit hooks ([#4852](https://github.com/cookiecutter/cookiecutter-django/pull/4852))
+
 ## 2024.02.09
 
 
