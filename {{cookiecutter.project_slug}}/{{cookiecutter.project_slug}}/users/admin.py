@@ -4,7 +4,8 @@ from django.contrib.auth import admin as auth_admin
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext_lazy as _
 
-from {{ cookiecutter.project_slug }}.users.forms import UserAdminChangeForm, UserAdminCreationForm
+from {{ cookiecutter.project_slug }}.users.forms import UserAdminChangeForm
+from {{ cookiecutter.project_slug }}.users.forms import UserAdminCreationForm
 from {{ cookiecutter.project_slug }}.users.models import User
 
 
