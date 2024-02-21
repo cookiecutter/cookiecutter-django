@@ -1455,6 +1455,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Matthew Foster Walsh</td>
+    <td>
+      <a href="https://github.com/mfosterw">mfosterw</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Matthew Sisley</td>
     <td>
       <a href="https://github.com/mjsisley">mjsisley</a>
@@ -1486,13 +1493,6 @@ Listed in alphabetical order.
     <td>Mesut Yılmaz</td>
     <td>
       <a href="https://github.com/myilmaz">myilmaz</a>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>mfosterw</td>
-    <td>
-      <a href="https://github.com/mfosterw">mfosterw</a>
     </td>
     <td></td>
   </tr>
