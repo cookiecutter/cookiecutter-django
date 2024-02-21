@@ -1,6 +1,6 @@
 from celery import shared_task
 
-from {{ cookiecutter.project_slug }}.users.models import User
+from .models import User
 
 
 @shared_task()
