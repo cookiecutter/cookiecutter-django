@@ -1,13 +1,13 @@
-cookiecutter==2.5.0
+cookiecutter==2.6.0
 sh==2.0.6; sys_platform != "win32"
 binaryornot==0.4.4
 
 # Code quality
 # ------------------------------------------------------------------------------
-ruff==0.2.1
+ruff==0.2.2
 django-upgrade==1.16.0
 djlint==1.34.1
-pre-commit==3.6.1
+pre-commit==3.6.2
 
 # Testing
 # ------------------------------------------------------------------------------
