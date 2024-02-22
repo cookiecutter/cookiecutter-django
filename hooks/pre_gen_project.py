@@ -9,6 +9,7 @@ TODO: restrict Cookiecutter Django project initialization
 """
 
 from __future__ import print_function
+
 import sys
 
 TERMINATOR = "\x1b[0m"
@@ -17,12 +18,15 @@ INFO = "\x1b[1;33m [INFO]: "
 HINT = "\x1b[3;33m"
 SUCCESS = "\x1b[1;32m [SUCCESS]: "
 
+
 def check_project_slug(slug):
     assert slug.isidentifier(), f"'{slug}' project slug is not a valid Python identifier."
     assert slug == slug.lower(), f"'{slug}' project slug should be all lowercase"
 
+
 def check_author_name(author_name):
     assert "\\" not in author_name, "Don't include backslashes in author name."
+
 
 def check_python_version(use_docker):
     if use_docker.lower() == "n":
@@ -50,15 +54,18 @@ def check_python_version(use_docker):
                         + TERMINATOR
                     )
 
+
 def check_whitenoise_and_cloud_provider(use_whitenoise, cloud_provider):
     if use_whitenoise.lower() == "n" and cloud_provider == "None":
         print("You should either use Whitenoise or select a Cloud Provider to serve static files")
         sys.exit(1)
 
+
 def check_mail_service_and_cloud_provider(mail_service, cloud_provider):
     if mail_service == "Amazon SES" and cloud_provider != "AWS":
         print("You should either use AWS or select a different Mail Service for sending emails.")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     project_slug = "{{ cookiecutter.project_slug }}"
