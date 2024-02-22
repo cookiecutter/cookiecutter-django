@@ -3,6 +3,23 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.02.21
+
+
+### Changed
+
+- Switch to `celery.shared_task` to define tasks ([#4881](https://github.com/cookiecutter/cookiecutter-django/pull/4881))
+
+- Replace usages of `get_user_model` by importing model directly ([#4879](https://github.com/cookiecutter/cookiecutter-django/pull/4879))
+
+### Updated
+
+- Auto-update pre-commit hooks ([#4873](https://github.com/cookiecutter/cookiecutter-django/pull/4873))
+
+- Update pre-commit to 3.6.2 ([#4874](https://github.com/cookiecutter/cookiecutter-django/pull/4874))
+
+- Update ruff to 0.2.2 ([#4871](https://github.com/cookiecutter/cookiecutter-django/pull/4871))
+
 ## 2024.02.19
 
 
