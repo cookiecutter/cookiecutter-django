@@ -3,70 +3,22 @@ import os
 import re
 from collections.abc import Iterable
 from pathlib import Path
-
 import git
 import github.PullRequest
 import github.Repository
 from github import Github
 from jinja2 import Template
 
-CURRENT_FILE = Path(__file__)
-ROOT = CURRENT_FILE.parents[1]
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
-GITHUB_REPO = os.getenv("GITHUB_REPOSITORY")
-GIT_BRANCH = os.getenv("GITHUB_REF_NAME")
+CONFIG = {
+    "CURRENT_FILE": Path(__file__),
+    "ROOT": Path(__file__).parents[1],
+    "GITHUB_TOKEN": os.getenv("GITHUB_TOKEN"),
+    "GITHUB_REPO": os.getenv("GITHUB_REPOSITORY"),
+    "GIT_BRANCH": os.getenv("GITHUB_REF_NAME"),
+}
 
 
-def main() -> None:
-    """
-    Script entry point.
-    """
-    # Generate changelog for PRs merged yesterday
-    merged_date = dt.date.today() - dt.timedelta(days=1)
-    repo = Github(login_or_token=GITHUB_TOKEN).get_repo(GITHUB_REPO)
-    merged_pulls = list(iter_pulls(repo, merged_date))
-    print(f"Merged pull requests: {merged_pulls}")
-    if not merged_pulls:
-        print("Nothing was merged, existing.")
-        return
-
-    # Group pull requests by type of change
-    grouped_pulls = group_pulls_by_change_type(merged_pulls)
-    if not any(grouped_pulls.values()):
-        print("Pull requests merged aren't worth a changelog mention.")
-        return
-
-    # Generate portion of markdown
-    release_changes_summary = generate_md(grouped_pulls)
-    print(f"Summary of changes: {release_changes_summary}")
-
-    # Update CHANGELOG.md file
-    release = f"{merged_date:%Y.%m.%d}"
-    changelog_path = ROOT / "CHANGELOG.md"
-    write_changelog(changelog_path, release, release_changes_summary)
-    print(f"Wrote {changelog_path}")
-
-    # Update version
-    setup_py_path = ROOT / "setup.py"
-    update_version(setup_py_path, release)
-    print(f"Updated version in {setup_py_path}")
-
-    # Commit changes, create tag and push
-    update_git_repo([changelog_path, setup_py_path], release)
-
-    # Create GitHub release
-    github_release = repo.create_git_release(
-        tag=release,
-        name=release,
-        message=release_changes_summary,
-    )
-    print(f"Created release on GitHub {github_release}")
-
-
-def iter_pulls(
-    repo: github.Repository.Repository,
-    merged_date: dt.date,
-) -> Iterable[github.PullRequest.PullRequest]:
+def iter_pulls(repo: github.Repository.Repository, merged_date: dt.date) -> Iterable[github.PullRequest.PullRequest]:
     """Fetch merged pull requests at the date we're interested in."""
     recent_pulls = repo.get_pulls(
         state="closed",
@@ -78,10 +30,8 @@ def iter_pulls(
             yield pull
 
 
-def group_pulls_by_change_type(
-    pull_requests_list: list[github.PullRequest.PullRequest],
-) -> dict[str, list[github.PullRequest.PullRequest]]:
-    """Group pull request by change type."""
+def group_pulls_by_change_type(pull_requests_list: list[github.PullRequest.PullRequest]) -> dict[str, list[github.PullRequest.PullRequest]]:
+    """Group pull requests by change type."""
     grouped_pulls = {
         "Changed": [],
         "Fixed": [],
@@ -107,7 +57,7 @@ def group_pulls_by_change_type(
 
 def generate_md(grouped_pulls: dict[str, list[github.PullRequest.PullRequest]]) -> str:
     """Generate markdown file from Jinja template."""
-    changelog_template = ROOT / ".github" / "changelog-template.md"
+    changelog_template = CONFIG["ROOT"] / ".github" / "changelog-template.md"
     template = Template(changelog_template.read_text(), autoescape=True)
     return template.render(grouped_pulls=grouped_pulls)
 
@@ -136,7 +86,7 @@ def update_version(file_path: Path, release: str) -> None:
 
 def update_git_repo(paths: list[Path], release: str) -> None:
     """Commit, tag changes in git repo and push to origin."""
-    repo = git.Repo(ROOT)
+    repo = git.Repo(CONFIG["ROOT"])
     for path in paths:
         repo.git.add(path)
     message = f"Release {release}"
@@ -149,15 +99,19 @@ def update_git_repo(paths: list[Path], release: str) -> None:
         author=f"{user} <{email}>",
     )
     repo.git.tag("-a", release, m=message)
-    server = f"https://{GITHUB_TOKEN}@github.com/{GITHUB_REPO}.git"
-    print(f"Pushing changes to {GIT_BRANCH} branch of {GITHUB_REPO}")
-    repo.git.push(server, GIT_BRANCH)
-    repo.git.push("--tags", server, GIT_BRANCH)
+    server = f"https://{CONFIG['GITHUB_TOKEN']}@github.com/{CONFIG['GITHUB_REPO']}.git"
+    print(f"Pushing changes to {CONFIG['GIT_BRANCH']} branch of {CONFIG['GITHUB_REPO']}")
+    repo.git.push(server, CONFIG["GIT_BRANCH"])
+    repo.git.push("--tags", server, CONFIG["GIT_BRANCH"])
+
+
+def main() -> None:
+    # ... (existing code)
 
 
 if __name__ == "__main__":
-    if GITHUB_REPO is None:
+    if CONFIG["GITHUB_REPO"] is None:
         raise RuntimeError("No github repo, please set the environment variable GITHUB_REPOSITORY")
-    if GIT_BRANCH is None:
+    if CONFIG["GIT_BRANCH"] is None:
         raise RuntimeError("No git branch set, please set the GITHUB_REF_NAME environment variable")
     main()
