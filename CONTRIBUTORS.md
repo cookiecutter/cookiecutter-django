@@ -1553,6 +1553,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Mounir</td>
+    <td>
+      <a href="https://github.com/mounirmesselmeni">mounirmesselmeni</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>mozillazg</td>
     <td>
       <a href="https://github.com/mozillazg">mozillazg</a>
