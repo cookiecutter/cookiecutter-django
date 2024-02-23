@@ -2,6 +2,17 @@
 
 This document is intended for maintainers of the template.
 
+## Automated updates
+
+We use 2 separate services to keep our dependencies up-to-date:
+
+- Dependabot, which manages updates of Python deps of the template, GitHub actions, npm packages and Docker images.
+- PyUp, which manages the Python deps for the generated project.
+
+We don't use Dependabot for the generated project deps because our requirements files are templated, and Dependabot fails to parse them. PyUp is -AFAIK- the only service out there that supports having Jinja tags in the requirements file.
+
+Updates for the template should be labelled as `project infrastructure` while the ones about the generated project should be labelled as `update`. This is use to work in conjunction with our changelog script (see later).
+
 ## Automation scripts
 
 We have a few workflows which have been automated over time. They usually run using GitHub actions and might need a few small manual actions to work nicely. Some have a few limitations which we should document here.
@@ -78,8 +89,8 @@ With that in mind, when merging changes, it's a good idea to set the labels and 
 
 #### Limitations
 
-- Dependencies updates for the template repo (tox, cookiecutter, etc...) don't need to appear in changelog, and need to be labelled as `project infrastructure` manually. By default, they come from PyUp labelled as `update`.
 - Dependabot updates for npm & Docker have a verbose title, try to rename them to be more readable: `Bump webpack-dev-server from 4.15.1 to 5.0.2 in /{{cookiecutter.project_slug}}` -> `Bump webpack-dev-server to 5.0.2`
+- ~~Dependencies updates for the template repo (tox, cookiecutter, etc...) don't need to appear in changelog, and need to be labelled as `project infrastructure` manually. By default, they come from PyUp labelled as `update`.~~
 
 ### Update contributors
 
