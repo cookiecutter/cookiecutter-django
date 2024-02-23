@@ -4,7 +4,7 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import UserManager as DjangoUserManager
 
 if TYPE_CHECKING:
-    from {{ cookiecutter.project_slug }}.users.models import User  # noqa: F401
+    from .models import User  # noqa: F401
 
 
 class UserManager(DjangoUserManager["User"]):

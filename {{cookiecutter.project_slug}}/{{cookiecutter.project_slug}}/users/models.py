@@ -11,7 +11,7 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 {%- if cookiecutter.username_type == "email" %}
 
-from {{ cookiecutter.project_slug }}.users.managers import UserManager
+from .managers import UserManager
 {%- endif %}
 
 
