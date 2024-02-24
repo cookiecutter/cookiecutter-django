@@ -15,7 +15,7 @@ watchfiles==0.21.0  # https://github.com/samuelcolvin/watchfiles
 # ------------------------------------------------------------------------------
 mypy==1.7.1  # https://github.com/python/mypy
 django-stubs[compatible-mypy]==4.2.7  # https://github.com/typeddjango/django-stubs
-pytest==8.0.0  # https://github.com/pytest-dev/pytest
+pytest==8.0.1  # https://github.com/pytest-dev/pytest
 pytest-sugar==1.0.0  # https://github.com/Frozenball/pytest-sugar
 {%- if cookiecutter.use_drf == "y" %}
 djangorestframework-stubs[compatible-mypy]==3.14.5  # https://github.com/typeddjango/djangorestframework-stubs
@@ -28,16 +28,10 @@ sphinx-autobuild==2024.2.4 # https://github.com/GaretJax/sphinx-autobuild
 
 # Code quality
 # ------------------------------------------------------------------------------
-flake8==7.0.0  # https://github.com/PyCQA/flake8
-flake8-isort==6.1.1  # https://github.com/gforcada/flake8-isort
-coverage==7.4.1  # https://github.com/nedbat/coveragepy
-black==24.1.1  # https://github.com/psf/black
+ruff==0.2.2  # https://github.com/astral-sh/ruff
+coverage==7.4.3  # https://github.com/nedbat/coveragepy
 djlint==1.34.1  # https://github.com/Riverside-Healthcare/djLint
-pylint-django==2.5.5  # https://github.com/PyCQA/pylint-django
-{%- if cookiecutter.use_celery == 'y' %}
-pylint-celery==0.3  # https://github.com/PyCQA/pylint-celery
-{%- endif %}
-pre-commit==3.6.0  # https://github.com/pre-commit/pre-commit
+pre-commit==3.6.2  # https://github.com/pre-commit/pre-commit
 
 # Django
 # ------------------------------------------------------------------------------

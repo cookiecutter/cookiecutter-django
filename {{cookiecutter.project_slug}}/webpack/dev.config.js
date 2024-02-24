@@ -6,13 +6,16 @@ module.exports = merge(commonConfig, {
   devtool: 'inline-source-map',
   devServer: {
     port: 3000,
-    proxy: {
-      {%- if cookiecutter.use_docker == 'n' %}
-      '/': 'http://0.0.0.0:8000',
-      {%- else %}
-      '/': 'http://django:8000',
-      {%- endif %}
-    },
+    proxy: [
+      {
+        context: ['/'],
+        {%- if cookiecutter.use_docker == 'n' %}
+        target: 'http://0.0.0.0:8000',
+        {%- else %}
+        target: 'http://django:8000',
+        {%- endif %}
+      },
+    ],
     client: {
       overlay: {
         errors: true,

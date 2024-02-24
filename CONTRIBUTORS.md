@@ -1455,6 +1455,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Matthew Foster Walsh</td>
+    <td>
+      <a href="https://github.com/mfosterw">mfosterw</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Matthew Sisley</td>
     <td>
       <a href="https://github.com/mjsisley">mjsisley</a>
@@ -1486,13 +1493,6 @@ Listed in alphabetical order.
     <td>Mesut Yılmaz</td>
     <td>
       <a href="https://github.com/myilmaz">myilmaz</a>
-    </td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>mfosterw</td>
-    <td>
-      <a href="https://github.com/mfosterw">mfosterw</a>
     </td>
     <td></td>
   </tr>
@@ -1549,6 +1549,13 @@ Listed in alphabetical order.
     <td>Morten Kaae</td>
     <td>
       <a href="https://github.com/MortenKaae">MortenKaae</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Mounir</td>
+    <td>
+      <a href="https://github.com/mounirmesselmeni">mounirmesselmeni</a>
     </td>
     <td></td>
   </tr>
@@ -1647,6 +1654,13 @@ Listed in alphabetical order.
     <td>Patrick Tran</td>
     <td>
       <a href="https://github.com/theptrk">theptrk</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Paul Wulff</td>
+    <td>
+      <a href="https://github.com/mtmpaulwulff">mtmpaulwulff</a>
     </td>
     <td></td>
   </tr>

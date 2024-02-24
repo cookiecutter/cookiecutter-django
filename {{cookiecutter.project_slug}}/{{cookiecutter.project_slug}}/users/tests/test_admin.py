@@ -1,3 +1,5 @@
+import contextlib
+from http import HTTPStatus
 from importlib import reload
 
 import pytest
@@ -13,17 +15,17 @@ class TestUserAdmin:
     def test_changelist(self, admin_client):
         url = reverse("admin:users_user_changelist")
         response = admin_client.get(url)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
 
     def test_search(self, admin_client):
         url = reverse("admin:users_user_changelist")
         response = admin_client.get(url, data={"q": "test"})
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
 
     def test_add(self, admin_client):
         url = reverse("admin:users_user_add")
         response = admin_client.get(url)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
 
         response = admin_client.post(
             url,
@@ -37,7 +39,7 @@ class TestUserAdmin:
                 "password2": "My_R@ndom-P@ssw0rd",
             },
         )
-        assert response.status_code == 302
+        assert response.status_code == HTTPStatus.FOUND
         {%- if cookiecutter.username_type == "email" %}
         assert User.objects.filter(email="new-admin@example.com").exists()
         {%- else %}
@@ -52,21 +54,19 @@ class TestUserAdmin:
         {%- endif %}
         url = reverse("admin:users_user_change", kwargs={"object_id": user.pk})
         response = admin_client.get(url)
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
 
-    @pytest.fixture
-    def force_allauth(self, settings):
+    @pytest.fixture()
+    def _force_allauth(self, settings):
         settings.DJANGO_ADMIN_FORCE_ALLAUTH = True
         # Reload the admin module to apply the setting change
-        import {{ cookiecutter.project_slug }}.users.admin as users_admin  # pylint: disable=import-outside-toplevel
+        import {{ cookiecutter.project_slug }}.users.admin as users_admin
 
-        try:
+        with contextlib.suppress(admin.sites.AlreadyRegistered):
             reload(users_admin)
-        except admin.sites.AlreadyRegistered:
-            pass
 
-    @pytest.mark.django_db
-    @pytest.mark.usefixtures("force_allauth")
+    @pytest.mark.django_db()
+    @pytest.mark.usefixtures("_force_allauth")
     def test_allauth_login(self, rf, settings):
         request = rf.get("/fake-url")
         request.user = AnonymousUser()
