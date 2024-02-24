@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.02.23
+
+
+### Changed
+
+- Switch to local imports within app ([#4883](https://github.com/cookiecutter/cookiecutter-django/pull/4883))
+
+- Install ruff extension in `devcontainer.json` ([#4887](https://github.com/cookiecutter/cookiecutter-django/pull/4887))
+
+### Updated
+
+- Bump webpack-dev-server to 5.0.2 ([#4875](https://github.com/cookiecutter/cookiecutter-django/pull/4875))
+
 ## 2024.02.21
 
 
