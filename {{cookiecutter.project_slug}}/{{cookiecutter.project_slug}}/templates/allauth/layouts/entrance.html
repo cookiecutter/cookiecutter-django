@@ -11,6 +11,17 @@
 {% block body %}
   <div class="d-flex justify-content-center h-100 py-4">
     <div class="col-md-4 py-4 my-4 px-4">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-dismissible {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+            {{ message }}
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
       {% block content %}
       {% endblock content %}
     </div>
