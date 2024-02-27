@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.02.26
+
+
+### Changed
+
+- Allauth elements &amp; MFA ([#4843](https://github.com/cookiecutter/cookiecutter-django/pull/4843))
+
+### Updated
+
+- Update pytest to 8.0.2 ([#4890](https://github.com/cookiecutter/cookiecutter-django/pull/4890))
+
+- Update crispy-bootstrap5 to 2024.2 ([#4891](https://github.com/cookiecutter/cookiecutter-django/pull/4891))
+
 ## 2024.02.24
 
 
