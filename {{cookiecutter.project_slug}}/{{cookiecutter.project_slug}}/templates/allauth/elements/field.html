@@ -33,7 +33,7 @@
              {% if attrs.autocomplete %}autocomplete="{{ attrs.autocomplete }}"{% endif %}
              value="{{ attrs.value|default_if_none:"" }}"
              type="{{ attrs.type }}" />
-      <label class="form-check-label" for="gridRadios1">
+      <label class="form-check-label" for="{{ attrs.id }}">
         {% slot label %}
       {% endslot %}
     </label>
@@ -62,6 +62,5 @@
 </div>
 {% endif %}
 {% if slots.help_text %}
-  <div class="form-text">{% slot help_text %}</div>
-{% endslot %}
+  <div class="form-text">{% slot help_text %}{% endslot %}</div>
 {% endif %}{% endraw %}
