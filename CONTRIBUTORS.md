@@ -1847,6 +1847,13 @@ Listed in alphabetical order.
     <td>shywn_mrk</td>
   </tr>
   <tr>
+    <td>Simeon Emanuilov</td>
+    <td>
+      <a href="https://github.com/s-emanuilov">s-emanuilov</a>
+    </td>
+    <td>s_emanuilov</td>
+  </tr>
+  <tr>
     <td>Simon Rey</td>
     <td>
       <a href="https://github.com/eqqe">eqqe</a>
