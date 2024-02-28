@@ -11,7 +11,7 @@ argon2-cffi==23.1.0  # https://github.com/hynek/argon2_cffi
 {%- if cookiecutter.use_whitenoise == 'y' %}
 whitenoise==6.6.0  # https://github.com/evansd/whitenoise
 {%- endif %}
-redis==5.0.1  # https://github.com/redis/redis-py
+redis==5.0.2  # https://github.com/redis/redis-py
 {%- if cookiecutter.use_docker == "y" or cookiecutter.windows == "n" %}
 hiredis==2.3.2  # https://github.com/redis/hiredis-py
 {%- endif %}
