@@ -1049,6 +1049,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>JAEGYUN JUNG</td>
+    <td>
+      <a href="https://github.com/TGoddessana">TGoddessana</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Jakub Boukal</td>
     <td>
       <a href="https://github.com/SukiCZ">SukiCZ</a>
