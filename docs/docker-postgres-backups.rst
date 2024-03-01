@@ -104,3 +104,24 @@ Remove Backup
 To remove backup you can use the ``rmbackup`` command. This will remove the backup from the ``/backups`` directory. ::
 
     $ docker compose -f local.yml exec postgres rmbackup backup_2018_03_13T09_05_07.sql.gz
+
+
+Upgrading PostgreSQL
+----------------------------------
+
+Upgrading PostgreSQL in your project requires a series of carefully executed steps. Start by halting all containers, excluding the postgres container. Following this, create a backup and proceed to remove the outdated data volume. ::
+
+    $ docker compose -f local.yml down
+    $ docker compose -f local.yml up -d postgres
+    $ docker compose -f local.yml run --rm postgres backup
+    $ docker compose -f local.yml down
+    $ docker volume rm my_project_postgres_data
+
+.. note:: Neglecting to remove the old data volume may lead to issues, such as the new postgres container failing to start with errors like ``FATAL:  database files are incompatible with server``, and ``could not translate host name "postgres" to address: Name or service not known``.
+
+To complete the upgrade, update the PostgreSQL version in the corresponding Dockerfile (e.g. ``compose/production/postgres/Dockerfile``) and build a new version of PostgreSQL. ::
+
+    $ docker compose -f local.yml build postgres
+    $ docker compose -f local.yml up -d postgres
+    $ docker compose -f local.yml run --rm postgres restore backup_2018_03_13T09_05_07.sql.gz
+    $ docker compose -f local.yml up -d
