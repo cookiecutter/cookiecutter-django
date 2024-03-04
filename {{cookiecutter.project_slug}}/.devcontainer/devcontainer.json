@@ -35,7 +35,7 @@
                     "analysis.typeCheckingMode": "basic",
                     "defaultInterpreterPath": "/usr/local/bin/python",
                     "editor.codeActionsOnSave": {
-                        "source.organizeImports": true
+                        "source.organizeImports": "always"
                     },
                     "editor.defaultFormatter": "charliermarsh.ruff",
                     "languageServer": "Pylance",
@@ -54,8 +54,7 @@
                 // python
                 "ms-python.python",
                 "ms-python.vscode-pylance",
-                "ms-python.isort",
-                "ms-python.black-formatter",
+                "charliermarsh.ruff",
                 // django
                 "batisteo.vscode-django"
             ]

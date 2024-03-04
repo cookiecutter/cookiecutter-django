@@ -1049,6 +1049,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>JAEGYUN JUNG</td>
+    <td>
+      <a href="https://github.com/TGoddessana">TGoddessana</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Jakub Boukal</td>
     <td>
       <a href="https://github.com/SukiCZ">SukiCZ</a>
@@ -1553,6 +1560,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Mounir</td>
+    <td>
+      <a href="https://github.com/mounirmesselmeni">mounirmesselmeni</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>mozillazg</td>
     <td>
       <a href="https://github.com/mozillazg">mozillazg</a>
@@ -1831,6 +1845,13 @@ Listed in alphabetical order.
       <a href="https://github.com/shywn-mrk">shywn-mrk</a>
     </td>
     <td>shywn_mrk</td>
+  </tr>
+  <tr>
+    <td>Simeon Emanuilov</td>
+    <td>
+      <a href="https://github.com/s-emanuilov">s-emanuilov</a>
+    </td>
+    <td>s_emanuilov</td>
   </tr>
   <tr>
     <td>Simon Rey</td>

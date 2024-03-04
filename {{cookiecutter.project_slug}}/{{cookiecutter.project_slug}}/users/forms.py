@@ -6,7 +6,7 @@ from django.forms import EmailField
 {%- endif %}
 from django.utils.translation import gettext_lazy as _
 
-from {{ cookiecutter.project_slug }}.users.models import User
+from .models import User
 
 
 class UserAdminChangeForm(admin_forms.UserChangeForm):

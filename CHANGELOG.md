@@ -3,6 +3,78 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.03.03
+
+
+### Updated
+
+- Update django-celery-beat to 2.6.0 ([#4899](https://github.com/cookiecutter/cookiecutter-django/pull/4899))
+
+## 2024.03.01
+
+
+### Changed
+
+- Add a maintainer guide to the docs ([#4884](https://github.com/cookiecutter/cookiecutter-django/pull/4884))
+
+### Updated
+
+- Auto-update pre-commit hooks ([#4897](https://github.com/cookiecutter/cookiecutter-django/pull/4897))
+
+- Update ruff to 0.3.0 ([#4896](https://github.com/cookiecutter/cookiecutter-django/pull/4896))
+
+## 2024.02.28
+
+
+### Fixed
+
+- Fix invalid HTML in django-allauth field element template ([#4894](https://github.com/cookiecutter/cookiecutter-django/pull/4894))
+
+- Fix permissions for media files when served by nginx ([#4889](https://github.com/cookiecutter/cookiecutter-django/pull/4889))
+
+### Documentation
+
+- Fix broken &#34;Two scoops of django&#34; link in FAQ ([#4892](https://github.com/cookiecutter/cookiecutter-django/pull/4892))
+
+### Updated
+
+- Update redis to 5.0.2 ([#4895](https://github.com/cookiecutter/cookiecutter-django/pull/4895))
+
+- Update sentry-sdk to 1.40.6 ([#4893](https://github.com/cookiecutter/cookiecutter-django/pull/4893))
+
+## 2024.02.26
+
+
+### Changed
+
+- Allauth elements &amp; MFA ([#4843](https://github.com/cookiecutter/cookiecutter-django/pull/4843))
+
+### Updated
+
+- Update pytest to 8.0.2 ([#4890](https://github.com/cookiecutter/cookiecutter-django/pull/4890))
+
+- Update crispy-bootstrap5 to 2024.2 ([#4891](https://github.com/cookiecutter/cookiecutter-django/pull/4891))
+
+## 2024.02.24
+
+
+### Updated
+
+- Update coverage to 7.4.3 ([#4888](https://github.com/cookiecutter/cookiecutter-django/pull/4888))
+
+## 2024.02.23
+
+
+### Changed
+
+- Switch to local imports within app ([#4883](https://github.com/cookiecutter/cookiecutter-django/pull/4883))
+
+- Install ruff extension in `devcontainer.json` ([#4887](https://github.com/cookiecutter/cookiecutter-django/pull/4887))
+
+### Updated
+
+- Bump webpack-dev-server to 5.0.2 ([#4875](https://github.com/cookiecutter/cookiecutter-django/pull/4875))
+
 ## 2024.02.21
 
 
