@@ -2,7 +2,7 @@
 FROM docker.io/python:3.11.8-slim-bookworm as python
 
 # Python build stage
-FROM docker.io/python as python-build-stage
+FROM python as python-build-stage
 
 ARG BUILD_ENVIRONMENT=local
 
@@ -22,7 +22,7 @@ RUN pip wheel --wheel-dir /usr/src/app/wheels  \
 
 
 # Python 'run' stage
-FROM docker.io/python as python-run-stage
+FROM python as python-run-stage
 
 ARG BUILD_ENVIRONMENT=local
 ARG APP_HOME=/app
