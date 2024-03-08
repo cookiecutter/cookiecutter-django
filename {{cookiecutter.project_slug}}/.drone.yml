@@ -32,6 +32,7 @@ steps:
     DATABASE_URL: pgsql://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
   commands:
   - docker-compose -f local.yml build
+  - docker-compose -f docs.yml build
   - docker-compose -f local.yml run --rm django python manage.py migrate
   - docker-compose -f local.yml up -d
   - docker-compose -f local.yml run django pytest
