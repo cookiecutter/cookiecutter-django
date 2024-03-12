@@ -38,7 +38,7 @@ django-anymail[sendgrid]==10.3  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'SendinBlue' %}
 django-anymail[sendinblue]==10.3  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'SparkPost' %}
-django-anymail[sparkpost]==10.2  # https://github.com/anymail/django-anymail
+django-anymail[sparkpost]==10.3  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Other SMTP' %}
 django-anymail==10.2  # https://github.com/anymail/django-anymail
 {%- endif %}
