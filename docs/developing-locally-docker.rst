@@ -65,6 +65,13 @@ To run in a detached (background) mode, just::
 
     $ docker compose up -d
 
+These commands don't run the docs service. In order to run docs service you can run::
+
+    $ docker compose -f docs.yml up
+
+To run the docs with local services just use::
+
+    $ docker compose -f local.yml -f docs.yml up
 
 The site should start and be accessible at http://localhost:3000 if you selected Webpack or Gulp as frontend pipeline and http://localhost:8000 otherwise.
 

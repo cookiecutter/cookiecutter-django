@@ -20,6 +20,7 @@ jobs:
         - docker compose -v
         - docker -v
         - docker compose -f local.yml build
+        - docker compose -f docs.yml build
         # Ensure celerybeat does not crash due to non-existent tables
         - docker compose -f local.yml run --rm django python manage.py migrate
         - docker compose -f local.yml up -d
