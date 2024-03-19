@@ -13,7 +13,7 @@ environment:
 steps:
 - name: lint
   pull: if-not-exists
-  image: python:3.11
+  image: python:3.12
   environment:
     PRE_COMMIT_HOME: ${CI_PROJECT_DIR}/.cache/pre-commit
   volumes:
@@ -37,7 +37,7 @@ steps:
   - docker-compose -f local.yml up -d
   - docker-compose -f local.yml run django pytest
   {%- else %}
-  image: python:3.11
+  image: python:3.12
   commands:
   - pip install -r requirements/local.txt
   - pytest

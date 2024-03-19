@@ -18,20 +18,20 @@ This last step is very important, don't start developing from master, it'll caus
 
 ## Testing
 
-You'll need to run the tests using Python 3.11. We recommend using [tox](https://tox.readthedocs.io/en/latest/) to run the tests. It will automatically create a fresh virtual environment and install our test dependencies, such as [pytest-cookies](https://pypi.python.org/pypi/pytest-cookies/) and [flake8](https://pypi.python.org/pypi/flake8/).
+You'll need to run the tests using Python 3.12. We recommend using [tox](https://tox.readthedocs.io/en/latest/) to run the tests. It will automatically create a fresh virtual environment and install our test dependencies, such as [pytest-cookies](https://pypi.python.org/pypi/pytest-cookies/) and [flake8](https://pypi.python.org/pypi/flake8/).
 
 We'll also run the tests on GitHub actions when you send your pull request, but it's a good idea to run them locally before you send it.
 
 ### Installation
 
-First, make sure that your version of Python is 3.11:
+First, make sure that your version of Python is 3.12:
 
 ```bash
 $ python --version
-Python 3.11.3
+Python 3.12.2
 ```
 
-Any version that starts with 3.11 will do. If you need to install it, you can get it from [python.org](https://www.python.org/downloads/).
+Any version that starts with 3.12 will do. If you need to install it, you can get it from [python.org](https://www.python.org/downloads/).
 
 Then install `tox`, if not already installed:
 
