@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.03.19
+
+
+### Changed
+
+- Add documentation to upgrade Postgres in Docker environment. Fix: #461 ([#4898](https://github.com/cookiecutter/cookiecutter-django/pull/4898))
+
+- Upgrade Python to version 3.12 ([#4930](https://github.com/cookiecutter/cookiecutter-django/pull/4930))
+
 ## 2024.03.18
 
 
