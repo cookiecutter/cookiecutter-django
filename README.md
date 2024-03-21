@@ -51,7 +51,7 @@ _These features can be enabled during initial project setup._
 ## Constraints
 
 - Only maintained 3rd party libraries are used.
-- Uses PostgreSQL everywhere: 10 - 16 ([MySQL fork](https://github.com/mabdullahadeel/cookiecutter-django-mysql) also available).
+- Uses PostgreSQL everywhere: 12 - 16 ([MySQL fork](https://github.com/mabdullahadeel/cookiecutter-django-mysql) also available).
 - Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
 ## Support this Project!
@@ -138,8 +138,6 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     3 - 14
     4 - 13
     5 - 12
-    6 - 11
-    7 - 10
     Choose from 1, 2, 3, 4, 5 [1]: 1
     Select cloud_provider:
     1 - AWS
