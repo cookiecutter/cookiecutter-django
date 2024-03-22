@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.03.21
+
+
+### Changed
+
+- Add PostgreSQL 16, remove Postgres 10 and 11 ([#4935](https://github.com/cookiecutter/cookiecutter-django/pull/4935))
+
+### Updated
+
+- Update uvicorn to 0.29.0 ([#4933](https://github.com/cookiecutter/cookiecutter-django/pull/4933))
+
+- Update sentry-sdk to 1.43.0 ([#4934](https://github.com/cookiecutter/cookiecutter-django/pull/4934))
+
 ## 2024.03.19
 
 
