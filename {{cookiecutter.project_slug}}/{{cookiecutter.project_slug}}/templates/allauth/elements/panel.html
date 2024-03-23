@@ -1,0 +1,19 @@
+{% raw %}{% load allauth %}
+
+<section>
+  <div class="card mb-4">
+    <div class="card-body">
+      <h2 class="card-title">
+        {% slot title %}
+      {% endslot %}
+    </h2>
+    {% slot body %}
+  {% endslot %}
+  {% if slots.actions %}
+    <ul>
+      {% for action in slots.actions %}<li>{{ action }}</li>{% endfor %}
+    </ul>
+  {% endif %}
+</div>
+</div>
+</section>{% endraw %}

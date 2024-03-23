@@ -6,6 +6,7 @@ patches, only comparing major and minor version numbers.
 This script handles when there are multiple Django versions that need
 to keep up to date.
 """
+
 from __future__ import annotations
 
 import os

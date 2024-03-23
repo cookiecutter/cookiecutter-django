@@ -6,14 +6,14 @@ from django.core.management import call_command
 from {{ cookiecutter.project_slug }}.users.models import User
 
 
-@pytest.mark.django_db
+@pytest.mark.django_db()
 class TestUserManager:
     def test_create_user(self):
         user = User.objects.create_user(
             first_name="John",
             last_name="Doe",
             email="john@example.com",
-            password="something-r@nd0m!",
+            password="something-r@nd0m!",  # noqa: S106
         )
         assert user.email == "john@example.com"
         assert not user.is_staff
@@ -26,7 +26,7 @@ class TestUserManager:
             first_name="Admin",
             last_name="User",
             email="admin@example.com",
-            password="something-r@nd0m!",
+            password="something-r@nd0m!",  # noqa: S106
         )
         assert user.email == "admin@example.com"
         assert user.is_staff
@@ -38,12 +38,12 @@ class TestUserManager:
             first_name="Test",
             last_name="User",
             email="test@example.com",
-            password="something-r@nd0m!",
+            password="something-r@nd0m!",  # noqa: S106
         )
         assert user.username is None
 
 
-@pytest.mark.django_db
+@pytest.mark.django_db()
 def test_createsuperuser_command():
     """Ensure createsuperuser command works with our custom manager."""
     out = StringIO()

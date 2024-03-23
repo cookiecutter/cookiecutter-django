@@ -16,7 +16,7 @@
     "gulp": "^4.0.2",
     "gulp-imagemin": "^7.1.0",
     "gulp-plumber": "^1.2.1",
-    "gulp-postcss": "^9.0.1",
+    "gulp-postcss": "^10.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.0.0",
     "gulp-uglify-es": "^3.0.0",
@@ -31,7 +31,7 @@
     "webpack": "^5.65.0",
     "webpack-bundle-tracker": "^3.0.1",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.6.0",
+    "webpack-dev-server": "^5.0.2",
     "webpack-merge": "^5.8.0"
   },
   "engines": {
