@@ -3,12 +3,12 @@
 -r base.txt
 
 gunicorn==21.2.0  # https://github.com/benoitc/gunicorn
-psycopg[c]==3.1.17  # https://github.com/psycopg/psycopg
+psycopg[c]==3.1.18  # https://github.com/psycopg/psycopg
 {%- if cookiecutter.use_whitenoise == 'n' %}
 Collectfast==2.2.0  # https://github.com/antonagestam/collectfast
 {%- endif %}
 {%- if cookiecutter.use_sentry == "y" %}
-sentry-sdk==1.39.2  # https://github.com/getsentry/sentry-python
+sentry-sdk==1.43.0  # https://github.com/getsentry/sentry-python
 {%- endif %}
 {%- if cookiecutter.use_docker == "n" and cookiecutter.windows == "y" %}
 hiredis==2.3.2  # https://github.com/redis/hiredis-py
@@ -24,21 +24,21 @@ django-storages[google]==1.14.2  # https://github.com/jschneier/django-storages
 django-storages[azure]==1.14.2  # https://github.com/jschneier/django-storages
 {%- endif %}
 {%- if cookiecutter.mail_service == 'Mailgun' %}
-django-anymail[mailgun]==10.2  # https://github.com/anymail/django-anymail
+django-anymail[mailgun]==10.3  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Amazon SES' %}
-django-anymail[amazon-ses]==10.2  # https://github.com/anymail/django-anymail
+django-anymail[amazon-ses]==10.3  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Mailjet' %}
-django-anymail[mailjet]==10.2  # https://github.com/anymail/django-anymail
+django-anymail[mailjet]==10.3  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Mandrill' %}
-django-anymail[mandrill]==10.2  # https://github.com/anymail/django-anymail
+django-anymail[mandrill]==10.3  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Postmark' %}
-django-anymail[postmark]==10.2  # https://github.com/anymail/django-anymail
+django-anymail[postmark]==10.3  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Sendgrid' %}
-django-anymail[sendgrid]==10.2  # https://github.com/anymail/django-anymail
+django-anymail[sendgrid]==10.3  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'SendinBlue' %}
-django-anymail[sendinblue]==10.2  # https://github.com/anymail/django-anymail
+django-anymail[sendinblue]==10.3  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'SparkPost' %}
-django-anymail[sparkpost]==10.2  # https://github.com/anymail/django-anymail
+django-anymail[sparkpost]==10.3  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Other SMTP' %}
-django-anymail==10.2  # https://github.com/anymail/django-anymail
+django-anymail==10.3  # https://github.com/anymail/django-anymail
 {%- endif %}

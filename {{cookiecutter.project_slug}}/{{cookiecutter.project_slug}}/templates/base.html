@@ -111,7 +111,8 @@
 {% raw %}
 {% endblock javascript %}
 </head>
-<body>
+<body class="{% block bodyclass %}{% endblock bodyclass %}">
+  {% block body %}
   <div class="mb-1">
     <nav class="navbar navbar-expand-md navbar-light bg-light">
       <div class="container-fluid">
@@ -171,10 +172,14 @@
         </div>
       {% endfor %}
     {% endif %}
-    {% block content %}
-      <p>Use this document as a way to quick start any new project.</p>
-    {% endblock content %}
+    {% block main %}
+      {% block content %}
+        <p>Use this document as a way to quick start any new project.</p>
+      {% endblock content %}
+    {% endblock main %}
+
   </div>
+  {% endblock body %}
   <!-- /container -->
   {% block modal %}
   {% endblock modal %}

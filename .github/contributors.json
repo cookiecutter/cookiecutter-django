@@ -1115,7 +1115,7 @@
     "twitter_username": "Qoyyuum"
   },
   {
-    "name": "mfosterw",
+    "name": "Matthew Foster Walsh",
     "github_login": "mfosterw",
     "twitter_username": ""
   },
@@ -1508,5 +1508,35 @@
     "name": "Nix Siow",
     "github_login": "nixsiow",
     "twitter_username": "nixsiow"
+  },
+  {
+    "name": "Jens Kaeske",
+    "github_login": "jkaeske",
+    "twitter_username": ""
+  },
+  {
+    "name": "henningbra",
+    "github_login": "henningbra",
+    "twitter_username": ""
+  },
+  {
+    "name": "Paul Wulff",
+    "github_login": "mtmpaulwulff",
+    "twitter_username": ""
+  },
+  {
+    "name": "Mounir",
+    "github_login": "mounirmesselmeni",
+    "twitter_username": ""
+  },
+  {
+    "name": "JAEGYUN JUNG",
+    "github_login": "TGoddessana",
+    "twitter_username": ""
+  },
+  {
+    "name": "Simeon Emanuilov",
+    "github_login": "s-emanuilov",
+    "twitter_username": "s_emanuilov"
   }
 ]

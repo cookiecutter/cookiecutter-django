@@ -3,6 +3,22 @@
 
 version: 2
 updates:
+  # Update Python deps for the template (not the generated project)
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "project infrastructure"
+
+  # Update Python deps for the documentation
+  - package-ecosystem: "pip"
+    directory: "docs/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "project infrastructure"
+
   # Update GitHub actions in workflows
   - package-ecosystem: "github-actions"
     directory: "/"

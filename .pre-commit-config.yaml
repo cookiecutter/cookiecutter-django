@@ -2,7 +2,7 @@ exclude: "{{cookiecutter.project_slug}}|.github/contributors.json|CHANGELOG.md|C
 default_stages: [commit]
 
 default_language_version:
-  python: python3.11
+  python: python3.12
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -26,14 +26,14 @@ repos:
         args: ["--tab-width", "2"]
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.15.0
+    rev: v3.15.1
     hooks:
       - id: pyupgrade
-        args: [--py311-plus]
+        args: [--py312-plus]
         exclude: hooks/
 
   - repo: https://github.com/psf/black
-    rev: 23.12.1
+    rev: 24.3.0
     hooks:
       - id: black
 

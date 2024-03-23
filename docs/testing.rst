@@ -43,7 +43,7 @@ If you're running the project locally with Docker, use these commands instead: :
 
    At the root of the project folder, you will find the `pytest.ini` file. You can use this to customize_ the ``pytest`` to your liking.
 
-   There is also the `.coveragerc`. This is the configuration file for the ``coverage`` tool. You can find out more about `configuring`_ ``coverage``.
+   The configuration for ``coverage`` can be found in ``pyproject.toml``. You can find out more about `configuring`_ ``coverage``.
 
 .. seealso::
 

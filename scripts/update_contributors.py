@@ -40,8 +40,8 @@ def iter_recent_authors():
     """
     Fetch users who opened recently merged pull requests.
 
-    Use Github API to fetch recent authors rather than
-    git CLI to work with Github usernames.
+    Use GitHub API to fetch recent authors rather than
+    git CLI to work with GitHub usernames.
     """
     repo = Github(login_or_token=GITHUB_TOKEN, per_page=5).get_repo(GITHUB_REPO)
     recent_pulls = repo.get_pulls(state="closed", sort="updated", direction="desc").get_page(0)
