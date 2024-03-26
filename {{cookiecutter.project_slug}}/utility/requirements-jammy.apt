@@ -9,7 +9,7 @@ python3-dev
 ##Pillow, pylibmc
 zlib1g-dev
 
-##Postgresql and psycopg2 dependencies
+##Postgresql and psycopg dependencies
 libpq-dev
 
 ##Pillow dependencies
