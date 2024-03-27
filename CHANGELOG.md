@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.03.26
+
+
+### Documentation
+
+- Update mentions of psycopg in comments ([#4947](https://github.com/cookiecutter/cookiecutter-django/pull/4947))
+
 ## 2024.03.21
 
 
