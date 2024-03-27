@@ -21,7 +21,7 @@ steps:
     path: ${PRE_COMMIT_HOME}
   commands:
   - export PRE_COMMIT_HOME=$CI_PROJECT_DIR/.cache/pre-commit
-  - pip install -q pre-commit
+  - {{ "-q pre-commit"|install(cookiecutter)}}
   - pre-commit run --show-diff-on-failure --color=always --all-files
 
 - name: test
@@ -39,7 +39,7 @@ steps:
   {%- else %}
   image: python:3.12
   commands:
-  - pip install -r requirements/local.txt
+  - {{ "development"|install(cookiecutter)}}
   - pytest
   {%- endif%}
 
