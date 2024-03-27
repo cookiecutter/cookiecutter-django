@@ -45,16 +45,21 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-{% if cookiecutter.use_docker == "y" -%}
-DATABASES = {"default": env.db("DATABASE_URL")}
-{%- else %}
-DATABASES = {
-    "default": env.db(
-        "DATABASE_URL",
-        default="postgres://{% if cookiecutter.windows == 'y' %}localhost{% endif %}/{{cookiecutter.project_slug}}",
-    ),
-}
-{%- endif %}
+
+if db_url := env.db("DATABASE_URL", default=None):
+    DATABASES = {"default": db_url}
+else:
+    DATABASES = {
+            "default": {
+                "ENGINE": "django.db.backends.postgresql",
+                "NAME": env.str("POSTGRES_DB"),
+                "USER": env.str("POSTGRES_USER"),
+                "PASSWORD": env.str("POSTGRES_PASSWORD"),
+                "HOST": env.str("POSTGRES_HOST", default="{% if cookiecutter.windows == 'y' or cookiecutter.use_docker == 'n' %}localhost{%else%}postgres{% endif %}"),
+                "PORT": env.str("POSTGRES_PORT", default="5432"),
+            },
+    }
+
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 # https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEFAULT_AUTO_FIELD
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

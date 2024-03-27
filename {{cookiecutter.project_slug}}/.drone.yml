@@ -28,8 +28,6 @@ steps:
   pull: if-not-exists
   {%- if cookiecutter.use_docker == 'y' %}
   image: docker/compose:1.29.2
-  environment:
-    DATABASE_URL: pgsql://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
   commands:
   - docker-compose -f local.yml build
   - docker-compose -f docs.yml build

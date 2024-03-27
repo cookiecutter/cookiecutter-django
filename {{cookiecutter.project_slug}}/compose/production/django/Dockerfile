@@ -121,8 +121,7 @@ RUN chown -R django:django ${APP_HOME}
 
 USER django
 
-RUN DATABASE_URL="" \
-  {%- if cookiecutter.use_celery == "y" %}
+RUN {%- if cookiecutter.use_celery == "y" %}
   CELERY_BROKER_URL="" \
   {%- endif %}
   DJANGO_SETTINGS_MODULE="config.settings.test" \

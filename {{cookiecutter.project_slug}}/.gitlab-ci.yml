@@ -46,8 +46,6 @@ pytest:
     - python
   services:
     - postgres:{{ cookiecutter.postgresql_version }}
-  variables:
-    DATABASE_URL: pgsql://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
   before_script:
     - pip install -r requirements/local.txt
   script:
