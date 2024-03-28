@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.03.27
+
+
+### Updated
+
+- Update pre-commit to 3.7.0 ([#4943](https://github.com/cookiecutter/cookiecutter-django/pull/4943))
+
+- Update djangorestframework to 3.15.1 ([#4941](https://github.com/cookiecutter/cookiecutter-django/pull/4941))
+
+- Update ruff to 0.3.4 ([#4936](https://github.com/cookiecutter/cookiecutter-django/pull/4936))
+
+- Auto-update pre-commit hooks ([#4937](https://github.com/cookiecutter/cookiecutter-django/pull/4937))
+
 ## 2024.03.26
 
 
