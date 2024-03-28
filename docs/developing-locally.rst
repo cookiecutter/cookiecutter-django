@@ -147,7 +147,7 @@ Following this structured approach, here's how to add a new app:
 
 #. **Edit the app's apps.py** change ``name = '<name-of-the-app>'`` to ``name = '<django_project_root>.<name-of-the-app>'``.
 
-#. **Register the new app** by adding it to the ``LOCAL_APPS`` list in ``config/settings/base.py``, integrating it as an official component of your project:
+#. **Register the new app** by adding it to the ``LOCAL_APPS`` list in ``config/settings/base.py``, integrating it as an official component of your project.
 
 
 
