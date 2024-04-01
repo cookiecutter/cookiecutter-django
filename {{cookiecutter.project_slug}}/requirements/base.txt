@@ -30,7 +30,7 @@ uvicorn[standard]==0.29.0  # https://github.com/encode/uvicorn
 # ------------------------------------------------------------------------------
 django==4.2.11  # pyup: < 5.0  # https://www.djangoproject.com/
 django-environ==0.11.2  # https://github.com/joke2k/django-environ
-django-model-utils==4.4.0  # https://github.com/jazzband/django-model-utils
+django-model-utils==4.5.0  # https://github.com/jazzband/django-model-utils
 django-allauth[mfa]==0.61.1  # https://github.com/pennersr/django-allauth
 django-crispy-forms==2.1  # https://github.com/django-crispy-forms/django-crispy-forms
 crispy-bootstrap5==2024.2  # https://github.com/django-crispy-forms/crispy-bootstrap5
