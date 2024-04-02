@@ -27,7 +27,7 @@ precommit:
 pytest:
   stage: test
   {%- if cookiecutter.use_docker == 'y' %}
-  image: docker/compose:1.29.2
+  image: docker:25.0
   tags:
     - docker
   services:
