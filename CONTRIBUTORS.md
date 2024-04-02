@@ -1665,6 +1665,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Patrick Zhang</td>
+    <td>
+      <a href="https://github.com/PatDuJour">PatDuJour</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Paul Wulff</td>
     <td>
       <a href="https://github.com/mtmpaulwulff">mtmpaulwulff</a>
