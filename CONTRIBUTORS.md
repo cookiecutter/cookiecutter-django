@@ -916,6 +916,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>GvS</td>
+    <td>
+      <a href="https://github.com/GvS666">GvS666</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Hamish Durkin</td>
     <td>
       <a href="https://github.com/durkode">durkode</a>
