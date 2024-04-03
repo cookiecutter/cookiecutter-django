@@ -657,6 +657,13 @@ Listed in alphabetical order.
     <td>DavidDiazPinto</td>
   </tr>
   <tr>
+    <td>David Păcioianu</td>
+    <td>
+      <a href="https://github.com/DavidPacioianu">DavidPacioianu</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Davit Tovmasyan</td>
     <td>
       <a href="https://github.com/davitovmasyan">davitovmasyan</a>
