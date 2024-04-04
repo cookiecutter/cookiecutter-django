@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.04.03
+
+
+### Changed
+
+- Update GH actions to resolve deprecation warnings ([#4964](https://github.com/cookiecutter/cookiecutter-django/pull/4964))
+
+### Updated
+
+- Update sentry-sdk to 1.44.1 ([#4963](https://github.com/cookiecutter/cookiecutter-django/pull/4963))
+
 ## 2024.04.02
 
 
