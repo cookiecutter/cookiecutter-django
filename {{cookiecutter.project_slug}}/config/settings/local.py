@@ -83,6 +83,15 @@ if env("USE_DOCKER") == "yes":
         # The node container isn't started (yet?)
         pass
     {%- endif %}
+{% if cookiecutter.windows == 'y' %}
+# RunServerPlus
+# ------------------------------------------------------------------------------
+# After how many seconds auto-reload should scan for updates in poller-mode
+RUNSERVERPLUS_POLLER_RELOADER_INTERVAL = 5
+
+# Werkzeug reloader type [auto, watchdog, or stat]
+RUNSERVERPLUS_POLLER_RELOADER_TYPE = 'stat'
+{% endif %}
 {%- endif %}
 
 # django-extensions
