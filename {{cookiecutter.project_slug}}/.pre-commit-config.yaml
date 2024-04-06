@@ -49,6 +49,19 @@ repos:
       - id: djlint-reformat-django
       - id: djlint-django
 
+  - repo: local
+    hooks:
+      - id: check-migrations
+        name: check-migrations
+        {%- if cookiecutter.use_docker == 'y' %}
+        entry: /usr/bin/env bash -c "bash .envs/.local/.django && bash .envs/.local/.postgres && docker compose -f local.yml run --rm django bash -c 'python manage.py makemigrations --check --dry-run'"
+        {%- else %}
+        entry: /usr/bin/env bash -c "bash .envs/.local/.django && bash .envs/.local/.postgres && python manage.py makemigrations --check --dry-run"
+        {%- endif %}
+        types: [ python ]
+        pass_filenames: false
+        language: system
+
 # sets up .pre-commit-ci.yaml to ensure pre-commit dependencies stay up to date
 ci:
   autoupdate_schedule: weekly
