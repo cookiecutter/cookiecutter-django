@@ -15,7 +15,7 @@ from inside the `{{cookiecutter.project_slug}}/docs` directory.
 {% else %}
 To build and serve docs, use the commands::
 
-    docker compose -f local.yml up docs
+    docker compose -f docker-compose.local.yml up docs
 
 {% endif %}
 
