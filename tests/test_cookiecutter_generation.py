@@ -148,11 +148,7 @@ def _fixture_id(ctx):
 
 def build_files_list(base_dir):
     """Build a list containing absolute paths to the generated files."""
-    return [
-        os.path.join(dirpath, file_path)
-        for dirpath, subdirs, files in os.walk(base_dir)
-        for file_path in files
-    ]
+    return [os.path.join(dirpath, file_path) for dirpath, subdirs, files in os.walk(base_dir) for file_path in files]
 
 
 def check_paths(paths):
@@ -229,9 +225,7 @@ def test_django_upgrade_passes(cookies, context_override):
 
     python_files = [
         file_path.removeprefix(f"{result.project_path}/")
-        for file_path in glob.glob(
-            str(result.project_path / "**" / "*.py"), recursive=True
-        )
+        for file_path in glob.glob(str(result.project_path / "**" / "*.py"), recursive=True)
     ]
     try:
         sh.django_upgrade(
@@ -308,9 +302,7 @@ def test_travis_invokes_pytest(cookies, context, use_docker, expected_test_scrip
         ("y", "docker compose -f docker-compose.local.yml run django pytest"),
     ],
 )
-def test_gitlab_invokes_precommit_and_pytest(
-    cookies, context, use_docker, expected_test_script
-):
+def test_gitlab_invokes_precommit_and_pytest(cookies, context, use_docker, expected_test_script):
     context.update({"ci_tool": "Gitlab", "use_docker": use_docker})
     result = cookies.bake(extra_context=context)
 
@@ -337,9 +329,7 @@ def test_gitlab_invokes_precommit_and_pytest(
         ("y", "docker compose -f docker-compose.local.yml run django pytest"),
     ],
 )
-def test_github_invokes_linter_and_pytest(
-    cookies, context, use_docker, expected_test_script
-):
+def test_github_invokes_linter_and_pytest(cookies, context, use_docker, expected_test_script):
     context.update({"ci_tool": "Github", "use_docker": use_docker})
     result = cookies.bake(extra_context=context)
 
