@@ -3,6 +3,45 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.04.10
+
+
+### Updated
+
+- Bump python from 3.12.2 to 3.12.3 in docs ([#4979](https://github.com/cookiecutter/cookiecutter-django/pull/4979))
+
+- Bump python from 3.12.2 to 3.12.3 in local ([#4981](https://github.com/cookiecutter/cookiecutter-django/pull/4981))
+
+- Bump python from 3.12.2 to 3.12.3 in production ([#4980](https://github.com/cookiecutter/cookiecutter-django/pull/4980))
+
+## 2024.04.09
+
+
+### Documentation
+
+- Fix start command for docs ([#4978](https://github.com/cookiecutter/cookiecutter-django/pull/4978))
+
+## 2024.04.07
+
+
+### Updated
+
+- Auto-update pre-commit hooks ([#4974](https://github.com/cookiecutter/cookiecutter-django/pull/4974))
+
+## 2024.04.06
+
+
+### Fixed
+
+- Fix syntax error in GitHub CI workflow  ([#4972](https://github.com/cookiecutter/cookiecutter-django/pull/4972))
+
+## 2024.04.05
+
+
+### Updated
+
+- Update django-webpack-loader to 3.1.0 ([#4965](https://github.com/cookiecutter/cookiecutter-django/pull/4965))
+
 ## 2024.04.03
 
 

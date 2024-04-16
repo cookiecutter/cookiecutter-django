@@ -818,6 +818,13 @@ Listed in alphabetical order.
     <td>fabaff</td>
   </tr>
   <tr>
+    <td>farwill</td>
+    <td>
+      <a href="https://github.com/farwill">farwill</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Fateme Fouladkar</td>
     <td>
       <a href="https://github.com/FatemeFouladkar">FatemeFouladkar</a>
