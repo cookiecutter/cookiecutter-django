@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.04.17
+
+
+### Updated
+
+- Update sphinx to 7.3.5 ([#5003](https://github.com/cookiecutter/cookiecutter-django/pull/5003))
+
+- Update gunicorn to 22.0.0 ([#5001](https://github.com/cookiecutter/cookiecutter-django/pull/5001))
+
+- Update sphinx to 7.3.3 ([#5000](https://github.com/cookiecutter/cookiecutter-django/pull/5000))
+
 ## 2024.04.16
 
 
