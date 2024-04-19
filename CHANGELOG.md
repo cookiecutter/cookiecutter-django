@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.04.18
+
+
+### Updated
+
+- Update celery to 5.4.0 ([#5005](https://github.com/cookiecutter/cookiecutter-django/pull/5005))
+
+- Update sphinx to 7.3.6 ([#5004](https://github.com/cookiecutter/cookiecutter-django/pull/5004))
+
 ## 2024.04.17
 
 
