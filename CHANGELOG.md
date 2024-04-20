@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.04.19
+
+
+### Updated
+
+- Update ruff to 0.4.1 ([#5011](https://github.com/cookiecutter/cookiecutter-django/pull/5011))
+
+- Update ruff to 0.4.0 ([#5007](https://github.com/cookiecutter/cookiecutter-django/pull/5007))
+
+- Auto-update pre-commit hooks ([#5008](https://github.com/cookiecutter/cookiecutter-django/pull/5008))
+
+- Update sphinx to 7.3.7 ([#5010](https://github.com/cookiecutter/cookiecutter-django/pull/5010))
+
 ## 2024.04.18
 
 
