@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.04.20
+
+
+### Updated
+
+- Auto-update pre-commit hooks ([#5014](https://github.com/cookiecutter/cookiecutter-django/pull/5014))
+
+- Update pytest-xdist to 3.6.0 ([#5013](https://github.com/cookiecutter/cookiecutter-django/pull/5013))
+
 ## 2024.04.19
 
 
