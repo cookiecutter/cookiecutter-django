@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.04.22
+
+
+### Fixed
+
+- Fix broken link for sphinx-doc in generated docs ([#5015](https://github.com/cookiecutter/cookiecutter-django/pull/5015))
+
 ## 2024.04.20
 
 
