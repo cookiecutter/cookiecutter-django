@@ -45,7 +45,7 @@ blank_line_after_tag = "load,extends"
 close_void_tags = true
 format_css = true
 format_js = true
-# TODO: remove T002 when fixed https://github.com/Riverside-Healthcare/djLint/issues/687
+# TODO: remove T002 when fixed https://github.com/djlint/djLint/issues/687
 ignore = "H006,H030,H031,T002"
 include = "H017,H035"
 indent = 2
