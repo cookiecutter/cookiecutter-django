@@ -30,6 +30,8 @@ class SocialAccountAdapter(DefaultSocialAccountAdapter):
     ) -> bool:
         return getattr(settings, "ACCOUNT_ALLOW_REGISTRATION", True)
 
+
+
     def pre_social_login(self, request, sociallogin):
         # social account already exists, so this is just a login
         if sociallogin.is_existing:
