@@ -66,13 +66,13 @@ $ source venv/bin/activate
 
 These tests are slower and can be run with or without Docker:
 
-- Without Docker: `scripts/test_bare.sh` (for bare metal)
-- With Docker: `scripts/test_docker.sh`
+- Without Docker: `tests/test_bare.sh` (for bare metal)
+- With Docker: `tests/test_docker.sh`
 
 All arguments to these scripts will be passed to the `cookiecutter` CLI, letting you set options, for example:
 
 ```bash
-$ scripts/test_bare.sh use_celery=y
+$ tests/test_bare.sh use_celery=y
 ```
 
 ## Submitting a pull request

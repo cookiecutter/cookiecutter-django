@@ -6,7 +6,7 @@ default_language_version:
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v4.6.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -39,7 +39,7 @@ repos:
 
   # Run the Ruff linter.
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.3.3
+    rev: v0.4.1
     hooks:
       # Linter
       - id: ruff
@@ -52,10 +52,10 @@ repos:
     hooks:
       - id: djlint-reformat-django
         files: "templates"
-        exclude: r'gto_supply/static/.*'
+        exclude: r'{{cookiecutter.project_slug}}/static/.*'
       - id: djlint-django
         files: "templates"
-        exclude: r'gto_supply/static/.*'
+        exclude: r'{{cookiecutter.project_slug}}/static/.*'
 
 # sets up .pre-commit-ci.yaml to ensure pre-commit dependencies stay up to date
 ci:

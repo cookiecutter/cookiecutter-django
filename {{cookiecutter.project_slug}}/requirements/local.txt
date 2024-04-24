@@ -1,6 +1,6 @@
 -r production.txt
 
-Werkzeug[watchdog]==3.0.1 # https://github.com/pallets/werkzeug
+Werkzeug[watchdog]==3.0.2 # https://github.com/pallets/werkzeug
 ipdb==0.13.13  # https://github.com/gotcha/ipdb
 {%- if cookiecutter.use_docker == 'y' %}
 psycopg[c]==3.1.18  # https://github.com/psycopg/psycopg
@@ -23,16 +23,16 @@ djangorestframework-stubs[compatible-mypy]==3.14.5  # https://github.com/typeddj
 
 # Documentation
 # ------------------------------------------------------------------------------
-sphinx==7.2.6  # https://github.com/sphinx-doc/sphinx
-sphinx-autobuild==2024.2.4 # https://github.com/GaretJax/sphinx-autobuild
+sphinx==7.3.7  # https://github.com/sphinx-doc/sphinx
+sphinx-autobuild==2024.4.16 # https://github.com/GaretJax/sphinx-autobuild
 sphinx-rtd-theme==2.0.0 # https://pypi.org/project/sphinx-rtd-theme/
 
 # Code quality
 # ------------------------------------------------------------------------------
-ruff==0.3.3  # https://github.com/astral-sh/ruff
+ruff==0.4.1  # https://github.com/astral-sh/ruff
 coverage==7.4.4  # https://github.com/nedbat/coveragepy
 djlint==1.34.1  # https://github.com/Riverside-Healthcare/djLint
-pre-commit==3.6.2  # https://github.com/pre-commit/pre-commit
+pre-commit==3.7.0  # https://github.com/pre-commit/pre-commit
 
 # Django
 # ------------------------------------------------------------------------------

@@ -27,6 +27,11 @@ class UserAdminCreationForm(admin_forms.UserCreationForm):
         error_messages = {
             "email": {"unique": _("This email has already been taken.")}
         }
+        {%- else %}
+        error_messages = {
+            "username": {"unique": _("This username has already been taken.")},
+        }
+        {%- endif %}
 
 
 class UserSignupForm(SignupForm):
