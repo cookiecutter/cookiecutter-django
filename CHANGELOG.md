@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.04.24
+
+
+### Changed
+
+- Disable UP038 Ruff rule to avoid introducing slower code ([#5020](https://github.com/cookiecutter/cookiecutter-django/pull/5020))
+
+### Updated
+
+- Update django-allauth to 0.62.1 ([#5021](https://github.com/cookiecutter/cookiecutter-django/pull/5021))
+
 ## 2024.04.23
 
 
