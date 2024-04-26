@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.04.25
+
+
+### Updated
+
+- Update coverage to 7.5.0 ([#5025](https://github.com/cookiecutter/cookiecutter-django/pull/5025))
+
+- Bump cssnano from 6.1.2 to 7.0.0 ([#5024](https://github.com/cookiecutter/cookiecutter-django/pull/5024))
+
+- Auto-update pre-commit hooks ([#5023](https://github.com/cookiecutter/cookiecutter-django/pull/5023))
+
 ## 2024.04.24
 
 
