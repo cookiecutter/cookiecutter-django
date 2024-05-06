@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.05.05
+
+
+### Updated
+
+- Auto-update pre-commit hooks ([#5046](https://github.com/cookiecutter/cookiecutter-django/pull/5046))
+
+- Update django-storages to 1.14.3 ([#5047](https://github.com/cookiecutter/cookiecutter-django/pull/5047))
+
+- Update coverage to 7.5.1 ([#5048](https://github.com/cookiecutter/cookiecutter-django/pull/5048))
+
 ## 2024.04.28
 
 
