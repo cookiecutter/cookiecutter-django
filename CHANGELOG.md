@@ -3,6 +3,23 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.05.06
+
+
+### Fixed
+
+- Fix nginx image name in production.yml ([#5053](https://github.com/cookiecutter/cookiecutter-django/pull/5053))
+
+### Updated
+
+- Update django-model-utils to 4.5.1 ([#5044](https://github.com/cookiecutter/cookiecutter-django/pull/5044))
+
+- Update django to 4.2.12 ([#5056](https://github.com/cookiecutter/cookiecutter-django/pull/5056))
+
+- Update sentry-sdk to 2.1.1 ([#5055](https://github.com/cookiecutter/cookiecutter-django/pull/5055))
+
+- Update ruff to 0.4.3 ([#5049](https://github.com/cookiecutter/cookiecutter-django/pull/5049))
+
 ## 2024.05.05
 
 
