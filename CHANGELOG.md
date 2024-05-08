@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.05.07
+
+
+### Updated
+
+- Update django to 4.2.13 ([#5058](https://github.com/cookiecutter/cookiecutter-django/pull/5058))
+
 ## 2024.05.06
 
 
