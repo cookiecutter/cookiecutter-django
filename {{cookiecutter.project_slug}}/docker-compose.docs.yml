@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   docs:
     image: {{ cookiecutter.project_slug }}_local_docs

@@ -78,7 +78,11 @@ def remove_docker_files():
     shutil.rmtree(".devcontainer")
     shutil.rmtree("compose")
 
-    file_names = ["local.yml", "production.yml", ".dockerignore"]
+    file_names = [
+        "docker-compose.local.yml",
+        "docker-compose.production.yml",
+        ".dockerignore",
+    ]
     for file_name in file_names:
         os.remove(file_name)
     if "{{ cookiecutter.editor }}" == "PyCharm":
