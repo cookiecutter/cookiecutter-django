@@ -3,9 +3,9 @@
 Werkzeug[watchdog]==3.0.2 # https://github.com/pallets/werkzeug
 ipdb==0.13.13  # https://github.com/gotcha/ipdb
 {%- if cookiecutter.use_docker == 'y' %}
-psycopg[c]==3.1.18  # https://github.com/psycopg/psycopg
+psycopg[c]==3.1.19  # https://github.com/psycopg/psycopg
 {%- else %}
-psycopg[binary]==3.1.18  # https://github.com/psycopg/psycopg
+psycopg[binary]==3.1.19  # https://github.com/psycopg/psycopg
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' or cookiecutter.use_celery == 'y' %}
 watchfiles==0.21.0  # https://github.com/samuelcolvin/watchfiles
@@ -31,7 +31,7 @@ sphinx-autobuild==2024.4.16 # https://github.com/GaretJax/sphinx-autobuild
 ruff==0.4.4  # https://github.com/astral-sh/ruff
 coverage==7.5.1  # https://github.com/nedbat/coveragepy
 djlint==1.34.1  # https://github.com/Riverside-Healthcare/djLint
-pre-commit==3.7.0  # https://github.com/pre-commit/pre-commit
+pre-commit==3.7.1  # https://github.com/pre-commit/pre-commit
 
 # Django
 # ------------------------------------------------------------------------------
