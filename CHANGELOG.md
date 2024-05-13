@@ -3,6 +3,51 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.04.28
+
+
+### Updated
+
+- Update pytest to 8.2.0 ([#5034](https://github.com/cookiecutter/cookiecutter-django/pull/5034))
+
+## 2024.04.27
+
+
+### Updated
+
+- Update sentry-sdk to 2.0.1 ([#5030](https://github.com/cookiecutter/cookiecutter-django/pull/5030))
+
+## 2024.04.26
+
+
+### Updated
+
+- Auto-update pre-commit hooks ([#5029](https://github.com/cookiecutter/cookiecutter-django/pull/5029))
+
+- Update ruff to 0.4.2 ([#5028](https://github.com/cookiecutter/cookiecutter-django/pull/5028))
+
+## 2024.04.25
+
+
+### Updated
+
+- Update coverage to 7.5.0 ([#5025](https://github.com/cookiecutter/cookiecutter-django/pull/5025))
+
+- Bump cssnano from 6.1.2 to 7.0.0 ([#5024](https://github.com/cookiecutter/cookiecutter-django/pull/5024))
+
+- Auto-update pre-commit hooks ([#5023](https://github.com/cookiecutter/cookiecutter-django/pull/5023))
+
+## 2024.04.24
+
+
+### Changed
+
+- Disable UP038 Ruff rule to avoid introducing slower code ([#5020](https://github.com/cookiecutter/cookiecutter-django/pull/5020))
+
+### Updated
+
+- Update django-allauth to 0.62.1 ([#5021](https://github.com/cookiecutter/cookiecutter-django/pull/5021))
+
 ## 2024.04.23
 
 
