@@ -1406,6 +1406,13 @@ Listed in alphabetical order.
     <td>marciomazza</td>
   </tr>
   <tr>
+    <td>Marios Frixou</td>
+    <td>
+      <a href="https://github.com/frixou89">frixou89</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Martin Blech</td>
     <td>
       <a href="https://github.com/"></a>
