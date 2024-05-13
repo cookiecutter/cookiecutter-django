@@ -444,9 +444,7 @@ def handle_licenses():
     with open(os.path.join("licenses", titles_dict[selected_title])) as f:
         contents = f.readlines()
 
-    with open(
-        special_license_files.get(titles_dict[selected_title], "LICENSE"), "w"
-    ) as f:
+    with open(special_license_files.get(titles_dict[selected_title], "LICENSE"), "w") as f:
         # +2 to get rid of the --- and and an extra new line
         i = contents.index("---\n", 1) + 2
         f.writelines(contents[i:])

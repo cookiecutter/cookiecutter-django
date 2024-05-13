@@ -7,9 +7,7 @@ from pprint import pprint
 def check_scripts_for_placeholders():
     brackets = []
     for filename in os.listdir("../{{cookiecutter.project_slug}}/licenses"):
-        file = open(
-            "../{{cookiecutter.project_slug}}/licenses/" + filename, encoding="utf8"
-        )
+        file = open("../{{cookiecutter.project_slug}}/licenses/" + filename, encoding="utf8")
 
         # 'found' stores all found bracket instances
         found = []
