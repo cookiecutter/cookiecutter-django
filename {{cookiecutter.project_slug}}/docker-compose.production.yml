@@ -1,0 +1,118 @@
+volumes:
+  production_postgres_data: {}
+  production_postgres_data_backups: {}
+  production_traefik: {}
+  {%- if cookiecutter.cloud_provider == 'None' %}
+  production_django_media: {}
+  {%- endif %}
+  {% if cookiecutter.use_celery == 'y' %}
+  production_redis_data: {}
+  {% endif %}
+
+
+services:
+  django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
+    build:
+      context: .
+      dockerfile: ./compose/production/django/Dockerfile
+      {%- if cookiecutter.frontend_pipeline == 'Webpack' and cookiecutter.use_whitenoise == 'n' %}
+      args:
+        # These variable can be defined in an .env file in the root of the repo
+        {%- if cookiecutter.cloud_provider == 'AWS' %}
+        DJANGO_AWS_STORAGE_BUCKET_NAME: ${DJANGO_AWS_STORAGE_BUCKET_NAME}
+        DJANGO_AWS_S3_CUSTOM_DOMAIN: ${DJANGO_AWS_S3_CUSTOM_DOMAIN}
+        {%- elif cookiecutter.cloud_provider == 'GCP' %}
+        DJANGO_GCP_STORAGE_BUCKET_NAME: ${DJANGO_GCP_STORAGE_BUCKET_NAME}
+        {%- elif cookiecutter.cloud_provider == 'Azure' %}
+        DJANGO_AZURE_ACCOUNT_NAME: ${DJANGO_AZURE_ACCOUNT_NAME}
+        {%- endif %}
+      {%- endif %}
+
+    image: {{ cookiecutter.project_slug }}_production_django
+    {%- if cookiecutter.cloud_provider == 'None' %}
+    volumes:
+      - production_django_media:/app/{{ cookiecutter.project_slug }}/media
+    {%- endif %}
+    depends_on:
+      - postgres
+      - redis
+    env_file:
+      - ./.envs/.production/.django
+      - ./.envs/.production/.postgres
+    command: /start
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    image: {{ cookiecutter.project_slug }}_production_postgres
+    volumes:
+      - production_postgres_data:/var/lib/postgresql/data
+      - production_postgres_data_backups:/backups
+    env_file:
+      - ./.envs/.production/.postgres
+
+  traefik:
+    build:
+      context: .
+      dockerfile: ./compose/production/traefik/Dockerfile
+    image: {{ cookiecutter.project_slug }}_production_traefik
+    depends_on:
+      - django
+    volumes:
+      - production_traefik:/etc/traefik/acme
+    ports:
+      - '0.0.0.0:80:80'
+      - '0.0.0.0:443:443'
+      {%- if cookiecutter.use_celery == 'y' %}
+      - '0.0.0.0:5555:5555'
+      {%- endif %}
+
+  redis:
+    image: docker.io/redis:6
+    {% if cookiecutter.use_celery == 'y' %}
+    volumes:
+      - production_redis_data:/data
+    {% endif %}
+
+
+  {%- if cookiecutter.use_celery == 'y' %}
+
+  celeryworker:
+    <<: *django
+    image: {{ cookiecutter.project_slug }}_production_celeryworker
+    command: /start-celeryworker
+
+  celerybeat:
+    <<: *django
+    image: {{ cookiecutter.project_slug }}_production_celerybeat
+    command: /start-celerybeat
+
+  flower:
+    <<: *django
+    image: {{ cookiecutter.project_slug }}_production_flower
+    command: /start-flower
+  {%- endif %}
+  {%- if cookiecutter.cloud_provider == 'AWS' %}
+
+  awscli:
+    build:
+      context: .
+      dockerfile: ./compose/production/aws/Dockerfile
+    env_file:
+      - ./.envs/.production/.django
+    volumes:
+      - production_postgres_data_backups:/backups:z
+  {%- endif %}
+  {%- if cookiecutter.cloud_provider == 'None' %}
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./compose/production/nginx/Dockerfile
+    image: {{ cookiecutter.project_slug }}_production_nginx
+    depends_on:
+      - django
+    volumes:
+      - production_django_media:/usr/share/nginx/media:ro
+  {%- endif %}

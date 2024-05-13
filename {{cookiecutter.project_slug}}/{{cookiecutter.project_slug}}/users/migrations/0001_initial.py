@@ -1,7 +1,10 @@
 import django.contrib.auth.models
 import django.contrib.auth.validators
-from django.db import migrations, models
 import django.utils.timezone
+from django.db import migrations
+from django.db import models
+
+import {{cookiecutter.project_slug}}.users.models
 
 
 class Migration(migrations.Migration):
@@ -29,7 +32,7 @@ class Migration(migrations.Migration):
                 (
                     "last_login",
                     models.DateTimeField(
-                        blank=True, null=True, verbose_name="last login"
+                        blank=True, null=True, verbose_name="last login",
                     ),
                 ),
                 (
@@ -40,6 +43,7 @@ class Migration(migrations.Migration):
                         verbose_name="superuser status",
                     ),
                 ),
+                {%- if cookiecutter.username_type == "username" -%}
                 (
                     "username",
                     models.CharField(
@@ -58,9 +62,17 @@ class Migration(migrations.Migration):
                 (
                     "email",
                     models.EmailField(
-                        blank=True, max_length=254, verbose_name="email address"
+                        blank=True, max_length=254, verbose_name="email address",
                     ),
                 ),
+                {%- else %}
+                (
+                    "email",
+                    models.EmailField(
+                        unique=True, max_length=254, verbose_name="email address",
+                    ),
+                ),
+                {%- endif %}
                 (
                     "is_staff",
                     models.BooleanField(
@@ -80,13 +92,13 @@ class Migration(migrations.Migration):
                 (
                     "date_joined",
                     models.DateTimeField(
-                        default=django.utils.timezone.now, verbose_name="date joined"
+                        default=django.utils.timezone.now, verbose_name="date joined",
                     ),
                 ),
                 (
                     "name",
                     models.CharField(
-                        blank=True, max_length=255, verbose_name="Name of User"
+                        blank=True, max_length=255, verbose_name="Name of User",
                     ),
                 ),
                 (
@@ -118,7 +130,11 @@ class Migration(migrations.Migration):
                 "abstract": False,
             },
             managers=[
+                {%- if cookiecutter.username_type == "email" %}
+                ("objects", {{cookiecutter.project_slug}}.users.models.UserManager()),
+                {%- else %}
                 ("objects", django.contrib.auth.models.UserManager()),
+                {%- endif %}
             ],
         ),
     ]

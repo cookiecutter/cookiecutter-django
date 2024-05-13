@@ -6,6 +6,7 @@ patches, only comparing major and minor version numbers.
 This script handles when there are multiple Django versions that need
 to keep up to date.
 """
+
 from __future__ import annotations
 
 import os
@@ -141,9 +142,7 @@ class GitHubManager:
         self.requirements_files = ["base", "local", "production"]
         # Format:
         # requirement file name: {package name: (master_version, package_info)}
-        self.requirements: dict[str, dict[str, tuple[str, dict]]] = {
-            x: {} for x in self.requirements_files
-        }
+        self.requirements: dict[str, dict[str, tuple[str, dict]]] = {x: {} for x in self.requirements_files}
 
     def setup(self) -> None:
         self.load_requirements()
@@ -177,26 +176,19 @@ class GitHubManager:
             "is": "issue",
             "in": "title",
         }
-        issues = list(
-            self.github.search_issues(
-                "[Django Update]", "created", "desc", **qualifiers
-            )
-        )
+        issues = list(self.github.search_issues("[Django Update]", "created", "desc", **qualifiers))
         print(f"Found {len(issues)} issues matching search")
         for issue in issues:
             matches = re.match(r"\[Update Django] Django (\d+.\d+)$", issue.title)
             if not matches:
                 continue
             issue_version = DjVersion.parse(matches.group(1))
-            if self.base_dj_version > issue_version:
-                issue.edit(state="closed")
-                print(f"Closed issue {issue.title} (ID: [{issue.id}]({issue.url}))")
+            if self.base_dj_version >= issue_version:
+                self.close_issue(issue)
             else:
                 self.existing_issues[issue_version] = issue
 
-    def get_compatibility(
-        self, package_name: str, package_info: dict, needed_dj_version: DjVersion
-    ):
+    def get_compatibility(self, package_name: str, package_info: dict, needed_dj_version: DjVersion):
         """
         Verify compatibility via setup.py classifiers. If Django is not in the
         classifiers, then default compatibility is n/a and OK is ✅.
@@ -209,9 +201,7 @@ class GitHubManager:
         # updated packages, or known releases that will happen but haven't yet
         if issue := self.existing_issues.get(needed_dj_version):
             if index := issue.body.find(package_name):
-                name, _current, prev_compat, ok = (
-                    s.strip() for s in issue.body[index:].split("|", 4)[:4]
-                )
+                name, _current, prev_compat, ok = (s.strip() for s in issue.body[index:].split("|", 4)[:4])
                 if ok in ("✅", "❓", "🕒"):
                     return prev_compat, ok
 
@@ -223,7 +213,7 @@ class GitHubManager:
         for classifier in package_info["info"]["classifiers"]:
             # Usually in the form of "Framework :: Django :: 3.2"
             tokens = classifier.split(" ")
-            if len(tokens) >= 5 and tokens[2].lower() == "django":
+            if len(tokens) >= 5 and tokens[2].lower() == "django" and "." in tokens[4]:
                 version = DjVersion.parse(tokens[4])
                 if len(version) == 2:
                     supported_dj_versions.append(version)
@@ -248,9 +238,7 @@ class GitHubManager:
     ]
 
     def _get_md_home_page_url(self, package_info: dict):
-        urls = [
-            package_info["info"].get(url_key) for url_key in self.HOME_PAGE_URL_KEYS
-        ]
+        urls = [package_info["info"].get(url_key) for url_key in self.HOME_PAGE_URL_KEYS]
         try:
             return f"[{{}}]({next(item for item in urls if item)})"
         except StopIteration:
@@ -259,13 +247,9 @@ class GitHubManager:
     def generate_markdown(self, needed_dj_version: DjVersion):
         requirements = f"{needed_dj_version} requirements tables\n\n"
         for _file in self.requirements_files:
-            requirements += _TABLE_HEADER.format_map(
-                {"file": _file, "dj_version": needed_dj_version}
-            )
+            requirements += _TABLE_HEADER.format_map({"file": _file, "dj_version": needed_dj_version})
             for package_name, (version, info) in self.requirements[_file].items():
-                compat_version, icon = self.get_compatibility(
-                    package_name, info, needed_dj_version
-                )
+                compat_version, icon = self.get_compatibility(package_name, info, needed_dj_version)
                 requirements += (
                     f"| {self._get_md_home_page_url(info).format(package_name)} "
                     f"| {version.strip()} "
@@ -282,10 +266,13 @@ class GitHubManager:
             issue.edit(body=description)
         else:
             print(f"Creating new issue for Django {needed_dj_version}")
-            issue = self.repo.create_issue(
-                f"[Update Django] Django {needed_dj_version}", description
-            )
+            issue = self.repo.create_issue(f"[Update Django] Django {needed_dj_version}", description)
             issue.add_to_labels(f"django{needed_dj_version}")
+
+    @staticmethod
+    def close_issue(issue: Issue):
+        issue.edit(state="closed")
+        print(f"Closed issue {issue.title} (ID: [{issue.id}]({issue.url}))")
 
     def generate(self):
         for version in self.needed_dj_versions:
@@ -297,21 +284,22 @@ class GitHubManager:
 
 def main(django_max_version=None) -> None:
     # Check if there are any djs
-    current_dj, latest_djs = get_all_latest_django_versions(
-        django_max_version=django_max_version
-    )
-    if not latest_djs:
-        sys.exit(0)
+    current_dj, latest_djs = get_all_latest_django_versions(django_max_version=django_max_version)
+
+    # Run the setup, which might close old issues
     manager = GitHubManager(current_dj, latest_djs)
     manager.setup()
+
+    if not latest_djs:
+        print("No new Django versions to update. Exiting...")
+        sys.exit(0)
+
     manager.generate()
 
 
 if __name__ == "__main__":
     if GITHUB_REPO is None:
-        raise RuntimeError(
-            "No github repo, please set the environment variable GITHUB_REPOSITORY"
-        )
+        raise RuntimeError("No github repo, please set the environment variable GITHUB_REPOSITORY")
     max_version = None
     last_arg = sys.argv[-1]
     if CURRENT_FILE.name not in last_arg:

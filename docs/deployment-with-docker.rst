@@ -1,7 +1,7 @@
 Deployment with Docker
 ======================
 
-.. index:: deployment, docker, docker-compose, compose
+.. index:: deployment, docker, docker compose, compose
 
 
 Prerequisites
@@ -14,7 +14,7 @@ Prerequisites
 Understanding the Docker Compose Setup
 --------------------------------------
 
-Before you begin, check out the ``production.yml`` file in the root of this project. Keep note of how it provides configuration for the following services:
+Before you begin, check out the ``docker-compose.production.yml`` file in the root of this project. Keep note of how it provides configuration for the following services:
 
 * ``django``: your application running behind ``Gunicorn``;
 * ``postgres``: PostgreSQL database with the application's relational data;
@@ -84,6 +84,32 @@ You can read more about this feature and how to configure it, at `Automatic HTTP
 
 .. _Automatic HTTPS: https://docs.traefik.io/https/acme/
 
+.. _webpack-whitenoise-limitation:
+
+Webpack without Whitenoise limitation
+-------------------------------------
+
+If you opt for Webpack without Whitenoise, Webpack needs to know the static URL at build time, when running ``docker compose build`` (See ``webpack/prod.config.js``). Depending on your setup, this URL may come from the following environment variables:
+
+- ``AWS_STORAGE_BUCKET_NAME``
+- ``DJANGO_AWS_S3_CUSTOM_DOMAIN``
+- ``DJANGO_GCP_STORAGE_BUCKET_NAME``
+- ``DJANGO_AZURE_CONTAINER_NAME``
+
+The Django settings are getting these values at runtime via the ``.envs/.production/.django`` file , but Docker does not read this file at build time, it only look for a ``.env`` in the root of the project. Failing to pass the values correctly will result in a page without CSS styles nor javascript.
+
+To solve this, you can either:
+
+1. merge all the env files into ``.env`` by running::
+
+     merge_production_dotenvs_in_dotenv.py
+
+2. create a ``.env`` file in the root of the project with just variables you need. You'll need to also define them in ``.envs/.production/.django`` (hence duplicating them).
+3. set these variables when running the build command::
+
+     DJANGO_AWS_S3_CUSTOM_DOMAIN=example.com docker compose -f docker-compose.production.yml build``.
+
+None of these options are ideal, we're open to suggestions on how to improve this. If you think you have one, please open an issue or a pull request.
 
 (Optional) Postgres Data Volume Modifications
 ---------------------------------------------
@@ -96,42 +122,42 @@ Building & Running Production Stack
 
 You will need to build the stack first. To do that, run::
 
-    docker-compose -f production.yml build
+    docker compose -f docker-compose.production.yml build
 
 Once this is ready, you can run it with::
 
-    docker-compose -f production.yml up
+    docker compose -f docker-compose.production.yml up
 
 To run the stack and detach the containers, run::
 
-    docker-compose -f production.yml up -d
+    docker compose -f docker-compose.production.yml up -d
 
 To run a migration, open up a second terminal and run::
 
-   docker-compose -f production.yml run --rm django python manage.py migrate
+   docker compose -f docker-compose.production.yml run --rm django python manage.py migrate
 
 To create a superuser, run::
 
-   docker-compose -f production.yml run --rm django python manage.py createsuperuser
+   docker compose -f docker-compose.production.yml run --rm django python manage.py createsuperuser
 
 If you need a shell, run::
 
-   docker-compose -f production.yml run --rm django python manage.py shell
+   docker compose -f docker-compose.production.yml run --rm django python manage.py shell
 
 To check the logs out, run::
 
-   docker-compose -f production.yml logs
+   docker compose -f docker-compose.production.yml logs
 
 If you want to scale your application, run::
 
-   docker-compose -f production.yml up --scale django=4
-   docker-compose -f production.yml up --scale celeryworker=2
+   docker compose -f docker-compose.production.yml up --scale django=4
+   docker compose -f docker-compose.production.yml up --scale celeryworker=2
 
 .. warning:: don't try to scale ``postgres``, ``celerybeat``, or ``traefik``.
 
 To see how your containers are doing run::
 
-    docker-compose -f production.yml ps
+    docker compose -f docker-compose.production.yml ps
 
 
 Example: Supervisor
@@ -139,12 +165,12 @@ Example: Supervisor
 
 Once you are ready with your initial setup, you want to make sure that your application is run by a process manager to
 survive reboots and auto restarts in case of an error. You can use the process manager you are most familiar with. All
-it needs to do is to run ``docker-compose -f production.yml up`` in your projects root directory.
+it needs to do is to run ``docker compose -f docker-compose.production.yml up`` in your projects root directory.
 
 If you are using ``supervisor``, you can use this file as a starting point::
 
     [program:{{cookiecutter.project_slug}}]
-    command=docker-compose -f production.yml up
+    command=docker compose -f docker-compose.production.yml up
     directory=/path/to/{{cookiecutter.project_slug}}
     redirect_stderr=true
     autostart=true
@@ -161,3 +187,7 @@ For status check, run::
 
     supervisorctl status
 
+Media files without cloud provider
+----------------------------------
+
+If you chose no cloud provider and Docker, the media files will be served by an nginx service, from a ``production_django_media`` volume. Make sure to keep this around to avoid losing any media files.

@@ -23,7 +23,7 @@ def _update_or_create_site_with_sequence(site_model, connection, domain, name):
         # site is created.
         # To avoid this, we need to manually update DB sequence and make sure it's
         # greater than the maximum value.
-        max_id = site_model.objects.order_by('-id').first().id
+        max_id = site_model.objects.order_by("-id").first().id
         with connection.cursor() as cursor:
             cursor.execute("SELECT last_value from django_site_id_seq")
             (current_id,) = cursor.fetchone()
@@ -40,8 +40,8 @@ def update_site_forward(apps, schema_editor):
     _update_or_create_site_with_sequence(
         Site,
         schema_editor.connection,
-        "{{cookiecutter.domain_name}}",
-        "{{cookiecutter.project_name}}",
+        "{{ cookiecutter.domain_name }}",
+        "{{ cookiecutter.project_name[:50] }}",
     )
 
 

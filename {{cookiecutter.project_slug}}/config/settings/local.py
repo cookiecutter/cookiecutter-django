@@ -1,4 +1,10 @@
-from .base import *  # noqa
+# ruff: noqa: E501
+from .base import *  # noqa: F403
+from .base import INSTALLED_APPS
+from .base import MIDDLEWARE
+{%- if cookiecutter.frontend_pipeline == 'Webpack' %}
+from .base import WEBPACK_LOADER
+{%- endif %}
 from .base import env
 
 # GENERAL
@@ -11,7 +17,7 @@ SECRET_KEY = env(
     default="!!!SET DJANGO_SECRET_KEY!!!",
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]  # noqa: S104
 
 # CACHES
 # ------------------------------------------------------------------------------
@@ -20,17 +26,17 @@ CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
         "LOCATION": "",
-    }
+    },
 }
 
 # EMAIL
 # ------------------------------------------------------------------------------
-{% if cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'y' -%}
+{% if cookiecutter.use_mailpit == 'y' and cookiecutter.use_docker == 'y' -%}
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-host
-EMAIL_HOST = env("EMAIL_HOST", default="mailhog")
+EMAIL_HOST = env("EMAIL_HOST", default="mailpit")
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-port
 EMAIL_PORT = 1025
-{%- elif cookiecutter.use_mailhog == 'y' and cookiecutter.use_docker == 'n' -%}
+{%- elif cookiecutter.use_mailpit == 'y' and cookiecutter.use_docker == 'n' -%}
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-host
 EMAIL_HOST = "localhost"
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-port
@@ -38,7 +44,7 @@ EMAIL_PORT = 1025
 {%- else -%}
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
 EMAIL_BACKEND = env(
-    "DJANGO_EMAIL_BACKEND", default="django.core.mail.backends.console.EmailBackend"
+    "DJANGO_EMAIL_BACKEND", default="django.core.mail.backends.console.EmailBackend",
 )
 {%- endif %}
 
@@ -47,15 +53,15 @@ EMAIL_BACKEND = env(
 # WhiteNoise
 # ------------------------------------------------------------------------------
 # http://whitenoise.evans.io/en/latest/django.html#using-whitenoise-in-development
-INSTALLED_APPS = ["whitenoise.runserver_nostatic"] + INSTALLED_APPS  # noqa F405
+INSTALLED_APPS = ["whitenoise.runserver_nostatic", *INSTALLED_APPS]
 {% endif %}
 
 # django-debug-toolbar
 # ------------------------------------------------------------------------------
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#prerequisites
-INSTALLED_APPS += ["debug_toolbar"]  # noqa F405
+INSTALLED_APPS += ["debug_toolbar"]
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#middleware
-MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]  # noqa F405
+MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
 # https://django-debug-toolbar.readthedocs.io/en/latest/configuration.html#debug-toolbar-config
 DEBUG_TOOLBAR_CONFIG = {
     "DISABLE_PANELS": ["debug_toolbar.panels.redirects.RedirectsPanel"],
@@ -69,7 +75,7 @@ if env("USE_DOCKER") == "yes":
 
     hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
     INTERNAL_IPS += [".".join(ip.split(".")[:-1] + ["1"]) for ip in ips]
-    {%- if cookiecutter.frontend_pipeline == 'Gulp' %}
+    {%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
     try:
         _, _, ips = socket.gethostbyname_ex("node")
         INTERNAL_IPS.extend(ips)
@@ -77,12 +83,21 @@ if env("USE_DOCKER") == "yes":
         # The node container isn't started (yet?)
         pass
     {%- endif %}
+    {%- if cookiecutter.windows == 'y' %}
+    # RunServerPlus
+    # ------------------------------------------------------------------------------
+    # This is a custom setting for RunServerPlus to fix reloader issue in Windows docker environment
+    # Werkzeug reloader type [auto, watchdog, or stat]
+    RUNSERVERPLUS_POLLER_RELOADER_TYPE = 'stat'
+    # If you have CPU and IO load issues, you can increase this poller interval e.g) 5
+    RUNSERVERPLUS_POLLER_RELOADER_INTERVAL = 1
+    {%- endif %}
 {%- endif %}
 
 # django-extensions
 # ------------------------------------------------------------------------------
 # https://django-extensions.readthedocs.io/en/latest/installation_instructions.html#configuration
-INSTALLED_APPS += ["django_extensions"]  # noqa F405
+INSTALLED_APPS += ["django_extensions"]
 {% if cookiecutter.use_celery == 'y' -%}
 
 # Celery
@@ -93,6 +108,12 @@ CELERY_TASK_ALWAYS_EAGER = True
 {%- endif %}
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#task-eager-propagates
 CELERY_TASK_EAGER_PROPAGATES = True
+
+{%- endif %}
+{%- if cookiecutter.frontend_pipeline == 'Webpack' %}
+# django-webpack-loader
+# ------------------------------------------------------------------------------
+WEBPACK_LOADER["DEFAULT"]["CACHE"] = not DEBUG
 
 {%- endif %}
 # Your stuff...

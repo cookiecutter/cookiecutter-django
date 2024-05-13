@@ -1,36 +1,53 @@
-exclude: "^docs/|/migrations/"
+exclude: '^docs/|/migrations/|devcontainer.json'
 default_stages: [commit]
+
+default_language_version:
+  python: python3.12
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.3.0
+    rev: v4.6.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
+      - id: check-json
+      - id: check-toml
+      - id: check-xml
       - id: check-yaml
+      - id: debug-statements
+      - id: check-builtin-literals
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: detect-private-key
 
-  - repo: https://github.com/asottile/pyupgrade
-    rev: v3.2.0
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v4.0.0-alpha.8
     hooks:
-      - id: pyupgrade
-        args: [--py310-plus]
+      - id: prettier
+        args: ['--tab-width', '2', '--single-quote']
+        exclude: '{{cookiecutter.project_slug}}/templates/'
 
-  - repo: https://github.com/psf/black
-    rev: 22.10.0
+  - repo: https://github.com/adamchainz/django-upgrade
+    rev: '1.17.0'
     hooks:
-      - id: black
+      - id: django-upgrade
+        args: ['--target-version', '4.2']
 
-  - repo: https://github.com/PyCQA/isort
-    rev: 5.10.1
+  # Run the Ruff linter.
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.4
     hooks:
-      - id: isort
+      # Linter
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+      # Formatter
+      - id: ruff-format
 
-  - repo: https://github.com/PyCQA/flake8
-    rev: 5.0.4
+  - repo: https://github.com/Riverside-Healthcare/djLint
+    rev: v1.34.1
     hooks:
-      - id: flake8
-        args: ["--config=setup.cfg"]
-        additional_dependencies: [flake8-isort]
+      - id: djlint-reformat-django
+      - id: djlint-django
 
 # sets up .pre-commit-ci.yaml to ensure pre-commit dependencies stay up to date
 ci:

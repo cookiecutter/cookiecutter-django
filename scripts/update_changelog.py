@@ -32,6 +32,9 @@ def main() -> None:
 
     # Group pull requests by type of change
     grouped_pulls = group_pulls_by_change_type(merged_pulls)
+    if not any(grouped_pulls.values()):
+        print("Pull requests merged aren't worth a changelog mention.")
+        return
 
     # Generate portion of markdown
     release_changes_summary = generate_md(grouped_pulls)
@@ -82,14 +85,20 @@ def group_pulls_by_change_type(
     grouped_pulls = {
         "Changed": [],
         "Fixed": [],
+        "Documentation": [],
         "Updated": [],
     }
     for pull in pull_requests_list:
         label_names = {label.name for label in pull.labels}
+        if "project infrastructure" in label_names:
+            # Don't mention it in the changelog
+            continue
         if "update" in label_names:
             group_name = "Updated"
         elif "bug" in label_names:
             group_name = "Fixed"
+        elif "docs" in label_names:
+            group_name = "Documentation"
         else:
             group_name = "Changed"
         grouped_pulls[group_name].append(pull)
@@ -148,11 +157,7 @@ def update_git_repo(paths: list[Path], release: str) -> None:
 
 if __name__ == "__main__":
     if GITHUB_REPO is None:
-        raise RuntimeError(
-            "No github repo, please set the environment variable GITHUB_REPOSITORY"
-        )
+        raise RuntimeError("No github repo, please set the environment variable GITHUB_REPOSITORY")
     if GIT_BRANCH is None:
-        raise RuntimeError(
-            "No git branch set, please set the GITHUB_REF_NAME environment variable"
-        )
+        raise RuntimeError("No git branch set, please set the GITHUB_REF_NAME environment variable")
     main()

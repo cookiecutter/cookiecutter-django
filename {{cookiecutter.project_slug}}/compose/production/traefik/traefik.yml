@@ -4,29 +4,29 @@ log:
 entryPoints:
   web:
     # http
-    address: ":80"
+    address: ':80'
     http:
-      # https://docs.traefik.io/routing/entrypoints/#entrypoint
+      # https://doc.traefik.io/traefik/routing/entrypoints/#entrypoint
       redirections:
         entryPoint:
           to: web-secure
 
   web-secure:
     # https
-    address: ":443"
+    address: ':443'
   {%- if cookiecutter.use_celery == 'y' %}
 
   flower:
-    address: ":5555"
+    address: ':5555'
   {%- endif %}
 
 certificatesResolvers:
   letsencrypt:
-    # https://docs.traefik.io/master/https/acme/#lets-encrypt
+    # https://doc.traefik.io/traefik/https/acme/#lets-encrypt
     acme:
-      email: "{{ cookiecutter.email }}"
+      email: '{{ cookiecutter.email }}'
       storage: /etc/traefik/acme/acme.json
-      # https://docs.traefik.io/master/https/acme/#httpchallenge
+      # https://doc.traefik.io/traefik/https/acme/#httpchallenge
       httpChallenge:
         entryPoint: web
 
@@ -34,9 +34,9 @@ http:
   routers:
     web-secure-router:
       {%- if cookiecutter.domain_name.count('.') == 1 %}
-      rule: "Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)"
+      rule: 'Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)'
       {%- else %}
-      rule: "Host(`{{ cookiecutter.domain_name }}`)"
+      rule: 'Host(`{{ cookiecutter.domain_name }}`)'
       {%- endif %}
       entryPoints:
         - web-secure
@@ -44,26 +44,42 @@ http:
         - csrf
       service: django
       tls:
-        # https://docs.traefik.io/master/routing/routers/#certresolver
+        # https://doc.traefik.io/traefik/routing/routers/#certresolver
         certResolver: letsencrypt
     {%- if cookiecutter.use_celery == 'y' %}
 
     flower-secure-router:
-      rule: "Host(`{{ cookiecutter.domain_name }}`)"
+      rule: 'Host(`{{ cookiecutter.domain_name }}`)'
       entryPoints:
         - flower
       service: flower
       tls:
-        # https://docs.traefik.io/master/routing/routers/#certresolver
+        # https://doc.traefik.io/traefik/master/routing/routers/#certresolver
+        certResolver: letsencrypt
+    {%- endif %}
+    {%- if cookiecutter.cloud_provider == 'None' %}
+
+    web-media-router:
+      {%- if cookiecutter.domain_name.count('.') == 1 %}
+      rule: '(Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)) && PathPrefix(`/media/`)'
+      {%- else %}
+      rule: 'Host(`{{ cookiecutter.domain_name }}`) && PathPrefix(`/media/`)'
+      {%- endif %}
+      entryPoints:
+        - web-secure
+      middlewares:
+        - csrf
+      service: django-media
+      tls:
         certResolver: letsencrypt
     {%- endif %}
 
   middlewares:
     csrf:
-      # https://docs.traefik.io/master/middlewares/headers/#hostsproxyheaders
+      # https://doc.traefik.io/traefik/master/middlewares/http/headers/#hostsproxyheaders
       # https://docs.djangoproject.com/en/dev/ref/csrf/#ajax
       headers:
-        hostsProxyHeaders: ["X-CSRFToken"]
+        hostsProxyHeaders: ['X-CSRFToken']
 
   services:
     django:
@@ -77,9 +93,16 @@ http:
         servers:
           - url: http://flower:5555
     {%- endif %}
+    {%- if cookiecutter.cloud_provider == 'None' %}
+
+    django-media:
+      loadBalancer:
+        servers:
+          - url: http://nginx:80
+    {%- endif %}
 
 providers:
-  # https://docs.traefik.io/master/providers/file/
+  # https://doc.traefik.io/traefik/master/providers/file/
   file:
     filename: /etc/traefik/traefik.yml
     watch: true

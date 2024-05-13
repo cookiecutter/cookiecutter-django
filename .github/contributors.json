@@ -54,6 +54,12 @@
     "is_core": true
   },
   {
+    "name": "Jelmer Draaijer",
+    "github_login": "foarsitter",
+    "twitter_username": "",
+    "is_core": true
+  },
+  {
     "name": "18",
     "github_login": "dezoito",
     "twitter_username": ""
@@ -551,11 +557,6 @@
   {
     "name": "Jan Van Bruggen",
     "github_login": "jvanbrug",
-    "twitter_username": ""
-  },
-  {
-    "name": "Jelmer Draaijer",
-    "github_login": "foarsitter",
     "twitter_username": ""
   },
   {
@@ -1114,7 +1115,7 @@
     "twitter_username": "Qoyyuum"
   },
   {
-    "name": "mfosterw",
+    "name": "Matthew Foster Walsh",
     "github_login": "mfosterw",
     "twitter_username": ""
   },
@@ -1302,5 +1303,270 @@
     "name": "Abe Hanoka",
     "github_login": "abe-101",
     "twitter_username": "abe__101"
+  },
+  {
+    "name": "Adin Hodovic",
+    "github_login": "adinhodovic",
+    "twitter_username": ""
+  },
+  {
+    "name": "Leifur Halldor Asgeirsson",
+    "github_login": "leifurhauks",
+    "twitter_username": ""
+  },
+  {
+    "name": "David",
+    "github_login": "buckldav",
+    "twitter_username": ""
+  },
+  {
+    "name": "rguptar",
+    "github_login": "rguptar",
+    "twitter_username": ""
+  },
+  {
+    "name": "Omer-5",
+    "github_login": "Omer-5",
+    "twitter_username": ""
+  },
+  {
+    "name": "TAKAHASHI Shuuji",
+    "github_login": "shuuji3",
+    "twitter_username": ""
+  },
+  {
+    "name": "Thomas Booij",
+    "github_login": "ThomasBooij95",
+    "twitter_username": ""
+  },
+  {
+    "name": "Pamela Fox",
+    "github_login": "pamelafox",
+    "twitter_username": "pamelafox"
+  },
+  {
+    "name": "Robin",
+    "github_login": "Kaffeetasse",
+    "twitter_username": ""
+  },
+  {
+    "name": "Patrick Tran",
+    "github_login": "theptrk",
+    "twitter_username": ""
+  },
+  {
+    "name": "tildebox",
+    "github_login": "tildebox",
+    "twitter_username": ""
+  },
+  {
+    "name": "duffn",
+    "github_login": "duffn",
+    "twitter_username": ""
+  },
+  {
+    "name": "Delphine LEMIRE",
+    "github_login": "DelphineLemire",
+    "twitter_username": ""
+  },
+  {
+    "name": "Hoai-Thu Vuong",
+    "github_login": "thuvh",
+    "twitter_username": ""
+  },
+  {
+    "name": "Arkadiusz Michał Ryś",
+    "github_login": "arrys",
+    "twitter_username": ""
+  },
+  {
+    "name": "mpsantos",
+    "github_login": "mpsantos",
+    "twitter_username": ""
+  },
+  {
+    "name": "Morten Kaae",
+    "github_login": "MortenKaae",
+    "twitter_username": ""
+  },
+  {
+    "name": "Birtibu",
+    "github_login": "Birtibu",
+    "twitter_username": ""
+  },
+  {
+    "name": "Matheus Jardim Bernardes",
+    "github_login": "matheusjardimb",
+    "twitter_username": ""
+  },
+  {
+    "name": "masavini",
+    "github_login": "masavini",
+    "twitter_username": ""
+  },
+  {
+    "name": "Joseph Hanna",
+    "github_login": "sanchimenea",
+    "twitter_username": ""
+  },
+  {
+    "name": "tmajerech",
+    "github_login": "tmajerech",
+    "twitter_username": ""
+  },
+  {
+    "name": "villancikos",
+    "github_login": "villancikos",
+    "twitter_username": ""
+  },
+  {
+    "name": "Imran Rahman",
+    "github_login": "infraredCoding",
+    "twitter_username": ""
+  },
+  {
+    "name": "hleroy",
+    "github_login": "hleroy",
+    "twitter_username": ""
+  },
+  {
+    "name": "Shayan Karimi",
+    "github_login": "shywn-mrk",
+    "twitter_username": "shywn_mrk"
+  },
+  {
+    "name": "Sadra Yahyapour",
+    "github_login": "lnxpy",
+    "twitter_username": "lnxpylnxpy"
+  },
+  {
+    "name": "Tharushan",
+    "github_login": "Tharushan",
+    "twitter_username": ""
+  },
+  {
+    "name": "Fateme Fouladkar",
+    "github_login": "FatemeFouladkar",
+    "twitter_username": ""
+  },
+  {
+    "name": "zhaoruibing",
+    "github_login": "zhaoruibing",
+    "twitter_username": ""
+  },
+  {
+    "name": "MinWoo Sung",
+    "github_login": "SungMinWoo",
+    "twitter_username": ""
+  },
+  {
+    "name": "itisnotyourenv",
+    "github_login": "itisnotyourenv",
+    "twitter_username": ""
+  },
+  {
+    "name": "Vageeshan Mankala",
+    "github_login": "vagi8",
+    "twitter_username": ""
+  },
+  {
+    "name": "Jakub Boukal",
+    "github_login": "SukiCZ",
+    "twitter_username": ""
+  },
+  {
+    "name": "Christian Jauvin",
+    "github_login": "cjauvin",
+    "twitter_username": ""
+  },
+  {
+    "name": "Plurific",
+    "github_login": "paulschwenn",
+    "twitter_username": ""
+  },
+  {
+    "name": "GitBib",
+    "github_login": "GitBib",
+    "twitter_username": ""
+  },
+  {
+    "name": "Freddy",
+    "github_login": "Hraesvelg",
+    "twitter_username": ""
+  },
+  {
+    "name": "aiden",
+    "github_login": "anyidea",
+    "twitter_username": ""
+  },
+  {
+    "name": "Michael V. Battista",
+    "github_login": "mvbattista",
+    "twitter_username": "mvbattista"
+  },
+  {
+    "name": "Nix Siow",
+    "github_login": "nixsiow",
+    "twitter_username": "nixsiow"
+  },
+  {
+    "name": "Jens Kaeske",
+    "github_login": "jkaeske",
+    "twitter_username": ""
+  },
+  {
+    "name": "henningbra",
+    "github_login": "henningbra",
+    "twitter_username": ""
+  },
+  {
+    "name": "Paul Wulff",
+    "github_login": "mtmpaulwulff",
+    "twitter_username": ""
+  },
+  {
+    "name": "Mounir",
+    "github_login": "mounirmesselmeni",
+    "twitter_username": ""
+  },
+  {
+    "name": "JAEGYUN JUNG",
+    "github_login": "TGoddessana",
+    "twitter_username": ""
+  },
+  {
+    "name": "Simeon Emanuilov",
+    "github_login": "s-emanuilov",
+    "twitter_username": "s_emanuilov"
+  },
+  {
+    "name": "Patrick Zhang",
+    "github_login": "PatDuJour",
+    "twitter_username": ""
+  },
+  {
+    "name": "GvS",
+    "github_login": "GvS666",
+    "twitter_username": ""
+  },
+  {
+    "name": "David Păcioianu",
+    "github_login": "DavidPacioianu",
+    "twitter_username": ""
+  },
+  {
+    "name": "farwill",
+    "github_login": "farwill",
+    "twitter_username": ""
+  },
+  {
+    "name": "quroom",
+    "github_login": "quroom",
+    "twitter_username": ""
+  },
+  {
+    "name": "Marios Frixou",
+    "github_login": "frixou89",
+    "twitter_username": ""
   }
 ]

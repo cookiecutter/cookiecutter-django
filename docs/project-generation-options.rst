@@ -24,6 +24,13 @@ author_name:
 email:
     The email address you want to identify yourself in the project.
 
+username_type:
+    The type of username you want to use in the project. This can be either
+    ``username`` or ``email``. If you choose ``username``, the ``email`` field
+    will be included. If you choose ``email``, the ``username`` field will be
+    excluded. It is best practice to always include an email field, so there is
+    no option for having just the ``username`` field.
+
 domain_name:
     The domain name you plan to use for your project once it goes live.
     Note that it can be safely changed later on whenever you need to.
@@ -46,29 +53,34 @@ timezone:
 windows:
     Indicates whether the project should be configured for development on Windows.
 
-use_pycharm:
-    Indicates whether the project should be configured for development with PyCharm_.
+editor:
+    Select an editor to use. The choices are:
+
+    1. None
+    2. PyCharm_
+    3. `VS Code`_
 
 use_docker:
-    Indicates whether the project should be configured to use Docker_ and `Docker Compose`_.
+    Indicates whether the project should be configured to use Docker_, `Docker Compose`_ and `devcontainer`_.
 
 postgresql_version:
     Select a PostgreSQL_ version to use. The choices are:
 
-    1. 14
-    2. 13
-    3. 12
-    4. 11
-    5. 10
+    1. 16
+    2. 15
+    3. 14
+    4. 13
+    5. 12
 
 cloud_provider:
     Select a cloud provider for static & media files. The choices are:
 
     1. AWS_
     2. GCP_
-    3. None
+    3. Azure_
+    4. None
 
-    Note that if you choose no cloud provider, media files won't work.
+    If you choose no cloud provider and docker, the production stack will serve the media files via an nginx Docker service. Without Docker, the media files won't work.
 
 mail_service:
     Select an email service that Django-Anymail provides
@@ -94,13 +106,16 @@ frontend_pipeline:
 
     1. None
     2. `Django Compressor`_
-    3. `Gulp`_: support Bootstrap recompilation with real-time variables alteration.
+    3. `Gulp`_
+    4. `Webpack`_
+
+Both Gulp and Webpack support Bootstrap recompilation with real-time variables alteration.
 
 use_celery:
     Indicates whether the project should be configured to use Celery_.
 
-use_mailhog:
-    Indicates whether the project should be configured to use MailHog_.
+use_mailpit:
+    Indicates whether the project should be configured to use Mailpit_.
 
 use_sentry:
     Indicates whether the project should be configured to use Sentry_.
@@ -119,6 +134,7 @@ ci_tool:
     2. `Travis CI`_
     3. `Gitlab CI`_
     4. `Github Actions`_
+    5. `Drone CI`_
 
 keep_local_envs_in_vcs:
     Indicates whether the project's ``.envs/.local/`` should be kept in VCS
@@ -137,16 +153,20 @@ debug:
 .. _Apache Software License 2.0: http://www.apache.org/licenses/LICENSE-2.0
 
 .. _PyCharm: https://www.jetbrains.com/pycharm/
+.. _VS Code: https://github.com/microsoft/vscode
 
 .. _Docker: https://github.com/docker/docker
 .. _Docker Compose: https://docs.docker.com/compose/
+.. _devcontainer: https://containers.dev/
 
 .. _PostgreSQL: https://www.postgresql.org/docs/
 
 .. _Gulp: https://github.com/gulpjs/gulp
+.. _Webpack: https://webpack.js.org
 
 .. _AWS: https://aws.amazon.com/s3/
 .. _GCP: https://cloud.google.com/storage/
+.. _Azure: https://azure.microsoft.com/en-us/products/storage/blobs/
 
 .. _Amazon SES: https://aws.amazon.com/ses/
 .. _Mailgun: https://www.mailgun.com
@@ -164,7 +184,7 @@ debug:
 
 .. _Celery: https://github.com/celery/celery
 
-.. _MailHog: https://github.com/mailhog/MailHog
+.. _Mailpit: https://github.com/axllent/mailpit
 
 .. _Sentry: https://github.com/getsentry/sentry
 
@@ -175,5 +195,7 @@ debug:
 .. _Travis CI: https://travis-ci.org/
 
 .. _GitLab CI: https://docs.gitlab.com/ee/ci/
+
+.. _Drone CI: https://docs.drone.io/pipeline/overview/
 
 .. _Github Actions: https://docs.github.com/en/actions

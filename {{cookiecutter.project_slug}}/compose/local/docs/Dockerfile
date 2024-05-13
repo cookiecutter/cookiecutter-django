@@ -1,7 +1,5 @@
-ARG PYTHON_VERSION=3.10-slim-bullseye
-
-# define an alias for the specfic python version used in this file.
-FROM python:${PYTHON_VERSION} as python
+# define an alias for the specific python version used in this file.
+FROM docker.io/python:3.12.3-slim-bookworm as python
 
 
 # Python build stage
@@ -12,7 +10,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 RUN apt-get update && apt-get install --no-install-recommends -y \
   # dependencies for building Python packages
   build-essential \
-  # psycopg2 dependencies
+  # psycopg dependencies
   libpq-dev \
   # cleaning up unused files
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
@@ -37,7 +35,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 RUN apt-get update && apt-get install --no-install-recommends -y \
   # To run the Makefile
   make \
-  # psycopg2 dependencies
+  # psycopg dependencies
   libpq-dev \
   # Translations dependencies
   gettext \

@@ -1,21 +1,23 @@
+from http import HTTPStatus
+
 import pytest
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.models import AnonymousUser
 from django.contrib.messages.middleware import MessageMiddleware
 from django.contrib.sessions.middleware import SessionMiddleware
-from django.http import HttpRequest, HttpResponseRedirect
+from django.http import HttpRequest
+from django.http import HttpResponseRedirect
 from django.test import RequestFactory
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 
 from {{ cookiecutter.project_slug }}.users.forms import UserAdminChangeForm
 from {{ cookiecutter.project_slug }}.users.models import User
 from {{ cookiecutter.project_slug }}.users.tests.factories import UserFactory
-from {{ cookiecutter.project_slug }}.users.views import (
-    UserRedirectView,
-    UserUpdateView,
-    user_detail_view,
-)
+from {{ cookiecutter.project_slug }}.users.views import UserRedirectView
+from {{ cookiecutter.project_slug }}.users.views import UserUpdateView
+from {{ cookiecutter.project_slug }}.users.views import user_detail_view
 
 pytestmark = pytest.mark.django_db
 
@@ -39,7 +41,11 @@ class TestUserUpdateView:
 
         view.request = request
 
+        {%- if cookiecutter.username_type == "email" %}
+        assert view.get_success_url() == f"/users/{user.pk}/"
+        {%- else %}
         assert view.get_success_url() == f"/users/{user.username}/"
+        {%- endif %}
 
     def test_get_object(self, user: User, rf: RequestFactory):
         view = UserUpdateView()
@@ -68,7 +74,7 @@ class TestUserUpdateView:
         view.form_valid(form)
 
         messages_sent = [m.message for m in messages.get_messages(request)]
-        assert messages_sent == ["Information successfully updated"]
+        assert messages_sent == [_("Information successfully updated")]
 
 
 class TestUserRedirectView:
@@ -79,7 +85,11 @@ class TestUserRedirectView:
 
         view.request = request
 
+        {%- if cookiecutter.username_type == "email" %}
+        assert view.get_redirect_url() == f"/users/{user.pk}/"
+        {%- else %}
         assert view.get_redirect_url() == f"/users/{user.username}/"
+        {%- endif %}
 
 
 class TestUserDetailView:
@@ -87,17 +97,25 @@ class TestUserDetailView:
         request = rf.get("/fake-url/")
         request.user = UserFactory()
 
+        {%- if cookiecutter.username_type == "email" %}
+        response = user_detail_view(request, pk=user.pk)
+        {%- else %}
         response = user_detail_view(request, username=user.username)
+        {%- endif %}
 
-        assert response.status_code == 200
+        assert response.status_code == HTTPStatus.OK
 
     def test_not_authenticated(self, user: User, rf: RequestFactory):
         request = rf.get("/fake-url/")
         request.user = AnonymousUser()
 
+        {%- if cookiecutter.username_type == "email" %}
+        response = user_detail_view(request, pk=user.pk)
+        {%- else %}
         response = user_detail_view(request, username=user.username)
+        {%- endif %}
         login_url = reverse(settings.LOGIN_URL)
 
         assert isinstance(response, HttpResponseRedirect)
-        assert response.status_code == 302
+        assert response.status_code == HTTPStatus.FOUND
         assert response.url == f"{login_url}?next=/fake-url/"
