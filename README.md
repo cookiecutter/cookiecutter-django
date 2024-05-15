@@ -65,19 +65,15 @@ This project is an open source project run by volunteers. You can sponsor us via
 
 Projects that provide financial support to the maintainers:
 
----
+### Two Scoops of Django
 
-<p align="center">
-  <a href="https://www.feldroy.com/products//two-scoops-of-django-3-x"><img src="https://cdn.shopify.com/s/files/1/0304/6901/products/Two-Scoops-of-Django-3-Alpha-Cover_540x_26507b15-e489-470b-8a97-02773dd498d1_1080x.jpg"></a>
-</p>
+[![Cover of the book "Two Scoops of Django 3.x"](https://www.feldroy.com/static/book-TSD3-800.jpg)](https://www.feldroy.com/two-scoops-press#two-scoops-of-django)
 
 Two Scoops of Django 3.x is the best ice cream-themed Django reference in the universe!
 
 ### PyUp
 
-<p align="center">
-  <a href="https://pyup.io/"><img src="https://pyup.io/static/images/logo.png"></a>
-</p>
+[![PyUp Logo](https://pyup.io/static/images/logo.png)](https://pyup.io)
 
 PyUp brings you automated security and dependency updates used by Google and other organizations. Free for open source projects!
 
