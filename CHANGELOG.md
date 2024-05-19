@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.05.18
+
+
+### Fixed
+
+- Fix redirect error when forcing allauth login in admin site ([#5078](https://github.com/cookiecutter/cookiecutter-django/pull/5078))
+
 ## 2024.05.17
 
 
