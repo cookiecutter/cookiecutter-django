@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.05.20
+
+
+### Fixed
+
+- Fix PyCharm Run Configurations After local.yml Rename ([#5080](https://github.com/cookiecutter/cookiecutter-django/pull/5080))
+
+### Updated
+
+- Update pytest to 8.2.1 ([#5079](https://github.com/cookiecutter/cookiecutter-django/pull/5079))
+
 ## 2024.05.18
 
 
