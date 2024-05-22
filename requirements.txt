@@ -23,4 +23,4 @@ pyyaml==6.0.1
 PyGithub==2.3.0
 gitpython==3.1.43
 jinja2==3.1.4
-requests==2.32.1
+requests==2.32.2
