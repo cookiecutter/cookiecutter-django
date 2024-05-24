@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.05.23
+
+
+### Updated
+
+- Update sentry-sdk to 2.3.1 ([#5091](https://github.com/cookiecutter/cookiecutter-django/pull/5091))
+
+- Auto-update pre-commit hooks ([#5087](https://github.com/cookiecutter/cookiecutter-django/pull/5087))
+
+- Update ruff to 0.4.5 ([#5086](https://github.com/cookiecutter/cookiecutter-django/pull/5086))
+
 ## 2024.05.21
 
 
