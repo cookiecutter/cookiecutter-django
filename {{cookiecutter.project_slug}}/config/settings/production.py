@@ -276,12 +276,12 @@ ANYMAIL = {
     "SENDGRID_API_KEY": env("SENDGRID_API_KEY"),
     "SENDGRID_API_URL": env("SENDGRID_API_URL", default="https://api.sendgrid.com/v3/"),
 }
-{%- elif cookiecutter.mail_service == 'SendinBlue' %}
-# https://anymail.readthedocs.io/en/stable/esps/sendinblue/
-EMAIL_BACKEND = "anymail.backends.sendinblue.EmailBackend"
+{%- elif cookiecutter.mail_service == 'Brevo' %}
+# https://anymail.readthedocs.io/en/stable/esps/brevo/
+EMAIL_BACKEND = "anymail.backends.brevo.EmailBackend"
 ANYMAIL = {
-    "SENDINBLUE_API_KEY": env("SENDINBLUE_API_KEY"),
-    "SENDINBLUE_API_URL": env("SENDINBLUE_API_URL", default="https://api.sendinblue.com/v3/"),
+    "BREVO_API_KEY": env("BREVO_API_KEY"),
+    "BREVO_API_URL": env("BREVO_API_URL", default="https://api.brevo.com/v3/"),
 }
 {%- elif cookiecutter.mail_service == 'SparkPost' %}
 # https://anymail.readthedocs.io/en/stable/esps/sparkpost/

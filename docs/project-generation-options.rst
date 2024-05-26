@@ -91,7 +91,7 @@ mail_service:
     4. Mandrill_
     5. Postmark_
     6. SendGrid_
-    7. SendinBlue_
+    7. `Brevo (formerly SendinBlue)`_
     8. SparkPost_
     9. `Other SMTP`_
 
@@ -174,7 +174,7 @@ debug:
 .. _Mandrill: http://mandrill.com
 .. _Postmark: https://postmarkapp.com
 .. _SendGrid: https://sendgrid.com
-.. _SendinBlue: https://www.sendinblue.com
+.. _Brevo (formerly SendinBlue): https://www.brevo.com
 .. _SparkPost: https://www.sparkpost.com
 .. _Other SMTP: https://anymail.readthedocs.io/en/stable/
 

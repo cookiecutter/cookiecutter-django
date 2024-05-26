@@ -27,7 +27,7 @@
     "Mandrill",
     "Postmark",
     "Sendgrid",
-    "Brevo (Previously SendinBlue)",
+    "Brevo",
     "SparkPost",
     "Other SMTP"
   ],

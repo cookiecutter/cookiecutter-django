@@ -69,8 +69,8 @@ SENDGRID_API_KEY                        SENDGRID_API_KEY            n/a         
 SENDGRID_GENERATE_MESSAGE_ID            True                        n/a                                            raises error
 SENDGRID_MERGE_FIELD_FORMAT             None                        n/a                                            raises error
 SENDGRID_API_URL                        n/a                         n/a                                            "https://api.sendgrid.com/v3/"
-SENDINBLUE_API_KEY                      SENDINBLUE_API_KEY          n/a                                            raises error
-SENDINBLUE_API_URL                      n/a                         n/a                                            "https://api.sendinblue.com/v3/"
+BREVO_API_KEY                           BREVO_API_KEY               n/a                                            raises error
+BREVO_API_URL                           n/a                         n/a                                            "https://api.brevo.com/v3/"
 SPARKPOST_API_KEY                       SPARKPOST_API_KEY           n/a                                            raises error
 SPARKPOST_API_URL                       n/a                         n/a                                            "https://api.sparkpost.com/api/v1"
 ======================================= =========================== ============================================== ======================================================================
