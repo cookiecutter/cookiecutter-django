@@ -147,7 +147,7 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     4 - Mandrill
     5 - Postmark
     6 - Sendgrid
-    7 - SendinBlue
+    7 - Brevo (formerly SendinBlue)
     8 - SparkPost
     9 - Other SMTP
     Choose from 1, 2, 3, 4, 5, 6, 7, 8, 9 [1]: 1
