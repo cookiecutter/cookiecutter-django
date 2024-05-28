@@ -3,6 +3,25 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.05.27
+
+
+### Changed
+
+- Rename SendInBlue ESP to Brevo ([#5094](https://github.com/cookiecutter/cookiecutter-django/pull/5094))
+
+### Updated
+
+- Update django-stubs to 5.0.2 ([#5100](https://github.com/cookiecutter/cookiecutter-django/pull/5100))
+
+- Update watchfiles to 0.22.0 ([#5099](https://github.com/cookiecutter/cookiecutter-django/pull/5099))
+
+- Update django-allauth to 0.63.2 ([#5092](https://github.com/cookiecutter/cookiecutter-django/pull/5092))
+
+- Update coverage to 7.5.2 ([#5095](https://github.com/cookiecutter/cookiecutter-django/pull/5095))
+
+- Update django-debug-toolbar to 4.4.2 ([#5098](https://github.com/cookiecutter/cookiecutter-django/pull/5098))
+
 ## 2024.05.23
 
 
