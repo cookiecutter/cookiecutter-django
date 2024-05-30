@@ -3,6 +3,21 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.05.29
+
+
+### Updated
+
+- Update requests to 2.32.3 ([#5108](https://github.com/cookiecutter/cookiecutter-django/pull/5108))
+
+- Update ruff to 0.4.6 ([#5107](https://github.com/cookiecutter/cookiecutter-django/pull/5107))
+
+- Auto-update pre-commit hooks ([#5106](https://github.com/cookiecutter/cookiecutter-django/pull/5106))
+
+- Update coverage to 7.5.3 ([#5104](https://github.com/cookiecutter/cookiecutter-django/pull/5104))
+
+- Update django-upgrade to 1.18.0 ([#5105](https://github.com/cookiecutter/cookiecutter-django/pull/5105))
+
 ## 2024.05.27
 
 
