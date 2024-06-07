@@ -27,6 +27,10 @@ if compress_enabled; then
   python /app/manage.py compress
 fi
 {%- endif %}
+
+# The number of worker processes for handling requests. [default: 4]
+WEB_CONCURRENCY=${WEB_CONCURRENCY:-4}
+
 {%- if cookiecutter.use_async == 'y' %}
 exec /usr/local/bin/gunicorn config.asgi --bind 0.0.0.0:5000 -w $WEB_CONCURRENCY --chdir=/app -k uvicorn.workers.UvicornWorker
 {%- else %}
