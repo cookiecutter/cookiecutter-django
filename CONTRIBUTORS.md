@@ -1119,6 +1119,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Jason Mok</td>
+    <td>
+      <a href="https://github.com/jasonmokk">jasonmokk</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Jens Kaeske</td>
     <td>
       <a href="https://github.com/jkaeske">jkaeske</a>
