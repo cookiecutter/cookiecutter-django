@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.06.08
+
+
+### Changed
+
+- Replace deprecated `uvicorn.workers` with `uvicorn-worker` ([#5110](https://github.com/cookiecutter/cookiecutter-django/pull/5110))
+
+- Change aws-cli docker image to use official amazon image ([#5116](https://github.com/cookiecutter/cookiecutter-django/pull/5116))
+
 ## 2024.06.06
 
 
