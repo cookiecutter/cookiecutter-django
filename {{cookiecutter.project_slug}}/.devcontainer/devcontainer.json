@@ -2,7 +2,7 @@
 {
     "name": "{{cookiecutter.project_slug}}_dev",
     "dockerComposeFile": [
-        "../local.yml"
+        "../docker-compose.local.yml"
     ],
     "init": true,
     "mounts": [

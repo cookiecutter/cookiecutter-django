@@ -1,6 +1,6 @@
 release: python manage.py migrate
 {%- if cookiecutter.use_async == "y" %}
-web: gunicorn config.asgi:application -k uvicorn.workers.UvicornWorker
+web: gunicorn config.asgi:application -k uvicorn_worker.UvicornWorker
 {%- else %}
 web: gunicorn config.wsgi:application
 {%- endif %}

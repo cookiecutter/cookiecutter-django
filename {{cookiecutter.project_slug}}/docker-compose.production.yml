@@ -1,5 +1,3 @@
-version: '3'
-
 volumes:
   production_postgres_data: {}
   production_postgres_data_backups: {}
@@ -7,6 +5,10 @@ volumes:
   {%- if cookiecutter.cloud_provider == 'None' %}
   production_django_media: {}
   {%- endif %}
+  {% if cookiecutter.use_celery == 'y' %}
+  production_redis_data: {}
+  {% endif %}
+
 
 services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
@@ -68,6 +70,12 @@ services:
 
   redis:
     image: docker.io/redis:6
+    {% if cookiecutter.use_celery == 'y' %}
+    volumes:
+      - production_redis_data:/data
+    {% endif %}
+
+
   {%- if cookiecutter.use_celery == 'y' %}
 
   celeryworker:
@@ -102,7 +110,7 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/nginx/Dockerfile
-    image: {{ cookiecutter.project_slug }}_local_nginx
+    image: {{ cookiecutter.project_slug }}_production_nginx
     depends_on:
       - django
     volumes:

@@ -106,7 +106,7 @@ function imgCompression() {
 function asyncRunServer() {
   const cmd = spawn(
     'gunicorn',
-    ['config.asgi', '-k', 'uvicorn.workers.UvicornWorker', '--reload'],
+    ['config.asgi', '-k', 'uvicorn_worker.UvicornWorker', '--reload'],
     {stdio: 'inherit'},
   );
   cmd.on('close', function (code) {
