@@ -30,7 +30,7 @@ If you recreate the project multiple times with the same name, Docker would pres
 
 To fix this, you can either:
 
-- Clear your project-related Docker cache with ``docker compose -f local.yml down --volumes --rmi all``.
+- Clear your project-related Docker cache with ``docker compose -f docker-compose.local.yml down --volumes --rmi all``.
 - Use the Docker volume sub-commands to find volumes (`ls`_) and remove them (`rm`_).
 - Use the `prune`_ command to clear system-wide (use with care!).
 

@@ -21,7 +21,7 @@ Next, you have to add new remote python interpreter, based on already tested dep
 
 .. image:: images/3.png
 
-Switch to *Docker Compose* and select `local.yml` file from directory of your project, next set *Service name* to `django`
+Switch to *Docker Compose* and select `docker-compose.local.yml` file from directory of your project, next set *Service name* to `django`
 
 .. image:: images/4.png
 
