@@ -42,14 +42,21 @@ def context():
     }
 
 
+def generate_license_file_titles():
+    directory = os.path.join("{{cookiecutter.project_slug}}", "licenses")
+    titles = []
+    for file in os.listdir(directory):
+        if file == "-temporary-placeholder.txt":
+            continue
+        with open(os.path.join(directory, file)) as f:
+            titles.append(f.readlines()[1].replace("title: ", "").replace("\n", ""))
+    return titles
+
+
 SUPPORTED_COMBINATIONS = [
+    *[{"open_source_license": x} for x in generate_license_file_titles()],
     {"username_type": "username"},
     {"username_type": "email"},
-    {"open_source_license": "MIT"},
-    {"open_source_license": "BSD"},
-    {"open_source_license": "GPLv3"},
-    {"open_source_license": "Apache Software License 2.0"},
-    {"open_source_license": "Not open source"},
     {"windows": "y"},
     {"windows": "n"},
     {"editor": "None"},
