@@ -26,9 +26,6 @@ else:
     sys.path.insert(0, os.path.abspath(".."))
 {%- endif %}
 os.environ["DATABASE_URL"] = "sqlite:///readthedocs.db"
-{%- if cookiecutter.use_celery == 'y' %}
-os.environ["CELERY_BROKER_URL"] = os.getenv("REDIS_URL", "redis://redis:6379")
-{%- endif %}
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
 django.setup()
 
