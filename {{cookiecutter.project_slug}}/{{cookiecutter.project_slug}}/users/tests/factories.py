@@ -1,9 +1,11 @@
 from collections.abc import Sequence
 from typing import Any
 
-from django.contrib.auth import get_user_model
-from factory import Faker, post_generation
+from factory import Faker
+from factory import post_generation
 from factory.django import DjangoModelFactory
+
+from {{ cookiecutter.project_slug }}.users.models import User
 
 
 class UserFactory(DjangoModelFactory):
@@ -14,7 +16,7 @@ class UserFactory(DjangoModelFactory):
     name = Faker("name")
 
     @post_generation
-    def password(self, create: bool, extracted: Sequence[Any], **kwargs):
+    def password(self, create: bool, extracted: Sequence[Any], **kwargs):  # noqa: FBT001
         password = (
             extracted
             if extracted
@@ -37,5 +39,5 @@ class UserFactory(DjangoModelFactory):
             instance.save()
 
     class Meta:
-        model = get_user_model()
+        model = User
         django_get_or_create = ["{{cookiecutter.username_type}}"]

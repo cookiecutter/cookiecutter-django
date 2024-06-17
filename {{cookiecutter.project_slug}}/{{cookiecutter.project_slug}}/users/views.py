@@ -1,11 +1,12 @@
-from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import DetailView, RedirectView, UpdateView
+from django.views.generic import DetailView
+from django.views.generic import RedirectView
+from django.views.generic import UpdateView
 
-User = get_user_model()
+from {{ cookiecutter.project_slug }}.users.models import User
 
 
 class UserDetailView(LoginRequiredMixin, DetailView):
@@ -28,7 +29,8 @@ class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     success_message = _("Information successfully updated")
 
     def get_success_url(self):
-        assert self.request.user.is_authenticated  # for mypy to know that the user is authenticated
+        # for mypy to know that the user is authenticated
+        assert self.request.user.is_authenticated
         return self.request.user.get_absolute_url()
 
     def get_object(self):

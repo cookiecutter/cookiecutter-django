@@ -46,7 +46,7 @@ Run these commands to deploy the project to Heroku:
     # Assign with AWS_STORAGE_BUCKET_NAME
     heroku config:set DJANGO_AWS_STORAGE_BUCKET_NAME=
 
-    git push heroku master
+    git push heroku main
 
     heroku run python manage.py createsuperuser
 
