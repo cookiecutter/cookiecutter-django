@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.06.17
+
+
+### Updated
+
+- Update django-compressor to 4.5 ([#5145](https://github.com/cookiecutter/cookiecutter-django/pull/5145))
+
+- Update rcssmin to 1.1.2 ([#4614](https://github.com/cookiecutter/cookiecutter-django/pull/4614))
+
 ## 2024.06.15
 
 
