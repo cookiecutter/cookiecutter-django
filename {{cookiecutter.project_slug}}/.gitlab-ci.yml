@@ -28,8 +28,6 @@ pytest:
   stage: test
   {%- if cookiecutter.use_docker == 'y' %}
   image: docker:25.0
-  tags:
-    - docker
   services:
     - docker:dind
   before_script:
@@ -42,8 +40,6 @@ pytest:
     - docker compose -f docker-compose.local.yml run django pytest
   {%- else %}
   image: python:3.12
-  tags:
-    - python
   services:
     - postgres:{{ cookiecutter.postgresql_version }}
   variables:
