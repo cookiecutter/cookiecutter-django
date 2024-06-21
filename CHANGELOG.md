@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.06.20
+
+
+### Fixed
+
+- Remove deprecated docker and python tags from GitLab CI config ([#5158](https://github.com/cookiecutter/cookiecutter-django/pull/5158))
+
 ## 2024.06.19
 
 
