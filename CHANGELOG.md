@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.07.02
+
+
+### Updated
+
+- Update pillow to 10.4.0 ([#5182](https://github.com/cookiecutter/cookiecutter-django/pull/5182))
+
 ## 2024.07.01
 
 
