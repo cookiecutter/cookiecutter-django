@@ -3,7 +3,7 @@
 Start by configuring the `LANGUAGES` settings in `base.py`, by uncommenting languages you are willing to support. Then, translations strings will be placed in this folder when running:
 
 ```bash
-{% if cookiecutter.use_docker == 'y' %}docker compose -f docker-compose.local.yml run --rm django {% endif %}python manage.py makemessages -all --no-location
+{% if cookiecutter.use_docker == 'y' %}docker compose -f docker-compose.local.yml run --rm django {% endif %}python manage.py makemessages --all --no-location
 ```
 
 This should generate `django.po` (stands for Portable Object) files under each locale `<locale name>/LC_MESSAGES/django.po`. Each translatable string in the codebase is collected with its `msgid` and need to be translated as `msgstr`, for example:
