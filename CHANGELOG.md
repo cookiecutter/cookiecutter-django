@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.07.15
+
+
+### Updated
+
+- Update sentry-sdk to 2.10.0 ([#5216](https://github.com/cookiecutter/cookiecutter-django/pull/5216))
+
+- Update sphinx to 7.4.2 ([#5215](https://github.com/cookiecutter/cookiecutter-django/pull/5215))
+
+- Update ruff to 0.5.2 ([#5211](https://github.com/cookiecutter/cookiecutter-django/pull/5211))
+
+- Update sphinx to 7.4.0 ([#5214](https://github.com/cookiecutter/cookiecutter-django/pull/5214))
+
 ## 2024.07.12
 
 
