@@ -23,7 +23,7 @@ djangorestframework-stubs[compatible-mypy]==3.15.0  # https://github.com/typeddj
 
 # Documentation
 # ------------------------------------------------------------------------------
-sphinx==7.4.2  # https://github.com/sphinx-doc/sphinx
+sphinx==7.4.4  # https://github.com/sphinx-doc/sphinx
 sphinx-autobuild==2024.4.16 # https://github.com/GaretJax/sphinx-autobuild
 
 # Code quality
