@@ -15,7 +15,7 @@ from inside the `{{cookiecutter.project_slug}}/docs` directory.
 {% else %}
 To build and serve docs, use the commands::
 
-    docker compose -f local.yml up docs
+    docker compose -f docker-compose.local.yml up docs
 
 {% endif %}
 
@@ -26,7 +26,7 @@ Changes to files in `docs/_source` will be picked up and reloaded automatically.
 Docstrings to Documentation
 ----------------------------------------------------------------------
 
-The sphinx extension `apidoc <https://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html/>`_ is used to automatically document code using signatures and docstrings.
+The sphinx extension `apidoc <https://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html>`_ is used to automatically document code using signatures and docstrings.
 
 Numpy or Google style docstrings will be picked up from project files and available for documentation. See the `Napoleon <https://sphinxcontrib-napoleon.readthedocs.io/en/latest/>`_ extension for details.
 

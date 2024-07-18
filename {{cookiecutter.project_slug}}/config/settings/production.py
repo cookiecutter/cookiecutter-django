@@ -55,8 +55,12 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)
 # https://docs.djangoproject.com/en/dev/ref/settings/#session-cookie-secure
 SESSION_COOKIE_SECURE = True
+# https://docs.djangoproject.com/en/dev/ref/settings/#session-cookie-name
+SESSION_COOKIE_NAME = "__Secure-sessionid"
 # https://docs.djangoproject.com/en/dev/ref/settings/#csrf-cookie-secure
 CSRF_COOKIE_SECURE = True
+# https://docs.djangoproject.com/en/dev/ref/settings/#csrf-cookie-name
+CSRF_COOKIE_NAME = "__Secure-csrftoken"
 # https://docs.djangoproject.com/en/dev/topics/security/#ssl-https
 # https://docs.djangoproject.com/en/dev/ref/settings/#secure-hsts-seconds
 # TODO: set this to 60 seconds first and then to 518400 once you prove the former works
@@ -118,7 +122,7 @@ AZURE_CONTAINER = env("DJANGO_AZURE_CONTAINER_NAME")
 # STATIC & MEDIA
 # ------------------------
 STORAGES = {
-{%- if cookiecutter.use_whitenoise == 'y' %}
+{%- if cookiecutter.use_whitenoise == 'y' and cookiecutter.cloud_provider == 'None' %}
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
@@ -133,6 +137,11 @@ STORAGES = {
             "file_overwrite": False,
         },
     },
+    {%- if cookiecutter.use_whitenoise == 'y' %}
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+    {%- else %}
     "staticfiles": {
         "BACKEND": "storages.backends.s3.S3Storage",
         "OPTIONS": {
@@ -140,6 +149,7 @@ STORAGES = {
             "default_acl": "public-read",
         },
     },
+    {%- endif %}
 {%- elif cookiecutter.cloud_provider == 'GCP' %}
     "default": {
         "BACKEND": "storages.backends.gcloud.GoogleCloudStorage",
@@ -148,6 +158,11 @@ STORAGES = {
             "file_overwrite": False,
         },
     },
+    {%- if cookiecutter.use_whitenoise == 'y' %}
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+    {%- else %}
     "staticfiles": {
         "BACKEND": "storages.backends.gcloud.GoogleCloudStorage",
         "OPTIONS": {
@@ -155,6 +170,7 @@ STORAGES = {
             "default_acl": "publicRead",
         },
     },
+    {%- endif %}
 {%- elif cookiecutter.cloud_provider == 'Azure' %}
     "default": {
         "BACKEND": "storages.backends.azure_storage.AzureStorage",
@@ -163,27 +179,39 @@ STORAGES = {
             "file_overwrite": False,
         },
     },
+    {%- if cookiecutter.use_whitenoise == 'y' %}
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+    {%- else %}
     "staticfiles": {
         "BACKEND": "storages.backends.azure_storage.AzureStorage",
         "OPTIONS": {
             "location": "static",
         },
     },
+    {%- endif %}
 {%- endif %}
 }
 {%- endif %}
 
 {%- if cookiecutter.cloud_provider == 'AWS' %}
 MEDIA_URL = f"https://{aws_s3_domain}/media/"
-COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
+{%- if cookiecutter.use_whitenoise == 'n' %}
+COLLECTFASTA_STRATEGY = "collectfasta.strategies.boto3.Boto3Strategy"
 STATIC_URL = f"https://{aws_s3_domain}/static/"
+{%- endif %}
 {%- elif cookiecutter.cloud_provider == 'GCP' %}
 MEDIA_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/media/"
-COLLECTFAST_STRATEGY = "collectfast.strategies.gcloud.GoogleCloudStrategy"
+{%- if cookiecutter.use_whitenoise == 'n' %}
+COLLECTFASTA_STRATEGY = "collectfasta.strategies.gcloud.GoogleCloudStrategy"
 STATIC_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/static/"
+{%- endif %}
 {%- elif cookiecutter.cloud_provider == 'Azure' %}
 MEDIA_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/media/"
+{%- if cookiecutter.use_whitenoise == 'n' %}
 STATIC_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/static/"
+{%- endif %}
 {%- endif %}
 
 # EMAIL
@@ -252,12 +280,12 @@ ANYMAIL = {
     "SENDGRID_API_KEY": env("SENDGRID_API_KEY"),
     "SENDGRID_API_URL": env("SENDGRID_API_URL", default="https://api.sendgrid.com/v3/"),
 }
-{%- elif cookiecutter.mail_service == 'SendinBlue' %}
-# https://anymail.readthedocs.io/en/stable/esps/sendinblue/
-EMAIL_BACKEND = "anymail.backends.sendinblue.EmailBackend"
+{%- elif cookiecutter.mail_service == 'Brevo' %}
+# https://anymail.readthedocs.io/en/stable/esps/brevo/
+EMAIL_BACKEND = "anymail.backends.brevo.EmailBackend"
 ANYMAIL = {
-    "SENDINBLUE_API_KEY": env("SENDINBLUE_API_KEY"),
-    "SENDINBLUE_API_URL": env("SENDINBLUE_API_URL", default="https://api.sendinblue.com/v3/"),
+    "BREVO_API_KEY": env("BREVO_API_KEY"),
+    "BREVO_API_URL": env("BREVO_API_URL", default="https://api.brevo.com/v3/"),
 }
 {%- elif cookiecutter.mail_service == 'SparkPost' %}
 # https://anymail.readthedocs.io/en/stable/esps/sparkpost/
@@ -285,7 +313,8 @@ COMPRESS_STORAGE = "compressor.storage.GzipCompressorFileStorage"
 COMPRESS_STORAGE = STORAGES["staticfiles"]["BACKEND"]
 {%- endif %}
 # https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_URL
-COMPRESS_URL = STATIC_URL{% if cookiecutter.use_whitenoise == 'y' or cookiecutter.cloud_provider == 'None' %}{% endif %}
+COMPRESS_URL = STATIC_URL{% if cookiecutter.use_whitenoise == 'y' or cookiecutter.cloud_provider == 'None' %}  # noqa: F405
+{%- endif -%}
 {%- if cookiecutter.use_whitenoise == 'y' %}
 # https://django-compressor.readthedocs.io/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
 COMPRESS_OFFLINE = True  # Offline compression is required when using Whitenoise
@@ -300,10 +329,10 @@ COMPRESS_FILTERS = {
 }
 {% endif %}
 {%- if cookiecutter.use_whitenoise == 'n' -%}
-# Collectfast
+# Collectfasta
 # ------------------------------------------------------------------------------
-# https://github.com/antonagestam/collectfast#installation
-INSTALLED_APPS = ["collectfast", *INSTALLED_APPS]
+# https://github.com/jasongi/collectfasta#installation
+INSTALLED_APPS = ["collectfasta", *INSTALLED_APPS]
 {% endif %}
 # LOGGING
 # ------------------------------------------------------------------------------

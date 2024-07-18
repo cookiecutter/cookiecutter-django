@@ -9,7 +9,7 @@ Setting Up Development Environment
 
 Make sure to have the following on your host:
 
-* Python 3.11
+* Python 3.12
 * PostgreSQL_.
 * Redis_, if using Celery
 * Cookiecutter_
@@ -18,7 +18,7 @@ First things first.
 
 #. Create a virtualenv: ::
 
-    $ python3.11 -m venv <virtual env path>
+    $ python3.12 -m venv <virtual env path>
 
 #. Activate the virtualenv you have just created: ::
 
@@ -94,6 +94,61 @@ First things first.
 .. _postgres documentation: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
 .. _pre-commit: https://pre-commit.com/
 .. _direnv: https://direnv.net/
+
+
+Creating Your First Django App
+-------------------------------
+
+After setting up your environment, you're ready to add your first app. This project uses the setup from "Two Scoops of Django" with a two-tier layout:
+
+- **Top Level Repository Root** has config files, documentation, `manage.py`, and more.
+- **Second Level Django Project Root** is where your Django apps live.
+- **Second Level Configuration Root** holds settings and URL configurations.
+
+The project layout looks something like this: ::
+
+    <repository_root>/
+    ├── config/
+    │   ├── settings/
+    │   │   ├── __init__.py
+    │   │   ├── base.py
+    │   │   ├── local.py
+    │   │   └── production.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    ├── <django_project_root>/
+    │   ├── <name_of_the_app>/
+    │   │   ├── migrations/
+    │   │   ├── admin.py
+    │   │   ├── apps.py
+    │   │   ├── models.py
+    │   │   ├── tests.py
+    │   │   └── views.py
+    │   ├── __init__.py
+    │   └── ...
+    ├── requirements/
+    │   ├── base.txt
+    │   ├── local.txt
+    │   └── production.txt
+    ├── manage.py
+    ├── README.md
+    └── ...
+
+
+Following this structured approach, here's how to add a new app:
+
+#. **Create the app** using Django's ``startapp`` command, replacing ``<name-of-the-app>`` with your desired app name: ::
+
+    $ python manage.py startapp <name-of-the-app>
+
+#. **Move the app** to the Django Project Root, maintaining the project's two-tier structure: ::
+
+    $ mv <name-of-the-app> <django_project_root>/
+
+#. **Edit the app's apps.py** change ``name = '<name-of-the-app>'`` to ``name = '<django_project_root>.<name-of-the-app>'``.
+
+#. **Register the new app** by adding it to the ``LOCAL_APPS`` list in ``config/settings/base.py``, integrating it as an official component of your project.
+
 
 
 Setup Email Backend

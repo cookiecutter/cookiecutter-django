@@ -1,0 +1,16 @@
+services:
+  docs:
+    image: {{ cookiecutter.project_slug }}_local_docs
+    container_name: {{ cookiecutter.project_slug }}_local_docs
+    build:
+      context: .
+      dockerfile: ./compose/local/docs/Dockerfile
+    env_file:
+      - ./.envs/.local/.django
+    volumes:
+      - ./docs:/docs:z
+      - ./config:/app/config:z
+      - ./{{ cookiecutter.project_slug }}:/app/{{ cookiecutter.project_slug }}:z
+    ports:
+      - '9000:9000'
+    command: /start-docs

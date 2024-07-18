@@ -15,7 +15,7 @@ norecursedirs = [
 # ==== black ====
 [tool.black]
 line-length = 119
-target-version = ['py311']
+target-version = ['py312']
 
 
 # ==== isort ====

@@ -2,11 +2,11 @@ exclude: "{{cookiecutter.project_slug}}|.github/contributors.json|CHANGELOG.md|C
 default_stages: [commit]
 
 default_language_version:
-  python: python3.11
+  python: python3.12
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v4.6.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -26,14 +26,14 @@ repos:
         args: ["--tab-width", "2"]
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.15.1
+    rev: v3.16.0
     hooks:
       - id: pyupgrade
-        args: [--py311-plus]
+        args: [--py312-plus]
         exclude: hooks/
 
   - repo: https://github.com/psf/black
-    rev: 24.2.0
+    rev: 24.4.2
     hooks:
       - id: black
 
@@ -43,7 +43,7 @@ repos:
       - id: isort
 
   - repo: https://github.com/PyCQA/flake8
-    rev: 7.0.0
+    rev: 7.1.0
     hooks:
       - id: flake8
 
