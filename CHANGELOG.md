@@ -3,6 +3,87 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.07.18
+
+
+### Updated
+
+- Update sphinx to 7.4.6 ([#5223](https://github.com/cookiecutter/cookiecutter-django/pull/5223))
+
+## 2024.07.17
+
+
+### Updated
+
+- Update sphinx to 7.4.5 ([#5222](https://github.com/cookiecutter/cookiecutter-django/pull/5222))
+
+## 2024.07.16
+
+
+### Fixed
+
+- Clear `ENTRYPOINT` in `awscli` image to allow script execution ([#5221](https://github.com/cookiecutter/cookiecutter-django/pull/5221))
+
+### Updated
+
+- Update sphinx to 7.4.4 ([#5218](https://github.com/cookiecutter/cookiecutter-django/pull/5218))
+
+## 2024.07.15
+
+
+### Updated
+
+- Update sentry-sdk to 2.10.0 ([#5216](https://github.com/cookiecutter/cookiecutter-django/pull/5216))
+
+- Update sphinx to 7.4.2 ([#5215](https://github.com/cookiecutter/cookiecutter-django/pull/5215))
+
+- Update ruff to 0.5.2 ([#5211](https://github.com/cookiecutter/cookiecutter-django/pull/5211))
+
+- Update sphinx to 7.4.0 ([#5214](https://github.com/cookiecutter/cookiecutter-django/pull/5214))
+
+## 2024.07.12
+
+
+### Updated
+
+- Update django-allauth to 0.63.6 ([#5210](https://github.com/cookiecutter/cookiecutter-django/pull/5210))
+
+- Update django-allauth to 0.63.5 ([#5206](https://github.com/cookiecutter/cookiecutter-django/pull/5206))
+
+- Update coverage to 7.6.0 ([#5207](https://github.com/cookiecutter/cookiecutter-django/pull/5207))
+
+- Update django-anymail to 11.0.1 ([#5208](https://github.com/cookiecutter/cookiecutter-django/pull/5208))
+
+## 2024.07.10
+
+
+### Updated
+
+- Update django-allauth to 0.63.4 ([#5204](https://github.com/cookiecutter/cookiecutter-django/pull/5204))
+
+- Update django to 4.2.14 ([#5200](https://github.com/cookiecutter/cookiecutter-django/pull/5200))
+
+- Update collectfasta to 3.2.0 ([#5201](https://github.com/cookiecutter/cookiecutter-django/pull/5201))
+
+- Update sentry-sdk to 2.9.0 ([#5202](https://github.com/cookiecutter/cookiecutter-django/pull/5202))
+
+- Update django-debug-toolbar to 4.4.6 ([#5203](https://github.com/cookiecutter/cookiecutter-django/pull/5203))
+
+## 2024.07.09
+
+
+### Changed
+
+- Migrate from Collectfast to Collestfasta ([#5172](https://github.com/cookiecutter/cookiecutter-django/pull/5172))
+
+### Documentation
+
+- Fix a typo in the `--all` option of the `makemessages` command ([#5198](https://github.com/cookiecutter/cookiecutter-django/pull/5198))
+
+### Updated
+
+- Update django-storages to 1.14.4 ([#5197](https://github.com/cookiecutter/cookiecutter-django/pull/5197))
+
 ## 2024.07.08
 
 
