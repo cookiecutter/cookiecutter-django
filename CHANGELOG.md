@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.07.18
+
+
+### Updated
+
+- Update sphinx to 7.4.6 ([#5223](https://github.com/cookiecutter/cookiecutter-django/pull/5223))
+
 ## 2024.07.17
 
 
