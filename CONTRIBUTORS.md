@@ -223,6 +223,13 @@ Listed in alphabetical order.
     <td>MOGOST</td>
   </tr>
   <tr>
+    <td>Ali Shamakhi</td>
+    <td>
+      <a href="https://github.com/ali-shamakhi">ali-shamakhi</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Alvaro [Andor]</td>
     <td>
       <a href="https://github.com/andor-pierdelacabeza">andor-pierdelacabeza</a>
