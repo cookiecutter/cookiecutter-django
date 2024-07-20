@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.07.19
+
+
+### Changed
+
+- Use &#34;ENV key=value&#34; instead of &#34;ENV key value&#34; in Dockerfiles ([#5225](https://github.com/cookiecutter/cookiecutter-django/pull/5225))
+
+### Updated
+
+- Update django-upgrade to 1.20.0 ([#5227](https://github.com/cookiecutter/cookiecutter-django/pull/5227))
+
+- Update ruff to 0.5.3 ([#5224](https://github.com/cookiecutter/cookiecutter-django/pull/5224))
+
 ## 2024.07.18
 
 
