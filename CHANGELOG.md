@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.07.20
+
+
+### Updated
+
+- Update hiredis to 3.0.0 ([#5228](https://github.com/cookiecutter/cookiecutter-django/pull/5228))
+
+- Update uvicorn to 0.30.3 ([#5234](https://github.com/cookiecutter/cookiecutter-django/pull/5234))
+
+- Update django-crispy-forms to 2.3 ([#5229](https://github.com/cookiecutter/cookiecutter-django/pull/5229))
+
+- Auto-update pre-commit hooks ([#5232](https://github.com/cookiecutter/cookiecutter-django/pull/5232))
+
 ## 2024.07.19
 
 
