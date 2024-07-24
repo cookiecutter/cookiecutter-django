@@ -67,7 +67,7 @@ Projects that provide financial support to the maintainers:
 
 ### Two Scoops of Django
 
-[![Cover of the book "Two Scoops of Django 3.x"](https://www.feldroy.com/static/book-TSD3-800.jpg)](https://www.feldroy.com/two-scoops-press#two-scoops-of-django)
+[![Cover of the book "Two Scoops of Django 3.x"](https://f004.backblazeb2.com/file/feldroycom/images/book-TSD3-800.jpg)](https://www.feldroy.com/two-scoops-press#two-scoops-of-django)
 
 Two Scoops of Django 3.x is the best ice cream-themed Django reference in the universe!
 
