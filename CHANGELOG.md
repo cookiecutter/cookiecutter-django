@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.07.24
+
+
+### Changed
+
+- fix non existent of two scoops of django image ([#5248](https://github.com/cookiecutter/cookiecutter-django/pull/5248))
+
 ## 2024.07.23
 
 
