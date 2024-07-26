@@ -311,6 +311,3 @@ Go to your browser and type in your URL bar ``https://my-dev-env.local``.
 For more on this configuration, see `https with nginx`_.
 
   .. _`https with nginx`: https://codewithhugo.com/docker-compose-local-https/
-
-
-
