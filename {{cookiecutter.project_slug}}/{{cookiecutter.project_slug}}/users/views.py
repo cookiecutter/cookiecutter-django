@@ -22,7 +22,7 @@ class UserDetailView(LoginRequiredMixin, DetailView):
 
     def get_object(self, queryset=None):
         obj = super().get_object(queryset)
-        if obj.id != self.request.user.id:
+        if obj.username != self.request.user.username:
             raise PermissionDenied
         return obj
 
