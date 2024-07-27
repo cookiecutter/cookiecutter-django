@@ -5,6 +5,7 @@ from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView
 from django.views.generic import RedirectView
 from django.views.generic import UpdateView
+from django.core.exceptions import PermissionDenied
 
 from {{ cookiecutter.project_slug }}.users.models import User
 
@@ -19,6 +20,11 @@ class UserDetailView(LoginRequiredMixin, DetailView):
     slug_url_kwarg = "username"
     {%- endif %}
 
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+        if obj.id != self.request.user.id:
+            raise PermissionDenied
+        return obj
 
 user_detail_view = UserDetailView.as_view()
 
