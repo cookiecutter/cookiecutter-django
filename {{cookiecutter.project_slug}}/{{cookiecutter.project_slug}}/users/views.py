@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.core.exceptions import PermissionDenied
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView
@@ -19,6 +20,15 @@ class UserDetailView(LoginRequiredMixin, DetailView):
     slug_url_kwarg = "username"
     {%- endif %}
 
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+        {%- if cookiecutter.username_type == "email" %}
+        if obj.id != self.request.user.id:
+        {%- else %}
+        if obj.username != self.request.user.username:
+        {%- endif %}
+            raise PermissionDenied
+        return obj
 
 user_detail_view = UserDetailView.as_view()
 
