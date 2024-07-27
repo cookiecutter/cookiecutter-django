@@ -22,7 +22,11 @@ class UserDetailView(LoginRequiredMixin, DetailView):
 
     def get_object(self, queryset=None):
         obj = super().get_object(queryset)
+        {%- if cookiecutter.username_type == "email" %}
+        if obj.id != self.request.user.id:
+        {%- else %}
         if obj.username != self.request.user.username:
+        {%- endif %}
             raise PermissionDenied
         return obj
 
