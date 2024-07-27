@@ -103,7 +103,7 @@ class TestUserDetailView:
         response = user_detail_view(request, username=user.username)
         {%- endif %}
 
-        assert response.status_code == HTTPStatus.OK
+        assert response.status_code == HTTPStatus.FORBIDDEN
 
     def test_not_authenticated(self, user: User, rf: RequestFactory):
         request = rf.get("/fake-url/")
