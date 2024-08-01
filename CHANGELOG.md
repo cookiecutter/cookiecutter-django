@@ -3,6 +3,29 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.07.31
+
+
+### Updated
+
+- Update uvicorn to 0.30.4 ([#5271](https://github.com/cookiecutter/cookiecutter-django/pull/5271))
+
+- Update mypy to 1.11.1 ([#5270](https://github.com/cookiecutter/cookiecutter-django/pull/5270))
+
+- Update pre-commit to 3.8.0 ([#5257](https://github.com/cookiecutter/cookiecutter-django/pull/5257))
+
+- Update pyupgrade pre-commit hook to v3.17.0 ([#5258](https://github.com/cookiecutter/cookiecutter-django/pull/5258))
+
+- Update redis to 5.0.8 ([#5265](https://github.com/cookiecutter/cookiecutter-django/pull/5265))
+
+- Update django-stubs to 5.0.4 ([#5256](https://github.com/cookiecutter/cookiecutter-django/pull/5256))
+
+- Update mypy to 1.11.0 ([#5231](https://github.com/cookiecutter/cookiecutter-django/pull/5231))
+
+- Update django-allauth to 64.0.0 ([#5269](https://github.com/cookiecutter/cookiecutter-django/pull/5269))
+
+- Update sentry-sdk to 2.12.0 ([#5268](https://github.com/cookiecutter/cookiecutter-django/pull/5268))
+
 ## 2024.07.26
 
 
