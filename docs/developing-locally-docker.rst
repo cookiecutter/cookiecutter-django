@@ -248,7 +248,7 @@ The stack comes with a dedicated node service to build the static assets, watch 
 Nginx
 ~~~~~
 
-If you want to use the ``users`` application with a OAuth provider such as Facebook, securing your communication to the local development environment will be necessary. Facebook requires that you use an HTTPS URL for the OAuth redirect URL for the Facebook login to work appropriately.
+If you want to add some sort of social authentication with a OAuth provider such as Facebook, securing your communication to the local development environment will be necessary. These providers usually require that you use an HTTPS URL for the OAuth redirect URL for the Facebook login to work appropriately.
 
 Here is a link to an article on `how to add HTTPS using Nginx`_ to your local docker installation. This also includes how to serve files from the ``media`` location, in the event that you are want to serve user-uploaded content.
 
@@ -257,52 +257,44 @@ Here is a link to an article on `how to add HTTPS using Nginx`_ to your local do
 Webpack
 ~~~~~~~
 
-If you are using Webpack, first install ``mkcert``.
+If you are using Webpack, first install ``mkcert``_. It is a simple by design tool that hides all the arcane knowledge required to generate valid TLS certificates. It works for any hostname or IP, including localhost. It supports macOS, Linux, and Windows, and Firefox, Chrome and Java. It even works on mobile devices with a couple manual steps. See https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/
 
-    `mkcert`_ is a simple by design tool that hides all the arcane knowledge required to generate valid TLS certificates. It works for any hostname or IP, including localhost. It supports macOS, Linux, and Windows, and Firefox, Chrome and Java. It even works on mobile devices with a couple manual steps.
-
-    See https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/
-
-    .. _`mkcert`:  https://github.com/FiloSottile/mkcert/blob/master/README.md#supported-root-stores
+.. _`mkcert`:  https://github.com/FiloSottile/mkcert/blob/master/README.md#supported-root-stores
 
 These are the places that you should configure to secure your local environment. Take the certificates that you generated and place them in a folder called ``certs`` in the project's root folder. Configure an ``nginx`` reverse-proxy server as a ``service`` in the ``docker-compose.local.yml``. This makes sure that it does not interfere with our ``traefik`` configuration that is reserved for production environments.
 
 Assuming that you registered your local hostname as ``my-dev-env.local``, the certificates you will put in the folder should have the names ``my-dev-env.local.crt`` and ``my-dev-env.local.key``.
 
-1. Add the ``nginx-proxy`` service to the ``docker-compose.local.yml``.
-::
+1. Add the ``nginx-proxy`` service to the ``docker-compose.local.yml``. ::
 
   nginx-proxy:
     image: jwilder/nginx-proxy:alpine
     container_name: nginx-proxy
     ports:
-    - "80:80"
-    - "443:443"
+      - "80:80"
+      - "443:443"
     volumes:
-    - /var/run/docker.sock:/tmp/docker.sock:ro
-    - ./certs:/etc/nginx/certs
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./certs:/etc/nginx/certs
     restart: always
     depends_on:
-    - node
+      - node
     environment:
-    - VIRTUAL_HOST=my-dev-env.local
-    - VIRTUAL_PORT=3000
+      - VIRTUAL_HOST=my-dev-env.local
+      - VIRTUAL_PORT=3000
 
-2. Add the local secure domain to the ``config/settings/local.py``. You should allow the new hostname.
-::
+2. Add the local secure domain to the ``config/settings/local.py``. You should allow the new hostname ::
 
   ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "my-dev-env.local"]
 
-3. Add the following configuration to the ``devServer`` section of ``webpack/dev.config.js``
-::
+3. Add the following configuration to the ``devServer`` section of ``webpack/dev.config.js`` ::
 
   client: {
     webSocketURL: 'auto://0.0.0.0:0/ws', // note the `:0` after `0.0.0.0`
   },
 
 
-Rebuild your ``docker`` application.
-::
+Rebuild your ``docker`` application. ::
 
   $ docker compose -f docker-compose.local.yml up -d --build
 
@@ -310,4 +302,4 @@ Go to your browser and type in your URL bar ``https://my-dev-env.local``.
 
 For more on this configuration, see `https with nginx`_.
 
-  .. _`https with nginx`: https://codewithhugo.com/docker-compose-local-https/
+.. _`https with nginx`: https://codewithhugo.com/docker-compose-local-https/
