@@ -1294,6 +1294,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Kevin Mills</td>
+    <td>
+      <a href="https://github.com/millsks">millsks</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Kevin Ndung&#39;u</td>
     <td>
       <a href="https://github.com/kevgathuku">kevgathuku</a>
