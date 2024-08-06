@@ -3,6 +3,21 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.08.05
+
+
+### Documentation
+
+- Simplify documentation for https in local development ([#5252](https://github.com/cookiecutter/cookiecutter-django/pull/5252))
+
+- Add Medium story in the Articles section ([#5275](https://github.com/cookiecutter/cookiecutter-django/pull/5275))
+
+### Updated
+
+- Update coverage to 7.6.1 ([#5276](https://github.com/cookiecutter/cookiecutter-django/pull/5276))
+
+- Auto-update pre-commit hooks ([#5277](https://github.com/cookiecutter/cookiecutter-django/pull/5277))
+
 ## 2024.08.04
 
 
