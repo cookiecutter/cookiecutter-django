@@ -14,7 +14,7 @@
     "concurrently": "^8.0.1",
     "cssnano": "^7.0.0",
     "gulp": "^4.0.2",
-    "gulp-imagemin": "^7.1.0",
+    "gulp-imagemin": "^9.1.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^10.0.0",
     "gulp-rename": "^2.0.0",
