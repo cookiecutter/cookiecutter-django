@@ -10,7 +10,7 @@ jobs:
   include:
     - name: "Linter"
       before_script:
-        - pip install -q ruff
+        - {{ "ruff"|install(cookiecutter)}}
       script:
         - ruff check .
 
@@ -40,7 +40,7 @@ jobs:
       python:
         - "3.12"
       install:
-        - pip install -r requirements/local.txt
+        - {{ "development"|install(cookiecutter)}}
       script:
         - pytest
     {%- endif %}
