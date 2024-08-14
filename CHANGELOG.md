@@ -3,6 +3,24 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.08.13
+
+
+### Updated
+
+- Update tox to 4.18.0 ([#5299](https://github.com/cookiecutter/cookiecutter-django/pull/5299))
+
+- Update sentry-sdk to 2.13.0 ([#5298](https://github.com/cookiecutter/cookiecutter-django/pull/5298))
+
+- Update uvicorn to 0.30.6 ([#5295](https://github.com/cookiecutter/cookiecutter-django/pull/5295))
+
+## 2024.08.12
+
+
+### Updated
+
+- Update gunicorn to 23.0.0 ([#5294](https://github.com/cookiecutter/cookiecutter-django/pull/5294))
+
 ## 2024.08.09
 
 
