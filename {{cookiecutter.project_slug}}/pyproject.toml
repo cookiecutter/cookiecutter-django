@@ -59,15 +59,12 @@ indent_size = 2
 indent_size = 2
 
 [tool.ruff]
+target-version = "py312"
 # Exclude a variety of commonly ignored directories.
 extend-exclude = [
     "*/migrations/*.py",
     "staticfiles/*",
 ]
-# Same as Django: https://github.com/cookiecutter/cookiecutter-django/issues/4792.
-line-length = 88
-indent-width = 4
-target-version = "py312"
 
 [tool.ruff.lint]
 select = [
@@ -124,33 +121,22 @@ select = [
   "PERF",
   # "FURB",
   # "LOG",
-  "RUF"
+  "RUF",
 ]
 ignore = [
   "S101", # Use of assert detected https://docs.astral.sh/ruff/rules/assert/
   "RUF012", # Mutable class attributes should be annotated with `typing.ClassVar`
   "SIM102", # sometimes it's better to nest
-  "UP038" # Checks for uses of isinstance/issubclass that take a tuple
+  "UP038", # Checks for uses of isinstance/issubclass that take a tuple
           # of types for comparison.
           # Deactivated because it can make the code slow:
           # https://github.com/astral-sh/ruff/issues/7871
 ]
-# Allow fix for all enabled rules (when `--fix`) is provided.
-fixable = ["ALL"]
-unfixable = []
 # The fixes in extend-unsafe-fixes will require
 # provide the `--unsafe-fixes` flag when fixing.
 extend-unsafe-fixes = [
-    "UP038"
+    "UP038",
 ]
-# Allow unused variables when underscore-prefixed.
-dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
-
-[tool.ruff.format]
-quote-style = "double"
-indent-style = "space"
-skip-magic-trailing-comma = false
-line-ending = "auto"
 
 [tool.ruff.lint.isort]
 force-single-line = true
