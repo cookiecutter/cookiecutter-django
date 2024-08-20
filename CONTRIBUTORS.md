@@ -1609,6 +1609,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>milvagox</td>
+    <td>
+      <a href="https://github.com/milvagox">milvagox</a>
+    </td>
+    <td>milvagox</td>
+  </tr>
+  <tr>
     <td>Min ho Kim</td>
     <td>
       <a href="https://github.com/minho42">minho42</a>
