@@ -216,6 +216,20 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Alexandr Artemyev</td>
+    <td>
+      <a href="https://github.com/Mogost">Mogost</a>
+    </td>
+    <td>MOGOST</td>
+  </tr>
+  <tr>
+    <td>Ali Shamakhi</td>
+    <td>
+      <a href="https://github.com/ali-shamakhi">ali-shamakhi</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Alvaro [Andor]</td>
     <td>
       <a href="https://github.com/andor-pierdelacabeza">andor-pierdelacabeza</a>
@@ -839,6 +853,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Filipe Nascimento</td>
+    <td>
+      <a href="https://github.com/FilipeNas">FilipeNas</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Florian Idelberger</td>
     <td>
       <a href="https://github.com/step21">step21</a>
@@ -1119,6 +1140,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Jason Mok</td>
+    <td>
+      <a href="https://github.com/jasonmokk">jasonmokk</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Jens Kaeske</td>
     <td>
       <a href="https://github.com/jkaeske">jkaeske</a>
@@ -1266,6 +1294,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Kevin Mills</td>
+    <td>
+      <a href="https://github.com/millsks">millsks</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Kevin Ndung&#39;u</td>
     <td>
       <a href="https://github.com/kevgathuku">kevgathuku</a>
@@ -1397,6 +1432,13 @@ Listed in alphabetical order.
       <a href="https://github.com/flyudvik">flyudvik</a>
     </td>
     <td>flyudvik</td>
+  </tr>
+  <tr>
+    <td>Manas Mallick</td>
+    <td>
+      <a href="https://github.com/ManDun">ManDun</a>
+    </td>
+    <td></td>
   </tr>
   <tr>
     <td>Manjit Pardeshi</td>
@@ -1567,6 +1609,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>milvagox</td>
+    <td>
+      <a href="https://github.com/milvagox">milvagox</a>
+    </td>
+    <td>milvagox</td>
+  </tr>
+  <tr>
     <td>Min ho Kim</td>
     <td>
       <a href="https://github.com/minho42">minho42</a>
@@ -1691,6 +1740,13 @@ Listed in alphabetical order.
       <a href="https://github.com/pamelafox">pamelafox</a>
     </td>
     <td>pamelafox</td>
+  </tr>
+  <tr>
+    <td>Param Kapur</td>
+    <td>
+      <a href="https://github.com/paramkpr">paramkpr</a>
+    </td>
+    <td>ParamKapur</td>
   </tr>
   <tr>
     <td>Parbhat Puri</td>

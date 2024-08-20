@@ -4,6 +4,14 @@ set -o errexit
 set -o nounset
 
 
+
+until timeout 10 celery -A config.celery_app inspect ping; do
+    >&2 echo "Celery workers not available"
+done
+
+echo 'Starting flower'
+
+
 exec celery \
     -A config.celery_app \
     -b "${CELERY_BROKER_URL}" \

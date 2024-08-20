@@ -19,7 +19,7 @@ production-ready Django projects quickly.
 
 ## Features
 
-- For Django 4.2
+- For Django 5.0
 - Works with Python 3.12
 - Renders Django projects with 100% starting test coverage
 - Twitter [Bootstrap](https://github.com/twbs/bootstrap) v5
@@ -67,7 +67,7 @@ Projects that provide financial support to the maintainers:
 
 ### Two Scoops of Django
 
-[![Cover of the book "Two Scoops of Django 3.x"](https://www.feldroy.com/static/book-TSD3-800.jpg)](https://www.feldroy.com/two-scoops-press#two-scoops-of-django)
+[![Cover of the book "Two Scoops of Django 3.x"](https://f004.backblazeb2.com/file/feldroycom/images/book-TSD3-800.jpg)](https://www.feldroy.com/two-scoops-press#two-scoops-of-django)
 
 Two Scoops of Django 3.x is the best ice cream-themed Django reference in the universe!
 
@@ -147,7 +147,7 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     4 - Mandrill
     5 - Postmark
     6 - Sendgrid
-    7 - SendinBlue
+    7 - Brevo (formerly SendinBlue)
     8 - SparkPost
     9 - Other SMTP
     Choose from 1, 2, 3, 4, 5, 6, 7, 8, 9 [1]: 1
@@ -244,6 +244,7 @@ experience better.
 
 ## Articles
 
+- [Why cookiecutter-django is Essential for Your Next Django Project](https://medium.com/@millsks/why-cookiecutter-django-is-essential-for-your-next-django-project-7d3c00cdce51) - Aug. 4, 2024
 - [How to Make Your Own Django Cookiecutter Template!](https://medium.com/@FatemeFouladkar/how-to-make-your-own-django-cookiecutter-template-a753d4cbb8c2) - Aug. 10, 2023
 - [Cookiecutter Django With Amazon RDS](https://haseeburrehman.com/posts/cookiecutter-django-with-amazon-rds/) - Apr, 2, 2021
 - [Complete Walkthrough: Blue/Green Deployment to AWS ECS using GitHub actions](https://github.com/Andrew-Chen-Wang/cookiecutter-django-ecs-github) - June 10, 2020
