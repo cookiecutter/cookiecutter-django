@@ -6,7 +6,7 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 ## 2024.08.20
 
 
-### Changed
+### Fixed
 
 - Add missing extra_body block in allauth entrance.html ([#5308](https://github.com/cookiecutter/cookiecutter-django/pull/5308))
 
