@@ -1196,6 +1196,13 @@ Listed in alphabetical order.
     <td>cass_john</td>
   </tr>
   <tr>
+    <td>Johnny Metz</td>
+    <td>
+      <a href="https://github.com/johnnymetz">johnnymetz</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Jonathan Thompson</td>
     <td>
       <a href="https://github.com/nojanath">nojanath</a>
