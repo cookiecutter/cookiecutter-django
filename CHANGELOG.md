@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.09.02
+
+
+### Updated
+
+- Auto-update pre-commit hooks ([#5334](https://github.com/cookiecutter/cookiecutter-django/pull/5334))
+
+- Update django-allauth to 64.2.0 ([#5337](https://github.com/cookiecutter/cookiecutter-django/pull/5337))
+
+- Update pytest-django to 4.9.0 ([#5338](https://github.com/cookiecutter/cookiecutter-django/pull/5338))
+
 ## 2024.08.30
 
 
