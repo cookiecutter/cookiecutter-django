@@ -2225,6 +2225,13 @@ Listed in alphabetical order.
     <td>westurner</td>
   </tr>
   <tr>
+    <td>Will</td>
+    <td>
+      <a href="https://github.com/novucs">novucs</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Will Farley</td>
     <td>
       <a href="https://github.com/goldhand">goldhand</a>
