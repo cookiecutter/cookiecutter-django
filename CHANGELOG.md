@@ -3,6 +3,145 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.09.04
+
+
+### Updated
+
+- Update django-model-utils to 5.0.0 ([#5343](https://github.com/cookiecutter/cookiecutter-django/pull/5343))
+
+## 2024.09.03
+
+
+### Fixed
+
+- Pin watchdog to 4.0.2 ([#5335](https://github.com/cookiecutter/cookiecutter-django/pull/5335))
+
+### Updated
+
+- Update django to 5.0.9 ([#5341](https://github.com/cookiecutter/cookiecutter-django/pull/5341))
+
+- Update sphinx-autobuild to 2024.9.3 ([#5340](https://github.com/cookiecutter/cookiecutter-django/pull/5340))
+
+## 2024.09.02
+
+
+### Updated
+
+- Auto-update pre-commit hooks ([#5334](https://github.com/cookiecutter/cookiecutter-django/pull/5334))
+
+- Update django-allauth to 64.2.0 ([#5337](https://github.com/cookiecutter/cookiecutter-django/pull/5337))
+
+- Update pytest-django to 4.9.0 ([#5338](https://github.com/cookiecutter/cookiecutter-django/pull/5338))
+
+## 2024.08.30
+
+
+### Updated
+
+- Update django-webpack-loader to 3.1.1 ([#5336](https://github.com/cookiecutter/cookiecutter-django/pull/5336))
+
+## 2024.08.29
+
+
+### Updated
+
+- Update ruff to 0.6.3 ([#5333](https://github.com/cookiecutter/cookiecutter-django/pull/5333))
+
+- Update djlint to 1.35.2 ([#5332](https://github.com/cookiecutter/cookiecutter-django/pull/5332))
+
+- Update djlint pre-commit hook to v1.34.2  ([#5331](https://github.com/cookiecutter/cookiecutter-django/pull/5331))
+
+## 2024.08.28
+
+
+### Updated
+
+- Update watchfiles to 0.24.0 ([#5330](https://github.com/cookiecutter/cookiecutter-django/pull/5330))
+
+- Update djlint to 1.34.2 ([#5329](https://github.com/cookiecutter/cookiecutter-django/pull/5329))
+
+## 2024.08.26
+
+
+### Changed
+
+- Check DB migrations in GitHub CI ([#5322](https://github.com/cookiecutter/cookiecutter-django/pull/5322))
+
+### Updated
+
+- Update mypy to 1.11.2 ([#5320](https://github.com/cookiecutter/cookiecutter-django/pull/5320))
+
+## 2024.08.23
+
+
+### Updated
+
+- Update werkzeug to 3.0.4 ([#5313](https://github.com/cookiecutter/cookiecutter-django/pull/5313))
+
+- Update ruff to 0.6.2 ([#5316](https://github.com/cookiecutter/cookiecutter-django/pull/5316))
+
+## 2024.08.22
+
+
+### Updated
+
+- Update django-celery-beat to 2.7.0 ([#5315](https://github.com/cookiecutter/cookiecutter-django/pull/5315))
+
+## 2024.08.21
+
+
+### Changed
+
+- Add type hint for UserFactory ([#5312](https://github.com/cookiecutter/cookiecutter-django/pull/5312))
+
+## 2024.08.20
+
+
+### Fixed
+
+- Add missing extra_body block in allauth entrance.html ([#5308](https://github.com/cookiecutter/cookiecutter-django/pull/5308))
+
+### Updated
+
+- Bump sass-loader from 14.2.1 to 16.0.1 ([#5309](https://github.com/cookiecutter/cookiecutter-django/pull/5309))
+
+- Bump node from 20 to 22 ([#5039](https://github.com/cookiecutter/cookiecutter-django/pull/5039))
+
+- Bump webpack-merge from 5.10.0 to 6.0.1 ([#5187](https://github.com/cookiecutter/cookiecutter-django/pull/5187))
+
+- Bump css-loader from 6.11.0 to 7.1.2 ([#5089](https://github.com/cookiecutter/cookiecutter-django/pull/5089))
+
+- Bump traefik from 2.11.2 to 3.1.2 ([#5282](https://github.com/cookiecutter/cookiecutter-django/pull/5282))
+
+## 2024.08.19
+
+
+### Updated
+
+- Update factory-boy to 3.3.1 ([#5307](https://github.com/cookiecutter/cookiecutter-django/pull/5307))
+
+## 2024.08.17
+
+
+### Updated
+
+- Update ruff to 0.6.1 ([#5303](https://github.com/cookiecutter/cookiecutter-django/pull/5303))
+
+## 2024.08.16
+
+
+### Updated
+
+- Update django-allauth to 64.1.0 ([#5302](https://github.com/cookiecutter/cookiecutter-django/pull/5302))
+
+## 2024.08.15
+
+
+### Updated
+
+- Update ruff to 0.6.0 ([#5300](https://github.com/cookiecutter/cookiecutter-django/pull/5300))
+
 ## 2024.08.13
 
 

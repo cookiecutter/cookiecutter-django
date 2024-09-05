@@ -7,7 +7,7 @@ from factory import post_generation
 from factory.django import DjangoModelFactory
 
 
-class UserFactory(DjangoModelFactory):
+class UserFactory(DjangoModelFactory[User]):
     {%- if cookiecutter.username_type == "username" %}
     username = Faker("user_name")
     {%- endif %}
