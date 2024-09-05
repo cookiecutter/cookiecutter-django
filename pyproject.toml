@@ -28,6 +28,26 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Topic :: Software Development",
 ]
+dependencies = [
+  "binaryornot==0.4.4",
+  "cookiecutter==2.6",
+  "django-upgrade==1.21",
+  "djlint==1.35.2",
+  "gitpython==3.1.43",
+  "jinja2==3.1.4",
+  "pre-commit==3.8",
+  "pygithub==2.4",
+  "pytest==8.3.3",
+  "pytest-cookies==0.7",
+  "pytest-instafail==0.5",
+  "pytest-xdist==3.6.1",
+  "pyyaml==6.0.2",
+  "requests==2.32.3",
+  "ruff==0.6.9",
+  "sh==2.0.7; sys_platform!='win23'",
+  "tox==4.21.2",
+  "tox-uv>=1.11.2",
+]
 urls = { Repository = "https://github.com/cookiecutter/cookiecutter-django" }
 
 [tool.black]
@@ -35,7 +55,6 @@ line-length = 119
 target-version = [
   'py312',
 ]
-
 # ==== isort ====
 
 [tool.isort]
@@ -47,7 +66,7 @@ known_first_party = [
   "hooks",
 ]
 
-# ==== djLint ====
+# ==== pytest ====
 
 [tool.pytest.ini_options]
 addopts = "-v --tb=short"
@@ -61,7 +80,7 @@ norecursedirs = [
   "*/{{cookiecutter.project_slug}}/*",
 ]
 
-# ==== black ====
+# ==== djLint ====
 
 [tool.djlint]
 blank_line_after_tag = "load,extends"
