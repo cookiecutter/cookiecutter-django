@@ -9,7 +9,7 @@
     "babel-loader": "^9.1.2",
     "bootstrap": "^5.2.3",
     "browser-sync": "^3.0.2",
-    "css-loader": "^6.5.1",
+    "css-loader": "^7.1.2",
     "gulp-concat": "^2.6.1",
     "concurrently": "^8.0.1",
     "cssnano": "^7.0.0",
@@ -27,15 +27,15 @@
     "postcss-loader": "^8.0.0",
     "postcss-preset-env": "^9.0.0",
     "sass": "^1.43.4",
-    "sass-loader": "^14.0.0",
+    "sass-loader": "^16.0.1",
     "webpack": "^5.65.0",
     "webpack-bundle-tracker": "^3.0.1",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^5.0.2",
-    "webpack-merge": "^5.8.0"
+    "webpack-merge": "^6.0.1"
   },
   "engines": {
-    "node": "20"
+    "node": "22"
   },
   "browserslist": [
     "last 2 versions"

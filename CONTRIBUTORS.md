@@ -1196,6 +1196,13 @@ Listed in alphabetical order.
     <td>cass_john</td>
   </tr>
   <tr>
+    <td>Johnny Metz</td>
+    <td>
+      <a href="https://github.com/johnnymetz">johnnymetz</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Jonathan Thompson</td>
     <td>
       <a href="https://github.com/nojanath">nojanath</a>
@@ -1607,6 +1614,13 @@ Listed in alphabetical order.
       <a href="https://github.com/Mike97M">Mike97M</a>
     </td>
     <td></td>
+  </tr>
+  <tr>
+    <td>milvagox</td>
+    <td>
+      <a href="https://github.com/milvagox">milvagox</a>
+    </td>
+    <td>milvagox</td>
   </tr>
   <tr>
     <td>Min ho Kim</td>
@@ -2209,6 +2223,13 @@ Listed in alphabetical order.
       <a href="https://github.com/westurner">westurner</a>
     </td>
     <td>westurner</td>
+  </tr>
+  <tr>
+    <td>Will</td>
+    <td>
+      <a href="https://github.com/novucs">novucs</a>
+    </td>
+    <td></td>
   </tr>
   <tr>
     <td>Will Farley</td>

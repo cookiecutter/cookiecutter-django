@@ -74,6 +74,9 @@ jobs:
       - name: Build the docs
         run: docker compose -f docker-compose.docs.yml build docs
 
+      - name: Check DB Migrations
+        run: docker compose -f docker-compose.local.yml run --rm django python manage.py makemigrations --check
+
       - name: Run DB Migrations
         run: docker compose -f docker-compose.local.yml run --rm django python manage.py migrate
 
@@ -97,6 +100,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements/local.txt
+
+      - name: Check DB Migrations
+        run: python manage.py makemigrations --check
+
+      - name: Run DB Migrations
+        run: python manage.py migrate
 
       - name: Test with pytest
         run: pytest
