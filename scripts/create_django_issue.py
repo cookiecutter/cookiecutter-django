@@ -1,3 +1,12 @@
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "gitpython",
+#     "PyGithub",
+#     "jinja2",
+#     "requests",
+# ]
+# ///
 """
 Creates an issue that generates a table for dependency checking whether
 all packages support the latest Django version. "Latest" does not include
