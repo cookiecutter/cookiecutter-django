@@ -1,3 +1,10 @@
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "PyGithub",
+#     "jinja2",
+# ]
+# ///
 import json
 import os
 from pathlib import Path
