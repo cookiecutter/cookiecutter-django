@@ -47,7 +47,7 @@ def main() -> None:
     print(f"Wrote {changelog_path}")
 
     # Update version
-    setup_py_path = ROOT / "setup.py"
+    setup_py_path = ROOT / "pyproject.toml"
     update_version(setup_py_path, release)
     print(f"Updated version in {setup_py_path}")
 
