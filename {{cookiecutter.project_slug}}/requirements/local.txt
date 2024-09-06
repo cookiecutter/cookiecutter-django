@@ -30,7 +30,7 @@ sphinx-rtd-theme==2.0.0 # https://pypi.org/project/sphinx-rtd-theme/
 
 # Code quality
 # ------------------------------------------------------------------------------
-ruff==0.6.3  # https://github.com/astral-sh/ruff
+ruff==0.6.4  # https://github.com/astral-sh/ruff
 coverage==7.6.1  # https://github.com/nedbat/coveragepy
 djlint==1.35.2  # https://github.com/Riverside-Healthcare/djLint
 pre-commit==3.8.0  # https://github.com/pre-commit/pre-commit
