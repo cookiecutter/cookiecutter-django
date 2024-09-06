@@ -1,35 +1,68 @@
-# ==== pytest ====
-[tool.pytest.ini_options]
-addopts = "-v --tb=short"
-norecursedirs = [
-    ".tox",
-    ".git",
-    "*/migrations/*",
-    "*/static/*",
-    "docs",
-    "venv",
-    "*/{{cookiecutter.project_slug}}/*",
+[project]
+name = "cookiecutter-django"
+version = "2024.09.05"
+description = "A Cookiecutter template for creating production-ready Django projects quickly."
+readme = "README.md"
+keywords = [
+  "cookiecutter",
+  "django",
+  "project template",
+  "scaffolding",
+  "skeleton",
 ]
+license = { text = "BSD" }
+authors = [
+  { name = "Daniel Roy Greenfeld", email = "pydanny@gmail.com" },
+]
+requires-python = "==3.12"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Framework :: Django :: 5.0",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: BSD License",
+  "Natural Language :: English",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Topic :: Software Development",
+]
+urls = { Repository = "https://github.com/cookiecutter/cookiecutter-django" }
 
-
-# ==== black ====
 [tool.black]
 line-length = 119
-target-version = ['py312']
-
+target-version = [
+  'py312',
+]
 
 # ==== isort ====
+
 [tool.isort]
 profile = "black"
 line_length = 119
 known_first_party = [
-    "tests",
-    "scripts",
-    "hooks",
+  "tests",
+  "scripts",
+  "hooks",
 ]
 
-
 # ==== djLint ====
+
+[tool.pytest.ini_options]
+addopts = "-v --tb=short"
+norecursedirs = [
+  ".tox",
+  ".git",
+  "*/migrations/*",
+  "*/static/*",
+  "docs",
+  "venv",
+  "*/{{cookiecutter.project_slug}}/*",
+]
+
+# ==== black ====
+
 [tool.djlint]
 blank_line_after_tag = "load,extends"
 close_void_tags = true
@@ -48,27 +81,3 @@ indent_size = 2
 
 [tool.djlint.js]
 indent_size = 2
-
-[project]
-name = "cookiecutter-django"
-version = "2024.09.02"
-requires-python = "== 3.12"
-description = "A Cookiecutter template for creating production-ready Django projects quickly."
-readme = "README.md"
-license = { text = "BSD" }
-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Environment :: Console",
-    "Framework :: Django :: 5.0",
-    "Intended Audience :: Developers",
-    "Natural Language :: English",
-    "License :: OSI Approved :: BSD License",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: Implementation :: CPython",
-    "Topic :: Software Development",
-]
-keywords = ["cookiecutter", "Python", "projects", "project templates", " django", "skeleton", "scaffolding", "project directory", "setup.py"]
-urls = { Repository = "https://github.com/cookiecutter/cookiecutter-django" }
-authors = [{ name = "Daniel Roy Greenfeld", email = "pydanny@gmail.com" }]
