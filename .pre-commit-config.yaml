@@ -47,6 +47,11 @@ repos:
     hooks:
       - id: flake8
 
+  - repo: https://github.com/tox-dev/pyproject-fmt
+    rev: "2.0.4"
+    hooks:
+      - id: pyproject-fmt
+
 ci:
   autoupdate_schedule: weekly
   skip: []
