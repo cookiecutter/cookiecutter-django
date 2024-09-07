@@ -14,7 +14,7 @@ license = { text = "BSD" }
 authors = [
   { name = "Daniel Roy Greenfeld", email = "pydanny@gmail.com" },
 ]
-requires-python = "==3.12"
+requires-python = ">=3.12"
 classifiers = [
   "Development Status :: 4 - Beta",
   "Environment :: Console",
