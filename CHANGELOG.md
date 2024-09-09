@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.09.08
+
+
+### Changed
+
+- Remove &#34;storages&#34; from `INSTALLED_APPS` ([#5361](https://github.com/cookiecutter/cookiecutter-django/pull/5361))
+
 ## 2024.09.07
 
 
