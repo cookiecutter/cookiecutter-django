@@ -3,6 +3,52 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.09.09
+
+
+### Updated
+
+- Update sentry-sdk to 2.14.0 ([#5365](https://github.com/cookiecutter/cookiecutter-django/pull/5365))
+
+## 2024.09.08
+
+
+### Changed
+
+- Remove &#34;storages&#34; from `INSTALLED_APPS` ([#5361](https://github.com/cookiecutter/cookiecutter-django/pull/5361))
+
+## 2024.09.07
+
+
+### Changed
+
+- Fix Requires Python to allow minor versions ([#5360](https://github.com/cookiecutter/cookiecutter-django/pull/5360))
+
+## 2024.09.06
+
+
+### Updated
+
+- Update ruff to 0.6.4 ([#5354](https://github.com/cookiecutter/cookiecutter-django/pull/5354))
+
+- Update django-allauth to 64.2.1 ([#5352](https://github.com/cookiecutter/cookiecutter-django/pull/5352))
+
+- Auto-update pre-commit hooks ([#5353](https://github.com/cookiecutter/cookiecutter-django/pull/5353))
+
+## 2024.09.05
+
+
+### Updated
+
+- Update django-upgrade to 1.21.0 ([#5348](https://github.com/cookiecutter/cookiecutter-django/pull/5348))
+
+## 2024.09.04
+
+
+### Updated
+
+- Update django-model-utils to 5.0.0 ([#5343](https://github.com/cookiecutter/cookiecutter-django/pull/5343))
+
 ## 2024.09.03
 
 
