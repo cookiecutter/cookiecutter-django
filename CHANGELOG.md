@@ -3,6 +3,68 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.09.11
+
+
+### Updated
+
+- Update djangorestframework-stubs to 3.15.1 ([#5372](https://github.com/cookiecutter/cookiecutter-django/pull/5372))
+
+- Update django-anymail to 12.0 ([#5366](https://github.com/cookiecutter/cookiecutter-django/pull/5366))
+
+## 2024.09.10
+
+
+### Changed
+
+- Add nginx container to dependabot automation ([#5345](https://github.com/cookiecutter/cookiecutter-django/pull/5345))
+
+### Updated
+
+- Update pytest to 8.3.3 ([#5371](https://github.com/cookiecutter/cookiecutter-django/pull/5371))
+
+- Bump postcss-preset-env from 9.6.0 to 10.0.3 ([#5368](https://github.com/cookiecutter/cookiecutter-django/pull/5368))
+
+- Bump concurrently from 8.2.2 to 9.0.0 ([#5363](https://github.com/cookiecutter/cookiecutter-django/pull/5363))
+
+- Bump python to 3.12.6 in local Docker ([#5370](https://github.com/cookiecutter/cookiecutter-django/pull/5370))
+
+- Bump python to 3.12.6 in production Docker ([#5367](https://github.com/cookiecutter/cookiecutter-django/pull/5367))
+
+- Bump python to 3.12.6 in docs Docker image ([#5369](https://github.com/cookiecutter/cookiecutter-django/pull/5369))
+
+## 2024.09.09
+
+
+### Updated
+
+- Update sentry-sdk to 2.14.0 ([#5365](https://github.com/cookiecutter/cookiecutter-django/pull/5365))
+
+## 2024.09.08
+
+
+### Changed
+
+- Remove &#34;storages&#34; from `INSTALLED_APPS` ([#5361](https://github.com/cookiecutter/cookiecutter-django/pull/5361))
+
+## 2024.09.07
+
+
+### Changed
+
+- Fix Requires Python to allow minor versions ([#5360](https://github.com/cookiecutter/cookiecutter-django/pull/5360))
+
+## 2024.09.06
+
+
+### Updated
+
+- Update ruff to 0.6.4 ([#5354](https://github.com/cookiecutter/cookiecutter-django/pull/5354))
+
+- Update django-allauth to 64.2.1 ([#5352](https://github.com/cookiecutter/cookiecutter-django/pull/5352))
+
+- Auto-update pre-commit hooks ([#5353](https://github.com/cookiecutter/cookiecutter-django/pull/5353))
+
 ## 2024.09.05
 
 

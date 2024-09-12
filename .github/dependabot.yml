@@ -1,5 +1,5 @@
 # Config for Dependabot updates. See Documentation here:
-# https://docs.github.com/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
+# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 
 version: 2
 updates:
@@ -91,6 +91,13 @@ updates:
 
   - package-ecosystem: "docker"
     directory: "{{cookiecutter.project_slug}}/compose/production/postgres/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "update"
+
+  - package-ecosystem: "docker"
+    directory: "{{cookiecutter.project_slug}}/compose/production/nginx/"
     schedule:
       interval: "daily"
     labels:

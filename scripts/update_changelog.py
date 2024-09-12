@@ -124,7 +124,7 @@ def write_changelog(file_path: Path, release: str, content: str) -> None:
 
 
 def update_version(file_path: Path, release: str) -> None:
-    """Update template version in setup.py."""
+    """Update template version in pyproject.toml."""
     old_content = file_path.read_text()
     updated_content = re.sub(
         r'\nversion = "\d+\.\d+\.\d+"\n',
