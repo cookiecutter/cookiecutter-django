@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.09.11
+
+
+### Updated
+
+- Update djangorestframework-stubs to 3.15.1 ([#5372](https://github.com/cookiecutter/cookiecutter-django/pull/5372))
+
+- Update django-anymail to 12.0 ([#5366](https://github.com/cookiecutter/cookiecutter-django/pull/5366))
+
 ## 2024.09.10
 
 
