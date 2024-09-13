@@ -13,6 +13,7 @@
     "Apache Software License 2.0",
     "Not open source"
   ],
+  "username_type": ["username", "email"],
   "timezone": "UTC",
   "windows": "n",
   "editor": ["None", "PyCharm", "VS Code"],
@@ -38,7 +39,6 @@
   "use_sentry": "n",
   "use_whitenoise": "n",
   "use_heroku": "n",
-  "username_type": ["email"],
   "ci_tool": ["None", "Travis", "Gitlab", "Github", "Drone"],
   "keep_local_envs_in_vcs": "y",
   "debug": "n"

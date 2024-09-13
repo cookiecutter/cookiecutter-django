@@ -29,6 +29,9 @@ class TestUserViewSet:
         response = view.me(request)  # type: ignore[call-arg, arg-type, misc]
 
         assert response.data == {
+            {%- if cookiecutter.username_type == "username" %}
+            "username": user.username,
+            {%- endif %}
             "email": user.email,
             "uuid": str(user.uuid),
             "first_name": user.first_name,

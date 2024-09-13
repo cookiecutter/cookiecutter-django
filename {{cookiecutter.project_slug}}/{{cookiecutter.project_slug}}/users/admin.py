@@ -21,9 +21,13 @@ class UserAdmin(auth_admin.UserAdmin):
     add_form = UserAdminCreationForm
     readonly_fields = ("uuid",)
     fieldsets = (
+        {%- if cookiecutter.username_type == "email" %}
         (None, {"fields": ("email", "password")}),
         (_("Personal info"), {"fields": ("first_name", "last_name")}),
-        (None, {"fields": ("uuid",)}),
+        {%- else %}
+        (None, {"fields": ("username", "password")}),
+        (_("Personal info"), {"fields": ("first_name", "last_name", "email")}),
+        {%- endif %}
         (
             _("Permissions"),
             {
@@ -39,15 +43,16 @@ class UserAdmin(auth_admin.UserAdmin):
         (_("Important dates"), {"fields": ("last_login", "date_joined")}),
     )
     list_display = [
-        "email",
+        "{{cookiecutter.username_type}}",
         "first_name",
         "last_name",
         "is_active",
         "is_staff",
         "is_superuser",
     ]
-    search_fields = ["email", "first_name", "last_name"]
-    ordering = ("email", "first_name", "last_name")
+    search_fields = ["{{cookiecutter.username_type}}", "first_name", "last_name"]
+    ordering = ("{{cookiecutter.username_type}}", "first_name", "last_name")
+    {%- if cookiecutter.username_type == "email" %}
     add_fieldsets = (
         (
             None,
@@ -63,3 +68,21 @@ class UserAdmin(auth_admin.UserAdmin):
             },
         ),
     )
+    {%- else %}
+    add_fieldsets = (
+        (
+            None,
+            {
+                "classes": ("wide",),
+                "fields": (
+                    "username",
+                    "first_name",
+                    "last_name",
+                    "email",
+                    "password1",
+                    "password2",
+                ),
+            },
+        ),
+    )
+    {%- endif %}

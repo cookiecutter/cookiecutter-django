@@ -55,10 +55,10 @@ class SocialAccountAdapter(DefaultSocialAccountAdapter):
         if request.user.is_authenticated and request.user.email != verified_email.email:
             messages.error(
                 request,
-                """
-            No es posible enlazar tu cuenta de {},
-            ya que no coincide con tu correo en esta plataforma.
-            """.format(
+                (
+                    "No es posible enlazar tu cuenta de {}, "
+                    "ya que no coincide con tu correo en esta plataforma."
+                ).format(
                     list(request._socialapp_cache.keys())[0].capitalize()
                 ),
             )

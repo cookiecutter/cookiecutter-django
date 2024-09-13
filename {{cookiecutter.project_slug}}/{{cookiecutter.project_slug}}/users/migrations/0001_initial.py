@@ -44,6 +44,36 @@ class Migration(migrations.Migration):
                         verbose_name="superuser status",
                     ),
                 ),
+                {%- if cookiecutter.username_type == "username" -%}
+                (
+                    "username",
+                    models.CharField(
+                        error_messages={
+                            "unique": "A user with that username already exists."
+                        },
+                        help_text="Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.",
+                        max_length=150,
+                        unique=True,
+                        validators=[
+                            django.contrib.auth.validators.UnicodeUsernameValidator()
+                        ],
+                        verbose_name="username",
+                    ),
+                ),
+                (
+                    "email",
+                    models.EmailField(
+                        blank=True, max_length=254, verbose_name="email address",
+                    ),
+                ),
+                {%- else %}
+                (
+                    "email",
+                    models.EmailField(
+                        unique=True, max_length=254, verbose_name="email address",
+                    ),
+                ),
+                {%- endif %}
                 (
                     "is_staff",
                     models.BooleanField(
@@ -64,12 +94,6 @@ class Migration(migrations.Migration):
                     "date_joined",
                     models.DateTimeField(
                         default=django.utils.timezone.now, verbose_name="date joined",
-                    ),
-                ),
-                (
-                    "email",
-                    models.EmailField(
-                        max_length=254, unique=True, verbose_name="email address"
                     ),
                 ),
                 (
@@ -115,7 +139,11 @@ class Migration(migrations.Migration):
                 "abstract": False,
             },
             managers=[
-                ('objects', {{ cookiecutter.project_slug }}.users.models.UserManager()),
+                {%- if cookiecutter.username_type == "email" %}
+                ("objects", {{cookiecutter.project_slug}}.users.models.UserManager()),
+                {%- else %}
+                ("objects", django.contrib.auth.models.UserManager()),
+                {%- endif %}
             ],
         ),
     ]

@@ -4,7 +4,11 @@
 
 {% block title %}
   User: {% endraw %}
+  {% if cookiecutter.username_type == "email" %}
     {% raw %}{{ object.first_name }}{% endraw %}
+  {% else %}
+    {% raw %}{{ object.username }}{% endraw %}
+  {% endif %}
   {% raw %}
 {% endblock title %}
 {% block content %}
@@ -13,11 +17,20 @@
       <div class="col-sm-12">
         <h2>
         {% endraw %}
+        {% if cookiecutter.username_type == "email" %}
           {% raw %}{{ object.first_name }}{% endraw %}
+        {% else %}
+          {% raw %}{{ object.username }}{% endraw %}
+        {% endif %}
       </h2>
+      {%- if cookiecutter.username_type == "username" %}
+      {%- raw %}
+        <p>{{ object.first_name }}</p>
+      {%- endraw %}
+      {%- endif %}
     </div>
   </div>
-  {% raw %}
+  {%- raw %}
   {% if object == request.user %}
     <!-- Action buttons -->
     <div class="row">
@@ -36,4 +49,4 @@
   {% endif %}
 </div>
 {% endblock content %}
-{% endraw %}
+{%- endraw %}

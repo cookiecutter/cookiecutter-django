@@ -41,12 +41,12 @@ django_settings_module = "config.settings.test"
 
 # ==== djLint ====
 [tool.djlint]
-blank_line_after_tag = "load,extends,endblock"
+blank_line_after_tag = "load,extends"
 close_void_tags = true
-format_css = false
-format_js = false
+format_css = true
+format_js = true
 # TODO: remove T002 when fixed https://github.com/djlint/djLint/issues/687
-ignore = "H006,H030,H031,T002,H020,H023,H033,D018"
+ignore = "H006,H030,H031,T002"
 include = "H017,H035"
 indent = 2
 max_line_length = 119
@@ -65,10 +65,6 @@ extend-exclude = [
     "*/migrations/*.py",
     "staticfiles/*",
 ]
-# Same as Django: https://github.com/cookiecutter/cookiecutter-django/issues/4792.
-line-length = 88
-indent-width = 4
-target-version = "py312"
 
 [tool.ruff.lint]
 select = [

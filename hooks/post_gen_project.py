@@ -449,8 +449,8 @@ def main():
     if "{{ cookiecutter.open_source_license}}" != "GPLv3":
         remove_gplv3_files()
 
-    # if "{{ cookiecutter.username_type }}" == "username":
-    #     remove_custom_user_manager_files()
+    if "{{ cookiecutter.username_type }}" == "username":
+        remove_custom_user_manager_files()
 
     if "{{ cookiecutter.editor }}" != "PyCharm":
         remove_pycharm_files()

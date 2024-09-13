@@ -1,8 +1,9 @@
 from allauth.account.forms import SignupForm
 from allauth.socialaccount.forms import SignupForm as SocialSignupForm
-from django import forms
 from django.contrib.auth import forms as admin_forms
-from django.contrib.auth import get_user_model
+{%- if cookiecutter.username_type == "email" %}
+from django.forms import EmailField
+{%- endif %}
 from django.utils.translation import gettext_lazy as _
 
 User = get_user_model()
@@ -11,7 +12,9 @@ User = get_user_model()
 class UserAdminChangeForm(admin_forms.UserChangeForm):
     class Meta(admin_forms.UserChangeForm.Meta):  # type: ignore[name-defined]
         model = User
-        fields = ("email", "first_name", "last_name")
+        {%- if cookiecutter.username_type == "email" %}
+        field_classes = {"email": EmailField}
+        {%- endif %}
 
 
 class UserAdminCreationForm(admin_forms.UserCreationForm):
@@ -22,14 +25,18 @@ class UserAdminCreationForm(admin_forms.UserCreationForm):
 
     class Meta(admin_forms.UserCreationForm.Meta):  # type: ignore[name-defined]
         model = User
+        {%- if cookiecutter.username_type == "email" %}
         fields = ("email", "first_name", "last_name")
-
+        field_classes = {"email": EmailField}
         error_messages = {
-            "email": {"unique": _("This email has already been taken.")}
+            "email": {"unique": _("This email has already been taken.")},
         }
+        {%- else %}
+        fields = ("username", "first_name", "last_name")
         error_messages = {
             "username": {"unique": _("This username has already been taken.")},
         }
+        {%- endif %}
 
 
 class UserSignupForm(SignupForm):

@@ -52,5 +52,5 @@ django-webpack-loader==3.1.1  # https://github.com/django-webpack/django-webpack
 
 # Project
 # ------------------------------------------------------------------------------
-fontawesomefree==6.5.2 # https://github.com/FortAwesome/Font-Awesome
-django-import-export==4.0.8 # https://github.com/django-import-export/django-import-export
+fontawesomefree==6.6.0 # https://github.com/FortAwesome/Font-Awesome
+django-import-export==4.1.1 # https://github.com/django-import-export/django-import-export
