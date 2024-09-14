@@ -1,11 +1,5 @@
-"""
-Creates an issue that generates a table for dependency checking whether
-all packages support the latest Django version. "Latest" does not include
-patches, only comparing major and minor version numbers.
 
-This script handles when there are multiple Django versions that need
-to keep up to date.
-"""
+
 
 from __future__ import annotations
 
