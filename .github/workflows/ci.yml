@@ -27,9 +27,6 @@ jobs:
         uses: astral-sh/setup-uv@v2
         with:
           enable-cache: "true"
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
       - name: Install dependencies
         run: uv sync
       - name: Run tests
@@ -61,9 +58,6 @@ jobs:
         uses: astral-sh/setup-uv@v2
         with:
           enable-cache: "true"
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
       - name: Install dependencies
         run: uv sync
       - name: Docker ${{ matrix.script.name }}
@@ -108,9 +102,6 @@ jobs:
         uses: astral-sh/setup-uv@v2
         with:
           enable-cache: "true"
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
       - name: Install dependencies
         run: uv sync
       - uses: actions/setup-node@v4
