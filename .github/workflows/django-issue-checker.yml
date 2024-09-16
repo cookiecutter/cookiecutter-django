@@ -21,9 +21,6 @@ jobs:
         uses: astral-sh/setup-uv@v2
         with:
           enable-cache: "true"
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
       - name: Create Django Major Issue
         run: uv run scripts/create_django_issue.py
         env:
