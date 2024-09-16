@@ -11,10 +11,6 @@ on:
         uses: astral-sh/setup-uv@v2
         with:
           enable-cache: "true"
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
       - name: Set git details
         run: |
           git config --global user.name "github-actions"
