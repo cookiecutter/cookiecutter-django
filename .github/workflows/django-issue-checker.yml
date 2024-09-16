@@ -4,16 +4,9 @@
 name: Django Issue Checker
 
 on:
-  schedule:
-    - cron: "28 5 * * *"
-  # Manual trigger
-  workflow_dispatch:
-
-jobs:
-  issue-checker:
-    # Disables this workflow from running in a repository that is not part of the indicated organization/user
-    if: github.repository_owner == 'cookiecutter'
-
+  push:
+    branches: ["master", "main"]
+  pull_request:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
