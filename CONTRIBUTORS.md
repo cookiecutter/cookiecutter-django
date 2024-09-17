@@ -209,6 +209,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Alex Kanavos</td>
+    <td>
+      <a href="https://github.com/alexkanavos">alexkanavos</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Alex Tsai</td>
     <td>
       <a href="https://github.com/caffodian">caffodian</a>
