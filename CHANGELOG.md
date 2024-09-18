@@ -3,6 +3,23 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.09.17
+
+
+### Fixed
+
+- Set allauth email subject prefix ([#5278](https://github.com/cookiecutter/cookiecutter-django/pull/5278))
+
+### Documentation
+
+- Update postgres plan in Heroku deployment docs ([#5383](https://github.com/cookiecutter/cookiecutter-django/pull/5383))
+
+### Updated
+
+- Update sphinx-autobuild to 2024.9.17 ([#5382](https://github.com/cookiecutter/cookiecutter-django/pull/5382))
+
+- Bump traefik from 3.1.2 to 3.1.3 ([#5380](https://github.com/cookiecutter/cookiecutter-django/pull/5380))
+
 ## 2024.09.16
 
 
