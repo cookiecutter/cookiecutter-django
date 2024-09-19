@@ -22,6 +22,6 @@ jobs:
         with:
           enable-cache: "true"
       - name: Create Django Major Issue
-        run: uv run scripts/create_django_issue.py
+        run: uv run --frozen scripts/create_django_issue.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
