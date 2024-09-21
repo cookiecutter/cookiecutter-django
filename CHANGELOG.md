@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.09.20
+
+
+### Updated
+
+- Update sphinx-autobuild to 2024.9.19 ([#5386](https://github.com/cookiecutter/cookiecutter-django/pull/5386))
+
+- Bump traefik from 3.1.3 to 3.1.4 in /{{cookiecutter.project_slug}}/compose/production/traefik ([#5389](https://github.com/cookiecutter/cookiecutter-django/pull/5389))
+
+- Update ruff to 0.6.6 ([#5388](https://github.com/cookiecutter/cookiecutter-django/pull/5388))
+
+- Update tox to 4.20.0 ([#5387](https://github.com/cookiecutter/cookiecutter-django/pull/5387))
+
 ## 2024.09.17
 
 
