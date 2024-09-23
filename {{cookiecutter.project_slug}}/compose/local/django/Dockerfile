@@ -13,13 +13,20 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   # psycopg dependencies
   libpq-dev
 
+{% if cookiecutter.dependency_manager == 'PDM' %}
+# Устанавливаем PDM
+RUN pip install pdm
+# Копируем pyproject.toml и pdm.lock
+COPY pyproject.toml pdm.lock ./
+# Устанавливаем зависимости с помощью PDM
+RUN pdm install --prod --no-editable\
+{% else %}
 # Requirements are installed here to ensure they will be cached.
 COPY ./requirements .
 
 # Create Python Dependency and Sub-Dependency Wheels.
 RUN pip wheel --wheel-dir /usr/src/app/wheels  \
   -r ${BUILD_ENVIRONMENT}.txt
-
 
 # Python 'run' stage
 FROM python AS python-run-stage
