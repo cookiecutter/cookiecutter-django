@@ -17,6 +17,44 @@ production-ready Django projects quickly.
 - If you have problems with Cookiecutter Django, please open [issues](https://github.com/cookiecutter/cookiecutter-django/issues/new) don't send
   emails to the maintainers.
 
+  
+## Table of Contents
+- [IntendedAudience](#IntendedAudience)
+- [Features](#Features)
+- [Constraints](#Constraints)
+- [Contributing](#contributing)
+- [License](#license)
+- [Usage](#Usage)
+- [Community](#Community)
+- [Releases](#Releases)
+- [Articles](#Articles)
+
+## IntendedAudience
+
+The purpose of this section is to outline the prerequisite knowledge that potential users need to effectively create projects
+with this application. Links will be provided to supplemental resources to help users get up to speed.
+
+This application's main purpose is to increase the efficiency of django applications by defining project specifications
+beforehand, thus preventing missing dependencies later on in the development process.
+
+Users of this software should have working proficiency in building django applications. For new users to Django, please
+refer to the official documentation: [here](https://docs.djangoproject.com/en/5.1/)
+
+To use this application most effectively, users should have the scope of their application defined before beginning to create
+a new project.
+
+Example's of defined scope include:
+- docker usage
+- cloud provider
+- postgresql version
+See the [Usage](#Usage) section for a clear guide to the project creation process.
+
+For more information about these specific requirements, see the documentation provided:
+(docker)[https://www.docker.com/]
+(PostgreSQL)[https://www.postgresql.org/]
+(AWS)[https://aws.amazon.com/]
+
+
 ## Features
 
 - For Django 5.0
