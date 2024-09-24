@@ -3,6 +3,23 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.09.23
+
+
+### Changed
+
+- Fix Makefile and make.bat files used for automatic generation of documentation. ([#5347](https://github.com/cookiecutter/cookiecutter-django/pull/5347))
+
+### Updated
+
+- Update django-allauth to 65.0.1 ([#5399](https://github.com/cookiecutter/cookiecutter-django/pull/5399))
+
+- Auto-update pre-commit hooks ([#5392](https://github.com/cookiecutter/cookiecutter-django/pull/5392))
+
+- Update django-allauth to 65.0.0 ([#5393](https://github.com/cookiecutter/cookiecutter-django/pull/5393))
+
+- Update ruff to 0.6.7 ([#5394](https://github.com/cookiecutter/cookiecutter-django/pull/5394))
+
 ## 2024.09.21
 
 
