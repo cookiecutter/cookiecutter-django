@@ -17,8 +17,8 @@ production-ready Django projects quickly.
 - If you have problems with Cookiecutter Django, please open [issues](https://github.com/cookiecutter/cookiecutter-django/issues/new) don't send
   emails to the maintainers.
 
-  
 ## Table of Contents
+
 - [IntendedAudience](#IntendedAudience)
 - [Features](#Features)
 - [Constraints](#Constraints)
@@ -44,16 +44,16 @@ To use this application most effectively, users should have the scope of their a
 a new project.
 
 Example's of defined scope include:
+
 - docker usage
 - cloud provider
 - postgresql version
-See the [Usage](#Usage) section for a clear guide to the project creation process.
+  See the [Usage](#Usage) section for a clear guide to the project creation process.
 
 For more information about these specific requirements, see the documentation provided:
 (docker)[https://www.docker.com/]
 (PostgreSQL)[https://www.postgresql.org/]
 (AWS)[https://aws.amazon.com/]
-
 
 ## Features
 
