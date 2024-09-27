@@ -34,18 +34,6 @@ SUCCESS = "\x1b[1;32m [SUCCESS]: "
 DEBUG_VALUE = "debug"
 
 
-def remove_open_source_files():
-    file_names = ["CONTRIBUTORS.txt", "LICENSE"]
-    for file_name in file_names:
-        os.remove(file_name)
-
-
-def remove_gplv3_files():
-    file_names = ["COPYING"]
-    for file_name in file_names:
-        os.remove(file_name)
-
-
 def remove_custom_user_manager_files():
     os.remove(
         os.path.join(
@@ -434,6 +422,36 @@ def remove_drf_starter_files():
     os.remove(os.path.join("{{cookiecutter.project_slug}}", "users", "tests", "test_swagger.py"))
 
 
+def handle_licenses():
+    special_license_files = {
+        "European Union Public License 1.1": "COPYING",
+        "GNU General Public License v3.0": "COPYING",
+        "GNU Lesser General Public License v3.0": "COPYING.LESSER",
+        "The Unlicense": "UNLICENSE",
+    }
+
+    selected_title = """{{ cookiecutter.open_source_license }}"""
+
+    if selected_title == "Not open source":
+        os.remove("CONTRIBUTORS.txt")
+        shutil.rmtree("licenses")
+        return
+
+    with open(os.path.join("licenses", "licenses.json")) as f:
+        titles_dict = json.load(f)
+    # access the title to filename dictionary to find the correct file
+    # using a dictionary instead of looping reduces time complexity
+    with open(os.path.join("licenses", titles_dict[selected_title])) as f:
+        contents = f.readlines()
+
+    with open(special_license_files.get(titles_dict[selected_title], "LICENSE"), "w") as f:
+        # +2 to get rid of the --- and and an extra new line
+        i = contents.index("---\n", 1) + 2
+        f.writelines(contents[i:])
+
+    shutil.rmtree("licenses")
+
+
 def main():
     debug = "{{ cookiecutter.debug }}".lower() == "y"
 
@@ -444,10 +462,7 @@ def main():
     )
     set_flags_in_settings_files()
 
-    if "{{ cookiecutter.open_source_license }}" == "Not open source":
-        remove_open_source_files()
-    if "{{ cookiecutter.open_source_license}}" != "GPLv3":
-        remove_gplv3_files()
+    handle_licenses()
 
     if "{{ cookiecutter.username_type }}" == "username":
         remove_custom_user_manager_files()
