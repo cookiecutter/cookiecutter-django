@@ -3,7 +3,7 @@ name: uv
 on:
   pull_request:
     paths:
-      - "pyproject.toml"
+      - "../../pyproject.toml"
 
 permissions:
   contents: write
