@@ -45,7 +45,7 @@ dependencies = [
   "requests==2.32.3",
   "ruff==0.6.8",
   "sh==2.0.7; sys_platform!='win23'",
-  "tox==4.20.0",
+  "tox==4.20",
   "tox-uv>=1.11.2",
 ]
 urls = { Repository = "https://github.com/cookiecutter/cookiecutter-django" }
