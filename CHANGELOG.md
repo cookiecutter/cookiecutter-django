@@ -3,6 +3,87 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.10.01
+
+
+### Updated
+
+- Update sentry-sdk to 2.15.0 ([#5413](https://github.com/cookiecutter/cookiecutter-django/pull/5413))
+
+## 2024.09.29
+
+
+### Updated
+
+- Update psycopg to 3.2.3 ([#5411](https://github.com/cookiecutter/cookiecutter-django/pull/5411))
+
+## 2024.09.28
+
+
+### Updated
+
+- Update uvicorn to 0.31.0 ([#5408](https://github.com/cookiecutter/cookiecutter-django/pull/5408))
+
+## 2024.09.27
+
+
+### Updated
+
+- Update redis to 5.1.0 ([#5406](https://github.com/cookiecutter/cookiecutter-django/pull/5406))
+
+- Update django-allauth to 65.0.2 ([#5405](https://github.com/cookiecutter/cookiecutter-django/pull/5405))
+
+## 2024.09.26
+
+
+### Updated
+
+- Update ruff to 0.6.8 ([#5402](https://github.com/cookiecutter/cookiecutter-django/pull/5402))
+
+## 2024.09.24
+
+
+### Updated
+
+- Update django-stubs to 5.1.0 ([#5400](https://github.com/cookiecutter/cookiecutter-django/pull/5400))
+
+## 2024.09.23
+
+
+### Changed
+
+- Fix Makefile and make.bat files used for automatic generation of documentation. ([#5347](https://github.com/cookiecutter/cookiecutter-django/pull/5347))
+
+### Updated
+
+- Update django-allauth to 65.0.1 ([#5399](https://github.com/cookiecutter/cookiecutter-django/pull/5399))
+
+- Auto-update pre-commit hooks ([#5392](https://github.com/cookiecutter/cookiecutter-django/pull/5392))
+
+- Update django-allauth to 65.0.0 ([#5393](https://github.com/cookiecutter/cookiecutter-django/pull/5393))
+
+- Update ruff to 0.6.7 ([#5394](https://github.com/cookiecutter/cookiecutter-django/pull/5394))
+
+## 2024.09.21
+
+
+### Updated
+
+- Auto-update pre-commit hooks ([#5391](https://github.com/cookiecutter/cookiecutter-django/pull/5391))
+
+## 2024.09.20
+
+
+### Updated
+
+- Update sphinx-autobuild to 2024.9.19 ([#5386](https://github.com/cookiecutter/cookiecutter-django/pull/5386))
+
+- Bump traefik from 3.1.3 to 3.1.4 in /{{cookiecutter.project_slug}}/compose/production/traefik ([#5389](https://github.com/cookiecutter/cookiecutter-django/pull/5389))
+
+- Update ruff to 0.6.6 ([#5388](https://github.com/cookiecutter/cookiecutter-django/pull/5388))
+
+- Update tox to 4.20.0 ([#5387](https://github.com/cookiecutter/cookiecutter-django/pull/5387))
+
 ## 2024.09.17
 
 

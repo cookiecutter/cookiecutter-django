@@ -4,9 +4,9 @@ watchdog==4.0.2 # https://github.com/gorakhargosh/watchdog
 Werkzeug[watchdog]==3.0.4 # https://github.com/pallets/werkzeug
 ipdb==0.13.13  # https://github.com/gotcha/ipdb
 {%- if cookiecutter.use_docker == 'y' %}
-psycopg[c]==3.2.2  # https://github.com/psycopg/psycopg
+psycopg[c]==3.2.3  # https://github.com/psycopg/psycopg
 {%- else %}
-psycopg[binary]==3.2.2  # https://github.com/psycopg/psycopg
+psycopg[binary]==3.2.3  # https://github.com/psycopg/psycopg
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' or cookiecutter.use_celery == 'y' %}
 watchfiles==0.24.0  # https://github.com/samuelcolvin/watchfiles
@@ -15,7 +15,7 @@ watchfiles==0.24.0  # https://github.com/samuelcolvin/watchfiles
 # Testing
 # ------------------------------------------------------------------------------
 mypy==1.11.2  # https://github.com/python/mypy
-django-stubs[compatible-mypy]==5.0.4  # https://github.com/typeddjango/django-stubs
+django-stubs[compatible-mypy]==5.1.0  # https://github.com/typeddjango/django-stubs
 pytest==8.3.3  # https://github.com/pytest-dev/pytest
 pytest-sugar==1.0.0  # https://github.com/Frozenball/pytest-sugar
 {%- if cookiecutter.use_drf == "y" %}
@@ -25,11 +25,11 @@ djangorestframework-stubs==3.15.1  # https://github.com/typeddjango/djangorestfr
 # Documentation
 # ------------------------------------------------------------------------------
 sphinx==7.4.7  # https://github.com/sphinx-doc/sphinx
-sphinx-autobuild==2024.9.17 # https://github.com/GaretJax/sphinx-autobuild
+sphinx-autobuild==2024.9.19 # https://github.com/GaretJax/sphinx-autobuild
 
 # Code quality
 # ------------------------------------------------------------------------------
-ruff==0.6.5  # https://github.com/astral-sh/ruff
+ruff==0.6.8  # https://github.com/astral-sh/ruff
 coverage==7.6.1  # https://github.com/nedbat/coveragepy
 djlint==1.35.2  # https://github.com/Riverside-Healthcare/djLint
 pre-commit==3.8.0  # https://github.com/pre-commit/pre-commit

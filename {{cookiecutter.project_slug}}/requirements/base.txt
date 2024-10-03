@@ -11,7 +11,7 @@ argon2-cffi==23.1.0  # https://github.com/hynek/argon2_cffi
 {%- if cookiecutter.use_whitenoise == 'y' %}
 whitenoise==6.7.0  # https://github.com/evansd/whitenoise
 {%- endif %}
-redis==5.0.8  # https://github.com/redis/redis-py
+redis==5.1.0  # https://github.com/redis/redis-py
 {%- if cookiecutter.use_docker == "y" or cookiecutter.windows == "n" %}
 hiredis==3.0.0  # https://github.com/redis/hiredis-py
 {%- endif %}
@@ -23,7 +23,7 @@ flower==2.0.1  # https://github.com/mher/flower
 {%- endif %}
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' %}
-uvicorn[standard]==0.30.6  # https://github.com/encode/uvicorn
+uvicorn[standard]==0.31.0  # https://github.com/encode/uvicorn
 uvicorn-worker==0.2.0  # https://github.com/Kludex/uvicorn-worker
 {%- endif %}
 
@@ -32,7 +32,7 @@ uvicorn-worker==0.2.0  # https://github.com/Kludex/uvicorn-worker
 django==5.0.9  # pyup: < 5.1  # https://www.djangoproject.com/
 django-environ==0.11.2  # https://github.com/joke2k/django-environ
 django-model-utils==5.0.0  # https://github.com/jazzband/django-model-utils
-django-allauth[mfa]==64.2.1  # https://github.com/pennersr/django-allauth
+django-allauth[mfa]==65.0.2  # https://github.com/pennersr/django-allauth
 django-crispy-forms==2.3  # https://github.com/django-crispy-forms/django-crispy-forms
 crispy-bootstrap5==2024.2  # https://github.com/django-crispy-forms/crispy-bootstrap5
 {%- if cookiecutter.frontend_pipeline == 'Django Compressor' %}

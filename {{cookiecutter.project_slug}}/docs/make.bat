@@ -12,7 +12,7 @@ set SOURCEDIR=_source
 set BUILDDIR=_build
 set APP=..\{{cookiecutter.project_slug}}
 
-if "%1" == "" goto help
+if "%1" == "" goto html
 
 %SPHINXBUILD% >NUL 2>NUL
 if errorlevel 9009 (
@@ -39,8 +39,8 @@ GOTO :EOF
 sphinx-apidoc -o %SOURCEDIR%/api %APP%
 GOTO :EOF
 
-:help
-%SPHINXBUILD% -b help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+:html
+%SPHINXBUILD% -b html %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
 
 :end
 popd
