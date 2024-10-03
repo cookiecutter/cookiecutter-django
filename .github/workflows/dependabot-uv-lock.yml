@@ -12,6 +12,10 @@ permissions:
 jobs:
   lock:
     runs-on: ubuntu-latest
+    env:
+      GH_PAT: ${{ secrets.GH_PAT }}
+    # Only run when GH_PAT is set
+    if: ${{ env.GH_PAT != '' }}
     steps:
       - uses: actions/checkout@v4
         with:
