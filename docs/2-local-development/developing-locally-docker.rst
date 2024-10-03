@@ -257,7 +257,7 @@ Here is a link to an article on `how to add HTTPS using Nginx`_ to your local do
 Webpack
 ~~~~~~~
 
-If you are using Webpack, first install ``mkcert``_. It is a simple by design tool that hides all the arcane knowledge required to generate valid TLS certificates. It works for any hostname or IP, including localhost. It supports macOS, Linux, and Windows, and Firefox, Chrome and Java. It even works on mobile devices with a couple manual steps. See https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/
+If you are using Webpack, first install `mkcert`_. It is a simple by design tool that hides all the arcane knowledge required to generate valid TLS certificates. It works for any hostname or IP, including localhost. It supports macOS, Linux, and Windows, and Firefox, Chrome and Java. It even works on mobile devices with a couple manual steps. See https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/
 
 .. _`mkcert`:  https://github.com/FiloSottile/mkcert/blob/master/README.md#supported-root-stores
 
@@ -267,36 +267,36 @@ Assuming that you registered your local hostname as ``my-dev-env.local``, the ce
 
 1. Add the ``nginx-proxy`` service to the ``docker-compose.local.yml``. ::
 
-  nginx-proxy:
-    image: jwilder/nginx-proxy:alpine
-    container_name: nginx-proxy
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ./certs:/etc/nginx/certs
-    restart: always
-    depends_on:
-      - node
-    environment:
-      - VIRTUAL_HOST=my-dev-env.local
-      - VIRTUAL_PORT=3000
+    nginx-proxy:
+      image: jwilder/nginx-proxy:alpine
+      container_name: nginx-proxy
+      ports:
+        - "80:80"
+        - "443:443"
+      volumes:
+        - /var/run/docker.sock:/tmp/docker.sock:ro
+        - ./certs:/etc/nginx/certs
+      restart: always
+      depends_on:
+        - node
+      environment:
+        - VIRTUAL_HOST=my-dev-env.local
+        - VIRTUAL_PORT=3000
 
 2. Add the local secure domain to the ``config/settings/local.py``. You should allow the new hostname ::
 
-  ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "my-dev-env.local"]
+    ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "my-dev-env.local"]
 
 3. Add the following configuration to the ``devServer`` section of ``webpack/dev.config.js`` ::
 
-  client: {
-    webSocketURL: 'auto://0.0.0.0:0/ws', // note the `:0` after `0.0.0.0`
-  },
+    client: {
+      webSocketURL: 'auto://0.0.0.0:0/ws', // note the `:0` after `0.0.0.0`
+    },
 
 
 Rebuild your ``docker`` application. ::
 
-  $ docker compose -f docker-compose.local.yml up -d --build
+    $ docker compose -f docker-compose.local.yml up -d --build
 
 Go to your browser and type in your URL bar ``https://my-dev-env.local``.
 
