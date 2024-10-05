@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.10.04
+
+
+### Updated
+
+- Update ruff to 0.6.9 ([#5428](https://github.com/cookiecutter/cookiecutter-django/pull/5428))
+
+- Update redis to 5.1.1 ([#5427](https://github.com/cookiecutter/cookiecutter-django/pull/5427))
+
 ## 2024.10.03
 
 
