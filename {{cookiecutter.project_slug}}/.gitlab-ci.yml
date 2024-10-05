@@ -13,16 +13,16 @@ variables:
 
 precommit:
   stage: lint
-  image: python:3.12
+  image: ghcr.io/astral-sh/uv:python3.12
   variables:
     PRE_COMMIT_HOME: ${CI_PROJECT_DIR}/.cache/pre-commit
   cache:
     paths:
       - ${PRE_COMMIT_HOME}
   before_script:
-    - pip install -q pre-commit
+    - uv pip install -q pre-commit pre-commit-uv
   script:
-    - pre-commit run --show-diff-on-failure --color=always --all-files
+    - uv run pre-commit run --show-diff-on-failure --color=always --all-files
 
 pytest:
   stage: test
@@ -39,13 +39,13 @@ pytest:
   script:
     - docker compose -f docker-compose.local.yml run django pytest
   {%- else %}
-  image: python:3.12
+  image: ghcr.io/astral-sh/uv:python3.12
   services:
     - postgres:{{ cookiecutter.postgresql_version }}
   variables:
     DATABASE_URL: pgsql://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
   before_script:
-    - pip install -r requirements/local.txt
+    - uv sync --frozen
   script:
-    - pytest
+    - uv run pytest
   {%- endif %}

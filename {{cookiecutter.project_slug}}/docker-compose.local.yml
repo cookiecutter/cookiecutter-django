@@ -10,6 +10,9 @@ services:
       dockerfile: ./compose/local/django/Dockerfile
     image: {{ cookiecutter.project_slug }}_local_django
     container_name: {{ cookiecutter.project_slug }}_local_django
+    volumes:
+      - /app/.venv
+      - .:/app:z
     depends_on:
       - postgres
       {%- if cookiecutter.use_celery == 'y' %}
@@ -18,8 +21,6 @@ services:
       {%- if cookiecutter.use_mailpit == 'y' %}
       - mailpit
       {%- endif %}
-    volumes:
-      - .:/app:z
     env_file:
       - ./.envs/.local/.django
       - ./.envs/.local/.postgres
