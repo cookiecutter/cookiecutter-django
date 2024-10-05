@@ -1,8 +1,6 @@
-# define an alias for the specific python version used in this file.
-FROM docker.io/python:3.12.7-slim-bookworm AS python
-
 # Python build stage
-FROM python AS python-build-stage
+FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim AS python-build-stage
+ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy
 
 ARG BUILD_ENVIRONMENT=local
 
@@ -14,15 +12,17 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   libpq-dev
 
 # Requirements are installed here to ensure they will be cached.
-COPY ./requirements .
+RUN --mount=type=cache,target=/root/.cache/uv \
+    --mount=type=bind,source=uv.lock,target=uv.lock \
+    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
+    uv sync --frozen --no-install-project --no-dev \
 
-# Create Python Dependency and Sub-Dependency Wheels.
-RUN pip wheel --wheel-dir /usr/src/app/wheels  \
-  -r ${BUILD_ENVIRONMENT}.txt
-
+ADD . /app
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --frozen --no-dev
 
 # Python 'run' stage
-FROM python AS python-run-stage
+FROM docker.io/python:3.12.7-slim-bookworm AS python-run-stage
 
 ARG BUILD_ENVIRONMENT=local
 ARG APP_HOME=/app
@@ -58,11 +58,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 # All absolute dir copies ignore workdir instruction. All relative dir copies are wrt to the workdir instruction
 # copy python dependency wheels from python-build-stage
-COPY --from=python-build-stage /usr/src/app/wheels  /wheels/
-
-# use wheels to install python dependencies
-RUN pip install --no-cache-dir --no-index --find-links=/wheels/ /wheels/* \
-  && rm -rf /wheels/
+COPY --from=builder --chown=app:app ${APP_HOME}  ${APP_HOME}
 
 COPY ./compose/production/django/entrypoint /entrypoint
 RUN sed -i 's/\r$//g' /entrypoint
@@ -86,7 +82,6 @@ RUN sed -i 's/\r$//g' /start-flower
 RUN chmod +x /start-flower
 {% endif %}
 
-# copy application code to WORKDIR
-COPY . ${APP_HOME}
+ENV PATH="/app/.venv/bin:$PATH"
 
 ENTRYPOINT ["/entrypoint"]

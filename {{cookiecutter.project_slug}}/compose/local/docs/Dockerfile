@@ -1,7 +1,3 @@
-# define an alias for the specific python version used in this file.
-FROM docker.io/python:3.12.7-slim-bookworm AS python
-
-
 # Python build stage
 FROM python AS python-build-stage
 
@@ -17,16 +13,17 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   && rm -rf /var/lib/apt/lists/*
 
 # Requirements are installed here to ensure they will be cached.
-COPY ./requirements /requirements
-
-# create python dependency wheels
-RUN pip wheel --no-cache-dir --wheel-dir /usr/src/app/wheels  \
-  -r /requirements/local.txt -r /requirements/production.txt \
-  && rm -rf /requirements
+RUN --mount=type=cache,target=/root/.cache/uv \
+    --mount=type=bind,source=uv.lock,target=uv.lock \
+    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
+    uv sync --frozen --no-install-project --no-dev
+ADD . /app
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --frozen --no-dev
 
 
 # Python 'run' stage
-FROM python AS python-run-stage
+FROM docker.io/python:3.12.7-slim-bookworm AS python-run-stage
 
 ARG BUILD_ENVIRONMENT
 ENV PYTHONUNBUFFERED=1
@@ -49,14 +46,12 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   && rm -rf /var/lib/apt/lists/*
 
 # copy python dependency wheels from python-build-stage
-COPY --from=python-build-stage /usr/src/app/wheels /wheels
-
-# use wheels to install python dependencies
-RUN pip install --no-cache /wheels/* \
-  && rm -rf /wheels
+COPY --from=builder --chown=app:app /app /app
 
 COPY ./compose/local/docs/start /start-docs
 RUN sed -i 's/\r$//g' /start-docs
 RUN chmod +x /start-docs
+
+ENV PATH="/app/.venv/bin:$PATH"
 
 WORKDIR /docs
