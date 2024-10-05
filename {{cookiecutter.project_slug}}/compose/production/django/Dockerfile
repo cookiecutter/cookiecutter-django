@@ -37,7 +37,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   # dependencies for building Python packages
   build-essential \
   # psycopg dependencies
-  libpq-dev
+  libpq-dev \
+  wait-for-it
 
 # Requirements are installed here to ensure they will be cached.
 COPY ./requirements .

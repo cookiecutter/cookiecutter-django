@@ -3,6 +3,24 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.10.04
+
+
+### Updated
+
+- Update ruff to 0.6.9 ([#5428](https://github.com/cookiecutter/cookiecutter-django/pull/5428))
+
+- Update redis to 5.1.1 ([#5427](https://github.com/cookiecutter/cookiecutter-django/pull/5427))
+
+## 2024.10.03
+
+
+### Updated
+
+- Update sphinx-autobuild to 2024.10.3 ([#5420](https://github.com/cookiecutter/cookiecutter-django/pull/5420))
+
+- Bump traefik from 3.1.4 to 3.1.5 ([#5423](https://github.com/cookiecutter/cookiecutter-django/pull/5423))
+
 ## 2024.10.02
 
 
