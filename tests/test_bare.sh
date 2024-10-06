@@ -18,7 +18,7 @@ cd my_awesome_project
 sudo utility/install_os_dependencies.sh install
 
 # Install Python deps
-uv sync --frozen
+uv sync
 
 # run the project's tests
 uv run pytest
