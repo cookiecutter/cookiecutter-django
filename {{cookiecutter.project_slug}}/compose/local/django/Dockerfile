@@ -1,8 +1,12 @@
 # Python build stage
 FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim AS python-build-stage
-ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy
 
-ARG BUILD_ENVIRONMENT=local
+ARG APP_HOME=/app
+
+WORKDIR ${APP_HOME}
+
+# we need to move the virtualenv outside of the $APP_HOME directory because it will be overriden by the docker compose mount
+ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy
 
 # Install apt packages
 RUN apt-get update && apt-get install --no-install-recommends -y \
@@ -13,25 +17,16 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 # Requirements are installed here to ensure they will be cached.
 RUN --mount=type=cache,target=/root/.cache/uv \
-    --mount=type=bind,source=uv.lock,target=uv.lock \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
-    uv sync --frozen --no-install-project --no-dev \
+    uv sync --no-install-project
 
-ADD . /app
+ADD . ${APP_HOME}
+
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --no-dev
+    uv sync
 
 # Python 'run' stage
 FROM docker.io/python:3.12.7-slim-bookworm AS python-run-stage
-
-ARG BUILD_ENVIRONMENT=local
-ARG APP_HOME=/app
-
-ENV PYTHONUNBUFFERED=1
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV BUILD_ENV=${BUILD_ENVIRONMENT}
-
-WORKDIR ${APP_HOME}
 
 {% if cookiecutter.use_docker == "y" %}
 # devcontainer dependencies and utils
@@ -58,7 +53,13 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 # All absolute dir copies ignore workdir instruction. All relative dir copies are wrt to the workdir instruction
 # copy python dependency wheels from python-build-stage
-COPY --from=builder --chown=app:app ${APP_HOME}  ${APP_HOME}
+COPY --from=python-build-stage --chown=app:app ${APP_HOME} ${APP_HOME}
+
+ARG APP_HOME=/app
+
+WORKDIR ${APP_HOME}
+
+ENV PATH="/${APP_HOME}/.venv/bin:$PATH"
 
 COPY ./compose/production/django/entrypoint /entrypoint
 RUN sed -i 's/\r$//g' /entrypoint
@@ -81,7 +82,5 @@ COPY ./compose/local/django/celery/flower/start /start-flower
 RUN sed -i 's/\r$//g' /start-flower
 RUN chmod +x /start-flower
 {% endif %}
-
-ENV PATH="/app/.venv/bin:$PATH"
 
 ENTRYPOINT ["/entrypoint"]

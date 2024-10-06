@@ -6,7 +6,7 @@ WORKDIR ${APP_HOME}
 
 COPY ./package.json ${APP_HOME}
 RUN npm install && npm cache clean --force
-COPY . ${APP_HOME}
+ADD . ${APP_HOME}
 {%- if cookiecutter.frontend_pipeline == 'Webpack' and cookiecutter.use_whitenoise == 'n' %}
 {%- if cookiecutter.cloud_provider == 'AWS' %}
 ARG DJANGO_AWS_STORAGE_BUCKET_NAME
@@ -22,13 +22,10 @@ ENV DJANGO_AZURE_ACCOUNT_NAME=${DJANGO_AZURE_ACCOUNT_NAME}
 {%- endif %}
 {%- endif %}
 RUN npm run build
-
 {%- endif %}
 
 FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim AS python-build-stage
 ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy
-
-ARG BUILD_ENVIRONMENT=production
 
 # Install apt packages
 RUN apt-get update && apt-get install --no-install-recommends -y \
@@ -43,20 +40,19 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=uv.lock,target=uv.lock \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
     uv sync --frozen --no-install-project --no-dev
-ADD . /app
+{%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
+COPY --from=client-builder ${APP_HOME} ${APP_HOME}
+{% else %}
+ADD . ${APP_HOME}
+{%- endif %}
+
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-dev
-
 
 # Python 'run' stage
 FROM docker.io/python:3.12.7-slim-bookworm AS python-run-stage
 
-ARG BUILD_ENVIRONMENT=production
 ARG APP_HOME=/app
-
-ENV PYTHONUNBUFFERED=1
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV BUILD_ENV=${BUILD_ENVIRONMENT}
 
 WORKDIR ${APP_HOME}
 
@@ -74,11 +70,6 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*
 
-# Copy the application from the builder
-COPY --from=builder --chown=app:app /app /app
-
-# Place executables in the environment at the front of the path
-ENV PATH="/app/.venv/bin:$PATH"
 
 COPY --chown=django:django ./compose/production/django/entrypoint /entrypoint
 RUN sed -i 's/\r$//g' /entrypoint
@@ -106,16 +97,11 @@ RUN sed -i 's/\r$//g' /start-flower
 RUN chmod +x /start-flower
 {%- endif %}
 
+# Copy the application from the builder
+COPY --from=python-build-stage --chown=django:django ${APP_HOME} ${APP_HOME}
 
-# copy application code to WORKDIR
-{%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
-COPY --from=client-builder --chown=django:django ${APP_HOME} ${APP_HOME}
-{% else %}
-COPY --chown=django:django . ${APP_HOME}
-{%- endif %}
-
-# make django owner of the WORKDIR directory as well.
-RUN chown -R django:django ${APP_HOME}
+# Place executables in the environment at the front of the path
+ENV PATH="/app/.venv/bin:$PATH"
 
 USER django
 
