@@ -6,7 +6,7 @@ REM Command file for Sphinx documentation
 
 
 if "%SPHINXBUILD%" == "" (
-	set SPHINXBUILD=sphinx-build -c .
+	set SPHINXBUILD=uv run sphinx-build -c .
 )
 set SOURCEDIR=_source
 set BUILDDIR=_build
