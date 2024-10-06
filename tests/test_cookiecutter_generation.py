@@ -325,7 +325,7 @@ def test_gitlab_invokes_precommit_and_pytest(cookies, context, use_docker, expec
 @pytest.mark.parametrize(
     ["use_docker", "expected_test_script"],
     [
-        ("n", "pytest"),
+        ("n", "uv run pytest"),
         ("y", "docker compose -f docker-compose.local.yml run django pytest"),
     ],
 )

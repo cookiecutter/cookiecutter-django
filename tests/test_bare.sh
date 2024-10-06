@@ -33,5 +33,6 @@ then
     npm run build
 fi
 
+. .venv/bin/activate
 # Generate the HTML for the documentation
 cd docs && make html
