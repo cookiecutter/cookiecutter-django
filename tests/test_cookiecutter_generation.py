@@ -273,7 +273,7 @@ def test_djlint_check_passes(cookies, context_override):
 @pytest.mark.parametrize(
     ["use_docker", "expected_test_script"],
     [
-        ("n", "pytest"),
+        ("n", "uv run pytest"),
         ("y", "docker compose -f docker-compose.local.yml run django pytest"),
     ],
 )
@@ -298,7 +298,7 @@ def test_travis_invokes_pytest(cookies, context, use_docker, expected_test_scrip
 @pytest.mark.parametrize(
     ["use_docker", "expected_test_script"],
     [
-        ("n", "pytest"),
+        ("n", "uv run pytest"),
         ("y", "docker compose -f docker-compose.local.yml run django pytest"),
     ],
 )
