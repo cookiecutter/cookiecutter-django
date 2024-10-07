@@ -48,6 +48,12 @@ dependencies = [
   "tox==4.21.2",
   "tox-uv>=1.11.2",
 ]
+optional-dependencies.docs = [
+  "myst-parser>=4",
+  "sphinx>=8.0.2",
+  "sphinx-autobuild>=2024.10.3",
+  "sphinx-rtd-theme>=3",
+]
 urls = { Repository = "https://github.com/cookiecutter/cookiecutter-django" }
 
 [tool.black]
