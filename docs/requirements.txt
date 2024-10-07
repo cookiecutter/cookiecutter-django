@@ -1,4 +1,4 @@
 sphinx==7.4.7
-sphinx-rtd-theme==2.0.0
+sphinx-rtd-theme==3.0.0
 sphinx-autobuild==2024.10.3
 myst-parser==4.0.0
