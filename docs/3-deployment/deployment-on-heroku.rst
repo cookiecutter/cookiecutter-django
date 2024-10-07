@@ -65,7 +65,7 @@ The script above assumes that you've chose Mailgun as email service. If you want
 
 .. warning::
 
-    .. include:: mailgun.rst
+    .. include:: ../includes/mailgun.rst
 
 Heroku & Docker
 +++++++++++++++
