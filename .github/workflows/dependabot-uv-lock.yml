@@ -14,12 +14,17 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GH_PAT: ${{ secrets.GH_PAT }}
-    # Only run when GH_PAT is set
-    if: ${{ github.env.GH_PAT != '' }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout with token
+        uses: actions/checkout@v4
+        if: ${{ env.GH_PAT != '' }}
         with:
-          token: ${{ secrets.GH_PAT }}
+          token: ${{ env.GH_PAT }}
+
+      - name: Checkout without token
+        uses: actions/checkout@v4
+        if: ${{ env.GH_PAT == '' }}
+
       - uses: astral-sh/setup-uv@v3
         with:
           enable-cache: true
