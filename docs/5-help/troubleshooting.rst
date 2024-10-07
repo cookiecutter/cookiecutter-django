@@ -8,7 +8,7 @@ Server Error on sign-up/log-in
 
 Make sure you have configured the mail backend (e.g. Mailgun) by adding the API key and sender domain
 
-.. include:: mailgun.rst
+.. include:: ../includes/mailgun.rst
 
 .. _docker-postgres-auth-failed:
 
