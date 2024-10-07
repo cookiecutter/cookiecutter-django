@@ -87,26 +87,20 @@ jobs:
         run: docker compose -f docker-compose.local.yml down
       {%- else %}
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v2
         with:
-          python-version: '3.12'
-          cache: pip
-          cache-dependency-path: |
-            requirements/base.txt
-            requirements/local.txt
-
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements/local.txt
+          enable-cache: "true"
+      - name: Install dependencies
+        run: uv sync
 
       - name: Check DB Migrations
-        run: python manage.py makemigrations --check
+        run: uv run python manage.py makemigrations --check
 
       - name: Run DB Migrations
-        run: python manage.py migrate
+        run: uv run python manage.py migrate
 
       - name: Test with pytest
-        run: pytest
+        run: uv run pytest
       {%- endif %}
