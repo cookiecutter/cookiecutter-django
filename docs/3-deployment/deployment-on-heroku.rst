@@ -12,7 +12,8 @@ Run these commands to deploy the project to Heroku:
 
     heroku create --buildpack heroku/python
 
-    heroku addons:create heroku-postgresql:mini
+    # Note: this is not a free plan
+    heroku addons:create heroku-postgresql:essential-0
     # On Windows use double quotes for the time zone, e.g.
     # heroku pg:backups schedule --at "02:00 America/Los_Angeles" DATABASE_URL
     heroku pg:backups schedule --at '02:00 America/Los_Angeles' DATABASE_URL
@@ -64,7 +65,7 @@ The script above assumes that you've chose Mailgun as email service. If you want
 
 .. warning::
 
-    .. include:: mailgun.rst
+    .. include:: ../includes/mailgun.rst
 
 Heroku & Docker
 +++++++++++++++

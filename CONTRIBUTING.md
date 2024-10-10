@@ -24,33 +24,20 @@ We'll also run the tests on GitHub actions when you send your pull request, but 
 
 ### Installation
 
-First, make sure that your version of Python is 3.12:
-
-```bash
-$ python --version
-Python 3.12.2
-```
-
-Any version that starts with 3.12 will do. If you need to install it, you can get it from [python.org](https://www.python.org/downloads/).
-
-Then install `tox`, if not already installed:
-
-```bash
-$ python -m pip install tox
-```
+We use uv to manage our environment and manage our Python installation. You can install it following the instructions at https://docs.astral.sh/uv/getting-started/installation/
 
 ### Run the template's test suite
 
 To run the tests of the template using the current Python version:
 
 ```bash
-$ tox -e py
+$ uv run tox run -e py
 ```
 
 This uses `pytest `under the hood, and you can pass options to it after a `--`. So to run a particular test:
 
 ```bash
-$ tox -e py -- -k test_default_configuration
+$ uv run tox run -e py -- -k test_default_configuration
 ```
 
 For further information, please consult the [pytest usage docs](https://pytest.org/en/latest/how-to/usage.html#specifying-which-tests-to-run).

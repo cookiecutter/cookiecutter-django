@@ -55,7 +55,7 @@ You will probably also need to setup the Mail backend, for example by adding a `
 
 .. warning::
 
-    .. include:: mailgun.rst
+    .. include:: ../includes/mailgun.rst
 
 
 Optional: Use AWS IAM Role for EC2 instance
