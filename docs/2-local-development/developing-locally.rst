@@ -24,8 +24,7 @@ First things first.
 
     $ source <virtual env path>/bin/activate
 
-#.
-    .. include:: generate-project-block.rst
+#. .. include:: generate-project-block.rst
 
 #. Install development requirements: ::
 
@@ -219,7 +218,7 @@ The project comes with a simple task for manual testing purposes, inside `<proje
 
 You can also use Django admin to queue up tasks, thanks to the `django-celerybeat`_ package.
 
-.. _Getting started with Redis guide: https://redis.io/docs/getting-started/
+.. _Getting started with Redis: https://redis.io/docs/getting-started/
 .. _Celery Workers Guide: https://docs.celeryq.dev/en/stable/userguide/workers.html
 .. _django-celerybeat: https://django-celery-beat.readthedocs.io/en/latest/
 

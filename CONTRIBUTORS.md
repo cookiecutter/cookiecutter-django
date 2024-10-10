@@ -209,6 +209,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Alex Kanavos</td>
+    <td>
+      <a href="https://github.com/alexkanavos">alexkanavos</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Alex Tsai</td>
     <td>
       <a href="https://github.com/caffodian">caffodian</a>
@@ -1409,6 +1416,13 @@ Listed in alphabetical order.
     <td>Lin Xianyi</td>
     <td>
       <a href="https://github.com/iynaix">iynaix</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>LJFP</td>
+    <td>
+      <a href="https://github.com/ljfp">ljfp</a>
     </td>
     <td></td>
   </tr>

@@ -1,0 +1,34 @@
+name: uv
+
+on:
+  pull_request:
+    paths:
+      - "pyproject.toml"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  lock:
+    runs-on: ubuntu-latest
+    env:
+      GH_PAT: ${{ secrets.GH_PAT }}
+    steps:
+      - name: Checkout with token
+        uses: actions/checkout@v4
+        if: ${{ env.GH_PAT != '' }}
+        with:
+          token: ${{ env.GH_PAT }}
+
+      - name: Checkout without token
+        uses: actions/checkout@v4
+        if: ${{ env.GH_PAT == '' }}
+
+      - uses: astral-sh/setup-uv@v3
+        with:
+          enable-cache: true
+      - run: uv lock
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Regenerate uv.lock

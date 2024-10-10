@@ -9,12 +9,13 @@ build:
   os: ubuntu-22.04
   tools:
     python: "3.12"
+  commands:
+    - asdf plugin add uv
+    - asdf install uv latest
+    - asdf global uv latest
+    - uv sync --extra docs --no-dev --frozen
+    - uv run -m sphinx -T -b html -d docs/_build/doctrees -D language=en docs $READTHEDOCS_OUTPUT/html
 
 # Build documentation in the docs/ directory with Sphinx
 sphinx:
   configuration: docs/conf.py
-
-# Declare the Python requirements required to build your docs
-python:
-  install:
-    - requirements: docs/requirements.txt
