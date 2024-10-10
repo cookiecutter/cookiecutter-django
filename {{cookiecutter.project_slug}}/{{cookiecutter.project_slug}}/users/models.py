@@ -51,11 +51,11 @@ class User(AbstractUser):
         return reverse("users:detail", kwargs={"uuid": self.uuid})
 
     def __str__(self):
-        { % - if cookiecutter.username_type == "email" %}
+        {%- if cookiecutter.username_type == "email" %}
         return f"{self.first_name} {self.last_name}"
-        { % - else %}
+        {%- else %}
         return f"{self.username}"
-        { % - endif %}
+        {%- endif %}
 
     def save(self, *args, **kwargs):
         self.first_name = self.first_name.strip()
