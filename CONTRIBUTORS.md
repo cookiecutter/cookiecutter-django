@@ -881,6 +881,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Francisco Navarro Morales </td>
+    <td>
+      <a href="https://github.com/spothound">spothound</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Freddy</td>
     <td>
       <a href="https://github.com/Hraesvelg">Hraesvelg</a>
