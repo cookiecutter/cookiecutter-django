@@ -18,13 +18,13 @@ cd my_awesome_project
 sudo utility/install_os_dependencies.sh install
 
 # Install Python deps
-uv pip install -r requirements/local.txt
+pip install -r requirements/local.txt
 
 # run the project's tests
-uv run pytest
+pytest
 
 # Make sure the check doesn't raise any warnings
-uv run python manage.py check --fail-level WARNING
+python manage.py check --fail-level WARNING
 
 # Run npm build script if package.json is present
 if [ -f "package.json" ]
