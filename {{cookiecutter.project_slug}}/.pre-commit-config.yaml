@@ -28,7 +28,7 @@ repos:
         exclude: '{{cookiecutter.project_slug}}/templates/'
 
   - repo: https://github.com/adamchainz/django-upgrade
-    rev: '1.22.0'
+    rev: '1.22.1'
     hooks:
       - id: django-upgrade
         args: ['--target-version', '5.0']
