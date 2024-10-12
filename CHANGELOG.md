@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.10.11
+
+
+### Changed
+
+- Update README.md broken links ([#5454](https://github.com/cookiecutter/cookiecutter-django/pull/5454))
+
+- wait-for-it as dependency in the run stage ([#5452](https://github.com/cookiecutter/cookiecutter-django/pull/5452))
+
+### Updated
+
+- Auto-update pre-commit hooks ([#5450](https://github.com/cookiecutter/cookiecutter-django/pull/5450))
+
 ## 2024.10.10
 
 
