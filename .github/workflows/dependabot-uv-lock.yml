@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   lock:
+    if: github.repository_owner == 'cookiecutter'
     runs-on: ubuntu-latest
     env:
       GH_PAT: ${{ secrets.GH_PAT }}
