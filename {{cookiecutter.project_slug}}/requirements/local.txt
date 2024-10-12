@@ -24,7 +24,7 @@ djangorestframework-stubs==3.15.1  # https://github.com/typeddjango/djangorestfr
 
 # Documentation
 # ------------------------------------------------------------------------------
-sphinx==8.0.2  # https://github.com/sphinx-doc/sphinx
+sphinx==8.1.1  # https://github.com/sphinx-doc/sphinx
 sphinx-autobuild==2024.10.3 # https://github.com/GaretJax/sphinx-autobuild
 
 # Code quality
