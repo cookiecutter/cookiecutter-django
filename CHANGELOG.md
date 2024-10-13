@@ -3,6 +3,21 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.10.12
+
+
+### Changed
+
+- Pin Python version to 3.12 ([#5456](https://github.com/cookiecutter/cookiecutter-django/pull/5456))
+
+### Updated
+
+- Update sphinx to 8.1.1 ([#5457](https://github.com/cookiecutter/cookiecutter-django/pull/5457))
+
+- Auto-update pre-commit hooks ([#5458](https://github.com/cookiecutter/cookiecutter-django/pull/5458))
+
+- Update django-cors-headers to 4.5.0 ([#5459](https://github.com/cookiecutter/cookiecutter-django/pull/5459))
+
 ## 2024.10.11
 
 
