@@ -54,7 +54,7 @@ First things first.
 
 #. Set the environment variables for your database(s): ::
 
-    $ export POSTGRES_USER=
+    $ export POSTGRES_USER=postgres
     $ export POSTGRES_PASSWORD=
     $ export POSTGRES_DB=<DB name given to createdb>
     # Optional: set broker URL if using Celery
