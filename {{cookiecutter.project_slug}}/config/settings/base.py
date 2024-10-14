@@ -55,7 +55,7 @@ else:
                 "NAME": env.str("POSTGRES_DB"),
                 "USER": env.str("POSTGRES_USER"),
                 "PASSWORD": env.str("POSTGRES_PASSWORD"),
-                "HOST": env.str("POSTGRES_HOST", default="{% if cookiecutter.windows == 'y' or cookiecutter.use_docker == 'n' %}localhost{%else%}postgres{% endif %}"),
+                "HOST": env.str("POSTGRES_HOST", default="{% if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %}localhost{%else%}postgres{% endif %}"),
                 "PORT": env.str("POSTGRES_PORT", default="5432"),
             },
     }
