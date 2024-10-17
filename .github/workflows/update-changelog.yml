@@ -23,7 +23,7 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "action@github.com"
-      - name: Update list
+      - name: Update changelog
         run: uv run --frozen scripts/update_changelog.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
