@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.10.17
+
+
+### Updated
+
+- Update ruff to 0.7.0 ([#5474](https://github.com/cookiecutter/cookiecutter-django/pull/5474))
+
+- Update uvicorn to 0.32.0 ([#5471](https://github.com/cookiecutter/cookiecutter-django/pull/5471))
+
+- Update pillow to 11.0.0 ([#5470](https://github.com/cookiecutter/cookiecutter-django/pull/5470))
+
+- Update sentry-sdk to 2.17.0 ([#5473](https://github.com/cookiecutter/cookiecutter-django/pull/5473))
+
 ## 2024.10.15
 
 
