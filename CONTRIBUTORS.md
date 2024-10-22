@@ -1490,6 +1490,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Mariot Tsitoara</td>
+    <td>
+      <a href="https://github.com/mariot">mariot</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Marlon Castillo</td>
     <td>
       <a href="https://github.com/mcastle">mcastle</a>
