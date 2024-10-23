@@ -273,7 +273,7 @@ def test_djlint_check_passes(cookies, context_override):
 @pytest.mark.parametrize(
     ["use_docker", "expected_test_script"],
     [
-        ("n", "pytest"),
+        ("n", "uv run pytest"),
         ("y", "docker compose -f docker-compose.local.yml run django pytest"),
     ],
 )
@@ -298,7 +298,7 @@ def test_travis_invokes_pytest(cookies, context, use_docker, expected_test_scrip
 @pytest.mark.parametrize(
     ["use_docker", "expected_test_script"],
     [
-        ("n", "pytest"),
+        ("n", "uv run pytest"),
         ("y", "docker compose -f docker-compose.local.yml run django pytest"),
     ],
 )
@@ -315,7 +315,7 @@ def test_gitlab_invokes_precommit_and_pytest(cookies, context, use_docker, expec
         try:
             gitlab_config = yaml.safe_load(gitlab_yml)
             assert gitlab_config["precommit"]["script"] == [
-                "pre-commit run --show-diff-on-failure --color=always --all-files"
+                "uv run pre-commit run --show-diff-on-failure --color=always --all-files"
             ]
             assert gitlab_config["pytest"]["script"] == [expected_test_script]
         except yaml.YAMLError as e:
@@ -325,7 +325,7 @@ def test_gitlab_invokes_precommit_and_pytest(cookies, context, use_docker, expec
 @pytest.mark.parametrize(
     ["use_docker", "expected_test_script"],
     [
-        ("n", "pytest"),
+        ("n", "uv run pytest"),
         ("y", "docker compose -f docker-compose.local.yml run django pytest"),
     ],
 )

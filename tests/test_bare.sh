@@ -18,13 +18,13 @@ cd my_awesome_project
 sudo utility/install_os_dependencies.sh install
 
 # Install Python deps
-pip install -r requirements/local.txt
+uv sync
 
 # run the project's tests
-pytest
+uv run pytest
 
 # Make sure the check doesn't raise any warnings
-python manage.py check --fail-level WARNING
+uv run python manage.py check --fail-level WARNING
 
 # Run npm build script if package.json is present
 if [ -f "package.json" ]
@@ -33,5 +33,6 @@ then
     npm run build
 fi
 
+. .venv/bin/activate
 # Generate the HTML for the documentation
 cd docs && make html

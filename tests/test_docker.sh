@@ -5,6 +5,15 @@
 
 set -o errexit
 set -x
+set -e
+
+finish() {
+  # Your cleanup code here
+  docker compose -f docker-compose.local.yml down
+  docker volume rm my_awesome_project_my_awesome_project_local_postgres_data
+
+}
+trap finish EXIT
 
 # create a cache directory
 mkdir -p .cache/docker
@@ -44,6 +53,7 @@ docker compose -f docker-compose.local.yml run \
 # Generate the HTML for the documentation
 docker compose -f docker-compose.docs.yml run docs make html
 
+docker build -f ./compose/production/django/Dockerfile .
 # Run npm build script if package.json is present
 if [ -f "package.json" ]
 then

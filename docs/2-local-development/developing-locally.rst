@@ -1,7 +1,7 @@
 Getting Up and Running Locally
 ==============================
 
-.. index:: pip, virtualenv, PostgreSQL
+.. index:: PostgreSQL
 
 
 Setting Up Development Environment
@@ -9,7 +9,7 @@ Setting Up Development Environment
 
 Make sure to have the following on your host:
 
-* Python 3.12
+* uv https://docs.astral.sh/uv/getting-started/installation/
 * PostgreSQL_.
 * Redis_, if using Celery
 * Cookiecutter_
@@ -29,7 +29,7 @@ First things first.
 #. Install development requirements: ::
 
     $ cd <what you have entered as the project_slug at setup stage>
-    $ pip install -r requirements/local.txt
+    $ uv sync
     $ git init # A git repo is required for pre-commit to install
     $ pre-commit install
 
