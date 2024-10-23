@@ -32,7 +32,7 @@ uvicorn-worker==0.2.0  # https://github.com/Kludex/uvicorn-worker
 django==5.0.9  # pyup: < 5.1  # https://www.djangoproject.com/
 django-environ==0.11.2  # https://github.com/joke2k/django-environ
 django-model-utils==5.0.0  # https://github.com/jazzband/django-model-utils
-django-allauth[mfa]==65.0.2  # https://github.com/pennersr/django-allauth
+django-allauth[mfa]==65.1.0  # https://github.com/pennersr/django-allauth
 django-crispy-forms==2.3  # https://github.com/django-crispy-forms/django-crispy-forms
 crispy-bootstrap5==2024.10  # https://github.com/django-crispy-forms/crispy-bootstrap5
 {%- if cookiecutter.frontend_pipeline == 'Django Compressor' %}
