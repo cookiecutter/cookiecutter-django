@@ -13,7 +13,7 @@ build:
     - asdf plugin add uv
     - asdf install uv latest
     - asdf global uv latest
-    - uv sync --group docs --frozen
+    - uv sync --only-group docs --frozen
     - uv run -m sphinx -T -b html -d docs/_build/doctrees -D language=en docs $READTHEDOCS_OUTPUT/html
 
 # Build documentation in the docs/ directory with Sphinx
