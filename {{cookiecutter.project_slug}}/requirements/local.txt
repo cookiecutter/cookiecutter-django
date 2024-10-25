@@ -1,7 +1,6 @@
 -r production.txt
 
-watchdog==4.0.2 # https://github.com/gorakhargosh/watchdog
-Werkzeug[watchdog]==3.0.4 # https://github.com/pallets/werkzeug
+Werkzeug[watchdog]==3.0.5 # https://github.com/pallets/werkzeug
 ipdb==0.13.13  # https://github.com/gotcha/ipdb
 {%- if cookiecutter.use_docker == 'y' %}
 psycopg[c]==3.2.3  # https://github.com/psycopg/psycopg
