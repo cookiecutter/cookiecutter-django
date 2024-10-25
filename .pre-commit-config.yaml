@@ -48,7 +48,7 @@ repos:
       - id: flake8
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: "2.4.3"
+    rev: "v2.4.3"
     hooks:
       - id: pyproject-fmt
 
