@@ -1,7 +1,6 @@
 -r production.txt
 
-watchdog==4.0.2 # https://github.com/gorakhargosh/watchdog
-Werkzeug[watchdog]==3.0.4 # https://github.com/pallets/werkzeug
+Werkzeug[watchdog]==3.0.6 # https://github.com/pallets/werkzeug
 ipdb==0.13.13  # https://github.com/gotcha/ipdb
 {%- if cookiecutter.use_docker == 'y' %}
 psycopg[c]==3.2.3  # https://github.com/psycopg/psycopg
@@ -29,7 +28,7 @@ sphinx-autobuild==2024.10.3 # https://github.com/GaretJax/sphinx-autobuild
 
 # Code quality
 # ------------------------------------------------------------------------------
-ruff==0.7.0  # https://github.com/astral-sh/ruff
+ruff==0.7.1  # https://github.com/astral-sh/ruff
 coverage==7.6.4  # https://github.com/nedbat/coveragepy
 djlint==1.35.2  # https://github.com/Riverside-Healthcare/djLint
 pre-commit==4.0.1  # https://github.com/pre-commit/pre-commit
