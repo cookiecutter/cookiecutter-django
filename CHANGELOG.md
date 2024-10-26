@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.10.25
+
+
+### Updated
+
+- Update werkzeug to 3.0.5 and unpin watchdog&lt;5 ([#5489](https://github.com/cookiecutter/cookiecutter-django/pull/5489))
+
 ## 2024.10.24
 
 
