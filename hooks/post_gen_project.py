@@ -16,6 +16,7 @@ import os
 import random
 import shutil
 import string
+from pathlib import Path
 
 try:
     # Inspired by
@@ -100,7 +101,7 @@ def remove_utility_files():
 
 
 def remove_heroku_files():
-    file_names = ["Procfile", "runtime.txt", "requirements.txt"]
+    file_names = ["Procfile", "runtime.txt"]
     for file_name in file_names:
         if file_name == "requirements.txt" and "{{ cookiecutter.ci_tool }}".lower() == "travis":
             # don't remove the file if we are using travisci but not using heroku
@@ -218,21 +219,25 @@ def handle_js_runner(choice, use_docker, use_async):
 
 
 def remove_prettier_pre_commit():
-    with open(".pre-commit-config.yaml", "r") as fd:
-        content = fd.readlines()
+    remove_repo_from_pre_commit_config("mirrors-prettier")
+
+
+def remove_repo_from_pre_commit_config(repo_to_remove: str):
+    pre_commit_config = Path(".pre-commit-config.yaml")
+    content = pre_commit_config.read_text().splitlines(True)
 
     removing = False
-    new_lines = []
+    new_lines = ""
+
     for line in content:
         if removing and "- repo:" in line:
             removing = False
-        if "mirrors-prettier" in line:
+        if repo_to_remove in line:
             removing = True
         if not removing:
-            new_lines.append(line)
+            new_lines += line
 
-    with open(".pre-commit-config.yaml", "w") as fd:
-        fd.writelines(new_lines)
+    pre_commit_config.write_text(new_lines)
 
 
 def remove_celery_files():
@@ -471,6 +476,7 @@ def main():
 
     if "{{ cookiecutter.use_heroku }}".lower() == "n":
         remove_heroku_files()
+        remove_repo_from_pre_commit_config("uv-pre-commit")
 
     if "{{ cookiecutter.use_docker }}".lower() == "n" and "{{ cookiecutter.use_heroku }}".lower() == "n":
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":

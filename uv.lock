@@ -192,7 +192,7 @@ wheels = [
 
 [[package]]
 name = "cookiecutter-django"
-version = "2024.10.15"
+version = "2024.10.25"
 source = { virtual = "." }
 dependencies = [
     { name = "binaryornot" },
@@ -240,7 +240,7 @@ requires-dist = [
     { name = "pytest-xdist", specifier = "==3.6.1" },
     { name = "pyyaml", specifier = "==6.0.2" },
     { name = "requests", specifier = "==2.32.3" },
-    { name = "ruff", specifier = "==0.7.0" },
+    { name = "ruff", specifier = "==0.7" },
     { name = "sh", marker = "sys_platform != 'win23'", specifier = "==2.0.7" },
     { name = "sphinx", marker = "extra == 'docs'", specifier = ">=8.0.2" },
     { name = "sphinx-autobuild", marker = "extra == 'docs'", specifier = ">=2024.10.3" },
