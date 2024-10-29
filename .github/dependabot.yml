@@ -100,6 +100,7 @@ updates:
     directory: "{{cookiecutter.project_slug}}/compose/production/nginx/"
     schedule:
       interval: "daily"
+    versioning-strategy: increase
     labels:
       - "update"
 

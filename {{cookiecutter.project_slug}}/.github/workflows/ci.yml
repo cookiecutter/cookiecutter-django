@@ -57,7 +57,7 @@ jobs:
 
     env:
       {%- if cookiecutter.use_celery == 'y' %}
-      CELERY_BROKER_URL: 'redis://localhost:6379/0'
+      REDIS_URL: 'redis://localhost:6379/0'
       {%- endif %}
       # postgres://user:password@host:port/database
       DATABASE_URL: 'postgres://postgres:postgres@localhost:5432/postgres'
