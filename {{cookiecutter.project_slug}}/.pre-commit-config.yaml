@@ -32,14 +32,14 @@ repos:
         exclude: '{{cookiecutter.project_slug}}/templates/'
 
   - repo: https://github.com/adamchainz/django-upgrade
-    rev: '1.21.0'
+    rev: '1.22.1'
     hooks:
       - id: django-upgrade
         args: ['--target-version', '5.0']
 
   # Run the Ruff linter.
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.6.9
+    rev: v0.7.1
     hooks:
       # Linter
       - id: ruff

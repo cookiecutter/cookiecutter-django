@@ -190,8 +190,8 @@ Now take a look at your repo. Don't forget to carefully look at the generated RE
 
 For local development, see the following:
 
-- [Developing locally](http://cookiecutter-django.readthedocs.io/en/latest/developing-locally.html)
-- [Developing locally using docker](http://cookiecutter-django.readthedocs.io/en/latest/developing-locally-docker.html)
+- [Developing locally](https://cookiecutter-django.readthedocs.io/en/latest/2-local-development/developing-locally.html)
+- [Developing locally using docker](https://cookiecutter-django.readthedocs.io/en/latest/2-local-development/developing-locally-docker.html)
 
 ## Community
 

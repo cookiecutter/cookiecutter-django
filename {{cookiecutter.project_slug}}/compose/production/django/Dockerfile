@@ -37,8 +37,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   # dependencies for building Python packages
   build-essential \
   # psycopg dependencies
-  libpq-dev \
-  wait-for-it
+  libpq-dev
+
 
 # Requirements are installed here to ensure they will be cached.
 COPY ./requirements .
@@ -70,6 +70,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   libpq-dev \
   # Translations dependencies
   gettext \
+  # entrypoint
+  wait-for-it \
   # cleaning up unused files
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*
@@ -123,9 +125,6 @@ RUN chown -R django:django ${APP_HOME}
 USER django
 
 RUN DATABASE_URL="" \
-  {%- if cookiecutter.use_celery == "y" %}
-  CELERY_BROKER_URL="" \
-  {%- endif %}
   DJANGO_SETTINGS_MODULE="config.settings.test" \
   python manage.py compilemessages
 

@@ -91,6 +91,10 @@ def remove_docker_files():
             os.remove(os.path.join(".idea", "runConfigurations", file_name))
 
 
+def remove_nginx_docker_files():
+    shutil.rmtree(os.path.join("compose", "production", "nginx"))
+
+
 def remove_utility_files():
     shutil.rmtree("utility")
 
@@ -457,6 +461,8 @@ def main():
 
     if "{{ cookiecutter.use_docker }}".lower() == "y":
         remove_utility_files()
+        if "{{ cookiecutter.cloud_provider }}".lower() != "none":
+            remove_nginx_docker_files()
     else:
         remove_docker_files()
 

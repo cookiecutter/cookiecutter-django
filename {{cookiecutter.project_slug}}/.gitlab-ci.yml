@@ -8,7 +8,7 @@ variables:
   POSTGRES_DB: 'test_{{ cookiecutter.project_slug }}'
   POSTGRES_HOST_AUTH_METHOD: trust
   {%- if cookiecutter.use_celery == 'y' %}
-  CELERY_BROKER_URL: 'redis://redis:6379/0'
+  REDIS_URL: 'redis://redis:6379/0'
   {%- endif %}
 
 precommit:

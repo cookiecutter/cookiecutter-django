@@ -3,6 +3,131 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.10.26
+
+
+### Updated
+
+- Update django-stubs to 5.1.1 ([#5495](https://github.com/cookiecutter/cookiecutter-django/pull/5495))
+
+- Update mypy to 1.13.0 ([#5484](https://github.com/cookiecutter/cookiecutter-django/pull/5484))
+
+- Update werkzeug to 3.0.6 ([#5492](https://github.com/cookiecutter/cookiecutter-django/pull/5492))
+
+## 2024.10.25
+
+
+### Updated
+
+- Update werkzeug to 3.0.5 and unpin watchdog&lt;5 ([#5489](https://github.com/cookiecutter/cookiecutter-django/pull/5489))
+
+## 2024.10.24
+
+
+### Updated
+
+- Update ruff to 0.7.1 ([#5487](https://github.com/cookiecutter/cookiecutter-django/pull/5487))
+
+- Update redis to 5.2.0 ([#5486](https://github.com/cookiecutter/cookiecutter-django/pull/5486))
+
+- Update django-allauth to 65.1.0 ([#5485](https://github.com/cookiecutter/cookiecutter-django/pull/5485))
+
+## 2024.10.22
+
+
+### Changed
+
+- Fix broken links in generated README ([#5482](https://github.com/cookiecutter/cookiecutter-django/pull/5482))
+
+### Updated
+
+- Auto-update pre-commit hooks ([#5483](https://github.com/cookiecutter/cookiecutter-django/pull/5483))
+
+## 2024.10.21
+
+
+### Changed
+
+- Remove CELERY_BROKER_URL in favor of REDIS_URL ([#4861](https://github.com/cookiecutter/cookiecutter-django/pull/4861))
+
+### Fixed
+
+- Fix a number of issues with Azure storage ([#5476](https://github.com/cookiecutter/cookiecutter-django/pull/5476))
+
+### Updated
+
+- Update coverage to 7.6.4 ([#5480](https://github.com/cookiecutter/cookiecutter-django/pull/5480))
+
+## 2024.10.17
+
+
+### Updated
+
+- Update ruff to 0.7.0 ([#5474](https://github.com/cookiecutter/cookiecutter-django/pull/5474))
+
+- Update uvicorn to 0.32.0 ([#5471](https://github.com/cookiecutter/cookiecutter-django/pull/5471))
+
+- Update pillow to 11.0.0 ([#5470](https://github.com/cookiecutter/cookiecutter-django/pull/5470))
+
+- Update sentry-sdk to 2.17.0 ([#5473](https://github.com/cookiecutter/cookiecutter-django/pull/5473))
+
+## 2024.10.15
+
+
+### Changed
+
+- [pre-commit.ci] pre-commit autoupdate ([#5468](https://github.com/cookiecutter/cookiecutter-django/pull/5468))
+
+## 2024.10.14
+
+
+### Changed
+
+- Add requirements for ubuntu 24.04 ([#5467](https://github.com/cookiecutter/cookiecutter-django/pull/5467))
+
+### Updated
+
+- Update sphinx to 8.1.3 ([#5463](https://github.com/cookiecutter/cookiecutter-django/pull/5463))
+
+- Update coverage to 7.6.3 ([#5464](https://github.com/cookiecutter/cookiecutter-django/pull/5464))
+
+## 2024.10.12
+
+
+### Changed
+
+- Pin Python version to 3.12 ([#5456](https://github.com/cookiecutter/cookiecutter-django/pull/5456))
+
+### Updated
+
+- Update sphinx to 8.1.1 ([#5457](https://github.com/cookiecutter/cookiecutter-django/pull/5457))
+
+- Auto-update pre-commit hooks ([#5458](https://github.com/cookiecutter/cookiecutter-django/pull/5458))
+
+- Update django-cors-headers to 4.5.0 ([#5459](https://github.com/cookiecutter/cookiecutter-django/pull/5459))
+
+## 2024.10.11
+
+
+### Changed
+
+- Update README.md broken links ([#5454](https://github.com/cookiecutter/cookiecutter-django/pull/5454))
+
+- wait-for-it as dependency in the run stage ([#5452](https://github.com/cookiecutter/cookiecutter-django/pull/5452))
+
+### Updated
+
+- Auto-update pre-commit hooks ([#5450](https://github.com/cookiecutter/cookiecutter-django/pull/5450))
+
+## 2024.10.10
+
+
+### Updated
+
+- Update sentry-sdk to 2.16.0 ([#5444](https://github.com/cookiecutter/cookiecutter-django/pull/5444))
+
+- Bump traefik from 3.1.5 to 3.1.6 ([#5449](https://github.com/cookiecutter/cookiecutter-django/pull/5449))
+
 ## 2024.10.09
 
 

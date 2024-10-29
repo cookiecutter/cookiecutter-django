@@ -881,6 +881,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Francisco Navarro Morales </td>
+    <td>
+      <a href="https://github.com/spothound">spothound</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Freddy</td>
     <td>
       <a href="https://github.com/Hraesvelg">Hraesvelg</a>
@@ -1479,6 +1486,13 @@ Listed in alphabetical order.
     <td>Marios Frixou</td>
     <td>
       <a href="https://github.com/frixou89">frixou89</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Mariot Tsitoara</td>
+    <td>
+      <a href="https://github.com/mariot">mariot</a>
     </td>
     <td></td>
   </tr>

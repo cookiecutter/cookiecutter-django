@@ -16,6 +16,7 @@ from sentry_sdk.integrations.redis import RedisIntegration
 from .base import *  # noqa: F403
 from .base import DATABASES
 from .base import INSTALLED_APPS
+from .base import REDIS_URL
 {%- if cookiecutter.use_drf == "y" %}
 from .base import SPECTACULAR_SETTINGS
 {%- endif %}
@@ -37,7 +38,7 @@ DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": env("REDIS_URL"),
+        "LOCATION": REDIS_URL,
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
             # Mimicing memcache behavior.
@@ -170,7 +171,7 @@ STORAGES = {
         "BACKEND": "storages.backends.azure_storage.AzureStorage",
         "OPTIONS": {
             "location": "media",
-            "file_overwrite": False,
+            "overwrite_files": False,
         },
     },
     {%- if cookiecutter.use_whitenoise == 'y' %}
@@ -323,7 +324,7 @@ COMPRESS_FILTERS = {
     "js": ["compressor.filters.jsmin.JSMinFilter"],
 }
 {% endif %}
-{%- if cookiecutter.use_whitenoise == 'n' -%}
+{%- if cookiecutter.use_whitenoise == 'n' and cookiecutter.cloud_provider in ('AWS', 'GCP') -%}
 # Collectfasta
 # ------------------------------------------------------------------------------
 # https://github.com/jasongi/collectfasta#installation
