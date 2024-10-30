@@ -3,6 +3,35 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.10.29
+
+
+### Updated
+
+- Update django-cors-headers to 4.6.0 ([#5499](https://github.com/cookiecutter/cookiecutter-django/pull/5499))
+
+- Update whitenoise to 6.8.1 ([#5497](https://github.com/cookiecutter/cookiecutter-django/pull/5497))
+
+- Bump traefik from 3.1.6 to 3.2.0 ([#5498](https://github.com/cookiecutter/cookiecutter-django/pull/5498))
+
+## 2024.10.26
+
+
+### Updated
+
+- Update django-stubs to 5.1.1 ([#5495](https://github.com/cookiecutter/cookiecutter-django/pull/5495))
+
+- Update mypy to 1.13.0 ([#5484](https://github.com/cookiecutter/cookiecutter-django/pull/5484))
+
+- Update werkzeug to 3.0.6 ([#5492](https://github.com/cookiecutter/cookiecutter-django/pull/5492))
+
+## 2024.10.25
+
+
+### Updated
+
+- Update werkzeug to 3.0.5 and unpin watchdog&lt;5 ([#5489](https://github.com/cookiecutter/cookiecutter-django/pull/5489))
+
 ## 2024.10.24
 
 

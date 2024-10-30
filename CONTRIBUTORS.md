@@ -545,6 +545,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Christian Jensen</td>
+    <td>
+      <a href="https://github.com/jensenbox">jensenbox</a>
+    </td>
+    <td>cjensen</td>
+  </tr>
+  <tr>
     <td>Christopher Clarke</td>
     <td>
       <a href="https://github.com/chrisdev">chrisdev</a>
