@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.10.30
+
+
+### Documentation
+
+- Small spelling correction in comment ([#5502](https://github.com/cookiecutter/cookiecutter-django/pull/5502))
+
+### Updated
+
+- Update djlint to 1.35.3 ([#5503](https://github.com/cookiecutter/cookiecutter-django/pull/5503))
+
+- Update whitenoise to 6.8.2 ([#5501](https://github.com/cookiecutter/cookiecutter-django/pull/5501))
+
 ## 2024.10.29
 
 
