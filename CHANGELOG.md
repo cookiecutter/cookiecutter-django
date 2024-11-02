@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.11.01
+
+
+### Updated
+
+- Update djlint to 1.35.4 ([#5508](https://github.com/cookiecutter/cookiecutter-django/pull/5508))
+
+- Bump amazon/aws-cli from 2.18.1 to 2.19.0 ([#5507](https://github.com/cookiecutter/cookiecutter-django/pull/5507))
+
 ## 2024.10.30
 
 
