@@ -48,6 +48,11 @@ CACHES = {
     },
 }
 
+REDIS_SSL = env.bool("REDIS_SSL", default=False)
+if REDIS_SSL:
+    CACHES["default"]["OPTIONS"]["CONNECTION_POOL_CLASS"] = "redis.connection.SSLConnection"
+    CACHES["default"]["OPTIONS"]["SSL_CERT_REQS"] = None
+
 # SECURITY
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#secure-proxy-ssl-header
