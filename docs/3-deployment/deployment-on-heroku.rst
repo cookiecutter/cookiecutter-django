@@ -15,19 +15,17 @@ Run these commands to deploy the project to Heroku:
     # Note: this is not a free plan
     heroku addons:create heroku-postgresql:essential-0
 
-    heroku addons:create heroku-redis:mini
-
-    # Enable Redis TLS support (required for new Heroku Redis instances)
-    heroku config:set REDIS_SSL=True
-    heroku config:set CELERY_BROKER_USE_SSL=True
-    heroku config:set CELERY_REDIS_BACKEND_USE_SSL=True
-
     # On Windows use double quotes for the time zone, e.g.
     # heroku pg:backups schedule --at "02:00 America/Los_Angeles" DATABASE_URL
     heroku pg:backups schedule --at '02:00 America/Los_Angeles' DATABASE_URL
     heroku pg:promote DATABASE_URL
 
     heroku addons:create heroku-redis:mini
+
+    # Enable Redis TLS support (required for new Heroku Redis instances)
+    heroku config:set REDIS_SSL=True
+    heroku config:set CELERY_BROKER_USE_SSL=True
+    heroku config:set CELERY_REDIS_BACKEND_USE_SSL=True
 
     # Assuming you chose Mailgun as mail service (see below for others)
     heroku addons:create mailgun:starter
@@ -65,11 +63,6 @@ Run these commands to deploy the project to Heroku:
 
 Notes
 -----
-
-Redis Configuration
-+++++++++++++++++++
-
-Heroku Redis now requires TLS connections by default. The script above includes the necessary TLS configuration. These settings are optional and default to False, so they won't affect existing deployments unless explicitly enabled.
 
 Email Service
 +++++++++++++
