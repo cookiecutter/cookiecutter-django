@@ -283,8 +283,8 @@ LOGGING = {
 }
 
 REDIS_URL = env("REDIS_URL", default="redis://{% if cookiecutter.use_docker == 'y' %}redis{%else%}localhost{% endif %}:6379/0")
-CELERY_BROKER_USE_SSL = env.bool("CELERY_BROKER_USE_SSL", default=False)
-CELERY_REDIS_BACKEND_USE_SSL = env.bool("CELERY_REDIS_BACKEND_USE_SSL", default=False)
+CELERY_BROKER_USE_SSL = env.bool("REDIS_SSL", default=False)
+CELERY_REDIS_BACKEND_USE_SSL = env.bool("REDIS_SSL", default=False)
 
 
 {% if cookiecutter.use_celery == 'y' -%}
