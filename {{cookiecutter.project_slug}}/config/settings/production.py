@@ -1,8 +1,7 @@
 # ruff: noqa: E501
-import ssl
-
-{% if cookiecutter.use_sentry == 'y' -%}
 import logging
+import ssl
+{% if cookiecutter.use_sentry == 'y' -%}
 
 import sentry_sdk
 
@@ -17,6 +16,7 @@ from sentry_sdk.integrations.redis import RedisIntegration
 {% endif -%}
 from .base import *  # noqa: F403
 from .base import DATABASES
+
 from .base import INSTALLED_APPS
 from .base import REDIS_URL
 {%- if cookiecutter.use_drf == "y" %}
