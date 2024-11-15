@@ -1,10 +1,9 @@
 # ruff: noqa: E501
-import ssl
+import logging  # 표준 라이브러리
+import ssl  # 표준 라이브러리
 
 {% if cookiecutter.use_sentry == 'y' -%}
-import logging
-
-import sentry_sdk
+import sentry_sdk  # 서드파티 라이브러리
 
 {%- if cookiecutter.use_celery == 'y' %}
 
