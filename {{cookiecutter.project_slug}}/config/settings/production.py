@@ -51,6 +51,7 @@ CACHES = {
 }
 
 
+REDIS_URL = env("REDIS_TLS_URL")
 CELERY_REDIS_BACKEND_USE_SSL = {"ssl_cert_reqs": ssl.CERT_NONE}
 CELERY_BROKER_USE_SSL = {"ssl_cert_reqs": ssl.CERT_NONE}
 REDIS_SSL = env.bool("REDIS_SSL", default=False)
@@ -61,7 +62,6 @@ if REDIS_SSL:
         "redis.connection.SSLConnection"
     )
     CACHES["default"]["OPTIONS"]["SSL_CERT_REQS"] = None
-
 # SECURITY
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#secure-proxy-ssl-header
