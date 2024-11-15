@@ -1,30 +1,28 @@
 # ruff: noqa: E501
-# Standard Library
-import logging
 import ssl
 
 {% if cookiecutter.use_sentry == 'y' -%}
-# Third-party
+import logging
+
 import sentry_sdk
+
 {%- if cookiecutter.use_celery == 'y' %}
 from sentry_sdk.integrations.celery import CeleryIntegration
+
 {%- endif %}
 from sentry_sdk.integrations.django import DjangoIntegration
 from sentry_sdk.integrations.logging import LoggingIntegration
 from sentry_sdk.integrations.redis import RedisIntegration
-{% endif -%}
 
-# Local
+{% endif -%}
 from .base import *  # noqa: F403
-from .base import (
-    DATABASES,
-    INSTALLED_APPS,
-    REDIS_URL,
-    env,
+from .base import DATABASES
+from .base import INSTALLED_APPS
+from .base import REDIS_URL
 {%- if cookiecutter.use_drf == "y" %}
-    SPECTACULAR_SETTINGS,
+from .base import SPECTACULAR_SETTINGS
 {%- endif %}
-)
+from .base import env
 
 # GENERAL
 # ------------------------------------------------------------------------------
