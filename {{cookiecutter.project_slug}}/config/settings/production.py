@@ -1,27 +1,26 @@
 # ruff: noqa: E501
-{% if cookiecutter.use_sentry == 'y' -%}
-import logging
-import ssl
+import logging  # 표준 라이브러리
+import ssl  # 표준 라이브러리
 
+{% if cookiecutter.use_sentry == 'y' -%}
 import sentry_sdk
+
 {%- if cookiecutter.use_celery == 'y' %}
 from sentry_sdk.integrations.celery import CeleryIntegration
 {%- endif %}
 from sentry_sdk.integrations.django import DjangoIntegration
 from sentry_sdk.integrations.logging import LoggingIntegration
 from sentry_sdk.integrations.redis import RedisIntegration
-
-{% else %}
-import ssl
-
 {% endif -%}
-from .base import * # noqa: F403
-from .base import DATABASES
-from .base import INSTALLED_APPS
-from .base import REDIS_URL
-from .base import env
+
+from .base import *  # noqa: F403
+from .base import DATABASES  # 로컬 모듈
+from .base import INSTALLED_APPS  # 로컬 모듈
+from .base import REDIS_URL  # 로컬 모듈
+from .base import env  # 로컬 모듈
+
 {%- if cookiecutter.use_drf == "y" %}
-from .base import SPECTACULAR_SETTINGS
+from .base import SPECTACULAR_SETTINGS  # DRF 관련 설정
 {%- endif %}
 
 # GENERAL
