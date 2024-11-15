@@ -1,4 +1,6 @@
 # ruff: noqa: E501
+import ssl
+
 {% if cookiecutter.use_sentry == 'y' -%}
 import logging
 
@@ -49,7 +51,7 @@ CACHES = {
     },
 }
 
-import ssl  # noqa: E402
+
 REDIS_URL = env("REDIS_TLS_URL")
 CELERY_REDIS_BACKEND_USE_SSL = {"ssl_cert_reqs": ssl.CERT_NONE}
 CELERY_BROKER_USE_SSL = {"ssl_cert_reqs": ssl.CERT_NONE}
