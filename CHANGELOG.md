@@ -3,6 +3,26 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.11.14
+
+
+### Updated
+
+- Bump amazon/aws-cli from 2.20.0 to 2.21.0 ([#5528](https://github.com/cookiecutter/cookiecutter-django/pull/5528))
+
+## 2024.11.13
+
+
+### Updated
+
+- Update werkzeug to 3.1.3 ([#5524](https://github.com/cookiecutter/cookiecutter-django/pull/5524))
+
+- Update ruff to 0.7.3 ([#5521](https://github.com/cookiecutter/cookiecutter-django/pull/5521))
+
+- Bump amazon/aws-cli from 2.19.0 to 2.20.0 ([#5527](https://github.com/cookiecutter/cookiecutter-django/pull/5527))
+
+- Update django-allauth to 65.2.0 ([#5523](https://github.com/cookiecutter/cookiecutter-django/pull/5523))
+
 ## 2024.11.08
 
 

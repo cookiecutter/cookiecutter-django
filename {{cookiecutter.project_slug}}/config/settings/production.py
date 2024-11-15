@@ -1,26 +1,28 @@
 # ruff: noqa: E501
 {% if cookiecutter.use_sentry == 'y' -%}
 import logging
+import ssl
 
 import sentry_sdk
-
 {%- if cookiecutter.use_celery == 'y' %}
 from sentry_sdk.integrations.celery import CeleryIntegration
-
 {%- endif %}
 from sentry_sdk.integrations.django import DjangoIntegration
 from sentry_sdk.integrations.logging import LoggingIntegration
 from sentry_sdk.integrations.redis import RedisIntegration
 
+{% else %}
+import ssl
+
 {% endif -%}
-from .base import *  # noqa: F403
 from .base import DATABASES
+from .base import *  # noqa: F403
 from .base import INSTALLED_APPS
 from .base import REDIS_URL
+from .base import env
 {%- if cookiecutter.use_drf == "y" %}
 from .base import SPECTACULAR_SETTINGS
 {%- endif %}
-from .base import env
 
 # GENERAL
 # ------------------------------------------------------------------------------
@@ -48,9 +50,16 @@ CACHES = {
     },
 }
 
+
+CELERY_REDIS_BACKEND_USE_SSL = {"ssl_cert_reqs": ssl.CERT_NONE}
+CELERY_BROKER_USE_SSL = {"ssl_cert_reqs": ssl.CERT_NONE}
 REDIS_SSL = env.bool("REDIS_SSL", default=False)
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
+
 if REDIS_SSL:
-    CACHES["default"]["OPTIONS"]["CONNECTION_POOL_CLASS"] = "redis.connection.SSLConnection"
+    CACHES["default"]["OPTIONS"]["CONNECTION_POOL_CLASS"] = (
+        "redis.connection.SSLConnection"
+    )
     CACHES["default"]["OPTIONS"]["SSL_CERT_REQS"] = None
 
 # SECURITY
