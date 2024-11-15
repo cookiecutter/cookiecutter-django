@@ -62,7 +62,6 @@ if REDIS_SSL:
         "redis.connection.SSLConnection"
     )
     CACHES["default"]["OPTIONS"]["SSL_CERT_REQS"] = CERT_NONE
-    
 # SECURITY
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#secure-proxy-ssl-header
