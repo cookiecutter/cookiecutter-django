@@ -6,8 +6,6 @@ import sentry_sdk
 
 {%- if cookiecutter.use_celery == 'y' %}
 
-import ssl
-
 from sentry_sdk.integrations.celery import CeleryIntegration
 
 {%- endif %}
@@ -51,7 +49,7 @@ CACHES = {
     },
 }
 
-
+import ssl  # noqa: E402
 REDIS_URL = env("REDIS_TLS_URL")
 CELERY_REDIS_BACKEND_USE_SSL = {"ssl_cert_reqs": ssl.CERT_NONE}
 CELERY_BROKER_USE_SSL = {"ssl_cert_reqs": ssl.CERT_NONE}
