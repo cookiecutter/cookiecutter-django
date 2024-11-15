@@ -1,12 +1,10 @@
 # ruff: noqa: E501
-import logging  # 표준 라이브러리
-import ssl  # 표준 라이브러리
-
 {% if cookiecutter.use_sentry == 'y' -%}
-import sentry_sdk  # 서드파티 라이브러리
+import logging
+
+import sentry_sdk
 
 {%- if cookiecutter.use_celery == 'y' %}
-
 from sentry_sdk.integrations.celery import CeleryIntegration
 
 {%- endif %}
@@ -50,10 +48,12 @@ CACHES = {
     },
 }
 
-
 REDIS_URL = env("REDIS_TLS_URL")
-CELERY_REDIS_BACKEND_USE_SSL = {"ssl_cert_reqs": ssl.CERT_NONE}
-CELERY_BROKER_USE_SSL = {"ssl_cert_reqs": ssl.CERT_NONE}
+
+CERT_NONE = 0
+
+CELERY_REDIS_BACKEND_USE_SSL = {"ssl_cert_reqs": CERT_NONE}
+CELERY_BROKER_USE_SSL = {"ssl_cert_reqs": CERT_NONE}
 REDIS_SSL = env.bool("REDIS_SSL", default=False)
 CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 
@@ -61,7 +61,8 @@ if REDIS_SSL:
     CACHES["default"]["OPTIONS"]["CONNECTION_POOL_CLASS"] = (
         "redis.connection.SSLConnection"
     )
-    CACHES["default"]["OPTIONS"]["SSL_CERT_REQS"] = None
+    CACHES["default"]["OPTIONS"]["SSL_CERT_REQS"] = CERT_NONE
+    
 # SECURITY
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#secure-proxy-ssl-header
