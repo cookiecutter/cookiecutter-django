@@ -1,6 +1,6 @@
 # Translations
 
-Start by configuring the `LANGUAGES` settings in `base.py`, by uncommenting languages you are willing to support. Then, translations strings will be placed in this folder when running:
+Start by configuring the `LANGUAGES` settings in `base.py`, by uncommenting languages you are willing to support. Then, translation strings will be placed in this folder when running:
 
 ```bash
 {% if cookiecutter.use_docker == 'y' %}docker compose -f docker-compose.local.yml run --rm django {% endif %}python manage.py makemessages --all --no-location
@@ -19,7 +19,7 @@ Once all translations are done, they need to be compiled into `.mo` files (stand
 {% if cookiecutter.use_docker == 'y' %}docker compose -f docker-compose.local.yml run --rm django {% endif %}python manage.py compilemessages
 ```
 
-Note that the `.po` files are NOT used by the application directly, so if the `.mo` files are out of dates, the content won't appear as translated even if the `.po` files are up-to-date.
+Note that the `.po` files are NOT used by the application directly, so if the `.mo` files are out of date, the content won't appear as translated even if the `.po` files are up-to-date.
 
 ## Production
 
