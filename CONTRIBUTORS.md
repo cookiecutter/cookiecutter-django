@@ -734,6 +734,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Denis Darii</td>
+    <td>
+      <a href="https://github.com/DNX">DNX</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Denis Orehovsky</td>
     <td>
       <a href="https://github.com/apirobot">apirobot</a>
