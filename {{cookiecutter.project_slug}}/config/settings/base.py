@@ -1,4 +1,4 @@
-# ruff: noqa: ERA001, E501, E402
+# ruff: noqa: ERA001, E501
 """Base settings to build other settings files upon."""
 
 {% if cookiecutter.use_celery == 'y' -%}
