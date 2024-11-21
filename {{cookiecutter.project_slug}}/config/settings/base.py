@@ -1,12 +1,14 @@
-# ruff: noqa: ERA001, E501
+# ruff: noqa: ERA001, E501, E402
 """Base settings to build other settings files upon."""
 
 from pathlib import Path
 
 import environ
+
 {% if cookiecutter.use_celery == 'y' %}
-import ssl
+import ssl  # noqa: E402
 {% endif %}
+
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 # {{ cookiecutter.project_slug }}/
 APPS_DIR = BASE_DIR / "{{ cookiecutter.project_slug }}"
