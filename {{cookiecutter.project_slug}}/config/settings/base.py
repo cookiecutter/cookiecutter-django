@@ -2,6 +2,7 @@
 """Base settings to build other settings files upon."""
 
 from pathlib import Path
+
 {% if cookiecutter.use_celery == 'y' %}
 import ssl
 {% endif %}
