@@ -22,9 +22,6 @@ Run these commands to deploy the project to Heroku:
 
     heroku addons:create heroku-redis:mini
 
-    # Enable Redis TLS support (required for new Heroku Redis instances)
-    heroku config:set REDIS_SSL=True
-
     # Assuming you chose Mailgun as mail service (see below for others)
     heroku addons:create mailgun:starter
 
