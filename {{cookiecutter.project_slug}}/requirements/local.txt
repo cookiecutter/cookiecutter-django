@@ -28,7 +28,7 @@ sphinx-autobuild==2024.10.3 # https://github.com/GaretJax/sphinx-autobuild
 
 # Code quality
 # ------------------------------------------------------------------------------
-ruff==0.7.4  # https://github.com/astral-sh/ruff
+ruff==0.8.0  # https://github.com/astral-sh/ruff
 coverage==7.6.5  # https://github.com/nedbat/coveragepy
 djlint==1.36.1  # https://github.com/Riverside-Healthcare/djLint
 pre-commit==4.0.1  # https://github.com/pre-commit/pre-commit
