@@ -3,7 +3,7 @@
 ////////////////////////////////
 
 // Gulp and package
-import { src, dest, parallel, series, watch } from 'gulp';
+import { src, dest, parallel, series, task, watch } from 'gulp';
 import pjson from './package.json' with {type: 'json'};
 
 // Plugins
@@ -181,6 +181,6 @@ const dev = parallel(runServer, initBrowserSync, watchPaths);
 const dev = parallel(initBrowserSync, watchPaths);
 {%- endif %}
 
-export default series(build, dev);
-export build;
-export dev;
+task('default', series(build, dev));
+task('build', build);
+task('dev', dev);
