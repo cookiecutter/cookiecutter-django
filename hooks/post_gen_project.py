@@ -179,7 +179,7 @@ def handle_js_runner(choice, use_docker, use_async):
             remove_keys=["babel"],
             scripts={
                 "dev": "gulp",
-                "build": "gulp generate-assets",
+                "build": "gulp build",
             },
         )
         remove_webpack_files()
