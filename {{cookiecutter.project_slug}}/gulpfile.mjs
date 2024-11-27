@@ -18,13 +18,13 @@ import plumber from 'gulp-plumber';
 import postcss from 'gulp-postcss';
 import rename from 'gulp-rename';
 import gulpSass from 'gulp-sass';
-import * as sassLib from 'sass';
+import * as dartSass from 'sass';
 import gulUglifyES from 'gulp-uglify-es';
 import { spawn } from 'node:child_process';
 
 const browserSync = browserSyncLib.create();
 const reload = browserSync.reload;
-const sass = gulpSass(sassLib);
+const sass = gulpSass(dartSass);
 const uglify = gulUglifyES.default;
 
 console.log("package.json: %o", pjson);
