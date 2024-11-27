@@ -53,14 +53,14 @@ if db_url := env.db("DATABASE_URL", default=None):
     DATABASES = {"default": db_url}
 else:
     DATABASES = {
-            "default": {
-                "ENGINE": "django.db.backends.postgresql",
-                "NAME": env.str("POSTGRES_DB"),
-                "USER": env.str("POSTGRES_USER"),
-                "PASSWORD": env.str("POSTGRES_PASSWORD"),
-                "HOST": env.str("POSTGRES_HOST", default="{% if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %}localhost{%else%}postgres{% endif %}"),
-                "PORT": env.str("POSTGRES_PORT", default="5432"),
-            },
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": env.str("POSTGRES_DB"),
+            "USER": env.str("POSTGRES_USER"),
+            "PASSWORD": env.str("POSTGRES_PASSWORD"),
+            "HOST": env.str("POSTGRES_HOST", default="{% if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %}localhost{%else%}postgres{% endif %}"),
+            "PORT": env.str("POSTGRES_PORT", default="5432"),
+        },
     }
 
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
