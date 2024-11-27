@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.11.26
+
+
+### Updated
+
+- Update coverage to 7.6.8 ([#5547](https://github.com/cookiecutter/cookiecutter-django/pull/5547))
+
+- Update watchfiles to 1.0.0 ([#5548](https://github.com/cookiecutter/cookiecutter-django/pull/5548))
+
 ## 2024.11.22
 
 
