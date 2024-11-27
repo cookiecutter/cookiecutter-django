@@ -26,7 +26,7 @@ repos:
         args: ["--tab-width", "2"]
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.18.0
+    rev: v3.19.0
     hooks:
       - id: pyupgrade
         args: [--py312-plus]
@@ -48,7 +48,7 @@ repos:
       - id: flake8
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: "2.3.0"
+    rev: "v2.5.0"
     hooks:
       - id: pyproject-fmt
 

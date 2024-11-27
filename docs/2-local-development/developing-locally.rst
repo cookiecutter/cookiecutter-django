@@ -57,8 +57,6 @@ First things first.
     $ export POSTGRES_USER=postgres
     $ export POSTGRES_PASSWORD=
     $ export POSTGRES_DB=<DB name given to createdb>
-    # Optional: set broker URL if using Celery
-    $ export CELERY_BROKER_URL=redis://localhost:6379/0
 
    .. note::
 

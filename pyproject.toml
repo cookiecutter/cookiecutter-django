@@ -1,6 +1,6 @@
 [project]
 name = "cookiecutter-django"
-version = "2024.10.12"
+version = "2024.11.26"
 description = "A Cookiecutter template for creating production-ready Django projects quickly."
 readme = "README.md"
 keywords = [
@@ -43,18 +43,20 @@ dependencies = [
   "pytest-xdist==3.6.1",
   "pyyaml==6.0.2",
   "requests==2.32.3",
-  "ruff==0.6.9",
+  "ruff==0.7",
   "sh==2.0.7; sys_platform!='win23'",
   "tox==4.21.2",
   "tox-uv>=1.11.2",
 ]
-optional-dependencies.docs = [
+urls = { Repository = "https://github.com/cookiecutter/cookiecutter-django" }
+
+[dependency-groups]
+docs = [
   "myst-parser>=4",
   "sphinx>=8.0.2",
   "sphinx-autobuild>=2024.10.3",
   "sphinx-rtd-theme>=3",
 ]
-urls = { Repository = "https://github.com/cookiecutter/cookiecutter-django" }
 
 [tool.black]
 line-length = 119

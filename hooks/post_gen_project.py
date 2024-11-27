@@ -91,6 +91,10 @@ def remove_docker_files():
             os.remove(os.path.join(".idea", "runConfigurations", file_name))
 
 
+def remove_nginx_docker_files():
+    shutil.rmtree(os.path.join("compose", "production", "nginx"))
+
+
 def remove_utility_files():
     shutil.rmtree("utility")
 
@@ -110,7 +114,7 @@ def remove_sass_files():
 
 
 def remove_gulp_files():
-    file_names = ["gulpfile.js"]
+    file_names = ["gulpfile.mjs"]
     for file_name in file_names:
         os.remove(file_name)
 
@@ -175,7 +179,7 @@ def handle_js_runner(choice, use_docker, use_async):
             remove_keys=["babel"],
             scripts={
                 "dev": "gulp",
-                "build": "gulp generate-assets",
+                "build": "gulp build",
             },
         )
         remove_webpack_files()
@@ -457,6 +461,8 @@ def main():
 
     if "{{ cookiecutter.use_docker }}".lower() == "y":
         remove_utility_files()
+        if "{{ cookiecutter.cloud_provider }}".lower() != "none":
+            remove_nginx_docker_files()
     else:
         remove_docker_files()
 

@@ -545,6 +545,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Christian Jensen</td>
+    <td>
+      <a href="https://github.com/jensenbox">jensenbox</a>
+    </td>
+    <td>cjensen</td>
+  </tr>
+  <tr>
     <td>Christopher Clarke</td>
     <td>
       <a href="https://github.com/chrisdev">chrisdev</a>
@@ -723,6 +730,13 @@ Listed in alphabetical order.
     <td>Denis Bobrov</td>
     <td>
       <a href="https://github.com/delneg">delneg</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Denis Darii</td>
+    <td>
+      <a href="https://github.com/DNX">DNX</a>
     </td>
     <td></td>
   </tr>
@@ -1490,6 +1504,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Mariot Tsitoara</td>
+    <td>
+      <a href="https://github.com/mariot">mariot</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Marlon Castillo</td>
     <td>
       <a href="https://github.com/mcastle">mcastle</a>
@@ -1871,6 +1892,13 @@ Listed in alphabetical order.
     <td>quroom</td>
     <td>
       <a href="https://github.com/quroom">quroom</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>qwerrrqw</td>
+    <td>
+      <a href="https://github.com/qwerrrqw">qwerrrqw</a>
     </td>
     <td></td>
   </tr>

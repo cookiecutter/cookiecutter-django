@@ -14,6 +14,7 @@ Run these commands to deploy the project to Heroku:
 
     # Note: this is not a free plan
     heroku addons:create heroku-postgresql:essential-0
+
     # On Windows use double quotes for the time zone, e.g.
     # heroku pg:backups schedule --at "02:00 America/Los_Angeles" DATABASE_URL
     heroku pg:backups schedule --at '02:00 America/Los_Angeles' DATABASE_URL
@@ -86,8 +87,6 @@ it's in the ``Procfile``, but is turned off by default:
 
 .. code-block:: bash
 
-    # Set the broker URL to Redis
-    heroku config:set CELERY_BROKER_URL=`heroku config:get REDIS_URL`
     # Scale dyno to 1 instance
     heroku ps:scale worker=1
 

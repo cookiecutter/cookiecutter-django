@@ -1,6 +1,7 @@
 import datetime as dt
 import os
 import re
+import subprocess
 from collections.abc import Iterable
 from pathlib import Path
 
@@ -50,6 +51,9 @@ def main() -> None:
     setup_py_path = ROOT / "pyproject.toml"
     update_version(setup_py_path, release)
     print(f"Updated version in {setup_py_path}")
+
+    # Run uv lock
+    subprocess.run(["uv", "lock"], cwd=ROOT)
 
     # Commit changes, create tag and push
     update_git_repo([changelog_path, setup_py_path], release)
