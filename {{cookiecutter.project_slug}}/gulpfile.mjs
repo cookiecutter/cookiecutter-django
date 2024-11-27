@@ -27,9 +27,6 @@ const reload = browserSync.reload;
 const sass = gulpSass(dartSass);
 const uglify = gulUglifyES.default;
 
-console.log("package.json: %o", pjson);
-console.log("pjson.name=%o", pjson.name);
-
 // Relative paths function
 function pathsConfig() {
   const appName = `./${pjson.name}`;
