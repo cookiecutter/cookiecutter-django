@@ -28,10 +28,11 @@ const sass = gulpSass(sassLib);
 const uglify = gulUglifyES.default;
 
 console.log("package.json: %o", pjson);
+console.log("pjson.name=%o", pjson.name);
 
 // Relative paths function
-function pathsConfig(appName) {
-  this.app = `./${pjson.name}`;
+function pathsConfig() {
+  const appName = `./${pjson.name}`;
   const vendorsRoot = 'node_modules';
 
   return {
@@ -39,13 +40,13 @@ function pathsConfig(appName) {
       `${vendorsRoot}/@popperjs/core/dist/umd/popper.js`,
       `${vendorsRoot}/bootstrap/dist/js/bootstrap.js`,
     ],
-    app: this.app,
-    templates: `${this.app}/templates`,
-    css: `${this.app}/static/css`,
-    sass: `${this.app}/static/sass`,
-    fonts: `${this.app}/static/fonts`,
-    images: `${this.app}/static/images`,
-    js: `${this.app}/static/js`,
+    app: appName,
+    templates: `${appName}/templates`,
+    css: `${appName}/static/css`,
+    sass: `${appName}/static/sass`,
+    fonts: `${appName}/static/fonts`,
+    images: `${appName}/static/images`,
+    js: `${appName}/static/js`,
   };
 }
 
