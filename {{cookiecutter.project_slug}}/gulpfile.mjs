@@ -27,6 +27,8 @@ const reload = browserSync.reload;
 const sass = gulpSass(sassLib);
 const uglify = gulUglifyES.default;
 
+console.log("package.json: %o", pjson);
+
 // Relative paths function
 function pathsConfig(appName) {
   this.app = `./${pjson.name}`;
