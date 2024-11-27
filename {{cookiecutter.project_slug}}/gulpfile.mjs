@@ -18,7 +18,7 @@ import plumber from 'gulp-plumber';
 import postcss from 'gulp-postcss';
 import rename from 'gulp-rename';
 import gulpSass from 'gulp-sass';
-import sassLib from 'sass';
+import * as sassLib from 'sass';
 import gulUglifyES from 'gulp-uglify-es';
 import { spawn } from 'node:child_process';
 
