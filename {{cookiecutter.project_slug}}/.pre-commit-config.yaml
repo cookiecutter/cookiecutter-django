@@ -35,7 +35,7 @@ repos:
 
   # Run the Ruff linter.
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.8.0
+    rev: v0.8.1
     hooks:
       # Linter
       - id: ruff
@@ -44,7 +44,7 @@ repos:
       - id: ruff-format
 
   - repo: https://github.com/Riverside-Healthcare/djLint
-    rev: v1.36.2
+    rev: v1.36.3
     hooks:
       - id: djlint-reformat-django
       - id: djlint-django
