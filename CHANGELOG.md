@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.12.02
+
+
+### Updated
+
+- Update pytest to 8.3.4 ([#5566](https://github.com/cookiecutter/cookiecutter-django/pull/5566))
+
 ## 2024.12.01
 
 
