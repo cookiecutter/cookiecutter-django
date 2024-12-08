@@ -35,7 +35,7 @@
     "webpack-merge": "^6.0.1"
   },
   "engines": {
-    "node": "22"
+    "node": "22.11"
   },
   "browserslist": [
     "last 2 versions"
