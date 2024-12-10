@@ -12,7 +12,6 @@ import browserSyncLib from 'browser-sync';
 import concat from 'gulp-concat';
 import tildeImporter from 'node-sass-tilde-importer';
 import cssnano from 'cssnano';
-import imagemin from 'gulp-imagemin';
 import pixrem from 'pixrem';
 import plumber from 'gulp-plumber';
 import postcss from 'gulp-postcss';
@@ -100,7 +99,8 @@ function vendorScripts() {
 }
 
 // Image compression
-function imgCompression() {
+async function imgCompression() {
+  const imagemin = (await import("gulp-imagemin")).default;
   return src(`${paths.images}/*`)
     .pipe(imagemin()) // Compresses PNG, JPEG, GIF and SVG images
     .pipe(dest(paths.images));
