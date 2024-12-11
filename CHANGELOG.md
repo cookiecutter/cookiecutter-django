@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.12.10
+
+
+### Updated
+
+- Update watchfiles to 1.0.3 ([#5585](https://github.com/cookiecutter/cookiecutter-django/pull/5585))
+
+- Bump node from 22.11 to 22.12 ([#5583](https://github.com/cookiecutter/cookiecutter-django/pull/5583))
+
 ## 2024.12.08
 
 
