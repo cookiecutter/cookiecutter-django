@@ -151,3 +151,10 @@ You can find a list of available variables [in the bootstrap source](https://git
 
 Bootstrap's javascript as well as its dependencies are concatenated into a single file: `static/js/vendors.js`.
 {%- endif %}
+
+{% if cookiecutter.open_source_license != "Not open source" %}
+License
+^^^^^^
+
+Licensed under the {{cookiecutter.open_source_license}}
+{% endif %}
