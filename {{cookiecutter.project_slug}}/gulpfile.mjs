@@ -4,7 +4,7 @@
 
 // Gulp and package
 import { src, dest, parallel, series, task, watch } from 'gulp';
-import pjson from './package.json' with {type: 'json'};
+import pjson from './package.json' assert { type: 'json' };
 
 // Plugins
 import autoprefixer from 'autoprefixer';
