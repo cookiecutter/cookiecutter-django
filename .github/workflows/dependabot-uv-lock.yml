@@ -26,9 +26,7 @@ jobs:
         uses: actions/checkout@v4
         if: ${{ env.GH_PAT == '' }}
 
-      - uses: astral-sh/setup-uv@v4
-        with:
-          enable-cache: true
+      - uses: astral-sh/setup-uv@v5
       - run: uv lock
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
