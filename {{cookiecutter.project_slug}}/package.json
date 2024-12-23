@@ -30,7 +30,7 @@
     "sass-loader": "^16.0.1",
     "webpack": "^5.65.0",
     "webpack-bundle-tracker": "^3.0.1",
-    "webpack-cli": "^5.0.1",
+    "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.0.2",
     "webpack-merge": "^6.0.1"
   },
