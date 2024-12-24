@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.12.23
+
+
+### Updated
+
+- Bump webpack-cli from 5.1.4 to 6.0.1 ([#5601](https://github.com/cookiecutter/cookiecutter-django/pull/5601))
+
 ## 2024.12.20
 
 
