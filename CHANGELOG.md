@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.12.24
+
+
+### Updated
+
+- Update djlint to 1.36.4 ([#5603](https://github.com/cookiecutter/cookiecutter-django/pull/5603))
+
+- Update uvicorn to 0.34.0 ([#5592](https://github.com/cookiecutter/cookiecutter-django/pull/5592))
+
 ## 2024.12.23
 
 
