@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2024.12.26
+
+
+### Updated
+
+- Update collectfasta to 3.2.1 ([#5606](https://github.com/cookiecutter/cookiecutter-django/pull/5606))
+
+- Update django-allauth to 65.3.1 ([#5605](https://github.com/cookiecutter/cookiecutter-django/pull/5605))
+
 ## 2024.12.24
 
 
