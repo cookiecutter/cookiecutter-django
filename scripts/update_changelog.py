@@ -26,25 +26,31 @@ def main() -> None:
     merged_date = dt.date.today() - dt.timedelta(days=1)  # noqa: DTZ011
     repo = Github(login_or_token=GITHUB_TOKEN).get_repo(GITHUB_REPO)
     merged_pulls = list(iter_pulls(repo, merged_date))
+    print(f"Merged pull requests: {merged_pulls}")
     if not merged_pulls:
+        print("Nothing was merged, existing.")
         return
 
     # Group pull requests by type of change
     grouped_pulls = group_pulls_by_change_type(merged_pulls)
     if not any(grouped_pulls.values()):
+        print("Pull requests merged aren't worth a changelog mention.")
         return
 
     # Generate portion of markdown
     release_changes_summary = generate_md(grouped_pulls)
+    print(f"Summary of changes: {release_changes_summary}")
 
     # Update CHANGELOG.md file
     release = f"{merged_date:%Y.%m.%d}"
     changelog_path = ROOT / "CHANGELOG.md"
     write_changelog(changelog_path, release, release_changes_summary)
+    print(f"Wrote {changelog_path}")
 
     # Update version
     setup_py_path = ROOT / "pyproject.toml"
     update_version(setup_py_path, release)
+    print(f"Updated version in {setup_py_path}")
 
     # Run uv lock
     uv_lock_path = ROOT / "uv.lock"
@@ -54,11 +60,12 @@ def main() -> None:
     update_git_repo([changelog_path, setup_py_path, uv_lock_path], release)
 
     # Create GitHub release
-    repo.create_git_release(
+    github_release = repo.create_git_release(
         tag=release,
         name=release,
         message=release_changes_summary,
     )
+    print(f"Created release on GitHub {github_release}")
 
 
 def iter_pulls(
@@ -148,6 +155,7 @@ def update_git_repo(paths: list[Path], release: str) -> None:
     )
     repo.git.tag("-a", release, m=message)
     server = f"https://{GITHUB_TOKEN}@github.com/{GITHUB_REPO}.git"
+    print(f"Pushing changes to {GIT_BRANCH} branch of {GITHUB_REPO}")
     repo.git.push(server, GIT_BRANCH)
     repo.git.push("--tags", server, GIT_BRANCH)
 

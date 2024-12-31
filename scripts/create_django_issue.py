@@ -63,6 +63,7 @@ def get_package_info(package: str) -> dict:
     # "django" converts to "Django" on redirect
     r = requests.get(f"https://pypi.org/pypi/{package}/json", allow_redirects=True)  # noqa: S113
     if not r.ok:
+        print(f"Couldn't find package: {package}")
         sys.exit(1)
     return r.json()
 
@@ -95,12 +96,14 @@ def get_all_latest_django_versions(
     if django_max_version:
         _django_max_version = django_max_version
 
+    print("Fetching all Django versions from PyPI")
     base_txt = REQUIREMENTS_DIR / "base.txt"
     with base_txt.open() as f:
         for line in f.readlines():
             if "django==" in line.lower():
                 break
         else:
+            print(f"django not found in {base_txt}")  # Huh...?
             sys.exit(1)
 
     # Begin parsing and verification
@@ -149,6 +152,7 @@ class GitHubManager:
         self.load_existing_issues()
 
     def load_requirements(self):
+        print("Reading requirements")
         for requirements_file in self.requirements_files:
             with (REQUIREMENTS_DIR / f"{requirements_file}.txt").open() as f:
                 for line in f.readlines():
@@ -167,6 +171,7 @@ class GitHubManager:
 
     def load_existing_issues(self):
         """Closes the issue if the base Django version is greater than needed"""
+        print("Load existing issues from GitHub")
         qualifiers = {
             "repo": GITHUB_REPO,
             "author": "app/github-actions",
@@ -175,6 +180,7 @@ class GitHubManager:
             "in": "title",
         }
         issues = list(self.github.search_issues("[Django Update]", "created", "desc", **qualifiers))
+        print(f"Found {len(issues)} issues matching search")
         for issue in issues:
             matches = re.match(r"\[Update Django] Django (\d+.\d+)$", issue.title)
             if not matches:
@@ -258,18 +264,23 @@ class GitHubManager:
 
     def create_or_edit_issue(self, needed_dj_version: DjVersion, description: str):
         if issue := self.existing_issues.get(needed_dj_version):
+            print(f"Editing issue #{issue.number} for Django {needed_dj_version}")
             issue.edit(body=description)
         else:
+            print(f"Creating new issue for Django {needed_dj_version}")
             issue = self.repo.create_issue(f"[Update Django] Django {needed_dj_version}", description)
             issue.add_to_labels(f"django{needed_dj_version}")
 
     @staticmethod
     def close_issue(issue: Issue):
         issue.edit(state="closed")
+        print(f"Closed issue {issue.title} (ID: [{issue.id}]({issue.url}))")
 
     def generate(self):
         for version in self.needed_dj_versions:
+            print(f"Handling GitHub issue for Django {version}")
             md_content = self.generate_markdown(version)
+            print(f"Generated markdown:\n\n{md_content}")
             self.create_or_edit_issue(version, md_content)
 
 
@@ -282,6 +293,7 @@ def main(django_max_version=None) -> None:
     manager.setup()
 
     if not latest_djs:
+        print("No new Django versions to update. Exiting...")
         sys.exit(0)
 
     manager.generate()

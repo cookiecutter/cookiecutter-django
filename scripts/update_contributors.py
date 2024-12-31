@@ -26,8 +26,10 @@ def main() -> None:
     # Add missing users to the JSON file
     contrib_file = ContributorsJSONFile()
     for author in recent_authors:
+        print(f"Checking if {author.login} should be added")
         if author.login not in contrib_file:
             contrib_file.add_contributor(author)
+            print(f"Added {author.login} to contributors")
     contrib_file.save()
 
     # Generate MD file from JSON file
