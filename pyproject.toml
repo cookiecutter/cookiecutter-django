@@ -62,7 +62,7 @@ docs = [
 target-version = "py312"
 # Exclude the template content as most files aren't parseable
 extend-exclude = [
-  "{{cookiecutter.project_slug}}/*",
+  "[{]{2}cookiecutter.project_slug[}]{2}/*",
 ]
 
 lint.select = [
