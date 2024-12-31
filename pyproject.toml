@@ -67,7 +67,7 @@ extend-exclude = [
 
 lint.select = [
   "A",
-  # "ANN", # flake8-annotations: we should support this in the future but 100+ errors atm
+  # "ANN", # flake8-annotations: we should support this in the future but many errors atm
   "ASYNC",
   "B",
   "BLE",
@@ -91,8 +91,6 @@ lint.select = [
   "ISC",
   "N",
   "PD",
-  # "NPY",
-  # "AIR",
   "PERF",
   "PGH",
   "PIE",
