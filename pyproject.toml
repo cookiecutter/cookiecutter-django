@@ -64,6 +64,7 @@ line-length = 119
 # Exclude the template content as most files aren't parseable
 extend-exclude = [
   "[{]{2}cookiecutter.project_slug[}]{2}/*",
+  "docs/*",
 ]
 
 lint.select = [
