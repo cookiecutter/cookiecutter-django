@@ -34,7 +34,7 @@ dependencies = [
   "django-upgrade==1.21",
   "djlint==1.35.2",
   "gitpython==3.1.43",
-  "jinja2==3.1.4",
+  "jinja2==3.1.5",
   "pre-commit==3.8",
   "pygithub==2.4",
   "pytest==8.3.3",
