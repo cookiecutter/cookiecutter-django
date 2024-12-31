@@ -284,6 +284,10 @@ def set_flag(file_path, flag, value=None, formatted=None, *args, **kwargs):
     if value is None:
         random_string = generate_random_string(*args, **kwargs)
         if random_string is None:
+            print(
+                "We couldn't find a secure pseudo-random number generator on your "
+                f"system. Please, make sure to manually {flag} later.",
+            )
             random_string = flag
         if formatted is not None:
             random_string = formatted.format(random_string)
@@ -451,7 +455,11 @@ def main():  # noqa: C901, PLR0912, PLR0915
 
     if "{{ cookiecutter.use_docker }}".lower() == "n" and "{{ cookiecutter.use_heroku }}".lower() == "n":
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
-            pass
+            print(
+                INFO + ".env(s) are only utilized when Docker Compose and/or "
+                "Heroku support is enabled so keeping them does not make sense "
+                "given your current setup." + TERMINATOR,
+            )
         remove_envs_and_associated_files()
     else:
         append_to_gitignore_file(".env")
@@ -475,7 +483,10 @@ def main():  # noqa: C901, PLR0912, PLR0915
         )
 
     if "{{ cookiecutter.cloud_provider }}" == "None" and "{{ cookiecutter.use_docker }}".lower() == "n":  # noqa: PLR0133
-        pass
+        print(
+            WARNING + "You chose to not use any cloud providers nor Docker, "
+            "media files won't be served in production." + TERMINATOR,
+        )
 
     if "{{ cookiecutter.use_celery }}".lower() == "n":
         remove_celery_files()
@@ -499,6 +510,8 @@ def main():  # noqa: C901, PLR0912, PLR0915
 
     if "{{ cookiecutter.use_async }}".lower() == "n":
         remove_async_files()
+
+    print(SUCCESS + "Project initialized, keep up the good work!" + TERMINATOR)
 
 
 if __name__ == "__main__":

@@ -111,7 +111,6 @@ lint.select = [
   "SLF",
   "SLOT",
   "T10",
-  "T20",
   "TCH",
   "TID",
   "TRY",
