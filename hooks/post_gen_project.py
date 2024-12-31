@@ -39,7 +39,7 @@ def remove_custom_user_manager_files():
             "{{cookiecutter.project_slug}}",
             "users",
             "managers.py",
-        )
+        ),
     )
     os.remove(
         os.path.join(
@@ -47,7 +47,7 @@ def remove_custom_user_manager_files():
             "users",
             "tests",
             "test_managers.py",
-        )
+        ),
     )
 
 
@@ -132,7 +132,7 @@ def update_package_json(remove_dev_deps=None, remove_keys=None, scripts=None):
     remove_dev_deps = remove_dev_deps or []
     remove_keys = remove_keys or []
     scripts = scripts or {}
-    with open("package.json", mode="r") as fd:
+    with open("package.json") as fd:
         content = json.load(fd)
     for package_name in remove_dev_deps:
         content["devDependencies"].pop(package_name)
@@ -196,7 +196,7 @@ def handle_js_runner(choice, use_docker, use_async):
                     "dev": "concurrently npm:dev:*",
                     "dev:webpack": "webpack serve --config webpack/dev.config.js",
                     "dev:django": dev_django_cmd,
-                }
+                },
             )
         else:
             remove_dev_deps.append("concurrently")
@@ -205,7 +205,7 @@ def handle_js_runner(choice, use_docker, use_async):
 
 
 def remove_prettier_pre_commit():
-    with open(".pre-commit-config.yaml", "r") as fd:
+    with open(".pre-commit-config.yaml") as fd:
         content = fd.readlines()
 
     removing = False
@@ -286,7 +286,7 @@ def set_flag(file_path, flag, value=None, formatted=None, *args, **kwargs):
         if random_string is None:
             print(
                 "We couldn't find a secure pseudo-random number generator on your "
-                "system. Please, make sure to manually {} later.".format(flag)
+                f"system. Please, make sure to manually {flag} later.",
             )
             random_string = flag
         if formatted is not None:
@@ -464,7 +464,7 @@ def main():
             print(
                 INFO + ".env(s) are only utilized when Docker Compose and/or "
                 "Heroku support is enabled so keeping them does not make sense "
-                "given your current setup." + TERMINATOR
+                "given your current setup." + TERMINATOR,
             )
         remove_envs_and_associated_files()
     else:
@@ -491,7 +491,7 @@ def main():
     if "{{ cookiecutter.cloud_provider }}" == "None" and "{{ cookiecutter.use_docker }}".lower() == "n":
         print(
             WARNING + "You chose to not use any cloud providers nor Docker, "
-            "media files won't be served in production." + TERMINATOR
+            "media files won't be served in production." + TERMINATOR,
         )
 
     if "{{ cookiecutter.use_celery }}".lower() == "n":

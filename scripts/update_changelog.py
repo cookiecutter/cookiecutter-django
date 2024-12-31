@@ -54,7 +54,7 @@ def main() -> None:
 
     # Run uv lock
     uv_lock_path = ROOT / "uv.lock"
-    subprocess.run(["uv", "lock", "--no-upgrade"], cwd=ROOT)
+    subprocess.run(["uv", "lock", "--no-upgrade"], cwd=ROOT, check=False)
 
     # Commit changes, create tag and push
     update_git_repo([changelog_path, setup_py_path, uv_lock_path], release)

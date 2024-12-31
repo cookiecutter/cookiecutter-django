@@ -14,7 +14,9 @@ import re
 import sys
 from collections.abc import Iterable
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, NamedTuple
+from typing import TYPE_CHECKING
+from typing import Any
+from typing import NamedTuple
 
 import requests
 from github import Github
@@ -221,8 +223,7 @@ class GitHubManager:
         if supported_dj_versions:
             if any(v >= needed_dj_version for v in supported_dj_versions):
                 return package_info["info"]["version"], "✅"
-            else:
-                return "", "❌"
+            return "", "❌"
 
         # Django classifier DNE; assume it isn't a Django lib
         # Great exceptions include pylint-django, where we need to do this manually...

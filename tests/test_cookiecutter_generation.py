@@ -315,7 +315,7 @@ def test_gitlab_invokes_precommit_and_pytest(cookies, context, use_docker, expec
         try:
             gitlab_config = yaml.safe_load(gitlab_yml)
             assert gitlab_config["precommit"]["script"] == [
-                "pre-commit run --show-diff-on-failure --color=always --all-files"
+                "pre-commit run --show-diff-on-failure --color=always --all-files",
             ]
             assert gitlab_config["pytest"]["script"] == [expected_test_script]
         except yaml.YAMLError as e:
@@ -401,7 +401,7 @@ def test_trim_domain_email(cookies, context):
             "use_docker": "y",
             "domain_name": "   example.com   ",
             "email": "  me@example.com  ",
-        }
+        },
     )
     result = cookies.bake(extra_context=context)
 
