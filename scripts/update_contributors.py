@@ -26,10 +26,8 @@ def main() -> None:
     # Add missing users to the JSON file
     contrib_file = ContributorsJSONFile()
     for author in recent_authors:
-        print(f"Checking if {author.login} should be added")
         if author.login not in contrib_file:
             contrib_file.add_contributor(author)
-            print(f"Added {author.login} to contributors")
     contrib_file.save()
 
     # Generate MD file from JSON file
@@ -98,5 +96,6 @@ def write_md_file(contributors):
 
 if __name__ == "__main__":
     if GITHUB_REPO is None:
-        raise RuntimeError("No github repo, please set the environment variable GITHUB_REPOSITORY")
+        msg = "No github repo, please set the environment variable GITHUB_REPOSITORY"
+        raise RuntimeError(msg)
     main()

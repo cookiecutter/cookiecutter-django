@@ -284,10 +284,6 @@ def set_flag(file_path, flag, value=None, formatted=None, *args, **kwargs):
     if value is None:
         random_string = generate_random_string(*args, **kwargs)
         if random_string is None:
-            print(
-                "We couldn't find a secure pseudo-random number generator on your "
-                f"system. Please, make sure to manually {flag} later.",
-            )
             random_string = flag
         if formatted is not None:
             random_string = formatted.format(random_string)
@@ -303,18 +299,17 @@ def set_flag(file_path, flag, value=None, formatted=None, *args, **kwargs):
 
 
 def set_django_secret_key(file_path):
-    django_secret_key = set_flag(
+    return set_flag(
         file_path,
         "!!!SET DJANGO_SECRET_KEY!!!",
         length=64,
         using_digits=True,
         using_ascii_letters=True,
     )
-    return django_secret_key
 
 
 def set_django_admin_url(file_path):
-    django_admin_url = set_flag(
+    return set_flag(
         file_path,
         "!!!SET DJANGO_ADMIN_URL!!!",
         formatted="{}/",
@@ -322,7 +317,6 @@ def set_django_admin_url(file_path):
         using_digits=True,
         using_ascii_letters=True,
     )
-    return django_admin_url
 
 
 def generate_random_user():
@@ -334,12 +328,11 @@ def generate_postgres_user(debug=False):
 
 
 def set_postgres_user(file_path, value):
-    postgres_user = set_flag(file_path, "!!!SET POSTGRES_USER!!!", value=value)
-    return postgres_user
+    return set_flag(file_path, "!!!SET POSTGRES_USER!!!", value=value)
 
 
 def set_postgres_password(file_path, value=None):
-    postgres_password = set_flag(
+    return set_flag(
         file_path,
         "!!!SET POSTGRES_PASSWORD!!!",
         value=value,
@@ -347,16 +340,14 @@ def set_postgres_password(file_path, value=None):
         using_digits=True,
         using_ascii_letters=True,
     )
-    return postgres_password
 
 
 def set_celery_flower_user(file_path, value):
-    celery_flower_user = set_flag(file_path, "!!!SET CELERY_FLOWER_USER!!!", value=value)
-    return celery_flower_user
+    return set_flag(file_path, "!!!SET CELERY_FLOWER_USER!!!", value=value)
 
 
 def set_celery_flower_password(file_path, value=None):
-    celery_flower_password = set_flag(
+    return set_flag(
         file_path,
         "!!!SET CELERY_FLOWER_PASSWORD!!!",
         value=value,
@@ -364,7 +355,6 @@ def set_celery_flower_password(file_path, value=None):
         using_digits=True,
         using_ascii_letters=True,
     )
-    return celery_flower_password
 
 
 def append_to_gitignore_file(ignored_line):
@@ -461,11 +451,7 @@ def main():
 
     if "{{ cookiecutter.use_docker }}".lower() == "n" and "{{ cookiecutter.use_heroku }}".lower() == "n":
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
-            print(
-                INFO + ".env(s) are only utilized when Docker Compose and/or "
-                "Heroku support is enabled so keeping them does not make sense "
-                "given your current setup." + TERMINATOR,
-            )
+            pass
         remove_envs_and_associated_files()
     else:
         append_to_gitignore_file(".env")
@@ -489,10 +475,7 @@ def main():
         )
 
     if "{{ cookiecutter.cloud_provider }}" == "None" and "{{ cookiecutter.use_docker }}".lower() == "n":
-        print(
-            WARNING + "You chose to not use any cloud providers nor Docker, "
-            "media files won't be served in production." + TERMINATOR,
-        )
+        pass
 
     if "{{ cookiecutter.use_celery }}".lower() == "n":
         remove_celery_files()
@@ -517,7 +500,6 @@ def main():
     if "{{ cookiecutter.use_async }}".lower() == "n":
         remove_async_files()
 
-    print(SUCCESS + "Project initialized, keep up the good work!" + TERMINATOR)
 
 
 if __name__ == "__main__":
