@@ -65,7 +65,6 @@ extend-exclude = [
   "{{cookiecutter.project_slug}}/*",
 ]
 
-# ==== pytest ====
 lint.select = [
   "A",
   # "ANN", # flake8-annotations: we should support this in the future but 100+ errors atm
