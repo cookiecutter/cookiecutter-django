@@ -24,25 +24,25 @@ DEBUG_VALUE = "debug"
 def remove_open_source_files():
     file_names = ["CONTRIBUTORS.txt", "LICENSE"]
     for file_name in file_names:
-        os.remove(file_name)
+        os.remove(file_name)  # noqa: PTH107
 
 
 def remove_gplv3_files():
     file_names = ["COPYING"]
     for file_name in file_names:
-        os.remove(file_name)
+        os.remove(file_name)  # noqa: PTH107
 
 
 def remove_custom_user_manager_files():
-    os.remove(
-        os.path.join(
+    os.remove(  # noqa: PTH107
+        os.path.join(  # noqa: PTH118
             "{{cookiecutter.project_slug}}",
             "users",
             "managers.py",
         ),
     )
-    os.remove(
-        os.path.join(
+    os.remove(  # noqa: PTH107
+        os.path.join(  # noqa: PTH118
             "{{cookiecutter.project_slug}}",
             "users",
             "tests",
@@ -53,11 +53,11 @@ def remove_custom_user_manager_files():
 
 def remove_pycharm_files():
     idea_dir_path = ".idea"
-    if os.path.exists(idea_dir_path):
+    if os.path.exists(idea_dir_path):  # noqa: PTH110
         shutil.rmtree(idea_dir_path)
 
-    docs_dir_path = os.path.join("docs", "pycharm")
-    if os.path.exists(docs_dir_path):
+    docs_dir_path = os.path.join("docs", "pycharm")  # noqa: PTH118
+    if os.path.exists(docs_dir_path):  # noqa: PTH110
         shutil.rmtree(docs_dir_path)
 
 
@@ -71,15 +71,15 @@ def remove_docker_files():
         ".dockerignore",
     ]
     for file_name in file_names:
-        os.remove(file_name)
-    if "{{ cookiecutter.editor }}" == "PyCharm":
+        os.remove(file_name)  # noqa: PTH107
+    if "{{ cookiecutter.editor }}" == "PyCharm":  # noqa: PLR0133
         file_names = ["docker_compose_up_django.xml", "docker_compose_up_docs.xml"]
         for file_name in file_names:
-            os.remove(os.path.join(".idea", "runConfigurations", file_name))
+            os.remove(os.path.join(".idea", "runConfigurations", file_name))  # noqa: PTH107, PTH118
 
 
 def remove_nginx_docker_files():
-    shutil.rmtree(os.path.join("compose", "production", "nginx"))
+    shutil.rmtree(os.path.join("compose", "production", "nginx"))  # noqa: PTH118
 
 
 def remove_utility_files():
@@ -92,18 +92,18 @@ def remove_heroku_files():
         if file_name == "requirements.txt" and "{{ cookiecutter.ci_tool }}".lower() == "travis":
             # don't remove the file if we are using travisci but not using heroku
             continue
-        os.remove(file_name)
+        os.remove(file_name)  # noqa: PTH107
     shutil.rmtree("bin")
 
 
 def remove_sass_files():
-    shutil.rmtree(os.path.join("{{cookiecutter.project_slug}}", "static", "sass"))
+    shutil.rmtree(os.path.join("{{cookiecutter.project_slug}}", "static", "sass"))  # noqa: PTH118
 
 
 def remove_gulp_files():
     file_names = ["gulpfile.mjs"]
     for file_name in file_names:
-        os.remove(file_name)
+        os.remove(file_name)  # noqa: PTH107
 
 
 def remove_webpack_files():
@@ -112,34 +112,34 @@ def remove_webpack_files():
 
 
 def remove_vendors_js():
-    vendors_js_path = os.path.join(
+    vendors_js_path = os.path.join(  # noqa: PTH118
         "{{ cookiecutter.project_slug }}",
         "static",
         "js",
         "vendors.js",
     )
-    if os.path.exists(vendors_js_path):
-        os.remove(vendors_js_path)
+    if os.path.exists(vendors_js_path):  # noqa: PTH110
+        os.remove(vendors_js_path)  # noqa: PTH107
 
 
 def remove_packagejson_file():
     file_names = ["package.json"]
     for file_name in file_names:
-        os.remove(file_name)
+        os.remove(file_name)  # noqa: PTH107
 
 
 def update_package_json(remove_dev_deps=None, remove_keys=None, scripts=None):
     remove_dev_deps = remove_dev_deps or []
     remove_keys = remove_keys or []
     scripts = scripts or {}
-    with open("package.json") as fd:
+    with open("package.json") as fd:  # noqa: PTH123
         content = json.load(fd)
     for package_name in remove_dev_deps:
         content["devDependencies"].pop(package_name)
     for key in remove_keys:
         content.pop(key)
     content["scripts"].update(scripts)
-    with open("package.json", mode="w") as fd:
+    with open("package.json", mode="w") as fd:  # noqa: PTH123
         json.dump(content, fd, ensure_ascii=False, indent=2)
         fd.write("\n")
 
@@ -205,7 +205,7 @@ def handle_js_runner(choice, use_docker, use_async):
 
 
 def remove_prettier_pre_commit():
-    with open(".pre-commit-config.yaml") as fd:
+    with open(".pre-commit-config.yaml") as fd:  # noqa: PTH123
         content = fd.readlines()
 
     removing = False
@@ -218,35 +218,35 @@ def remove_prettier_pre_commit():
         if not removing:
             new_lines.append(line)
 
-    with open(".pre-commit-config.yaml", "w") as fd:
+    with open(".pre-commit-config.yaml", "w") as fd:  # noqa: PTH123
         fd.writelines(new_lines)
 
 
 def remove_celery_files():
     file_names = [
-        os.path.join("config", "celery_app.py"),
-        os.path.join("{{ cookiecutter.project_slug }}", "users", "tasks.py"),
-        os.path.join("{{ cookiecutter.project_slug }}", "users", "tests", "test_tasks.py"),
+        os.path.join("config", "celery_app.py"),  # noqa: PTH118
+        os.path.join("{{ cookiecutter.project_slug }}", "users", "tasks.py"),  # noqa: PTH118
+        os.path.join("{{ cookiecutter.project_slug }}", "users", "tests", "test_tasks.py"),  # noqa: PTH118
     ]
     for file_name in file_names:
-        os.remove(file_name)
+        os.remove(file_name)  # noqa: PTH107
 
 
 def remove_async_files():
     file_names = [
-        os.path.join("config", "asgi.py"),
-        os.path.join("config", "websocket.py"),
+        os.path.join("config", "asgi.py"),  # noqa: PTH118
+        os.path.join("config", "websocket.py"),  # noqa: PTH118
     ]
     for file_name in file_names:
-        os.remove(file_name)
+        os.remove(file_name)  # noqa: PTH107
 
 
 def remove_dottravisyml_file():
-    os.remove(".travis.yml")
+    os.remove(".travis.yml")  # noqa: PTH107
 
 
 def remove_dotgitlabciyml_file():
-    os.remove(".gitlab-ci.yml")
+    os.remove(".gitlab-ci.yml")  # noqa: PTH107
 
 
 def remove_dotgithub_folder():
@@ -254,10 +254,10 @@ def remove_dotgithub_folder():
 
 
 def remove_dotdrone_file():
-    os.remove(".drone.yml")
+    os.remove(".drone.yml")  # noqa: PTH107
 
 
-def generate_random_string(length, using_digits=False, using_ascii_letters=False, using_punctuation=False):
+def generate_random_string(length, using_digits=False, using_ascii_letters=False, using_punctuation=False):  # noqa: FBT002
     """
     Example:
         opting out for 50 symbol-long, [a-z][A-Z][0-9] string
@@ -289,7 +289,7 @@ def set_flag(file_path, flag, value=None, formatted=None, *args, **kwargs):
             random_string = formatted.format(random_string)
         value = random_string
 
-    with open(file_path, "r+") as f:
+    with open(file_path, "r+") as f:  # noqa: PTH123
         file_contents = f.read().replace(flag, value)
         f.seek(0)
         f.write(file_contents)
@@ -323,7 +323,7 @@ def generate_random_user():
     return generate_random_string(length=32, using_ascii_letters=True)
 
 
-def generate_postgres_user(debug=False):
+def generate_postgres_user(debug=False):  # noqa: FBT002
     return DEBUG_VALUE if debug else generate_random_user()
 
 
@@ -358,16 +358,16 @@ def set_celery_flower_password(file_path, value=None):
 
 
 def append_to_gitignore_file(ignored_line):
-    with open(".gitignore", "a") as gitignore_file:
+    with open(".gitignore", "a") as gitignore_file:  # noqa: PTH123
         gitignore_file.write(ignored_line)
         gitignore_file.write("\n")
 
 
-def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):
-    local_django_envs_path = os.path.join(".envs", ".local", ".django")
-    production_django_envs_path = os.path.join(".envs", ".production", ".django")
-    local_postgres_envs_path = os.path.join(".envs", ".local", ".postgres")
-    production_postgres_envs_path = os.path.join(".envs", ".production", ".postgres")
+def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):  # noqa: FBT002
+    local_django_envs_path = os.path.join(".envs", ".local", ".django")  # noqa: PTH118
+    production_django_envs_path = os.path.join(".envs", ".production", ".django")  # noqa: PTH118
+    local_postgres_envs_path = os.path.join(".envs", ".local", ".postgres")  # noqa: PTH118
+    production_postgres_envs_path = os.path.join(".envs", ".production", ".postgres")  # noqa: PTH118
 
     set_django_secret_key(production_django_envs_path)
     set_django_admin_url(production_django_envs_path)
@@ -384,38 +384,38 @@ def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):
 
 
 def set_flags_in_settings_files():
-    set_django_secret_key(os.path.join("config", "settings", "local.py"))
-    set_django_secret_key(os.path.join("config", "settings", "test.py"))
+    set_django_secret_key(os.path.join("config", "settings", "local.py"))  # noqa: PTH118
+    set_django_secret_key(os.path.join("config", "settings", "test.py"))  # noqa: PTH118
 
 
 def remove_envs_and_associated_files():
     shutil.rmtree(".envs")
-    os.remove("merge_production_dotenvs_in_dotenv.py")
+    os.remove("merge_production_dotenvs_in_dotenv.py")  # noqa: PTH107
     shutil.rmtree("tests")
 
 
 def remove_celery_compose_dirs():
-    shutil.rmtree(os.path.join("compose", "local", "django", "celery"))
-    shutil.rmtree(os.path.join("compose", "production", "django", "celery"))
+    shutil.rmtree(os.path.join("compose", "local", "django", "celery"))  # noqa: PTH118
+    shutil.rmtree(os.path.join("compose", "production", "django", "celery"))  # noqa: PTH118
 
 
 def remove_node_dockerfile():
-    shutil.rmtree(os.path.join("compose", "local", "node"))
+    shutil.rmtree(os.path.join("compose", "local", "node"))  # noqa: PTH118
 
 
 def remove_aws_dockerfile():
-    shutil.rmtree(os.path.join("compose", "production", "aws"))
+    shutil.rmtree(os.path.join("compose", "production", "aws"))  # noqa: PTH118
 
 
 def remove_drf_starter_files():
-    os.remove(os.path.join("config", "api_router.py"))
-    shutil.rmtree(os.path.join("{{cookiecutter.project_slug}}", "users", "api"))
-    os.remove(os.path.join("{{cookiecutter.project_slug}}", "users", "tests", "test_drf_urls.py"))
-    os.remove(os.path.join("{{cookiecutter.project_slug}}", "users", "tests", "test_drf_views.py"))
-    os.remove(os.path.join("{{cookiecutter.project_slug}}", "users", "tests", "test_swagger.py"))
+    os.remove(os.path.join("config", "api_router.py"))  # noqa: PTH107, PTH118
+    shutil.rmtree(os.path.join("{{cookiecutter.project_slug}}", "users", "api"))  # noqa: PTH118
+    os.remove(os.path.join("{{cookiecutter.project_slug}}", "users", "tests", "test_drf_urls.py"))  # noqa: PTH107, PTH118
+    os.remove(os.path.join("{{cookiecutter.project_slug}}", "users", "tests", "test_drf_views.py"))  # noqa: PTH107, PTH118
+    os.remove(os.path.join("{{cookiecutter.project_slug}}", "users", "tests", "test_swagger.py"))  # noqa: PTH107, PTH118
 
 
-def main():
+def main():  # noqa: C901, PLR0912, PLR0915
     debug = "{{ cookiecutter.debug }}".lower() == "y"
 
     set_flags_in_envs(
@@ -425,15 +425,15 @@ def main():
     )
     set_flags_in_settings_files()
 
-    if "{{ cookiecutter.open_source_license }}" == "Not open source":
+    if "{{ cookiecutter.open_source_license }}" == "Not open source":  # noqa: PLR0133
         remove_open_source_files()
-    if "{{ cookiecutter.open_source_license}}" != "GPLv3":
+    if "{{ cookiecutter.open_source_license}}" != "GPLv3":  # noqa: PLR0133
         remove_gplv3_files()
 
-    if "{{ cookiecutter.username_type }}" == "username":
+    if "{{ cookiecutter.username_type }}" == "username":  # noqa: PLR0133
         remove_custom_user_manager_files()
 
-    if "{{ cookiecutter.editor }}" != "PyCharm":
+    if "{{ cookiecutter.editor }}" != "PyCharm":  # noqa: PLR0133
         remove_pycharm_files()
 
     if "{{ cookiecutter.use_docker }}".lower() == "y":
@@ -443,7 +443,7 @@ def main():
     else:
         remove_docker_files()
 
-    if "{{ cookiecutter.use_docker }}".lower() == "y" and "{{ cookiecutter.cloud_provider}}" != "AWS":
+    if "{{ cookiecutter.use_docker }}".lower() == "y" and "{{ cookiecutter.cloud_provider}}" != "AWS":  # noqa: PLR0133
         remove_aws_dockerfile()
 
     if "{{ cookiecutter.use_heroku }}".lower() == "n":
@@ -474,7 +474,7 @@ def main():
             use_async=("{{ cookiecutter.use_async }}".lower() == "y"),
         )
 
-    if "{{ cookiecutter.cloud_provider }}" == "None" and "{{ cookiecutter.use_docker }}".lower() == "n":
+    if "{{ cookiecutter.cloud_provider }}" == "None" and "{{ cookiecutter.use_docker }}".lower() == "n":  # noqa: PLR0133
         pass
 
     if "{{ cookiecutter.use_celery }}".lower() == "n":
@@ -482,16 +482,16 @@ def main():
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_celery_compose_dirs()
 
-    if "{{ cookiecutter.ci_tool }}" != "Travis":
+    if "{{ cookiecutter.ci_tool }}" != "Travis":  # noqa: PLR0133
         remove_dottravisyml_file()
 
-    if "{{ cookiecutter.ci_tool }}" != "Gitlab":
+    if "{{ cookiecutter.ci_tool }}" != "Gitlab":  # noqa: PLR0133
         remove_dotgitlabciyml_file()
 
-    if "{{ cookiecutter.ci_tool }}" != "Github":
+    if "{{ cookiecutter.ci_tool }}" != "Github":  # noqa: PLR0133
         remove_dotgithub_folder()
 
-    if "{{ cookiecutter.ci_tool }}" != "Drone":
+    if "{{ cookiecutter.ci_tool }}" != "Drone":  # noqa: PLR0133
         remove_dotdrone_file()
 
     if "{{ cookiecutter.use_drf }}".lower() == "n":

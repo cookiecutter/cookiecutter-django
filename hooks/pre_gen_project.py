@@ -20,10 +20,10 @@ if hasattr(project_slug, "isidentifier"):
 
 assert project_slug == project_slug.lower(), f"'{project_slug}' project slug should be all lowercase"
 
-assert "\\" not in "{{ cookiecutter.author_name }}", "Don't include backslashes in author name."
+assert "\\" not in "{{ cookiecutter.author_name }}", "Don't include backslashes in author name."  # noqa: PLR0133
 
-if "{{ cookiecutter.use_whitenoise }}".lower() == "n" and "{{ cookiecutter.cloud_provider }}" == "None":
+if "{{ cookiecutter.use_whitenoise }}".lower() == "n" and "{{ cookiecutter.cloud_provider }}" == "None":  # noqa: PLR0133
     sys.exit(1)
 
-if "{{ cookiecutter.mail_service }}" == "Amazon SES" and "{{ cookiecutter.cloud_provider }}" != "AWS":
+if "{{ cookiecutter.mail_service }}" == "Amazon SES" and "{{ cookiecutter.cloud_provider }}" != "AWS":  # noqa: PLR0133
     sys.exit(1)
