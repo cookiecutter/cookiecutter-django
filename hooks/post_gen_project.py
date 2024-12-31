@@ -501,6 +501,5 @@ def main():  # noqa: C901, PLR0912, PLR0915
         remove_async_files()
 
 
-
 if __name__ == "__main__":
     main()
