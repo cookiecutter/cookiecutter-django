@@ -1889,6 +1889,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Pulse-Mind</td>
+    <td>
+      <a href="https://github.com/pulse-mind">pulse-mind</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>quroom</td>
     <td>
       <a href="https://github.com/quroom">quroom</a>
