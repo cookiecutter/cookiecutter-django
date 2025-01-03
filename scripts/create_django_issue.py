@@ -12,14 +12,17 @@ from __future__ import annotations
 import os
 import re
 import sys
-from collections.abc import Iterable
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, NamedTuple
+from typing import TYPE_CHECKING
+from typing import Any
+from typing import NamedTuple
 
 import requests
 from github import Github
 
 if TYPE_CHECKING:
+    from collections.abc import Iterable
+
     from github.Issue import Issue
 
 CURRENT_FILE = Path(__file__)
@@ -58,7 +61,7 @@ class DjVersion(NamedTuple):
 def get_package_info(package: str) -> dict:
     """Get package metadata using PyPI API."""
     # "django" converts to "Django" on redirect
-    r = requests.get(f"https://pypi.org/pypi/{package}/json", allow_redirects=True)
+    r = requests.get(f"https://pypi.org/pypi/{package}/json", allow_redirects=True)  # noqa: S113
     if not r.ok:
         print(f"Couldn't find package: {package}")
         sys.exit(1)
@@ -83,7 +86,7 @@ def get_name_and_version(requirements_line: str) -> tuple[str, ...]:
 
 
 def get_all_latest_django_versions(
-    django_max_version: tuple[DjVersion] = None,
+    django_max_version: tuple[DjVersion] | None = None,
 ) -> tuple[DjVersion, list[DjVersion]]:
     """
     Grabs all Django versions that are worthy of a GitHub issue.
@@ -213,16 +216,15 @@ class GitHubManager:
         for classifier in package_info["info"]["classifiers"]:
             # Usually in the form of "Framework :: Django :: 3.2"
             tokens = classifier.split(" ")
-            if len(tokens) >= 5 and tokens[2].lower() == "django" and "." in tokens[4]:
+            if len(tokens) >= 5 and tokens[2].lower() == "django" and "." in tokens[4]:  # noqa: PLR2004
                 version = DjVersion.parse(tokens[4])
-                if len(version) == 2:
+                if len(version) == 2:  # noqa: PLR2004
                     supported_dj_versions.append(version)
 
         if supported_dj_versions:
             if any(v >= needed_dj_version for v in supported_dj_versions):
                 return package_info["info"]["version"], "✅"
-            else:
-                return "", "❌"
+            return "", "❌"
 
         # Django classifier DNE; assume it isn't a Django lib
         # Great exceptions include pylint-django, where we need to do this manually...
@@ -299,7 +301,8 @@ def main(django_max_version=None) -> None:
 
 if __name__ == "__main__":
     if GITHUB_REPO is None:
-        raise RuntimeError("No github repo, please set the environment variable GITHUB_REPOSITORY")
+        msg = "No github repo, please set the environment variable GITHUB_REPOSITORY"
+        raise RuntimeError(msg)
     max_version = None
     last_arg = sys.argv[-1]
     if CURRENT_FILE.name not in last_arg:

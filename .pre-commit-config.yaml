@@ -25,27 +25,12 @@ repos:
       - id: prettier
         args: ["--tab-width", "2"]
 
-  - repo: https://github.com/asottile/pyupgrade
-    rev: v3.19.1
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.4
     hooks:
-      - id: pyupgrade
-        args: [--py312-plus]
-        exclude: hooks/
-
-  - repo: https://github.com/psf/black
-    rev: 24.10.0
-    hooks:
-      - id: black
-
-  - repo: https://github.com/PyCQA/isort
-    rev: 5.13.2
-    hooks:
-      - id: isort
-
-  - repo: https://github.com/PyCQA/flake8
-    rev: 7.1.1
-    hooks:
-      - id: flake8
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+      - id: ruff-format
 
   - repo: https://github.com/tox-dev/pyproject-fmt
     rev: "v2.5.0"
