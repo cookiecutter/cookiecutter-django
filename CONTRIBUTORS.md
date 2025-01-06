@@ -1000,6 +1000,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Hana Belay</td>
+    <td>
+      <a href="https://github.com/earthcomfy">earthcomfy</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Hana Quadara</td>
     <td>
       <a href="https://github.com/hanaquadara">hanaquadara</a>
