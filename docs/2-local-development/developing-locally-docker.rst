@@ -246,7 +246,17 @@ The stack comes with a dedicated node service to build the static assets, watch 
 Using Just for Docker Commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We have included a ``justfile`` to simplify the use of frequent Docker commands for local development. Here are the available commands:
+We have included a ``justfile`` to simplify the use of frequent Docker commands for local development. 
+
+.. warning::
+    Currently, "Just" does not reliably handle signals or forward them to its subprocesses. As a result, 
+    pressing CTRL+C (or sending other signals like SIGTERM, SIGINT, or SIGHUP) may only interrupt 
+    "Just" itself rather than its subprocesses. 
+    For more information, see `this GitHub issue <https://github.com/casey/just/issues/2473>`_.
+
+First, install Just using one of the methods described in the `official documentation <https://just.systems/man/en/packages.html>_.
+
+Here are the available commands:
 
 - ``just build``
   Builds the Python image using the local Docker Compose file.
