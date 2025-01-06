@@ -254,7 +254,7 @@ We have included a ``justfile`` to simplify the use of frequent Docker commands 
     "Just" itself rather than its subprocesses.
     For more information, see `this GitHub issue <https://github.com/casey/just/issues/2473>`_.
 
-First, install Just using one of the methods described in the `official documentation <https://just.systems/man/en/packages.html>_.
+First, install Just using one of the methods described in the `official documentation <https://just.systems/man/en/packages.html>`_.
 
 Here are the available commands:
 
