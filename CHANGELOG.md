@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.01.06
+
+
+### Changed
+
+- Add justfile for use with docker ([#5621](https://github.com/cookiecutter/cookiecutter-django/pull/5621))
+
 ## 2025.01.04
 
 
