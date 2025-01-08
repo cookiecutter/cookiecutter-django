@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.01.07
+
+
+### Fixed
+
+- Set `minimum_pre_commit_version` in pre-commit config ([#5626](https://github.com/cookiecutter/cookiecutter-django/pull/5626))
+
+### Updated
+
+- Bump traefik from 3.2.3 to 3.3.0 ([#5625](https://github.com/cookiecutter/cookiecutter-django/pull/5625))
+
 ## 2025.01.06
 
 
