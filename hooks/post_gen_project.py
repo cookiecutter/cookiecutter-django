@@ -69,6 +69,7 @@ def remove_docker_files():
         "docker-compose.local.yml",
         "docker-compose.production.yml",
         ".dockerignore",
+        "justfile",
     ]
     for file_name in file_names:
         os.remove(file_name)  # noqa: PTH107

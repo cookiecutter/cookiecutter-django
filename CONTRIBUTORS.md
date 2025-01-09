@@ -1000,6 +1000,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Hana Belay</td>
+    <td>
+      <a href="https://github.com/earthcomfy">earthcomfy</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Hana Quadara</td>
     <td>
       <a href="https://github.com/hanaquadara">hanaquadara</a>
@@ -1885,6 +1892,13 @@ Listed in alphabetical order.
     <td>Plurific</td>
     <td>
       <a href="https://github.com/paulschwenn">paulschwenn</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Pulse-Mind</td>
+    <td>
+      <a href="https://github.com/pulse-mind">pulse-mind</a>
     </td>
     <td></td>
   </tr>

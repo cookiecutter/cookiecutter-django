@@ -3,6 +3,44 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.01.07
+
+
+### Fixed
+
+- Set `minimum_pre_commit_version` in pre-commit config ([#5626](https://github.com/cookiecutter/cookiecutter-django/pull/5626))
+
+### Updated
+
+- Bump traefik from 3.2.3 to 3.3.0 ([#5625](https://github.com/cookiecutter/cookiecutter-django/pull/5625))
+
+## 2025.01.06
+
+
+### Changed
+
+- Add justfile for use with docker ([#5621](https://github.com/cookiecutter/cookiecutter-django/pull/5621))
+
+## 2025.01.04
+
+
+### Updated
+
+- Update ruff to 0.8.6 ([#5622](https://github.com/cookiecutter/cookiecutter-django/pull/5622))
+
+## 2025.01.02
+
+
+### Fixed
+
+- Fix logging configuration for Celery tasks ([#5563](https://github.com/cookiecutter/cookiecutter-django/pull/5563))
+
+### Updated
+
+- Update ruff to 0.8.5 ([#5619](https://github.com/cookiecutter/cookiecutter-django/pull/5619))
+
+- Update pillow to 11.1.0 ([#5617](https://github.com/cookiecutter/cookiecutter-django/pull/5617))
+
 ## 2024.12.27
 
 

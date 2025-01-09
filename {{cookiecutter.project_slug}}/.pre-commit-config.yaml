@@ -1,5 +1,6 @@
 exclude: '^docs/|/migrations/|devcontainer.json'
 default_stages: [pre-commit]
+minimum_pre_commit_version: "3.2.0"
 
 default_language_version:
   python: python3.12
@@ -35,7 +36,7 @@ repos:
 
   # Run the Ruff linter.
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.8.4
+    rev: v0.8.6
     hooks:
       # Linter
       - id: ruff
