@@ -75,6 +75,9 @@ known_first_party = [
   "hooks",
 ]
 
+[tool.pyproject-fmt]
+keep_full_version = true
+
 # ==== pytest ====
 
 [tool.pytest.ini_options]
