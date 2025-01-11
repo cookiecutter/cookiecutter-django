@@ -10,6 +10,11 @@ PRE_COMMIT_CONFIG = TEMPLATED_ROOT / ".pre-commit-config.yaml"
 PYPROJECT_TOML = ROOT / "pyproject.toml"
 
 
+class VersionNotFoundError(RuntimeError):
+    def __init__(self, filename):
+        super().__init__(f"Could not find version in {filename}")
+
+
 def main():
     new_version = get_requirements_txt_version()
     old_version = get_pyproject_toml_version()
@@ -17,7 +22,7 @@ def main():
         return
 
     update_ruff_version(old_version, new_version)
-    subprocess.run(["uv", "lock", "--no-upgrade"], cwd=ROOT, check=False)
+    subprocess.run(["uv", "lock", "--no-upgrade"], cwd=ROOT, check=False)  # noqa: S603,S607
 
 
 def get_requirements_txt_version():
@@ -33,6 +38,7 @@ def get_pyproject_toml_version():
     for dependency in data["project"]["dependencies"]:
         if dependency.startswith("ruff=="):
             return dependency.split("==")[1]
+    raise VersionNotFoundError("pyproject.toml")
 
 
 def update_ruff_version(old_version, new_version):

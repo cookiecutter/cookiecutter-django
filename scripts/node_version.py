@@ -8,6 +8,11 @@ PACKAGE_JSON = TEMPLATED_ROOT / "package.json"
 CI_YML = ROOT / ".github" / "workflows" / "ci.yml"
 
 
+class VersionNotFoundError(RuntimeError):
+    def __init__(self):
+        super().__init__("Could not find version in Dockerfile")
+
+
 def main():
     new_version = get_version_from_dockerfile()
     old_version = get_version_from_package_json()
@@ -26,6 +31,7 @@ def get_version_from_dockerfile():
                 _, _, docker_tag = line.partition(":")
                 version_str, _, _ = docker_tag.partition("-")
                 return version_str
+    raise VersionNotFoundError
 
 
 def get_version_from_package_json():
