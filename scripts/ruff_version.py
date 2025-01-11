@@ -1,6 +1,7 @@
 import subprocess
-import tomllib
 from pathlib import Path
+
+import tomllib
 
 ROOT = Path(__file__).parent.parent
 TEMPLATED_ROOT = ROOT / "{{cookiecutter.project_slug}}"
@@ -16,7 +17,7 @@ def main():
         return
 
     update_ruff_version(old_version, new_version)
-    subprocess.run(["uv", "lock", "--no-upgrade"], cwd=ROOT)
+    subprocess.run(["uv", "lock", "--no-upgrade"], cwd=ROOT, check=False)
 
 
 def get_requirements_txt_version():
