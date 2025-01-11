@@ -1,0 +1,37 @@
+name: ruff
+
+on:
+  pull_request:
+    paths:
+      - "{{cookiecutter.project_slug}}/requirements/local.txt"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    env:
+      GH_PAT: ${{ secrets.GH_PAT }}
+    steps:
+      - name: Checkout with token
+        uses: actions/checkout@v4
+        if: ${{ env.GH_PAT != '' }}
+        with:
+          token: ${{ env.GH_PAT }}
+          ref: ${{ github.head_ref }}
+
+      - name: Checkout without token
+        uses: actions/checkout@v4
+        if: ${{ env.GH_PAT == '' }}
+        with:
+          ref: ${{ github.head_ref }}
+
+      - uses: astral-sh/setup-uv@v5
+
+      - run: uv run scripts/ruff_version.py
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Align Ruff versions
