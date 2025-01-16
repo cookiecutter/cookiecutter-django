@@ -16,16 +16,16 @@ SUCCESS = "\x1b[1;32m [SUCCESS]: "
 
 project_slug = "{{ cookiecutter.project_slug }}"
 if hasattr(project_slug, "isidentifier"):
-    assert project_slug.isidentifier(), "'{}' project slug is not a valid Python identifier.".format(project_slug)
+    assert project_slug.isidentifier(), f"'{project_slug}' project slug is not a valid Python identifier."
 
-assert project_slug == project_slug.lower(), "'{}' project slug should be all lowercase".format(project_slug)
+assert project_slug == project_slug.lower(), f"'{project_slug}' project slug should be all lowercase"
 
-assert "\\" not in "{{ cookiecutter.author_name }}", "Don't include backslashes in author name."
+assert "\\" not in "{{ cookiecutter.author_name }}", "Don't include backslashes in author name."  # noqa: PLR0133
 
-if "{{ cookiecutter.use_whitenoise }}".lower() == "n" and "{{ cookiecutter.cloud_provider }}" == "None":
+if "{{ cookiecutter.use_whitenoise }}".lower() == "n" and "{{ cookiecutter.cloud_provider }}" == "None":  # noqa: PLR0133
     print("You should either use Whitenoise or select a Cloud Provider to serve static files")
     sys.exit(1)
 
-if "{{ cookiecutter.mail_service }}" == "Amazon SES" and "{{ cookiecutter.cloud_provider }}" != "AWS":
+if "{{ cookiecutter.mail_service }}" == "Amazon SES" and "{{ cookiecutter.cloud_provider }}" != "AWS":  # noqa: PLR0133
     print("You should either use AWS or select a different Mail Service for sending emails.")
     sys.exit(1)
