@@ -43,7 +43,7 @@ dependencies = [
   "pytest-xdist==3.6.1",
   "pyyaml==6.0.2",
   "requests==2.32.3",
-  "ruff==0.9.1",
+  "ruff==0.9.2",
   "sh==2.1; sys_platform!='win23'",
   "tox==4.23.2",
   "tox-uv>=1.17",
