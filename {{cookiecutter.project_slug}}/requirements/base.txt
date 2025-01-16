@@ -29,8 +29,8 @@ uvicorn-worker==0.3.0  # https://github.com/Kludex/uvicorn-worker
 
 # Django
 # ------------------------------------------------------------------------------
-django==5.0.10  # pyup: < 5.1  # https://www.djangoproject.com/
-django-environ==0.11.2  # https://github.com/joke2k/django-environ
+django==5.0.11  # pyup: < 5.1  # https://www.djangoproject.com/
+django-environ==0.12.0  # https://github.com/joke2k/django-environ
 django-model-utils==5.0.0  # https://github.com/jazzband/django-model-utils
 django-allauth[mfa]==65.3.1  # https://github.com/pennersr/django-allauth
 django-crispy-forms==2.3  # https://github.com/django-crispy-forms/django-crispy-forms

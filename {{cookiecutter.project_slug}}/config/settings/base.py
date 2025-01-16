@@ -327,8 +327,8 @@ CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 CELERY_WORKER_SEND_TASK_EVENTS = True
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#std-setting-task_send_sent_event
 CELERY_TASK_SEND_SENT_EVENT = True
-# https://cheat.readthedocs.io/en/latest/django/celery.html
-CELERYD_HIJACK_ROOT_LOGGER = False
+# https://docs.celeryq.dev/en/stable/userguide/configuration.html#worker-hijack-root-logger
+CELERY_WORKER_HIJACK_ROOT_LOGGER = False
 
 {%- endif %}
 # django-allauth
