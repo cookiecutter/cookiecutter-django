@@ -3,6 +3,21 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.01.15
+
+
+### Fixed
+
+- Fix setting for to `CELERY_WORKER_HIJACK_ROOT_LOGGER` ([#5643](https://github.com/cookiecutter/cookiecutter-django/pull/5643))
+
+### Updated
+
+- Update psycopg to 3.2.4 ([#5644](https://github.com/cookiecutter/cookiecutter-django/pull/5644))
+
+- Update django-stubs to 5.1.2 ([#5639](https://github.com/cookiecutter/cookiecutter-django/pull/5639))
+
+- Bump traefik from 3.3.1 to 3.3.2 ([#5642](https://github.com/cookiecutter/cookiecutter-django/pull/5642))
+
 ## 2025.01.14
 
 
