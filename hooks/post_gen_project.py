@@ -1,3 +1,4 @@
+# ruff: noqa: PLR0133
 import json
 import os
 import random
@@ -73,7 +74,7 @@ def remove_docker_files():
     ]
     for file_name in file_names:
         os.remove(file_name)  # noqa: PTH107
-    if "{{ cookiecutter.editor }}" == "PyCharm":  # noqa: PLR0133
+    if "{{ cookiecutter.editor }}" == "PyCharm":
         file_names = ["docker_compose_up_django.xml", "docker_compose_up_docs.xml"]
         for file_name in file_names:
             os.remove(os.path.join(".idea", "runConfigurations", file_name))  # noqa: PTH107, PTH118
@@ -430,15 +431,15 @@ def main():  # noqa: C901, PLR0912, PLR0915
     )
     set_flags_in_settings_files()
 
-    if "{{ cookiecutter.open_source_license }}" == "Not open source":  # noqa: PLR0133
+    if "{{ cookiecutter.open_source_license }}" == "Not open source":
         remove_open_source_files()
-    if "{{ cookiecutter.open_source_license}}" != "GPLv3":  # noqa: PLR0133
+    if "{{ cookiecutter.open_source_license}}" != "GPLv3":
         remove_gplv3_files()
 
-    if "{{ cookiecutter.username_type }}" == "username":  # noqa: PLR0133
+    if "{{ cookiecutter.username_type }}" == "username":
         remove_custom_user_manager_files()
 
-    if "{{ cookiecutter.editor }}" != "PyCharm":  # noqa: PLR0133
+    if "{{ cookiecutter.editor }}" != "PyCharm":
         remove_pycharm_files()
 
     if "{{ cookiecutter.use_docker }}".lower() == "y":
@@ -448,7 +449,7 @@ def main():  # noqa: C901, PLR0912, PLR0915
     else:
         remove_docker_files()
 
-    if "{{ cookiecutter.use_docker }}".lower() == "y" and "{{ cookiecutter.cloud_provider}}" != "AWS":  # noqa: PLR0133
+    if "{{ cookiecutter.use_docker }}".lower() == "y" and "{{ cookiecutter.cloud_provider}}" != "AWS":
         remove_aws_dockerfile()
 
     if "{{ cookiecutter.use_heroku }}".lower() == "n":
@@ -483,7 +484,7 @@ def main():  # noqa: C901, PLR0912, PLR0915
             use_async=("{{ cookiecutter.use_async }}".lower() == "y"),
         )
 
-    if "{{ cookiecutter.cloud_provider }}" == "None" and "{{ cookiecutter.use_docker }}".lower() == "n":  # noqa: PLR0133
+    if "{{ cookiecutter.cloud_provider }}" == "None" and "{{ cookiecutter.use_docker }}".lower() == "n":
         print(
             WARNING + "You chose to not use any cloud providers nor Docker, "
             "media files won't be served in production." + TERMINATOR,
@@ -494,16 +495,16 @@ def main():  # noqa: C901, PLR0912, PLR0915
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_celery_compose_dirs()
 
-    if "{{ cookiecutter.ci_tool }}" != "Travis":  # noqa: PLR0133
+    if "{{ cookiecutter.ci_tool }}" != "Travis":
         remove_dottravisyml_file()
 
-    if "{{ cookiecutter.ci_tool }}" != "Gitlab":  # noqa: PLR0133
+    if "{{ cookiecutter.ci_tool }}" != "Gitlab":
         remove_dotgitlabciyml_file()
 
-    if "{{ cookiecutter.ci_tool }}" != "Github":  # noqa: PLR0133
+    if "{{ cookiecutter.ci_tool }}" != "Github":
         remove_dotgithub_folder()
 
-    if "{{ cookiecutter.ci_tool }}" != "Drone":  # noqa: PLR0133
+    if "{{ cookiecutter.ci_tool }}" != "Drone":
         remove_dotdrone_file()
 
     if "{{ cookiecutter.use_drf }}".lower() == "n":
