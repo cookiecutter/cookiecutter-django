@@ -69,7 +69,7 @@ def remove_docker_files():
 
 
 def remove_nginx_docker_files():
-    Path("compose/local/nginx").unlink()
+    shutil.rmtree(Path("compose", "production", "nginx"))
 
 
 def remove_utility_files():
