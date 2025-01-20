@@ -80,7 +80,7 @@ def remove_heroku_files():
     file_names = ["Procfile", "runtime.txt", "requirements.txt"]
     for file_name in file_names:
         if file_name == "requirements.txt" and "{{ cookiecutter.ci_tool }}".lower() == "travis":
-            # don't remove the file if we are using travisci but not using heroku
+            # Don't remove the file if we are using Travis CI but not using Heroku
             continue
         Path(file_name).unlink()
     shutil.rmtree("bin")
