@@ -1,8 +1,8 @@
 import json
-import os
 import random
 import shutil
 import string
+from pathlib import Path
 
 try:
     # Inspired by
@@ -24,40 +24,28 @@ DEBUG_VALUE = "debug"
 def remove_open_source_files():
     file_names = ["CONTRIBUTORS.txt", "LICENSE"]
     for file_name in file_names:
-        os.remove(file_name)
+        Path(file_name).unlink()
 
 
 def remove_gplv3_files():
     file_names = ["COPYING"]
     for file_name in file_names:
-        os.remove(file_name)
+        Path(file_name).unlink()
 
 
 def remove_custom_user_manager_files():
-    os.remove(
-        os.path.join(
-            "{{cookiecutter.project_slug}}",
-            "users",
-            "managers.py",
-        )
-    )
-    os.remove(
-        os.path.join(
-            "{{cookiecutter.project_slug}}",
-            "users",
-            "tests",
-            "test_managers.py",
-        )
-    )
+    users_path = Path("{{cookiecutter.project_slug}}", "users")
+    (users_path / "managers.py").unlink()
+    (users_path / "tests" / "test_managers.py").unlink()
 
 
 def remove_pycharm_files():
-    idea_dir_path = ".idea"
-    if os.path.exists(idea_dir_path):
+    idea_dir_path = Path(".idea")
+    if idea_dir_path.exists():
         shutil.rmtree(idea_dir_path)
 
-    docs_dir_path = os.path.join("docs", "pycharm")
-    if os.path.exists(docs_dir_path):
+    docs_dir_path = Path("docs", "pycharm")
+    if docs_dir_path.exists():
         shutil.rmtree(docs_dir_path)
 
 
@@ -72,15 +60,15 @@ def remove_docker_files():
         "justfile",
     ]
     for file_name in file_names:
-        os.remove(file_name)
+        Path(file_name).unlink()
     if "{{ cookiecutter.editor }}" == "PyCharm":
         file_names = ["docker_compose_up_django.xml", "docker_compose_up_docs.xml"]
         for file_name in file_names:
-            os.remove(os.path.join(".idea", "runConfigurations", file_name))
+            Path(".idea", "runConfigurations", file_name).unlink()
 
 
 def remove_nginx_docker_files():
-    shutil.rmtree(os.path.join("compose", "production", "nginx"))
+    shutil.rmtree(Path("compose", "production", "nginx"))
 
 
 def remove_utility_files():
@@ -93,18 +81,18 @@ def remove_heroku_files():
         if file_name == "requirements.txt" and "{{ cookiecutter.ci_tool }}".lower() == "travis":
             # don't remove the file if we are using travisci but not using heroku
             continue
-        os.remove(file_name)
+        Path(file_name).unlink()
     shutil.rmtree("bin")
 
 
 def remove_sass_files():
-    shutil.rmtree(os.path.join("{{cookiecutter.project_slug}}", "static", "sass"))
+    shutil.rmtree(Path("{{cookiecutter.project_slug}}", "static", "sass"))
 
 
 def remove_gulp_files():
     file_names = ["gulpfile.mjs"]
     for file_name in file_names:
-        os.remove(file_name)
+        Path(file_name).unlink()
 
 
 def remove_webpack_files():
@@ -113,36 +101,30 @@ def remove_webpack_files():
 
 
 def remove_vendors_js():
-    vendors_js_path = os.path.join(
-        "{{ cookiecutter.project_slug }}",
-        "static",
-        "js",
-        "vendors.js",
-    )
-    if os.path.exists(vendors_js_path):
-        os.remove(vendors_js_path)
+    vendors_js_path = Path("{{ cookiecutter.project_slug }}", "static", "js", "vendors.js")
+    if vendors_js_path.exists():
+        vendors_js_path.unlink()
 
 
 def remove_packagejson_file():
     file_names = ["package.json"]
     for file_name in file_names:
-        os.remove(file_name)
+        Path(file_name).unlink()
 
 
 def update_package_json(remove_dev_deps=None, remove_keys=None, scripts=None):
     remove_dev_deps = remove_dev_deps or []
     remove_keys = remove_keys or []
     scripts = scripts or {}
-    with open("package.json", mode="r") as fd:
-        content = json.load(fd)
+    package_json = Path("package.json")
+    content = json.loads(package_json.read_text())
     for package_name in remove_dev_deps:
         content["devDependencies"].pop(package_name)
     for key in remove_keys:
         content.pop(key)
     content["scripts"].update(scripts)
-    with open("package.json", mode="w") as fd:
-        json.dump(content, fd, ensure_ascii=False, indent=2)
-        fd.write("\n")
+    updated_content = json.dumps(content, ensure_ascii=False, indent=2) + "\n"
+    package_json.write_text(updated_content)
 
 
 def handle_js_runner(choice, use_docker, use_async):
@@ -206,8 +188,8 @@ def handle_js_runner(choice, use_docker, use_async):
 
 
 def remove_prettier_pre_commit():
-    with open(".pre-commit-config.yaml", "r") as fd:
-        content = fd.readlines()
+    pre_commit_yaml = Path(".pre-commit-config.yaml")
+    content = pre_commit_yaml.read_text().splitlines()
 
     removing = False
     new_lines = []
@@ -219,35 +201,34 @@ def remove_prettier_pre_commit():
         if not removing:
             new_lines.append(line)
 
-    with open(".pre-commit-config.yaml", "w") as fd:
-        fd.writelines(new_lines)
+    pre_commit_yaml.write_text("\n".join(new_lines))
 
 
 def remove_celery_files():
-    file_names = [
-        os.path.join("config", "celery_app.py"),
-        os.path.join("{{ cookiecutter.project_slug }}", "users", "tasks.py"),
-        os.path.join("{{ cookiecutter.project_slug }}", "users", "tests", "test_tasks.py"),
+    file_paths = [
+        Path("config", "celery_app.py"),
+        Path("{{ cookiecutter.project_slug }}", "users", "tasks.py"),
+        Path("{{ cookiecutter.project_slug }}", "users", "tests", "test_tasks.py"),
     ]
-    for file_name in file_names:
-        os.remove(file_name)
+    for file_path in file_paths:
+        file_path.unlink()
 
 
 def remove_async_files():
-    file_names = [
-        os.path.join("config", "asgi.py"),
-        os.path.join("config", "websocket.py"),
+    file_paths = [
+        Path("config", "asgi.py"),
+        Path("config", "websocket.py"),
     ]
-    for file_name in file_names:
-        os.remove(file_name)
+    for file_path in file_paths:
+        file_path.unlink()
 
 
 def remove_dottravisyml_file():
-    os.remove(".travis.yml")
+    Path(".travis.yml").unlink()
 
 
 def remove_dotgitlabciyml_file():
-    os.remove(".gitlab-ci.yml")
+    Path(".gitlab-ci.yml").unlink()
 
 
 def remove_dotgithub_folder():
@@ -255,7 +236,7 @@ def remove_dotgithub_folder():
 
 
 def remove_dotdrone_file():
-    os.remove(".drone.yml")
+    Path(".drone.yml").unlink()
 
 
 def generate_random_string(length, using_digits=False, using_ascii_letters=False, using_punctuation=False):
@@ -281,7 +262,7 @@ def generate_random_string(length, using_digits=False, using_ascii_letters=False
     return "".join([random.choice(symbols) for _ in range(length)])
 
 
-def set_flag(file_path, flag, value=None, formatted=None, *args, **kwargs):
+def set_flag(file_path: Path, flag, value=None, formatted=None, *args, **kwargs):
     if value is None:
         random_string = generate_random_string(*args, **kwargs)
         if random_string is None:
@@ -294,7 +275,7 @@ def set_flag(file_path, flag, value=None, formatted=None, *args, **kwargs):
             random_string = formatted.format(random_string)
         value = random_string
 
-    with open(file_path, "r+") as f:
+    with file_path.open("r+") as f:
         file_contents = f.read().replace(flag, value)
         f.seek(0)
         f.write(file_contents)
@@ -303,7 +284,7 @@ def set_flag(file_path, flag, value=None, formatted=None, *args, **kwargs):
     return value
 
 
-def set_django_secret_key(file_path):
+def set_django_secret_key(file_path: Path):
     django_secret_key = set_flag(
         file_path,
         "!!!SET DJANGO_SECRET_KEY!!!",
@@ -314,7 +295,7 @@ def set_django_secret_key(file_path):
     return django_secret_key
 
 
-def set_django_admin_url(file_path):
+def set_django_admin_url(file_path: Path):
     django_admin_url = set_flag(
         file_path,
         "!!!SET DJANGO_ADMIN_URL!!!",
@@ -369,16 +350,16 @@ def set_celery_flower_password(file_path, value=None):
 
 
 def append_to_gitignore_file(ignored_line):
-    with open(".gitignore", "a") as gitignore_file:
+    with Path(".gitignore").open("a") as gitignore_file:
         gitignore_file.write(ignored_line)
         gitignore_file.write("\n")
 
 
 def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):
-    local_django_envs_path = os.path.join(".envs", ".local", ".django")
-    production_django_envs_path = os.path.join(".envs", ".production", ".django")
-    local_postgres_envs_path = os.path.join(".envs", ".local", ".postgres")
-    production_postgres_envs_path = os.path.join(".envs", ".production", ".postgres")
+    local_django_envs_path = Path(".envs", ".local", ".django")
+    production_django_envs_path = Path(".envs", ".production", ".django")
+    local_postgres_envs_path = Path(".envs", ".local", ".postgres")
+    production_postgres_envs_path = Path(".envs", ".production", ".postgres")
 
     set_django_secret_key(production_django_envs_path)
     set_django_admin_url(production_django_envs_path)
@@ -395,33 +376,33 @@ def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):
 
 
 def set_flags_in_settings_files():
-    set_django_secret_key(os.path.join("config", "settings", "local.py"))
-    set_django_secret_key(os.path.join("config", "settings", "test.py"))
+    set_django_secret_key(Path("config", "settings", "local.py"))
+    set_django_secret_key(Path("config", "settings", "test.py"))
 
 
 def remove_envs_and_associated_files():
     shutil.rmtree(".envs")
-    os.remove("merge_production_dotenvs_in_dotenv.py")
+    Path("merge_production_dotenvs_in_dotenv.py").unlink()
     shutil.rmtree("tests")
 
 
 def remove_celery_compose_dirs():
-    shutil.rmtree(os.path.join("compose", "local", "django", "celery"))
-    shutil.rmtree(os.path.join("compose", "production", "django", "celery"))
+    shutil.rmtree(Path("compose", "local", "django", "celery"))
+    shutil.rmtree(Path("compose", "production", "django", "celery"))
 
 
 def remove_node_dockerfile():
-    shutil.rmtree(os.path.join("compose", "local", "node"))
+    shutil.rmtree(Path("compose", "local", "node"))
 
 
 def remove_aws_dockerfile():
-    shutil.rmtree(os.path.join("compose", "production", "aws"))
+    shutil.rmtree(Path("compose", "production", "aws"))
 
 
 def remove_drf_starter_files():
-    os.remove(os.path.join("config", "api_router.py"))
-    shutil.rmtree(os.path.join("{{cookiecutter.project_slug}}", "users", "api"))
-    shutil.rmtree(os.path.join("{{cookiecutter.project_slug}}", "users", "tests", "api"))
+    Path("config", "api_router.py").unlink()
+    shutil.rmtree(Path("{{cookiecutter.project_slug}}", "users", "api"))
+    shutil.rmtree(Path("{{cookiecutter.project_slug}}", "users", "tests", "api"))
 
 
 def main():
