@@ -397,9 +397,7 @@ def remove_aws_dockerfile():
 def remove_drf_starter_files():
     Path("config", "api_router.py").unlink()
     shutil.rmtree(Path("{{cookiecutter.project_slug}}", "users", "api"))
-    Path("{{cookiecutter.project_slug}}", "users", "tests", "test_drf_urls.py").unlink()
-    Path("{{cookiecutter.project_slug}}", "users", "tests", "test_drf_views.py").unlink()
-    Path("{{cookiecutter.project_slug}}", "users", "tests", "test_swagger.py").unlink()
+    shutil.rmtree(Path("{{cookiecutter.project_slug}}", "users", "tests", "api"))
 
 
 def main():  # noqa: C901, PLR0912, PLR0915
