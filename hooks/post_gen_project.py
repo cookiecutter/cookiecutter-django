@@ -65,7 +65,7 @@ def remove_docker_files():
     if "{{ cookiecutter.editor }}" == "PyCharm":
         file_names = ["docker_compose_up_django.xml", "docker_compose_up_docs.xml"]
         for file_name in file_names:
-            Path(".idea", "runConfiguration", file_name).unlink()
+            Path(".idea", "runConfigurations", file_name).unlink()
 
 
 def remove_nginx_docker_files():
