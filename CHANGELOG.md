@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.01.20
+
+
+### Changed
+
+- Group all API tests under a `tests.api` namespace ([#5615](https://github.com/cookiecutter/cookiecutter-django/pull/5615))
+
+- Migrate post-generation hook to pathlib ([#5648](https://github.com/cookiecutter/cookiecutter-django/pull/5648))
+
 ## 2025.01.16
 
 
