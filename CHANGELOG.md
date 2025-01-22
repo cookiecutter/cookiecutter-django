@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.01.21
+
+
+### Changed
+
+- Update linter error code from TCH to TC ([#5651](https://github.com/cookiecutter/cookiecutter-django/pull/5651))
+
+### Updated
+
+- Update pre-commit to 4.1.0 ([#5650](https://github.com/cookiecutter/cookiecutter-django/pull/5650))
+
 ## 2025.01.20
 
 
