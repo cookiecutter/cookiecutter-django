@@ -23,7 +23,7 @@ def main() -> None:
     Script entry point.
     """
     # Generate changelog for PRs merged yesterday
-    merged_date = dt.date.today() - dt.timedelta(days=1)
+    merged_date = dt.date.today() - dt.timedelta(days=1)  # noqa: DTZ011
     repo = Github(login_or_token=GITHUB_TOKEN).get_repo(GITHUB_REPO)
     merged_pulls = list(iter_pulls(repo, merged_date))
     print(f"Merged pull requests: {merged_pulls}")
@@ -54,7 +54,7 @@ def main() -> None:
 
     # Run uv lock
     uv_lock_path = ROOT / "uv.lock"
-    subprocess.run(["uv", "lock", "--no-upgrade"], cwd=ROOT)
+    subprocess.run(["uv", "lock", "--no-upgrade"], cwd=ROOT, check=False)  # noqa: S603, S607
 
     # Commit changes, create tag and push
     update_git_repo([changelog_path, setup_py_path, uv_lock_path], release)
@@ -162,7 +162,9 @@ def update_git_repo(paths: list[Path], release: str) -> None:
 
 if __name__ == "__main__":
     if GITHUB_REPO is None:
-        raise RuntimeError("No github repo, please set the environment variable GITHUB_REPOSITORY")
+        msg = "No github repo, please set the environment variable GITHUB_REPOSITORY"
+        raise RuntimeError(msg)
     if GIT_BRANCH is None:
-        raise RuntimeError("No git branch set, please set the GITHUB_REF_NAME environment variable")
+        msg = "No git branch set, please set the GITHUB_REF_NAME environment variable"
+        raise RuntimeError(msg)
     main()
