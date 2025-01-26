@@ -28,7 +28,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version-file: '.python-version'
 
       {%- if cookiecutter.open_source_license != 'Not open source' %}
       # Consider using pre-commit.ci for open source project
@@ -88,9 +88,9 @@ jobs:
       {%- else %}
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version-file: '.python-version'
           cache: pip
           cache-dependency-path: |
             requirements/base.txt
