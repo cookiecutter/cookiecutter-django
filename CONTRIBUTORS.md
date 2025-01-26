@@ -804,6 +804,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Ed Morley</td>
+    <td>
+      <a href="https://github.com/edmorley">edmorley</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Emanuel Calso</td>
     <td>
       <a href="https://github.com/bloodpet">bloodpet</a>
