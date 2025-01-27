@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.01.26
+
+
+### Changed
+
+- Migrate generated project from `runtime.txt` to `.python-version` ([#5652](https://github.com/cookiecutter/cookiecutter-django/pull/5652))
+
+### Documentation
+
+- Update Heroku deployment guide ([#5656](https://github.com/cookiecutter/cookiecutter-django/pull/5656))
+
 ## 2025.01.24
 
 
