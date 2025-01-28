@@ -25,10 +25,6 @@ Run these commands to deploy the project to Heroku:
     # Assuming you chose Mailgun as mail service (see below for others)
     heroku addons:create mailgun:starter
 
-    heroku config:set PYTHONHASHSEED=random
-
-    heroku config:set WEB_CONCURRENCY=4
-
     heroku config:set DJANGO_DEBUG=False
     heroku config:set DJANGO_SETTINGS_MODULE=config.settings.production
     heroku config:set DJANGO_SECRET_KEY="$(openssl rand -base64 64)"

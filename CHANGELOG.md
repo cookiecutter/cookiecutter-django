@@ -3,6 +3,44 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.01.26
+
+
+### Changed
+
+- Migrate generated project from `runtime.txt` to `.python-version` ([#5652](https://github.com/cookiecutter/cookiecutter-django/pull/5652))
+
+### Documentation
+
+- Update Heroku deployment guide ([#5656](https://github.com/cookiecutter/cookiecutter-django/pull/5656))
+
+## 2025.01.24
+
+
+### Updated
+
+- Update ruff to 0.9.3 ([#5654](https://github.com/cookiecutter/cookiecutter-django/pull/5654))
+
+## 2025.01.21
+
+
+### Changed
+
+- Update linter error code from TCH to TC ([#5651](https://github.com/cookiecutter/cookiecutter-django/pull/5651))
+
+### Updated
+
+- Update pre-commit to 4.1.0 ([#5650](https://github.com/cookiecutter/cookiecutter-django/pull/5650))
+
+## 2025.01.20
+
+
+### Changed
+
+- Group all API tests under a `tests.api` namespace ([#5615](https://github.com/cookiecutter/cookiecutter-django/pull/5615))
+
+- Migrate post-generation hook to pathlib ([#5648](https://github.com/cookiecutter/cookiecutter-django/pull/5648))
+
 ## 2025.01.16
 
 
