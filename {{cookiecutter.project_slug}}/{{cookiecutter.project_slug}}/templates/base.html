@@ -8,7 +8,7 @@
   {% endraw %}
 {%- endif %}{% raw %}<!DOCTYPE html>
 {% get_current_language as LANGUAGE_CODE %}
-<html lang="{{ LANGUAGE_CODE }}">
+<html lang="{{ LANGUAGE_CODE }}" data-bs-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -92,16 +92,19 @@
 {% if cookiecutter.frontend_pipeline == 'None' %}
   {% raw %}
   <script defer src="{% static 'js/project.js' %}"></script>
+  <script defer src="{% static 'js/theme-toggler.js' %}"></script>
 {%- endraw %}
 {% elif cookiecutter.frontend_pipeline == 'Django Compressor' %}
 {% raw %}
 {% compress js %}
   <script defer src="{% static 'js/project.js' %}"></script>
+  <script defer src="{% static 'js/theme-toggler.js' %}"></script>
 {% endcompress %}
 {%- endraw %}
 {% elif cookiecutter.frontend_pipeline == 'Gulp' %}
 {% raw %}
 <script defer src="{% static 'js/project.min.js' %}"></script>
+<script defer src="{% static 'js/theme-toggler.js' %}"></script>
 {%- endraw %}
 {% elif cookiecutter.frontend_pipeline == "Webpack" %}
 {% raw %}
@@ -155,6 +158,34 @@
                 <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% translate "Sign In" %}</a>
               </li>
             {% endif %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"
+                 href="#"
+                 id="themeDropdown"
+                 role="button"
+                 data-bs-toggle="dropdown"
+                 aria-expanded="false">
+                <i class="bi bi-palette"></i>Palette
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="themeDropdown">
+                <li>
+                  <button class="dropdown-item" type="button" data-bs-theme-value="light">
+                    <i class="bi bi-sun-fill me-2"></i>Light
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-bs-theme-value="dark">
+                    <i class="bi bi-moon-stars-fill me-2"></i>Dark
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" type="button" data-bs-theme-value="auto">
+                    <i class="bi bi-circle-half me-2"></i>Auto
+                  </button>
+                </li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>
