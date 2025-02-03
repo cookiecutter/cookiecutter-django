@@ -33,7 +33,7 @@ pre-commit==4.3.0  # https://github.com/pre-commit/pre-commit
 
 # Django
 # ------------------------------------------------------------------------------
-factory-boy==3.3.2  # https://github.com/FactoryBoy/factory_boy
+factory-boy==3.3.3  # https://github.com/FactoryBoy/factory_boy
 
 django-debug-toolbar==6.0.0  # https://github.com/jazzband/django-debug-toolbar
 django-extensions==4.1  # https://github.com/django-extensions/django-extensions
