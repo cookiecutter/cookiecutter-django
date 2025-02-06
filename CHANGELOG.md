@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.02.05
+
+
+### Changed
+
+- Add missing trailing slash in test `MEDIA_URL` ([#5666](https://github.com/cookiecutter/cookiecutter-django/pull/5666))
+
+### Updated
+
+- Update django to 5.0.12 ([#5667](https://github.com/cookiecutter/cookiecutter-django/pull/5667))
+
 ## 2025.02.03
 
 
