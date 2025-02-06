@@ -24,9 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install uv
-        uses: astral-sh/setup-uv@v3
-        with:
-          enable-cache: "true"
+        uses: astral-sh/setup-uv@v5
       - name: Install dependencies
         run: uv sync
       - name: Run tests
@@ -55,9 +53,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install uv
-        uses: astral-sh/setup-uv@v3
-        with:
-          enable-cache: "true"
+        uses: astral-sh/setup-uv@v5
       - name: Install dependencies
         run: uv sync
       - name: Docker ${{ matrix.script.name }}
@@ -102,13 +98,11 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install uv
-        uses: astral-sh/setup-uv@v3
-        with:
-          enable-cache: "true"
+        uses: astral-sh/setup-uv@v5
       - name: Install dependencies
         run: uv sync
       - uses: actions/setup-node@v4
         with:
-          node-version: "22"
+          node-version: "22.13"
       - name: Bare Metal ${{ matrix.script.name }}
         run: sh tests/test_bare.sh ${{ matrix.script.args }}

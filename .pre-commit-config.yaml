@@ -1,5 +1,6 @@
 exclude: "{{cookiecutter.project_slug}}|.github/contributors.json|CHANGELOG.md|CONTRIBUTORS.md"
 default_stages: [pre-commit]
+minimum_pre_commit_version: "3.2.0"
 
 default_language_version:
   python: python3.12
@@ -26,7 +27,7 @@ repos:
         args: ["--tab-width", "2"]
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.19.0
+    rev: v3.19.1
     hooks:
       - id: pyupgrade
         args: [--py312-plus]
@@ -48,9 +49,17 @@ repos:
       - id: flake8
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: "v2.4.3"
+    rev: "v2.5.0"
     hooks:
       - id: pyproject-fmt
+
+  - repo: local
+    hooks:
+      - id: node-version-checker
+        name: node-version-checker
+        entry: python scripts/node_version.py
+        language: python
+        files: .
 
 ci:
   autoupdate_schedule: weekly

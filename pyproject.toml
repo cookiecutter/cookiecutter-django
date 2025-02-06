@@ -1,6 +1,6 @@
 [project]
 name = "cookiecutter-django"
-version = "2024.10.26"
+version = "2025.02.05"
 description = "A Cookiecutter template for creating production-ready Django projects quickly."
 readme = "README.md"
 keywords = [
@@ -31,30 +31,32 @@ classifiers = [
 dependencies = [
   "binaryornot==0.4.4",
   "cookiecutter==2.6",
-  "django-upgrade==1.21",
-  "djlint==1.35.2",
+  "django-upgrade==1.22.2",
+  "djlint==1.36.4",
   "gitpython==3.1.43",
-  "jinja2==3.1.4",
-  "pre-commit==3.8",
-  "pygithub==2.4",
-  "pytest==8.3.3",
+  "jinja2==3.1.5",
+  "pre-commit==4.1.0",
+  "pygithub==2.5",
+  "pytest==8.3.4",
   "pytest-cookies==0.7",
   "pytest-instafail==0.5",
   "pytest-xdist==3.6.1",
   "pyyaml==6.0.2",
   "requests==2.32.3",
-  "ruff==0.7",
-  "sh==2.0.7; sys_platform!='win23'",
-  "tox==4.21.2",
-  "tox-uv>=1.11.2",
+  "ruff==0.9.4",
+  "sh==2.1; sys_platform!='win23'",
+  "tox==4.23.2",
+  "tox-uv>=1.17",
 ]
-optional-dependencies.docs = [
+urls = { Repository = "https://github.com/cookiecutter/cookiecutter-django" }
+
+[dependency-groups]
+docs = [
   "myst-parser>=4",
   "sphinx>=8.0.2",
   "sphinx-autobuild>=2024.10.3",
   "sphinx-rtd-theme>=3",
 ]
-urls = { Repository = "https://github.com/cookiecutter/cookiecutter-django" }
 
 [tool.black]
 line-length = 119
@@ -72,6 +74,9 @@ known_first_party = [
   "scripts",
   "hooks",
 ]
+
+[tool.pyproject-fmt]
+keep_full_version = true
 
 # ==== pytest ====
 

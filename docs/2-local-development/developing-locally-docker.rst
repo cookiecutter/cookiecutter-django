@@ -242,6 +242,41 @@ The stack comes with a dedicated node service to build the static assets, watch 
 .. _Sass: https://sass-lang.com/
 .. _live reloading: https://browsersync.io
 
+
+Using Just for Docker Commands
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We have included a ``justfile`` to simplify the use of frequent Docker commands for local development.
+
+.. warning::
+    Currently, "Just" does not reliably handle signals or forward them to its subprocesses. As a result,
+    pressing CTRL+C (or sending other signals like SIGTERM, SIGINT, or SIGHUP) may only interrupt
+    "Just" itself rather than its subprocesses.
+    For more information, see `this GitHub issue <https://github.com/casey/just/issues/2473>`_.
+
+First, install Just using one of the methods described in the `official documentation <https://just.systems/man/en/packages.html>`_.
+
+Here are the available commands:
+
+- ``just build``
+  Builds the Python image using the local Docker Compose file.
+
+- ``just up``
+  Starts the containers in detached mode and removes orphaned containers.
+
+- ``just down``
+  Stops the running containers.
+
+- ``just prune``
+  Stops and removes containers along with their volumes. You can optionally pass an argument with the service name to prune a single container.
+
+- ``just logs``
+  Shows container logs. You can optionally pass an argument with the service name to view logs for a specific service.
+
+- ``just manage <command>``
+  Runs Django management commands within the container. Replace ``<command>`` with any valid Django management command, such as ``migrate``, ``createsuperuser``, or ``shell``.
+
+
 (Optionally) Developing locally with HTTPS
 ------------------------------------------
 

@@ -545,6 +545,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Christian Jensen</td>
+    <td>
+      <a href="https://github.com/jensenbox">jensenbox</a>
+    </td>
+    <td>cjensen</td>
+  </tr>
+  <tr>
     <td>Christopher Clarke</td>
     <td>
       <a href="https://github.com/chrisdev">chrisdev</a>
@@ -727,6 +734,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Denis Darii</td>
+    <td>
+      <a href="https://github.com/DNX">DNX</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Denis Orehovsky</td>
     <td>
       <a href="https://github.com/apirobot">apirobot</a>
@@ -786,6 +800,13 @@ Listed in alphabetical order.
     <td>Dónal Adams</td>
     <td>
       <a href="https://github.com/epileptic-fish">epileptic-fish</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Ed Morley</td>
+    <td>
+      <a href="https://github.com/edmorley">edmorley</a>
     </td>
     <td></td>
   </tr>
@@ -982,6 +1003,13 @@ Listed in alphabetical order.
     <td>Hamish Durkin</td>
     <td>
       <a href="https://github.com/durkode">durkode</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Hana Belay</td>
+    <td>
+      <a href="https://github.com/earthcomfy">earthcomfy</a>
     </td>
     <td></td>
   </tr>
@@ -1875,9 +1903,23 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Pulse-Mind</td>
+    <td>
+      <a href="https://github.com/pulse-mind">pulse-mind</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>quroom</td>
     <td>
       <a href="https://github.com/quroom">quroom</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>qwerrrqw</td>
+    <td>
+      <a href="https://github.com/qwerrrqw">qwerrrqw</a>
     </td>
     <td></td>
   </tr>

@@ -3,28 +3,32 @@
 ////////////////////////////////
 
 // Gulp and package
-const { src, dest, parallel, series, watch } = require('gulp');
-const pjson = require('./package.json');
+import { src, dest, parallel, series, task, watch } from 'gulp';
+import pjson from './package.json' with {type: 'json'};
 
 // Plugins
-const autoprefixer = require('autoprefixer');
-const browserSync = require('browser-sync').create();
-const concat = require('gulp-concat');
-const tildeImporter = require('node-sass-tilde-importer');
-const cssnano = require('cssnano');
-const imagemin = require('gulp-imagemin');
-const pixrem = require('pixrem');
-const plumber = require('gulp-plumber');
-const postcss = require('gulp-postcss');
+import autoprefixer from 'autoprefixer';
+import browserSyncLib from 'browser-sync';
+import concat from 'gulp-concat';
+import tildeImporter from 'node-sass-tilde-importer';
+import cssnano from 'cssnano';
+import pixrem from 'pixrem';
+import plumber from 'gulp-plumber';
+import postcss from 'gulp-postcss';
+import rename from 'gulp-rename';
+import gulpSass from 'gulp-sass';
+import * as dartSass from 'sass';
+import gulUglifyES from 'gulp-uglify-es';
+import { spawn } from 'node:child_process';
+
+const browserSync = browserSyncLib.create();
 const reload = browserSync.reload;
-const rename = require('gulp-rename');
-const sass = require('gulp-sass')(require('sass'));
-const spawn = require('child_process').spawn;
-const uglify = require('gulp-uglify-es').default;
+const sass = gulpSass(dartSass);
+const uglify = gulUglifyES.default;
 
 // Relative paths function
-function pathsConfig(appName) {
-  this.app = `./${pjson.name}`;
+function pathsConfig() {
+  const appName = `./${pjson.name}`;
   const vendorsRoot = 'node_modules';
 
   return {
@@ -32,13 +36,13 @@ function pathsConfig(appName) {
       `${vendorsRoot}/@popperjs/core/dist/umd/popper.js`,
       `${vendorsRoot}/bootstrap/dist/js/bootstrap.js`,
     ],
-    app: this.app,
-    templates: `${this.app}/templates`,
-    css: `${this.app}/static/css`,
-    sass: `${this.app}/static/sass`,
-    fonts: `${this.app}/static/fonts`,
-    images: `${this.app}/static/images`,
-    js: `${this.app}/static/js`,
+    app: appName,
+    templates: `${appName}/templates`,
+    css: `${appName}/static/css`,
+    sass: `${appName}/static/sass`,
+    fonts: `${appName}/static/fonts`,
+    images: `${appName}/static/images`,
+    js: `${appName}/static/js`,
   };
 }
 
@@ -95,7 +99,8 @@ function vendorScripts() {
 }
 
 // Image compression
-function imgCompression() {
+async function imgCompression() {
+  const imagemin = (await import("gulp-imagemin")).default;
   return src(`${paths.images}/*`)
     .pipe(imagemin()) // Compresses PNG, JPEG, GIF and SVG images
     .pipe(dest(paths.images));
@@ -163,7 +168,7 @@ function watchPaths() {
 }
 
 // Generate all assets
-const generateAssets = parallel(styles, scripts, vendorScripts, imgCompression);
+const build = parallel(styles, scripts, vendorScripts, imgCompression);
 
 // Set up dev environment
 {%- if cookiecutter.use_docker == 'n' %}
@@ -176,6 +181,6 @@ const dev = parallel(runServer, initBrowserSync, watchPaths);
 const dev = parallel(initBrowserSync, watchPaths);
 {%- endif %}
 
-exports.default = series(generateAssets, dev);
-exports['generate-assets'] = generateAssets;
-exports['dev'] = dev;
+task('default', series(build, dev));
+task('build', build);
+task('dev', dev);
