@@ -1,5 +1,6 @@
 exclude: '^docs/|/migrations/|devcontainer.json'
 default_stages: [pre-commit]
+minimum_pre_commit_version: "3.2.0"
 
 default_language_version:
   python: python3.12
@@ -32,14 +33,14 @@ repos:
         exclude: '{{cookiecutter.project_slug}}/templates/'
 
   - repo: https://github.com/adamchainz/django-upgrade
-    rev: '1.22.1'
+    rev: '1.22.2'
     hooks:
       - id: django-upgrade
         args: ['--target-version', '5.0']
 
   # Run the Ruff linter.
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.7.1
+    rev: v0.9.4
     hooks:
       # Linter
       - id: ruff
@@ -48,7 +49,7 @@ repos:
       - id: ruff-format
 
   - repo: https://github.com/Riverside-Healthcare/djLint
-    rev: v1.35.2
+    rev: v1.36.4
     hooks:
       - id: djlint-reformat-django
         files: "templates"

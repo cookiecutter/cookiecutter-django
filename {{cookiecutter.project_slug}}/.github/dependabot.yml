@@ -98,7 +98,7 @@ updates:
   # Enable version updates for Python/Pip - Production
   - package-ecosystem: 'pip'
     # Look for a `requirements.txt` in the `root` directory
-    # also 'setup.cfg', 'runtime.txt' and 'requirements/*.txt'
+    # also 'setup.cfg', '.python-version' and 'requirements/*.txt'
     directory: '/'
     # Every weekday
     schedule:
