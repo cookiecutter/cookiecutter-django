@@ -54,11 +54,12 @@ def update_ci_node_version(old_version: str, new_version: str) -> None:
     )
     CI_YML.write_text(yml_content)
 
+
 def update_production_node_version(old_version: str, new_version: str) -> None:
     dockerfile_content = PROD_DOCKERFILE.read_text()
     dockerfile_content = dockerfile_content.replace(
-        f'FROM docker.io/node:{old_version}',
-        f'FROM docker.io/node:{new_version}',
+        f"FROM docker.io/node:{old_version}",
+        f"FROM docker.io/node:{new_version}",
     )
     PROD_DOCKERFILE.write_text(dockerfile_content)
 
