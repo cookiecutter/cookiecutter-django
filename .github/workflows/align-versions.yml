@@ -1,19 +1,27 @@
-name: ruff
+name: align versions
 
 on:
   pull_request:
     paths:
       - "{{cookiecutter.project_slug}}/requirements/local.txt"
+      - "{{cookiecutter.project_slug}}/compose/local/node/Dockerfile"
 
 permissions:
   contents: write
   pull-requests: write
 
 jobs:
-  version:
+  run:
     runs-on: ubuntu-latest
     env:
       GH_PAT: ${{ secrets.GH_PAT }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        script:
+          - scripts/ruff_version.py
+          - scripts/node_version.py
     steps:
       - name: Checkout with token
         uses: actions/checkout@v4
@@ -30,8 +38,8 @@ jobs:
 
       - uses: astral-sh/setup-uv@v5
 
-      - run: uv run scripts/ruff_version.py
+      - run: uv run ${{ matrix.script }}
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Align Ruff versions
+          commit_message: Align versions

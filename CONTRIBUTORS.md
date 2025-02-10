@@ -202,6 +202,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Alan Cyment</td>
+    <td>
+      <a href="https://github.com/acyment">acyment</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Alberto Sanchez</td>
     <td>
       <a href="https://github.com/alb3rto">alb3rto</a>
