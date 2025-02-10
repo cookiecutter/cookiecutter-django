@@ -53,14 +53,6 @@ repos:
     hooks:
       - id: pyproject-fmt
 
-  - repo: local
-    hooks:
-      - id: node-version-checker
-        name: node-version-checker
-        entry: python scripts/node_version.py
-        language: python
-        files: .
-
 ci:
   autoupdate_schedule: weekly
   skip: []
