@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.02.10
+
+
+### Updated
+
+- Update pytest-django to 4.10.0 ([#5684](https://github.com/cookiecutter/cookiecutter-django/pull/5684))
+
+- Update ruff to 0.9.6 ([#5683](https://github.com/cookiecutter/cookiecutter-django/pull/5683))
+
+- Bump amazon/aws-cli from 2.23.0 to 2.24.0 ([#5682](https://github.com/cookiecutter/cookiecutter-django/pull/5682))
+
 ## 2025.02.08
 
 
