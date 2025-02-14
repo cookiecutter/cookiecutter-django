@@ -18,6 +18,7 @@ def main() -> None:
     if old_version != new_version:
         update_package_json_version(old_version, new_version)
         update_ci_node_version(old_version, new_version)
+        update_production_node_version(old_version, new_version)
 
 
 def get_version_from_dockerfile() -> str | None:
