@@ -18,6 +18,7 @@ def main() -> None:
     if old_version != new_version:
         update_package_json_version(old_version, new_version)
         update_ci_node_version(old_version, new_version)
+        update_production_node_version(old_version, new_version)
 
 
 def get_version_from_dockerfile() -> str | None:
@@ -57,6 +58,7 @@ def update_ci_node_version(old_version: str, new_version: str) -> None:
 
 def update_production_node_version(old_version: str, new_version: str) -> None:
     dockerfile_content = PROD_DOCKERFILE.read_text()
+    print(dockerfile_content)
     dockerfile_content = dockerfile_content.replace(
         f"FROM docker.io/node:{old_version}",
         f"FROM docker.io/node:{new_version}",
