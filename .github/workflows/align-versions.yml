@@ -21,12 +21,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        - script: scripts/ruff_version.py
-          name: Ruff
-        - script: scripts/node_version.py
-          name: Node
+        job:
+          - script: scripts/ruff_version.py
+            name: Ruff
+          - script: scripts/node_version.py
+            name: Node
 
-    name: "${{ matrix.name }} versions"
+    name: "${{ matrix.job.name }} versions"
     steps:
       - name: Checkout with token
         uses: actions/checkout@v4
@@ -43,7 +44,7 @@ jobs:
 
       - uses: astral-sh/setup-uv@v5
 
-      - run: uv run ${{ matrix.script }}
+      - run: uv run ${{ matrix.job.script }}
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
