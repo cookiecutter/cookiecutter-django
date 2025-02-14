@@ -19,9 +19,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        script:
-          - scripts/ruff_version.py
-          - scripts/node_version.py
+        - script: scripts/ruff_version.py
+          name: Ruff
+        - script: scripts/node_version.py
+          name: Node
+
+    name: "${{ matrix.name }} versions"
     steps:
       - name: Checkout with token
         uses: actions/checkout@v4
