@@ -5,6 +5,8 @@ on:
     paths:
       - "{{cookiecutter.project_slug}}/requirements/local.txt"
       - "{{cookiecutter.project_slug}}/compose/local/node/Dockerfile"
+  # Manual trigger
+  workflow_dispatch:
 
 permissions:
   contents: write
