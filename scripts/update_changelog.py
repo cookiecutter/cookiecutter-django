@@ -162,9 +162,7 @@ def update_git_repo(paths: list[Path], release: str) -> None:
 
 if __name__ == "__main__":
     if GITHUB_REPO is None:
-        msg = "No github repo, please set the environment variable GITHUB_REPOSITORY"
-        raise RuntimeError(msg)
+        raise RuntimeError("No github repo, please set the environment variable GITHUB_REPOSITORY")
     if GIT_BRANCH is None:
-        msg = "No git branch set, please set the GITHUB_REF_NAME environment variable"
-        raise RuntimeError(msg)
+        raise RuntimeError("No git branch set, please set the GITHUB_REF_NAME environment variable")
     main()

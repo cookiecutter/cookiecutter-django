@@ -33,7 +33,7 @@ def get_pyproject_toml_version():
     for dependency in data["project"]["dependencies"]:
         if dependency.startswith("ruff=="):
             return dependency.split("==")[1]
-    raise RuntimeError("Could not find version in pyproject.toml")  # noqa: TRY003
+    raise RuntimeError("Could not find version in pyproject.toml")
 
 
 def update_ruff_version(old_version, new_version):

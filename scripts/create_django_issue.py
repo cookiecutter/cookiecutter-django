@@ -301,8 +301,7 @@ def main(django_max_version=None) -> None:
 
 if __name__ == "__main__":
     if GITHUB_REPO is None:
-        msg = "No github repo, please set the environment variable GITHUB_REPOSITORY"
-        raise RuntimeError(msg)
+        raise RuntimeError("No github repo, please set the environment variable GITHUB_REPOSITORY")
     max_version = None
     last_arg = sys.argv[-1]
     if CURRENT_FILE.name not in last_arg:

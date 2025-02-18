@@ -30,7 +30,7 @@ def get_version_from_dockerfile() -> str:
                 _, _, docker_tag = line.partition(":")
                 version_str, _, _ = docker_tag.partition("-")
                 return version_str
-    raise RuntimeError("Could not find version in Dockerfile")  # noqa: TRY003
+    raise RuntimeError("Could not find version in Dockerfile")
 
 
 def get_version_from_package_json() -> str:
