@@ -3,6 +3,113 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.02.17
+
+
+### Updated
+
+- Update sentry-sdk to 2.22.0 ([#5692](https://github.com/cookiecutter/cookiecutter-django/pull/5692))
+
+- Update django-storages to 1.14.5 ([#5690](https://github.com/cookiecutter/cookiecutter-django/pull/5690))
+
+## 2025.02.14
+
+
+### Updated
+
+- Bump node from 22.13 to 22.14 ([#5688](https://github.com/cookiecutter/cookiecutter-django/pull/5688))
+
+## 2025.02.13
+
+
+### Updated
+
+- Update sentry-sdk to 2.21.0 ([#5687](https://github.com/cookiecutter/cookiecutter-django/pull/5687))
+
+## 2025.02.11
+
+
+### Updated
+
+- Update coverage to 7.6.12 ([#5686](https://github.com/cookiecutter/cookiecutter-django/pull/5686))
+
+## 2025.02.10
+
+
+### Updated
+
+- Update pytest-django to 4.10.0 ([#5684](https://github.com/cookiecutter/cookiecutter-django/pull/5684))
+
+- Update ruff to 0.9.6 ([#5683](https://github.com/cookiecutter/cookiecutter-django/pull/5683))
+
+- Bump amazon/aws-cli from 2.23.0 to 2.24.0 ([#5682](https://github.com/cookiecutter/cookiecutter-django/pull/5682))
+
+## 2025.02.08
+
+
+### Updated
+
+- Update coverage to 7.6.11 ([#5681](https://github.com/cookiecutter/cookiecutter-django/pull/5681))
+
+## 2025.02.07
+
+
+### Updated
+
+- Update mypy to 1.15.0 ([#5664](https://github.com/cookiecutter/cookiecutter-django/pull/5664))
+
+- Update django-stubs to 5.1.3 ([#5680](https://github.com/cookiecutter/cookiecutter-django/pull/5680))
+
+- Bump python from 3.12.8 to 3.12.9 in local Docker image ([#5678](https://github.com/cookiecutter/cookiecutter-django/pull/5678))
+
+- Bump python from 3.12.8 to 3.12.9 in production Docker image ([#5677](https://github.com/cookiecutter/cookiecutter-django/pull/5677))
+
+- Bump python from 3.12.8 to 3.12.9 in docs Docker image ([#5676](https://github.com/cookiecutter/cookiecutter-django/pull/5676))
+
+- Update django-allauth to 65.4.1 ([#5679](https://github.com/cookiecutter/cookiecutter-django/pull/5679))
+
+- Update django-cors-headers to 4.7.0 ([#5675](https://github.com/cookiecutter/cookiecutter-django/pull/5675))
+
+- Update whitenoise to 6.9.0 ([#5674](https://github.com/cookiecutter/cookiecutter-django/pull/5674))
+
+## 2025.02.06
+
+
+### Fixed
+
+- Bump node version in production Dockerfile from 20 to 22.13 ([#5672](https://github.com/cookiecutter/cookiecutter-django/pull/5672))
+
+### Updated
+
+- Update ruff to 0.9.5 ([#5673](https://github.com/cookiecutter/cookiecutter-django/pull/5673))
+
+## 2025.02.05
+
+
+### Changed
+
+- Add missing trailing slash in test `MEDIA_URL` ([#5666](https://github.com/cookiecutter/cookiecutter-django/pull/5666))
+
+### Updated
+
+- Update django to 5.0.12 ([#5667](https://github.com/cookiecutter/cookiecutter-django/pull/5667))
+
+## 2025.02.03
+
+
+### Updated
+
+- Bump traefik from 3.3.2 to 3.3.3 ([#5660](https://github.com/cookiecutter/cookiecutter-django/pull/5660))
+
+- Update factory-boy to 3.3.2 ([#5661](https://github.com/cookiecutter/cookiecutter-django/pull/5661))
+
+## 2025.01.30
+
+
+### Updated
+
+- Update ruff to 0.9.4 ([#5659](https://github.com/cookiecutter/cookiecutter-django/pull/5659))
+
 ## 2025.01.26
 
 
