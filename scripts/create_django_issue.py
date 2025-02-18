@@ -12,7 +12,6 @@ from __future__ import annotations
 import os
 import re
 import sys
-from collections.abc import Iterable
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, NamedTuple
 
@@ -20,6 +19,8 @@ import requests
 from github import Github
 
 if TYPE_CHECKING:
+    from collections.abc import Iterable
+
     from github.Issue import Issue
 
 CURRENT_FILE = Path(__file__)
@@ -83,7 +84,7 @@ def get_name_and_version(requirements_line: str) -> tuple[str, ...]:
 
 
 def get_all_latest_django_versions(
-    django_max_version: tuple[DjVersion] = None,
+    django_max_version: tuple[DjVersion] | None = None,
 ) -> tuple[DjVersion, list[DjVersion]]:
     """
     Grabs all Django versions that are worthy of a GitHub issue.
@@ -221,8 +222,7 @@ class GitHubManager:
         if supported_dj_versions:
             if any(v >= needed_dj_version for v in supported_dj_versions):
                 return package_info["info"]["version"], "✅"
-            else:
-                return "", "❌"
+            return "", "❌"
 
         # Django classifier DNE; assume it isn't a Django lib
         # Great exceptions include pylint-django, where we need to do this manually...
