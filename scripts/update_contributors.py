@@ -98,6 +98,5 @@ def write_md_file(contributors):
 
 if __name__ == "__main__":
     if GITHUB_REPO is None:
-        msg = "No github repo, please set the environment variable GITHUB_REPOSITORY"
-        raise RuntimeError(msg)
+        raise RuntimeError("No github repo, please set the environment variable GITHUB_REPOSITORY")
     main()
