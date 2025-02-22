@@ -3,7 +3,7 @@
 -r base.txt
 
 gunicorn==23.0.0  # https://github.com/benoitc/gunicorn
-psycopg[c]==3.2.4  # https://github.com/psycopg/psycopg
+psycopg[c]==3.2.5  # https://github.com/psycopg/psycopg
 {%- if cookiecutter.use_whitenoise == 'n'and cookiecutter.cloud_provider in ('AWS', 'GCP') %}
 Collectfasta==3.2.1  # https://github.com/jasongi/collectfasta
 {%- endif %}
