@@ -68,6 +68,11 @@ docker compose -f docker-compose.local.yml run --rm \
   django python manage.py check --settings=config.settings.production --deploy --database default --fail-level WARNING
 
 # Generate the HTML for the documentation
+docker buildx bake -f docker-compose.docs.yml --load docs \
+  --allow fs=* \
+  --set docs.cache-from=type=gha,scope=docs-cached \
+  --set docs.cache-to=type=gha,scope=docs-cached,mode=max \
+
 docker compose -f docker-compose.docs.yml run --rm docs make html
 
 # Run npm build script if package.json is present
