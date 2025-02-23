@@ -71,7 +71,7 @@ docker compose -f docker-compose.local.yml run --rm \
 docker buildx bake -f docker-compose.docs.yml --load docs \
   --allow fs=* \
   --set docs.cache-from=type=gha,scope=docs-cached \
-  --set docs.cache-to=type=gha,scope=docs-cached,mode=max \
+  --set docs.cache-to=type=gha,scope=docs-cached,mode=max
 
 docker compose -f docker-compose.docs.yml run --rm docs make html
 
