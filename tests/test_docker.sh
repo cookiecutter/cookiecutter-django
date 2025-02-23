@@ -32,8 +32,6 @@ fi
 # Add redis and celery services cache if Celery is enabled
 if grep -q "redis" docker-compose.local.yml; then
   BAKE_COMMAND="$BAKE_COMMAND \
-    --set redis.cache-from=type=gha,scope=redis-cached-tests \
-    --set redis.cache-to=type=gha,scope=redis-cached-tests,mode=max \
     --set celeryworker.cache-from=type=gha,scope=celeryworker-cached-tests \
     --set celeryworker.cache-to=type=gha,scope=celeryworker-cached-tests,mode=max \
     --set celerybeat.cache-from=type=gha,scope=celerybeat-cached-tests \
