@@ -14,8 +14,36 @@ cd .cache/docker
 uv run cookiecutter ../../ --no-input --overwrite-if-exists use_docker=y "$@"
 cd my_awesome_project
 
-# make sure all images build
-docker compose -f docker-compose.local.yml build
+# Base command with required services
+BAKE_COMMAND="docker buildx bake -f docker-compose.local.yml --load django \
+  --allow fs=*
+  --set django.cache-from=type=gha,scope=django-cached-tests \
+  --set django.cache-to=type=gha,scope=django-cached-tests,mode=max \
+  --set postgres.cache-from=type=gha,scope=postgres-cached-tests \
+  --set postgres.cache-to=type=gha,scope=postgres-cached-tests,mode=max"
+
+# Add node service cache if frontend pipeline is enabled
+if [ -f "package.json" ]; then
+  BAKE_COMMAND="$BAKE_COMMAND \
+    --set node.cache-from=type=gha,scope=node-cached-tests \
+    --set node.cache-to=type=gha,scope=node-cached-tests,mode=max"
+fi
+
+# Add redis and celery services cache if Celery is enabled
+if grep -q "redis" docker-compose.local.yml; then
+  BAKE_COMMAND="$BAKE_COMMAND \
+    --set redis.cache-from=type=gha,scope=redis-cached-tests \
+    --set redis.cache-to=type=gha,scope=redis-cached-tests,mode=max \
+    --set celeryworker.cache-from=type=gha,scope=celeryworker-cached-tests \
+    --set celeryworker.cache-to=type=gha,scope=celeryworker-cached-tests,mode=max \
+    --set celerybeat.cache-from=type=gha,scope=celerybeat-cached-tests \
+    --set celerybeat.cache-to=type=gha,scope=celerybeat-cached-tests,mode=max \
+    --set flower.cache-from=type=gha,scope=flower-cached-tests \
+    --set flower.cache-to=type=gha,scope=flower-cached-tests,mode=max"
+fi
+
+# Execute the final command
+eval "$BAKE_COMMAND"
 
 # run the project's type checks
 docker compose -f docker-compose.local.yml run --rm django mypy my_awesome_project
