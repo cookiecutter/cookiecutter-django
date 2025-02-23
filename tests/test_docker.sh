@@ -16,7 +16,7 @@ cd my_awesome_project
 
 # Base command with required services
 BAKE_COMMAND="docker buildx bake -f docker-compose.local.yml --load django \
-  --allow fs=*
+  --allow fs=* \
   --set django.cache-from=type=gha,scope=django-cached-tests \
   --set django.cache-to=type=gha,scope=django-cached-tests,mode=max \
   --set postgres.cache-from=type=gha,scope=postgres-cached-tests \
