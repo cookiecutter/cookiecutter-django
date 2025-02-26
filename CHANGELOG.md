@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.02.25
+
+
+### Documentation
+
+- Fix links to FAQ about `contrib.sites` directory ([#5704](https://github.com/cookiecutter/cookiecutter-django/pull/5704))
+
 ## 2025.02.23
 
 
