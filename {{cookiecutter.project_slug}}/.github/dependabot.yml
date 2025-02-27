@@ -9,6 +9,10 @@ updates:
     # Every weekday
     schedule:
       interval: 'daily'
+    groups:
+      github-actions:
+        patterns:
+          - '*'
 
 {%- if cookiecutter.use_docker == 'y' %}
 
@@ -28,10 +32,14 @@ updates:
         update-types:
           - 'version-update:semver-major'
           - 'version-update:semver-minor'
+    groups:
+      docker-python:
+        patterns:
+          - '*'
 
 
   - package-ecosystem: 'docker'
-    # Look for a `Dockerfile` in the `compose/local/node` directory
+    # Look for a `Dockerfile` in the listed directories
     directories:
       - 'compose/local/node/'
       - 'compose/production/aws/'
@@ -43,6 +51,10 @@ updates:
     # Every weekday
     schedule:
       interval: 'daily'
+    groups:
+      docker:
+        patterns:
+          - '*'
 
 {%- endif %}
 
@@ -54,6 +66,11 @@ updates:
     # Every weekday
     schedule:
       interval: 'daily'
+    groups:
+      production-dependencies:
+        dependency-type: "production"
+      development-dependencies:
+        dependency-type: "development"
 
 {%- if cookiecutter.frontend_pipeline == 'Gulp' %}
 
@@ -64,5 +81,9 @@ updates:
     # Every weekday
     schedule:
       interval: 'daily'
+    groups:
+      npm:
+        patterns:
+          - '*'
 
 {%- endif %}
