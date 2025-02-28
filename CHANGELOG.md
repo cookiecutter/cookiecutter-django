@@ -3,6 +3,44 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.02.26
+
+
+### Updated
+
+- Bump traefik from 3.3.3 to 3.3.4 ([#5705](https://github.com/cookiecutter/cookiecutter-django/pull/5705))
+
+## 2025.02.25
+
+
+### Documentation
+
+- Fix links to FAQ about `contrib.sites` directory ([#5704](https://github.com/cookiecutter/cookiecutter-django/pull/5704))
+
+## 2025.02.23
+
+
+### Changed
+
+- Group dependabot docker directories ([#5698](https://github.com/cookiecutter/cookiecutter-django/pull/5698))
+
+### Updated
+
+- Update sphinx to 8.2.1 ([#5696](https://github.com/cookiecutter/cookiecutter-django/pull/5696))
+
+- Update psycopg to 3.2.5 ([#5697](https://github.com/cookiecutter/cookiecutter-django/pull/5697))
+
+## 2025.02.21
+
+
+### Updated
+
+- Update djangorestframework-stubs to 3.15.3 ([#5695](https://github.com/cookiecutter/cookiecutter-django/pull/5695))
+
+- Update sphinx to 8.2.0 ([#5693](https://github.com/cookiecutter/cookiecutter-django/pull/5693))
+
+- Update ruff to 0.9.7 ([#5694](https://github.com/cookiecutter/cookiecutter-django/pull/5694))
+
 ## 2025.02.17
 
 

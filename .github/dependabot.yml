@@ -36,11 +36,11 @@ updates:
       - "update"
 
   # Enable version updates for Docker
-  # We need to specify each Dockerfile in a separate entry because Dependabot doesn't
-  # support wildcards or recursively checking subdirectories. Check this issue for updates:
-  # https://github.com/dependabot/dependabot-core/issues/2178
   - package-ecosystem: "docker"
-    directory: "{{cookiecutter.project_slug}}/compose/local/django/"
+    directories:
+      - "{{cookiecutter.project_slug}}/compose/local/django/"
+      - "{{cookiecutter.project_slug}}/compose/local/docs/"
+      - "{{cookiecutter.project_slug}}/compose/production/django/"
     schedule:
       interval: "daily"
     ignore:
@@ -52,60 +52,12 @@ updates:
       - "update"
 
   - package-ecosystem: "docker"
-    directory: "{{cookiecutter.project_slug}}/compose/local/docs/"
-    schedule:
-      interval: "daily"
-    ignore:
-      - dependency-name: "*"
-        update-types:
-          - "version-update:semver-major"
-          - "version-update:semver-minor"
-    labels:
-      - "update"
-
-  - package-ecosystem: "docker"
-    directory: "{{cookiecutter.project_slug}}/compose/local/node/"
-    schedule:
-      interval: "daily"
-    labels:
-      - "update"
-
-  - package-ecosystem: "docker"
-    directory: "{{cookiecutter.project_slug}}/compose/production/aws/"
-    schedule:
-      interval: "daily"
-    labels:
-      - "update"
-
-  - package-ecosystem: "docker"
-    directory: "{{cookiecutter.project_slug}}/compose/production/django/"
-    schedule:
-      interval: "daily"
-    ignore:
-      - dependency-name: "*"
-        update-types:
-          - "version-update:semver-major"
-          - "version-update:semver-minor"
-    labels:
-      - "update"
-
-  - package-ecosystem: "docker"
-    directory: "{{cookiecutter.project_slug}}/compose/production/postgres/"
-    schedule:
-      interval: "daily"
-    labels:
-      - "update"
-
-  - package-ecosystem: "docker"
-    directory: "{{cookiecutter.project_slug}}/compose/production/nginx/"
-    schedule:
-      interval: "daily"
-    versioning-strategy: increase
-    labels:
-      - "update"
-
-  - package-ecosystem: "docker"
-    directory: "{{cookiecutter.project_slug}}/compose/production/traefik/"
+    directories:
+      - "{{cookiecutter.project_slug}}/compose/local/node/"
+      - "{{cookiecutter.project_slug}}/compose/production/aws/"
+      - "{{cookiecutter.project_slug}}/compose/production/postgres/"
+      - "{{cookiecutter.project_slug}}/compose/production/nginx/"
+      - "{{cookiecutter.project_slug}}/compose/production/traefik/"
     schedule:
       interval: "daily"
     labels:
