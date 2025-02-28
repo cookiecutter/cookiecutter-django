@@ -67,10 +67,9 @@ updates:
     schedule:
       interval: 'daily'
     groups:
-      production-dependencies:
-        dependency-type: "production"
-      development-dependencies:
-        dependency-type: "development"
+      python:
+        patterns:
+          - '*'
 
 {%- if cookiecutter.frontend_pipeline == 'Gulp' %}
 
@@ -82,7 +81,7 @@ updates:
     schedule:
       interval: 'daily'
     groups:
-      npm:
+      javascript:
         patterns:
           - '*'
 
