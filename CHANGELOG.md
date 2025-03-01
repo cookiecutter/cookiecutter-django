@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.02.28
+
+
+### Updated
+
+- Update ruff to 0.9.8 ([#5708](https://github.com/cookiecutter/cookiecutter-django/pull/5708))
+
+- Bump babel-loader from 9.2.1 to 10.0.0 ([#5710](https://github.com/cookiecutter/cookiecutter-django/pull/5710))
+
 ## 2025.02.26
 
 
