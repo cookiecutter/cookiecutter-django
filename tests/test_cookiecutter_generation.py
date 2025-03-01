@@ -77,6 +77,7 @@ SUPPORTED_COMBINATIONS = [
     {"cloud_provider": "None", "use_whitenoise": "y", "mail_service": "Sendgrid"},
     {"cloud_provider": "None", "use_whitenoise": "y", "mail_service": "Brevo"},
     {"cloud_provider": "None", "use_whitenoise": "y", "mail_service": "SparkPost"},
+    {"cloud_provider": "None", "use_whitenoise": "y", "mail_service": "ZeptoMail"},
     {"cloud_provider": "None", "use_whitenoise": "y", "mail_service": "Other SMTP"},
     # Note: cloud_provider=None AND use_whitenoise=n is not supported
     {"cloud_provider": "AWS", "mail_service": "Mailgun"},
@@ -95,6 +96,7 @@ SUPPORTED_COMBINATIONS = [
     {"cloud_provider": "GCP", "mail_service": "Sendgrid"},
     {"cloud_provider": "GCP", "mail_service": "Brevo"},
     {"cloud_provider": "GCP", "mail_service": "SparkPost"},
+    {"cloud_provider": "GCP", "mail_service": "ZeptoMail"},
     {"cloud_provider": "GCP", "mail_service": "Other SMTP"},
     {"cloud_provider": "Azure", "mail_service": "Mailgun"},
     {"cloud_provider": "Azure", "mail_service": "Mailjet"},
@@ -103,6 +105,7 @@ SUPPORTED_COMBINATIONS = [
     {"cloud_provider": "Azure", "mail_service": "Sendgrid"},
     {"cloud_provider": "Azure", "mail_service": "Brevo"},
     {"cloud_provider": "Azure", "mail_service": "SparkPost"},
+    {"cloud_provider": "Azure", "mail_service": "ZeptoMail"},
     {"cloud_provider": "Azure", "mail_service": "Other SMTP"},
     # Note: cloud_providers GCP, Azure, and None
     # with mail_service Amazon SES is not supported

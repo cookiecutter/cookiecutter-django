@@ -32,6 +32,9 @@ SENDGRID_MERGE_FIELD_FORMAT=None
 BREVO_API_KEY=
 {% elif cookiecutter.mail_service == 'SparkPost' %}
 SPARKPOST_API_KEY=
+{% elif cookiecutter.mail_service == 'ZeptoMail' %}
+ZOHO_ZEPTOMAIL_API_KEY_TOKEN=
+ZOHO_ZEPTOMAIL_HOSTED_REGION=zeptomail.zoho.com
 {% endif %}
 {% if cookiecutter.cloud_provider == 'AWS' %}
 # AWS

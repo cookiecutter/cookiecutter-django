@@ -93,7 +93,8 @@ mail_service:
     6. SendGrid_
     7. `Brevo (formerly SendinBlue)`_
     8. SparkPost_
-    9. `Other SMTP`_
+    9. ZeptoMail_
+    10. `Other SMTP`_
 
 use_async:
     Indicates whether the project should use web sockets with Uvicorn + Gunicorn.
@@ -176,6 +177,7 @@ debug:
 .. _SendGrid: https://sendgrid.com
 .. _Brevo (formerly SendinBlue): https://www.brevo.com
 .. _SparkPost: https://www.sparkpost.com
+.. _ZeptoMail: https://www.zoho.com/zeptomail/
 .. _Other SMTP: https://anymail.readthedocs.io/en/stable/
 
 .. _Django Rest Framework: https://github.com/encode/django-rest-framework/

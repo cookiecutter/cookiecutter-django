@@ -29,6 +29,7 @@
     "Sendgrid",
     "Brevo",
     "SparkPost",
+    "ZeptoMail",
     "Other SMTP"
   ],
   "use_async": "n",

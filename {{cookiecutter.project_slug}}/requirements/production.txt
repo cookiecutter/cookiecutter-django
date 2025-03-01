@@ -39,6 +39,8 @@ django-anymail[sendgrid]==12.0  # https://github.com/anymail/django-anymail
 django-anymail[brevo]==12.0  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'SparkPost' %}
 django-anymail[sparkpost]==12.0  # https://github.com/anymail/django-anymail
+{%- elif cookiecutter.mail_service == 'ZeptoMail' %}
+django-zoho-zeptomail==0.0.3   # https://www.zoho.com/zeptomail/django-integration.html
 {%- elif cookiecutter.mail_service == 'Other SMTP' %}
 django-anymail==12.0  # https://github.com/anymail/django-anymail
 {%- endif %}
