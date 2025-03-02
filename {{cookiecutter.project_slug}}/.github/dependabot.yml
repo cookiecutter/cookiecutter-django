@@ -51,10 +51,6 @@ updates:
     # Every weekday
     schedule:
       interval: 'daily'
-    groups:
-      docker:
-        patterns:
-          - '*'
 
 {%- endif %}
 
@@ -68,8 +64,9 @@ updates:
       interval: 'daily'
     groups:
       python:
-        patterns:
-          - '*'
+        update-types:
+          - 'minor'
+          - 'patch'
 
 {%- if cookiecutter.frontend_pipeline == 'Gulp' %}
 
@@ -82,7 +79,8 @@ updates:
       interval: 'daily'
     groups:
       javascript:
-        patterns:
-          - '*'
+        update-types:
+          - 'minor'
+          - 'patch'
 
 {%- endif %}
