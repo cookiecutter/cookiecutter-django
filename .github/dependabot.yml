@@ -2,18 +2,11 @@
 # https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 
 version: 2
+enable-beta-ecosystems: true
 updates:
   # Update Python deps for the template (not the generated project)
-  - package-ecosystem: "pip"
+  - package-ecosystem: "uv"
     directory: "/"
-    schedule:
-      interval: "daily"
-    labels:
-      - "project infrastructure"
-
-  # Update Python deps for the documentation
-  - package-ecosystem: "pip"
-    directory: "docs/"
     schedule:
       interval: "daily"
     labels:
