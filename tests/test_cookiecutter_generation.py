@@ -1,4 +1,4 @@
-import glob
+import glob  # noqa: EXE002
 import os
 import re
 import sys
@@ -227,7 +227,7 @@ def test_django_upgrade_passes(cookies, context_override):
 
     python_files = [
         file_path.removeprefix(f"{result.project_path}/")
-        for file_path in glob.glob(str(result.project_path / "**" / "*.py"), recursive=True)
+        for file_path in glob.glob(str(result.project_path / "**" / "*.py"), recursive=True)  # noqa: PTH207
     ]
     try:
         sh.django_upgrade(
