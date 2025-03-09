@@ -290,6 +290,12 @@ ANYMAIL = {
     "SPARKPOST_API_KEY": env("SPARKPOST_API_KEY"),
     "SPARKPOST_API_URL": env("SPARKPOST_API_URL", default="https://api.sparkpost.com/api/v1"),
 }
+{%- elif cookiecutter.mail_service == 'ZeptoMail' %}
+# https://www.zoho.com/zeptomail/django-integration.html
+EMAIL_BACKEND = "zoho_zeptomail.backend.zeptomail_backend.ZohoZeptoMailEmailBackend"
+ZOHO_ZEPTOMAIL_API_KEY_TOKEN = env("ZOHO_ZEPTOMAIL_API_KEY_TOKEN")
+ZOHO_ZEPTOMAIL_HOSTED_REGION = env("ZOHO_ZEPTOMAIL_HOSTED_REGION")
+ANYMAIL = {}
 {%- elif cookiecutter.mail_service == 'Other SMTP' %}
 # https://anymail.readthedocs.io/en/stable/esps
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
