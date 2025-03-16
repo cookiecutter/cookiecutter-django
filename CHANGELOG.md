@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.03.15
+
+
+### Updated
+
+- Update psycopg to 3.2.6 ([#5721](https://github.com/cookiecutter/cookiecutter-django/pull/5721))
+
+- Update ruff to 0.11.0 ([#5724](https://github.com/cookiecutter/cookiecutter-django/pull/5724))
+
 ## 2025.03.08
 
 
