@@ -6,7 +6,7 @@
     "@babel/preset-env": "^7.16.5",
     "@popperjs/core": "^2.10.2",
     "autoprefixer": "^10.4.0",
-    "babel-loader": "^9.1.2",
+    "babel-loader": "^10.0.0",
     "bootstrap": "^5.2.3",
     "browser-sync": "^3.0.2",
     "css-loader": "^7.1.2",
@@ -35,7 +35,7 @@
     "webpack-merge": "^6.0.1"
   },
   "engines": {
-    "node": "22.13"
+    "node": "22.14"
   },
   "browserslist": [
     "last 2 versions"
