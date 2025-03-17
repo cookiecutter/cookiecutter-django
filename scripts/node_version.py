@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import json
 from pathlib import Path
 
@@ -11,16 +13,14 @@ CI_YML = ROOT / ".github" / "workflows" / "ci.yml"
 
 def main() -> None:
     new_version = get_version_from_dockerfile()
-    if new_version is None:
-        raise RuntimeError(f"No version found in {DOCKERFILE}")
-
     old_version = get_version_from_package_json()
     if old_version != new_version:
         update_package_json_version(old_version, new_version)
         update_ci_node_version(old_version, new_version)
+        update_production_node_version(old_version, new_version)
 
 
-def get_version_from_dockerfile() -> str | None:
+def get_version_from_dockerfile() -> str:
     # Extract version out of base image name:
     # FROM docker.io/node:22.13-bookworm-slim
     # -> 22.13
@@ -30,6 +30,7 @@ def get_version_from_dockerfile() -> str | None:
                 _, _, docker_tag = line.partition(":")
                 version_str, _, _ = docker_tag.partition("-")
                 return version_str
+    raise RuntimeError("Could not find version in Dockerfile")
 
 
 def get_version_from_package_json() -> str:

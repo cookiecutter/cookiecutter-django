@@ -5,6 +5,8 @@ on:
     paths:
       - "{{cookiecutter.project_slug}}/requirements/local.txt"
       - "{{cookiecutter.project_slug}}/compose/local/node/Dockerfile"
+  # Manual trigger
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -19,9 +21,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        script:
-          - scripts/ruff_version.py
-          - scripts/node_version.py
+        job:
+          - script: scripts/ruff_version.py
+            name: Ruff
+          - script: scripts/node_version.py
+            name: Node
+
+    name: "${{ matrix.job.name }} versions"
     steps:
       - name: Checkout with token
         uses: actions/checkout@v4
@@ -38,7 +44,7 @@ jobs:
 
       - uses: astral-sh/setup-uv@v5
 
-      - run: uv run ${{ matrix.script }}
+      - run: uv run ${{ matrix.job.script }}
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:

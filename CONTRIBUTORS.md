@@ -1322,6 +1322,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Kawsar Alam Foysal</td>
+    <td>
+      <a href="https://github.com/iamfoysal">iamfoysal</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Keith Bailey</td>
     <td>
       <a href="https://github.com/keithjeb">keithjeb</a>
