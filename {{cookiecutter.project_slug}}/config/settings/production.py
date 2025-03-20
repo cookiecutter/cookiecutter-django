@@ -168,11 +168,7 @@ STORAGES = {
     {%- endif %}
 {%- elif cookiecutter.cloud_provider == 'Azure' %}
     "default": {
-        "BACKEND": "storages.backends.azure_storage.AzureStorage",
-        "OPTIONS": {
-            "location": "media",
-            "overwrite_files": False,
-        },
+        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.MediaAzureStorage",
     },
     {%- if cookiecutter.use_whitenoise == 'y' %}
     "staticfiles": {
@@ -180,10 +176,7 @@ STORAGES = {
     },
     {%- else %}
     "staticfiles": {
-        "BACKEND": "storages.backends.azure_storage.AzureStorage",
-        "OPTIONS": {
-            "location": "static",
-        },
+        "BACKEND": "{{cookiecutter.project_slug}}.utils.storages.StaticAzureStorage",
     },
     {%- endif %}
 {%- endif %}
