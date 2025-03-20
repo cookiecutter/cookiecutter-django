@@ -9,6 +9,8 @@ updates:
     # Every weekday
     schedule:
       interval: 'daily'
+      day: monday
+      time: '06:00'
     groups:
       github-actions:
         patterns:
@@ -25,7 +27,9 @@ updates:
       - 'compose/production/django/'
     # Every weekday
     schedule:
-      interval: 'daily'
+      interval: 'weekly'
+      day: monday
+      time: '06:00'
     # Ignore minor version updates (3.10 -> 3.11) but update patch versions
     ignore:
       - dependency-name: '*'
@@ -50,7 +54,9 @@ updates:
 {%- endif %}
     # Every weekday
     schedule:
-      interval: 'daily'
+      interval: 'weekly'
+      day: monday
+      time: '06:00'
 
 {%- endif %}
 
@@ -61,7 +67,9 @@ updates:
     directory: '/'
     # Every weekday
     schedule:
-      interval: 'daily'
+      interval: 'weekly'
+      day: monday
+      time: '06:00'
     groups:
       python:
         update-types:

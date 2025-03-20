@@ -1,0 +1,59 @@
+name: Merge PR
+
+on:
+  push:
+    branches: ["master", "main"]
+
+concurrency:
+  group: merge_pr
+  cancel-in-progress: false
+
+jobs:
+  bumper:
+    name: "Bump version number"
+    runs-on: ubuntu-latest
+    outputs:
+      latest_tag: {% raw %}${{ steps.latest_version.outputs.version }}{% endraw %}
+      bumped_tag: {% raw %}${{ steps.bumped_version.outputs.version }}{% endraw %}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # fetch-tags: true  # NOTE: Does not work [https://github.com/actions/checkout/issues/1471]
+          fetch-depth: 0
+
+      - name: "Get current version"
+        id: latest_version
+        shell: bash
+        run: |
+          LATEST_VERSION=$(git tag --sort=-creatordate | head -n 1)
+          echo "Found current version: ${LATEST_VERSION}"
+          echo "version=${LATEST_VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: "Bump version number"
+        id: bumped_version
+        run: |
+          CURRENT_VERSION="{% raw %}${{ steps.latest_version.outputs.version }}{% endraw %}"
+          COMMIT_MESSAGE="{% raw %}${{ github.event.head_commit.message }}{% endraw %}"
+          source .scripts/semver_bump.sh "$CURRENT_VERSION" "$COMMIT_MESSAGE"
+
+      - name: "Bump project version"
+        run: |
+          BUMPED_VERSION="{% raw %}${{ steps.bumped_version.outputs.version }}{% endraw %}"
+          # Find and replace anything that matches `__version__ = "x.x.x"`
+          sed -i 's/\(^__version__ = \)"[^"]*"/__version__ = "'"${BUMPED_VERSION}"'"/' gebi/__init__.py
+
+      - name: "Commit changes"
+        run: |
+          CURRENT_VERSION="{% raw %}${{ steps.latest_version.outputs.version }}{% endraw %}"
+          BUMPED_VERSION="{% raw %}${{ steps.bumped_version.outputs.version }}{% endraw %}"
+
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "devops@github.com"
+          git add gebi/__init__.py
+          git commit -m "Bump version from v${CURRENT_VERSION} to v${BUMPED_VERSION}"
+          git push origin main
+
+          git tag ${BUMPED_VERSION}
+          git push origin ${BUMPED_VERSION}
+
+          echo "Bump version from v${CURRENT_VERSION} to v${BUMPED_VERSION}" >> $GITHUB_STEP_SUMMARY

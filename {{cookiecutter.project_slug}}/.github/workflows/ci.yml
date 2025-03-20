@@ -68,11 +68,11 @@ jobs:
         uses: actions/checkout@v4
       {%- if cookiecutter.use_docker == 'y' %}
 
+      - name: Dummy .env file
+        run: touch .env
+
       - name: Build the Stack
         run: docker compose -f docker-compose.local.yml build django
-
-      - name: Build the docs
-        run: docker compose -f docker-compose.docs.yml build docs
 
       - name: Check DB Migrations
         run: docker compose -f docker-compose.local.yml run --rm django python manage.py makemigrations --check
@@ -80,11 +80,25 @@ jobs:
       - name: Run DB Migrations
         run: docker compose -f docker-compose.local.yml run --rm django python manage.py migrate
 
+      - name: Compile Translations
+        run: docker compose -f docker-compose.local.yml run --rm django python manage.py compilemessages
+
       - name: Run Django Tests
         run: docker compose -f docker-compose.local.yml run django pytest
 
       - name: Tear down the Stack
         run: docker compose -f docker-compose.local.yml down
+
+  docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code Repository
+        uses: actions/checkout@v4
+
+      - name: Build the docs
+        run: docker compose -f docker-compose.docs.yml build docs
+
       {%- else %}
 
       - name: Set up Python
