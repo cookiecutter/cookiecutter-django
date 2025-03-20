@@ -10,3 +10,7 @@
 venv
 .git
 .envs/
+.env
+.certificates/
+staticfiles/
+{{ cookiecutter.project_slug }}/media/
