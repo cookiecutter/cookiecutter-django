@@ -33,7 +33,7 @@ services:
     <<: *django
     profiles:
       - interpreter
-    container_name: gebi_local_interpreter
+    container_name: {{cookiecutter.project_slug}}_local_interpreter
     ports: []
 
   postgres:

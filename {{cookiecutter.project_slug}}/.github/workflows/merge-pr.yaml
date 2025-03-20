@@ -40,7 +40,7 @@ jobs:
         run: |
           BUMPED_VERSION="{% raw %}${{ steps.bumped_version.outputs.version }}{% endraw %}"
           # Find and replace anything that matches `__version__ = "x.x.x"`
-          sed -i 's/\(^__version__ = \)"[^"]*"/__version__ = "'"${BUMPED_VERSION}"'"/' gebi/__init__.py
+          sed -i 's/\(^__version__ = \)"[^"]*"/__version__ = "'"${BUMPED_VERSION}"'"/' {{cookiecutter.project_slug}}/__init__.py
 
       - name: "Commit changes"
         run: |
@@ -49,7 +49,7 @@ jobs:
 
           git config --global user.name "GitHub Actions"
           git config --global user.email "devops@github.com"
-          git add gebi/__init__.py
+          git add {{cookiecutter.project_slug}}/__init__.py
           git commit -m "Bump version from v${CURRENT_VERSION} to v${BUMPED_VERSION}"
           git push origin main
 
