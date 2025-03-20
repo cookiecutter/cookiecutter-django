@@ -1,4 +1,5 @@
 exclude: '^docs/|/migrations/|devcontainer.json'
+default_install_hook_types: [pre-commit, pre-push]
 default_stages: [pre-commit]
 minimum_pre_commit_version: "3.2.0"
 
@@ -6,6 +7,24 @@ default_language_version:
   python: python3.12
 
 repos:
+  - repo: local
+    hooks:
+      - id: protect-branch-pre-commit
+        name: protect branch
+        stages: [pre-commit]
+        language: python
+        always_run: true
+        entry: python .scripts/protect_branch-pre-commit.py
+
+  - repo: local
+    hooks:
+      - id: protect-branch-pre-push
+        name: protect branch
+        stages: [pre-push]
+        language: python
+        always_run: true
+        entry: python .scripts/protect_branch-pre-push.py
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
