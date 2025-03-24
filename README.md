@@ -133,8 +133,7 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     2 - 15
     3 - 14
     4 - 13
-    5 - 12
-    Choose from 1, 2, 3, 4, 5 [1]: 1
+    Choose from 1, 2, 3, 4 [1]: 1
     Select cloud_provider:
     1 - AWS
     2 - GCP
