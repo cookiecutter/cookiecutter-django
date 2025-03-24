@@ -25,7 +25,11 @@ jobs:
         id: latest_version
         shell: bash
         run: |
-          LATEST_VERSION=$(git tag --sort=-creatordate | head -n 1)
+          LATEST_VERSION="$(git tag --sort=-creatordate | head -n 1)"
+          if [ -z "$LATEST_VERSION" ]; then
+            echo "No tags found. Using version from __init__ file"
+            LATEST_VERSION=$(grep -oP '__version__ = "\K[^"]+' {{cookiecutter.project_slug}}/__init__.py)
+          fi
           echo "Found current version: ${LATEST_VERSION}"
           echo "version=${LATEST_VERSION}" >> "$GITHUB_OUTPUT"
 
