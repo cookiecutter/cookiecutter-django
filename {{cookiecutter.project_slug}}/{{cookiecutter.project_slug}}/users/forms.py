@@ -17,7 +17,7 @@ class UserAdminChangeForm(admin_forms.UserChangeForm):
         {%- endif %}
 
 
-class UserAdminCreationForm(admin_forms.AdminUserCreationForm):
+class UserAdminCreationForm(admin_forms.AdminUserCreationForm):  # type: ignore[name-defined]
     """
     Form for User Creation in the Admin Area.
     To change user signup, see UserSignupForm and UserSocialSignupForm.
