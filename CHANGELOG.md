@@ -3,6 +3,53 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.03.22
+
+
+### Updated
+
+- Update coverage to 7.7.1 ([#5736](https://github.com/cookiecutter/cookiecutter-django/pull/5736))
+
+## 2025.03.21
+
+
+### Updated
+
+- Update sentry-sdk to 2.24.0 ([#5734](https://github.com/cookiecutter/cookiecutter-django/pull/5734))
+
+- Update django-debug-toolbar to 5.1.0 ([#5732](https://github.com/cookiecutter/cookiecutter-django/pull/5732))
+
+- Update ruff to 0.11.2 ([#5735](https://github.com/cookiecutter/cookiecutter-django/pull/5735))
+
+- Bump amazon/aws-cli from 2.24.0 to 2.25.0 ([#5733](https://github.com/cookiecutter/cookiecutter-django/pull/5733))
+
+- Auto-update pre-commit hooks ([#5657](https://github.com/cookiecutter/cookiecutter-django/pull/5657))
+
+## 2025.03.19
+
+
+### Updated
+
+- Update pre-commit to 4.2.0 ([#5730](https://github.com/cookiecutter/cookiecutter-django/pull/5730))
+
+## 2025.03.17
+
+
+### Updated
+
+- Update sentry-sdk to 2.23.1 ([#5727](https://github.com/cookiecutter/cookiecutter-django/pull/5727))
+
+- Update coverage to 7.7.0 ([#5725](https://github.com/cookiecutter/cookiecutter-django/pull/5725))
+
+## 2025.03.15
+
+
+### Updated
+
+- Update psycopg to 3.2.6 ([#5721](https://github.com/cookiecutter/cookiecutter-django/pull/5721))
+
+- Update ruff to 0.11.0 ([#5724](https://github.com/cookiecutter/cookiecutter-django/pull/5724))
+
 ## 2025.03.08
 
 
