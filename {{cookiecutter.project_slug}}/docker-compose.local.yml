@@ -24,7 +24,7 @@ services:
       - ./.envs/.local/.django
       - ./.envs/.local/.postgres
       - path: ./.env  # Use this .env file to override the values .envs/.local/.django
-      - required: false
+        required: false
     ports:
       - '8000:8000'
     command: /start
