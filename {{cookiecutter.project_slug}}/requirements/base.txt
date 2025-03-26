@@ -4,7 +4,7 @@ Pillow==11.1.0  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %}
 rcssmin==1.1.2 --install-option="--without-c-extensions"  # https://github.com/ndparker/rcssmin
 {%- else %}
-rcssmin==1.1.2  # https://github.com/ndparker/rcssmin
+rcssmin==1.2.1  # https://github.com/ndparker/rcssmin
 {%- endif %}
 {%- endif %}
 argon2-cffi==23.1.0  # https://github.com/hynek/argon2_cffi
