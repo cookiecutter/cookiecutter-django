@@ -63,7 +63,6 @@ SUPPORTED_COMBINATIONS = [
     {"postgresql_version": "15"},
     {"postgresql_version": "14"},
     {"postgresql_version": "13"},
-    {"postgresql_version": "12"},
     {"cloud_provider": "AWS", "use_whitenoise": "y"},
     {"cloud_provider": "AWS", "use_whitenoise": "n"},
     {"cloud_provider": "GCP", "use_whitenoise": "y"},
