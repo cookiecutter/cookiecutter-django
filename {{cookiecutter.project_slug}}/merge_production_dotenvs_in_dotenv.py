@@ -18,7 +18,7 @@ def merge(
     merged_content = ""
     for merge_file in files_to_merge:
         merged_content += merge_file.read_text()
-        merged_content += os.linesep
+        merged_content += "\n"
     output_file.write_text(merged_content)
 
 
