@@ -3,6 +3,46 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.04.01
+
+
+### Updated
+
+- Update pillow to 11.2.0 ([#5751](https://github.com/cookiecutter/cookiecutter-django/pull/5751))
+
+- Bump traefik from 3.3.4 to 3.3.5 ([#5750](https://github.com/cookiecutter/cookiecutter-django/pull/5750))
+
+- Update celery to 5.5.0 ([#5748](https://github.com/cookiecutter/cookiecutter-django/pull/5748))
+
+## 2025.03.31
+
+
+### Updated
+
+- Update django-allauth to 65.6.0 ([#5741](https://github.com/cookiecutter/cookiecutter-django/pull/5741))
+
+- Update sentry-sdk to 2.25.0 ([#5747](https://github.com/cookiecutter/cookiecutter-django/pull/5747))
+
+- Update coverage to 7.8.0 ([#5745](https://github.com/cookiecutter/cookiecutter-django/pull/5745))
+
+## 2025.03.28
+
+
+### Updated
+
+- Update djangorestframework to 3.16.0 ([#5743](https://github.com/cookiecutter/cookiecutter-django/pull/5743))
+
+- Update django-upgrade pre-commit hook to v1.24.0 ([#5742](https://github.com/cookiecutter/cookiecutter-django/pull/5742))
+
+## 2025.03.24
+
+
+### Updated
+
+- Update django-allauth to 65.5.0 ([#5723](https://github.com/cookiecutter/cookiecutter-django/pull/5723))
+
+- Update sentry-sdk to 2.24.1 ([#5739](https://github.com/cookiecutter/cookiecutter-django/pull/5739))
+
 ## 2025.03.22
 
 

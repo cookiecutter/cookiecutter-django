@@ -1105,6 +1105,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Igor Jerosimić</td>
+    <td>
+      <a href="https://github.com/igor-wl">igor-wl</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Imran Rahman</td>
     <td>
       <a href="https://github.com/infraredCoding">infraredCoding</a>
