@@ -3,6 +3,25 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.04.02
+
+
+### Fixed
+
+- Fix line endings for dotenv merge script on Windows ([#5754](https://github.com/cookiecutter/cookiecutter-django/pull/5754))
+
+### Updated
+
+- Update crispy-bootstrap5 to 2025.4 ([#5756](https://github.com/cookiecutter/cookiecutter-django/pull/5756))
+
+- Update Django from 5.0 to 5.1 ([#5740](https://github.com/cookiecutter/cookiecutter-django/pull/5740))
+
+- Update sentry-sdk to 2.25.1 ([#5757](https://github.com/cookiecutter/cookiecutter-django/pull/5757))
+
+- Update django-storages to 1.14.6 ([#5753](https://github.com/cookiecutter/cookiecutter-django/pull/5753))
+
+- Update pytest-django to 4.11.0 ([#5752](https://github.com/cookiecutter/cookiecutter-django/pull/5752))
+
 ## 2025.04.01
 
 
