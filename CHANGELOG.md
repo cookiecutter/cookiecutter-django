@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.04.03
+
+
+### Updated
+
+- Update django-anymail to 13.0 ([#5763](https://github.com/cookiecutter/cookiecutter-django/pull/5763))
+
+- Update pytest-django to 4.11.1 ([#5762](https://github.com/cookiecutter/cookiecutter-django/pull/5762))
+
+- Update ruff to 0.11.3 ([#5761](https://github.com/cookiecutter/cookiecutter-django/pull/5761))
+
+- Update django-allauth to 65.7.0 ([#5760](https://github.com/cookiecutter/cookiecutter-django/pull/5760))
+
 ## 2025.04.02
 
 
