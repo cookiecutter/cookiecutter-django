@@ -1882,6 +1882,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Pepa</td>
+    <td>
+      <a href="https://github.com/07pepa">07pepa</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Peter Bittner</td>
     <td>
       <a href="https://github.com/bittner">bittner</a>
