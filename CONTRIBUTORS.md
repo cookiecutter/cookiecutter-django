@@ -202,6 +202,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Aidos Kanapyanov</td>
+    <td>
+      <a href="https://github.com/aidoskanapyanov">aidoskanapyanov</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Alan Cyment</td>
     <td>
       <a href="https://github.com/acyment">acyment</a>
