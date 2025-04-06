@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.04.05
+
+
+### Changed
+
+- Add Docker build caching on GitHub Actions ([#5700](https://github.com/cookiecutter/cookiecutter-django/pull/5700))
+
+- Pin Pillow and Sphinx to non yanked release ([#5765](https://github.com/cookiecutter/cookiecutter-django/pull/5765))
+
+### Updated
+
+- Update ruff to 0.11.4 ([#5767](https://github.com/cookiecutter/cookiecutter-django/pull/5767))
+
 ## 2025.04.03
 
 
