@@ -151,7 +151,14 @@ def _fixture_id(ctx):
 
 def build_files_list(base_path: Path):
     """Build a list containing absolute paths to the generated files."""
-    return [dirpath / file_path for dirpath, subdirs, files in base_path.walk() for file_path in files]
+    f = []
+    for dirpath, subdirs, files in base_path.walk():
+        if ".venv" in subdirs:
+            subdirs.remove(".venv")
+
+        for file_path in files:
+            f.append(dirpath / file_path)
+    return f
 
 
 def check_paths(paths: Iterable[Path]):

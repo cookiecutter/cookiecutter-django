@@ -1,7 +1,10 @@
 import json
+import os
 import random
 import shutil
 import string
+import subprocess
+import sys
 from pathlib import Path
 
 try:
@@ -502,7 +505,51 @@ def main():
     if "{{ cookiecutter.use_async }}".lower() == "n":
         remove_async_files()
 
+    setup_dependencies()
+
     print(SUCCESS + "Project initialized, keep up the good work!" + TERMINATOR)
+
+
+def setup_dependencies():
+    print("Installing python dependencies using uv...")
+
+    if "{{ cookiecutter.use_docker }}".lower() == "y":
+        # Build the Docker service using Docker Compose
+        try:
+            subprocess.run(["docker", "compose", "-f", "docker-compose.local.yml", "build", "django"], check=True)
+        except subprocess.CalledProcessError as e:
+            print(f"Error building Docker service: {e}", file=sys.stderr)
+            sys.exit(1)
+
+        # Use Docker to run the uv command
+        uv_cmd = ["docker", "compose", "-f", "docker-compose.local.yml", "run", "--rm", "django", "uv"]
+    else:
+        # Use uv command directly
+        uv_cmd = ["uv"]
+
+    # Install production dependencies
+    try:
+        subprocess.run(uv_cmd + ["add", "-r", "requirements/production.txt"], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Error installing production dependencies: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    # Install local (development) dependencies
+    try:
+        subprocess.run(uv_cmd + ["add", "--dev", "-r", "requirements/local.txt"], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Error installing local dependencies: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    # Remove the requirements directory
+    if os.path.exists("requirements"):
+        try:
+            shutil.rmtree("requirements")
+        except Exception as e:
+            print(f"Error removing 'requirements' folder: {e}", file=sys.stderr)
+            sys.exit(1)
+
+    print("Setup complete!")
 
 
 if __name__ == "__main__":
