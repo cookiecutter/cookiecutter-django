@@ -157,6 +157,10 @@ def check_paths(paths: Iterable[Path]):
     """Method to check all paths have correct substitutions."""
     # Assert that no match is found in any of the files
     for path in paths:
+
+        if ".venv" in str(path):
+            continue
+
         if is_binary(str(path)):
             continue
 
