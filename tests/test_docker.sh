@@ -5,10 +5,21 @@
 
 set -o errexit
 set -x
+set -e
+
+finish() {
+  # Your cleanup code here
+  docker compose -f docker-compose.local.yml down --remove-orphans
+  docker volume rm my_awesome_project_my_awesome_project_local_postgres_data
+
+}
+trap finish EXIT
 
 # create a cache directory
 mkdir -p .cache/docker
 cd .cache/docker
+
+sudo rm -rf my_awesome_project
 
 # create the project using the default settings in cookiecutter.json
 uv run cookiecutter ../../ --no-input --overwrite-if-exists use_docker=y "$@"
@@ -17,8 +28,14 @@ cd my_awesome_project
 # make sure all images build
 docker compose -f docker-compose.local.yml build
 
+docker compose -f docker-compose.local.yml run django uv lock
+
+docker compose -f docker-compose.local.yml build
+
 # run the project's type checks
 docker compose -f docker-compose.local.yml run --rm django mypy my_awesome_project
+
+
 
 # run the project's tests
 docker compose -f docker-compose.local.yml run --rm django pytest
@@ -43,6 +60,8 @@ docker compose -f docker-compose.local.yml run --rm \
 
 # Generate the HTML for the documentation
 docker compose -f docker-compose.docs.yml run --rm docs make html
+
+docker build -f ./compose/production/django/Dockerfile .
 
 # Run npm build script if package.json is present
 if [ -f "package.json" ]

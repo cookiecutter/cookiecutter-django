@@ -2,6 +2,7 @@ import glob
 import os
 import re
 import sys
+import tomllib
 from collections.abc import Iterable
 from pathlib import Path
 
@@ -156,6 +157,10 @@ def check_paths(paths: Iterable[Path]):
     """Method to check all paths have correct substitutions."""
     # Assert that no match is found in any of the files
     for path in paths:
+
+        if ".venv" in str(path):
+            continue
+
         if is_binary(str(path)):
             continue
 
@@ -274,7 +279,7 @@ def test_djlint_check_passes(cookies, context_override):
 @pytest.mark.parametrize(
     ("use_docker", "expected_test_script"),
     [
-        ("n", "pytest"),
+        ("n", "uv run pytest"),
         ("y", "docker compose -f docker-compose.local.yml run django pytest"),
     ],
 )
@@ -299,7 +304,7 @@ def test_travis_invokes_pytest(cookies, context, use_docker, expected_test_scrip
 @pytest.mark.parametrize(
     ("use_docker", "expected_test_script"),
     [
-        ("n", "pytest"),
+        ("n", "uv run pytest"),
         ("y", "docker compose -f docker-compose.local.yml run django pytest"),
     ],
 )
@@ -316,7 +321,7 @@ def test_gitlab_invokes_precommit_and_pytest(cookies, context, use_docker, expec
         try:
             gitlab_config = yaml.safe_load(gitlab_yml)
             assert gitlab_config["precommit"]["script"] == [
-                "pre-commit run --show-diff-on-failure --color=always --all-files",
+                "uv run pre-commit run --show-diff-on-failure --color=always --all-files",
             ]
             assert gitlab_config["pytest"]["script"] == [expected_test_script]
         except yaml.YAMLError as e:
@@ -326,7 +331,7 @@ def test_gitlab_invokes_precommit_and_pytest(cookies, context, use_docker, expec
 @pytest.mark.parametrize(
     ("use_docker", "expected_test_script"),
     [
-        ("n", "pytest"),
+        ("n", "uv run pytest"),
         ("y", "docker compose -f docker-compose.local.yml run django pytest"),
     ],
 )
@@ -413,3 +418,39 @@ def test_trim_domain_email(cookies, context):
 
     base_settings = result.project_path / "config" / "settings" / "base.py"
     assert '"me@example.com"' in base_settings.read_text()
+
+
+def test_pyproject_toml(cookies, context):
+    author_name = "Project Author"
+    author_email = "me@example.com"
+    context.update(
+        {
+            "description": "DESCRIPTION",
+            "domain_name": "example.com",
+            "email": author_email,
+            "author_name": author_name,
+        }
+    )
+    result = cookies.bake(extra_context=context)
+    assert result.exit_code == 0
+
+    pyproject_toml = result.project_path / "pyproject.toml"
+
+    data = tomllib.loads(pyproject_toml.read_text())
+
+    assert data
+    assert data["project"]["authors"][0]["email"] == author_email
+    assert data["project"]["authors"][0]["name"] == author_name
+    assert data["project"]["name"] == context["project_slug"]
+
+
+def test_pre_commit_without_heroku(cookies, context):
+    context.update({"use_heroku": "n"})
+    result = cookies.bake(extra_context=context)
+    assert result.exit_code == 0
+
+    pre_commit_config = result.project_path / ".pre-commit-config.yaml"
+
+    data = pre_commit_config.read_text()
+
+    assert "uv-pre-commit" not in data
