@@ -529,14 +529,14 @@ def setup_dependencies():
 
     # Install production dependencies
     try:
-        subprocess.run(uv_cmd + ["add", "-r", "requirements/production.txt"], check=True)
+        subprocess.run(uv_cmd + ["add", "--no-sync", "-r", "requirements/production.txt"], check=True)
     except subprocess.CalledProcessError as e:
         print(f"Error installing production dependencies: {e}", file=sys.stderr)
         sys.exit(1)
 
     # Install local (development) dependencies
     try:
-        subprocess.run(uv_cmd + ["add", "--dev", "-r", "requirements/local.txt"], check=True)
+        subprocess.run(uv_cmd + ["add", "--no-sync", "--dev", "-r", "requirements/local.txt"], check=True)
     except subprocess.CalledProcessError as e:
         print(f"Error installing local dependencies: {e}", file=sys.stderr)
         sys.exit(1)
