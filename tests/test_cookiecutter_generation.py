@@ -151,10 +151,11 @@ def _fixture_id(ctx):
 
 def build_files_list(base_path: Path):
     """Build a list containing absolute paths to the generated files."""
+    excluded_dirs = {".venv", "__pycache__"}
+
     f = []
     for dirpath, subdirs, files in base_path.walk():
-        if ".venv" in subdirs:
-            subdirs.remove(".venv")
+        subdirs[:] = [d for d in subdirs if d not in excluded_dirs]
 
         for file_path in files:
             f.append(dirpath / file_path)
