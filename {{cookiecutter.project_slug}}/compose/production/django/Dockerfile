@@ -1,4 +1,3 @@
-FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim AS python
 {% if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] -%}
 FROM docker.io/node:22.14-bookworm-slim AS client-builder
 
@@ -25,9 +24,9 @@ ENV DJANGO_AZURE_ACCOUNT_NAME=${DJANGO_AZURE_ACCOUNT_NAME}
 RUN npm run build
 {%- endif %}
 # define an alias for the specific python version used in this file.
-FROM python AS python-build-stage
+FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim AS python-build-stage
 
-ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy
+ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy UV_PYTHON_DOWNLOADS=0
 
 ARG APP_HOME=/app
 
@@ -53,10 +52,12 @@ COPY . ${APP_HOME}
 {%- endif %}
 
 RUN --mount=type=cache,target=/root/.cache/uv \
+    --mount=type=bind,source=uv.lock,target=uv.lock \
+    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
     uv sync --frozen --no-dev
 
 # Python 'run' stage
-FROM python AS python-run-stage
+FROM python:3.12-slim-bookworm AS python-run-stage
 
 ARG APP_HOME=/app
 
@@ -107,6 +108,9 @@ RUN chmod +x /start-flower
 
 # Copy the application from the builder
 COPY --from=python-build-stage --chown=django:django ${APP_HOME} ${APP_HOME}
+
+# make django owner of the WORKDIR directory as well.
+RUN chown django:django ${APP_HOME}
 
 # Place executables in the environment at the front of the path
 ENV PATH="/app/.venv/bin:$PATH"
