@@ -3,6 +3,33 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.04.30
+
+
+### Updated
+
+- Update celery to 5.5.2 ([#5803](https://github.com/cookiecutter/cookiecutter-django/pull/5803))
+
+- Update ruff to 0.11.7 ([#5815](https://github.com/cookiecutter/cookiecutter-django/pull/5815))
+
+- Update sentry-sdk to 2.27.0 ([#5799](https://github.com/cookiecutter/cookiecutter-django/pull/5799))
+
+- Update uvicorn to 0.34.2 ([#5791](https://github.com/cookiecutter/cookiecutter-django/pull/5791))
+
+- Update django-crispy-forms to 2.4 ([#5780](https://github.com/cookiecutter/cookiecutter-django/pull/5780))
+
+- Update pillow to 11.2.1 ([#5779](https://github.com/cookiecutter/cookiecutter-django/pull/5779))
+
+- Update django-extensions to 4.1 ([#5776](https://github.com/cookiecutter/cookiecutter-django/pull/5776))
+
+- Update watchfiles to 1.0.5 ([#5771](https://github.com/cookiecutter/cookiecutter-django/pull/5771))
+
+- Update ruff to 0.11.6 ([#5789](https://github.com/cookiecutter/cookiecutter-django/pull/5789))
+
+- Update psycopg to 3.2.7 ([#5811](https://github.com/cookiecutter/cookiecutter-django/pull/5811))
+
+- Update redis to 5.3.0 ([#5813](https://github.com/cookiecutter/cookiecutter-django/pull/5813))
+
 ## 2025.04.08
 
 
