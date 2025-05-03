@@ -48,7 +48,7 @@ RUN groupadd --gid 1000 dev-user \
 # Install required system dependencies
 RUN apt-get update && apt-get install --no-install-recommends -y \
   # psycopg dependencies
-  libpq-dev  \
+  libpq-dev \
   wait-for-it \
   # Translations dependencies
   gettext \
