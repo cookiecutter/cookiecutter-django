@@ -119,6 +119,7 @@ COPY --from=client-builder --chown=django:django ${APP_HOME} ${APP_HOME}
 COPY --chown=django:django . ${APP_HOME}
 {%- endif %}
 
+# explicitly create the media folder before changing ownership below
 RUN mkdir -p ${APP_HOME}/{{ cookiecutter.project_slug }}/media
 
 # make django owner of the WORKDIR directory as well.
