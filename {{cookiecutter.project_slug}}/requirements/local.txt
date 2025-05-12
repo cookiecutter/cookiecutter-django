@@ -18,7 +18,7 @@ django-stubs[compatible-mypy]==5.2.0  # https://github.com/typeddjango/django-st
 pytest==8.3.5  # https://github.com/pytest-dev/pytest
 pytest-sugar==1.0.0  # https://github.com/Teemu/pytest-sugar
 {%- if cookiecutter.use_drf == "y" %}
-djangorestframework-stubs==3.15.3  # https://github.com/typeddjango/djangorestframework-stubs
+djangorestframework-stubs==3.16.0  # https://github.com/typeddjango/djangorestframework-stubs
 {%- endif %}
 
 # Documentation
