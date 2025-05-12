@@ -783,6 +783,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Dominique Plante</td>
+    <td>
+      <a href="https://github.com/dominiqueplante">dominiqueplante</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Dong Huynh</td>
     <td>
       <a href="https://github.com/trungdong">trungdong</a>
