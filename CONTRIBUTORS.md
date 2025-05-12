@@ -1210,6 +1210,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Jeff Foster</td>
+    <td>
+      <a href="https://github.com/jeffpfoster">jeffpfoster</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Jens Kaeske</td>
     <td>
       <a href="https://github.com/jkaeske">jkaeske</a>
