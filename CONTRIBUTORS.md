@@ -1224,6 +1224,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Jeongseok Kang</td>
+    <td>
+      <a href="https://github.com/rapsealk">rapsealk</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Jerome Caisip</td>
     <td>
       <a href="https://github.com/jeromecaisip">jeromecaisip</a>
