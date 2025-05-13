@@ -53,10 +53,8 @@ services:
   redis:
     image: docker.io/redis:6
     container_name: {{ cookiecutter.project_slug }}_local_redis
-    {% if cookiecutter.use_celery == 'y' %}
     volumes:
       - {{ cookiecutter.project_slug }}_local_redis_data:/data
-    {% endif %}
 
   celeryworker:
     <<: *django
