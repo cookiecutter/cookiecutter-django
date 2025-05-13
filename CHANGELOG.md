@@ -3,6 +3,45 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.05.12
+
+
+### Changed
+
+- Remove extra spaces in Dockerfile `COPY` instruction paths ([#5822](https://github.com/cookiecutter/cookiecutter-django/pull/5822))
+
+- Add support for PostgreSQL 17 ([#5805](https://github.com/cookiecutter/cookiecutter-django/pull/5805))
+
+### Fixed
+
+- Fix media folder permissions prod dockerfile ([#5831](https://github.com/cookiecutter/cookiecutter-django/pull/5831))
+
+### Updated
+
+- Update sentry-sdk to 2.28.0 ([#5839](https://github.com/cookiecutter/cookiecutter-django/pull/5839))
+
+- Update djangorestframework-stubs to 3.16.0 ([#5806](https://github.com/cookiecutter/cookiecutter-django/pull/5806))
+
+- Bump traefik from 3.3.5 to 3.4.0 ([#5824](https://github.com/cookiecutter/cookiecutter-django/pull/5824))
+
+- Bump python from 3.12.9 to 3.12.10 in production Dockerfile ([#5774](https://github.com/cookiecutter/cookiecutter-django/pull/5774))
+
+- Bump python from 3.12.9 to 3.12.10 in docs Dockerfile ([#5773](https://github.com/cookiecutter/cookiecutter-django/pull/5773))
+
+- Bump python from 3.12.9 to 3.12.10 local Dockerfile ([#5772](https://github.com/cookiecutter/cookiecutter-django/pull/5772))
+
+- Update redis to 6.0.0 ([#5814](https://github.com/cookiecutter/cookiecutter-django/pull/5814))
+
+- Update psycopg to 3.2.8 ([#5836](https://github.com/cookiecutter/cookiecutter-django/pull/5836))
+
+- Update django-stubs to 5.2.0 ([#5804](https://github.com/cookiecutter/cookiecutter-django/pull/5804))
+
+- Bump amazon/aws-cli from 2.25.0 to 2.27.12 ([#5838](https://github.com/cookiecutter/cookiecutter-django/pull/5838))
+
+- Update ruff to 0.11.9 ([#5834](https://github.com/cookiecutter/cookiecutter-django/pull/5834))
+
+- Update hiredis to 3.1.1 ([#5833](https://github.com/cookiecutter/cookiecutter-django/pull/5833))
+
 ## 2025.05.09
 
 
