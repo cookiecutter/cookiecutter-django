@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.05.13
+
+
+### Changed
+
+- Remove redundant `use_celery` condition in local compose file ([#5845](https://github.com/cookiecutter/cookiecutter-django/pull/5845))
+
+### Updated
+
+- Update psycopg to 3.2.9 ([#5844](https://github.com/cookiecutter/cookiecutter-django/pull/5844))
+
+- Update redis to 6.1.0 ([#5842](https://github.com/cookiecutter/cookiecutter-django/pull/5842))
+
 ## 2025.05.12
 
 
