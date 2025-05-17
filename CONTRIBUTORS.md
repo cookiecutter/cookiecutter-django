@@ -376,6 +376,12 @@ Listed in alphabetical order.
     </td>
     <td></td>
   </tr>
+  <td>Awanat Olawale</td>
+    <td>
+      <a href="https://github.com/awanat-olawale">awanat_olawale</a>
+    </td>
+    <td></td>
+  </tr>
   <tr>
     <td>Barclay Gauld</td>
     <td>
