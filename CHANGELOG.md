@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.05.20
+
+
+### Fixed
+
+- Pin fido2&lt;2 ([#5854](https://github.com/cookiecutter/cookiecutter-django/pull/5854))
+
+### Updated
+
+- Update sentry-sdk to 2.29.1 ([#5853](https://github.com/cookiecutter/cookiecutter-django/pull/5853))
+
+- Update django-webpack-loader to 3.2.0 ([#5852](https://github.com/cookiecutter/cookiecutter-django/pull/5852))
+
 ## 2025.05.16
 
 
