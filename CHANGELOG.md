@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.05.23
+
+
+### Updated
+
+- Update hiredis to 3.2.0 ([#5864](https://github.com/cookiecutter/cookiecutter-django/pull/5864))
+
+- Update ruff to 0.11.11 ([#5865](https://github.com/cookiecutter/cookiecutter-django/pull/5865))
+
 ## 2025.05.22
 
 
