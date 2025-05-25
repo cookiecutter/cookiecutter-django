@@ -13,7 +13,7 @@ whitenoise==6.9.0  # https://github.com/evansd/whitenoise
 {%- endif %}
 redis==6.1.0  # https://github.com/redis/redis-py
 {%- if cookiecutter.use_docker == "y" or cookiecutter.windows == "n" %}
-hiredis==3.2.0  # https://github.com/redis/hiredis-py
+hiredis==3.2.1  # https://github.com/redis/hiredis-py
 {%- endif %}
 {%- if cookiecutter.use_celery == "y" %}
 celery==5.5.2  # pyup: < 6.0  # https://github.com/celery/celery
