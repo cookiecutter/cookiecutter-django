@@ -14,6 +14,7 @@ permissions:
 
 jobs:
   run:
+    if: ${{ github.actor == 'pyup-bot' }}
     runs-on: ubuntu-latest
     env:
       GH_PAT: ${{ secrets.GH_PAT }}
@@ -42,7 +43,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
-      - uses: astral-sh/setup-uv@v5
+      - uses: astral-sh/setup-uv@v6
 
       - run: uv run ${{ matrix.job.script }}
 
