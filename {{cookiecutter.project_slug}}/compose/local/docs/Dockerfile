@@ -1,5 +1,5 @@
 # define an alias for the specific python version used in this file.
-FROM docker.io/python:3.12.9-slim-bookworm AS python
+FROM docker.io/python:3.12.10-slim-bookworm AS python
 
 
 # Python build stage
@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 COPY ./requirements /requirements
 
 # create python dependency wheels
-RUN pip wheel --no-cache-dir --wheel-dir /usr/src/app/wheels  \
+RUN pip wheel --no-cache-dir --wheel-dir /usr/src/app/wheels \
   -r /requirements/local.txt -r /requirements/production.txt \
   && rm -rf /requirements
 

@@ -202,6 +202,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Aidos Kanapyanov</td>
+    <td>
+      <a href="https://github.com/aidoskanapyanov">aidoskanapyanov</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Alan Cyment</td>
     <td>
       <a href="https://github.com/acyment">acyment</a>
@@ -776,6 +783,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Dominique Plante</td>
+    <td>
+      <a href="https://github.com/dominiqueplante">dominiqueplante</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Dong Huynh</td>
     <td>
       <a href="https://github.com/trungdong">trungdong</a>
@@ -1105,6 +1119,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Igor Jerosimić</td>
+    <td>
+      <a href="https://github.com/igor-wl">igor-wl</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Imran Rahman</td>
     <td>
       <a href="https://github.com/infraredCoding">infraredCoding</a>
@@ -1196,6 +1217,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Jeff Foster</td>
+    <td>
+      <a href="https://github.com/jeffpfoster">jeffpfoster</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Jens Kaeske</td>
     <td>
       <a href="https://github.com/jkaeske">jkaeske</a>
@@ -1206,6 +1234,13 @@ Listed in alphabetical order.
     <td>Jens Nilsson</td>
     <td>
       <a href="https://github.com/phiberjenz">phiberjenz</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Jeongseok Kang</td>
+    <td>
+      <a href="https://github.com/rapsealk">rapsealk</a>
     </td>
     <td></td>
   </tr>
@@ -1871,6 +1906,13 @@ Listed in alphabetical order.
     <td>Pedro Campos</td>
     <td>
       <a href="https://github.com/pcampos119104">pcampos119104</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Pepa</td>
+    <td>
+      <a href="https://github.com/07pepa">07pepa</a>
     </td>
     <td></td>
   </tr>

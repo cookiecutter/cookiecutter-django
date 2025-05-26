@@ -43,6 +43,10 @@ updates:
           - "version-update:semver-minor"
     labels:
       - "update"
+    groups:
+      docker-python:
+        patterns:
+          - "*"
 
   - package-ecosystem: "docker"
     directories:

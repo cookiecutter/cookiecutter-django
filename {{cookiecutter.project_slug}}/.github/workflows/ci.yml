@@ -68,11 +68,31 @@ jobs:
         uses: actions/checkout@v4
       {%- if cookiecutter.use_docker == 'y' %}
 
-      - name: Build the Stack
-        run: docker compose -f docker-compose.local.yml build django
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
-      - name: Build the docs
-        run: docker compose -f docker-compose.docs.yml build docs
+      - name: Build and cache local backend
+        uses: docker/bake-action@v6
+        with:
+          push: false
+          load: true
+          files: docker-compose.local.yml
+          targets: django
+          set: |
+            django.cache-from=type=gha,scope=django-cached-tests
+            django.cache-to=type=gha,scope=django-cached-tests,mode=max
+            postgres.cache-from=type=gha,scope=postgres-cached-tests
+            postgres.cache-to=type=gha,scope=postgres-cached-tests,mode=max
+
+      - name: Build and cache docs
+        uses: docker/bake-action@v6
+        with:
+          push: false
+          load: true
+          files: docker-compose.docs.yml
+          set: |
+            docs.cache-from=type=gha,scope=cached-docs
+            docs.cache-to=type=gha,scope=cached-docs,mode=max
 
       - name: Check DB Migrations
         run: docker compose -f docker-compose.local.yml run --rm django python manage.py makemigrations --check
