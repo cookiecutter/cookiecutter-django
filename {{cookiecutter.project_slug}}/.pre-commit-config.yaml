@@ -50,6 +50,13 @@ repos:
       - id: djlint-reformat-django
       - id: djlint-django
 
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    # uv version.
+    rev: 0.4.15
+    hooks:
+      - id: uv-export
+        args: ['--frozen', '--no-dev']
+
 # sets up .pre-commit-ci.yaml to ensure pre-commit dependencies stay up to date
 ci:
   autoupdate_schedule: weekly
