@@ -29,8 +29,8 @@ sphinx-rtd-theme==2.0.0 # https://pypi.org/project/sphinx-rtd-theme/
 
 # Code quality
 # ------------------------------------------------------------------------------
-ruff==0.11.11  # https://github.com/astral-sh/ruff
-coverage==7.8.1  # https://github.com/nedbat/coveragepy
+ruff==0.11.12  # https://github.com/astral-sh/ruff
+coverage==7.8.2  # https://github.com/nedbat/coveragepy
 djlint==1.36.4  # https://github.com/Riverside-Healthcare/djLint
 pre-commit==4.2.0  # https://github.com/pre-commit/pre-commit
 
