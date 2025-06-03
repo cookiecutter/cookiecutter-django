@@ -1,4 +1,5 @@
 import uuid as uuid_lib
+
 {%- if cookiecutter.username_type == "email" %}
 from typing import ClassVar
 
