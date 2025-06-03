@@ -16,14 +16,14 @@ redis==6.2.0  # https://github.com/redis/redis-py
 hiredis==3.2.1  # https://github.com/redis/hiredis-py
 {%- endif %}
 {%- if cookiecutter.use_celery == "y" %}
-celery==5.5.2  # pyup: < 6.0  # https://github.com/celery/celery
+celery==5.5.3  # pyup: < 6.0  # https://github.com/celery/celery
 django-celery-beat==2.8.1  # https://github.com/celery/django-celery-beat
 {%- if cookiecutter.use_docker == 'y' %}
 flower==2.0.1  # https://github.com/mher/flower
 {%- endif %}
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' %}
-uvicorn[standard]==0.34.2  # https://github.com/encode/uvicorn
+uvicorn[standard]==0.34.3  # https://github.com/encode/uvicorn
 uvicorn-worker==0.3.0  # https://github.com/Kludex/uvicorn-worker
 {%- endif %}
 
@@ -32,7 +32,7 @@ uvicorn-worker==0.3.0  # https://github.com/Kludex/uvicorn-worker
 django==5.1.9  # pyup: < 5.2 # https://www.djangoproject.com/
 django-environ==0.12.0  # https://github.com/joke2k/django-environ
 django-model-utils==5.0.0  # https://github.com/jazzband/django-model-utils
-django-allauth[mfa]==65.8.1  # https://github.com/pennersr/django-allauth
+django-allauth[mfa]==65.9.0  # https://github.com/pennersr/django-allauth
 django-crispy-forms==2.4  # https://github.com/django-crispy-forms/django-crispy-forms
 crispy-bootstrap5==2025.4  # https://github.com/django-crispy-forms/crispy-bootstrap5
 {%- if cookiecutter.frontend_pipeline == 'Django Compressor' %}
