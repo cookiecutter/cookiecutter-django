@@ -5,10 +5,7 @@ from {{ cookiecutter.project_slug }}.users.models import User
 
 
 def test_detail(user: User):
-    assert (
-        reverse("users:detail", kwargs={"uuid": user.uuid})
-        == f"/users/{user.uuid}/"
-    )
+    assert reverse("users:detail", kwargs={"uuid": user.uuid}) == f"/users/{user.uuid}/"
     assert resolve(f"/users/{user.uuid}/").view_name == "users:detail"
 
 

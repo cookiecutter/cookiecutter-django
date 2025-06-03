@@ -8,13 +8,12 @@ from allauth.core.exceptions import ImmediateHttpResponse
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 from django.conf import settings
 from django.contrib import messages
-from django.http import HttpRequest
 from django.shortcuts import redirect
 from django.urls import reverse
 
 if typing.TYPE_CHECKING:
     from allauth.socialaccount.models import SocialLogin
-    from {{cookiecutter.project_slug}}.users.models import User
+    from django.http import HttpRequest
 
 
 class AccountAdapter(DefaultAccountAdapter):
@@ -29,8 +28,6 @@ class SocialAccountAdapter(DefaultSocialAccountAdapter):
         sociallogin: SocialLogin,
     ) -> bool:
         return getattr(settings, "ACCOUNT_ALLOW_REGISTRATION", True)
-
-
 
     def pre_social_login(self, request, sociallogin):
         # social account already exists, so this is just a login
@@ -53,13 +50,13 @@ class SocialAccountAdapter(DefaultSocialAccountAdapter):
             return
 
         if request.user.is_authenticated and request.user.email != verified_email.email:
+            # Obtener el nombre del proveedor social de manera más segura
+            provider_name = sociallogin.account.provider.capitalize()
             messages.error(
                 request,
                 (
-                    "No es posible enlazar tu cuenta de {}, "
+                    f"No es posible enlazar tu cuenta de {provider_name}, "
                     "ya que no coincide con tu correo en esta plataforma."
-                ).format(
-                    list(request._socialapp_cache.keys())[0].capitalize()
                 ),
             )
             raise ImmediateHttpResponse(redirect(reverse("socialaccount_connections")))
@@ -68,7 +65,8 @@ class SocialAccountAdapter(DefaultSocialAccountAdapter):
         # an existing user's account
         try:
             existing_email = EmailAddress.objects.get(
-                email__iexact=verified_email.email, verified=True
+                email__iexact=verified_email.email,
+                verified=True
             )
         except EmailAddress.DoesNotExist:
             return
