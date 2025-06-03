@@ -53,4 +53,5 @@ django-webpack-loader==3.2.0  # https://github.com/django-webpack/django-webpack
 # Project
 # ------------------------------------------------------------------------------
 fontawesomefree==6.6.0 # https://github.com/FortAwesome/Font-Awesome
-django-import-export==4.1.1 # https://github.com/django-import-export/django-import-export
+django-import-export==4.3.7 # https://github.com/django-import-export/django-import-export
+tablib[all]==3.8.0 # https://github.com/jazzband/tablib
