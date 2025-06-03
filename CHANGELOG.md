@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.06.02
+
+
+### Updated
+
+- Update django-allauth to 65.9.0 ([#5879](https://github.com/cookiecutter/cookiecutter-django/pull/5879))
+
+- Update uvicorn to 0.34.3 ([#5878](https://github.com/cookiecutter/cookiecutter-django/pull/5878))
+
+- Update celery to 5.5.3 ([#5877](https://github.com/cookiecutter/cookiecutter-django/pull/5877))
+
+- Update ruff to 0.11.12 ([#5872](https://github.com/cookiecutter/cookiecutter-django/pull/5872))
+
 ## 2025.05.28
 
 
