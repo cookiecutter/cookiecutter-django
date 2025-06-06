@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.06.05
+
+
+### Updated
+
+- Bump python from 3.12.10 to 3.12.11 in docs Docker ([#5883](https://github.com/cookiecutter/cookiecutter-django/pull/5883))
+
+- Bump python from 3.12.10 to 3.12.11 in production Docker ([#5884](https://github.com/cookiecutter/cookiecutter-django/pull/5884))
+
+- Bump python from 3.12.10 3.12.11 in local Docker ([#5885](https://github.com/cookiecutter/cookiecutter-django/pull/5885))
+
+- Update django to 5.1.10 ([#5882](https://github.com/cookiecutter/cookiecutter-django/pull/5882))
+
 ## 2025.06.04
 
 
