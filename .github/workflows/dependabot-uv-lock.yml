@@ -28,6 +28,6 @@ jobs:
 
       - uses: astral-sh/setup-uv@v6
       - run: uv lock
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@v6
         with:
           commit_message: Regenerate uv.lock

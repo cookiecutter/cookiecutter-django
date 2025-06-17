@@ -3,6 +3,67 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.06.15
+
+
+### Updated
+
+- Update coverage to 7.9.1 ([#5898](https://github.com/cookiecutter/cookiecutter-django/pull/5898))
+
+## 2025.06.13
+
+
+### Updated
+
+- Update coverage to 7.9.0 ([#5897](https://github.com/cookiecutter/cookiecutter-django/pull/5897))
+
+- Update sentry-sdk to 2.30.0 ([#5896](https://github.com/cookiecutter/cookiecutter-django/pull/5896))
+
+## 2025.06.11
+
+
+### Updated
+
+- Update collectfasta to 3.3.0 ([#5892](https://github.com/cookiecutter/cookiecutter-django/pull/5892))
+
+## 2025.06.10
+
+
+### Updated
+
+- Update django to 5.1.11 ([#5891](https://github.com/cookiecutter/cookiecutter-django/pull/5891))
+
+- Update crispy-bootstrap5 to 2025.6 ([#5888](https://github.com/cookiecutter/cookiecutter-django/pull/5888))
+
+## 2025.06.06
+
+
+### Updated
+
+- Update ruff to 0.11.13 ([#5887](https://github.com/cookiecutter/cookiecutter-django/pull/5887))
+
+## 2025.06.05
+
+
+### Updated
+
+- Bump python from 3.12.10 to 3.12.11 in docs Docker ([#5883](https://github.com/cookiecutter/cookiecutter-django/pull/5883))
+
+- Bump python from 3.12.10 to 3.12.11 in production Docker ([#5884](https://github.com/cookiecutter/cookiecutter-django/pull/5884))
+
+- Bump python from 3.12.10 3.12.11 in local Docker ([#5885](https://github.com/cookiecutter/cookiecutter-django/pull/5885))
+
+- Update django to 5.1.10 ([#5882](https://github.com/cookiecutter/cookiecutter-django/pull/5882))
+
+## 2025.06.04
+
+
+### Updated
+
+- Update argon2-cffi to 25.1.0 ([#5880](https://github.com/cookiecutter/cookiecutter-django/pull/5880))
+
+- Update pytest to 8.4.0 ([#5881](https://github.com/cookiecutter/cookiecutter-django/pull/5881))
+
 ## 2025.06.02
 
 
