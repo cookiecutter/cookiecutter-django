@@ -10,4 +10,4 @@ class UsersConfig(AppConfig):
 
     def ready(self):
         with contextlib.suppress(ImportError):
-            import {{ cookiecutter.project_slug }}.users.signals  # noqa: F401
+            import {{ cookiecutter.project_slug }}.users.signals  # noqa: F401, PLC0415
