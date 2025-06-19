@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.06.18
+
+
+### Updated
+
+- Update ruff to 0.12.0 ([#5904](https://github.com/cookiecutter/cookiecutter-django/pull/5904))
+
+- Update django-stubs to 5.2.1 ([#5905](https://github.com/cookiecutter/cookiecutter-django/pull/5905))
+
+- Update django-redis to 6.0.0 ([#5903](https://github.com/cookiecutter/cookiecutter-django/pull/5903))
+
+- Update django-webpack-loader to 3.2.1 ([#5902](https://github.com/cookiecutter/cookiecutter-django/pull/5902))
+
 ## 2025.06.17
 
 
