@@ -1,4 +1,5 @@
-Pillow==11.2.1 # pyup: != 11.2.0  # https://github.com/python-pillow/Pillow
+python-slugify==8.0.4  # https://github.com/un33k/python-slugify
+Pillow==11.3.0 # pyup: != 11.2.0  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.frontend_pipeline == 'Django Compressor' %}
 {%- if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %}
 rcssmin==1.1.2 --install-option="--without-c-extensions"  # https://github.com/ndparker/rcssmin
@@ -22,7 +23,7 @@ flower==2.0.1  # https://github.com/mher/flower
 {%- endif %}
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' %}
-uvicorn[standard]==0.34.3  # https://github.com/encode/uvicorn
+uvicorn[standard]==0.35.0  # https://github.com/encode/uvicorn
 uvicorn-worker==0.3.0  # https://github.com/Kludex/uvicorn-worker
 {%- endif %}
 
@@ -37,7 +38,7 @@ crispy-bootstrap5==2025.6  # https://github.com/django-crispy-forms/crispy-boots
 {%- if cookiecutter.frontend_pipeline == 'Django Compressor' %}
 django-compressor==4.5.1  # https://github.com/django-compressor/django-compressor
 {%- endif %}
-django-redis==5.4.0  # https://github.com/jazzband/django-redis
+django-redis==6.0.0  # https://github.com/jazzband/django-redis
 {%- if cookiecutter.use_drf == 'y' %}
 # Django REST Framework
 djangorestframework==3.16.0  # https://github.com/encode/django-rest-framework
@@ -46,10 +47,10 @@ django-cors-headers==4.7.0  # https://github.com/adamchainz/django-cors-headers
 drf-spectacular==0.28.0  # https://github.com/tfranzel/drf-spectacular
 {%- endif %}
 {%- if cookiecutter.frontend_pipeline == 'Webpack' %}
-django-webpack-loader==3.2.0  # https://github.com/django-webpack/django-webpack-loader
+django-webpack-loader==3.2.1  # https://github.com/django-webpack/django-webpack-loader
 {%- endif %}
 
 # Project
 # ------------------------------------------------------------------------------
-fontawesomefree==6.6.0 # https://github.com/FortAwesome/Font-Awesome
-django-import-export==4.3.7 # https://github.com/django-import-export/django-import-export
+fontawesomefree==6.7.2 # https://github.com/FortAwesome/Font-Awesome
+django-import-export==4.3.8 # https://github.com/django-import-export/django-import-export

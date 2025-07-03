@@ -1,4 +1,3 @@
-# ruff: noqa: E501
 from .base import *  # noqa: F403
 from .base import INSTALLED_APPS
 from .base import MIDDLEWARE
@@ -79,7 +78,7 @@ if env("USE_DOCKER") == "yes":
     import socket
 
     hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
-    INTERNAL_IPS += [".".join(ip.split(".")[:-1] + ["1"]) for ip in ips]
+    INTERNAL_IPS += [".".join([*ip.split(".")[:-1], "1"]) for ip in ips]
     {%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
     try:
         _, _, ips = socket.gethostbyname_ex("node")
