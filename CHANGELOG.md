@@ -3,6 +3,67 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.07.02
+
+
+### Updated
+
+- Update pillow to 11.3.0 ([#5921](https://github.com/cookiecutter/cookiecutter-django/pull/5921))
+
+## 2025.06.30
+
+
+### Updated
+
+- Bump traefik from 3.4.1 to 3.4.3 ([#5917](https://github.com/cookiecutter/cookiecutter-django/pull/5917))
+
+- Update uvicorn to 0.35.0 ([#5919](https://github.com/cookiecutter/cookiecutter-django/pull/5919))
+
+- Update sentry-sdk to 2.32.0 ([#5918](https://github.com/cookiecutter/cookiecutter-django/pull/5918))
+
+## 2025.06.26
+
+
+### Updated
+
+- Update ruff to 0.12.1 ([#5916](https://github.com/cookiecutter/cookiecutter-django/pull/5916))
+
+## 2025.06.24
+
+
+### Updated
+
+- Update sentry-sdk to 2.31.0 ([#5912](https://github.com/cookiecutter/cookiecutter-django/pull/5912))
+
+## 2025.06.19
+
+
+### Updated
+
+- Update pytest to 8.4.1 ([#5907](https://github.com/cookiecutter/cookiecutter-django/pull/5907))
+
+## 2025.06.18
+
+
+### Updated
+
+- Update ruff to 0.12.0 ([#5904](https://github.com/cookiecutter/cookiecutter-django/pull/5904))
+
+- Update django-stubs to 5.2.1 ([#5905](https://github.com/cookiecutter/cookiecutter-django/pull/5905))
+
+- Update django-redis to 6.0.0 ([#5903](https://github.com/cookiecutter/cookiecutter-django/pull/5903))
+
+- Update django-webpack-loader to 3.2.1 ([#5902](https://github.com/cookiecutter/cookiecutter-django/pull/5902))
+
+## 2025.06.17
+
+
+### Updated
+
+- Update django-coverage-plugin to 3.1.1 ([#5900](https://github.com/cookiecutter/cookiecutter-django/pull/5900))
+
+- Update watchfiles to 1.1.0 ([#5899](https://github.com/cookiecutter/cookiecutter-django/pull/5899))
+
 ## 2025.06.15
 
 

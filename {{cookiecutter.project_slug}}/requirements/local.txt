@@ -14,8 +14,8 @@ watchfiles==1.1.0  # https://github.com/samuelcolvin/watchfiles
 # Testing
 # ------------------------------------------------------------------------------
 mypy==1.15.0  # https://github.com/python/mypy
-django-stubs[compatible-mypy]==5.2.0  # https://github.com/typeddjango/django-stubs
-pytest==8.4.0  # https://github.com/pytest-dev/pytest
+django-stubs[compatible-mypy]==5.2.1  # https://github.com/typeddjango/django-stubs
+pytest==8.4.1  # https://github.com/pytest-dev/pytest
 pytest-sugar==1.0.0  # https://github.com/Teemu/pytest-sugar
 {%- if cookiecutter.use_drf == "y" %}
 djangorestframework-stubs==3.16.0  # https://github.com/typeddjango/djangorestframework-stubs
@@ -29,7 +29,7 @@ sphinx-rtd-theme==3.0.1 # https://pypi.org/project/sphinx-rtd-theme/
 
 # Code quality
 # ------------------------------------------------------------------------------
-ruff==0.11.13  # https://github.com/astral-sh/ruff
+ruff==0.12.1  # https://github.com/astral-sh/ruff
 coverage==7.9.1  # https://github.com/nedbat/coveragepy
 djlint==1.36.4  # https://github.com/Riverside-Healthcare/djLint
 pre-commit==4.2.0  # https://github.com/pre-commit/pre-commit
