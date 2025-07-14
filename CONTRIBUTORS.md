@@ -1511,6 +1511,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Lucas Klasa</td>
+    <td>
+      <a href="https://github.com/lucaskbr">lucaskbr</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Luis Nell</td>
     <td>
       <a href="https://github.com/originell">originell</a>
