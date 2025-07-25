@@ -28,7 +28,7 @@ django-anymail[mailgun]==13.0.1  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Amazon SES' %}
 django-anymail[amazon-ses]==13.0.1  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Mailjet' %}
-django-anymail[mailjet]==13.0  # https://github.com/anymail/django-anymail
+django-anymail[mailjet]==13.0.1  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Mandrill' %}
 django-anymail[mandrill]==13.0  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Postmark' %}
