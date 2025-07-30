@@ -769,6 +769,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>DevForsure</td>
+    <td>
+      <a href="https://github.com/DevForsure">DevForsure</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Diane Chen</td>
     <td>
       <a href="https://github.com/purplediane">purplediane</a>
