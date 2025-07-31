@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.07.30
+
+
+### Changed
+
+- docs: remove `$` from shell command examples for easier copy-pasting ([#5948](https://github.com/cookiecutter/cookiecutter-django/pull/5948))
+
+### Updated
+
+- Update sentry-sdk to 2.34.1 ([#5955](https://github.com/cookiecutter/cookiecutter-django/pull/5955))
+
+- Update ruff to 0.12.7 ([#5952](https://github.com/cookiecutter/cookiecutter-django/pull/5952))
+
 ## 2025.07.27
 
 
