@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.08.01
+
+
+### Updated
+
+- Update django-debug-toolbar to 6.0.0 ([#5945](https://github.com/cookiecutter/cookiecutter-django/pull/5945))
+
+- Bump amazon/aws-cli from 2.27.12 to 2.28.0 ([#5957](https://github.com/cookiecutter/cookiecutter-django/pull/5957))
+
+- Update mypy to 1.17.1 ([#5956](https://github.com/cookiecutter/cookiecutter-django/pull/5956))
+
 ## 2025.07.30
 
 
