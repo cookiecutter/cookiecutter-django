@@ -6,7 +6,7 @@ from pathlib import Path
 
 try:
     # Inspired by
-    # https://github.com/django/django/blob/master/django/utils/crypto.py
+    # https://github.com/django/django/blob/main/django/utils/crypto.py
     random = random.SystemRandom()
     using_sysrandom = True
 except NotImplementedError:
