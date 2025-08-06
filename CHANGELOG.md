@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.08.05
+
+
+### Changed
+
+- Rename `master` branch to `main` ([#5961](https://github.com/cookiecutter/cookiecutter-django/pull/5961))
+
+### Updated
+
+- Bump node from 22.14 to 24.5 in local Docker image ([#5960](https://github.com/cookiecutter/cookiecutter-django/pull/5960))
+
 ## 2025.08.01
 
 
