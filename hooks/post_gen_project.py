@@ -106,6 +106,12 @@ def remove_vendors_js():
         vendors_js_path.unlink()
 
 
+def remove_project_css():
+    project_css_path = Path("{{ cookiecutter.project_slug }}", "static", "css", "project.css")
+    if project_css_path.exists():
+        project_css_path.unlink()
+
+
 def remove_packagejson_file():
     file_names = ["package.json"]
     for file_name in file_names:
@@ -462,6 +468,7 @@ def main():
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_node_dockerfile()
     else:
+        remove_project_css()
         handle_js_runner(
             "{{ cookiecutter.frontend_pipeline }}",
             use_docker=("{{ cookiecutter.use_docker }}".lower() == "y"),
