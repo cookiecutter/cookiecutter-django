@@ -2351,6 +2351,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Vincent Leduc</td>
+    <td>
+      <a href="https://github.com/leducvin">leducvin</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Vitaly Babiy</td>
     <td>
       <a href="https://github.com/"></a>
