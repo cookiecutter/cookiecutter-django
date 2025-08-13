@@ -17,13 +17,13 @@ jobs:
       GH_PAT: ${{ secrets.GH_PAT }}
     steps:
       - name: Checkout with token
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         if: ${{ env.GH_PAT != '' }}
         with:
           token: ${{ env.GH_PAT }}
 
       - name: Checkout without token
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         if: ${{ env.GH_PAT == '' }}
 
       - uses: astral-sh/setup-uv@v6
