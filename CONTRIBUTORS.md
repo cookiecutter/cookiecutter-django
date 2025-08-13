@@ -1609,6 +1609,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Martín Blech</td>
+    <td>
+      <a href="https://github.com/martinblech">martinblech</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>masavini</td>
     <td>
       <a href="https://github.com/masavini">masavini</a>
