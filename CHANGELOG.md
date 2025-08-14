@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.08.13
+
+
+### Fixed
+
+- Fix imagemin corruption with Gulp ([#5974](https://github.com/cookiecutter/cookiecutter-django/pull/5974))
+
 ## 2025.08.12
 
 
