@@ -20,7 +20,7 @@ def main() -> None:
         return
 
     update_ruff_version(old_version, new_version)
-    subprocess.run(["uv", "lock", "--no-upgrade"], cwd=ROOT, check=False)  # noqa: S603,S607
+    subprocess.run(["uv", "lock", "--no-upgrade"], cwd=ROOT, check=False)  # noqa: S607
 
 
 def get_requirements_txt_version() -> str:
