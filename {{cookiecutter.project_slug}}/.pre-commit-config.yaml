@@ -7,7 +7,7 @@ default_language_version:
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -29,17 +29,17 @@ repos:
         exclude: '{{cookiecutter.project_slug}}/templates/'
 
   - repo: https://github.com/adamchainz/django-upgrade
-    rev: '1.22.2'
+    rev: '1.25.0'
     hooks:
       - id: django-upgrade
         args: ['--target-version', '5.0']
 
   # Run the Ruff linter.
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.11.0
+    rev: v0.12.10
     hooks:
       # Linter
-      - id: ruff
+      - id: ruff-check
         args: [--fix, --exit-non-zero-on-fix]
       # Formatter
       - id: ruff-format

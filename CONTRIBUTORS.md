@@ -202,6 +202,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Aidos Kanapyanov</td>
+    <td>
+      <a href="https://github.com/aidoskanapyanov">aidoskanapyanov</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Alan Cyment</td>
     <td>
       <a href="https://github.com/acyment">acyment</a>
@@ -762,6 +769,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>DevForsure</td>
+    <td>
+      <a href="https://github.com/DevForsure">DevForsure</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Diane Chen</td>
     <td>
       <a href="https://github.com/purplediane">purplediane</a>
@@ -772,6 +786,13 @@ Listed in alphabetical order.
     <td>Diego Montes</td>
     <td>
       <a href="https://github.com/d57montes">d57montes</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Dominique Plante</td>
+    <td>
+      <a href="https://github.com/dominiqueplante">dominiqueplante</a>
     </td>
     <td></td>
   </tr>
@@ -1105,6 +1126,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Igor Jerosimić</td>
+    <td>
+      <a href="https://github.com/igor-wl">igor-wl</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Imran Rahman</td>
     <td>
       <a href="https://github.com/infraredCoding">infraredCoding</a>
@@ -1196,6 +1224,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Jeff Foster</td>
+    <td>
+      <a href="https://github.com/jeffpfoster">jeffpfoster</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Jens Kaeske</td>
     <td>
       <a href="https://github.com/jkaeske">jkaeske</a>
@@ -1206,6 +1241,13 @@ Listed in alphabetical order.
     <td>Jens Nilsson</td>
     <td>
       <a href="https://github.com/phiberjenz">phiberjenz</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Jeongseok Kang</td>
+    <td>
+      <a href="https://github.com/rapsealk">rapsealk</a>
     </td>
     <td></td>
   </tr>
@@ -1476,6 +1518,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Lucas Klasa</td>
+    <td>
+      <a href="https://github.com/lucaskbr">lucaskbr</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Luis Nell</td>
     <td>
       <a href="https://github.com/originell">originell</a>
@@ -1556,6 +1605,13 @@ Listed in alphabetical order.
     <td>Martin Saizar</td>
     <td>
       <a href="https://github.com/msaizar">msaizar</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Martín Blech</td>
+    <td>
+      <a href="https://github.com/martinblech">martinblech</a>
     </td>
     <td></td>
   </tr>
@@ -1871,6 +1927,13 @@ Listed in alphabetical order.
     <td>Pedro Campos</td>
     <td>
       <a href="https://github.com/pcampos119104">pcampos119104</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Pepa</td>
+    <td>
+      <a href="https://github.com/07pepa">07pepa</a>
     </td>
     <td></td>
   </tr>
@@ -2291,6 +2354,13 @@ Listed in alphabetical order.
     <td>villancikos</td>
     <td>
       <a href="https://github.com/villancikos">villancikos</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Vincent Leduc</td>
+    <td>
+      <a href="https://github.com/leducvin">leducvin</a>
     </td>
     <td></td>
   </tr>

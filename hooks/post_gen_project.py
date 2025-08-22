@@ -7,7 +7,7 @@ from pathlib import Path
 
 try:
     # Inspired by
-    # https://github.com/django/django/blob/master/django/utils/crypto.py
+    # https://github.com/django/django/blob/main/django/utils/crypto.py
     random = random.SystemRandom()
     using_sysrandom = True
 except NotImplementedError:
@@ -105,6 +105,12 @@ def remove_vendors_js():
     vendors_js_path = Path("{{ cookiecutter.project_slug }}", "static", "js", "vendors.js")
     if vendors_js_path.exists():
         vendors_js_path.unlink()
+
+
+def remove_project_css():
+    project_css_path = Path("{{ cookiecutter.project_slug }}", "static", "css", "project.css")
+    if project_css_path.exists():
+        project_css_path.unlink()
 
 
 def remove_packagejson_file():
@@ -457,6 +463,7 @@ def main():  # noqa: C901, PLR0912, PLR0915
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_node_dockerfile()
     else:
+        remove_project_css()
         handle_js_runner(
             "{{ cookiecutter.frontend_pipeline }}",
             use_docker=("{{ cookiecutter.use_docker }}".lower() == "y"),
