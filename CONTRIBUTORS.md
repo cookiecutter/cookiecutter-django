@@ -1273,6 +1273,13 @@ Listed in alphabetical order.
     <td>afrowave</td>
   </tr>
   <tr>
+    <td>jlitrell</td>
+    <td>
+      <a href="https://github.com/jlitrell">jlitrell</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>John</td>
     <td>
       <a href="https://github.com/thorrak">thorrak</a>
