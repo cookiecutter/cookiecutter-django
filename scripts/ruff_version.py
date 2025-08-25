@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 import subprocess
-import tomllib
 from pathlib import Path
+
+import tomllib
 
 ROOT = Path(__file__).parent.parent
 TEMPLATED_ROOT = ROOT / "{{cookiecutter.project_slug}}"
 REQUIREMENTS_LOCAL_TXT = TEMPLATED_ROOT / "requirements" / "local.txt"
+TEMPLATE_PRE_COMMIT_CONFIG = ROOT / ".pre-commit-config.yaml"
 PRE_COMMIT_CONFIG = TEMPLATED_ROOT / ".pre-commit-config.yaml"
 PYPROJECT_TOML = ROOT / "pyproject.toml"
 
@@ -18,7 +20,7 @@ def main() -> None:
         return
 
     update_ruff_version(old_version, new_version)
-    subprocess.run(["uv", "lock", "--no-upgrade"], cwd=ROOT)
+    subprocess.run(["uv", "lock", "--no-upgrade"], cwd=ROOT, check=False)  # noqa: S607
 
 
 def get_requirements_txt_version() -> str:
@@ -44,12 +46,13 @@ def update_ruff_version(old_version: str, new_version: str) -> None:
         f"ruff=={new_version}",
     )
     PYPROJECT_TOML.write_text(new_content)
-    # Update pre-commit config
-    new_content = PRE_COMMIT_CONFIG.read_text().replace(
-        f"repo: https://github.com/astral-sh/ruff-pre-commit\n    rev: v{old_version}",
-        f"repo: https://github.com/astral-sh/ruff-pre-commit\n    rev: v{new_version}",
-    )
-    PRE_COMMIT_CONFIG.write_text(new_content)
+    # Update pre-commit configs
+    for config_file in [PRE_COMMIT_CONFIG, TEMPLATE_PRE_COMMIT_CONFIG]:
+        new_content = config_file.read_text().replace(
+            f"repo: https://github.com/astral-sh/ruff-pre-commit\n    rev: v{old_version}",
+            f"repo: https://github.com/astral-sh/ruff-pre-commit\n    rev: v{new_version}",
+        )
+        config_file.write_text(new_content)
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-import glob
+import glob  # noqa: EXE002
 import os
 import re
 import sys
@@ -209,25 +209,13 @@ def test_ruff_format_passes(cookies, context_override):
 
 @auto_fixable
 @pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
-def test_isort_passes(cookies, context_override):
-    """Check whether generated project passes isort style."""
-    result = cookies.bake(extra_context=context_override)
-
-    try:
-        sh.isort(_cwd=str(result.project_path))
-    except sh.ErrorReturnCode as e:
-        pytest.fail(e.stdout.decode())
-
-
-@auto_fixable
-@pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
 def test_django_upgrade_passes(cookies, context_override):
     """Check whether generated project passes django-upgrade."""
     result = cookies.bake(extra_context=context_override)
 
     python_files = [
         file_path.removeprefix(f"{result.project_path}/")
-        for file_path in glob.glob(str(result.project_path / "**" / "*.py"), recursive=True)
+        for file_path in glob.glob(str(result.project_path / "**" / "*.py"), recursive=True)  # noqa: PTH207
     ]
     try:
         sh.django_upgrade(
