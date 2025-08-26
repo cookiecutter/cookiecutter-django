@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.08.25
+
+
+### Updated
+
+- Update collectfasta to 3.3.1 ([#5987](https://github.com/cookiecutter/cookiecutter-django/pull/5987))
+
+- Update coverage to 7.10.5 ([#5986](https://github.com/cookiecutter/cookiecutter-django/pull/5986))
+
+- Update pytest-sugar to 1.1.1 ([#5984](https://github.com/cookiecutter/cookiecutter-django/pull/5984))
+
 ## 2025.08.21
 
 
