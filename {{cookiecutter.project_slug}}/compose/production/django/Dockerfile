@@ -1,5 +1,5 @@
 {% if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] -%}
-FROM docker.io/node:22.14-bookworm-slim AS client-builder
+FROM docker.io/node:24.6-bookworm-slim AS client-builder
 
 ARG APP_HOME=/app
 WORKDIR ${APP_HOME}
@@ -24,7 +24,7 @@ ENV DJANGO_AZURE_ACCOUNT_NAME=${DJANGO_AZURE_ACCOUNT_NAME}
 RUN npm run build
 {%- endif %}
 # define an alias for the specific python version used in this file.
-FROM docker.io/python:3.12.10-slim-bookworm AS python
+FROM docker.io/python:3.12.11-slim-bookworm AS python
 
 # Python build stage
 FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim AS python-build-stage

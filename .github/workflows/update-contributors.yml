@@ -3,7 +3,7 @@ name: Update Contributors
 on:
   push:
     branches:
-      - master
+      - main
 
 permissions:
   contents: read
@@ -17,7 +17,7 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install uv
         uses: astral-sh/setup-uv@v6
       - name: Update list
@@ -26,7 +26,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5.0.1
+        uses: stefanzweifel/git-auto-commit-action@v6
         with:
           commit_message: Update Contributors
           file_pattern: CONTRIBUTORS.md .github/contributors.json
