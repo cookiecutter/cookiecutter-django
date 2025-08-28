@@ -1,6 +1,5 @@
 # ruff: noqa: PLR0133
 import json
-import os
 import random
 import shutil
 import string
@@ -515,15 +514,29 @@ def setup_dependencies():
     print("Installing python dependencies using uv...")
 
     if "{{ cookiecutter.use_docker }}".lower() == "y":
-        # Build the Docker service using Docker Compose
+        # Build a trimmed down Docker image add dependencies with uv
+        uv_docker_image_path = Path("compose/local/uv/Dockerfile")
+        uv_image_tag = "cookiecutter-django-uv-runner:latest"
         try:
-            subprocess.run(["docker", "compose", "-f", "docker-compose.local.yml", "build", "django"], check=True)  # noqa: S607
+            subprocess.run(  # noqa: S603
+                [  # noqa: S607
+                    "docker",
+                    "build",
+                    "-t",
+                    uv_image_tag,
+                    "-f",
+                    str(uv_docker_image_path),
+                    "-q",
+                    ".",
+                ],
+                check=True,
+            )
         except subprocess.CalledProcessError as e:
-            print(f"Error building Docker service: {e}", file=sys.stderr)
+            print(f"Error building Docker image: {e}", file=sys.stderr)
             sys.exit(1)
 
         # Use Docker to run the uv command
-        uv_cmd = ["docker", "compose", "-f", "docker-compose.local.yml", "run", "--rm", "django", "uv"]
+        uv_cmd = ["docker", "run", "--rm", "-v", ".:/app", uv_image_tag, "uv"]
     else:
         # Use uv command directly
         uv_cmd = ["uv"]
@@ -543,12 +556,17 @@ def setup_dependencies():
         sys.exit(1)
 
     # Remove the requirements directory
-    if os.path.exists("requirements"):  # noqa: PTH110
+    requirements_dir = Path("requirements")
+    if requirements_dir.exists():
         try:
-            shutil.rmtree("requirements")
+            shutil.rmtree(requirements_dir)
         except Exception as e:  # noqa: BLE001
             print(f"Error removing 'requirements' folder: {e}", file=sys.stderr)
             sys.exit(1)
+
+    uv_image_parent_dir_path = Path("compose/local/uv")
+    if uv_image_parent_dir_path.exists():
+        shutil.rmtree(str(uv_image_parent_dir_path))
 
     print("Setup complete!")
 
