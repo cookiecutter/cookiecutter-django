@@ -1,6 +1,5 @@
 # ruff: noqa: PLR0133
 import json
-import os
 import random
 import shutil
 import string
@@ -203,7 +202,7 @@ def remove_prettier_pre_commit():
 
 def remove_repo_from_pre_commit_config(repo_to_remove: str):
     pre_commit_config = Path(".pre-commit-config.yaml")
-    content = pre_commit_config.read_text().splitlines(True)
+    content = pre_commit_config.read_text().splitlines(keepends=True)
 
     removing = False
     new_lines = []
@@ -516,40 +515,59 @@ def setup_dependencies():
     print("Installing python dependencies using uv...")
 
     if "{{ cookiecutter.use_docker }}".lower() == "y":
-        # Build the Docker service using Docker Compose
+        # Build a trimmed down Docker image add dependencies with uv
+        uv_docker_image_path = Path("compose/local/uv/Dockerfile")
+        uv_image_tag = "cookiecutter-django-uv-runner:latest"
         try:
-            subprocess.run(["docker", "compose", "-f", "docker-compose.local.yml", "build", "django"], check=True)
+            subprocess.run(  # noqa: S603
+                [  # noqa: S607
+                    "docker",
+                    "build",
+                    "-t",
+                    uv_image_tag,
+                    "-f",
+                    str(uv_docker_image_path),
+                    "-q",
+                    ".",
+                ],
+                check=True,
+            )
         except subprocess.CalledProcessError as e:
-            print(f"Error building Docker service: {e}", file=sys.stderr)
+            print(f"Error building Docker image: {e}", file=sys.stderr)
             sys.exit(1)
 
         # Use Docker to run the uv command
-        uv_cmd = ["docker", "compose", "-f", "docker-compose.local.yml", "run", "--rm", "django", "uv"]
+        uv_cmd = ["docker", "run", "--rm", "-v", ".:/app", uv_image_tag, "uv"]
     else:
         # Use uv command directly
         uv_cmd = ["uv"]
 
     # Install production dependencies
     try:
-        subprocess.run(uv_cmd + ["add", "--no-sync", "-r", "requirements/production.txt"], check=True)
+        subprocess.run([*uv_cmd, "add", "--no-sync", "-r", "requirements/production.txt"], check=True)  # noqa: S603
     except subprocess.CalledProcessError as e:
         print(f"Error installing production dependencies: {e}", file=sys.stderr)
         sys.exit(1)
 
     # Install local (development) dependencies
     try:
-        subprocess.run(uv_cmd + ["add", "--no-sync", "--dev", "-r", "requirements/local.txt"], check=True)
+        subprocess.run([*uv_cmd, "add", "--no-sync", "--dev", "-r", "requirements/local.txt"], check=True)  # noqa: S603
     except subprocess.CalledProcessError as e:
         print(f"Error installing local dependencies: {e}", file=sys.stderr)
         sys.exit(1)
 
     # Remove the requirements directory
-    if os.path.exists("requirements"):
+    requirements_dir = Path("requirements")
+    if requirements_dir.exists():
         try:
-            shutil.rmtree("requirements")
-        except Exception as e:
+            shutil.rmtree(requirements_dir)
+        except Exception as e:  # noqa: BLE001
             print(f"Error removing 'requirements' folder: {e}", file=sys.stderr)
             sys.exit(1)
+
+    uv_image_parent_dir_path = Path("compose/local/uv")
+    if uv_image_parent_dir_path.exists():
+        shutil.rmtree(str(uv_image_parent_dir_path))
 
     print("Setup complete!")
 

@@ -158,7 +158,7 @@ def build_files_list(base_path: Path):
         subdirs[:] = [d for d in subdirs if d not in excluded_dirs]
 
         for file_path in files:
-            f.append(dirpath / file_path)
+            f.append(dirpath / file_path)  # noqa: PERF401
     return f
 
 
