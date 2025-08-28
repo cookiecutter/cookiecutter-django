@@ -96,9 +96,9 @@ With that in mind, when merging changes, it's a good idea to set the labels and 
 
 `update-contributors.yml`
 
-Runs on each push to master branch. List the 5 most recently merged pull requests and extract their author. If any of the authors is a new one, updates the `.github/contributors.json`, regenerate the `CONTRIBUTORS.md` from it, and push back the changes to master.
+Runs on each push to main branch. List the 5 most recently merged pull requests and extract their author. If any of the authors is a new one, updates the `.github/contributors.json`, regenerate the `CONTRIBUTORS.md` from it, and push back the changes to master.
 
 #### Limitations
 
-- If you merge a pull request from a new contributor, and merge another one right after, the push to master will fail as the remote will be out of date.
+- If you merge a pull request from a new contributor, and merge another one right after, the push to main will fail as the remote will be out of date.
 - If you merge more than 5 pull requests in a row like this, the new contributor might fail to be added.

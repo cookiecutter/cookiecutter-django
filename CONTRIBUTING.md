@@ -14,7 +14,7 @@ Always happy to get issues identified and pull requests!
 2. Clone your fork
 3. Create a branch for your changes
 
-This last step is very important, don't start developing from master, it'll cause pain if you need to send another change later.
+This last step is very important, don't start developing from main, it'll cause pain if you need to send another change later.
 
 ## Testing
 

@@ -13,7 +13,6 @@ labels: bug
 <!-- To assist you best, please include commands that you've run, options you've selected and any relevant logs -->
 
 - Host system configuration:
-
   - Version of cookiecutter CLI (get it with `cookiecutter --version`):
   - OS name and version:
 
