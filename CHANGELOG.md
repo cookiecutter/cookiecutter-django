@@ -3,6 +3,42 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.08.28
+
+
+### Updated
+
+- Update django-allauth to 65.11.1 ([#5992](https://github.com/cookiecutter/cookiecutter-django/pull/5992))
+
+- Auto-update pre-commit hooks ([#5993](https://github.com/cookiecutter/cookiecutter-django/pull/5993))
+
+## 2025.08.27
+
+
+### Updated
+
+- Update django-upgrade pre-commit hook ([#5991](https://github.com/cookiecutter/cookiecutter-django/pull/5991))
+
+## 2025.08.26
+
+
+### Updated
+
+- Update sentry-sdk to 2.35.1 ([#5988](https://github.com/cookiecutter/cookiecutter-django/pull/5988))
+
+- Update sphinx-autobuild to 2025.8.25 ([#5989](https://github.com/cookiecutter/cookiecutter-django/pull/5989))
+
+## 2025.08.25
+
+
+### Updated
+
+- Update collectfasta to 3.3.1 ([#5987](https://github.com/cookiecutter/cookiecutter-django/pull/5987))
+
+- Update coverage to 7.10.5 ([#5986](https://github.com/cookiecutter/cookiecutter-django/pull/5986))
+
+- Update pytest-sugar to 1.1.1 ([#5984](https://github.com/cookiecutter/cookiecutter-django/pull/5984))
+
 ## 2025.08.21
 
 
