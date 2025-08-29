@@ -1,3 +1,4 @@
+# ruff: noqa: PLR0133
 import json
 import os
 import random
@@ -82,7 +83,7 @@ def remove_heroku_files():
     file_names = ["Procfile"]
     for file_name in file_names:
         if file_name == "requirements.txt" and "{{ cookiecutter.ci_tool }}".lower() == "travis":
-            # don't remove the file if we are using travisci but not using heroku
+            # Don't remove the file if we are using Travis CI but not using Heroku
             continue
         Path(file_name).unlink()
     shutil.rmtree("bin")
@@ -188,7 +189,7 @@ def handle_js_runner(choice, use_docker, use_async):
                     "dev": "concurrently npm:dev:*",
                     "dev:webpack": "webpack serve --config webpack/dev.config.js",
                     "dev:django": dev_django_cmd,
-                }
+                },
             )
         else:
             remove_dev_deps.append("concurrently")
@@ -252,7 +253,7 @@ def remove_dotdrone_file():
     Path(".drone.yml").unlink()
 
 
-def generate_random_string(length, using_digits=False, using_ascii_letters=False, using_punctuation=False):
+def generate_random_string(length, using_digits=False, using_ascii_letters=False, using_punctuation=False):  # noqa: FBT002
     """
     Example:
         opting out for 50 symbol-long, [a-z][A-Z][0-9] string
@@ -281,7 +282,7 @@ def set_flag(file_path: Path, flag, value=None, formatted=None, *args, **kwargs)
         if random_string is None:
             print(
                 "We couldn't find a secure pseudo-random number generator on your "
-                "system. Please, make sure to manually {} later.".format(flag)
+                f"system. Please, make sure to manually {flag} later.",
             )
             random_string = flag
         if formatted is not None:
@@ -298,18 +299,17 @@ def set_flag(file_path: Path, flag, value=None, formatted=None, *args, **kwargs)
 
 
 def set_django_secret_key(file_path: Path):
-    django_secret_key = set_flag(
+    return set_flag(
         file_path,
         "!!!SET DJANGO_SECRET_KEY!!!",
         length=64,
         using_digits=True,
         using_ascii_letters=True,
     )
-    return django_secret_key
 
 
 def set_django_admin_url(file_path: Path):
-    django_admin_url = set_flag(
+    return set_flag(
         file_path,
         "!!!SET DJANGO_ADMIN_URL!!!",
         formatted="{}/",
@@ -317,24 +317,22 @@ def set_django_admin_url(file_path: Path):
         using_digits=True,
         using_ascii_letters=True,
     )
-    return django_admin_url
 
 
 def generate_random_user():
     return generate_random_string(length=32, using_ascii_letters=True)
 
 
-def generate_postgres_user(debug=False):
+def generate_postgres_user(debug=False):  # noqa: FBT002
     return DEBUG_VALUE if debug else generate_random_user()
 
 
 def set_postgres_user(file_path, value):
-    postgres_user = set_flag(file_path, "!!!SET POSTGRES_USER!!!", value=value)
-    return postgres_user
+    return set_flag(file_path, "!!!SET POSTGRES_USER!!!", value=value)
 
 
 def set_postgres_password(file_path, value=None):
-    postgres_password = set_flag(
+    return set_flag(
         file_path,
         "!!!SET POSTGRES_PASSWORD!!!",
         value=value,
@@ -342,16 +340,14 @@ def set_postgres_password(file_path, value=None):
         using_digits=True,
         using_ascii_letters=True,
     )
-    return postgres_password
 
 
 def set_celery_flower_user(file_path, value):
-    celery_flower_user = set_flag(file_path, "!!!SET CELERY_FLOWER_USER!!!", value=value)
-    return celery_flower_user
+    return set_flag(file_path, "!!!SET CELERY_FLOWER_USER!!!", value=value)
 
 
 def set_celery_flower_password(file_path, value=None):
-    celery_flower_password = set_flag(
+    return set_flag(
         file_path,
         "!!!SET CELERY_FLOWER_PASSWORD!!!",
         value=value,
@@ -359,7 +355,6 @@ def set_celery_flower_password(file_path, value=None):
         using_digits=True,
         using_ascii_letters=True,
     )
-    return celery_flower_password
 
 
 def append_to_gitignore_file(ignored_line):
@@ -368,7 +363,7 @@ def append_to_gitignore_file(ignored_line):
         gitignore_file.write("\n")
 
 
-def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):
+def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):  # noqa: FBT002
     local_django_envs_path = Path(".envs", ".local", ".django")
     production_django_envs_path = Path(".envs", ".production", ".django")
     local_postgres_envs_path = Path(".envs", ".local", ".postgres")
@@ -418,7 +413,7 @@ def remove_drf_starter_files():
     shutil.rmtree(Path("{{cookiecutter.project_slug}}", "users", "tests", "api"))
 
 
-def main():
+def main():  # noqa: C901, PLR0912, PLR0915
     debug = "{{ cookiecutter.debug }}".lower() == "y"
 
     set_flags_in_envs(
@@ -458,7 +453,7 @@ def main():
             print(
                 INFO + ".env(s) are only utilized when Docker Compose and/or "
                 "Heroku support is enabled so keeping them does not make sense "
-                "given your current setup." + TERMINATOR
+                "given your current setup." + TERMINATOR,
             )
         remove_envs_and_associated_files()
     else:
@@ -486,7 +481,7 @@ def main():
     if "{{ cookiecutter.cloud_provider }}" == "None" and "{{ cookiecutter.use_docker }}".lower() == "n":
         print(
             WARNING + "You chose to not use any cloud providers nor Docker, "
-            "media files won't be served in production." + TERMINATOR
+            "media files won't be served in production." + TERMINATOR,
         )
 
     if "{{ cookiecutter.use_celery }}".lower() == "n":
