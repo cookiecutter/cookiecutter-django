@@ -1,6 +1,6 @@
 [project]
 name = "cookiecutter-django"
-version = "2025.08.27"
+version = "2025.08.28"
 description = "A Cookiecutter template for creating production-ready Django projects quickly."
 readme = "README.md"
 keywords = [
@@ -43,7 +43,7 @@ dependencies = [
   "pytest-xdist==3.6.1",
   "pyyaml==6.0.2",
   "requests==2.32.3",
-  "ruff==0.12.10",
+  "ruff==0.12.11",
   "sh==2.1; sys_platform!='win23'",
   "tox==4.23.2",
   "tox-uv>=1.17",
@@ -58,22 +58,83 @@ docs = [
   "sphinx-rtd-theme>=3",
 ]
 
-[tool.black]
+[tool.ruff]
+target-version = "py39"
 line-length = 119
-target-version = [
-  'py312',
+# Exclude the template content as most files aren't parseable
+extend-exclude = [
+  "[{]{2}cookiecutter.project_slug[}]{2}/*",
+  "docs/*",
 ]
 
-# ==== isort ====
-
-[tool.isort]
-profile = "black"
-line_length = 119
-known_first_party = [
-  "tests",
-  "scripts",
-  "hooks",
+lint.select = [
+  "A",
+  # "ANN", # flake8-annotations: we should support this in the future but many errors atm
+  "ASYNC",
+  "B",
+  "BLE",
+  "C4",
+  "C90",
+  "COM",
+  "DTZ",
+  "E",
+  "EM",
+  "ERA",
+  "EXE",
+  "F",
+  "FA",
+  "FBT",
+  "FLY",
+  "G",
+  "I",
+  "ICN",
+  "INP",
+  "INT",
+  "ISC",
+  "N",
+  "PD",
+  "PERF",
+  "PGH",
+  "PIE",
+  "PL",
+  "PT",
+  # "ARG", # Unused function argument
+  "PTH",
+  "PYI",
+  "Q",
+  "RET",
+  "RSE",
+  # "FURB",
+  # "LOG",
+  "RUF",
+  "S",
+  "SIM",
+  "SLF",
+  "SLOT",
+  "T10",
+  "TC",
+  "TID",
+  "TRY",
+  "UP",
+  "W",
+  "YTT",
 ]
+lint.ignore = [
+  "EM101",
+  "RUF012", # Mutable class attributes should be annotated with `typing.ClassVar`
+  "S101",   # Use of assert detected https://docs.astral.sh/ruff/rules/assert/
+  "SIM102", # sometimes it's better to nest
+  "TRY003", # Avoid specifying long messages outside the exception class
+  # Checks for uses of isinstance/issubclass that take a tuple of types for comparison.
+  # Deactivated because it can make the code slow: https://github.com/astral-sh/ruff/issues/7871
+  "UP038",
+]
+# The fixes in extend-unsafe-fixes will require
+# provide the `--unsafe-fixes` flag when fixing.
+lint.extend-unsafe-fixes = [
+  "UP038",
+]
+lint.isort.force-single-line = true
 
 [tool.pyproject-fmt]
 keep_full_version = true

@@ -1,12 +1,12 @@
-import glob
+import glob  # noqa: EXE002
 import os
 import re
 import sys
-import tomllib
 from collections.abc import Iterable
 from pathlib import Path
 
 import pytest
+import tomllib
 
 try:
     import sh
@@ -158,7 +158,7 @@ def build_files_list(base_path: Path):
         subdirs[:] = [d for d in subdirs if d not in excluded_dirs]
 
         for file_path in files:
-            f.append(dirpath / file_path)
+            f.append(dirpath / file_path)  # noqa: PERF401
     return f
 
 
@@ -218,25 +218,13 @@ def test_ruff_format_passes(cookies, context_override):
 
 @auto_fixable
 @pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
-def test_isort_passes(cookies, context_override):
-    """Check whether generated project passes isort style."""
-    result = cookies.bake(extra_context=context_override)
-
-    try:
-        sh.isort(_cwd=str(result.project_path))
-    except sh.ErrorReturnCode as e:
-        pytest.fail(e.stdout.decode())
-
-
-@auto_fixable
-@pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
 def test_django_upgrade_passes(cookies, context_override):
     """Check whether generated project passes django-upgrade."""
     result = cookies.bake(extra_context=context_override)
 
     python_files = [
         file_path.removeprefix(f"{result.project_path}/")
-        for file_path in glob.glob(str(result.project_path / "**" / "*.py"), recursive=True)
+        for file_path in glob.glob(str(result.project_path / "**" / "*.py"), recursive=True)  # noqa: PTH207
     ]
     try:
         sh.django_upgrade(
@@ -434,7 +422,7 @@ def test_pyproject_toml(cookies, context):
             "domain_name": "example.com",
             "email": author_email,
             "author_name": author_name,
-        }
+        },
     )
     result = cookies.bake(extra_context=context)
     assert result.exit_code == 0
