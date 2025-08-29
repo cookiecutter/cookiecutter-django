@@ -55,7 +55,7 @@ updates:
 {%- endif %}
 
   # Enable version updates for Python/Pip - Production
-  - package-ecosystem: 'pip'
+  - package-ecosystem: 'uv'
     # Look for a `requirements.txt` in the `root` directory
     # also 'setup.cfg', '.python-version' and 'requirements/*.txt'
     directory: '/'
