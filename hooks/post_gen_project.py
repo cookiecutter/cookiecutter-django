@@ -519,8 +519,8 @@ def setup_dependencies():
         uv_docker_image_path = Path("compose/local/uv/Dockerfile")
         uv_image_tag = "cookiecutter-django-uv-runner:latest"
         try:
-            subprocess.run(
-                [
+            subprocess.run(  # noqa: S603
+                [  # noqa: S607
                     "docker",
                     "build",
                     "-t",
