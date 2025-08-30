@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.08.29
+
+
+### Updated
+
+- Bump node from 24.6-bookworm-slim to 24.7-bookworm-slim in /{{cookiecutter.project_slug}}/compose/local/node ([#5997](https://github.com/cookiecutter/cookiecutter-django/pull/5997))
+
+- Update ruff to 0.12.11 ([#5998](https://github.com/cookiecutter/cookiecutter-django/pull/5998))
+
 ## 2025.08.28
 
 
