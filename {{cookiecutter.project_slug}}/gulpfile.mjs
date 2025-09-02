@@ -101,7 +101,7 @@ function vendorScripts() {
 // Image compression
 async function imgCompression() {
   const imagemin = (await import("gulp-imagemin")).default;
-  return src(`${paths.images}/*`)
+  return src(`${paths.images}/*`, { encoding: false })
     .pipe(imagemin()) // Compresses PNG, JPEG, GIF and SVG images
     .pipe(dest(paths.images));
 }
