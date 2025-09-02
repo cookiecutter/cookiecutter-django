@@ -44,7 +44,7 @@ Generate a secret key for yourself, eg like this:
 
 .. code-block:: bash
 
-    python -c 'import random;import string; print("".join(random.SystemRandom().choice(string.digits + string.ascii_letters + string.punctuation) for _ in range(50)))'
+    python -c 'import secrets;import string; print("".join(secrets.choice(string.digits + string.ascii_letters + string.punctuation) for _ in range(50)))'
 
 Make a note of it, since we'll need it here in the console and later on in the web app config tab.
 
