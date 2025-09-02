@@ -73,7 +73,7 @@ Add these exports
     export DATABASE_URL='<see Database setup section below>'
     export REDIS_URL='<see Redis section below>'
 
-.. note:: The AWS details are not required if you're using whitenoise or the built-in pythonanywhere static files service, but you do need to set them to blank, as above.
+.. note:: The AWS details are not required if you're using whitenoise or the built-in PythonAnywhere static files service, but you do need to set them to blank, as above.
 
 
 Database setup
