@@ -17,6 +17,10 @@ cd my_awesome_project
 # make sure all images build
 docker compose -f docker-compose.local.yml build
 
+docker compose -f docker-compose.local.yml run django uv lock
+
+docker compose -f docker-compose.local.yml build
+
 # run the project's type checks
 docker compose -f docker-compose.local.yml run --rm django mypy my_awesome_project
 
@@ -43,6 +47,22 @@ docker compose -f docker-compose.local.yml run --rm \
 
 # Generate the HTML for the documentation
 docker compose -f docker-compose.docs.yml run --rm docs make html
+
+docker build -f ./compose/production/django/Dockerfile -t django-prod .
+
+docker run --rm \
+--env-file .envs/.local/.django \
+--env-file .envs/.local/.postgres \
+--network my_awesome_project_default \
+-e DJANGO_SECRET_KEY="$(openssl rand -base64 64)" \
+-e REDIS_URL=redis://redis:6379/0 \
+-e DJANGO_AWS_ACCESS_KEY_ID=x \
+-e DJANGO_AWS_SECRET_ACCESS_KEY=x \
+-e DJANGO_AWS_STORAGE_BUCKET_NAME=x \
+-e DJANGO_ADMIN_URL=x \
+-e MAILGUN_API_KEY=x \
+-e MAILGUN_DOMAIN=x \
+django-prod python manage.py check --settings=config.settings.production --deploy --database default --fail-level WARNING
 
 # Run npm build script if package.json is present
 if [ -f "package.json" ]
