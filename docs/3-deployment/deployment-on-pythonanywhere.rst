@@ -34,10 +34,8 @@ Make sure your project is fully committed and pushed up to Bitbucket or Github o
 
     git clone <my-repo-url>  # you can also use hg
     cd my-project-name
-    mkvirtualenv --python=/usr/bin/python3.10 my-project-name
+    mkvirtualenv --python=/usr/bin/python3.12 my-project-name
     pip install -r requirements/production.txt  # may take a few minutes
-
-.. note:: We're creating the virtualenv using Python 3.10 (``--python=/usr/bin/python3.10```), although Cookiecutter Django generates a project for Python 3.12. This is because, at time of writing, PythonAnywhere only supports Python 3.10. It shouldn't be a problem, but if is, you may try changing the Python version to 3.12 and see if it works. If it does, please let us know, or even better, submit a pull request to update this section.
 
 Setting environment variables in the console
 --------------------------------------------
@@ -46,7 +44,7 @@ Generate a secret key for yourself, eg like this:
 
 .. code-block:: bash
 
-    python -c 'import random;import string; print("".join(random.SystemRandom().choice(string.digits + string.ascii_letters + string.punctuation) for _ in range(50)))'
+    python -c 'import secrets;import string; print("".join(secrets.choice(string.digits + string.ascii_letters + string.punctuation) for _ in range(50)))'
 
 Make a note of it, since we'll need it here in the console and later on in the web app config tab.
 
@@ -75,7 +73,7 @@ Add these exports
     export DATABASE_URL='<see Database setup section below>'
     export REDIS_URL='<see Redis section below>'
 
-.. note:: The AWS details are not required if you're using whitenoise or the built-in pythonanywhere static files service, but you do need to set them to blank, as above.
+.. note:: The AWS details are not required if you're using whitenoise or the built-in PythonAnywhere static files service, but you do need to set them to blank, as above.
 
 
 Database setup
