@@ -101,7 +101,7 @@ jobs:
         uses: astral-sh/setup-uv@v6
       - name: Install dependencies
         run: uv sync
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: "24.7"
       - name: Bare Metal ${{ matrix.script.name }}
