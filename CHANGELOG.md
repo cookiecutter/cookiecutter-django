@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.09.03
+
+
+### Documentation
+
+- Update PythonAnywhere deployment page ([#6003](https://github.com/cookiecutter/cookiecutter-django/pull/6003))
+
+### Updated
+
+- Bump traefik from 3.5.0 to 3.5.1 ([#6004](https://github.com/cookiecutter/cookiecutter-django/pull/6004))
+
 ## 2025.09.02
 
 
