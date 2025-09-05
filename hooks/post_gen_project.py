@@ -214,7 +214,7 @@ def remove_repo_from_pre_commit_config(repo_to_remove: str):
         if not removing:
             new_lines.append(line)
 
-    pre_commit_config.write_text("\n".join(new_lines))
+    pre_commit_config.write_text("".join(new_lines))
 
 
 def remove_celery_files():
