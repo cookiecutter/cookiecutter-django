@@ -5,6 +5,7 @@ stages:
 variables:
   POSTGRES_USER: '{{ cookiecutter.project_slug }}'
   POSTGRES_PASSWORD: ''
+  POSTGRES_HOST: postgres
   POSTGRES_DB: 'test_{{ cookiecutter.project_slug }}'
   POSTGRES_HOST_AUTH_METHOD: trust
   {%- if cookiecutter.use_celery == 'y' %}
@@ -42,8 +43,6 @@ pytest:
   image: python:3.12
   services:
     - postgres:{{ cookiecutter.postgresql_version }}
-  variables:
-    DATABASE_URL: pgsql://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
   before_script:
     - pip install -r requirements/local.txt
   script:

@@ -59,8 +59,11 @@ jobs:
       {%- if cookiecutter.use_celery == 'y' %}
       REDIS_URL: 'redis://localhost:6379/0'
       {%- endif %}
-      # postgres://user:password@host:port/database
-      DATABASE_URL: 'postgres://postgres:postgres@localhost:5432/postgres'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'postgres'
+      POSTGRES_DB: 'postgres'
+      POSTGRES_HOST: 'postgres'
+
     {%- endif %}
 
     steps:
