@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.09.04
+
+
+### Updated
+
+- Update django-anymail to 13.1 ([#6007](https://github.com/cookiecutter/cookiecutter-django/pull/6007))
+
+- Update sentry-sdk to 2.36.0 ([#6006](https://github.com/cookiecutter/cookiecutter-django/pull/6006))
+
 ## 2025.09.03
 
 
