@@ -15,7 +15,7 @@ watchfiles==1.1.0  # https://github.com/samuelcolvin/watchfiles
 # ------------------------------------------------------------------------------
 mypy==1.17.1  # https://github.com/python/mypy
 django-stubs[compatible-mypy]==5.2.2  # https://github.com/typeddjango/django-stubs
-pytest==8.4.1  # https://github.com/pytest-dev/pytest
+pytest==8.4.2  # https://github.com/pytest-dev/pytest
 pytest-sugar==1.1.1  # https://github.com/Teemu/pytest-sugar
 {%- if cookiecutter.use_drf == "y" %}
 djangorestframework-stubs==3.16.0  # https://github.com/typeddjango/djangorestframework-stubs
