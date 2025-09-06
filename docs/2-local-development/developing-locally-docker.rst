@@ -32,14 +32,32 @@ Build the Stack
 
 This can take a while, especially the first time you run this particular command on your development system::
 
-    $ docker compose -f docker-compose.local.yml build
+    docker compose -f docker-compose.local.yml build
 
 Generally, if you want to emulate production environment use ``docker-compose.production.yml`` instead. And this is true for any other actions you might need to perform: whenever a switch is required, just do it!
 
+After we have created our initial image we nee to generate a lockfile for our dependencies.
+Docker cannot write to the host system during builds, so we have to run the command to generate the lockfile in the container.
+This is important for reproducible builds and to ensure that the dependencies are installed correctly in the container.
+Updating the lockfile manually is normally not necessary when you add packages through `uv add <package_name>`.
+
+    docker compose -f docker-compose.local.yml run --rm django uv lock
+
+This is done by running the following command: ::
+
+    docker compose -f docker-compose.local.yml run --rm django uv lock
+
+To be sure we are on the right track we need to build our image again: ::
+
+    docker compose -f docker-compose.local.yml build
+
+
+
+
 Before doing any git commit, `pre-commit`_ should be installed globally on your local machine, and then::
 
-    $ git init
-    $ pre-commit install
+    git init
+    pre-commit install
 
 Failing to do so will result with a bunch of CI and Linter errors that can be avoided with pre-commit.
 
@@ -50,27 +68,27 @@ This brings up both Django and PostgreSQL. The first time it is run it might tak
 
 Open a terminal at the project root and run the following for local development::
 
-    $ docker compose -f docker-compose.local.yml up
+    docker compose -f docker-compose.local.yml up
 
 You can also set the environment variable ``COMPOSE_FILE`` pointing to ``docker-compose.local.yml`` like this::
 
-    $ export COMPOSE_FILE=docker-compose.local.yml
+    export COMPOSE_FILE=docker-compose.local.yml
 
 And then run::
 
-    $ docker compose up
+    docker compose up
 
 To run in a detached (background) mode, just::
 
-    $ docker compose up -d
+    docker compose up -d
 
 These commands don't run the docs service. In order to run docs service you can run::
 
-    $ docker compose -f docker-compose.docs.yml up
+    docker compose -f docker-compose.docs.yml up
 
 To run the docs with local services just use::
 
-    $ docker compose -f docker-compose.local.yml -f docker-compose.docs.yml up
+    docker compose -f docker-compose.local.yml -f docker-compose.docs.yml up
 
 The site should start and be accessible at http://localhost:3000 if you selected Webpack or Gulp as frontend pipeline and http://localhost:8000 otherwise.
 
@@ -79,8 +97,8 @@ Execute Management Commands
 
 As with any shell command that we wish to run in our container, this is done using the ``docker compose -f docker-compose.local.yml run --rm`` command: ::
 
-    $ docker compose -f docker-compose.local.yml run --rm django python manage.py migrate
-    $ docker compose -f docker-compose.local.yml run --rm django python manage.py createsuperuser
+    docker compose -f docker-compose.local.yml run --rm django python manage.py migrate
+    docker compose -f docker-compose.local.yml run --rm django python manage.py createsuperuser
 
 Here, ``django`` is the target service we are executing the commands against.
 Also, please note that the ``docker exec`` does not work for running management commands.
@@ -136,7 +154,7 @@ The three envs we are presented with here are ``POSTGRES_DB``, ``POSTGRES_USER``
 
 One final touch: should you ever need to merge ``.envs/.production/*`` in a single ``.env`` run the ``merge_production_dotenvs_in_dotenv.py``: ::
 
-    $ python merge_production_dotenvs_in_dotenv.py
+    python merge_production_dotenvs_in_dotenv.py
 
 The ``.env`` file will then be created, with all your production envs residing beside each other.
 
@@ -149,15 +167,15 @@ Activate a Docker Machine
 
 This tells our computer that all future commands are specifically for the dev1 machine. Using the ``eval`` command we can switch machines as needed.::
 
-    $ eval "$(docker-machine env dev1)"
+    eval "$(docker-machine env dev1)"
 
 Add 3rd party python packages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To install a new 3rd party python package, you cannot use ``pip install <package_name>``, that would only add the package to the container. The container is ephemeral, so that new library won't be persisted if you run another container. Instead, you should modify the Docker image:
-You have to modify the relevant requirement file: base, local or production by adding: ::
+To install a new 3rd party python package, you cannot use ``uv add <package_name>``, that would only add the package to the container. The container is ephemeral, so that new library won't be persisted if you run another container. Instead, you should modify the Docker image:
+You have to modify pyproject.toml and either add it to project.dependencies or to tool.uv.dev-dependencies by adding: ::
 
-    <package_name>==<package_version>
+    "<package_name>==<package_version>"
 
 To get this change picked up, you'll need to rebuild the image(s) and restart the running container: ::
 
@@ -176,7 +194,7 @@ If you are using the following within your code to debug: ::
 
 Then you may need to run the following for it to work as desired: ::
 
-    $ docker compose -f docker-compose.local.yml run --rm --service-ports django
+    docker compose -f docker-compose.local.yml run --rm --service-ports django
 
 
 django-debug-toolbar
@@ -190,8 +208,8 @@ docker
 
 The ``container_name`` from the yml file can be used to check on containers with docker commands, for example: ::
 
-    $ docker logs <project_slug>_local_celeryworker
-    $ docker top <project_slug>_local_celeryworker
+    docker logs <project_slug>_local_celeryworker
+    docker top <project_slug>_local_celeryworker
 
 Notice that the ``container_name`` is generated dynamically using your project slug as a prefix
 
@@ -331,7 +349,7 @@ Assuming that you registered your local hostname as ``my-dev-env.local``, the ce
 
 Rebuild your ``docker`` application. ::
 
-    $ docker compose -f docker-compose.local.yml up -d --build
+    docker compose -f docker-compose.local.yml up -d --build
 
 Go to your browser and type in your URL bar ``https://my-dev-env.local``.
 

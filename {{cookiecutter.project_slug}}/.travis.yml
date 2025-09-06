@@ -40,7 +40,8 @@ jobs:
       python:
         - "3.12"
       install:
-        - pip install -r requirements/local.txt
+        - pip install uv
+        - uv sync
       script:
-        - pytest
+        - uv run pytest
     {%- endif %}

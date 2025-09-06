@@ -3,6 +3,8 @@ import json
 import random
 import shutil
 import string
+import subprocess
+import sys
 from pathlib import Path
 
 try:
@@ -77,7 +79,7 @@ def remove_utility_files():
 
 
 def remove_heroku_files():
-    file_names = ["Procfile", "requirements.txt"]
+    file_names = ["Procfile"]
     for file_name in file_names:
         if file_name == "requirements.txt" and "{{ cookiecutter.ci_tool }}".lower() == "travis":
             # Don't remove the file if we are using Travis CI but not using Heroku
@@ -195,20 +197,24 @@ def handle_js_runner(choice, use_docker, use_async):
 
 
 def remove_prettier_pre_commit():
-    pre_commit_yaml = Path(".pre-commit-config.yaml")
-    content = pre_commit_yaml.read_text().splitlines()
+    remove_repo_from_pre_commit_config("mirrors-prettier")
+
+
+def remove_repo_from_pre_commit_config(repo_to_remove: str):
+    pre_commit_config = Path(".pre-commit-config.yaml")
+    content = pre_commit_config.read_text().splitlines(keepends=True)
 
     removing = False
     new_lines = []
     for line in content:
         if removing and "- repo:" in line:
             removing = False
-        if "mirrors-prettier" in line:
+        if repo_to_remove in line:
             removing = True
         if not removing:
             new_lines.append(line)
 
-    pre_commit_yaml.write_text("\n".join(new_lines))
+    pre_commit_config.write_text("".join(new_lines))
 
 
 def remove_celery_files():
@@ -499,7 +505,70 @@ def main():  # noqa: C901, PLR0912, PLR0915
     if "{{ cookiecutter.use_async }}".lower() == "n":
         remove_async_files()
 
+    setup_dependencies()
+
     print(SUCCESS + "Project initialized, keep up the good work!" + TERMINATOR)
+
+
+def setup_dependencies():
+    print("Installing python dependencies using uv...")
+
+    if "{{ cookiecutter.use_docker }}".lower() == "y":
+        # Build a trimmed down Docker image add dependencies with uv
+        uv_docker_image_path = Path("compose/local/uv/Dockerfile")
+        uv_image_tag = "cookiecutter-django-uv-runner:latest"
+        try:
+            subprocess.run(  # noqa: S603
+                [  # noqa: S607
+                    "docker",
+                    "build",
+                    "-t",
+                    uv_image_tag,
+                    "-f",
+                    str(uv_docker_image_path),
+                    "-q",
+                    ".",
+                ],
+                check=True,
+            )
+        except subprocess.CalledProcessError as e:
+            print(f"Error building Docker image: {e}", file=sys.stderr)
+            sys.exit(1)
+
+        # Use Docker to run the uv command
+        uv_cmd = ["docker", "run", "--rm", "-v", ".:/app", uv_image_tag, "uv"]
+    else:
+        # Use uv command directly
+        uv_cmd = ["uv"]
+
+    # Install production dependencies
+    try:
+        subprocess.run([*uv_cmd, "add", "--no-sync", "-r", "requirements/production.txt"], check=True)  # noqa: S603
+    except subprocess.CalledProcessError as e:
+        print(f"Error installing production dependencies: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    # Install local (development) dependencies
+    try:
+        subprocess.run([*uv_cmd, "add", "--no-sync", "--dev", "-r", "requirements/local.txt"], check=True)  # noqa: S603
+    except subprocess.CalledProcessError as e:
+        print(f"Error installing local dependencies: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    # Remove the requirements directory
+    requirements_dir = Path("requirements")
+    if requirements_dir.exists():
+        try:
+            shutil.rmtree(requirements_dir)
+        except Exception as e:  # noqa: BLE001
+            print(f"Error removing 'requirements' folder: {e}", file=sys.stderr)
+            sys.exit(1)
+
+    uv_image_parent_dir_path = Path("compose/local/uv")
+    if uv_image_parent_dir_path.exists():
+        shutil.rmtree(str(uv_image_parent_dir_path))
+
+    print("Setup complete!")
 
 
 if __name__ == "__main__":
