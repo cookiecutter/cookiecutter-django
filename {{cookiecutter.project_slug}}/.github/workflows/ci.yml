@@ -118,7 +118,7 @@ jobs:
           python-version-file: ".python-version"
 
       - name: Install dependencies
-        run: uv sync
+        run: uv sync --locked
 
       - name: Check DB Migrations
         run: uv run python manage.py makemigrations --check

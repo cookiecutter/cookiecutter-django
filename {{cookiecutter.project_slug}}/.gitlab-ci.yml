@@ -45,7 +45,7 @@ pytest:
   variables:
     DATABASE_URL: pgsql://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
   before_script:
-    - uv sync --frozen
+    - uv sync --locked
   script:
     - uv run pytest
   {%- endif %}
