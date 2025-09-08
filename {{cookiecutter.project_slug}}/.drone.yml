@@ -39,7 +39,7 @@ steps:
   {%- else %}
   image: ghcr.io/astral-sh/uv:python3.12
   commands:
-  - uv sync --frozen
+  - uv sync --locked
   - uv run pytest
   {%- endif%}
 
