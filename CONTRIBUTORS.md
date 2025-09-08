@@ -1707,6 +1707,13 @@ Listed in alphabetical order.
     <td>MatzeOne</td>
   </tr>
   <tr>
+    <td>Maurício Gioachini</td>
+    <td>
+      <a href="https://github.com/MauGx3">MauGx3</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Meghan Heintz</td>
     <td>
       <a href="https://github.com/dot2dotseurat">dot2dotseurat</a>
