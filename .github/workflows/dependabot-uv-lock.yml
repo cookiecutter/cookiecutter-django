@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - "pyproject.toml"
+  # Manual trigger
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -11,7 +13,7 @@ permissions:
 
 jobs:
   lock:
-    if: ${{ github.actor == 'dependabot[bot]' }}
+    if: ${{ github.event_name == 'workflow_dispatch' || github.actor == 'dependabot[bot]' }}
     runs-on: ubuntu-latest
     env:
       GH_PAT: ${{ secrets.GH_PAT }}
