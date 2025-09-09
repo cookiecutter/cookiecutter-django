@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   lock:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.actor == 'dependabot[bot]' }}
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request' && (github.event.pull_request.user.login == 'pyup-bot' || github.event.pull_request.user.login == 'dependabot[bot]') }}
     runs-on: ubuntu-latest
     env:
       GH_PAT: ${{ secrets.GH_PAT }}
