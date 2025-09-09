@@ -40,7 +40,7 @@ dependencies = [
   "pytest==8.3.4",
   "pytest-cookies==0.7",
   "pytest-instafail==0.5",
-  "pytest-xdist==3.6.1",
+  "pytest-xdist==3.8.0",
   "pyyaml==6.0.2",
   "requests==2.32.3",
   "ruff==0.12.12",
