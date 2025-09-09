@@ -220,7 +220,7 @@ requires-dist = [
     { name = "cookiecutter", specifier = "==2.6" },
     { name = "django-upgrade", specifier = "==1.22.2" },
     { name = "djlint", specifier = "==1.36.4" },
-    { name = "gitpython", specifier = "==3.1.43" },
+    { name = "gitpython", specifier = "==3.1.45" },
     { name = "jinja2", specifier = "==3.1.6" },
     { name = "pre-commit", specifier = "==4.1.0" },
     { name = "pygithub", specifier = "==2.5" },
@@ -388,14 +388,14 @@ wheels = [
 
 [[package]]
 name = "gitpython"
-version = "3.1.43"
+version = "3.1.45"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "gitdb" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/b6/a1/106fd9fa2dd989b6fb36e5893961f82992cf676381707253e0bf93eb1662/GitPython-3.1.43.tar.gz", hash = "sha256:35f314a9f878467f5453cc1fee295c3e18e52f1b99f10f6cf5b1682e968a9e7c", size = 214149, upload-time = "2024-03-31T08:07:34.154Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/9a/c8/dd58967d119baab745caec2f9d853297cec1989ec1d63f677d3880632b88/gitpython-3.1.45.tar.gz", hash = "sha256:85b0ee964ceddf211c41b9f27a49086010a190fd8132a24e21f362a4b36a791c", size = 215076, upload-time = "2025-07-24T03:45:54.871Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e9/bd/cc3a402a6439c15c3d4294333e13042b915bbeab54edc457c723931fed3f/GitPython-3.1.43-py3-none-any.whl", hash = "sha256:eec7ec56b92aad751f9912a73404bc02ba212a23adb2c7098ee668417051a1ff", size = 207337, upload-time = "2024-03-31T08:07:31.194Z" },
+    { url = "https://files.pythonhosted.org/packages/01/61/d4b89fec821f72385526e1b9d9a3a0385dda4a72b206d28049e2c7cd39b8/gitpython-3.1.45-py3-none-any.whl", hash = "sha256:8908cb2e02fb3b93b7eb0f2827125cb699869470432cc885f019b8fd0fccff77", size = 208168, upload-time = "2025-07-24T03:45:52.517Z" },
 ]
 
 [[package]]
