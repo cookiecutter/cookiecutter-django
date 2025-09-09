@@ -13,11 +13,11 @@ APP = /app
 APP = ../{{cookiecutter.project_slug}}
 {% endif %}
 
-.PHONY: html livehtml apidocs Makefile
+.PHONY: help livehtml apidocs Makefile
 
 # Put it first so that "make" without argument is like "make html".
-html:
-	@$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) -c .
+help:
+	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) -c .
 
 # Build, watch and serve docs with live reload
 livehtml:
