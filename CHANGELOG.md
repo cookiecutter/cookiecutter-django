@@ -3,6 +3,21 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.09.08
+
+
+### Fixed
+
+- Use `--locked` instead of `--frozen` when running `uv sync` ([#6018](https://github.com/cookiecutter/cookiecutter-django/pull/6018))
+
+- Remove mentions of `pip` and `virtualenv` in the `install_python_dependencies.sh` utility script ([#6019](https://github.com/cookiecutter/cookiecutter-django/pull/6019))
+
+### Updated
+
+- Update psycopg to 3.2.10 ([#6023](https://github.com/cookiecutter/cookiecutter-django/pull/6023))
+
+- Update django-cors-headers to 4.8.0 ([#6022](https://github.com/cookiecutter/cookiecutter-django/pull/6022))
+
 ## 2025.09.06
 
 
