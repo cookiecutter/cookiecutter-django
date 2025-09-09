@@ -22,7 +22,8 @@ updates:
 
   # Update npm packages
   - package-ecosystem: "npm"
-    directory: "{{cookiecutter.project_slug}}/"
+    directories:
+      - "{{cookiecutter.project_slug}}/"
     schedule:
       interval: "daily"
     labels:
