@@ -3,6 +3,23 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.09.09
+
+
+### Updated
+
+- Bump nginx from 1.17.8 to 1.29.1 ([#6036](https://github.com/cookiecutter/cookiecutter-django/pull/6036))
+
+- Bump amazon/aws-cli image from 2.28.0 to 2.29.0 ([#6031](https://github.com/cookiecutter/cookiecutter-django/pull/6031))
+
+- Update django-allauth to 65.11.2 ([#6030](https://github.com/cookiecutter/cookiecutter-django/pull/6030))
+
+- Update sentry-sdk to 2.37.1 ([#6027](https://github.com/cookiecutter/cookiecutter-django/pull/6027))
+
+- Update whitenoise to 6.10.0 ([#6026](https://github.com/cookiecutter/cookiecutter-django/pull/6026))
+
+- Update django-upgrade pre-commit hook ([#6025](https://github.com/cookiecutter/cookiecutter-django/pull/6025))
+
 ## 2025.09.08
 
 
