@@ -42,7 +42,7 @@ dependencies = [
   "pytest-instafail==0.5",
   "pytest-xdist==3.8.0",
   "pyyaml==6.0.2",
-  "requests==2.32.4",
+  "requests==2.32.5",
   "ruff==0.12.12",
   "sh==2.1; sys_platform!='win23'",
   "tox==4.30.2",
