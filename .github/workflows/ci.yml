@@ -26,7 +26,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v6
       - name: Install dependencies
-        run: uv sync
+        run: uv sync --locked
       - name: Run tests
         run: uv run pytest -n auto tests
 
@@ -55,7 +55,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v6
       - name: Install dependencies
-        run: uv sync
+        run: uv sync --locked
       - name: Docker ${{ matrix.script.name }}
         run: sh tests/test_docker.sh ${{ matrix.script.args }}
 
@@ -100,7 +100,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v6
       - name: Install dependencies
-        run: uv sync
+        run: uv sync --locked
       - uses: actions/setup-node@v5
         with:
           node-version: "24.7"
