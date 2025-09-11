@@ -125,14 +125,6 @@ lint.ignore = [
   "S101",   # Use of assert detected https://docs.astral.sh/ruff/rules/assert/
   "SIM102", # sometimes it's better to nest
   "TRY003", # Avoid specifying long messages outside the exception class
-  # Checks for uses of isinstance/issubclass that take a tuple of types for comparison.
-  # Deactivated because it can make the code slow: https://github.com/astral-sh/ruff/issues/7871
-  "UP038",
-]
-# The fixes in extend-unsafe-fixes will require
-# provide the `--unsafe-fixes` flag when fixing.
-lint.extend-unsafe-fixes = [
-  "UP038",
 ]
 lint.isort.force-single-line = true
 
