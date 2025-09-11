@@ -103,6 +103,6 @@ jobs:
         run: uv sync --locked
       - uses: actions/setup-node@v5
         with:
-          node-version: "24.7"
+          node-version: "24.8"
       - name: Bare Metal ${{ matrix.script.name }}
         run: sh tests/test_bare.sh ${{ matrix.script.args }}
