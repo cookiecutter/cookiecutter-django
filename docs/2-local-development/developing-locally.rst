@@ -216,7 +216,7 @@ You can also use Django admin to queue up tasks, thanks to the `django-celerybea
 Using Webpack or Gulp
 ---------------------
 
-If you've opted for Gulp or Webpack as front-end pipeline, the project comes configured with `Sass`_ compilation and `live reloading`_. As you change your Sass/JS source files, the task runner will automatically rebuild the corresponding CSS and JS assets and reload them in your browser without refreshing the page.
+If you've opted for Gulp or Webpack as front-end pipeline, the project comes configured with `Sass`_ compilation. As you change your Sass/JS source files, the task runner will automatically rebuild the corresponding CSS and JS assets. The project also uses `django-browser-reload`_ to automatically refresh your browser when changes are detected.
 
 #. Make sure that `Node.js`_ v18 is installed on your machine.
 #. In the project root, install the JS dependencies with::
@@ -227,7 +227,7 @@ If you've opted for Gulp or Webpack as front-end pipeline, the project comes con
 
     npm run dev
 
-   This will start 2 processes in parallel: the static assets build loop on one side, and the Django server on the other.
+   This will start 2 processes in parallel: the static assets build loop on one side, and the Django server on the other. `django-browser-reload`_ will detect changes to your Python, CSS, and JavaScript files and will refresh your current browser tab automatically.
 
 #. Access your application at the address of the ``node`` service in order to see your correct styles. This is http://localhost:3000 by default.
 
@@ -236,7 +236,7 @@ If you've opted for Gulp or Webpack as front-end pipeline, the project comes con
 
 .. _Node.js: http://nodejs.org/download/
 .. _Sass: https://sass-lang.com/
-.. _live reloading: https://browsersync.io
+.. _django-browser-reload: https://github.com/adamchainz/django-browser-reload
 
 Summary
 -------
