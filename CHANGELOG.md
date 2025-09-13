@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.09.12
+
+
+### Updated
+
+- Bump amazon/aws-cli Docker image from 2.29.0 to 2.30.0 ([#6054](https://github.com/cookiecutter/cookiecutter-django/pull/6054))
+
 ## 2025.09.11
 
 
