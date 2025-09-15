@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.09.14
+
+
+### Documentation
+
+- Update documentation for deploying on PythonAnywhere with uv ([#6017](https://github.com/cookiecutter/cookiecutter-django/pull/6017))
+
+### Updated
+
+- Update django-stubs to 5.2.5 ([#6055](https://github.com/cookiecutter/cookiecutter-django/pull/6055))
+
 ## 2025.09.12
 
 
