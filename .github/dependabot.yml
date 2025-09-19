@@ -11,6 +11,8 @@ updates:
       interval: "daily"
     labels:
       - "project infrastructure"
+    ignore:
+      - dependency-name: "ruff" # updated via PyUp
 
   # Update GitHub actions in workflows
   - package-ecosystem: "github-actions"
