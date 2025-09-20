@@ -10,20 +10,16 @@ import pjson from './package.json' with {type: 'json'};
 import autoprefixer from 'autoprefixer';
 import browserSyncLib from 'browser-sync';
 import concat from 'gulp-concat';
-import tildeImporter from 'node-sass-tilde-importer';
 import cssnano from 'cssnano';
 import pixrem from 'pixrem';
 import plumber from 'gulp-plumber';
 import postcss from 'gulp-postcss';
 import rename from 'gulp-rename';
-import gulpSass from 'gulp-sass';
-import * as dartSass from 'sass';
 import gulUglifyES from 'gulp-uglify-es';
 import { spawn } from 'node:child_process';
 
 const browserSync = browserSyncLib.create();
 const reload = browserSync.reload;
-const sass = gulpSass(dartSass);
 const uglify = gulUglifyES.default;
 
 // Relative paths function
@@ -39,7 +35,7 @@ function pathsConfig() {
     app: appName,
     templates: `${appName}/templates`,
     css: `${appName}/static/css`,
-    sass: `${appName}/static/sass`,
+    styles: `${appName}/static/styles`,
     fonts: `${appName}/static/fonts`,
     images: `${appName}/static/images`,
     js: `${appName}/static/js`,
@@ -55,21 +51,16 @@ const paths = pathsConfig();
 // Styles autoprefixing and minification
 function styles() {
   const processCss = [
-    autoprefixer(), // adds vendor prefixes
-    pixrem(), // add fallbacks for rem units
+    // autoprefixer(), // adds vendor prefixes
+    // pixrem(), // add fallbacks for rem units
+    tailwindcss(),
   ];
 
   const minifyCss = [
     cssnano({ preset: 'default' }), // minify result
   ];
 
-  return src(`${paths.sass}/project.scss`)
-    .pipe(
-      sass({
-        importer: tildeImporter,
-        includePaths: [paths.sass],
-      }).on('error', sass.logError),
-    )
+  return src(`${paths.styles}/project.scss`)
     .pipe(plumber()) // Checks for errors
     .pipe(postcss(processCss))
     .pipe(dest(paths.css))
@@ -159,7 +150,7 @@ function initBrowserSync() {
 
 // Watch
 function watchPaths() {
-  watch(`${paths.sass}/*.scss`{% if cookiecutter.windows == 'y' %}, { usePolling: true }{% endif %}, styles);
+  watch(`${paths.styles}/*.css`{% if cookiecutter.windows == 'y' %}, { usePolling: true }{% endif %}, styles);
   watch(`${paths.templates}/**/*.html`{% if cookiecutter.windows == 'y' %}, { usePolling: true }{% endif %}).on('change', reload);
   watch([`${paths.js}/*.js`, `!${paths.js}/*.min.js`]{% if cookiecutter.windows == 'y' %}, { usePolling: true }{% endif %}, scripts).on(
     'change',

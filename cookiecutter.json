@@ -34,6 +34,7 @@
   "use_async": "n",
   "use_drf": "n",
   "frontend_pipeline": ["None", "Django Compressor", "Gulp", "Webpack"],
+  "css_framework": ["Tailwind", "Bootstrap"],
   "use_celery": "n",
   "use_mailpit": "n",
   "use_sentry": "n",

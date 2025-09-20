@@ -84,7 +84,11 @@ DJANGO_APPS = [
 ]
 THIRD_PARTY_APPS = [
     "crispy_forms",
+{%- if cookiecutter.css_framework == "Bootstrap" %}
     "crispy_bootstrap5",
+{%- elif cookiecutter.css_framework == "Tailwind" %}
+    "crispy_tailwind",
+{%- endif %}
     "allauth",
     "allauth.account",
     "allauth.mfa",
@@ -101,6 +105,8 @@ THIRD_PARTY_APPS = [
 {%- if cookiecutter.frontend_pipeline == 'Webpack' %}
     "webpack_loader",
 {%- endif %}
+    "django_cotton",
+    "turnstile",
 ]
 
 LOCAL_APPS = [
@@ -223,8 +229,13 @@ TEMPLATES = [
 FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 
 # http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
+{%- if cookiecutter.css_framework == "Bootstrap" %}
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+{%- elif cookiecutter.css_framework == "Tailwind" %}
+CRISPY_TEMPLATE_PACK = "tailwind"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+{%- endif %}
 
 # FIXTURES
 # ------------------------------------------------------------------------------
@@ -349,7 +360,7 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 # https://docs.allauth.org/en/latest/account/configuration.html
 ACCOUNT_ADAPTER = "{{cookiecutter.project_slug}}.users.adapters.AccountAdapter"
 # https://docs.allauth.org/en/latest/account/forms.html
-ACCOUNT_FORMS = {"signup": "{{cookiecutter.project_slug}}.users.forms.UserSignupForm"}
+ACCOUNT_FORMS = {"signup": "{{cookiecutter.project_slug}}.users.forms.UserSignupForm",  "reset_password": "{{cookiecutter.project_slug}}.users.forms.UserResetPasswordForm", "login": "{{cookiecutter.project_slug}}.users.forms.UserLoginForm"}
 # https://docs.allauth.org/en/latest/socialaccount/configuration.html
 SOCIALACCOUNT_ADAPTER = "{{cookiecutter.project_slug}}.users.adapters.SocialAccountAdapter"
 # https://docs.allauth.org/en/latest/socialaccount/configuration.html

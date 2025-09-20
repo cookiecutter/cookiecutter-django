@@ -446,5 +446,9 @@ SPECTACULAR_SETTINGS["SERVERS"] = [
 ]
 
 {%- endif %}
+
+# Cloudflare turnstile
+TURNSTILE_SITEKEY = env("TURNSTILE_SITEKEY")
+TURNSTILE_SECRET = env("TURNSTILE_SECRET")
 # Your stuff...
 # ------------------------------------------------------------------------------

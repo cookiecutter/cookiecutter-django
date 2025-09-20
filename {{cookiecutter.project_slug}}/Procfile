@@ -1,4 +1,4 @@
-release: python manage.py migrate
+release: python manage.py migrate --noinput
 {%- if cookiecutter.use_async == "y" %}
 web: gunicorn config.asgi:application -k uvicorn_worker.UvicornWorker
 {%- else %}

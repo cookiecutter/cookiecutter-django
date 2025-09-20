@@ -215,3 +215,11 @@ tags
 .idea/
 
 .pytest_cache/
+
+# Jentamin Custom Template Rules
+media/
+node_modules/
+static/dist
+staticfiles/
+*.sqlite3
+*.db
