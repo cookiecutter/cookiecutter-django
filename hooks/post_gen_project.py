@@ -128,7 +128,7 @@ def update_package_json(remove_dev_deps=None, remove_keys=None, scripts=None):
     package_json = Path("package.json")
     content = json.loads(package_json.read_text())
     for package_name in remove_dev_deps:
-        content["devDependencies"].pop(package_name)
+        content["devDependencies"].pop(package_name, None)
     for key in remove_keys:
         content.pop(key)
     content["scripts"].update(scripts)
