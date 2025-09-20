@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.09.19
+
+
+### Updated
+
+- Bump sass from 1.92.1 to 1.93.0 ([#6066](https://github.com/cookiecutter/cookiecutter-django/pull/6066))
+
+- Update ruff to 0.13.1 ([#6065](https://github.com/cookiecutter/cookiecutter-django/pull/6065))
+
+- Update mypy to 1.18.2 ([#6062](https://github.com/cookiecutter/cookiecutter-django/pull/6062))
+
 ## 2025.09.18
 
 
