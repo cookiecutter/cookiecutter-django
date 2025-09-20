@@ -110,7 +110,7 @@ We recommend to signup to a separate service offering hosted Redis (e.g. `Redisl
 Configure the PythonAnywhere Web Tab
 ------------------------------------
 
-Go to the PythonAnywhere **Web tab**, hit **Add new web app**, and choose **Manual Config**, and then the Pthon 3.12.
+Go to the PythonAnywhere **Web tab**, hit **Add new web app**, and choose **Manual Config**, and then the Python 3.13.
 
 .. note:: If you're using a custom domain (not on \*.pythonanywhere.com), then you'll need to set up a CNAME with your domain registrar.
 
