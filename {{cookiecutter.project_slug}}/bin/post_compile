@@ -22,5 +22,5 @@ then
 fi
 {%- endif %}
 
-python manage.py collectstatic --noinput
+python manage.py collectstatic --ignore "styles/*" --noinput
 python manage.py compilemessages -i site-packages

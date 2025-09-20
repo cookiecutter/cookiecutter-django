@@ -1,6 +1,7 @@
 # PRECAUTION: avoid production dependencies that aren't in development
 
 -r base.txt
+-r project.txt
 
 gunicorn==23.0.0  # https://github.com/benoitc/gunicorn
 psycopg[c]==3.2.10  # https://github.com/psycopg/psycopg

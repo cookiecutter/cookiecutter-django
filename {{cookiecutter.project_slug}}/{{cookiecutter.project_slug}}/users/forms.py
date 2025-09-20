@@ -1,10 +1,11 @@
-from allauth.account.forms import SignupForm
+from allauth.account.forms import SignupForm, ResetPasswordForm, LoginForm
 from allauth.socialaccount.forms import SignupForm as SocialSignupForm
 from django.contrib.auth import forms as admin_forms
 {%- if cookiecutter.username_type == "email" %}
 from django.forms import EmailField
 {%- endif %}
 from django.utils.translation import gettext_lazy as _
+from turnstile.fields import TurnstileField
 
 from .models import User
 
@@ -44,6 +45,7 @@ class UserSignupForm(SignupForm):
     Default fields will be added automatically.
     Check UserSocialSignupForm for accounts created from social.
     """
+    turnstile = TurnstileField(theme='light')
 
 
 class UserSocialSignupForm(SocialSignupForm):
@@ -52,3 +54,16 @@ class UserSocialSignupForm(SocialSignupForm):
     Default fields will be added automatically.
     See UserSignupForm otherwise.
     """
+    turnstile = TurnstileField(theme='light')
+
+
+class UserResetPasswordForm(ResetPasswordForm):
+    """
+    Form that will be rendered on a user reset password section/screen.
+    Default fields will be added automatically.
+    """
+    turnstile = TurnstileField(theme='light')
+
+
+class UserLoginForm(LoginForm):
+    turnstile = TurnstileField(theme='light')

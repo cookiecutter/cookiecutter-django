@@ -110,6 +110,12 @@ frontend_pipeline:
 
 Both Gulp and Webpack support Bootstrap recompilation with real-time variables alteration.
 
+css_framework:
+    Select a CSS framework to use. The choices are:
+
+    1. Tailwind CSS
+    2. Bootstrap 5
+
 use_celery:
     Indicates whether the project should be configured to use Celery_.
 
