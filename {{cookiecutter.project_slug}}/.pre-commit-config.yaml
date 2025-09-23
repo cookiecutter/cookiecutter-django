@@ -3,7 +3,7 @@ default_stages: [pre-commit]
 minimum_pre_commit_version: "3.2.0"
 
 default_language_version:
-  python: python3.12
+  python: python3.13
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -29,14 +29,14 @@ repos:
         exclude: '{{cookiecutter.project_slug}}/templates/'
 
   - repo: https://github.com/adamchainz/django-upgrade
-    rev: '1.27.0'
+    rev: '1.28.0'
     hooks:
       - id: django-upgrade
-        args: ['--target-version', '5.0']
+        args: ['--target-version', '5.2']
 
   # Run the Ruff linter.
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.12.12
+    rev: v0.13.1
     hooks:
       # Linter
       - id: ruff-check

@@ -18,7 +18,7 @@ plugins = ["django_coverage_plugin"]
 
 # ==== mypy ====
 [tool.mypy]
-python_version = "3.12"
+python_version = "3.13"
 check_untyped_defs = true
 ignore_missing_imports = true
 warn_unused_ignores = true
@@ -59,7 +59,6 @@ indent_size = 2
 indent_size = 2
 
 [tool.ruff]
-target-version = "py312"
 # Exclude a variety of commonly ignored directories.
 extend-exclude = [
     "*/migrations/*.py",
@@ -127,15 +126,9 @@ ignore = [
     "S101", # Use of assert detected https://docs.astral.sh/ruff/rules/assert/
     "RUF012", # Mutable class attributes should be annotated with `typing.ClassVar`
     "SIM102", # sometimes it's better to nest
-    "UP038", # Checks for uses of isinstance/issubclass that take a tuple
     # of types for comparison.
     # Deactivated because it can make the code slow:
     # https://github.com/astral-sh/ruff/issues/7871
-]
-# The fixes in extend-unsafe-fixes will require
-# provide the `--unsafe-fixes` flag when fixing.
-extend-unsafe-fixes = [
-  "UP038",
 ]
 
 [tool.ruff.lint.isort]
@@ -154,5 +147,5 @@ license = { text = "{{ cookiecutter.open_source_license }}" }
 authors = [
   { name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.email }}" },
 ]
-requires-python = "==3.12.*"
+requires-python = "==3.13.*"
 dependencies = []

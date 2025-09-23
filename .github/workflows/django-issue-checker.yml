@@ -20,6 +20,6 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v6
       - name: Create Django Major Issue
-        run: uv run --frozen scripts/create_django_issue.py
+        run: uv run --locked scripts/create_django_issue.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

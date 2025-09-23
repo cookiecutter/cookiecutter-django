@@ -204,7 +204,7 @@ class GitHubManager:
         # updated packages, or known releases that will happen but haven't yet
         if issue := self.existing_issues.get(needed_dj_version):
             if index := issue.body.find(package_name):
-                name, _current, prev_compat, ok = (s.strip() for s in issue.body[index:].split("|", 4)[:4])
+                _name, _current, prev_compat, ok = (s.strip() for s in issue.body[index:].split("|", 4)[:4])
                 if ok in ("✅", "❓", "🕒"):
                     return prev_compat, ok
 

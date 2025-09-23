@@ -1,6 +1,6 @@
 [project]
 name = "cookiecutter-django"
-version = "2025.09.06"
+version = "2025.09.22"
 description = "A Cookiecutter template for creating production-ready Django projects quickly."
 readme = "README.md"
 keywords = [
@@ -14,38 +14,38 @@ license = { text = "BSD" }
 authors = [
   { name = "Daniel Roy Greenfeld", email = "pydanny@gmail.com" },
 ]
-requires-python = ">=3.12,<3.13"
+requires-python = "==3.13.*"
 classifiers = [
   "Development Status :: 4 - Beta",
   "Environment :: Console",
-  "Framework :: Django :: 5.0",
+  "Framework :: Django :: 5.2",
   "Intended Audience :: Developers",
   "License :: OSI Approved :: BSD License",
   "Natural Language :: English",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: Implementation :: CPython",
   "Topic :: Software Development",
 ]
 dependencies = [
   "binaryornot==0.4.4",
   "cookiecutter==2.6",
-  "django-upgrade==1.22.2",
+  "django-upgrade==1.28.0",
   "djlint==1.36.4",
-  "gitpython==3.1.43",
-  "jinja2==3.1.5",
-  "pre-commit==4.1.0",
-  "pygithub==2.5",
-  "pytest==8.3.4",
+  "gitpython==3.1.45",
+  "jinja2==3.1.6",
+  "pre-commit==4.3.0",
+  "pygithub==2.8.1",
+  "pytest==8.4.2",
   "pytest-cookies==0.7",
   "pytest-instafail==0.5",
-  "pytest-xdist==3.6.1",
+  "pytest-xdist==3.8.0",
   "pyyaml==6.0.2",
-  "requests==2.32.3",
-  "ruff==0.12.12",
-  "sh==2.1; sys_platform!='win23'",
-  "tox==4.23.2",
+  "requests==2.32.5",
+  "ruff==0.13.1",
+  "sh==2.2.2; sys_platform!='win23'",
+  "tox==4.30.2",
   "tox-uv>=1.17",
 ]
 urls = { Repository = "https://github.com/cookiecutter/cookiecutter-django" }
@@ -125,14 +125,6 @@ lint.ignore = [
   "S101",   # Use of assert detected https://docs.astral.sh/ruff/rules/assert/
   "SIM102", # sometimes it's better to nest
   "TRY003", # Avoid specifying long messages outside the exception class
-  # Checks for uses of isinstance/issubclass that take a tuple of types for comparison.
-  # Deactivated because it can make the code slow: https://github.com/astral-sh/ruff/issues/7871
-  "UP038",
-]
-# The fixes in extend-unsafe-fixes will require
-# provide the `--unsafe-fixes` flag when fixing.
-lint.extend-unsafe-fixes = [
-  "UP038",
 ]
 lint.isort.force-single-line = true
 

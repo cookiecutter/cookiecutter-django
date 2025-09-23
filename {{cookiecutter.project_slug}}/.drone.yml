@@ -13,7 +13,7 @@ environment:
 steps:
 - name: lint
   pull: if-not-exists
-  image: ghcr.io/astral-sh/uv:python3.12
+  image: ghcr.io/astral-sh/uv:python3.13
   environment:
     PRE_COMMIT_HOME: ${CI_PROJECT_DIR}/.cache/pre-commit
   volumes:
@@ -37,7 +37,7 @@ steps:
   - docker-compose -f docker-compose.local.yml up -d
   - docker-compose -f docker-compose.local.yml run django pytest
   {%- else %}
-  image: ghcr.io/astral-sh/uv:python3.12
+  image: ghcr.io/astral-sh/uv:python3.13
   commands:
   - uv sync --locked
   - uv run pytest
