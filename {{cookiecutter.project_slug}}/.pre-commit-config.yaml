@@ -44,6 +44,11 @@ repos:
       # Formatter
       - id: ruff-format
 
+  - repo: https://github.com/tox-dev/pyproject-fmt
+    rev: v2.6.0
+    hooks:
+      - id: pyproject-fmt
+
   - repo: https://github.com/Riverside-Healthcare/djLint
     rev: v1.36.4
     hooks:
