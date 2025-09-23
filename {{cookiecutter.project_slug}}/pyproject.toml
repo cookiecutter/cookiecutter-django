@@ -1,22 +1,117 @@
+[project]
+name = "{{ cookiecutter.project_slug }}"
+version = "{{ cookiecutter.version }}"
+description = "{{ cookiecutter.description }}"
+readme = "README.md"
+license = { text = "{{ cookiecutter.open_source_license }}" }
+authors = [
+  { name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.email }}" },
+]
+requires-python = "==3.13.*"
+dependencies = []
+
+[dependency-groups]
+dev = []
+
+
+[tool.ruff]
+# Exclude a variety of commonly ignored directories.
+extend-exclude = [
+  "*/migrations/*.py",
+  "staticfiles/*",
+]
+
+lint.select = [
+  "F",
+  "E",
+  "W",
+  "C90",
+  "I",
+  "N",
+  "UP",
+  "YTT",
+  # "ANN", # flake8-annotations: we should support this in the future but 100+ errors atm
+  "ASYNC",
+  "S",
+  "BLE",
+  "FBT",
+  "B",
+  "A",
+  "COM",
+  "C4",
+  "DTZ",
+  "T10",
+  "DJ",
+  "EM",
+  "EXE",
+  "FA",
+  'ISC',
+  "ICN",
+  "G",
+  'INP',
+  'PIE',
+  "T20",
+  'PYI',
+  'PT',
+  "Q",
+  "RSE",
+  "RET",
+  "SLF",
+  "SLOT",
+  "SIM",
+  "TID",
+  "TC",
+  "INT",
+  # "ARG", # Unused function argument
+  "PTH",
+  "ERA",
+  "PD",
+  "PGH",
+  "PL",
+  "TRY",
+  "FLY",
+  # "NPY",
+  # "AIR",
+  "PERF",
+  # "FURB",
+  # "LOG",
+  "RUF",
+]
+lint.ignore = [
+  "S101", # Use of assert detected https://docs.astral.sh/ruff/rules/assert/
+  "RUF012", # Mutable class attributes should be annotated with `typing.ClassVar`
+  "SIM102", # sometimes it's better to nest
+  # of types for comparison.
+  # Deactivated because it can make the code slow:
+  # https://github.com/astral-sh/ruff/issues/7871
+]
+lint.isort.force-single-line = true
+
+[tool.pyproject-fmt]
+keep_full_version = true
+
 # ==== pytest ====
+
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "--ds=config.settings.test --reuse-db --import-mode=importlib"
 python_files = [
-    "tests.py",
-    "test_*.py",
+  "tests.py",
+  "test_*.py",
 ]
 {%- if cookiecutter.frontend_pipeline == 'Gulp' %}
-norecursedirs = ["node_modules"]
+norecursedirs = [ "node_modules" ]
 {%- endif %}
 
 # ==== Coverage ====
+
 [tool.coverage.run]
-include = ["{{cookiecutter.project_slug}}/**"]
-omit = ["*/migrations/*", "*/tests/*"]
-plugins = ["django_coverage_plugin"]
+include = [ "{{cookiecutter.project_slug}}/**" ]
+omit = [ "*/migrations/*", "*/tests/*" ]
+plugins = [ "django_coverage_plugin" ]
 
 # ==== mypy ====
+
 [tool.mypy]
 python_version = "3.13"
 check_untyped_defs = true
@@ -25,10 +120,10 @@ warn_unused_ignores = true
 warn_redundant_casts = true
 warn_unused_configs = true
 plugins = [
-    "mypy_django_plugin.main",
-    {%- if cookiecutter.use_drf == "y" %}
-    "mypy_drf_plugin.main",
-    {%- endif %}
+  "mypy_django_plugin.main",
+  {%- if cookiecutter.use_drf == "y" %}
+  "mypy_drf_plugin.main",
+  {%- endif %}
 ]
 
 [[tool.mypy.overrides]]
@@ -40,6 +135,7 @@ ignore_errors = true
 django_settings_module = "config.settings.test"
 
 # ==== djLint ====
+
 [tool.djlint]
 blank_line_after_tag = "load,extends"
 close_void_tags = true
@@ -58,94 +154,3 @@ indent_size = 2
 [tool.djlint.js]
 indent_size = 2
 
-[tool.ruff]
-# Exclude a variety of commonly ignored directories.
-extend-exclude = [
-    "*/migrations/*.py",
-    "staticfiles/*",
-]
-
-[tool.ruff.lint]
-select = [
-    "F",
-    "E",
-    "W",
-    "C90",
-    "I",
-    "N",
-    "UP",
-    "YTT",
-    # "ANN", # flake8-annotations: we should support this in the future but 100+ errors atm
-    "ASYNC",
-    "S",
-    "BLE",
-    "FBT",
-    "B",
-    "A",
-    "COM",
-    "C4",
-    "DTZ",
-    "T10",
-    "DJ",
-    "EM",
-    "EXE",
-    "FA",
-    'ISC',
-    "ICN",
-    "G",
-    'INP',
-    'PIE',
-    "T20",
-    'PYI',
-    'PT',
-    "Q",
-    "RSE",
-    "RET",
-    "SLF",
-    "SLOT",
-    "SIM",
-    "TID",
-    "TC",
-    "INT",
-    # "ARG", # Unused function argument
-    "PTH",
-    "ERA",
-    "PD",
-    "PGH",
-    "PL",
-    "TRY",
-    "FLY",
-    # "NPY",
-    # "AIR",
-    "PERF",
-    # "FURB",
-    # "LOG",
-    "RUF",
-]
-ignore = [
-    "S101", # Use of assert detected https://docs.astral.sh/ruff/rules/assert/
-    "RUF012", # Mutable class attributes should be annotated with `typing.ClassVar`
-    "SIM102", # sometimes it's better to nest
-    # of types for comparison.
-    # Deactivated because it can make the code slow:
-    # https://github.com/astral-sh/ruff/issues/7871
-]
-
-[tool.ruff.lint.isort]
-force-single-line = true
-
-[dependency-groups]
-dev = []
-
-[project]
-name = "{{ cookiecutter.project_slug }}"
-version = "{{ cookiecutter.version }}"
-description = "{{ cookiecutter.description }}"
-readme = "README.md"
-
-license = { text = "{{ cookiecutter.open_source_license }}" }
-authors = [
-  { name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.email }}" },
-]
-requires-python = "==3.13.*"
-dependencies = []
