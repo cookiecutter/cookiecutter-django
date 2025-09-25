@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.09.24
+
+
+### Updated
+
+- Bump amazon/aws-cli from 2.30.1 to 2.31.0 ([#6075](https://github.com/cookiecutter/cookiecutter-django/pull/6075))
+
 ## 2025.09.23
 
 
