@@ -41,7 +41,7 @@ dependencies = [
   "pytest-cookies==0.7",
   "pytest-instafail==0.5",
   "pytest-xdist==3.8.0",
-  "pyyaml==6.0.2",
+  "pyyaml==6.0.3",
   "requests==2.32.5",
   "ruff==0.13.2",
   "sh==2.2.2; sys_platform!='win23'",
