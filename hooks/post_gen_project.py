@@ -536,7 +536,7 @@ def setup_dependencies():
             sys.exit(1)
 
         # Use Docker to run the uv command
-        uv_cmd = ["docker", "run", "--rm", "-v", ".:/app", uv_image_tag, "uv"]
+        uv_cmd = ["docker", "run", "--rm", "-v", "./:/app", uv_image_tag, "uv"]
     else:
         # Use uv command directly
         uv_cmd = ["uv"]
