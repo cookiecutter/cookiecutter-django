@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.09.30
+
+
+### Updated
+
+- Bump node from 24.8 to 24.9 ([#6081](https://github.com/cookiecutter/cookiecutter-django/pull/6081))
+
+- Bump traefik from 3.5.2 to 3.5.3 ([#6083](https://github.com/cookiecutter/cookiecutter-django/pull/6083))
+
+- Update djangorestframework-stubs to 3.16.4 ([#6080](https://github.com/cookiecutter/cookiecutter-django/pull/6080))
+
 ## 2025.09.25
 
 
