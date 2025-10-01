@@ -12,10 +12,16 @@ classifiers = [
   "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python :: 3.13",
 ]
-dependencies = []
+dependencies = [
+  {# set the an initial indentation for uv to follow #}
+  "django",
+]
 
 [dependency-groups]
-dev = []
+dev = [
+  {# set the an initial indentation for uv to follow #}
+  "pytest",
+]
 
 [tool.ruff]
 # Exclude a variety of commonly ignored directories.
