@@ -166,7 +166,7 @@ def test_update_user(client: Client):
 
     response = client.patch(
         reverse("api:update_user", kwargs={"username": "old"}),
-        data='{"name": "New Name"}',
+        data='{"name": "New Name", "username": "old"}',
         content_type="application/json",
     )
 
