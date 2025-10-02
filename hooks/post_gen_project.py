@@ -508,10 +508,10 @@ def main():  # noqa: C901, PLR0912, PLR0915
     if "{{ cookiecutter.ci_tool }}" != "Drone":
         remove_dotdrone_file()
 
-    if "{{ cookiecutter.rest_api }}".lower() != "drf":
-        remove_drf_starter_files()
-    elif "{{ cookiecutter.rest_api }}".lower() != "django ninja":
+    if "{{ cookiecutter.rest_api }}" == "DRF":
         remove_ninja_starter_files()
+    elif "{{ cookiecutter.rest_api }}" == "Django Ninja":
+        remove_drf_starter_files()
     else:
         remove_rest_api_files()
 
