@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.10.01
+
+
+### Fixed
+
+- Fix Docker error volume name is too short during project generation ([#6086](https://github.com/cookiecutter/cookiecutter-django/pull/6086))
+
+### Updated
+
+- Update django to 5.2.7 ([#6087](https://github.com/cookiecutter/cookiecutter-django/pull/6087))
+
 ## 2025.09.30
 
 
