@@ -97,6 +97,8 @@ THIRD_PARTY_APPS = [
     "rest_framework.authtoken",
     "corsheaders",
     "drf_spectacular",
+{%- elif cookiecutter.rest_api == 'Django Ninja' %}
+    "corsheaders",
 {%- endif %}
 {%- if cookiecutter.frontend_pipeline == 'Webpack' %}
     "webpack_loader",
