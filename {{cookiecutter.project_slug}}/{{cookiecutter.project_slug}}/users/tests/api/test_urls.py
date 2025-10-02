@@ -2,7 +2,7 @@ from django.urls import resolve
 from django.urls import reverse
 
 from {{ cookiecutter.project_slug }}.users.models import User
-{%- if cookiecutter.rest_api == "DRF" %}
+{%- if cookiecutter.rest_api == 'DRF' %}
 
 
 def test_user_detail(user: User):
@@ -28,7 +28,7 @@ def test_user_list():
 def test_user_me():
     assert reverse("api:user-me") == "/api/users/me/"
     assert resolve("/api/users/me/").view_name == "api:user-me"
-{%- elif cookiecutter.rest_api == "Django Ninja" %}
+{%- elif cookiecutter.rest_api == 'Django Ninja' %}
 
 
 def test_user_detail(user: User):
