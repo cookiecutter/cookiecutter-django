@@ -34,7 +34,8 @@ from django.db.models import QuerySet
 from django.shortcuts import get_object_or_404
 from ninja import Router
 
-from {{ cookiecutter.project_slug }}.users.api.schema import UserSchema, UpdateUserSchema
+from {{ cookiecutter.project_slug }}.users.api.schema import UpdateUserSchema
+from {{ cookiecutter.project_slug }}.users.api.schema import UserSchema
 from {{ cookiecutter.project_slug }}.users.models import User
 
 router = Router(tags=["users"])
@@ -54,9 +55,8 @@ def list_users(request):
 def retrieve_user(request, pk: str):
     if pk == "me":
         return request.user
-    else:
-        users_qs = _get_users_queryset(request)
-        return get_object_or_404(users_qs, pk=pk)
+    users_qs = _get_users_queryset(request)
+    return get_object_or_404(users_qs, pk=pk)
 {%- else %}
 
 
@@ -64,9 +64,8 @@ def retrieve_user(request, pk: str):
 def retrieve_user(request, username: str):
     if username == "me":
         return request.user
-    else:
-        users_qs = _get_users_queryset(request)
-        return get_object_or_404(users_qs, username=username)
+    users_qs = _get_users_queryset(request)
+    return get_object_or_404(users_qs, username=username)
 {%- endif %}
 {%- if cookiecutter.username_type == "email" %}
 

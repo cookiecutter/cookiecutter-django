@@ -39,6 +39,8 @@ class TestUserViewSet:
             "name": user.name,
         }
 {%- elif cookiecutter.rest_api == 'Django Ninja' %}
+from http import HTTPStatus
+
 import pytest
 from django.test import Client
 from django.urls import reverse
@@ -57,7 +59,7 @@ def user():
 def test_list_users_as_anonymous_user(client: Client):
     response = client.get(reverse("api:list_users"))
 
-    assert response.status_code == 200
+    assert response.status_code == HTTPStatus.OK
     assert response.json() == []
 
 
@@ -68,7 +70,7 @@ def test_list_users_as_authenticated_user(client: Client, user: User):
 
     response = client.get(reverse("api:list_users"))
 
-    assert response.status_code == 200
+    assert response.status_code == HTTPStatus.OK
     assert response.json() == [
         {
             "name": user.name,
@@ -87,7 +89,7 @@ def test_retrieve_user(client: Client, user: User, username: str | None):
         reverse("api:retrieve_user", kwargs={"username": username}),
     )
 
-    assert response.status_code == 200
+    assert response.status_code == HTTPStatus.OK
     assert response.json() == {
         "name": user.name,
         "url": f"/api/users/{user.username}/",
@@ -103,7 +105,7 @@ def test_retrieve_another_user(client: Client, user: User):
         reverse("api:retrieve_user", kwargs={"username": user_2.username}),
     )
 
-    assert response.status_code == 404
+    assert response.status_code == HTTPStatus.NOT_FOUND
     assert response.json() == {"detail": "Not Found"}
 
 
@@ -117,7 +119,7 @@ def test_update_user(client: Client):
         content_type="application/json",
     )
 
-    assert response.status_code == 200, response.json()
+    assert response.status_code == HTTPStatus.OK, response.json()
     assert response.json() == {
         "name": "New Name",
         "url": "/api/users/old/",
