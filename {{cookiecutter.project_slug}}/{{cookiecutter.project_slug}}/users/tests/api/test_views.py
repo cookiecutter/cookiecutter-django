@@ -59,8 +59,7 @@ def user():
 def test_list_users_as_anonymous_user(client: Client):
     response = client.get(reverse("api:list_users"))
 
-    assert response.status_code == HTTPStatus.OK
-    assert response.json() == []
+    assert response.status_code == HTTPStatus.UNAUTHORIZED
 
 
 def test_list_users_as_authenticated_user(client: Client, user: User):
