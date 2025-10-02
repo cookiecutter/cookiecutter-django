@@ -182,7 +182,7 @@ debug:
 .. _Other SMTP: https://anymail.readthedocs.io/en/stable/
 
 .. _Django Rest Framework: https://github.com/encode/django-rest-framework/
-.. _`Django Ninja`: https://github.com/vitalik/django-ninja
+.. _Django Ninja: https://github.com/vitalik/django-ninja
 
 .. _Django Compressor: https://github.com/django-compressor/django-compressor
 
