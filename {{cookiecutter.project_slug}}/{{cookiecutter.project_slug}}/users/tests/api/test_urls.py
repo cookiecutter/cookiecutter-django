@@ -34,15 +34,15 @@ def test_user_me():
 def test_user_detail(user: User):
     {%- if cookiecutter.username_type == "email" %}
     assert (
+        reverse("api:retrieve_user", kwargs={"pk": user.pk}) == f"/api/users/{user.pk}/"
+    )
+    assert resolve(f"/api/users/{user.pk}/").view_name == "api:retrieve_user"
+    {%- else %}
+    assert (
         reverse("api:retrieve_user", kwargs={"username": user.username})
         == f"/api/users/{user.username}/"
     )
     assert resolve(f"/api/users/{user.username}/").view_name == "api:retrieve_user"
-    {%- else %}
-    assert (
-        reverse("api:retrieve_user", kwargs={"pk": user.pk}) == f"/api/users/{user.pk}/"
-    )
-    assert resolve(f"/api/users/{user.pk}/").view_name == "api:retrieve_user"
     {%- endif %}
 
 
@@ -64,7 +64,7 @@ def test_user_me():
 def test_update_user():
     {%- if cookiecutter.username_type == "email" %}
     assert reverse("api:update_user", kwargs={"pk": "me"}) == "/api/users/me/"
-    assert resolve("/api/users/me/").view_name == "api:update_user"
+    assert resolve("/api/users/me/").view_name == "api:retrieve_user"
     {%- else %}
     assert reverse("api:update_user", kwargs={"username": "me"}) == "/api/users/me/"
     assert resolve("/api/users/me/").view_name == "api:retrieve_user"

@@ -78,6 +78,25 @@ def test_list_users_as_authenticated_user(client: Client, user: User):
             "username": user.username,
         },
     ]
+{%- if cookiecutter.username_type == "email" %}
+
+
+@pytest.mark.parametrize("user_pk", [None, "me"])
+def test_retrieve_user(client: Client, user: User, user_pk: str | None):
+    client.force_login(user)
+    user_pk = user_pk or user.pk
+
+    response = client.get(
+        reverse("api:retrieve_user", kwargs={"pk": user_pk}),
+    )
+
+    assert response.status_code == HTTPStatus.OK
+    assert response.json() == {
+        "email": user.email,
+        "name": user.name,
+        "url": f"/api/users/{user.pk}/",
+    }
+{%- else %}
 
 
 @pytest.mark.parametrize("username", [None, "me"])
@@ -91,10 +110,12 @@ def test_retrieve_user(client: Client, user: User, username: str | None):
 
     assert response.status_code == HTTPStatus.OK
     assert response.json() == {
+        "email": user.email,
         "name": user.name,
         "url": f"/api/users/{user.username}/",
         "username": user.username,
     }
+{%- endif %}
 
 
 def test_retrieve_another_user(client: Client, user: User):
@@ -102,11 +123,36 @@ def test_retrieve_another_user(client: Client, user: User):
     user_2 = UserFactory()
 
     response = client.get(
+        {%- if cookiecutter.username_type == "email" %}
+        reverse("api:retrieve_user", kwargs={"pk": user_2.pk}),
+        {%- else %}
         reverse("api:retrieve_user", kwargs={"username": user_2.username}),
+        {%- endif %}
     )
 
     assert response.status_code == HTTPStatus.NOT_FOUND
     assert response.json() == {"detail": "Not Found"}
+
+{%- if cookiecutter.username_type == "email" %}
+
+
+def test_update_user(client: Client):
+    user = UserFactory(name="Old")
+    client.force_login(user)
+
+    response = client.patch(
+        reverse("api:update_user", kwargs={"pk": user.pk}),
+        data='{"name": "New Name"}',
+        content_type="application/json",
+    )
+
+    assert response.status_code == HTTPStatus.OK, response.json()
+    assert response.json() == {
+        "email": user.email,
+        "name": "New Name",
+        "url": f"/api/users/{user.pk}/",
+    }
+{%- else %}
 
 
 def test_update_user(client: Client):
@@ -121,8 +167,10 @@ def test_update_user(client: Client):
 
     assert response.status_code == HTTPStatus.OK, response.json()
     assert response.json() == {
+        "email": user.email,
         "name": "New Name",
         "url": "/api/users/old/",
         "username": "old",
     }
+{%- endif %}
 {%- endif %}
