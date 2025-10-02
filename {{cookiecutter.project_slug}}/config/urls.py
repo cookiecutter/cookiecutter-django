@@ -12,6 +12,9 @@ from django.views.generic import TemplateView
 from drf_spectacular.views import SpectacularAPIView
 from drf_spectacular.views import SpectacularSwaggerView
 from rest_framework.authtoken.views import obtain_auth_token
+{%- elif cookiecutter.rest_api == 'Django Ninja' %}
+
+from .api import api
 {%- endif %}
 
 urlpatterns = [
