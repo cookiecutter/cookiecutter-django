@@ -46,11 +46,10 @@ from django.urls import reverse
 from {{ cookiecutter.project_slug }}.users.models import User
 from {{ cookiecutter.project_slug }}.users.tests.factories import UserFactory
 
-
 pytestmark = pytest.mark.django_db
 
 
-@pytest.fixture()
+@pytest.fixture
 def user():
     return UserFactory()
 
@@ -85,7 +84,7 @@ def test_retrieve_user(client: Client, user: User, username: str | None):
     username = username or user.username
 
     response = client.get(
-        reverse("api:retrieve_user", kwargs={"username": username})
+        reverse("api:retrieve_user", kwargs={"username": username}),
     )
 
     assert response.status_code == 200
@@ -101,7 +100,7 @@ def test_retrieve_another_user(client: Client, user: User):
     user_2 = UserFactory()
 
     response = client.get(
-        reverse("api:retrieve_user", kwargs={"username": user_2.username})
+        reverse("api:retrieve_user", kwargs={"username": user_2.username}),
     )
 
     assert response.status_code == 404

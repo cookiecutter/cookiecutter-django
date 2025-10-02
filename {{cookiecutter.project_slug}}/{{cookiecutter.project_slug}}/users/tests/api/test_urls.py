@@ -1,4 +1,5 @@
-from django.urls import reverse, resolve
+from django.urls import resolve
+from django.urls import reverse
 
 from {{ cookiecutter.project_slug }}.users.models import User
 {%- if cookiecutter.rest_api == "DRF" %}

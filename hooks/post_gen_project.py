@@ -417,6 +417,8 @@ def remove_ninja_starter_files():
 
 
 def remove_rest_api_files():
+    remove_drf_starter_files()
+    remove_ninja_starter_files()
     shutil.rmtree(Path("{{cookiecutter.project_slug}}", "users", "api"))
     shutil.rmtree(Path("{{cookiecutter.project_slug}}", "users", "tests", "api"))
 
