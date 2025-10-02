@@ -3,7 +3,7 @@
 
 {% if cookiecutter.use_celery == 'y' -%}
 import ssl
-{%- endif %}
+{%- endif -%}
 from pathlib import Path
 
 import environ

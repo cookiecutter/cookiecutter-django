@@ -1,4 +1,4 @@
-{%- if cookiecutter.rest_api == 'DRF' %}
+{% if cookiecutter.rest_api == 'DRF' -%}
 import pytest
 from rest_framework.test import APIRequestFactory
 
@@ -38,7 +38,7 @@ class TestUserViewSet:
             {%- endif %}
             "name": user.name,
         }
-{%- elif cookiecutter.rest_api == 'Django Ninja' %}
+{%- elif cookiecutter.rest_api == 'Django Ninja' -%}
 from http import HTTPStatus
 
 import pytest
