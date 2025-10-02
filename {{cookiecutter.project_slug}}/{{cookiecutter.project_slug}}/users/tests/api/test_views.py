@@ -73,9 +73,14 @@ def test_list_users_as_authenticated_user(client: Client, user: User):
     assert response.status_code == HTTPStatus.OK
     assert response.json() == [
         {
+            "email": user.email,
             "name": user.name,
+            {%- if cookiecutter.username_type == "email" %}
+            "url": f"/api/users/{user.pk}/",
+            {%- else %}
             "url": f"/api/users/{user.username}/",
             "username": user.username,
+            {%- endif %}
         },
     ]
 {%- if cookiecutter.username_type == "email" %}
