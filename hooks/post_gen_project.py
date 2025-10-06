@@ -522,6 +522,7 @@ def setup_dependencies():
                 [  # noqa: S607
                     "docker",
                     "build",
+                    "--load",
                     "-t",
                     uv_image_tag,
                     "-f",
