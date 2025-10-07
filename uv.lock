@@ -202,7 +202,7 @@ docs = [
 requires-dist = [
     { name = "binaryornot", specifier = "==0.4.4" },
     { name = "cookiecutter", specifier = "==2.6" },
-    { name = "django-upgrade", specifier = "==1.28.0" },
+    { name = "django-upgrade", specifier = "==1.29.0" },
     { name = "djlint", specifier = "==1.36.4" },
     { name = "gitpython", specifier = "==3.1.45" },
     { name = "jinja2", specifier = "==3.1.6" },
@@ -279,14 +279,14 @@ wheels = [
 
 [[package]]
 name = "django-upgrade"
-version = "1.28.0"
+version = "1.29.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "tokenize-rt" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/18/6f/995743e6c5107d86ffc16a087a43a1e26333f15a23cc027748bf77e27695/django_upgrade-1.28.0.tar.gz", hash = "sha256:335b1efadbd93a83fdc65e0088c1dfefda488310f81fc23209621b89f6945b2c", size = 37188, upload-time = "2025-09-08T23:26:40.665Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ee/07/900c8783c26a66aec4cc6afdfa47fdd3b0ba82436988b852412bc9c64663/django_upgrade-1.29.0.tar.gz", hash = "sha256:f981e62fbccd2bbc4f165034c5c95de60010fdf1ad2c46e7ae9a66e9baa6955a", size = 39691, upload-time = "2025-10-06T15:46:51.229Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/9a/04/b07430af2733856a94e7b3fc1a00dcc00aa1d351c05536fe2efcefa55035/django_upgrade-1.28.0-py3-none-any.whl", hash = "sha256:522ea0fb25ddf1923cdff62f7ea25d97610fcce8976e948b1f8245acb42d4762", size = 63788, upload-time = "2025-09-08T23:26:39.381Z" },
+    { url = "https://files.pythonhosted.org/packages/ec/16/33b4645fb10e649656354f02af5c794b26ed0ebf7b70c52bb656af5c662c/django_upgrade-1.29.0-py3-none-any.whl", hash = "sha256:05d174815ed86e5cfe91f22b941f9edc424d5f648dad9fd50b967d795b466523", size = 68922, upload-time = "2025-10-06T15:46:49.94Z" },
 ]
 
 [[package]]
