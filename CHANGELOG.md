@@ -3,6 +3,90 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.10.07
+
+
+### Updated
+
+- Update ruff to 0.14.0 ([#6100](https://github.com/cookiecutter/cookiecutter-django/pull/6100))
+
+## 2025.10.06
+
+
+### Changed
+
+- fix(project generation fails with docker --load flag) ([#6097](https://github.com/cookiecutter/cookiecutter-django/pull/6097))
+
+### Updated
+
+- Update sentry-sdk to 2.40.0 ([#6096](https://github.com/cookiecutter/cookiecutter-django/pull/6096))
+
+- Update django-coverage-plugin to 3.2.0 ([#6095](https://github.com/cookiecutter/cookiecutter-django/pull/6095))
+
+- Update django-stubs to 5.2.6 ([#6093](https://github.com/cookiecutter/cookiecutter-django/pull/6093))
+
+- Update django-allauth to 65.12.0 ([#6092](https://github.com/cookiecutter/cookiecutter-django/pull/6092))
+
+## 2025.10.02
+
+
+### Updated
+
+- Update ruff to 0.13.3 ([#6089](https://github.com/cookiecutter/cookiecutter-django/pull/6089))
+
+## 2025.10.01
+
+
+### Fixed
+
+- Fix Docker error volume name is too short during project generation ([#6086](https://github.com/cookiecutter/cookiecutter-django/pull/6086))
+
+### Updated
+
+- Update django to 5.2.7 ([#6087](https://github.com/cookiecutter/cookiecutter-django/pull/6087))
+
+## 2025.09.30
+
+
+### Updated
+
+- Bump node from 24.8 to 24.9 ([#6081](https://github.com/cookiecutter/cookiecutter-django/pull/6081))
+
+- Bump traefik from 3.5.2 to 3.5.3 ([#6083](https://github.com/cookiecutter/cookiecutter-django/pull/6083))
+
+- Update djangorestframework-stubs to 3.16.4 ([#6080](https://github.com/cookiecutter/cookiecutter-django/pull/6080))
+
+## 2025.09.25
+
+
+### Updated
+
+- Update ruff to 0.13.2 ([#6078](https://github.com/cookiecutter/cookiecutter-django/pull/6078))
+
+- Update sentry-sdk to 2.39.0 ([#6077](https://github.com/cookiecutter/cookiecutter-django/pull/6077))
+
+## 2025.09.24
+
+
+### Updated
+
+- Bump amazon/aws-cli from 2.30.1 to 2.31.0 ([#6075](https://github.com/cookiecutter/cookiecutter-django/pull/6075))
+
+## 2025.09.23
+
+
+### Changed
+
+- Added help command to sphinx Makefile ([#6024](https://github.com/cookiecutter/cookiecutter-django/pull/6024))
+
+- Update RTD config to latest recommendation for uv ([#6072](https://github.com/cookiecutter/cookiecutter-django/pull/6072))
+
+### Updated
+
+- Update uvicorn to 0.37.0 ([#6073](https://github.com/cookiecutter/cookiecutter-django/pull/6073))
+
+- Bump sass from 1.93.0 to 1.93.1 ([#6071](https://github.com/cookiecutter/cookiecutter-django/pull/6071))
+
 ## 2025.09.22
 
 

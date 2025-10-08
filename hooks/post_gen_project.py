@@ -522,6 +522,7 @@ def setup_dependencies():
                 [  # noqa: S607
                     "docker",
                     "build",
+                    "--load",
                     "-t",
                     uv_image_tag,
                     "-f",
@@ -535,8 +536,9 @@ def setup_dependencies():
             print(f"Error building Docker image: {e}", file=sys.stderr)
             sys.exit(1)
 
+        current_path = Path.cwd().absolute()
         # Use Docker to run the uv command
-        uv_cmd = ["docker", "run", "--rm", "-v", ".:/app", uv_image_tag, "uv"]
+        uv_cmd = ["docker", "run", "--rm", "-v", f"{current_path}:/app", uv_image_tag, "uv"]
     else:
         # Use uv command directly
         uv_cmd = ["uv"]
