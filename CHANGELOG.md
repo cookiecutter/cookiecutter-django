@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.10.08
+
+
+### Updated
+
+- Update django-stubs to 5.2.7 ([#6104](https://github.com/cookiecutter/cookiecutter-django/pull/6104))
+
+- Bump nginx from 1.29.1 to 1.29.2 ([#6103](https://github.com/cookiecutter/cookiecutter-django/pull/6103))
+
 ## 2025.10.07
 
 
