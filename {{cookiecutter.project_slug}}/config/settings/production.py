@@ -17,7 +17,7 @@ from .base import *  # noqa: F403
 from .base import DATABASES
 from .base import INSTALLED_APPS
 from .base import REDIS_URL
-{%- if cookiecutter.use_drf == "y" %}
+{%- if cookiecutter.rest_api == 'DRF' %}
 from .base import SPECTACULAR_SETTINGS
 {%- endif %}
 from .base import env
@@ -436,7 +436,7 @@ sentry_sdk.init(
     traces_sample_rate=env.float("SENTRY_TRACES_SAMPLE_RATE", default=0.0),
 )
 {% endif %}
-{% if cookiecutter.use_drf == "y" -%}
+{% if cookiecutter.rest_api == 'DRF' -%}
 
 # django-rest-framework
 # -------------------------------------------------------------------------------
