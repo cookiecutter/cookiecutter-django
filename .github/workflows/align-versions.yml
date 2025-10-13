@@ -47,6 +47,6 @@ jobs:
 
       - run: uv run ${{ matrix.job.script }}
 
-      - uses: stefanzweifel/git-auto-commit-action@v6
+      - uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: Align versions
