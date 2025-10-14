@@ -52,14 +52,6 @@ updates:
     schedule:
       interval: 'daily'
 
-  # Enable version updates for Docker Compose files
-  - package-ecosystem: 'docker-compose'
-    directories:
-      - '/'
-    # Every weekday
-    schedule:
-      interval: 'daily'
-
 {%- endif %}
 
   # Enable version updates for Python/Pip - Production
