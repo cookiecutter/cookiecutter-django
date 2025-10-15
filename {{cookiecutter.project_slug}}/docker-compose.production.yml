@@ -69,7 +69,7 @@ services:
       {%- endif %}
 
   redis:
-    image: docker.io/redis:6
+    image: docker.io/redis:7.2
     {% if cookiecutter.use_celery == 'y' %}
     volumes:
       - production_redis_data:/data

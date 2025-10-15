@@ -47,11 +47,4 @@ updates:
     labels:
       - "update"
 
-  # Enable version updates for Docker Compose files
-  - package-ecosystem: "docker-compose"
-    directories:
-      - "{{cookiecutter.project_slug}}/"
-    schedule:
-      interval: "daily"
-    labels:
-      - "update"
+  # NOTE: Package ecosystem "docker-compose" can't handle Jinja tags in yml files
