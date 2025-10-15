@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.10.14
+
+
+### Updated
+
+- Update watchfiles to 1.1.1 ([#6120](https://github.com/cookiecutter/cookiecutter-django/pull/6120))
+
+- Update hiredis to 3.3.0 ([#6119](https://github.com/cookiecutter/cookiecutter-django/pull/6119))
+
 ## 2025.10.13
 
 
