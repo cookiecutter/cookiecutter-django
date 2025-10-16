@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.10.15
+
+
+### Updated
+
+- Bump redis from 6 to 7.2 ([#6118](https://github.com/cookiecutter/cookiecutter-django/pull/6118))
+
 ## 2025.10.14
 
 
