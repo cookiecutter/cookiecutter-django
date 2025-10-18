@@ -18,7 +18,7 @@ Prerequisites
 * Pre-commit; refer to the official documentation for the `pre-commit`_.
 * Cookiecutter; refer to the official GitHub repository of `Cookiecutter`_
 
-.. _`installation instructions`: https://docs.docker.com/install/#supported-platforms
+.. _`installation instructions`: https://docs.docker.com/install/
 .. _`installation guide`: https://docs.docker.com/compose/install/
 .. _`pre-commit`: https://pre-commit.com/#install
 .. _`Cookiecutter`: https://github.com/cookiecutter/cookiecutter

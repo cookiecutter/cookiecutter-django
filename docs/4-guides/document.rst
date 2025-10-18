@@ -38,7 +38,7 @@ Additionally, you can auto-build Pull Request previews, but `you must enable it`
 
 .. _localhost: http://localhost:9000/
 .. _Sphinx: https://www.sphinx-doc.org/en/master/index.html
-.. _develop locally: ./developing-locally.html
-.. _develop locally with docker: ./developing-locally-docker.html
+.. _develop locally: ../2-local-development/developing-locally.html
+.. _develop locally with docker: ../2-local-development/developing-locally-docker.html
 .. _ReadTheDocs: https://readthedocs.org/
-.. _you must enable it: https://docs.readthedocs.io/en/latest/guides/autobuild-docs-for-pull-requests.html#autobuild-documentation-for-pull-requests
+.. _you must enable it: https://docs.readthedocs.com/platform/latest/pull-requests.html#features
