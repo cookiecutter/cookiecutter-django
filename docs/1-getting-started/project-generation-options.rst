@@ -149,7 +149,7 @@ debug:
 .. _MIT: https://opensource.org/licenses/MIT
 .. _BSD: https://opensource.org/licenses/BSD-3-Clause
 .. _GPLv3: https://www.gnu.org/licenses/gpl.html
-.. _Apache Software License 2.0: http://www.apache.org/licenses/LICENSE-2.0
+.. _Apache Software License 2.0: https://www.apache.org/licenses/LICENSE-2.0
 
 .. _PyCharm: https://www.jetbrains.com/pycharm/
 .. _VS Code: https://github.com/microsoft/vscode

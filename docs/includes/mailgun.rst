@@ -10,4 +10,4 @@ sandbox subdomain by default. Either add your email to the list of authorized re
 or verify your domain.
 
 
-.. _have emails verifications mandatory: https://django-allauth.readthedocs.io/en/latest/configuration.html?highlight=ACCOUNT_EMAIL_VERIFICATION
+.. _have emails verifications mandatory: https://docs.allauth.org/en/latest/account/configuration.html#email-verification

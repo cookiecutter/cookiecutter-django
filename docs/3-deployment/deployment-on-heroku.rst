@@ -121,4 +121,4 @@ which run the SASS compilation & JS bundling.
 
 If things don't work, please refer to the Heroku docs.
 
-.. _multiple buildpacks: https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app
+.. _multiple buildpacks: https://devcenter.heroku.com/articles/managing-buildpacks
