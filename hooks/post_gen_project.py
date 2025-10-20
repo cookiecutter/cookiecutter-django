@@ -453,9 +453,6 @@ def main():  # noqa: C901, PLR0912, PLR0915
                 "Heroku support is enabled. Keeping them as requested, but they may not be useful "
                 "in your current setup." + TERMINATOR,
             )
-            append_to_gitignore_file(".env")
-            append_to_gitignore_file(".envs/*")
-            append_to_gitignore_file("!.envs/.local/")
         else:
             remove_envs_and_associated_files()
     else:
