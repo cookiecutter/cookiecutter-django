@@ -206,7 +206,7 @@ The project comes with a simple task for manual testing purposes, inside `<proje
 
 You can also use Django admin to queue up tasks, thanks to the `django-celerybeat`_ package.
 
-.. _Getting started with Redis: https://redis.io/docs/getting-started/
+.. _Getting started with Redis: https://redis.io/docs/latest/get-started/
 .. _Celery Workers Guide: https://docs.celeryq.dev/en/stable/userguide/workers.html
 .. _django-celerybeat: https://django-celery-beat.readthedocs.io/en/latest/
 
