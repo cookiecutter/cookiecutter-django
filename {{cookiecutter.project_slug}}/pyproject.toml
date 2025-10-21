@@ -26,7 +26,7 @@ warn_redundant_casts = true
 warn_unused_configs = true
 plugins = [
     "mypy_django_plugin.main",
-    {%- if cookiecutter.use_drf == "y" %}
+    {%- if cookiecutter.rest_api == 'DRF' %}
     "mypy_drf_plugin.main",
     {%- endif %}
 ]
