@@ -450,10 +450,11 @@ def main():  # noqa: C901, PLR0912, PLR0915
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
             print(
                 INFO + ".env(s) are only utilized when Docker Compose and/or "
-                "Heroku support is enabled so keeping them does not make sense "
-                "given your current setup." + TERMINATOR,
+                "Heroku support is enabled. Keeping them as requested, but they may not be useful "
+                "in your current setup." + TERMINATOR,
             )
-        remove_envs_and_associated_files()
+        else:
+            remove_envs_and_associated_files()
     else:
         append_to_gitignore_file(".env")
         append_to_gitignore_file(".envs/*")
