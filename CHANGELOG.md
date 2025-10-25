@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.10.24
+
+
+### Updated
+
+- Update django-upgrade pre-commit hook to 1.29.1 ([#6141](https://github.com/cookiecutter/cookiecutter-django/pull/6141))
+
 ## 2025.10.23
 
 
