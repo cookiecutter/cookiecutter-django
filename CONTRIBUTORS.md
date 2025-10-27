@@ -1077,6 +1077,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Harshit Ranjan</td>
+    <td>
+      <a href="https://github.com/HarshitR2004">HarshitR2004</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Haseeb ur Rehman</td>
     <td>
       <a href="https://github.com/professorhaseeb">professorhaseeb</a>
