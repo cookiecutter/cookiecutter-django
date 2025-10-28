@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.10.27
+
+
+### Fixed
+
+- keep_local_envs_in_vcs user preference ([#6132](https://github.com/cookiecutter/cookiecutter-django/pull/6132))
+
 ## 2025.10.24
 
 
