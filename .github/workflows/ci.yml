@@ -76,8 +76,8 @@ jobs:
     name: "Bare metal ${{ matrix.script.name }}"
     runs-on: ubuntu-latest
     services:
-      redis:
-        image: redis:7.2
+      valkey:
+        image: valkey/valkey:latest
         ports:
           - 6379:6379
       postgres:

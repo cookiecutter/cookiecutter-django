@@ -1,7 +1,7 @@
 volumes:
   {{ cookiecutter.project_slug }}_local_postgres_data: {}
   {{ cookiecutter.project_slug }}_local_postgres_data_backups: {}
-  {% if cookiecutter.use_celery == 'y' %}{{ cookiecutter.project_slug }}_local_redis_data: {}{% endif %}
+  {% if cookiecutter.use_celery == 'y' %}{{ cookiecutter.project_slug }}_local_valkey_data: {}{% endif %}
 
 services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
@@ -13,7 +13,7 @@ services:
     depends_on:
       - postgres
       {%- if cookiecutter.use_celery == 'y' %}
-      - redis
+      - valkey
       {%- endif %}
       {%- if cookiecutter.use_mailpit == 'y' %}
       - mailpit
@@ -51,18 +51,18 @@ services:
   {%- endif %}
   {%- if cookiecutter.use_celery == 'y' %}
 
-  redis:
-    image: docker.io/redis:7.2
-    container_name: {{ cookiecutter.project_slug }}_local_redis
+  valkey:
+    image: valkey/valkey:latest
+    container_name: {{ cookiecutter.project_slug }}_local_valkey
     volumes:
-      - {{ cookiecutter.project_slug }}_local_redis_data:/data
+      - {{ cookiecutter.project_slug }}_local_valkey_data:/data
 
   celeryworker:
     <<: *django
     image: {{ cookiecutter.project_slug }}_local_celeryworker
     container_name: {{ cookiecutter.project_slug }}_local_celeryworker
     depends_on:
-      - redis
+      - valkey
       - postgres
       {%- if cookiecutter.use_mailpit == 'y' %}
       - mailpit
@@ -75,7 +75,7 @@ services:
     image: {{ cookiecutter.project_slug }}_local_celerybeat
     container_name: {{ cookiecutter.project_slug }}_local_celerybeat
     depends_on:
-      - redis
+      - valkey
       - postgres
       {%- if cookiecutter.use_mailpit == 'y' %}
       - mailpit
