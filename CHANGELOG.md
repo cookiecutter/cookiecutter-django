@@ -3,6 +3,29 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.10.31
+
+
+### Updated
+
+- Update psycopg to 3.2.12 ([#6143](https://github.com/cookiecutter/cookiecutter-django/pull/6143))
+
+- Update django-allauth to 65.13.0 ([#6157](https://github.com/cookiecutter/cookiecutter-django/pull/6157))
+
+- Update ruff to 0.14.3 ([#6155](https://github.com/cookiecutter/cookiecutter-django/pull/6155))
+
+- Update django-debug-toolbar to 6.1.0 ([#6154](https://github.com/cookiecutter/cookiecutter-django/pull/6154))
+
+- Update sentry-sdk to 2.43.0 ([#6151](https://github.com/cookiecutter/cookiecutter-django/pull/6151))
+
+- Update redis to 7.0.1 ([#6146](https://github.com/cookiecutter/cookiecutter-django/pull/6146))
+
+- Bump traefik from 3.5.3 to 3.5.4 ([#6150](https://github.com/cookiecutter/cookiecutter-django/pull/6150))
+
+- Bump nginx from 1.29.2 to 1.29.3 ([#6149](https://github.com/cookiecutter/cookiecutter-django/pull/6149))
+
+- Bump node from 24.10 to 24.11 ([#6147](https://github.com/cookiecutter/cookiecutter-django/pull/6147))
+
 ## 2025.10.27
 
 
