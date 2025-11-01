@@ -60,6 +60,7 @@ SUPPORTED_COMBINATIONS = [
     {"editor": "VS Code"},
     {"use_docker": "y"},
     {"use_docker": "n"},
+    {"postgresql_version": "18"},
     {"postgresql_version": "17"},
     {"postgresql_version": "16"},
     {"postgresql_version": "15"},

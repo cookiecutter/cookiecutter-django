@@ -129,10 +129,11 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     Choose from 1, 2, 3 [1]: 1
     use_docker [n]: n
     Select postgresql_version:
-    1 - 17
-    2 - 16
-    3 - 15
-    4 - 14
+    1 - 18
+    2 - 17
+    3 - 16
+    4 - 15
+    5 - 14
     Choose from 1, 2, 3, 4 [1]: 1
     Select cloud_provider:
     1 - AWS
