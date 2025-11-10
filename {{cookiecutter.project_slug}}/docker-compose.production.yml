@@ -6,9 +6,8 @@ volumes:
   production_django_media: {}
   {%- endif %}
   {% if cookiecutter.use_celery == 'y' %}
-  production_redis_data: {}
+  production_valkey_data: {}
   {% endif %}
-
 
 services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
@@ -17,7 +16,6 @@ services:
       dockerfile: ./compose/production/django/Dockerfile
       {%- if cookiecutter.frontend_pipeline == 'Webpack' and cookiecutter.use_whitenoise == 'n' %}
       args:
-        # These variable can be defined in an .env file in the root of the repo
         {%- if cookiecutter.cloud_provider == 'AWS' %}
         DJANGO_AWS_STORAGE_BUCKET_NAME: ${DJANGO_AWS_STORAGE_BUCKET_NAME}
         DJANGO_AWS_S3_CUSTOM_DOMAIN: ${DJANGO_AWS_S3_CUSTOM_DOMAIN}
@@ -35,7 +33,7 @@ services:
     {%- endif %}
     depends_on:
       - postgres
-      - redis
+      - valkey
     env_file:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
@@ -68,13 +66,12 @@ services:
       - '0.0.0.0:5555:5555'
       {%- endif %}
 
-  redis:
-    image: docker.io/redis:7.2
+  valkey:
+    image: valkey/valkey:latest
     {% if cookiecutter.use_celery == 'y' %}
     volumes:
-      - production_redis_data:/data
+      - production_valkey_data:/data
     {% endif %}
-
 
   {%- if cookiecutter.use_celery == 'y' %}
 
