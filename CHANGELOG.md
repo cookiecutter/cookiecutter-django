@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.11.16
+
+
+### Changed
+
+- Add PostgreSQL 18 ([#6144](https://github.com/cookiecutter/cookiecutter-django/pull/6144))
+
+### Updated
+
+- Update ruff to 0.14.5 ([#6182](https://github.com/cookiecutter/cookiecutter-django/pull/6182))
+
 ## 2025.11.07
 
 
