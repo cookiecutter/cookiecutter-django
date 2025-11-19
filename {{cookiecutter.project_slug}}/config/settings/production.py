@@ -477,27 +477,6 @@ PRODUCTION_PROCESSES = {
         },
     {%- endif %}
 {%- endif %}
-
-    # "web": {
-    #     "BACKEND": "django_prodserver.backends.granian.GranianASGIServer",
-    #     "ARGS": {"address": "0.0.0.0", "port": "8000", "workers": "4"},
-    # },
-    # "web": {
-    #     "BACKEND": "django_prodserver.backends.granian.GranianWSGIServer",
-    #     "ARGS": {"address": "0.0.0.0", "port": "8000", "workers": "4"},
-    # },
-    # "web": {
-    #     "BACKEND": "django_prodserver.backends.waitress.WaitressServer",
-    #     "ARGS": {},
-    # },
-    # "web": {
-    #     "BACKEND": "django_prodserver.backends.uvicorn.UvicornServer",
-    #     "ARGS": {},
-    # },
-    # "web": {
-    #     "BACKEND": "django_prodserver.backends.uvicorn.UvicornWSGIServer",
-    #     "ARGS": {},
-    # },
 {%- if cookiecutter.use_celery == 'y' %}
     # worker: REMAP_SIGTERM=SIGQUIT celery -A config.celery_app worker --loglevel=info
     # beat: REMAP_SIGTERM=SIGQUIT celery -A config.celery_app beat --loglevel=info
