@@ -65,7 +65,7 @@ Make sure to have the following on your host:
 
 #. If you're running synchronously, see the application being served through Django development server: ::
 
-    uv run python manage.py runserver 0.0.0.0:8000
+    uv run python manage.py devserver 0.0.0.0:8000
 
    or if you're running asynchronously: ::
 
