@@ -3,6 +3,21 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.11.25
+
+
+### Changed
+
+- Add optional args to &#34;just build&#34; ([#6196](https://github.com/cookiecutter/cookiecutter-django/pull/6196))
+
+### Documentation
+
+- Update PostgreSQL version range in README ([#6203](https://github.com/cookiecutter/cookiecutter-django/pull/6203))
+
+### Updated
+
+- Update sentry-sdk to 2.46.0 ([#6202](https://github.com/cookiecutter/cookiecutter-django/pull/6202))
+
 ## 2025.11.24
 
 
