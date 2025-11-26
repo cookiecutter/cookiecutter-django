@@ -1,9 +1,5 @@
 release: python manage.py migrate
-{%- if cookiecutter.use_async == "y" %}
 web: python manage.py prodserver web
-{%- else %}
-web: python manage.py prodserver web
-{%- endif %}
 {%- if cookiecutter.use_celery == "y" %}
 worker: REMAP_SIGTERM=SIGQUIT python manage.py prodserver worker
 beat: REMAP_SIGTERM=SIGQUIT python manage.py prodserver beat

@@ -448,7 +448,7 @@ SPECTACULAR_SETTINGS["SERVERS"] = [
 {%- endif %}
 
 # django-prodserver
-# https://github.com/nanorepublica/django-prodserver
+# https://django-prodserver.readthedocs.io/en/latest/
 INSTALLED_APPS += ["django_prodserver"]
 
 PRODUCTION_PROCESSES = {
