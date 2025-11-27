@@ -478,8 +478,6 @@ PRODUCTION_PROCESSES = {
     {%- endif %}
 {%- endif %}
 {%- if cookiecutter.use_celery == 'y' %}
-    # worker: REMAP_SIGTERM=SIGQUIT celery -A config.celery_app worker --loglevel=info
-    # beat: REMAP_SIGTERM=SIGQUIT celery -A config.celery_app beat --loglevel=info
     "worker": {
         "BACKEND": "django_prodserver.backends.celery.CeleryWorker",
         "APP": "config.celery_app",
