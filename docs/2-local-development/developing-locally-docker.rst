@@ -250,6 +250,35 @@ By default, it's enabled both in local and production environments (``docker-com
 
 .. _`Flower`: https://github.com/mher/flower
 
+Django-RQ (Optional Task Queue)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you selected ``use_rq`` during project initialization, you can use Django-RQ with Valkey for background task processing.
+
+**Services included:**
+
+* **Valkey**: Redis-compatible data store on port 6379
+* **RQ Worker**: Processes background jobs from queues
+* **RQ Scheduler**: Handles scheduled/periodic tasks
+* **RQ Dashboard**: Web-based monitoring at http://localhost:9181
+
+**Quick example:**
+
+.. code-block:: python
+
+   # myapp/tasks.py
+   import django_rq
+
+   @django_rq.job
+   def send_notification(user_id):
+       # Task code here
+       pass
+
+   # Enqueue from anywhere
+   send_notification.delay(user_id)
+
+See the :doc:`/4-guides/using-django-rq` guide for complete documentation.
+
 Using Webpack or Gulp
 ~~~~~~~~~~~~~~~~~~~~~
 

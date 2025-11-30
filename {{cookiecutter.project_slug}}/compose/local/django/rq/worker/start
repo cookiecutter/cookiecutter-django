@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -o errexit
+set -o nounset
+
+exec watchfiles --filter python django.__main__.main --args 'rqworker default high low'
