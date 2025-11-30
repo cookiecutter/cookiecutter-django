@@ -63,7 +63,7 @@ Django-RQ uses the following environment variable:
 
    # For Docker environments
    VALKEY_URL=valkey://valkey:6379/0
-   
+
    # For local development (non-Docker)
    VALKEY_URL=valkey://localhost:6379/0
 
@@ -104,7 +104,7 @@ Use the ``@job`` decorator to create background tasks:
        """Send a welcome email to a new user."""
        from .models import User
        from django.core.mail import send_mail
-       
+
        user = User.objects.get(id=user_id)
        send_mail(
            "Welcome!",
@@ -148,10 +148,10 @@ For testing, use synchronous mode to avoid async complications:
        """Test that welcome email task works."""
        # Get synchronous queue
        queue = django_rq.get_queue("default", is_async=False)
-       
+
        # Enqueue and execute immediately
        job = queue.enqueue(send_welcome_email, user.id)
-       
+
        # Verify job completed
        assert job.is_finished
        assert job.result is None
@@ -266,28 +266,28 @@ Here's a complete example of an image processing task:
    def generate_thumbnail(photo_id):
        """Generate thumbnail for uploaded photo."""
        from .models import Photo
-       
+
        try:
            photo = Photo.objects.get(id=photo_id)
-           
+
            # Open original image
            img_path = photo.original.path
            img = Image.open(img_path)
-           
+
            # Generate thumbnail
            img.thumbnail((200, 200))
-           
+
            # Save thumbnail
            thumb_path = f"thumbnails/{photo_id}.jpg"
            with default_storage.open(thumb_path, 'wb') as f:
                img.save(f, 'JPEG', quality=85)
-           
+
            # Update model
            photo.thumbnail = thumb_path
            photo.save()
-           
+
            logger.info(f"Generated thumbnail for photo {photo_id}")
-           
+
        except Photo.DoesNotExist:
            logger.error(f"Photo {photo_id} not found")
            raise
@@ -303,7 +303,7 @@ Here's a complete example of an image processing task:
    class PhotoUploadView(CreateView):
        model = Photo
        fields = ['title', 'original']
-       
+
        def form_valid(self, form):
            response = super().form_valid(form)
            # Enqueue thumbnail generation in background
@@ -343,7 +343,7 @@ Check failed job queue in RQ Dashboard or via shell:
 
    queue = django_rq.get_queue()
    registry = FailedJobRegistry(queue=queue)
-   
+
    for job_id in registry.get_job_ids():
        job = queue.fetch_job(job_id)
        print(f"Job {job_id}: {job.exc_info}")
