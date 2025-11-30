@@ -398,6 +398,20 @@ def remove_celery_compose_dirs():
     shutil.rmtree(Path("compose", "production", "django", "celery"))
 
 
+def remove_rq_files():
+    file_paths = [
+        Path("{{ cookiecutter.project_slug }}", "users", "tasks.py"),
+        Path("{{ cookiecutter.project_slug }}", "users", "tests", "test_tasks.py"),
+    ]
+    for file_path in file_paths:
+        file_path.unlink()
+
+
+def remove_rq_compose_dirs():
+    shutil.rmtree(Path("compose", "local", "django", "rq"))
+    shutil.rmtree(Path("compose", "production", "django", "rq"))
+
+
 def remove_node_dockerfile():
     shutil.rmtree(Path("compose", "local", "node"))
 
@@ -487,6 +501,11 @@ def main():  # noqa: C901, PLR0912, PLR0915
         remove_celery_files()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_celery_compose_dirs()
+
+    if "{{ cookiecutter.use_rq }}".lower() == "n":
+        remove_rq_files()
+        if "{{ cookiecutter.use_docker }}".lower() == "y":
+            remove_rq_compose_dirs()
 
     if "{{ cookiecutter.ci_tool }}" != "Travis":
         remove_dottravisyml_file()

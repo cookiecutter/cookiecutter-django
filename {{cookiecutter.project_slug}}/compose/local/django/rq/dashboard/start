@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -o errexit
+set -o nounset
+
+exec rq-dashboard --bind 0.0.0.0:9181 --redis-url "${VALKEY_URL}"

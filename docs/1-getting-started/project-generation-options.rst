@@ -114,6 +114,9 @@ Both Gulp and Webpack support Bootstrap recompilation with real-time variables a
 use_celery:
     Indicates whether the project should be configured to use Celery_.
 
+use_rq:
+    Indicates whether the project should be configured to use Django-RQ_ with Valkey_ as an alternative task queue to Celery. Django-RQ provides a simpler, more lightweight approach to background task processing.
+
 use_mailpit:
     Indicates whether the project should be configured to use Mailpit_.
 
@@ -181,6 +184,10 @@ debug:
 .. _Django Compressor: https://github.com/django-compressor/django-compressor
 
 .. _Celery: https://github.com/celery/celery
+
+.. _Django-RQ: https://github.com/rq/django-rq
+
+.. _Valkey: https://valkey.io/
 
 .. _Mailpit: https://github.com/axllent/mailpit
 
