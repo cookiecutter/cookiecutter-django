@@ -253,7 +253,7 @@ By default, it's enabled both in local and production environments (``docker-com
 Django-RQ (Optional Task Queue)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you selected ``use_rq`` during project initialization, you can use Django-RQ with Valkey for background task processing.
+If you selected ``use_django_rq`` during project initialization, you can use Django-RQ with Valkey for background task processing.
 
 **Services included:**
 

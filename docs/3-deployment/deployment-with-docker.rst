@@ -19,7 +19,7 @@ Before you begin, check out the ``docker-compose.production.yml`` file in the ro
 * ``django``: your application running behind ``Gunicorn``;
 * ``postgres``: PostgreSQL database with the application's relational data;
 * ``redis``: Redis instance for caching (and Celery if enabled);
-* ``valkey``: Valkey instance for Django-RQ task queue (if ``use_rq`` is enabled);
+* ``valkey``: Valkey instance for Django-RQ task queue (if ``use_django_rq`` is enabled);
 * ``traefik``: Traefik reverse proxy with HTTPS on by default.
 
 Provided you have opted for Celery (via setting ``use_celery`` to ``y``) there are three more services:
@@ -32,7 +32,7 @@ The ``flower`` service is served by Traefik over HTTPS, through the port ``5555`
 
 .. _`Flower`: https://github.com/mher/flower
 
-If you have opted for Django-RQ (via setting ``use_rq`` to ``y``) there are three additional services:
+If you have opted for Django-RQ (via setting ``use_django_rq`` to ``y``) there are three additional services:
 
 * ``rqworker`` running an RQ worker process;
 * ``rqscheduler`` running an RQ scheduler process;

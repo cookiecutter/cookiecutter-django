@@ -36,7 +36,7 @@ When to Use Django-RQ vs Celery
 Architecture
 ------------
 
-When ``use_rq`` is enabled, your project includes:
+When ``use_django_rq`` is enabled, your project includes:
 
 **Services:**
 

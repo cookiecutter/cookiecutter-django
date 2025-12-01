@@ -92,7 +92,7 @@ THIRD_PARTY_APPS = [
 {%- if cookiecutter.use_celery == 'y' %}
     "django_celery_beat",
 {%- endif %}
-{%- if cookiecutter.use_rq == 'y' %}
+{%- if cookiecutter.use_django_rq == 'y' %}
     "django_rq",
 {%- endif %}
 {%- if cookiecutter.use_drf == "y" %}
@@ -292,7 +292,7 @@ LOGGING = {
 REDIS_URL = env("REDIS_URL", default="redis://{% if cookiecutter.use_docker == 'y' %}redis{%else%}localhost{% endif %}:6379/0")
 REDIS_SSL = REDIS_URL.startswith("rediss://")
 {%- endif %}
-{% if cookiecutter.use_rq == 'y' -%}
+{% if cookiecutter.use_django_rq == 'y' -%}
 VALKEY_URL = env("VALKEY_URL", default="valkey://{% if cookiecutter.use_docker == 'y' %}valkey{%else%}localhost{% endif %}:6379/0")
 {%- endif %}
 
@@ -339,7 +339,7 @@ CELERY_TASK_SEND_SENT_EVENT = True
 CELERY_WORKER_HIJACK_ROOT_LOGGER = False
 
 {%- endif %}
-{% if cookiecutter.use_rq == 'y' -%}
+{% if cookiecutter.use_django_rq == 'y' -%}
 # Django-RQ
 # ------------------------------------------------------------------------------
 # https://github.com/rq/django-rq

@@ -502,7 +502,7 @@ def main():  # noqa: C901, PLR0912, PLR0915
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_celery_compose_dirs()
 
-    if "{{ cookiecutter.use_rq }}".lower() == "n":
+    if "{{ cookiecutter.use_django_rq }}".lower() == "n":
         remove_rq_files()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_rq_compose_dirs()

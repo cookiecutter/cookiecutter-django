@@ -22,7 +22,7 @@ django-celery-beat==2.8.1  # https://github.com/celery/django-celery-beat
 flower==2.0.1  # https://github.com/mher/flower
 {%- endif %}
 {%- endif %}
-{%- if cookiecutter.use_rq == "y" %}
+{%- if cookiecutter.use_django_rq == "y" %}
 django-rq==2.10.2  # https://github.com/rq/django-rq
 rq==1.16.2  # https://github.com/rq/rq
 {%- if cookiecutter.use_docker == 'y' %}

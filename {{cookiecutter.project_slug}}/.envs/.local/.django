@@ -16,7 +16,7 @@ CELERY_FLOWER_USER=!!!SET CELERY_FLOWER_USER!!!
 CELERY_FLOWER_PASSWORD=!!!SET CELERY_FLOWER_PASSWORD!!!
 {%- endif %}
 
-{%- if cookiecutter.use_rq == 'y' %}
+{%- if cookiecutter.use_django_rq == 'y' %}
 # Valkey
 # ------------------------------------------------------------------------------
 VALKEY_URL=valkey://valkey:6379/0

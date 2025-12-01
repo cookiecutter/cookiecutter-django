@@ -68,7 +68,7 @@ RUN sed -i 's/\r$//g' /start-flower
 RUN chmod +x /start-flower
 {% endif %}
 
-{% if cookiecutter.use_rq == "y" %}
+{% if cookiecutter.use_django_rq == "y" %}
 COPY ./compose/local/django/rq/worker/start /start-rqworker
 RUN sed -i 's/\r$//g' /start-rqworker
 RUN chmod +x /start-rqworker

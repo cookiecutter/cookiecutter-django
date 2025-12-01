@@ -8,13 +8,13 @@ volumes:
   {% if cookiecutter.use_celery == 'y' %}
   production_redis_data: {}
   {% endif %}
-  {% if cookiecutter.use_rq == 'y' %}
+  {% if cookiecutter.use_django_rq == 'y' %}
   production_valkey_data: {}
   {% endif %}
 
 
 services:
-  django:{% if cookiecutter.use_celery == 'y' or cookiecutter.use_rq == 'y' %} &django{% endif %}
+  django:{% if cookiecutter.use_celery == 'y' or cookiecutter.use_django_rq == 'y' %} &django{% endif %}
     build:
       context: .
       dockerfile: ./compose/production/django/Dockerfile
@@ -41,7 +41,7 @@ services:
       {%- if cookiecutter.use_celery == 'y' %}
       - redis
       {%- endif %}
-      {%- if cookiecutter.use_rq == 'y' %}
+      {%- if cookiecutter.use_django_rq == 'y' %}
       - valkey
       {%- endif %}
     env_file:
@@ -79,7 +79,7 @@ services:
       {%- if cookiecutter.use_celery == 'y' %}
       - '0.0.0.0:5555:5555'
       {%- endif %}
-      {%- if cookiecutter.use_rq == 'y' %}
+      {%- if cookiecutter.use_django_rq == 'y' %}
       - '0.0.0.0:9181:9181'
       {%- endif %}
 
@@ -108,7 +108,7 @@ services:
     image: {{ cookiecutter.project_slug }}_production_flower
     command: /start-flower
   {%- endif %}
-  {%- if cookiecutter.use_rq == 'y' %}
+  {%- if cookiecutter.use_django_rq == 'y' %}
 
   valkey:
     image: docker.io/valkey/valkey:8.0
