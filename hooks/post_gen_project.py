@@ -84,6 +84,11 @@ def remove_heroku_files():
         if file_name == "requirements.txt" and "{{ cookiecutter.ci_tool }}".lower() == "travis":
             # Don't remove the file if we are using Travis CI but not using Heroku
             continue
+        # Keep Procfile if Celery or RQ is being used
+        if file_name == "Procfile" and (
+            "{{ cookiecutter.use_celery }}".lower() == "y" or "{{ cookiecutter.use_django_rq }}".lower() == "y"
+        ):
+            continue
         Path(file_name).unlink()
     shutil.rmtree("bin")
 
@@ -220,8 +225,6 @@ def remove_repo_from_pre_commit_config(repo_to_remove: str):
 def remove_celery_files():
     file_paths = [
         Path("config", "celery_app.py"),
-        Path("{{ cookiecutter.project_slug }}", "users", "tasks.py"),
-        Path("{{ cookiecutter.project_slug }}", "users", "tests", "test_tasks.py"),
     ]
     for file_path in file_paths:
         file_path.unlink()
@@ -399,6 +402,13 @@ def remove_celery_compose_dirs():
 
 
 def remove_rq_files():
+    file_paths = []
+    for file_path in file_paths:
+        file_path.unlink()
+
+
+def remove_task_queue_files():
+    """Remove task queue files when neither Celery nor RQ is used."""
     file_paths = [
         Path("{{ cookiecutter.project_slug }}", "users", "tasks.py"),
         Path("{{ cookiecutter.project_slug }}", "users", "tests", "test_tasks.py"),
@@ -506,6 +516,10 @@ def main():  # noqa: C901, PLR0912, PLR0915
         remove_rq_files()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_rq_compose_dirs()
+
+    # Remove task queue files only if neither Celery nor RQ is used
+    if "{{ cookiecutter.use_celery }}".lower() == "n" and "{{ cookiecutter.use_django_rq }}".lower() == "n":
+        remove_task_queue_files()
 
     if "{{ cookiecutter.ci_tool }}" != "Travis":
         remove_dottravisyml_file()
