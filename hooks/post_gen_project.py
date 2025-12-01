@@ -422,6 +422,16 @@ def remove_rq_compose_dirs():
     shutil.rmtree(Path("compose", "production", "django", "rq"))
 
 
+def remove_rqdashboard_script():
+    """Remove rqdashboard startup script directory when using django-rq."""
+    dashboard_path = Path("compose", "local", "django", "rq", "dashboard")
+    if dashboard_path.exists():
+        shutil.rmtree(dashboard_path)
+    dashboard_path = Path("compose", "production", "django", "rq", "dashboard")
+    if dashboard_path.exists():
+        shutil.rmtree(dashboard_path)
+
+
 def remove_node_dockerfile():
     shutil.rmtree(Path("compose", "local", "node"))
 
@@ -516,6 +526,10 @@ def main():  # noqa: C901, PLR0912, PLR0915
         remove_rq_files()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_rq_compose_dirs()
+    elif "{{ cookiecutter.use_django_rq }}".lower() == "y":
+        # Remove standalone rqdashboard in favor of built-in admin dashboard
+        if "{{ cookiecutter.use_docker }}".lower() == "y":
+            remove_rqdashboard_script()
 
     # Remove task queue files only if neither Celery nor RQ is used
     if "{{ cookiecutter.use_celery }}".lower() == "n" and "{{ cookiecutter.use_django_rq }}".lower() == "n":

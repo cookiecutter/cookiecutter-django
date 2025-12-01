@@ -79,9 +79,6 @@ services:
       {%- if cookiecutter.use_celery == 'y' %}
       - '0.0.0.0:5555:5555'
       {%- endif %}
-      {%- if cookiecutter.use_django_rq == 'y' %}
-      - '0.0.0.0:9181:9181'
-      {%- endif %}
 
   {%- if cookiecutter.use_celery == 'y' %}
 
@@ -124,11 +121,6 @@ services:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_rqscheduler
     command: /start-rqscheduler
-
-  rqdashboard:
-    <<: *django
-    image: {{ cookiecutter.project_slug }}_production_rqdashboard
-    command: /start-rqdashboard
   {%- endif %}
   {%- if cookiecutter.cloud_provider == 'AWS' %}
 

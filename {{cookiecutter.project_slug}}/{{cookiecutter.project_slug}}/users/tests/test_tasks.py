@@ -20,7 +20,7 @@ def test_user_count(settings):
     task_result = get_users_count.delay()
     assert isinstance(task_result, EagerResult)
     assert task_result.result == batch_size
-{%- elif cookiecutter.use_django_rq == 'y' -%}
+{% elif cookiecutter.use_django_rq == 'y' -%}
     queue = django_rq.get_queue("default", is_async=False)
     job = queue.enqueue(get_users_count)
     assert job.result == batch_size

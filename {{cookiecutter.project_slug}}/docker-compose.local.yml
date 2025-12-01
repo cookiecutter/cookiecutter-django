@@ -137,14 +137,6 @@ services:
     ports: []
     command: /start-rqscheduler
 
-  rqdashboard:
-    <<: *django
-    image: {{ cookiecutter.project_slug }}_local_rqdashboard
-    container_name: {{ cookiecutter.project_slug }}_local_rqdashboard
-    ports:
-      - '9181:9181'
-    command: /start-rqdashboard
-
   {%- endif %}
   {%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
 
