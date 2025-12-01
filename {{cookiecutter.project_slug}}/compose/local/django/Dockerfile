@@ -76,10 +76,6 @@ RUN chmod +x /start-rqworker
 COPY ./compose/local/django/rq/scheduler/start /start-rqscheduler
 RUN sed -i 's/\r$//g' /start-rqscheduler
 RUN chmod +x /start-rqscheduler
-
-COPY ./compose/local/django/rq/dashboard/start /start-rqdashboard
-RUN sed -i 's/\r$//g' /start-rqdashboard
-RUN chmod +x /start-rqdashboard
 {% endif %}
 
 ENTRYPOINT ["/entrypoint"]

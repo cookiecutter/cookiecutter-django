@@ -115,11 +115,6 @@ RUN chmod +x /start-rqworker
 COPY --chown=django:django ./compose/production/django/rq/scheduler/start /start-rqscheduler
 RUN sed -i 's/\r$//g' /start-rqscheduler
 RUN chmod +x /start-rqscheduler
-
-
-COPY --chown=django:django ./compose/production/django/rq/dashboard/start /start-rqdashboard
-RUN sed -i 's/\r$//g' /start-rqdashboard
-RUN chmod +x /start-rqdashboard
 {%- endif %}
 
 # Copy the application from the builder
