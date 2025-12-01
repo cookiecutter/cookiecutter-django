@@ -25,8 +25,10 @@ flower==2.0.1  # https://github.com/mher/flower
 {%- if cookiecutter.use_django_rq == "y" %}
 django-rq==2.10.2  # https://github.com/rq/django-rq
 rq==1.16.2  # https://github.com/rq/rq
+rq-scheduler==0.13.1  # https://github.com/rq/rq-scheduler
 {%- if cookiecutter.use_docker == 'y' %}
 rq-dashboard==0.6.1  # https://github.com/Parallels/rq-dashboard
+Flask<3.0  # Pin Flask for rq-dashboard compatibility (Flask 3.x breaks rq-dashboard)
 {%- endif %}
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' %}
