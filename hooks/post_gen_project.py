@@ -5,6 +5,7 @@ import shutil
 import string
 import subprocess
 import sys
+import os
 from pathlib import Path
 
 try:
@@ -532,6 +533,10 @@ def setup_dependencies():
                     ".",
                 ],
                 check=True,
+                env={
+                    **os.environ,
+                    "DOCKER_BUILDKIT": "1",
+                },
             )
         except subprocess.CalledProcessError as e:
             print(f"Error building Docker image: {e}", file=sys.stderr)
