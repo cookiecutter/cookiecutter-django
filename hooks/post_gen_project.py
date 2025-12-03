@@ -1,5 +1,6 @@
 # ruff: noqa: PLR0133
 import json
+import os
 import random
 import shutil
 import string
@@ -532,6 +533,10 @@ def setup_dependencies():
                     ".",
                 ],
                 check=True,
+                env={
+                    **os.environ,
+                    "DOCKER_BUILDKIT": "1",
+                },
             )
         except subprocess.CalledProcessError as e:
             print(f"Error building Docker image: {e}", file=sys.stderr)
