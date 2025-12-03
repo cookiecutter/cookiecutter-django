@@ -1805,6 +1805,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Mohamed Feddad</td>
+    <td>
+      <a href="https://github.com/mrf345">mrf345</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>monosans</td>
     <td>
       <a href="https://github.com/monosans">monosans</a>
