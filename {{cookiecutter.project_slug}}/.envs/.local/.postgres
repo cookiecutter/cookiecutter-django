@@ -1,6 +1,6 @@
 # PostgreSQL
 # ------------------------------------------------------------------------------
-POSTGRES_HOST=postgres
+POSTGRES_HOST={{ cookiecutter.project_slug }}_local_postgres
 POSTGRES_PORT=5432
 POSTGRES_DB={{ cookiecutter.project_slug }}
 POSTGRES_USER=!!!SET POSTGRES_USER!!!
