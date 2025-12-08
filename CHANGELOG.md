@@ -3,6 +3,55 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.12.05
+
+
+### Updated
+
+- Update rcssmin to 1.2.2 ([#6232](https://github.com/cookiecutter/cookiecutter-django/pull/6232))
+
+- Update django-compressor to 4.6.0 ([#6231](https://github.com/cookiecutter/cookiecutter-django/pull/6231))
+
+- Update ruff to 0.14.8 ([#6229](https://github.com/cookiecutter/cookiecutter-django/pull/6229))
+
+- Update sphinx to 9.0.4 ([#6228](https://github.com/cookiecutter/cookiecutter-django/pull/6228))
+
+- Update djangorestframework-stubs to 3.16.6 ([#6224](https://github.com/cookiecutter/cookiecutter-django/pull/6224))
+
+## 2025.12.03
+
+
+### Changed
+
+- Add docker buildkit flag ([#6219](https://github.com/cookiecutter/cookiecutter-django/pull/6219))
+
+### Updated
+
+- Update sentry-sdk to 2.47.0 ([#6223](https://github.com/cookiecutter/cookiecutter-django/pull/6223))
+
+- Update psycopg to 3.3.1 ([#6221](https://github.com/cookiecutter/cookiecutter-django/pull/6221))
+
+## 2025.12.02
+
+
+### Updated
+
+- Update django to 5.2.9 ([#6220](https://github.com/cookiecutter/cookiecutter-django/pull/6220))
+
+- Update mypy to 1.19.0 ([#6218](https://github.com/cookiecutter/cookiecutter-django/pull/6218))
+
+- Update django-stubs to 5.2.8 ([#6216](https://github.com/cookiecutter/cookiecutter-django/pull/6216))
+
+- Update psycopg to 3.3.0 ([#6215](https://github.com/cookiecutter/cookiecutter-django/pull/6215))
+
+- Update sphinx to 9.0.1 ([#6214](https://github.com/cookiecutter/cookiecutter-django/pull/6214))
+
+- Update werkzeug to 3.1.4 ([#6212](https://github.com/cookiecutter/cookiecutter-django/pull/6212))
+
+- Update celery to 5.6.0 ([#6211](https://github.com/cookiecutter/cookiecutter-django/pull/6211))
+
+- Update ruff to 0.14.7 ([#6205](https://github.com/cookiecutter/cookiecutter-django/pull/6205))
+
 ## 2025.11.25
 
 
