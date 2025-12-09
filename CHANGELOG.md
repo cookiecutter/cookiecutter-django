@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2025.12.08
+
+
+### Updated
+
+- Bump traefik from 3.6.2 to 3.6.4 ([#6239](https://github.com/cookiecutter/cookiecutter-django/pull/6239))
+
+- Update psycopg to 3.3.2 ([#6237](https://github.com/cookiecutter/cookiecutter-django/pull/6237))
+
+- Update pytest to 9.0.2 ([#6236](https://github.com/cookiecutter/cookiecutter-django/pull/6236))
+
 ## 2025.12.05
 
 
