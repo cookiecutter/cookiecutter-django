@@ -167,7 +167,7 @@ wheels = [
 
 [[package]]
 name = "cookiecutter-django"
-version = "2025.12.9"
+version = "2025.12.10"
 source = { virtual = "." }
 dependencies = [
     { name = "binaryornot" },
