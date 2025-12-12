@@ -24,7 +24,6 @@
     "postcss": "^8.3.11",
     "postcss-loader": "^8.0.0",
     "postcss-preset-env": "^10.0.3",
-    "tailwind":"^4.1.13",
     "webpack": "^5.82.0",
     "webpack-bundle-tracker": "^3.0.1",
     "webpack-cli": "^6.0.1",
@@ -43,5 +42,11 @@
   "scripts": {
     "dev": "",
     "build": ""
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.2.6",
+    "@tailwindcss/postcss": "^4.1.10",
+    "alpinejs": "^3.14.9",
+    "tailwindcss": "^4.1.10"
   }
 }

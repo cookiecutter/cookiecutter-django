@@ -17,6 +17,7 @@ import postcss from 'gulp-postcss';
 import rename from 'gulp-rename';
 import gulUglifyES from 'gulp-uglify-es';
 import { spawn } from 'node:child_process';
+import tailwindcss from '@tailwindcss/postcss';
 
 const browserSync = browserSyncLib.create();
 const reload = browserSync.reload;
@@ -29,8 +30,8 @@ function pathsConfig() {
 
   return {
     vendorsJs: [
-      `${vendorsRoot}/@popperjs/core/dist/umd/popper.js`,
-      `${vendorsRoot}/bootstrap/dist/js/bootstrap.js`,
+      // `${vendorsRoot}/@popperjs/core/dist/umd/popper.js`,
+      `${vendorsRoot}/alpinejs/dist/cdn.min.js`,
     ],
     app: appName,
     templates: `${appName}/templates`,
@@ -60,7 +61,7 @@ function styles() {
     cssnano({ preset: 'default' }), // minify result
   ];
 
-  return src(`${paths.styles}/project.scss`)
+  return src(`${paths.styles}/project.css`)
     .pipe(plumber()) // Checks for errors
     .pipe(postcss(processCss))
     .pipe(dest(paths.css))
@@ -112,7 +113,7 @@ function asyncRunServer() {
 {%- else %}
 // Run django server
 function runServer(cb) {
-  const cmd = spawn('python', ['manage.py', 'runserver'], { stdio: 'inherit' });
+  const cmd = spawn('uv', ['run', 'python', 'manage.py', 'runserver'], { stdio: 'inherit' });
   cmd.on('close', function (code) {
     console.log('runServer exited with code ' + code);
     cb(code);

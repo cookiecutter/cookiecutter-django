@@ -149,7 +149,6 @@ def handle_js_runner(choice, use_docker, use_async):
                 "mini-css-extract-plugin",
                 "postcss-loader",
                 "postcss-preset-env",
-                "sass-loader",
                 "webpack",
                 "webpack-bundle-tracker",
                 "webpack-cli",
@@ -177,7 +176,6 @@ def handle_js_runner(choice, use_docker, use_async):
             "gulp-plumber",
             "gulp-postcss",
             "gulp-rename",
-            "gulp-sass",
             "gulp-uglify-es",
         ]
         if not use_docker:
