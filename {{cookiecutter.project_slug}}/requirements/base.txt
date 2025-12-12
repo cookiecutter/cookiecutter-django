@@ -1,5 +1,5 @@
 python-slugify==8.0.4  # https://github.com/un33k/python-slugify
-Pillow==12.0.0 # pyup: != 11.2.0  # https://github.com/python-pillow/Pillow
+Pillow==12.0.0 # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.frontend_pipeline == 'Django Compressor' %}
 {%- if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %}
 rcssmin==1.2.2 --install-option="--without-c-extensions"  # https://github.com/ndparker/rcssmin
@@ -29,7 +29,7 @@ uvicorn-worker==0.4.0  # https://github.com/Kludex/uvicorn-worker
 
 # Django
 # ------------------------------------------------------------------------------
-django==5.2.9  # pyup: < 6.0 # https://www.djangoproject.com/
+django==6.0.0  # pyup: < 7.0 # https://www.djangoproject.com/
 django-environ==0.12.0  # https://github.com/joke2k/django-environ
 django-model-utils==5.0.0  # https://github.com/jazzband/django-model-utils
 django-allauth[mfa]==65.13.1  # https://github.com/pennersr/django-allauth
