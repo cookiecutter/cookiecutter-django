@@ -1,5 +1,5 @@
 {% if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] -%}
-FROM docker.io/node:24.11-bookworm-slim AS client-builder
+FROM docker.io/node:24.12-bookworm-slim AS client-builder
 
 ARG APP_HOME=/app
 WORKDIR ${APP_HOME}
