@@ -92,6 +92,9 @@ THIRD_PARTY_APPS = [
 {%- if cookiecutter.use_celery == 'y' %}
     "django_celery_beat",
 {%- endif %}
+{%- if cookiecutter.use_django_rq == 'y' %}
+    "django_rq",
+{%- endif %}
 {%- if cookiecutter.use_drf == "y" %}
     "rest_framework",
     "rest_framework.authtoken",
@@ -285,8 +288,13 @@ LOGGING = {
     "root": {"level": "INFO", "handlers": ["console"]},
 }
 
+{% if cookiecutter.use_celery == 'y' -%}
 REDIS_URL = env("REDIS_URL", default="redis://{% if cookiecutter.use_docker == 'y' %}redis{%else%}localhost{% endif %}:6379/0")
 REDIS_SSL = REDIS_URL.startswith("rediss://")
+{%- endif %}
+{% if cookiecutter.use_django_rq == 'y' -%}
+VALKEY_URL = env("VALKEY_URL", default="valkey://{% if cookiecutter.use_docker == 'y' %}valkey{%else%}localhost{% endif %}:6379/0")
+{%- endif %}
 
 {% if cookiecutter.use_celery == 'y' -%}
 # Celery
@@ -330,6 +338,26 @@ CELERY_TASK_SEND_SENT_EVENT = True
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#worker-hijack-root-logger
 CELERY_WORKER_HIJACK_ROOT_LOGGER = False
 
+{%- endif %}
+{% if cookiecutter.use_django_rq == 'y' -%}
+# Django-RQ
+# ------------------------------------------------------------------------------
+# https://github.com/rq/django-rq
+RQ_QUEUES = {
+    "default": {
+        "URL": VALKEY_URL,
+        "DEFAULT_TIMEOUT": 360,
+    },
+    "high": {
+        "URL": VALKEY_URL,
+        "DEFAULT_TIMEOUT": 500,
+    },
+    "low": {
+        "URL": VALKEY_URL,
+    },
+}
+# https://github.com/rq/django-rq#support-for-django-redis-and-django-redis-cache
+RQ_SHOW_ADMIN_LINK = True
 {%- endif %}
 # django-allauth
 # ------------------------------------------------------------------------------
