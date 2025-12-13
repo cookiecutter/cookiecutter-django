@@ -1,6 +1,6 @@
 [project]
 name = "cookiecutter-django"
-version = "2025.12.10"
+version = "2025.12.12"
 description = "A Cookiecutter template for creating production-ready Django projects quickly."
 readme = "README.md"
 keywords = [
