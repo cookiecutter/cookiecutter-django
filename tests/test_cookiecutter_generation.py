@@ -25,8 +25,8 @@ elif sys.platform.startswith("darwin") and os.getenv("CI"):
     pytest.skip("skipping slow macOS tests on CI", allow_module_level=True)
 
 # Run auto-fixable styles checks - skipped on CI by default. These can be fixed
-# automatically by running pre-commit after generation however they are tedious
-# to fix in the template, so we don't insist too much in fixing them.
+# automatically by running pre-commit after generation. However, they are tedious
+# to fix in the template, so we don't insist too much on fixing them.
 AUTOFIXABLE_STYLES = os.getenv("AUTOFIXABLE_STYLES") == "1"
 auto_fixable = pytest.mark.skipif(not AUTOFIXABLE_STYLES, reason="auto-fixable")
 
