@@ -552,6 +552,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Christian González</td>
+    <td>
+      <a href="https://github.com/nerdoc">nerdoc</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Christian Jauvin</td>
     <td>
       <a href="https://github.com/cjauvin">cjauvin</a>
