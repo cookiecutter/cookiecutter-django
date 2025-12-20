@@ -62,10 +62,9 @@ updates:
 
 {%- endif %}
 
-  # Enable version updates for Python/Pip - Production
-  - package-ecosystem: 'pip'
-    # Look for a `requirements.txt` in the `root` directory
-    # also 'setup.cfg', '.python-version' and 'requirements/*.txt'
+  # Enable version updates for Python/uv - Production
+  - package-ecosystem: 'uv'
+    # Look for a `pyproject.toml` in the `root` directory
     directory: '/'
     # Every weekday
     schedule:
