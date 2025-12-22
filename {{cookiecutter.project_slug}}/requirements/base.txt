@@ -23,7 +23,7 @@ flower==2.0.1  # https://github.com/mher/flower
 {%- endif %}
 {%- endif %}
 {%- if cookiecutter.use_async == 'y' %}
-uvicorn[standard]==0.38.0  # https://github.com/Kludex/uvicorn
+uvicorn[standard]==0.40.0  # https://github.com/Kludex/uvicorn
 uvicorn-worker==0.4.0  # https://github.com/Kludex/uvicorn-worker
 {%- endif %}
 
