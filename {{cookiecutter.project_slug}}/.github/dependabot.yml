@@ -62,7 +62,7 @@ updates:
 
 {%- endif %}
 
-  # Enable version updates for Python/uv - Production
+  # Enable version updates for Python/uv
   - package-ecosystem: 'uv'
     # Look for a `pyproject.toml` in the `root` directory
     directory: '/'
