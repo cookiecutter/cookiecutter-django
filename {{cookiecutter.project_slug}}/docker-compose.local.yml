@@ -22,8 +22,10 @@ services:
       - /app/.venv
       - .:/app:z
     env_file:
-      - ./.envs/.local/.django
-      - ./.envs/.local/.postgres
+      - path: ./.envs/.local/.django
+        required: false
+      - path: ./.envs/.local/.postgres
+        required: false
     ports:
       - '8000:8000'
     command: /start
@@ -42,7 +44,8 @@ services:
       {%- endif %}
       - {{ cookiecutter.project_slug }}_local_postgres_data_backups:/backups
     env_file:
-      - ./.envs/.local/.postgres
+      - path: ./.envs/.local/.postgres
+        required: false
 
   {%- if cookiecutter.use_mailpit == 'y' %}
 
