@@ -2190,6 +2190,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Soldatov Serhii</td>
+    <td>
+      <a href="https://github.com/soldatov-ss">soldatov-ss</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Sorasful</td>
     <td>
       <a href="https://github.com/sorasful">sorasful</a>
