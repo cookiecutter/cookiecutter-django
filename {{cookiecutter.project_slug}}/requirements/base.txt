@@ -16,7 +16,7 @@ redis==7.1.0  # https://github.com/redis/redis-py
 hiredis==3.3.0  # https://github.com/redis/hiredis-py
 {%- endif %}
 {%- if cookiecutter.use_celery == "y" %}
-celery==5.6.0  # pyup: < 6.0  # https://github.com/celery/celery
+celery==5.6.1  # pyup: < 6.0  # https://github.com/celery/celery
 django-celery-beat==2.8.1  # https://github.com/celery/django-celery-beat
 {%- if cookiecutter.use_docker == 'y' %}
 flower==2.0.1  # https://github.com/mher/flower
