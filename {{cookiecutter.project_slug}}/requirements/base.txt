@@ -1,5 +1,5 @@
 python-slugify==8.0.4  # https://github.com/un33k/python-slugify
-Pillow==12.0.0 # pyup: != 11.2.0  # https://github.com/python-pillow/Pillow
+Pillow==12.1.0 # pyup: != 11.2.0  # https://github.com/python-pillow/Pillow
 {%- if cookiecutter.frontend_pipeline == 'Django Compressor' %}
 {%- if cookiecutter.windows == 'y' and cookiecutter.use_docker == 'n' %}
 rcssmin==1.2.2 --install-option="--without-c-extensions"  # https://github.com/ndparker/rcssmin
