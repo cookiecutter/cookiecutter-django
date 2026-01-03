@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.01.02
+
+
+### Updated
+
+- Update sphinx to 9.1.0 ([#6269](https://github.com/cookiecutter/cookiecutter-django/pull/6269))
+
+- Update pillow to 12.1.0 ([#6271](https://github.com/cookiecutter/cookiecutter-django/pull/6271))
+
 ## 2025.12.30
 
 
