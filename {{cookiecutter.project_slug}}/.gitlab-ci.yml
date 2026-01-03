@@ -20,6 +20,7 @@ precommit:
     paths:
       - ${PRE_COMMIT_HOME}
   before_script:
+    - uv venv
     - uv pip install -q pre-commit pre-commit-uv
   script:
     - uv run pre-commit run --show-diff-on-failure --color=always --all-files
