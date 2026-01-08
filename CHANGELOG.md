@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.01.07
+
+
+### Fixed
+
+- Fix virtual environment setup to GitLab CI ([#6175](https://github.com/cookiecutter/cookiecutter-django/pull/6175))
+
+### Updated
+
+- Update django to 5.2.10 ([#6277](https://github.com/cookiecutter/cookiecutter-django/pull/6277))
+
 ## 2026.01.04
 
 
