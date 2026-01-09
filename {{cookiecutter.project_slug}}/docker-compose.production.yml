@@ -8,10 +8,13 @@ volumes:
   {% if cookiecutter.use_celery == 'y' %}
   production_redis_data: {}
   {% endif %}
+  {% if cookiecutter.use_django_rq == 'y' %}
+  production_valkey_data: {}
+  {% endif %}
 
 
 services:
-  django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
+  django:{% if cookiecutter.use_celery == 'y' or cookiecutter.use_django_rq == 'y' %} &django{% endif %}
     build:
       context: .
       dockerfile: ./compose/production/django/Dockerfile
@@ -35,7 +38,12 @@ services:
     {%- endif %}
     depends_on:
       - postgres
+      {%- if cookiecutter.use_celery == 'y' %}
       - redis
+      {%- endif %}
+      {%- if cookiecutter.use_django_rq == 'y' %}
+      - valkey
+      {%- endif %}
     env_file:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
@@ -72,14 +80,14 @@ services:
       - '0.0.0.0:5555:5555'
       {%- endif %}
 
+  {%- if cookiecutter.use_celery == 'y' %}
+
   redis:
     image: docker.io/redis:7.2
-    {% if cookiecutter.use_celery == 'y' %}
     volumes:
       - production_redis_data:/data
-    {% endif %}
 
-
+  {%- endif %}
   {%- if cookiecutter.use_celery == 'y' %}
 
   celeryworker:
@@ -96,6 +104,23 @@ services:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_flower
     command: /start-flower
+  {%- endif %}
+  {%- if cookiecutter.use_django_rq == 'y' %}
+
+  valkey:
+    image: docker.io/valkey/valkey:8.0
+    volumes:
+      - production_valkey_data:/data
+
+  rqworker:
+    <<: *django
+    image: {{ cookiecutter.project_slug }}_production_rqworker
+    command: /start-rqworker
+
+  rqscheduler:
+    <<: *django
+    image: {{ cookiecutter.project_slug }}_production_rqscheduler
+    command: /start-rqscheduler
   {%- endif %}
   {%- if cookiecutter.cloud_provider == 'AWS' %}
 
