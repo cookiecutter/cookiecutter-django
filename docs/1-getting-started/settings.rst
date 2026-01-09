@@ -72,6 +72,7 @@ BREVO_API_KEY                           BREVO_API_KEY               n/a         
 BREVO_API_URL                           n/a                         n/a                                            "https://api.brevo.com/v3/"
 SPARKPOST_API_KEY                       SPARKPOST_API_KEY           n/a                                            raises error
 SPARKPOST_API_URL                       n/a                         n/a                                            "https://api.sparkpost.com/api/v1"
+n/a                                     PRODUCTION_PROCESSES        n/a                                            a configured dictionary depending on your choices - check settings/production.py
 ======================================= =========================== ============================================== ======================================================================
 
 --------------------------
