@@ -51,6 +51,13 @@ urlpatterns += [
     ),
 ]
 {%- endif %}
+{%- if cookiecutter.use_django_ninja == 'y' %}
+# API URLS
+from config.api import api
+urlpatterns += [
+    path("api/", api.urls),
+]
+{%- endif %}
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit

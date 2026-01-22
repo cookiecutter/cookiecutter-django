@@ -407,10 +407,50 @@ def remove_aws_dockerfile():
     shutil.rmtree(Path("compose", "production", "aws"))
 
 
-def remove_drf_starter_files():
+def remove_drf_files():
     Path("config", "api_router.py").unlink()
-    shutil.rmtree(Path("{{cookiecutter.project_slug}}", "users", "api"))
     shutil.rmtree(Path("{{cookiecutter.project_slug}}", "users", "tests", "api"))
+    
+    # Remove DRF specific files
+    users_api_path = Path("{{cookiecutter.project_slug}}", "users", "api")
+    (users_api_path / "views.py").unlink(missing_ok=True)
+    (users_api_path / "serializers.py").unlink(missing_ok=True)
+    
+    # Check if the directory is empty (except for __init__.py or __pycache__)
+    # If using Ninja, controllers.py and schema.py might be there.
+    # If not using Ninja, and we just removed DRF, we should check if we can remove the dir.
+    # But simpler: if no files left, remove dir.
+    # If we are running this, it means DRF is NOT selected.
+    # If Ninja is also NOT selected, then remove_django_ninja_files will also run.
+    
+    # Let's rely on checking if directory is empty of meaningful files
+    # But modifying two functions is cleaner.
+    
+    # If Ninja is NOT selected, remove_django_ninja_files will run later and can clean up the dir if empty.
+    # So here we just remove DRF files.
+    
+    
+def remove_django_ninja_files():
+    Path("config", "api.py").unlink(missing_ok=True)
+    Path("{{cookiecutter.project_slug}}", "users", "tests", "test_ninja.py").unlink(missing_ok=True)
+    
+    users_api_path = Path("{{cookiecutter.project_slug}}", "users", "api")
+    (users_api_path / "controllers.py").unlink(missing_ok=True)
+    (users_api_path / "schema.py").unlink(missing_ok=True)
+
+
+def remove_users_api_dir_if_empty():
+    # Attempt to remove users/api directory if it only contains __init__.py or is empty
+    users_api_path = Path("{{cookiecutter.project_slug}}", "users", "api")
+    if not users_api_path.exists():
+        return
+        
+    # Check contents
+    files = [f for f in users_api_path.iterdir() if f.is_file()]
+    remaining = [f.name for f in files if f.name != "__init__.py"]
+    
+    if not remaining:
+        shutil.rmtree(users_api_path)
 
 
 def main():  # noqa: C901, PLR0912, PLR0915
@@ -502,7 +542,15 @@ def main():  # noqa: C901, PLR0912, PLR0915
         remove_dotdrone_file()
 
     if "{{ cookiecutter.use_drf }}".lower() == "n":
-        remove_drf_starter_files()
+        remove_drf_files()
+        
+    if "{{ cookiecutter.use_django_ninja }}".lower() == "n":
+        remove_django_ninja_files()
+        
+    # Try to remove the api directory if both are 'n' (or if one is 'y' but didn't leave files?)
+    # actually, if both are 'n', we want to remove the dir. 
+    # if one is 'y', the dir will contain files.
+    remove_users_api_dir_if_empty()
 
     if "{{ cookiecutter.use_async }}".lower() == "n":
         remove_async_files()
