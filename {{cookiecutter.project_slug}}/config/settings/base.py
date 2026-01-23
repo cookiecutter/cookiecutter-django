@@ -49,7 +49,12 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 {% if cookiecutter.use_docker == "y" -%}
-DATABASES = {"default": env.db("DATABASE_URL")}
+DATABASES = {
+    "default": env.db(
+        "DATABASE_URL",
+        default=f"postgres://{env('POSTGRES_USER')}:{env('POSTGRES_PASSWORD')}@{env('POSTGRES_HOST')}:{env('POSTGRES_PORT')}/{env('POSTGRES_DB')}",
+    ),
+}
 {%- else %}
 DATABASES = {
     "default": env.db(
