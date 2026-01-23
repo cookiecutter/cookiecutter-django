@@ -1,6 +1,8 @@
 volumes:
   {{ cookiecutter.project_slug }}_local_postgres_data: {}
   {{ cookiecutter.project_slug }}_local_postgres_data_backups: {}
+  {{ cookiecutter.project_slug }}_local_django_venv: {}
+  {% if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}{{ cookiecutter.project_slug }}_local_node_modules: {}{% endif %}
   {% if cookiecutter.use_celery == 'y' %}{{ cookiecutter.project_slug }}_local_redis_data: {}{% endif %}
 
 services:
@@ -19,7 +21,7 @@ services:
       - mailpit
       {%- endif %}
     volumes:
-      - /app/.venv
+      - {{ cookiecutter.project_slug }}_local_django_venv:/app/.venv
       - .:/app:z
     env_file:
       - ./.envs/.local/.django
@@ -109,7 +111,7 @@ services:
     volumes:
       - .:/app:z
       # http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html
-      - /app/node_modules
+      - {{ cookiecutter.project_slug }}_local_node_modules:/app/node_modules
     command: npm run dev
     ports:
       - '3000:3000'
