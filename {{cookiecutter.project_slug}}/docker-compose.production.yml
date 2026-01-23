@@ -1,7 +1,9 @@
 volumes:
   production_postgres_data: {}
   production_postgres_data_backups: {}
+  {%- if cookiecutter.use_bundled_traefik == 'y' %}
   production_traefik: {}
+  {%- endif %}
   {%- if cookiecutter.cloud_provider == 'None' %}
   production_django_media: {}
   {%- endif %}
@@ -40,6 +42,24 @@ services:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
     command: /start
+    {%- if cookiecutter.use_bundled_traefik == 'n' %}
+    labels:
+      - "traefik.enable=true"
+      {%- if cookiecutter.domain_name.count('.') == 1 %}
+      - "traefik.http.routers.django.rule=Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)"
+      {%- else %}
+      - "traefik.http.routers.django.rule=Host(`{{ cookiecutter.domain_name }}`)"
+      {%- endif %}
+      - "traefik.http.routers.django.entrypoints=web-secure"
+      - "traefik.http.routers.django.tls=true"
+      - "traefik.http.routers.django.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.django.middlewares={{ cookiecutter.project_slug }}-csrf"
+      - "traefik.http.middlewares.{{ cookiecutter.project_slug }}-csrf.headers.hostsProxyHeaders=X-CSRFToken"
+      - "traefik.http.services.django.loadbalancer.server.port=5000"
+    networks:
+      - default
+      - {{ cookiecutter.traefik_network_name }}
+    {%- endif %}
 
   postgres:
     build:
@@ -56,6 +76,7 @@ services:
     env_file:
       - ./.envs/.production/.postgres
 
+  {%- if cookiecutter.use_bundled_traefik == 'y' %}
   traefik:
     build:
       context: .
@@ -71,6 +92,7 @@ services:
       {%- if cookiecutter.use_celery == 'y' %}
       - '0.0.0.0:5555:5555'
       {%- endif %}
+  {%- endif %}
 
   redis:
     image: docker.io/redis:7.2
@@ -86,16 +108,34 @@ services:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_celeryworker
     command: /start-celeryworker
+    {%- if cookiecutter.use_bundled_traefik == 'n' %}
+    labels: []
+    {%- endif %}
 
   celerybeat:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_celerybeat
     command: /start-celerybeat
+    {%- if cookiecutter.use_bundled_traefik == 'n' %}
+    labels: []
+    {%- endif %}
 
   flower:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_flower
     command: /start-flower
+    {%- if cookiecutter.use_bundled_traefik == 'n' %}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.flower.rule=Host(`flower.{{ cookiecutter.domain_name }}`)"
+      - "traefik.http.routers.flower.entrypoints=web-secure"
+      - "traefik.http.routers.flower.tls=true"
+      - "traefik.http.routers.flower.tls.certresolver=letsencrypt"
+      - "traefik.http.services.flower.loadbalancer.server.port=5555"
+    networks:
+      - default
+      - {{ cookiecutter.traefik_network_name }}
+    {%- endif %}
   {%- endif %}
   {%- if cookiecutter.cloud_provider == 'AWS' %}
 
@@ -119,4 +159,29 @@ services:
       - django
     volumes:
       - production_django_media:/usr/share/nginx/media:ro
+    {%- if cookiecutter.use_bundled_traefik == 'n' %}
+    labels:
+      - "traefik.enable=true"
+      {%- if cookiecutter.domain_name.count('.') == 1 %}
+      - "traefik.http.routers.django-media.rule=(Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)) && PathPrefix(`/media/`)"
+      {%- else %}
+      - "traefik.http.routers.django-media.rule=Host(`{{ cookiecutter.domain_name }}`) && PathPrefix(`/media/`)"
+      {%- endif %}
+      - "traefik.http.routers.django-media.entrypoints=web-secure"
+      - "traefik.http.routers.django-media.tls=true"
+      - "traefik.http.routers.django-media.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.django-media.middlewares={{ cookiecutter.project_slug }}-csrf"
+      - "traefik.http.services.django-media.loadbalancer.server.port=80"
+    networks:
+      - default
+      - {{ cookiecutter.traefik_network_name }}
+    {%- endif %}
   {%- endif %}
+
+{%- if cookiecutter.use_bundled_traefik == 'n' %}
+networks:
+  default:
+    driver: bridge
+  {{ cookiecutter.traefik_network_name }}:
+    external: true
+{%- endif %}

@@ -63,6 +63,8 @@
   "use_sentry": "n",
   "use_whitenoise": "n",
   "use_heroku": "n",
+  "use_bundled_traefik": "y",
+  "traefik_network_name": "traefik_public",
   "ci_tool": [
     "None",
     "Travis",
