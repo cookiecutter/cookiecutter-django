@@ -1,0 +1,193 @@
+# This file is used for staging environment
+# It is similar to docker-compose.production.yml but with some differences
+# For example, it does not use HTTPS
+# It allows you to replicate the production build on your local machine
+
+volumes:
+  production_postgres_data: {}
+  production_postgres_data_backups: {}
+  {%- if cookiecutter.use_bundled_traefik == 'y' %}
+  production_traefik: {}
+  {%- endif %}
+  {%- if cookiecutter.cloud_provider == 'None' %}
+  production_django_media: {}
+  {%- endif %}
+  production_redis_data: {}
+
+
+services:
+  django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
+    build:
+      context: .
+      dockerfile: ./compose/production/django/Dockerfile
+      {%- if cookiecutter.frontend_pipeline == 'Webpack' and cookiecutter.use_whitenoise == 'n' %}
+      args:
+        # These variable can be defined in an .env file in the root of the repo
+        {%- if cookiecutter.cloud_provider == 'AWS' %}
+        DJANGO_AWS_STORAGE_BUCKET_NAME: ${DJANGO_AWS_STORAGE_BUCKET_NAME}
+        DJANGO_AWS_S3_CUSTOM_DOMAIN: ${DJANGO_AWS_S3_CUSTOM_DOMAIN}
+        {%- elif cookiecutter.cloud_provider == 'GCP' %}
+        DJANGO_GCP_STORAGE_BUCKET_NAME: ${DJANGO_GCP_STORAGE_BUCKET_NAME}
+        {%- elif cookiecutter.cloud_provider == 'Azure' %}
+        DJANGO_AZURE_ACCOUNT_NAME: ${DJANGO_AZURE_ACCOUNT_NAME}
+        {%- endif %}
+      {%- endif %}
+
+    image: {{ cookiecutter.project_slug }}_production_django
+    {%- if cookiecutter.cloud_provider == 'None' %}
+    volumes:
+      - production_django_media:/app/{{ cookiecutter.project_slug }}/media
+    {%- endif %}
+    depends_on:
+      - postgres
+      - redis
+    env_file:
+      - ./.envs/.production/.django
+      - ./.envs/.production/.postgres
+    command: /start
+    {%- if cookiecutter.use_bundled_traefik == 'n' %}
+    labels:
+      - "traefik.enable=true"
+      {%- if cookiecutter.domain_name.count('.') == 1 %}
+      - "traefik.http.routers.django.rule=Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)"
+      {%- else %}
+      - "traefik.http.routers.django.rule=Host(`{{ cookiecutter.domain_name }}`)"
+      {%- endif %}
+      - "traefik.http.routers.django.entrypoints=web"
+      - "traefik.http.routers.django.tls=false"
+      - "traefik.http.routers.django.middlewares={{ cookiecutter.project_slug }}-csrf"
+      - "traefik.http.middlewares.{{ cookiecutter.project_slug }}-csrf.headers.hostsProxyHeaders=X-CSRFToken"
+      - "traefik.http.services.django.loadbalancer.server.port=5000"
+    networks:
+      - default
+      - {{ cookiecutter.traefik_network_name }}
+    {%- endif %}
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    image: {{ cookiecutter.project_slug }}_production_postgres
+    {%- if cookiecutter.postgresql_version|int >= 18 %}
+    environment:
+      - PGDATA=/var/lib/postgresql/{{ cookiecutter.postgresql_version }}/docker
+    {%- endif %}
+    volumes:
+      {%- if cookiecutter.postgresql_version|int >= 18 %}
+      - production_postgres_data:/var/lib/postgresql/{{ cookiecutter.postgresql_version }}/docker
+      {%- else %}
+      - production_postgres_data:/var/lib/postgresql/data
+      {%- endif %}
+      - production_postgres_data_backups:/backups
+    env_file:
+      - ./.envs/.production/.postgres
+
+  {%- if cookiecutter.use_bundled_traefik == 'y' %}
+  traefik:
+    build:
+      context: .
+      dockerfile: ./compose/production/traefik/Dockerfile
+    image: {{ cookiecutter.project_slug }}_production_traefik
+    depends_on:
+      - django
+    volumes:
+      - production_traefik:/etc/traefik/acme
+    ports:
+      - '0.0.0.0:80:80'
+      - '0.0.0.0:443:443'
+      {%- if cookiecutter.use_celery == 'y' %}
+      - '0.0.0.0:5555:5555'
+      {%- endif %}
+  {%- endif %}
+
+  redis:
+    image: docker.io/redis:7.2
+    volumes:
+      - production_redis_data:/data
+
+
+  {%- if cookiecutter.use_celery == 'y' %}
+
+  celeryworker:
+    <<: *django
+    image: {{ cookiecutter.project_slug }}_production_celeryworker
+    command: /start-celeryworker
+    {%- if cookiecutter.use_bundled_traefik == 'n' %}
+    labels: []
+    {%- endif %}
+
+  celerybeat:
+    <<: *django
+    image: {{ cookiecutter.project_slug }}_production_celerybeat
+    command: /start-celerybeat
+    {%- if cookiecutter.use_bundled_traefik == 'n' %}
+    labels: []
+    {%- endif %}
+
+  flower:
+    <<: *django
+    image: {{ cookiecutter.project_slug }}_production_flower
+    command: /start-flower
+    {%- if cookiecutter.use_bundled_traefik == 'n' %}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.flower.rule=Host(`flower.{{ cookiecutter.domain_name }}`)"
+      - "traefik.http.routers.flower.entrypoints=web-secure"
+      - "traefik.http.routers.flower.tls=true"
+      - "traefik.http.routers.flower.tls.certresolver=letsencrypt"
+      - "traefik.http.services.flower.loadbalancer.server.port=5555"
+    networks:
+      - default
+      - {{ cookiecutter.traefik_network_name }}
+    {%- endif %}
+  {%- endif %}
+  {%- if cookiecutter.cloud_provider == 'AWS' %}
+
+  awscli:
+    build:
+      context: .
+      dockerfile: ./compose/production/aws/Dockerfile
+    env_file:
+      - ./.envs/.production/.django
+    volumes:
+      - production_postgres_data_backups:/backups:z
+  {%- endif %}
+  {%- if cookiecutter.cloud_provider == 'None' %}
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./compose/production/nginx/Dockerfile
+    image: {{ cookiecutter.project_slug }}_production_nginx
+    depends_on:
+      - django
+    volumes:
+      - production_django_media:/usr/share/nginx/media:ro
+    {%- if cookiecutter.use_bundled_traefik == 'n' %}
+    labels:
+      - "traefik.enable=true"
+      {%- if cookiecutter.domain_name.count('.') == 1 %}
+      - "traefik.http.routers.django-media.rule=(Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)) && PathPrefix(`/media/`)"
+      {%- else %}
+      - "traefik.http.routers.django-media.rule=Host(`{{ cookiecutter.domain_name }}`) && PathPrefix(`/media/`)"
+      {%- endif %}
+      - "traefik.http.routers.django-media.entrypoints=web-secure"
+      - "traefik.http.routers.django-media.tls=true"
+      - "traefik.http.routers.django-media.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.django-media.middlewares={{ cookiecutter.project_slug }}-csrf"
+      - "traefik.http.services.django-media.loadbalancer.server.port=80"
+    networks:
+      - default
+      - {{ cookiecutter.traefik_network_name }}
+    {%- endif %}
+  {%- endif %}
+
+{%- if cookiecutter.use_bundled_traefik == 'n' %}
+
+
+networks:
+  default:
+    driver: bridge
+  {{ cookiecutter.traefik_network_name }}:
+    external: true
+{%- endif %}
