@@ -36,6 +36,10 @@ services:
       dockerfile: ./compose/production/postgres/Dockerfile
     image: {{ cookiecutter.project_slug }}_production_postgres
     container_name: {{ cookiecutter.project_slug }}_local_postgres
+    {%- if cookiecutter.postgresql_version|int >= 18 %}
+    environment:
+      - PGDATA=/var/lib/postgresql/{{ cookiecutter.postgresql_version }}/docker
+    {%- endif %}
     volumes:
       {%- if cookiecutter.postgresql_version|int >= 18 %}
       - {{ cookiecutter.project_slug }}_local_postgres_data:/var/lib/postgresql/{{ cookiecutter.postgresql_version }}/docker

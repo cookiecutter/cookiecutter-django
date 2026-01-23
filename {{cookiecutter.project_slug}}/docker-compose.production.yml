@@ -64,6 +64,10 @@ services:
       context: .
       dockerfile: ./compose/production/postgres/Dockerfile
     image: {{ cookiecutter.project_slug }}_production_postgres
+    {%- if cookiecutter.postgresql_version|int >= 18 %}
+    environment:
+      - PGDATA=/var/lib/postgresql/{{ cookiecutter.postgresql_version }}/docker
+    {%- endif %}
     volumes:
       {%- if cookiecutter.postgresql_version|int >= 18 %}
       - production_postgres_data:/var/lib/postgresql/{{ cookiecutter.postgresql_version }}/docker
@@ -175,6 +179,8 @@ services:
   {%- endif %}
 
 {%- if cookiecutter.use_bundled_traefik == 'n' %}
+
+
 networks:
   default:
     driver: bridge
