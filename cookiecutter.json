@@ -2,29 +2,26 @@
   "project_name": "My Awesome Project",
   "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
   "description": "Behold My Awesome Project!",
-  "author_name": "Daniel Roy Greenfeld",
+  "author_name": "Paul Keith",
   "domain_name": "example.com",
   "email": "{{ cookiecutter.author_name.lower() | trim() |replace(' ', '-') }}@{{ cookiecutter.domain_name.lower() | trim() }}",
   "version": "0.1.0",
   "open_source_license": [
-    "MIT",
+    "Not open source""MIT",
     "BSD",
     "GPLv3",
     "Apache Software License 2.0",
-    "Not open source"
   ],
   "username_type": [
-    "username",
-    "email"
+    "email""username",
   ],
-  "timezone": "UTC",
+  "timezone": "Asia/Kolkata",
   "windows": "n",
   "editor": [
+    "VS Code""PyCharm",
     "None",
-    "PyCharm",
-    "VS Code"
   ],
-  "use_docker": "n",
+  "use_docker": "y",
   "postgresql_version": [
     "18",
     "17",
@@ -51,25 +48,25 @@
   ],
   "use_async": "n",
   "use_drf": "n",
-  "use_django_ninja": "n",
+  "use_django_ninja": "y",
   "frontend_pipeline": [
     "None",
     "Django Compressor",
     "Gulp",
     "Webpack"
   ],
-  "use_celery": "n",
-  "use_mailpit": "n",
-  "use_sentry": "n",
-  "use_whitenoise": "n",
+  "use_celery": "y",
+  "use_mailpit": "y",
+  "use_sentry": "y",
+  "use_whitenoise": "y",
   "use_heroku": "n",
-  "use_bundled_traefik": "y",
+  "use_bundled_traefik": "n",
   "traefik_network_name": "traefik_public",
   "ci_tool": [
+    "Github",
     "None",
     "Travis",
     "Gitlab",
-    "Github",
     "Drone"
   ],
   "keep_local_envs_in_vcs": "y",
