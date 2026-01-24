@@ -8,3 +8,7 @@ web: gunicorn config.wsgi:application
 worker: REMAP_SIGTERM=SIGQUIT celery -A config.celery_app worker --loglevel=info
 beat: REMAP_SIGTERM=SIGQUIT celery -A config.celery_app beat --loglevel=info
 {%- endif %}
+{%- if cookiecutter.use_django_rq == "y" %}
+worker: python manage.py rqworker default high low
+scheduler: python manage.py rqscheduler
+{%- endif %}
