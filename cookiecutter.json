@@ -11,18 +11,18 @@
     "MIT",
     "BSD",
     "GPLv3",
-    "Apache Software License 2.0",
+    "Apache Software License 2.0"
   ],
   "username_type": [
     "email",
-    "username",
+    "username"
   ],
   "timezone": "Asia/Kolkata",
   "windows": "n",
   "editor": [
     "VS Code",
     "PyCharm",
-    "None",
+    "None"
   ],
   "use_docker": "y",
   "postgresql_version": [
