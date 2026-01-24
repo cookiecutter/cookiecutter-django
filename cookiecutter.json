@@ -7,7 +7,8 @@
   "email": "{{ cookiecutter.author_name.lower() | trim() |replace(' ', '-') }}@{{ cookiecutter.domain_name.lower() | trim() }}",
   "version": "0.1.0",
   "open_source_license": [
-    "Not open source""MIT",
+    "Not open source",
+    "MIT",
     "BSD",
     "GPLv3",
     "Apache Software License 2.0",
