@@ -3,6 +3,24 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.01.23
+
+
+### Updated
+
+- Update gunicorn to 24.1.0 ([#6305](https://github.com/cookiecutter/cookiecutter-django/pull/6305))
+
+- Update gunicorn to 24.0.0 ([#6303](https://github.com/cookiecutter/cookiecutter-django/pull/6303))
+
+- Update ruff to 0.14.14 ([#6302](https://github.com/cookiecutter/cookiecutter-django/pull/6302))
+
+## 2026.01.22
+
+
+### Updated
+
+- Update django-stubs to 5.2.9 ([#6301](https://github.com/cookiecutter/cookiecutter-django/pull/6301))
+
 ## 2026.01.20
 
 

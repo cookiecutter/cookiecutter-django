@@ -1,6 +1,6 @@
 [project]
 name = "cookiecutter-django"
-version = "2026.01.20"
+version = "2026.01.23"
 description = "A Cookiecutter template for creating production-ready Django projects quickly."
 readme = "README.md"
 keywords = [
@@ -43,7 +43,7 @@ dependencies = [
   "pytest-xdist==3.8.0",
   "pyyaml==6.0.3",
   "requests==2.32.5",
-  "ruff==0.14.13",
+  "ruff==0.14.14",
   "sh==2.2.2; sys_platform!='win23'",
   "tox==4.34.1",
   "tox-uv>=1.17",
