@@ -14,12 +14,14 @@
     "Apache Software License 2.0",
   ],
   "username_type": [
-    "email""username",
+    "email",
+    "username",
   ],
   "timezone": "Asia/Kolkata",
   "windows": "n",
   "editor": [
-    "VS Code""PyCharm",
+    "VS Code",
+    "PyCharm",
     "None",
   ],
   "use_docker": "y",
