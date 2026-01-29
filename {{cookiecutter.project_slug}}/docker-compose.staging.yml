@@ -132,8 +132,8 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.flower.rule=Host(`flower.{{ cookiecutter.domain_name }}`)"
-      - "traefik.http.routers.flower.entrypoints=web-secure"
-      - "traefik.http.routers.flower.tls=true"
+      - "traefik.http.routers.flower.entrypoints=web"
+      - "traefik.http.routers.flower.tls=false"
       - "traefik.http.routers.flower.tls.certresolver=letsencrypt"
       - "traefik.http.services.flower.loadbalancer.server.port=5555"
     networks:
