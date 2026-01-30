@@ -243,6 +243,10 @@ EMAIL_SUBJECT_PREFIX = env(
     default="[{{cookiecutter.project_name}}] ",
 )
 ACCOUNT_EMAIL_SUBJECT_PREFIX = EMAIL_SUBJECT_PREFIX
+if env.bool("STAGING", default=False):
+    # Route emails to Mailpit in staging
+    EMAIL_HOST = env("EMAIL_HOST", default="mailpit")
+    EMAIL_PORT = env.int("EMAIL_PORT", default=1025)
 
 # ADMIN
 # ------------------------------------------------------------------------------

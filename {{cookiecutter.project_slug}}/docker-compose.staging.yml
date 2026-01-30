@@ -6,6 +6,7 @@
 # It allows you to replicate the production build on your local machine
 # It uses "api.example.com" as the domain name, and
 # "flower.example.com" for url for flower
+# It uses "mail.example.com" for Mailpit
 # Ensure your hosts file maps these to 127.0.0.1 for local access.
 
 volumes:
@@ -107,6 +108,24 @@ services:
     image: docker.io/redis:7.2
     volumes:
       - production_redis_data:/data
+
+
+  {%- if cookiecutter.use_mailpit == 'y' %}
+  mailpit:
+    image: docker.io/axllent/mailpit:latest
+    container_name: {{ cookiecutter.project_slug }}_staging_mailpit
+    {%- if cookiecutter.use_bundled_traefik == 'n' %}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mailpit.rule=Host(`mail.example.com`)"
+      - "traefik.http.routers.mailpit.entrypoints=web"
+      - "traefik.http.routers.mailpit.tls=false"
+      - "traefik.http.services.mailpit.loadbalancer.server.port=8025"
+    networks:
+      - default
+      - {{ cookiecutter.traefik_network_name }}
+    {%- endif %}
+  {%- endif %}
 
 
   {%- if cookiecutter.use_celery == 'y' %}
