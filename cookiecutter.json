@@ -13,31 +13,13 @@
     "GPLv3",
     "Apache Software License 2.0"
   ],
-  "username_type": [
-    "email",
-    "username"
-  ],
+  "username_type": ["email", "username"],
   "timezone": "Asia/Kolkata",
   "windows": "n",
-  "editor": [
-    "VS Code",
-    "PyCharm",
-    "None"
-  ],
+  "editor": ["VS Code", "PyCharm", "None"],
   "use_docker": "y",
-  "postgresql_version": [
-    "18",
-    "17",
-    "16",
-    "15",
-    "14"
-  ],
-  "cloud_provider": [
-    "AWS",
-    "GCP",
-    "Azure",
-    "None"
-  ],
+  "postgresql_version": ["18", "17", "16", "15", "14"],
+  "cloud_provider": ["AWS", "GCP", "Azure", "None"],
   "mail_service": [
     "Mailgun",
     "Amazon SES",
@@ -52,12 +34,7 @@
   "use_async": "n",
   "use_drf": "n",
   "use_django_ninja": "y",
-  "frontend_pipeline": [
-    "None",
-    "Django Compressor",
-    "Gulp",
-    "Webpack"
-  ],
+  "frontend_pipeline": ["None", "Django Compressor", "Gulp", "Webpack"],
   "use_celery": "y",
   "use_mailpit": "y",
   "use_sentry": "y",
@@ -65,13 +42,7 @@
   "use_heroku": "n",
   "use_bundled_traefik": "n",
   "traefik_network_name": "traefik_public",
-  "ci_tool": [
-    "Github",
-    "None",
-    "Travis",
-    "Gitlab",
-    "Drone"
-  ],
+  "ci_tool": ["Github", "None", "Travis", "Gitlab", "Drone"],
   "keep_local_envs_in_vcs": "y",
   "debug": "n"
 }
