@@ -1,7 +1,12 @@
+# NEVER USE ON THE SERVER
 # This file is used for staging environment
+
 # It is similar to docker-compose.production.yml but with some differences
 # For example, it does not use HTTPS
 # It allows you to replicate the production build on your local machine
+# It uses "api.example.com" as the domain name, and
+# "flower.example.com" for url for flower
+# Ensure your hosts file maps these to 127.0.0.1 for local access.
 
 volumes:
   production_postgres_data: {}
@@ -44,15 +49,13 @@ services:
     env_file:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
+    environment:
+      - STAGING=True
     command: /start
     {%- if cookiecutter.use_bundled_traefik == 'n' %}
     labels:
       - "traefik.enable=true"
-      {%- if cookiecutter.domain_name.count('.') == 1 %}
-      - "traefik.http.routers.django.rule=Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)"
-      {%- else %}
-      - "traefik.http.routers.django.rule=Host(`{{ cookiecutter.domain_name }}`)"
-      {%- endif %}
+      - "traefik.http.routers.django.rule=Host(`api.example.com`)"
       - "traefik.http.routers.django.entrypoints=web"
       - "traefik.http.routers.django.tls=false"
       - "traefik.http.routers.django.middlewares={{ cookiecutter.project_slug }}-csrf"
@@ -131,10 +134,9 @@ services:
     {%- if cookiecutter.use_bundled_traefik == 'n' %}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.flower.rule=Host(`flower.{{ cookiecutter.domain_name }}`)"
+      - "traefik.http.routers.flower.rule=Host(`flower.example.com`)"
       - "traefik.http.routers.flower.entrypoints=web"
       - "traefik.http.routers.flower.tls=false"
-      - "traefik.http.routers.flower.tls.certresolver=letsencrypt"
       - "traefik.http.services.flower.loadbalancer.server.port=5555"
     networks:
       - default
@@ -166,14 +168,9 @@ services:
     {%- if cookiecutter.use_bundled_traefik == 'n' %}
     labels:
       - "traefik.enable=true"
-      {%- if cookiecutter.domain_name.count('.') == 1 %}
-      - "traefik.http.routers.django-media.rule=(Host(`{{ cookiecutter.domain_name }}`) || Host(`www.{{ cookiecutter.domain_name }}`)) && PathPrefix(`/media/`)"
-      {%- else %}
-      - "traefik.http.routers.django-media.rule=Host(`{{ cookiecutter.domain_name }}`) && PathPrefix(`/media/`)"
-      {%- endif %}
-      - "traefik.http.routers.django-media.entrypoints=web-secure"
-      - "traefik.http.routers.django-media.tls=true"
-      - "traefik.http.routers.django-media.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.django-media.rule=(Host(`api.example.com`)) && PathPrefix(`/media/`)"
+      - "traefik.http.routers.django-media.entrypoints=web"
+      - "traefik.http.routers.django-media.tls=false"
       - "traefik.http.routers.django-media.middlewares={{ cookiecutter.project_slug }}-csrf"
       - "traefik.http.services.django-media.loadbalancer.server.port=80"
     networks:
