@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.02.05
+
+
+### Updated
+
+- Bump nginx from 1.29.4 to 1.29.5 ([#6321](https://github.com/cookiecutter/cookiecutter-django/pull/6321))
+
 ## 2026.02.04
 
 
