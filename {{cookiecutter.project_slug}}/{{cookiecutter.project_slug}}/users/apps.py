@@ -1,5 +1,5 @@
 from django.apps import AppConfig
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as __
 
 
 class UsersConfig(AppConfig):
@@ -10,3 +10,7 @@ class UsersConfig(AppConfig):
         """
         Override this method in subclasses to run code when Django starts.
         """
+        try:
+            import signals  # noqa F401
+        except ImportError:
+            pass
