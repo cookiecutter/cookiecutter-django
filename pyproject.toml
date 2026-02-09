@@ -66,7 +66,6 @@ extend-exclude = [
   "[{]{2}cookiecutter.project_slug[}]{2}/*",
   "docs/*",
 ]
-
 lint.select = [
   "A",
   # "ANN", # flake8-annotations: we should support this in the future but many errors atm
@@ -131,11 +130,11 @@ lint.isort.force-single-line = true
 [tool.pyproject-fmt]
 keep_full_version = true
 
+[tool.pytest]
 # ==== pytest ====
 
-[tool.pytest.ini_options]
-addopts = "-v --tb=short"
-norecursedirs = [
+ini_options.addopts = "-v --tb=short"
+ini_options.norecursedirs = [
   ".tox",
   ".git",
   "*/migrations/*",
@@ -159,9 +158,5 @@ include = "H017,H035"
 indent = 2
 max_line_length = 119
 profile = "jinja"
-
-[tool.djlint.css]
-indent_size = 2
-
-[tool.djlint.js]
-indent_size = 2
+css.indent_size = 2
+js.indent_size = 2
