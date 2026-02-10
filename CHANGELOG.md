@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.02.09
+
+
+### Updated
+
+- Update django-allauth to 65.14.1 ([#6324](https://github.com/cookiecutter/cookiecutter-django/pull/6324))
+
+- Update gunicorn to 25.0.3 ([#6323](https://github.com/cookiecutter/cookiecutter-django/pull/6323))
+
 ## 2026.02.06
 
 
