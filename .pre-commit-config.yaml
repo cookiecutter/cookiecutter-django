@@ -34,7 +34,7 @@ repos:
       - id: ruff-format
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: "v2.15.1"
+    rev: "v2.15.2"
     hooks:
       - id: pyproject-fmt
 
