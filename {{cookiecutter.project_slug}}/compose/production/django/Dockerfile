@@ -106,6 +106,17 @@ RUN sed -i 's/\r$//g' /start-flower
 RUN chmod +x /start-flower
 {%- endif %}
 
+{%- if cookiecutter.use_django_rq == "y" %}
+COPY --chown=django:django ./compose/production/django/rq/worker/start /start-rqworker
+RUN sed -i 's/\r$//g' /start-rqworker
+RUN chmod +x /start-rqworker
+
+
+COPY --chown=django:django ./compose/production/django/rq/scheduler/start /start-rqscheduler
+RUN sed -i 's/\r$//g' /start-rqscheduler
+RUN chmod +x /start-rqscheduler
+{%- endif %}
+
 # Copy the application from the builder
 COPY --from=python-build-stage --chown=django:django ${APP_HOME} ${APP_HOME}
 
