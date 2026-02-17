@@ -3,6 +3,21 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.02.16
+
+
+### Updated
+
+- Update redis to 7.2.0 ([#6365](https://github.com/cookiecutter/cookiecutter-django/pull/6365))
+
+- Update sentry-sdk to 2.53.0 ([#6363](https://github.com/cookiecutter/cookiecutter-django/pull/6363))
+
+- Update pytest-django to 4.12.0 ([#6361](https://github.com/cookiecutter/cookiecutter-django/pull/6361))
+
+- Update django-environ to 0.12.1 ([#6360](https://github.com/cookiecutter/cookiecutter-django/pull/6360))
+
+- Update django-allauth to 65.14.3 ([#6359](https://github.com/cookiecutter/cookiecutter-django/pull/6359))
+
 ## 2026.02.13
 
 
