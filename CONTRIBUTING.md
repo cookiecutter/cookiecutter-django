@@ -16,6 +16,9 @@ Always happy to get issues identified and pull requests!
 
 This last step is very important, don't start developing from main, it'll cause pain if you need to send another change later.
 
+> [!TIP]
+> This repository includes a `.github/copilot-instructions.md` file. If you use GitHub Copilot, these instructions will help the AI understand the Cookiecutter template syntax and provide more accurate code suggestions.
+
 ## Testing
 
 You'll need to run the tests using Python 3.13. We recommend using [tox](https://tox.readthedocs.io/en/latest/) to run the tests. It will automatically create a fresh virtual environment and install our test dependencies, such as [pytest-cookies](https://pypi.python.org/pypi/pytest-cookies/) and [flake8](https://pypi.python.org/pypi/flake8/).
@@ -32,38 +35,3 @@ To run the tests of the template using the current Python version:
 
 ```bash
 $ uv run tox run -e py
-```
-
-This uses `pytest `under the hood, and you can pass options to it after a `--`. So to run a particular test:
-
-```bash
-$ uv run tox run -e py -- -k test_default_configuration
-```
-
-For further information, please consult the [pytest usage docs](https://pytest.org/en/latest/how-to/usage.html#specifying-which-tests-to-run).
-
-### Run the generated project tests
-
-The template tests are checking that the generated project is fully rendered and that it passes `flake8`. We also have some test scripts which generate a specific project combination, install the dependencies, run the tests of the generated project, install FE dependencies and generate the docs. They will install the template dependencies, so make sure you create and activate a virtual environment first.
-
-```bash
-$ python -m venv venv
-$ source venv/bin/activate
-```
-
-These tests are slower and can be run with or without Docker:
-
-- Without Docker: `tests/test_bare.sh` (for bare metal)
-- With Docker: `tests/test_docker.sh`
-
-All arguments to these scripts will be passed to the `cookiecutter` CLI, letting you set options, for example:
-
-```bash
-$ tests/test_bare.sh use_celery=y
-```
-
-## Submitting a pull request
-
-Once you're happy with your changes and they look ok locally, push and send [a pull request][submit-a-pr] to the main repo, which will trigger the tests on GitHub actions. If they fail, try to fix them. A maintainer should take a look at your change and give you feedback or merge it.
-
-[submit-a-pr]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
