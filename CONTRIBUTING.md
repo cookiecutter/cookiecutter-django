@@ -35,3 +35,4 @@ To run the tests of the template using the current Python version:
 
 ```bash
 $ uv run tox run -e py
+```
