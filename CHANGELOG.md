@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.02.19
+
+
+### Updated
+
+- Update werkzeug to 3.1.6 ([#6374](https://github.com/cookiecutter/cookiecutter-django/pull/6374))
+
+- Update django-environ to 0.13.0 ([#6368](https://github.com/cookiecutter/cookiecutter-django/pull/6368))
+
+- Update psycopg to 3.3.3 ([#6371](https://github.com/cookiecutter/cookiecutter-django/pull/6371))
+
+- Update pyproject-fmt to 2.16.1 ([#6369](https://github.com/cookiecutter/cookiecutter-django/pull/6369))
+
 ## 2026.02.17
 
 
