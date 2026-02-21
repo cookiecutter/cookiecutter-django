@@ -67,7 +67,3 @@ $ tests/test_bare.sh use_celery=y
 Once you're happy with your changes and they look ok locally, push and send [a pull request][submit-a-pr] to the main repo, which will trigger the tests on GitHub actions. If they fail, try to fix them. A maintainer should take a look at your change and give you feedback or merge it.
 
 [submit-a-pr]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
-
-## GitHub Copilot Instructions
-
-If you use GitHub Copilot, note that this repository includes AI coding agent instructions in `.github/copilot-instructions.md`. These provide Copilot with context about the Cookiecutter template architecture, testing workflows, and development conventions to give more accurate suggestions when working on this project.
