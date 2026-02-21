@@ -552,6 +552,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Christian González</td>
+    <td>
+      <a href="https://github.com/nerdoc">nerdoc</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Christian Jauvin</td>
     <td>
       <a href="https://github.com/cjauvin">cjauvin</a>
@@ -1805,6 +1812,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Mohamed Feddad</td>
+    <td>
+      <a href="https://github.com/mrf345">mrf345</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>monosans</td>
     <td>
       <a href="https://github.com/monosans">monosans</a>
@@ -2172,6 +2186,13 @@ Listed in alphabetical order.
     <td>Simon Rey</td>
     <td>
       <a href="https://github.com/eqqe">eqqe</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Soldatov Serhii</td>
+    <td>
+      <a href="https://github.com/soldatov-ss">soldatov-ss</a>
     </td>
     <td></td>
   </tr>

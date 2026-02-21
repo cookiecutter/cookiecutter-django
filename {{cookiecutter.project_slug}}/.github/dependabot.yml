@@ -62,14 +62,18 @@ updates:
 
 {%- endif %}
 
-  # Enable version updates for Python/Pip - Production
-  - package-ecosystem: 'pip'
-    # Look for a `requirements.txt` in the `root` directory
-    # also 'setup.cfg', '.python-version' and 'requirements/*.txt'
+  # Enable version updates for Python/uv
+  - package-ecosystem: 'uv'
+    # Look for a `pyproject.toml` in the `root` directory
     directory: '/'
     # Every weekday
     schedule:
       interval: 'daily'
+    ignore:
+      # Django 6.0 not yet supported by django-celery-beat
+      # Remove after https://github.com/cookiecutter/cookiecutter-django/pull/6233
+      - dependency-name: 'django'
+        versions: [ '6' ]
     groups:
       python:
         update-types:
