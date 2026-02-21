@@ -1,158 +1,109 @@
-# Cookiecutter Django - AI Coding Agent Instructions
+# AGENTS.md
 
-## Project Architecture
+This file provides guidance to AI coding agents when working with code in this repository.
 
-This is a **Cookiecutter template** for Django projects, not a standard Django application. The actual project structure exists in `{{cookiecutter.project_slug}}/` which contains Jinja2 template syntax (`{{ }}`, `{% %}`) that gets rendered when users run `cookiecutter` to generate a new Django project.
+## What This Project Is
 
-### Key Directories
+cookiecutter-django is a **Cookiecutter template** that generates production-ready Django projects. It is NOT a Django application itself — it's a Jinja2-templated project scaffold. The generated project lives inside `{{cookiecutter.project_slug}}/` and gets processed by Cookiecutter when users run the generator.
 
-- `{{cookiecutter.project_slug}}/` - Template for generated Django projects with Jinja2 variables
-- `hooks/` - Python scripts that run before/after project generation (`pre_gen_project.py`, `post_gen_project.py`)
-- `tests/` - Template generation tests using pytest-cookies
-- `docs/` - Project documentation (separate from generated project docs)
-- `scripts/` - Maintenance utilities (version bumps, changelog updates)
+## Commands
 
-### Template Rendering Flow
-
-1. User runs `cookiecutter` with configuration choices in `cookiecutter.json`
-2. `hooks/pre_gen_project.py` validates choices (e.g., project_slug format, cloud provider compatibility)
-3. Jinja2 renders all `{{cookiecutter.*}}` variables and `{% if %}` conditionals
-4. `hooks/post_gen_project.py` removes unused files based on choices (Docker, Celery, frontend pipeline, etc.)
-
-## Critical Development Workflows
-
-### Running Template Tests
+### Install dependencies
 
 ```bash
-# Test template generation (fast)
+uv sync --locked
+```
+
+### Run tests
+
+```bash
+# Full test suite (parallel, via tox)
 uv run tox run -e py
 
-# Test specific scenario
-uv run tox run -e py -- -k test_default_configuration
+# Direct pytest (parallel)
+uv run pytest -n auto tests
 
-# Full integration tests (slow)
-tests/test_bare.sh use_celery=y  # Without Docker
-tests/test_docker.sh use_docker=y  # With Docker
+# Single test
+uv run pytest tests/test_cookiecutter_generation.py -k "test_name"
+
+# Run with auto-fixable style checks enabled
+AUTOFIXABLE_STYLES=1 uv run pytest -n auto tests
 ```
 
-### Testing Generated Projects
-
-The template produces different outputs based on `cookiecutter.json` choices. Test scripts generate projects, install dependencies, and run their test suites:
-
-- `test_bare.sh` - Bare metal setup (no Docker)
-- `test_docker.sh` - Docker-based setup with compose files
-
-### Docker Commands for Generated Projects
-
-Generated projects use Docker Compose with different configs:
+### Linting and formatting
 
 ```bash
-# Local development
-docker compose -f docker-compose.local.yml up
-docker compose -f docker-compose.local.yml run --rm django pytest
-docker compose -f docker-compose.local.yml run django uv lock  # Generate lockfile
+# Run all pre-commit hooks
+uv run pre-commit run --all-files
 
-# Production setup
-docker compose -f docker-compose.production.yml build
-docker compose -f docker-compose.production.yml up -d
+# Ruff only
+uv run ruff check --fix
+uv run ruff format
 ```
 
-Generated projects may include a `justfile` with shortcuts:
+### Integration tests (require Docker or PostgreSQL+Redis)
 
 ```bash
-just up              # Start containers
-just manage migrate  # Run Django management commands
-just logs django     # View service logs
+# Docker-based
+sh tests/test_docker.sh                          # defaults
+sh tests/test_docker.sh use_celery=y use_drf=y   # with options
+
+# Bare metal (needs PostgreSQL and Redis running)
+sh tests/test_bare.sh
+sh tests/test_bare.sh use_celery=y frontend_pipeline=Gulp
 ```
 
-## Project-Specific Conventions
+### Generate a project locally for debugging
 
-### Jinja2 Template Syntax
-
-All files in `{{cookiecutter.project_slug}}/` contain template variables:
-
-- `{{ cookiecutter.project_slug }}` - User's project name
-- `{% if cookiecutter.use_docker == 'y' %}...{% endif %}` - Conditional sections
-- `{%- if ... -%}` - Whitespace control (important for Python indentation)
-
-**Never edit template files without preserving Jinja2 syntax.** Example from `base.py`:
-
-```python
-TIME_ZONE = "{{ cookiecutter.timezone }}"
-{% if cookiecutter.use_docker == "y" -%}
-DATABASES = {"default": env.db("DATABASE_URL")}
-{%- else %}
-DATABASES = {"default": env.db("DATABASE_URL", default="postgres:///{{cookiecutter.project_slug}}")}
-{%- endif %}
+```bash
+uv run cookiecutter . --no-input --output-dir=/tmp/debug
 ```
 
-### Hook System
+## Architecture
 
-`hooks/post_gen_project.py` contains cleanup logic that removes files based on user choices:
+### Template Generation Flow
 
-- `remove_docker_files()` if `use_docker == 'n'`
-- `remove_celery_files()` if `use_celery == 'n'`
-- `handle_js_runner()` configures Gulp/Webpack or removes frontend tooling
+1. User runs `cookiecutter` — prompted with options from `cookiecutter.json`
+2. `hooks/pre_gen_project.py` validates input (project_slug format, conflicting options)
+3. Jinja2 renders all files under `{{cookiecutter.project_slug}}/` with user choices
+4. `hooks/post_gen_project.py` (~550 lines) removes files not needed for the chosen options, generates random secrets, and adjusts config files
 
-When adding new optional features, update both the template files AND the corresponding removal function in hooks.
+### Key Files
 
-### Configuration Matrix Testing
+- **`cookiecutter.json`** — All template variables and their choices (project name, Docker, Celery, cloud provider, frontend pipeline, etc.)
+- **`hooks/pre_gen_project.py`** — Pre-generation validation (uses Jinja2 syntax at the top for context manipulation)
+- **`hooks/post_gen_project.py`** — Post-generation cleanup: removes files based on user choices, generates Django secret key, sets DB credentials, modifies package.json and .pre-commit-config.yaml
+- **`{{cookiecutter.project_slug}}/`** — The template directory; files here use Jinja2 conditionals (`{% if cookiecutter.use_celery == 'y' %}`) to include/exclude content
 
-`tests/test_cookiecutter_generation.py` defines `SUPPORTED_COMBINATIONS` - a matrix of valid configuration options. Each combination is tested to ensure:
+### Test Structure
 
-- Valid project generation (no Jinja2 errors)
-- No unrendered template variables remain (regex check)
-- Basic linting passes (ruff)
+- **`tests/test_cookiecutter_generation.py`** — Main test file. Uses `pytest-cookies` to bake the template with 50+ option combinations defined in `SUPPORTED_COMBINATIONS`. Verifies: no Jinja syntax left in output, generated code passes linting, correct files present/absent. Skips on Windows (sh module) and macOS CI (slow).
+- **`tests/test_hooks.py`** — Unit tests for hook helper functions
+- **`tests/test_bare.sh`** / **`tests/test_docker.sh`** — Integration tests that generate a project and run its full test suite
 
-Add new combinations when introducing features with interdependencies (e.g., `cloud_provider` + `mail_service`).
+### Generated Project Layout
 
-## Integration Points
+The generated Django project uses:
 
-### Dependency Management
+- `config/settings/{base,local,test,production}.py` — Split settings with django-environ
+- `config/urls.py` — URL routing
+- `<project_slug>/users/` — Custom user model (username or email-based auth via django-allauth)
+- `compose/` — Docker configs for local and production
+- `requirements/` — Not used; dependencies managed via `pyproject.toml` + `uv.lock`
 
-Generated projects use **uv** for Python dependencies with lockfiles:
+## Conventions
 
-- Template root: `pyproject.toml` defines template dev dependencies (cookiecutter, pytest-cookies, ruff)
-- Generated projects: `{{cookiecutter.project_slug}}/pyproject.toml` defines Django app dependencies
-- Docker builds run `uv sync` to install from lockfiles
+- **Python 3.13** required (`requires-python = "==3.13.*"`)
+- **Line length**: 119 characters (ruff and djlint)
+- **Ruff** for linting/formatting; config in `pyproject.toml` under `[tool.ruff]`
+- **djLint** for HTML template linting with `profile = "jinja"`
+- Template files under `{{cookiecutter.project_slug}}/` are excluded from ruff (not parseable Python)
+- **Calendar versioning**: `YYYY.MM.DD`
 
-### CI/CD Configuration
+## Adding a New Template Option
 
-Templates include conditional CI configs:
-
-- `{% if cookiecutter.ci_tool == 'Github' %}` generates `.github/workflows/ci.yml`
-- `{% if cookiecutter.ci_tool == 'Gitlab' %}` generates `.gitlab-ci.yml`
-
-CI tests both linting and project tests with environment-specific commands (Docker vs bare metal).
-
-### Settings Architecture
-
-Generated projects use django-environ with three settings modules:
-
-- `config/settings/base.py` - Shared settings with Jinja2 variables
-- `config/settings/local.py` - Development settings
-- `config/settings/production.py` - Production with cloud provider integrations
-
-Environment variables read from `.envs/.local/` or `.envs/.production/` directories in Docker setups.
-
-## Common Patterns
-
-### Adding Optional Features
-
-1. Add choice to `cookiecutter.json` with default
-2. Add conditional blocks in template files: `{% if cookiecutter.new_feature == 'y' %}`
-3. Create removal function in `hooks/post_gen_project.py`
-4. Update test matrix in `tests/test_cookiecutter_generation.py`
-5. Document in `docs/1-getting-started/project-generation-options.rst`
-
-### Version Bumps
-
-Use maintenance scripts instead of manual edits:
-
-- `scripts/node_version.py` - Update Node.js versions across Dockerfiles, package.json, CI
-- `scripts/ruff_version.py` - Update Ruff versions in pyproject.toml files
-- `scripts/update_changelog.py` - Generate changelog entries
-
-### Pre-commit Configuration
-
-Both template and generated projects use pre-commit with ruff for linting. Auto-fixable style issues are skipped in CI via `AUTOFIXABLE_STYLES` env var since they're tedious to fix in Jinja2 templates.
+1. Add the variable and choices to `cookiecutter.json`
+2. Add validation in `hooks/pre_gen_project.py` if needed
+3. Add file removal/modification logic in `hooks/post_gen_project.py`
+4. Use Jinja2 conditionals in template files: `{% if cookiecutter.option == 'y' %}`
+5. Add test combinations to `SUPPORTED_COMBINATIONS` in `tests/test_cookiecutter_generation.py`
