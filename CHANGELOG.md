@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.02.24
+
+
+### Changed
+
+- Add agents instructions ([#6208](https://github.com/cookiecutter/cookiecutter-django/pull/6208))
+
+### Updated
+
+- Bump traefik from 3.6.8 to 3.6.9 ([#6384](https://github.com/cookiecutter/cookiecutter-django/pull/6384))
+
 ## 2026.02.20
 
 
