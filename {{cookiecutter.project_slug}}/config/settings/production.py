@@ -446,5 +446,49 @@ SPECTACULAR_SETTINGS["SERVERS"] = [
 ]
 
 {%- endif %}
+
+# django-prodserver
+# https://django-prodserver.readthedocs.io/en/latest/
+INSTALLED_APPS += ["django_prodserver"]
+
+PRODUCTION_PROCESSES = {
+{%- if cookiecutter.use_docker == 'y' %}
+    {%- if cookiecutter.use_async == 'y' %}
+        "web": {
+            "BACKEND": "django_prodserver.backends.gunicorn.GunicornServer",
+            "ARGS": {"bind": "0.0.0.0:5000", "chdir": "/app", "worker-class": "uvicorn_worker.UvicornWorker"},
+        },
+    {%- else %}
+        "web": {
+            "BACKEND": "django_prodserver.backends.gunicorn.GunicornServer",
+            "ARGS": {"bind": "0.0.0.0:5000", "chdir": "/app"},
+        },
+    {%- endif %}
+{%- else %}
+    {%- if cookiecutter.use_async == 'y' %}
+        "web": {
+            "BACKEND": "django_prodserver.backends.gunicorn.GunicornServer",
+            "ARGS": {"worker-class": "uvicorn_worker.UvicornWorker"},
+        },
+    {%- else %}
+        "web": {
+            "BACKEND": "django_prodserver.backends.gunicorn.GunicornServer",
+            "ARGS": {},
+        },
+    {%- endif %}
+{%- endif %}
+{%- if cookiecutter.use_celery == 'y' %}
+    "worker": {
+        "BACKEND": "django_prodserver.backends.celery.CeleryWorker",
+        "APP": "config.celery_app",
+        "ARGS": {"loglevel": "info"},
+    },
+    "beat": {
+        "BACKEND": "django_prodserver.backends.celery.CeleryBeat",
+        "APP": "config.celery_app",
+        "ARGS": {"loglevel": "info"},
+    },
+{%- endif %}
+}
 # Your stuff...
 # ------------------------------------------------------------------------------

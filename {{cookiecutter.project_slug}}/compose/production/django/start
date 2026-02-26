@@ -27,8 +27,5 @@ if compress_enabled; then
   python /app/manage.py compress
 fi
 {%- endif %}
-{%- if cookiecutter.use_async == 'y' %}
-exec gunicorn config.asgi --bind 0.0.0.0:5000 --chdir=/app -k uvicorn_worker.UvicornWorker
-{%- else %}
-exec gunicorn config.wsgi --bind 0.0.0.0:5000 --chdir=/app
-{%- endif %}
+# https://django-prodserver.readthedocs.io/en/latest/
+exec python /app/manage.py prodserver web

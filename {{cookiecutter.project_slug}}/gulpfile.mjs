@@ -121,7 +121,7 @@ function asyncRunServer() {
 {%- else %}
 // Run django server
 function runServer(cb) {
-  const cmd = spawn('python', ['manage.py', 'runserver'], { stdio: 'inherit' });
+  const cmd = spawn('python', ['manage.py', 'devserver'], { stdio: 'inherit' });
   cmd.on('close', function (code) {
     console.log('runServer exited with code ' + code);
     cb(code);
