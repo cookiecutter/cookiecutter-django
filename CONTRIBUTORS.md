@@ -552,6 +552,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Christian González</td>
+    <td>
+      <a href="https://github.com/nerdoc">nerdoc</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Christian Jauvin</td>
     <td>
       <a href="https://github.com/cjauvin">cjauvin</a>
@@ -1077,6 +1084,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Harshit Ranjan</td>
+    <td>
+      <a href="https://github.com/HarshitR2004">HarshitR2004</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Haseeb ur Rehman</td>
     <td>
       <a href="https://github.com/professorhaseeb">professorhaseeb</a>
@@ -1325,6 +1339,13 @@ Listed in alphabetical order.
     <td>Joseph Hanna</td>
     <td>
       <a href="https://github.com/sanchimenea">sanchimenea</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Josh596</td>
+    <td>
+      <a href="https://github.com/Josh596">Josh596</a>
     </td>
     <td></td>
   </tr>
@@ -1791,6 +1812,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Mohamed Feddad</td>
+    <td>
+      <a href="https://github.com/mrf345">mrf345</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>monosans</td>
     <td>
       <a href="https://github.com/monosans">monosans</a>
@@ -2158,6 +2186,13 @@ Listed in alphabetical order.
     <td>Simon Rey</td>
     <td>
       <a href="https://github.com/eqqe">eqqe</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Soldatov Serhii</td>
+    <td>
+      <a href="https://github.com/soldatov-ss">soldatov-ss</a>
     </td>
     <td></td>
   </tr>

@@ -46,3 +46,5 @@ updates:
       interval: "daily"
     labels:
       - "update"
+
+  # NOTE: Package ecosystem "docker-compose" can't handle Jinja tags in yml files

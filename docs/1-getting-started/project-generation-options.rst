@@ -66,10 +66,11 @@ use_docker:
 postgresql_version:
     Select a PostgreSQL_ version to use. The choices are:
 
-    1. 17
-    2. 16
-    3. 15
-    4. 14
+    1. 18
+    2. 17
+    3. 16
+    4. 15
+    5. 14
 
 cloud_provider:
     Select a cloud provider for static & media files. The choices are:
@@ -136,10 +137,8 @@ ci_tool:
     5. `Drone CI`_
 
 keep_local_envs_in_vcs:
-    Indicates whether the project's ``.envs/.local/`` should be kept in VCS
-    (comes in handy when working in teams where local environment reproducibility
-    is strongly encouraged).
-    Note: .env(s) are only utilized when Docker Compose and/or Heroku support is enabled.
+
+Indicates whether the project’s .envs/.local/ should be kept in VCS (comes in handy when working in teams where local environment reproducibility is strongly encouraged).
 
 debug:
     Indicates whether the project should be configured for debugging.
@@ -149,7 +148,7 @@ debug:
 .. _MIT: https://opensource.org/licenses/MIT
 .. _BSD: https://opensource.org/licenses/BSD-3-Clause
 .. _GPLv3: https://www.gnu.org/licenses/gpl.html
-.. _Apache Software License 2.0: http://www.apache.org/licenses/LICENSE-2.0
+.. _Apache Software License 2.0: https://www.apache.org/licenses/LICENSE-2.0
 
 .. _PyCharm: https://www.jetbrains.com/pycharm/
 .. _VS Code: https://github.com/microsoft/vscode
