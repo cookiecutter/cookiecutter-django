@@ -21,7 +21,7 @@ repos:
       - id: detect-private-key
 
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: "v4.0.0-alpha.8"
+    rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
         args: ["--tab-width", "2"]
@@ -34,7 +34,7 @@ repos:
       - id: ruff-format
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: "v2.16.2"
+    rev: v2.16.2
     hooks:
       - id: pyproject-fmt
 
