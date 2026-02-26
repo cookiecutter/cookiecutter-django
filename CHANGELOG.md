@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.02.25
+
+
+### Updated
+
+- Bump node from 24.13 to 24.14 ([#6386](https://github.com/cookiecutter/cookiecutter-django/pull/6386))
+
+- Update django-upgrade pre-commit hook ([#6385](https://github.com/cookiecutter/cookiecutter-django/pull/6385))
+
 ## 2026.02.24
 
 
