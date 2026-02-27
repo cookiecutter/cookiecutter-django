@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.02.26
+
+
+### Changed
+
+- Add pyproject-fmt to the generated project ([#6074](https://github.com/cookiecutter/cookiecutter-django/pull/6074))
+
+### Updated
+
+- Update ruff to 0.15.4 ([#6395](https://github.com/cookiecutter/cookiecutter-django/pull/6395))
+
+- Update redis to 7.2.1 ([#6391](https://github.com/cookiecutter/cookiecutter-django/pull/6391))
+
 ## 2026.02.25
 
 
