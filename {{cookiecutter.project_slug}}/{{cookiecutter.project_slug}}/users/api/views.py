@@ -51,19 +51,25 @@ def list_users(request):
 {%- if cookiecutter.username_type == "email" %}
 
 
+@router.get("/me/", response=UserSchema)
+def retrieve_current_user(request):
+    return request.user
+
+
 @router.get("/{pk}/", response=UserSchema)
-def retrieve_user(request, pk: str):
-    if pk == "me":
-        return request.user
+def retrieve_user(request, pk: int):
     users_qs = _get_users_queryset(request)
     return get_object_or_404(users_qs, pk=pk)
 {%- else %}
 
 
+@router.get("/me/", response=UserSchema)
+def retrieve_current_user(request, username: str):
+    return request.user
+
+
 @router.get("/{username}/", response=UserSchema)
 def retrieve_user(request, username: str):
-    if username == "me":
-        return request.user
     users_qs = _get_users_queryset(request)
     return get_object_or_404(users_qs, username=username)
 {%- endif %}

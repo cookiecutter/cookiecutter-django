@@ -85,13 +85,26 @@ def test_list_users_as_authenticated_user(client: Client, user: User):
 {%- if cookiecutter.username_type == "email" %}
 
 
-@pytest.mark.parametrize("user_pk", [None, "me"])
-def test_retrieve_user(client: Client, user: User, user_pk: str | None):
+def test_retrieve_current_user(client: Client, user: User):
     client.force_login(user)
-    user_pk = user_pk or user.pk
 
     response = client.get(
-        reverse("api:retrieve_user", kwargs={"pk": user_pk}),
+        reverse("api:retrieve_current_user"),
+    )
+
+    assert response.status_code == HTTPStatus.OK
+    assert response.json() == {
+        "email": user.email,
+        "name": user.name,
+        "url": f"/api/users/{user.pk}/",
+    }
+
+
+def test_retrieve_user(client: Client, user: User):
+    client.force_login(user)
+
+    response = client.get(
+        reverse("api:retrieve_user", kwargs={"pk": user.pk}),
     )
 
     assert response.status_code == HTTPStatus.OK
@@ -103,13 +116,27 @@ def test_retrieve_user(client: Client, user: User, user_pk: str | None):
 {%- else %}
 
 
-@pytest.mark.parametrize("username", [None, "me"])
-def test_retrieve_user(client: Client, user: User, username: str | None):
+def test_retrieve_current_user(client: Client, user: User):
     client.force_login(user)
-    username = username or user.username
 
     response = client.get(
-        reverse("api:retrieve_user", kwargs={"username": username}),
+        reverse("api:retrieve_current_user"),
+    )
+
+    assert response.status_code == HTTPStatus.OK
+    assert response.json() == {
+        "email": user.email,
+        "name": user.name,
+        "url": f"/api/users/{user.username}/",
+        "username": user.username,
+    }
+
+
+def test_retrieve_user(client: Client, user: User):
+    client.force_login(user)
+
+    response = client.get(
+        reverse("api:retrieve_user", kwargs={"username": user.username}),
     )
 
     assert response.status_code == HTTPStatus.OK
