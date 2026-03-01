@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.02.28
+
+
+### Updated
+
+- Update django-celery-beat to 2.9.0 ([#6397](https://github.com/cookiecutter/cookiecutter-django/pull/6397))
+
 ## 2026.02.27
 
 
