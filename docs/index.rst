@@ -51,6 +51,7 @@ Powered by Cookiecutter_, Cookiecutter Django is a project template for jumpstar
    :caption: About
 
    6-about/contributing
+   6-about/generative-ai
    6-about/maintainer-guide
 
 Indices and tables
