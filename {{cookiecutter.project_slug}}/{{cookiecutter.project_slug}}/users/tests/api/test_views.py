@@ -187,7 +187,7 @@ def test_update_current_user(client: Client):
         "url": f"/api/users/{user.pk}/",
         {%- else %}
         "username": "old",
-        "url": f"/api/users/old/",
+        "url": "/api/users/old/",
         {%- endif %}
     }
 
