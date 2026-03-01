@@ -39,12 +39,16 @@ crispy-bootstrap5==2026.3  # https://github.com/django-crispy-forms/crispy-boots
 django-compressor==4.6.0  # https://github.com/django-compressor/django-compressor
 {%- endif %}
 django-redis==6.0.0  # https://github.com/jazzband/django-redis
-{%- if cookiecutter.use_drf == 'y' %}
+{%- if cookiecutter.rest_api == 'DRF' %}
 # Django REST Framework
 djangorestframework==3.16.1  # https://github.com/encode/django-rest-framework
 django-cors-headers==4.9.0  # https://github.com/adamchainz/django-cors-headers
 # DRF-spectacular for api documentation
 drf-spectacular==0.29.0  # https://github.com/tfranzel/drf-spectacular
+{%- elif cookiecutter.rest_api == 'Django Ninja' %}
+# Django Ninja
+django-ninja==1.5.3  # https://github.com/vitalik/django-ninja
+django-cors-headers==4.9.0  # https://github.com/adamchainz/django-cors-headers
 {%- endif %}
 {%- if cookiecutter.frontend_pipeline == 'Webpack' %}
 django-webpack-loader==3.2.3  # https://github.com/django-webpack/django-webpack-loader

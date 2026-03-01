@@ -95,11 +95,15 @@ mail_service:
     8. SparkPost_
     9. `Other SMTP`_
 
+rest_api:
+    Select a REST API framework to use. The choices are:
+
+    1. None
+    2. `Django Rest Framework`_
+    3. `Django Ninja`_
+
 use_async:
     Indicates whether the project should use web sockets with Uvicorn + Gunicorn.
-
-use_drf:
-    Indicates whether the project should be configured to use `Django Rest Framework`_.
 
 frontend_pipeline:
     Select a pipeline to compile and optimise frontend assets (JS, CSS, ...):
@@ -177,6 +181,7 @@ debug:
 .. _Other SMTP: https://anymail.readthedocs.io/en/stable/
 
 .. _Django Rest Framework: https://github.com/encode/django-rest-framework/
+.. _Django Ninja: https://github.com/vitalik/django-ninja
 
 .. _Django Compressor: https://github.com/django-compressor/django-compressor
 

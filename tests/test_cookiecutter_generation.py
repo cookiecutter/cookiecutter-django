@@ -107,10 +107,11 @@ SUPPORTED_COMBINATIONS = [
     {"cloud_provider": "Azure", "mail_service": "Other SMTP"},
     # Note: cloud_providers GCP, Azure, and None
     # with mail_service Amazon SES is not supported
+    {"rest_api": "None"},
+    {"rest_api": "DRF"},
+    {"rest_api": "Django Ninja"},
     {"use_async": "y"},
     {"use_async": "n"},
-    {"use_drf": "y"},
-    {"use_drf": "n"},
     {"frontend_pipeline": "None"},
     {"frontend_pipeline": "Django Compressor"},
     {"frontend_pipeline": "Gulp"},

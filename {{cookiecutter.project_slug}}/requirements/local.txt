@@ -15,7 +15,7 @@ mypy==1.19.1  # https://github.com/python/mypy
 django-stubs[compatible-mypy]==5.2.9  # https://github.com/typeddjango/django-stubs
 pytest==9.0.2  # https://github.com/pytest-dev/pytest
 pytest-sugar==1.1.1  # https://github.com/Teemu/pytest-sugar
-{%- if cookiecutter.use_drf == "y" %}
+{%- if cookiecutter.rest_api == 'DRF' %}
 djangorestframework-stubs==3.16.8  # https://github.com/typeddjango/djangorestframework-stubs
 {%- endif %}
 

@@ -38,7 +38,7 @@ jobs:
           - name: Basic
             args: "ci_tool=Gitlab"
           - name: Celery & DRF
-            args: "use_celery=y use_drf=y"
+            args: "use_celery=y rest_api=DRF"
           - name: Gulp
             args: "frontend_pipeline=Gulp"
           - name: Webpack
@@ -72,6 +72,12 @@ jobs:
             args: "frontend_pipeline=Webpack use_heroku=y"
           - name: Email Username
             args: "username_type=email ci_tool=Github project_name='Something superduper long - the great amazing project' project_slug=my_awesome_project"
+          - name: Email username & DRF
+            args: "username_type=email rest_api=DRF ci_tool=Gitlab"
+          - name: Async & Django-Ninja
+            args: "use_async=y rest_api='Django Ninja'"
+          - name: Async, email username & Django-Ninja
+            args: "use_async=y username_type=email rest_api='Django Ninja'"
 
     name: "Bare metal ${{ matrix.script.name }}"
     runs-on: ubuntu-latest

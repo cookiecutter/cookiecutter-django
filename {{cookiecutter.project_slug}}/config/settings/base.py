@@ -1,7 +1,6 @@
 # ruff: noqa: ERA001, E501
 """Base settings to build other settings files upon."""
-
-{% if cookiecutter.use_celery == 'y' -%}
+{% if cookiecutter.use_celery == 'y' %}
 import ssl
 {%- endif %}
 from pathlib import Path
@@ -92,11 +91,13 @@ THIRD_PARTY_APPS = [
 {%- if cookiecutter.use_celery == 'y' %}
     "django_celery_beat",
 {%- endif %}
-{%- if cookiecutter.use_drf == "y" %}
+{%- if cookiecutter.rest_api == 'DRF' %}
     "rest_framework",
     "rest_framework.authtoken",
     "corsheaders",
     "drf_spectacular",
+{%- elif cookiecutter.rest_api == 'Django Ninja' %}
+    "corsheaders",
 {%- endif %}
 {%- if cookiecutter.frontend_pipeline == 'Webpack' %}
     "webpack_loader",
@@ -154,7 +155,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-{%- if cookiecutter.use_drf == 'y' %}
+{%- if cookiecutter.rest_api != 'None' %}
     "corsheaders.middleware.CorsMiddleware",
 {%- endif %}
 {%- if cookiecutter.use_whitenoise == 'y' %}
@@ -361,7 +362,7 @@ SOCIALACCOUNT_FORMS = {"signup": "{{cookiecutter.project_slug}}.users.forms.User
 INSTALLED_APPS += ["compressor"]
 STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
 {%- endif %}
-{% if cookiecutter.use_drf == "y" -%}
+{% if cookiecutter.rest_api == 'DRF' -%}
 # django-rest-framework
 # -------------------------------------------------------------------------------
 # django-rest-framework - https://www.django-rest-framework.org/api-guide/settings/

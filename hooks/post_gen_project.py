@@ -409,6 +409,17 @@ def remove_aws_dockerfile():
 
 def remove_drf_starter_files():
     Path("config", "api_router.py").unlink()
+    Path("{{cookiecutter.project_slug}}", "users", "api", "serializers.py").unlink()
+
+
+def remove_ninja_starter_files():
+    Path("config", "api.py").unlink()
+    Path("{{cookiecutter.project_slug}}", "users", "api", "schema.py").unlink()
+
+
+def remove_rest_api_files():
+    remove_drf_starter_files()
+    remove_ninja_starter_files()
     shutil.rmtree(Path("{{cookiecutter.project_slug}}", "users", "api"))
     shutil.rmtree(Path("{{cookiecutter.project_slug}}", "users", "tests", "api"))
 
@@ -501,8 +512,12 @@ def main():  # noqa: C901, PLR0912, PLR0915
     if "{{ cookiecutter.ci_tool }}" != "Drone":
         remove_dotdrone_file()
 
-    if "{{ cookiecutter.use_drf }}".lower() == "n":
+    if "{{ cookiecutter.rest_api }}" == "DRF":
+        remove_ninja_starter_files()
+    elif "{{ cookiecutter.rest_api }}" == "Django Ninja":
         remove_drf_starter_files()
+    else:
+        remove_rest_api_files()
 
     if "{{ cookiecutter.use_async }}".lower() == "n":
         remove_async_files()

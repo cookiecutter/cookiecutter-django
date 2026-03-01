@@ -31,8 +31,8 @@
     "SparkPost",
     "Other SMTP"
   ],
+  "rest_api": ["None", "DRF", "Django Ninja"],
   "use_async": "n",
-  "use_drf": "n",
   "frontend_pipeline": ["None", "Django Compressor", "Gulp", "Webpack"],
   "use_celery": "n",
   "use_mailpit": "n",
