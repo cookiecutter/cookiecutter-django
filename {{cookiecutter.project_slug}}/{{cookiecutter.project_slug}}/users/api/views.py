@@ -64,7 +64,7 @@ def retrieve_user(request, pk: int):
 
 
 @router.get("/me/", response=UserSchema)
-def retrieve_current_user(request, username: str):
+def retrieve_current_user(request):
     return request.user
 
 
