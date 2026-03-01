@@ -151,7 +151,7 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     8 - SparkPost
     9 - Other SMTP
     Choose from 1, 2, 3, 4, 5, 6, 7, 8, 9 [1]: 1
-    Select rest_api [n]:
+    Select rest_api [None]:
     1 - None
     2 - DRF
     3 - Django Ninja

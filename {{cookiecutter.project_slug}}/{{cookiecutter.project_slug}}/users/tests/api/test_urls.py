@@ -62,6 +62,6 @@ def test_update_user():
     assert resolve("/api/users/123/").view_name == "api:retrieve_user"
     {%- else %}
     assert reverse("api:update_user", kwargs={"username": "john"}) == "/api/users/john/"
-    assert resolve("/api/users/johndoe/").view_name == "api:retrieve_user"
+    assert resolve("/api/users/john/").view_name == "api:retrieve_user"
     {%- endif %}
 {%- endif %}

@@ -1,4 +1,4 @@
-from django.urls.base import reverse
+from django.urls import reverse
 from ninja import ModelSchema
 
 from {{ cookiecutter.project_slug }}.users.models import User

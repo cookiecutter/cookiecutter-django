@@ -88,7 +88,7 @@ def update_current_user(request, data: UpdateUserSchema):
 
 
 @router.patch("/{pk}/", response=UserSchema)
-def update_user(request, pk: str, data: UpdateUserSchema):
+def update_user(request, pk: int, data: UpdateUserSchema):
     users_qs = _get_users_queryset(request)
     user = get_object_or_404(users_qs, pk=pk)
     user.name = data.name
