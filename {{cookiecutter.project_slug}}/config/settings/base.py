@@ -285,7 +285,8 @@ LOGGING = {
     "root": {"level": "INFO", "handlers": ["console"]},
 }
 
-REDIS_URL = env("REDIS_URL", default="redis://{% if cookiecutter.use_docker == 'y' %}redis{%else%}localhost{% endif %}:6379/0")
+# Use Valkey service name instead of Redis
+REDIS_URL = env("REDIS_URL", default="redis://{% if cookiecutter.use_docker == 'y' %}valkey{%else%}localhost{% endif %}:6379/0")
 REDIS_SSL = REDIS_URL.startswith("rediss://")
 
 {% if cookiecutter.use_celery == 'y' -%}
