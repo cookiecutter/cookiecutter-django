@@ -47,7 +47,7 @@ django-cors-headers==4.9.0  # https://github.com/adamchainz/django-cors-headers
 drf-spectacular==0.29.0  # https://github.com/tfranzel/drf-spectacular
 {%- elif cookiecutter.rest_api == 'Django Ninja' %}
 # Django Ninja
-django-ninja==1.4.3 # https://github.com/vitalik/django-ninja
+django-ninja==1.5.3  # https://github.com/vitalik/django-ninja
 django-cors-headers==4.9.0  # https://github.com/adamchainz/django-cors-headers
 {%- endif %}
 {%- if cookiecutter.frontend_pipeline == 'Webpack' %}
