@@ -2,9 +2,10 @@ volumes:
   {{ cookiecutter.project_slug }}_local_postgres_data: {}
   {{ cookiecutter.project_slug }}_local_postgres_data_backups: {}
   {% if cookiecutter.use_celery == 'y' %}{{ cookiecutter.project_slug }}_local_redis_data: {}{% endif %}
+  {% if cookiecutter.use_django_rq == 'y' %}{{ cookiecutter.project_slug }}_local_valkey_data: {}{% endif %}
 
 services:
-  django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
+  django:{% if cookiecutter.use_celery == 'y' or cookiecutter.use_django_rq == 'y' %} &django{% endif %}
     build:
       context: .
       dockerfile: ./compose/local/django/Dockerfile
@@ -14,6 +15,9 @@ services:
       - postgres
       {%- if cookiecutter.use_celery == 'y' %}
       - redis
+      {%- endif %}
+      {%- if cookiecutter.use_django_rq == 'y' %}
+      - valkey
       {%- endif %}
       {%- if cookiecutter.use_mailpit == 'y' %}
       - mailpit
@@ -61,6 +65,9 @@ services:
     volumes:
       - {{ cookiecutter.project_slug }}_local_redis_data:/data
 
+  {%- endif %}
+  {%- if cookiecutter.use_celery == 'y' %}
+
   celeryworker:
     <<: *django
     image: {{ cookiecutter.project_slug }}_local_celeryworker
@@ -94,6 +101,41 @@ services:
     ports:
       - '5555:5555'
     command: /start-flower
+
+  {%- endif %}
+  {%- if cookiecutter.use_django_rq == 'y' %}
+
+  valkey:
+    image: docker.io/valkey/valkey:8.0
+    container_name: {{ cookiecutter.project_slug }}_local_valkey
+    volumes:
+      - {{ cookiecutter.project_slug }}_local_valkey_data:/data
+
+  rqworker:
+    <<: *django
+    image: {{ cookiecutter.project_slug }}_local_rqworker
+    container_name: {{ cookiecutter.project_slug }}_local_rqworker
+    depends_on:
+      - valkey
+      - postgres
+      {%- if cookiecutter.use_mailpit == 'y' %}
+      - mailpit
+      {%- endif %}
+    ports: []
+    command: /start-rqworker
+
+  rqscheduler:
+    <<: *django
+    image: {{ cookiecutter.project_slug }}_local_rqscheduler
+    container_name: {{ cookiecutter.project_slug }}_local_rqscheduler
+    depends_on:
+      - valkey
+      - postgres
+      {%- if cookiecutter.use_mailpit == 'y' %}
+      - mailpit
+      {%- endif %}
+    ports: []
+    command: /start-rqscheduler
 
   {%- endif %}
   {%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}

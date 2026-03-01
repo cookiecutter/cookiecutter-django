@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -o errexit
+set -o nounset
+
+exec watchfiles 'python manage.py rqworker default high low' --filter python

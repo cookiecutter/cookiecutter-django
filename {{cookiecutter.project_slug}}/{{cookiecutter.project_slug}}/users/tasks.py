@@ -1,9 +1,17 @@
+{% if cookiecutter.use_celery == 'y' -%}
 from celery import shared_task
+{%- elif cookiecutter.use_django_rq == 'y' -%}
+import django_rq
+{%- endif %}
 
 from .models import User
 
 
+{% if cookiecutter.use_celery == 'y' -%}
 @shared_task()
+{%- elif cookiecutter.use_django_rq == 'y' -%}
+@django_rq.job
+{%- endif %}
 def get_users_count():
-    """A pointless Celery task to demonstrate usage."""
+    """A pointless {% if cookiecutter.use_celery == 'y' %}Celery{% elif cookiecutter.use_django_rq == 'y' %}RQ{% endif %} task to demonstrate usage."""
     return User.objects.count()

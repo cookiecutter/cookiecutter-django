@@ -22,6 +22,11 @@ django-celery-beat==2.9.0  # https://github.com/celery/django-celery-beat
 flower==2.0.1  # https://github.com/mher/flower
 {%- endif %}
 {%- endif %}
+{%- if cookiecutter.use_django_rq == "y" %}
+django-rq==2.10.2  # https://github.com/rq/django-rq
+rq==1.16.2  # https://github.com/rq/rq
+rq-scheduler==0.13.1  # https://github.com/rq/rq-scheduler
+{%- endif %}
 {%- if cookiecutter.use_async == 'y' %}
 uvicorn[standard]==0.41.0  # https://github.com/Kludex/uvicorn
 uvicorn-worker==0.4.0  # https://github.com/Kludex/uvicorn-worker

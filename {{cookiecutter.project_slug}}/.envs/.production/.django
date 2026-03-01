@@ -63,15 +63,23 @@ WEB_CONCURRENCY=4
 # ------------------------------------------------------------------------------
 SENTRY_DSN=
 {% endif %}
-
+{% if cookiecutter.use_celery == 'y' %}
 # Redis
 # ------------------------------------------------------------------------------
 REDIS_URL=redis://redis:6379/0
-{% if cookiecutter.use_celery == 'y' %}
+
 # Celery
 # ------------------------------------------------------------------------------
 
 # Flower
 CELERY_FLOWER_USER=!!!SET CELERY_FLOWER_USER!!!
 CELERY_FLOWER_PASSWORD=!!!SET CELERY_FLOWER_PASSWORD!!!
+{% endif %}
+{% if cookiecutter.use_django_rq == 'y' %}
+# Valkey
+# ------------------------------------------------------------------------------
+VALKEY_URL=redis://valkey:6379/0
+
+# Django-RQ
+# ------------------------------------------------------------------------------
 {% endif %}
