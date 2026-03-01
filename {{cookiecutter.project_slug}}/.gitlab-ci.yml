@@ -13,13 +13,14 @@ variables:
 
 precommit:
   stage: lint
-  image: ghcr.io/astral-sh/uv:python3.13
+  image: ghcr.io/astral-sh/uv:python3.13-bookworm
   variables:
     PRE_COMMIT_HOME: ${CI_PROJECT_DIR}/.cache/pre-commit
   cache:
     paths:
       - ${PRE_COMMIT_HOME}
   before_script:
+    - uv venv
     - uv pip install -q pre-commit pre-commit-uv
   script:
     - uv run pre-commit run --show-diff-on-failure --color=always --all-files

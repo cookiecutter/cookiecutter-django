@@ -31,22 +31,22 @@ jobs:
     name: "${{ matrix.job.name }} versions"
     steps:
       - name: Checkout with token
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         if: ${{ env.GH_PAT != '' }}
         with:
           token: ${{ env.GH_PAT }}
           ref: ${{ github.head_ref }}
 
       - name: Checkout without token
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         if: ${{ env.GH_PAT == '' }}
         with:
           ref: ${{ github.head_ref }}
 
-      - uses: astral-sh/setup-uv@v6
+      - uses: astral-sh/setup-uv@v7
 
       - run: uv run ${{ matrix.job.script }}
 
-      - uses: stefanzweifel/git-auto-commit-action@v6
+      - uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: Align versions
