@@ -73,6 +73,17 @@ def retrieve_user(request, username: str):
     users_qs = _get_users_queryset(request)
     return get_object_or_404(users_qs, username=username)
 {%- endif %}
+
+
+@router.patch("/me/", response=UserSchema)
+def update_current_user(request, data: UpdateUserSchema):
+    user = request.user
+    user.name = data.name
+    {%- if cookiecutter.username_type == "username" %}
+    user.username = data.username
+    {%- endif %}
+    user.save()
+    return user
 {%- if cookiecutter.username_type == "email" %}
 
 
@@ -91,6 +102,7 @@ def update_user(request, username: str, data: UpdateUserSchema):
     users_qs = _get_users_queryset(request)
     user = get_object_or_404(users_qs, username=username)
     user.name = data.name
+    user.username = data.username
     user.save()
     return user
 {%- endif %}

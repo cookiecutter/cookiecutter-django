@@ -164,6 +164,34 @@ def test_retrieve_another_user(client: Client, user: User):
     assert response.status_code == HTTPStatus.NOT_FOUND
     assert response.json() == {"detail": "Not Found"}
 
+
+def test_update_current_user(client: Client):
+    user = UserFactory(name="Old")
+    client.force_login(user)
+
+    response = client.patch(
+        reverse("api:update_current_user"),
+        {%- if cookiecutter.username_type == "email" %}
+        data='{"name": "New Name"}',
+        {%- else %}
+        data='{"name": "New Name", "username": "old"}',
+        {%- endif %}
+        content_type="application/json",
+    )
+
+    assert response.status_code == HTTPStatus.OK, response.json()
+    assert response.json() == {
+        "email": user.email,
+        "name": "New Name",
+        {%- if cookiecutter.username_type == "email" %}
+        "url": f"/api/users/{user.pk}/",
+        {%- else %}
+        "username": "old",
+        "url": f"/api/users/old/",
+        {%- endif %}
+    }
+
+
 {%- if cookiecutter.username_type == "email" %}
 
 
