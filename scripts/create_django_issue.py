@@ -203,7 +203,7 @@ class GitHubManager:
         # If issue previously existed, find package and skip any gtg, manually
         # updated packages, or known releases that will happen but haven't yet
         if issue := self.existing_issues.get(needed_dj_version):
-            if index := issue.body.find(package_name):
+            if (index := issue.body.find(package_name)) > 0:
                 print(f"Found {package_name} at {index=}")
                 _name, _current, prev_compat, ok = (s.strip() for s in issue.body[index:].split("|", 4)[:4])
                 if ok in ("✅", "❓", "🕒"):
