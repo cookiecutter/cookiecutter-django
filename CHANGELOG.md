@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.03.01
+
+
+### Changed
+
+- Add `django-ninja` as REST API option ([#6088](https://github.com/cookiecutter/cookiecutter-django/pull/6088))
+
+### Updated
+
+- Update crispy-bootstrap5 to 2026.3 ([#6399](https://github.com/cookiecutter/cookiecutter-django/pull/6399))
+
+- Update django-crispy-forms to 2.6 ([#6398](https://github.com/cookiecutter/cookiecutter-django/pull/6398))
+
 ## 2026.02.28
 
 
