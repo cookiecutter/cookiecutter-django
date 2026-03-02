@@ -40,7 +40,7 @@ For example, at time of writing, we use Django 4.2, but the latest version of Dj
 
 Here are a few current and past limitations of the script
 
-- When a new dependency is added to the template, the script fails to update an existing issue
+- ~~When a new dependency is added to the template, the script fails to update an existing issue~~
 - Not sure what happens when a deps is removed
 - ~~Unable to parse classifiers without minor version~~
 - ~~Creates an issue even if we are on the latest version~~
