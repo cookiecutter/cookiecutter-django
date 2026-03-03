@@ -164,7 +164,7 @@ wheels = [
 
 [[package]]
 name = "cookiecutter"
-version = "2.6.0"
+version = "2.7.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "arrow" },
@@ -176,9 +176,9 @@ dependencies = [
     { name = "requests" },
     { name = "rich" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/52/17/9f2cd228eb949a91915acd38d3eecdc9d8893dde353b603f0db7e9f6be55/cookiecutter-2.6.0.tar.gz", hash = "sha256:db21f8169ea4f4fdc2408d48ca44859349de2647fbe494a9d6c3edfc0542c21c", size = 158767, upload-time = "2024-02-21T18:02:41.949Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/12/f6/c576423931c725c30f3c97e1eb5bdb53419c27ff7538751cfa6ad1a07f82/cookiecutter-2.7.0.tar.gz", hash = "sha256:b0bf50141201ebf022c95e3fa02a760b64e600b3675d6dabf97563425a62a707", size = 142869, upload-time = "2026-03-02T09:14:13.999Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/b6/d9/0137658a353168ffa9d0fc14b812d3834772040858ddd1cb6eeaf09f7a44/cookiecutter-2.6.0-py3-none-any.whl", hash = "sha256:a54a8e37995e4ed963b3e82831072d1ad4b005af736bb17b99c2cbd9d41b6e2d", size = 39177, upload-time = "2024-02-21T18:02:39.569Z" },
+    { url = "https://files.pythonhosted.org/packages/94/1f/21c082112609cb53d89f86e34ea4fa160c0a5e63556ffa9495ad70566cf1/cookiecutter-2.7.0-py3-none-any.whl", hash = "sha256:08dc4398e2d8a57771c20703fa10f8d03952e870eddd46bbb832161dc784fa3d", size = 41616, upload-time = "2026-03-02T09:14:12.893Z" },
 ]
 
 [[package]]
@@ -217,7 +217,7 @@ docs = [
 [package.metadata]
 requires-dist = [
     { name = "binaryornot", specifier = "==0.4.4" },
-    { name = "cookiecutter", specifier = "==2.6" },
+    { name = "cookiecutter", specifier = "==2.7.0" },
     { name = "django-upgrade", specifier = "==1.30.0" },
     { name = "djlint", specifier = "==1.36.4" },
     { name = "gitpython", specifier = "==3.1.46" },
