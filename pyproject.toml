@@ -30,7 +30,7 @@ classifiers = [
 ]
 dependencies = [
   "binaryornot==0.4.4",
-  "cookiecutter==2.6",
+  "cookiecutter==2.7.0",
   "django-upgrade==1.30.0",
   "djlint==1.36.4",
   "gitpython==3.1.46",
