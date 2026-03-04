@@ -410,7 +410,7 @@ def test_trim_domain_email(cookies, context):
     assert "DJANGO_ALLOWED_HOSTS=.example.com" in prod_django_env.read_text()
 
     base_settings = result.project_path / "config" / "settings" / "base.py"
-    assert '"me@example.com"' in base_settings.read_text()
+    assert "<me@example.com>" in base_settings.read_text()
 
 
 def test_pyproject_toml(cookies, context):
