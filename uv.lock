@@ -232,7 +232,7 @@ requires-dist = [
     { name = "requests", specifier = "==2.32.5" },
     { name = "ruff", specifier = "==0.15.5" },
     { name = "sh", marker = "sys_platform != 'win23'", specifier = "==2.2.2" },
-    { name = "tox", specifier = "==4.47.3" },
+    { name = "tox", specifier = "==4.48.1" },
     { name = "tox-uv", specifier = ">=1.17" },
 ]
 
@@ -1091,8 +1091,17 @@ wheels = [
 ]
 
 [[package]]
+name = "tomli-w"
+version = "1.2.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/19/75/241269d1da26b624c0d5e110e8149093c759b7a286138f4efd61a60e75fe/tomli_w-1.2.0.tar.gz", hash = "sha256:2dd14fac5a47c27be9cd4c976af5a12d87fb1f0b4512f81d69cce3b35ae25021", size = 7184, upload-time = "2025-01-15T12:07:24.262Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c7/18/c86eb8e0202e32dd3df50d43d7ff9854f8e0603945ff398974c1d91ac1ef/tomli_w-1.2.0-py3-none-any.whl", hash = "sha256:188306098d013b691fcadc011abd66727d3c414c571bb01b1a174ba8c983cf90", size = 6675, upload-time = "2025-01-15T12:07:22.074Z" },
+]
+
+[[package]]
 name = "tox"
-version = "4.47.3"
+version = "4.48.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cachetools" },
@@ -1102,11 +1111,12 @@ dependencies = [
     { name = "platformdirs" },
     { name = "pluggy" },
     { name = "pyproject-api" },
+    { name = "tomli-w" },
     { name = "virtualenv" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/87/62/182ae37b7472072086184e2246e01c6fb8399b87d76e0c79636774ee7117/tox-4.47.3.tar.gz", hash = "sha256:57643508d4c218ad312457a3b0ce3135c50fa1f9f1e4d40867683d880cad1c37", size = 254468, upload-time = "2026-03-04T02:39:01.842Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ac/93/244bdd2666db5b79e02321fd24e73ccc4bf9424cf5179142937937492ba2/tox-4.48.1.tar.gz", hash = "sha256:971260ac2ea3409de8f3771612d141713d2d33446cc0d981849ebfd9b6bbd3d9", size = 257985, upload-time = "2026-03-06T01:41:17.38Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/01/3b/66b7b2cc1478b066e55eba27e2903db2f20bf363c14ac0e33c08df3364f8/tox-4.47.3-py3-none-any.whl", hash = "sha256:e447862a6821b421bbbfb8cbac071818c0a6884907a4c964d8322516d0b19b34", size = 202177, upload-time = "2026-03-04T02:39:00.482Z" },
+    { url = "https://files.pythonhosted.org/packages/17/9a/2b232298ad17aa07f93e3a7429070f9b9e911d9c3980dc27423931797ab3/tox-4.48.1-py3-none-any.whl", hash = "sha256:4e0369041be0d52b0dc83051f6449e4afae1764b4203a5866982fa300c8c325f", size = 205815, upload-time = "2026-03-06T01:41:15.668Z" },
 ]
 
 [[package]]
