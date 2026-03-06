@@ -53,7 +53,7 @@ pytestmark = pytest.mark.django_db
 
 @pytest.fixture
 def user():
-    return UserFactory()
+    return UserFactory.create()
 
 
 def test_list_users_as_anonymous_user(client: Client):
@@ -65,7 +65,7 @@ def test_list_users_as_anonymous_user(client: Client):
 def test_list_users_as_authenticated_user(client: Client, user: User):
     client.force_login(user)
     # Another user, excluded from the response
-    UserFactory()
+    UserFactory.create()
 
     response = client.get(reverse("api:list_users"))
 
@@ -151,7 +151,7 @@ def test_retrieve_user(client: Client, user: User):
 
 def test_retrieve_another_user(client: Client, user: User):
     client.force_login(user)
-    user_2 = UserFactory()
+    user_2 = UserFactory.create()
 
     response = client.get(
         {%- if cookiecutter.username_type == "email" %}
@@ -166,7 +166,7 @@ def test_retrieve_another_user(client: Client, user: User):
 
 
 def test_update_current_user(client: Client):
-    user = UserFactory(name="Old")
+    user = UserFactory.create(name="Old")
     client.force_login(user)
 
     response = client.patch(
@@ -196,7 +196,7 @@ def test_update_current_user(client: Client):
 
 
 def test_update_user(client: Client):
-    user = UserFactory(name="Old")
+    user = UserFactory.create(name="Old")
     client.force_login(user)
 
     response = client.patch(
@@ -215,7 +215,7 @@ def test_update_user(client: Client):
 
 
 def test_update_user(client: Client):
-    user = UserFactory(name="Old", username="old")
+    user = UserFactory.create(name="Old", username="old")
     client.force_login(user)
 
     response = client.patch(
