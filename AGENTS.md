@@ -93,7 +93,7 @@ The generated Django project uses:
 
 ## Conventions
 
-- **Python 3.13** required (`requires-python = "==3.13.*"`)
+- **Python 3.14** required (`requires-python = "==3.14.*"`)
 - **Line length**: 119 characters (ruff and djlint)
 - **Ruff** for linting/formatting; config in `pyproject.toml` under `[tool.ruff]`
 - **djLint** for HTML template linting with `profile = "jinja"`
