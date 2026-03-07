@@ -3,6 +3,33 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.03.06
+
+
+### Updated
+
+- Update ruff to 0.15.5 ([#6414](https://github.com/cookiecutter/cookiecutter-django/pull/6414))
+
+## 2026.03.03
+
+
+### Updated
+
+- Update django to 5.2.12 ([#6407](https://github.com/cookiecutter/cookiecutter-django/pull/6407))
+
+## 2026.03.02
+
+
+### Changed
+
+- Update dependabot.yml to remove Django 6.0 ignore rule ([#6402](https://github.com/cookiecutter/cookiecutter-django/pull/6402))
+
+### Updated
+
+- Update sentry-sdk to 2.54.0 ([#6403](https://github.com/cookiecutter/cookiecutter-django/pull/6403))
+
+- Bump amazon/aws-cli from 2.33.0 to 2.34.0 ([#6400](https://github.com/cookiecutter/cookiecutter-django/pull/6400))
+
 ## 2026.03.01
 
 
