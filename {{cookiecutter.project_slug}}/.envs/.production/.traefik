@@ -1,0 +1,4 @@
+# Traefik
+# ------------------------------------------------------------------------------
+DOMAIN={{ cookiecutter.domain_name }}
+ACME_EMAIL={{ cookiecutter.email }}

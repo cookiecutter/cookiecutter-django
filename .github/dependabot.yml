@@ -41,7 +41,6 @@ updates:
       - "{{cookiecutter.project_slug}}/compose/production/aws/"
       - "{{cookiecutter.project_slug}}/compose/production/postgres/"
       - "{{cookiecutter.project_slug}}/compose/production/nginx/"
-      - "{{cookiecutter.project_slug}}/compose/production/traefik/"
     schedule:
       interval: "daily"
     labels:

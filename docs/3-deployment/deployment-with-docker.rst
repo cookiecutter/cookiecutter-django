@@ -27,7 +27,7 @@ Provided you have opted for Celery (via setting ``use_celery`` to ``y``) there a
 * ``celerybeat`` running a Celery beat process;
 * ``flower`` running Flower_.
 
-The ``flower`` service is served by Traefik over HTTPS, through the port ``5555``. For more information about Flower and its login credentials, check out :ref:`CeleryFlower` instructions for local environment.
+The ``flower`` service is served by Traefik over HTTPS at the ``/flower`` path prefix. For more information about Flower and its login credentials, check out :ref:`CeleryFlower` instructions for local environment.
 
 .. _`Flower`: https://github.com/mher/flower
 
@@ -36,6 +36,8 @@ Configuring the Stack
 ---------------------
 
 The majority of services above are configured through the use of environment variables. Just check out :ref:`envs` and you will know the drill.
+
+Traefik is configured via CLI args and Docker labels (no config file needed). The ``DOMAIN`` and ``ACME_EMAIL`` variables are read from ``.envs/.production/.traefik``.
 
 To obtain logs and information about crashes in a production setup, make sure that you have access to an external Sentry instance (e.g. by creating an account with `sentry.io`_), and set the ``SENTRY_DSN`` variable. Logs of level `logging.ERROR` are sent as Sentry events. Therefore, in order to send a Sentry event use:
 
@@ -78,7 +80,7 @@ It is always better to deploy a site behind HTTPS and will become crucial as the
 
 * Access to the Django admin is set up by default to require HTTPS in production or once *live*.
 
-The Traefik reverse proxy used in the default configuration will get you a valid certificate from Lets Encrypt and update it automatically. All you need to do to enable this is to make sure that your DNS records are pointing to the server Traefik runs on.
+The Traefik reverse proxy used in the default configuration will get you a valid certificate from Lets Encrypt and update it automatically. All you need to do to enable this is to make sure that your DNS records are pointing to the server Traefik runs on, and that ``DOMAIN`` and ``ACME_EMAIL`` are set correctly in ``.envs/.production/.traefik``.
 
 You can read more about this feature and how to configure it, at `Automatic HTTPS`_ in the Traefik docs.
 
