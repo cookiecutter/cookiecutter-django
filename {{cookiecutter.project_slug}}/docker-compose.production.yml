@@ -40,6 +40,18 @@ services:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
     command: /start
+    labels:
+      - "traefik.enable=true"
+      {%- if cookiecutter.domain_name.count('.') == 1 %}
+      - "traefik.http.routers.django.rule=Host(`${DOMAIN}`) || Host(`www.${DOMAIN}`)"
+      {%- else %}
+      - "traefik.http.routers.django.rule=Host(`${DOMAIN}`)"
+      {%- endif %}
+      - "traefik.http.routers.django.entrypoints=web-secure"
+      - "traefik.http.routers.django.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.django.middlewares=csrf"
+      - "traefik.http.middlewares.csrf.headers.hostsProxyHeaders=X-CSRFToken"
+      - "traefik.http.services.django.loadbalancer.server.port=5000"
 
   postgres:
     build:
@@ -57,20 +69,34 @@ services:
       - ./.envs/.production/.postgres
 
   traefik:
-    build:
-      context: .
-      dockerfile: ./compose/production/traefik/Dockerfile
-    image: {{ cookiecutter.project_slug }}_production_traefik
+    image: docker.io/traefik:3.6
     depends_on:
       - django
+    command:
+      - "--log.level=INFO"
+      - "--ping=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.web.http.redirections.entrypoint.to=web-secure"
+      - "--entrypoints.web-secure.address=:443"
+      - "--certificatesresolvers.letsencrypt.acme.email=${ACME_EMAIL}"
+      - "--certificatesresolvers.letsencrypt.acme.storage=/etc/traefik/acme/acme.json"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
     volumes:
       - production_traefik:/etc/traefik/acme
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     ports:
       - '0.0.0.0:80:80'
       - '0.0.0.0:443:443'
-      {%- if cookiecutter.use_celery == 'y' %}
-      - '0.0.0.0:5555:5555'
-      {%- endif %}
+    env_file:
+      - ./.envs/.production/.traefik
+    healthcheck:
+      test: ["CMD", "traefik", "healthcheck", "--ping"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
 
   redis:
     image: docker.io/redis:7.2
@@ -86,16 +112,25 @@ services:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_celeryworker
     command: /start-celeryworker
+    labels: []
 
   celerybeat:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_celerybeat
     command: /start-celerybeat
+    labels: []
 
   flower:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_flower
     command: /start-flower
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.flower.rule=Host(`${DOMAIN}`) && PathPrefix(`/flower`)"
+      - "traefik.http.routers.flower.entrypoints=web-secure"
+      - "traefik.http.routers.flower.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.flower.priority=200"
+      - "traefik.http.services.flower.loadbalancer.server.port=5555"
   {%- endif %}
   {%- if cookiecutter.cloud_provider == 'AWS' %}
 
@@ -119,4 +154,15 @@ services:
       - django
     volumes:
       - production_django_media:/usr/share/nginx/media:ro
+    labels:
+      - "traefik.enable=true"
+      {%- if cookiecutter.domain_name.count('.') == 1 %}
+      - "traefik.http.routers.media.rule=(Host(`${DOMAIN}`) || Host(`www.${DOMAIN}`)) && PathPrefix(`/media/`)"
+      {%- else %}
+      - "traefik.http.routers.media.rule=Host(`${DOMAIN}`) && PathPrefix(`/media/`)"
+      {%- endif %}
+      - "traefik.http.routers.media.entrypoints=web-secure"
+      - "traefik.http.routers.media.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.media.priority=200"
+      - "traefik.http.services.media.loadbalancer.server.port=80"
   {%- endif %}
