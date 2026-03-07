@@ -1,11 +1,16 @@
-from collections.abc import Sequence
-from typing import Any
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
 
 from factory import Faker
 from factory import post_generation
 from factory.django import DjangoModelFactory
 
 from {{ cookiecutter.project_slug }}.users.models import User
+
+if TYPE_CHECKING:
+    from collections.abc import Sequence
+    from typing import Any
 
 
 class UserFactory(DjangoModelFactory[User]):

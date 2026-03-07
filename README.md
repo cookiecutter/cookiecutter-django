@@ -19,8 +19,8 @@ production-ready Django projects quickly.
 
 ## Features
 
-- For Django 5.2
-- Works with Python 3.13
+- For Django 6.0
+- Works with Python 3.14
 - Renders Django projects with 100% starting test coverage
 - Twitter [Bootstrap](https://github.com/twbs/bootstrap) v5
 - [12-Factor](https://12factor.net) based settings via [django-environ](https://github.com/joke2k/django-environ)

@@ -1,6 +1,11 @@
-from pathlib import Path
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
 
 import pytest
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 from merge_production_dotenvs_in_dotenv import merge
 
