@@ -29,7 +29,7 @@ classifiers = [
   "Topic :: Software Development",
 ]
 dependencies = [
-  "binaryornot==0.4.4",
+  "binaryornot==0.6.0",
   "cookiecutter==2.7.1",
   "django-upgrade==1.30.0",
   "djlint==1.36.4",
