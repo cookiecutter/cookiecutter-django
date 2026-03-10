@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.03.09
+
+
+### Changed
+
+- Upgrade factory-boy to 3.3.3 and fix mypy compatibility ([#6417](https://github.com/cookiecutter/cookiecutter-django/pull/6417))
+
+### Updated
+
+- Update django-allauth to 65.15.0 ([#6424](https://github.com/cookiecutter/cookiecutter-django/pull/6424))
+
+- Update redis to 7.3.0 ([#6418](https://github.com/cookiecutter/cookiecutter-django/pull/6418))
+
 ## 2026.03.06
 
 
