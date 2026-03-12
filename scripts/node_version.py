@@ -8,7 +8,6 @@ TEMPLATED_ROOT = ROOT / "{{cookiecutter.project_slug}}"
 DOCKERFILE = TEMPLATED_ROOT / "compose" / "local" / "node" / "Dockerfile"
 PROD_DOCKERFILE = TEMPLATED_ROOT / "compose" / "production" / "django" / "Dockerfile"
 PACKAGE_JSON = TEMPLATED_ROOT / "package.json"
-CI_YML = ROOT / ".github" / "workflows" / "ci.yml"
 
 
 def main() -> None:
@@ -16,7 +15,6 @@ def main() -> None:
     old_version = get_version_from_package_json()
     if old_version != new_version:
         update_package_json_version(old_version, new_version)
-        update_ci_node_version(old_version, new_version)
         update_production_node_version(old_version, new_version)
 
 
@@ -45,15 +43,6 @@ def update_package_json_version(old_version: str, new_version: str) -> None:
         f'"node": "{new_version}"',
     )
     PACKAGE_JSON.write_text(package_json_text)
-
-
-def update_ci_node_version(old_version: str, new_version: str) -> None:
-    yml_content = CI_YML.read_text()
-    yml_content = yml_content.replace(
-        f'node-version: "{old_version}"',
-        f'node-version: "{new_version}"',
-    )
-    CI_YML.write_text(yml_content)
 
 
 def update_production_node_version(old_version: str, new_version: str) -> None:

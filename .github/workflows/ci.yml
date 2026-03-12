@@ -106,6 +106,6 @@ jobs:
         run: uv sync --locked
       - uses: actions/setup-node@v6
         with:
-          node-version: "24.14"
+          node-version-file: "{{cookiecutter.project_slug}}/package.json"
       - name: Bare Metal ${{ matrix.script.name }}
         run: sh tests/test_bare.sh ${{ matrix.script.args }}
