@@ -130,11 +130,11 @@ lint.isort.force-single-line = true
 [tool.pyproject-fmt]
 keep_full_version = true
 
-[tool.pytest]
 # ==== pytest ====
-
-ini_options.addopts = "-v --tb=short"
-ini_options.norecursedirs = [
+[tool.pytest]
+minversion = "9.0"
+addopts = [ "-v", "--tb=short" ]
+norecursedirs = [
   ".tox",
   ".git",
   "*/migrations/*",
@@ -145,7 +145,6 @@ ini_options.norecursedirs = [
 ]
 
 # ==== djLint ====
-
 [tool.djlint]
 blank_line_after_tag = "load,extends"
 close_void_tags = true
