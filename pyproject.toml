@@ -132,8 +132,9 @@ keep_full_version = true
 
 # ==== pytest ====
 [tool.pytest]
-ini_options.addopts = "-v --tb=short"
-ini_options.norecursedirs = [
+minversion = "9.0"
+addopts = [ "-v", "--tb=short" ]
+norecursedirs = [
   ".tox",
   ".git",
   "*/migrations/*",
