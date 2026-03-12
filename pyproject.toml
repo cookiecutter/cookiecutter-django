@@ -132,7 +132,6 @@ keep_full_version = true
 
 [tool.pytest]
 # ==== pytest ====
-
 ini_options.addopts = "-v --tb=short"
 ini_options.norecursedirs = [
   ".tox",
@@ -145,7 +144,6 @@ ini_options.norecursedirs = [
 ]
 
 # ==== djLint ====
-
 [tool.djlint]
 blank_line_after_tag = "load,extends"
 close_void_tags = true
