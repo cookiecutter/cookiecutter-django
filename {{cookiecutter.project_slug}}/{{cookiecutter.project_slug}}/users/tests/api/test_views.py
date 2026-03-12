@@ -1,9 +1,15 @@
 {% if cookiecutter.rest_api == 'DRF' -%}
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
 import pytest
 from rest_framework.test import APIRequestFactory
 
 from {{ cookiecutter.project_slug }}.users.api.views import UserViewSet
-from {{ cookiecutter.project_slug }}.users.models import User
+
+if TYPE_CHECKING:
+    from {{ cookiecutter.project_slug }}.users.models import User
 
 
 class TestUserViewSet:
@@ -39,14 +45,20 @@ class TestUserViewSet:
             "name": user.name,
         }
 {%- elif cookiecutter.rest_api == 'Django Ninja' -%}
+from __future__ import annotations
+
 from http import HTTPStatus
+from typing import TYPE_CHECKING
 
 import pytest
-from django.test import Client
 from django.urls import reverse
 
-from {{ cookiecutter.project_slug }}.users.models import User
 from {{ cookiecutter.project_slug }}.users.tests.factories import UserFactory
+
+if TYPE_CHECKING:
+    from django.test import Client
+
+    from {{ cookiecutter.project_slug }}.users.models import User
 
 pytestmark = pytest.mark.django_db
 
