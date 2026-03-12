@@ -130,8 +130,8 @@ lint.isort.force-single-line = true
 [tool.pyproject-fmt]
 keep_full_version = true
 
-[tool.pytest]
 # ==== pytest ====
+[tool.pytest]
 ini_options.addopts = "-v --tb=short"
 ini_options.norecursedirs = [
   ".tox",
