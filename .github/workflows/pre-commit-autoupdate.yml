@@ -22,19 +22,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
-        with:
-          python-version: "3.13"
-
-      - name: Install pre-commit
-        run: pip install pre-commit
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
 
       - name: Autoupdate template
-        run: pre-commit autoupdate
+        run: uv tool run pre-commit autoupdate
 
       - name: Autoupdate generated projects
         working-directory: "{{cookiecutter.project_slug}}"
-        run: pre-commit autoupdate
+        run: uv tool run pre-commit autoupdate
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
