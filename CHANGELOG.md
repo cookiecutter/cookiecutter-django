@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.03.12
+
+
+### Updated
+
+- Update django-ninja to 1.6.0 ([#6431](https://github.com/cookiecutter/cookiecutter-django/pull/6431))
+
+- Update pyproject-fmt pre-commit hook from 2.16.2 to 2.18.1 ([#6428](https://github.com/cookiecutter/cookiecutter-django/pull/6428))
+
+- Bump traefik from 3.6.9 to v3.6.10 ([#6423](https://github.com/cookiecutter/cookiecutter-django/pull/6423))
+
+- Bump nginx from 1.29.5 to 1.29.6 ([#6427](https://github.com/cookiecutter/cookiecutter-django/pull/6427))
+
 ## 2026.03.10
 
 
