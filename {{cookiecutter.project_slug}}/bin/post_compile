@@ -18,9 +18,9 @@ END
 
 if compress_enabled
 then
-  python manage.py compress
+  uv run python manage.py compress
 fi
 {%- endif %}
 
-python manage.py collectstatic --ignore "styles/*" --noinput
-python manage.py compilemessages -i site-packages
+uv run python manage.py collectstatic --ignore "styles/*" --noinput
+uv run python manage.py compilemessages -i site-packages
