@@ -112,6 +112,8 @@ Configure the PythonAnywhere Web Tab
 
 Go to the PythonAnywhere **Web tab**, hit **Add new web app**, and choose **Manual Config**, and then the Python 3.13.
 
+.. note:: At time of writing, PythonAnywhere does not yet support Python 3.14. Using Python 3.13 should work fine, but if 3.14 becomes available, feel free to try it instead.
+
 .. note:: If you're using a custom domain (not on \*.pythonanywhere.com), then you'll need to set up a CNAME with your domain registrar.
 
 When you're redirected back to the web app config screen, set the **path to your virtualenv**, which should be something like ``/home/<your-username>/<your-project-directory>/.venv``.

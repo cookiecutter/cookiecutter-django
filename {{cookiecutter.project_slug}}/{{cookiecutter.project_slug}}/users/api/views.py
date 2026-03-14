@@ -30,13 +30,19 @@ class UserViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericV
         serializer = UserSerializer(request.user, context={"request": request})
         return Response(status=status.HTTP_200_OK, data=serializer.data)
 {%- elif cookiecutter.rest_api == 'Django Ninja' -%}
-from django.db.models import QuerySet
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
 from django.shortcuts import get_object_or_404
 from ninja import Router
 
 from {{ cookiecutter.project_slug }}.users.api.schema import UpdateUserSchema
 from {{ cookiecutter.project_slug }}.users.api.schema import UserSchema
 from {{ cookiecutter.project_slug }}.users.models import User
+
+if TYPE_CHECKING:
+    from django.db.models import QuerySet
 
 router = Router(tags=["users"])
 
