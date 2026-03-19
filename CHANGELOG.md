@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.03.18
+
+
+### Updated
+
+- Update django-ninja to 1.6.2 ([#6448](https://github.com/cookiecutter/cookiecutter-django/pull/6448))
+
+- Update djangorestframework to 3.17.0 ([#6447](https://github.com/cookiecutter/cookiecutter-django/pull/6447))
+
+- Update django-ninja to 1.6.1 ([#6446](https://github.com/cookiecutter/cookiecutter-django/pull/6446))
+
+- Update django-stubs to 6.0.1 ([#6445](https://github.com/cookiecutter/cookiecutter-django/pull/6445))
+
 ## 2026.03.17
 
 
