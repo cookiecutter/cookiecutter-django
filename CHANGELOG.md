@@ -3,6 +3,77 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.03.20
+
+
+### Updated
+
+- Bump traefik from v3.6.10 to v3.6.11 ([#6453](https://github.com/cookiecutter/cookiecutter-django/pull/6453))
+
+## 2026.03.19
+
+
+### Updated
+
+- Update ruff to 0.15.7 ([#6451](https://github.com/cookiecutter/cookiecutter-django/pull/6451))
+
+- Update pyproject-fmt pre-commit hook ([#6449](https://github.com/cookiecutter/cookiecutter-django/pull/6449))
+
+## 2026.03.18
+
+
+### Updated
+
+- Update django-ninja to 1.6.2 ([#6448](https://github.com/cookiecutter/cookiecutter-django/pull/6448))
+
+- Update djangorestframework to 3.17.0 ([#6447](https://github.com/cookiecutter/cookiecutter-django/pull/6447))
+
+- Update django-ninja to 1.6.1 ([#6446](https://github.com/cookiecutter/cookiecutter-django/pull/6446))
+
+- Update django-stubs to 6.0.1 ([#6445](https://github.com/cookiecutter/cookiecutter-django/pull/6445))
+
+## 2026.03.17
+
+
+### Updated
+
+- Update sentry-sdk to 2.55.0 ([#6443](https://github.com/cookiecutter/cookiecutter-django/pull/6443))
+
+- Update coverage to 7.13.5 ([#6442](https://github.com/cookiecutter/cookiecutter-django/pull/6442))
+
+- Update pyproject-fmt from v2.18.1 to v2.19.0 ([#6441](https://github.com/cookiecutter/cookiecutter-django/pull/6441))
+
+- Update django-stubs to 6.0.0 ([#6440](https://github.com/cookiecutter/cookiecutter-django/pull/6440))
+
+## 2026.03.16
+
+
+### Updated
+
+- Update hiredis to 3.3.1 ([#6438](https://github.com/cookiecutter/cookiecutter-django/pull/6438))
+
+- Update uvicorn to 0.42.0 ([#6437](https://github.com/cookiecutter/cookiecutter-django/pull/6437))
+
+## 2026.03.13
+
+
+### Updated
+
+- Update ruff to 0.15.6 ([#6432](https://github.com/cookiecutter/cookiecutter-django/pull/6432))
+
+## 2026.03.12
+
+
+### Updated
+
+- Update django-ninja to 1.6.0 ([#6431](https://github.com/cookiecutter/cookiecutter-django/pull/6431))
+
+- Update pyproject-fmt pre-commit hook from 2.16.2 to 2.18.1 ([#6428](https://github.com/cookiecutter/cookiecutter-django/pull/6428))
+
+- Bump traefik from 3.6.9 to v3.6.10 ([#6423](https://github.com/cookiecutter/cookiecutter-django/pull/6423))
+
+- Bump nginx from 1.29.5 to 1.29.6 ([#6427](https://github.com/cookiecutter/cookiecutter-django/pull/6427))
+
 ## 2026.03.10
 
 
