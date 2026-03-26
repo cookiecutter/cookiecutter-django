@@ -888,6 +888,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Eric Hanchrow</td>
+    <td>
+      <a href="https://github.com/offby1">offby1</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Ernesto Cedeno</td>
     <td>
       <a href="https://github.com/codnee">codnee</a>
