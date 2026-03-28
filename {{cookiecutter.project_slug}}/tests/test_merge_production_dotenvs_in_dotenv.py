@@ -4,10 +4,10 @@ from typing import TYPE_CHECKING
 
 import pytest
 
+from merge_production_dotenvs_in_dotenv import merge
+
 if TYPE_CHECKING:
     from pathlib import Path
-
-from merge_production_dotenvs_in_dotenv import merge
 
 
 @pytest.mark.parametrize(
