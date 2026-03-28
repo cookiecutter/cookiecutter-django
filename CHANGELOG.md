@@ -3,6 +3,50 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.03.27
+
+
+### Updated
+
+- Update gunicorn to 25.3.0 ([#6465](https://github.com/cookiecutter/cookiecutter-django/pull/6465))
+
+- Bump traefik from v3.6.11 to v3.6.12 ([#6466](https://github.com/cookiecutter/cookiecutter-django/pull/6466))
+
+## 2026.03.26
+
+
+### Changed
+
+- Ignore some more generated files ([#6464](https://github.com/cookiecutter/cookiecutter-django/pull/6464))
+
+### Updated
+
+- Update ruff to 0.15.8 ([#6463](https://github.com/cookiecutter/cookiecutter-django/pull/6463))
+
+- Update celery to 5.6.3 ([#6462](https://github.com/cookiecutter/cookiecutter-django/pull/6462))
+
+## 2026.03.25
+
+
+### Updated
+
+- Update djangorestframework to 3.17.1 ([#6458](https://github.com/cookiecutter/cookiecutter-django/pull/6458))
+
+- Bump nginx from 1.29.6 to 1.29.7 ([#6460](https://github.com/cookiecutter/cookiecutter-django/pull/6460))
+
+- Update gunicorn to 25.2.0 ([#6459](https://github.com/cookiecutter/cookiecutter-django/pull/6459))
+
+## 2026.03.24
+
+
+### Updated
+
+- Update redis to 7.4.0 ([#6456](https://github.com/cookiecutter/cookiecutter-django/pull/6456))
+
+- Update sentry-sdk to 2.56.0 ([#6457](https://github.com/cookiecutter/cookiecutter-django/pull/6457))
+
+- Update werkzeug to 3.1.7 ([#6455](https://github.com/cookiecutter/cookiecutter-django/pull/6455))
+
 ## 2026.03.20
 
 
