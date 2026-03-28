@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.03.27
+
+
+### Updated
+
+- Update gunicorn to 25.3.0 ([#6465](https://github.com/cookiecutter/cookiecutter-django/pull/6465))
+
+- Bump traefik from v3.6.11 to v3.6.12 ([#6466](https://github.com/cookiecutter/cookiecutter-django/pull/6466))
+
 ## 2026.03.26
 
 
