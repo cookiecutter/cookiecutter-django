@@ -1,7 +1,12 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
 from django.urls import resolve
 from django.urls import reverse
 
-from {{ cookiecutter.project_slug }}.users.models import User
+if TYPE_CHECKING:
+    from {{ cookiecutter.project_slug }}.users.models import User
 
 
 def test_detail(user: User):

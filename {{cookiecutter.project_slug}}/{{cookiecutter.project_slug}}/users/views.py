@@ -1,6 +1,9 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.db.models import QuerySet
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView
@@ -8,6 +11,9 @@ from django.views.generic import RedirectView
 from django.views.generic import UpdateView
 
 from {{ cookiecutter.project_slug }}.users.models import User
+
+if TYPE_CHECKING:
+    from django.db.models import QuerySet
 
 
 class UserDetailView(LoginRequiredMixin, DetailView):
