@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.03.28
+
+
+### Changed
+
+- Upgrade to Python 3.14 ([#6412](https://github.com/cookiecutter/cookiecutter-django/pull/6412))
+
 ## 2026.03.27
 
 
