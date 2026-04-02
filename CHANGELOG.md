@@ -3,6 +3,21 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.04.01
+
+
+### Updated
+
+- Update pillow to 12.2.0 ([#6480](https://github.com/cookiecutter/cookiecutter-django/pull/6480))
+
+- Update mypy to 1.20.0 ([#6479](https://github.com/cookiecutter/cookiecutter-django/pull/6479))
+
+- Update pyproject-fmt to v2.21.0 ([#6476](https://github.com/cookiecutter/cookiecutter-django/pull/6476))
+
+- Update django-stubs to 6.0.2 ([#6478](https://github.com/cookiecutter/cookiecutter-django/pull/6478))
+
+- Update djangorestframework-stubs to 3.16.9 ([#6475](https://github.com/cookiecutter/cookiecutter-django/pull/6475))
+
 ## 2026.03.31
 
 
