@@ -43,6 +43,14 @@ def remove_custom_user_manager_files():
     (users_path / "tests" / "test_managers.py").unlink()
 
 
+
+
+def remove_phone_templates():
+    phone_tpl = Path("{{cookiecutter.project_slug}}", "templates", "account", "phone")
+    if phone_tpl.exists():
+        import shutil as _s
+        _s.rmtree(phone_tpl)
+
 def remove_pycharm_files():
     idea_dir_path = Path(".idea")
     if idea_dir_path.exists():
@@ -441,6 +449,9 @@ def main():  # noqa: C901, PLR0912, PLR0915
 
     if "{{ cookiecutter.username_type }}" == "username":
         remove_custom_user_manager_files()
+
+    if "{{ cookiecutter.username_type }}" != "phone":
+        remove_phone_templates()
 
     if "{{ cookiecutter.editor }}" != "PyCharm":
         remove_pycharm_files()

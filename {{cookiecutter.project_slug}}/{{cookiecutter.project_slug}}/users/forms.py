@@ -1,7 +1,7 @@
 from allauth.account.forms import SignupForm
 from allauth.socialaccount.forms import SignupForm as SocialSignupForm
 from django.contrib.auth import forms as admin_forms
-{%- if cookiecutter.username_type == "email" %}
+{%- if cookiecutter.username_type in ("email", "phone") %}
 from django.forms import EmailField
 {%- endif %}
 from django.utils.translation import gettext_lazy as _
@@ -30,6 +30,11 @@ class UserAdminCreationForm(admin_forms.AdminUserCreationForm):
         field_classes = {"email": EmailField}
         error_messages = {
             "email": {"unique": _("This email has already been taken.")},
+        }
+        {%- elif cookiecutter.username_type == "phone" %}
+        fields = ("phone",)
+        error_messages = {
+            "phone": {"unique": _("This phone number has already been taken.")},
         }
         {%- else %}
         error_messages = {

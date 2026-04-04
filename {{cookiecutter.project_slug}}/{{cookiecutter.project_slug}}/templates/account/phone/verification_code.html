@@ -1,0 +1,35 @@
+{% extends "account/base_entrance.html" %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Verify Phone Number" %}{% endblock head_title %}
+
+{% block content %}
+<h1>{% trans "Verify Your Phone" %}</h1>
+<p class="text-muted">
+  {% blocktrans trimmed %}
+    We sent a verification code to your phone. Enter it below.
+  {% endblocktrans %}
+</p>
+
+<form method="post" action="{{ action_url }}">
+  {% csrf_token %}
+  {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  {% for field in form %}
+    <div class="mb-3">
+      {% if field.label %}<label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>{% endif %}
+      {{ field }}
+      {% for error in field.errors %}<div class="invalid-feedback d-block">{{ error }}</div>{% endfor %}
+    </div>
+  {% endfor %}
+  <button type="submit" class="btn btn-primary w-100">{% trans "Verify" %}</button>
+</form>
+
+{% if resend_url %}
+  <hr>
+  <p class="text-center text-muted small">
+    {% trans "Didn't receive the code?" %} <a href="{{ resend_url }}">{% trans "Resend" %}</a>
+  </p>
+{% endif %}
+{% endblock content %}

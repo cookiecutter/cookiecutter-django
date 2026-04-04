@@ -1,0 +1,25 @@
+{% extends "account/base_entrance.html" %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Sign Up" %}{% endblock head_title %}
+
+{% block content %}
+<h1>{% trans "Sign Up" %}</h1>
+<p class="text-muted">{% trans "Enter your phone number. We'll send a verification code." %}</p>
+
+<form id="signup_form" method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+  {% for field in form %}
+    <div class="mb-3">
+      {% if field.label %}<label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>{% endif %}
+      {{ field }}
+      {% for error in field.errors %}<div class="invalid-feedback d-block">{{ error }}</div>{% endfor %}
+      {% if field.help_text %}<div class="form-text">{{ field.help_text }}</div>{% endif %}
+    </div>
+  {% endfor %}
+  <button type="submit" class="btn btn-primary w-100">{% trans "Continue →" %}</button>
+  <p class="mt-3 text-center">
+    {% trans "Already have an account?" %} <a href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
+  </p>
+</form>
+{% endblock content %}
