@@ -109,3 +109,24 @@ jobs:
           node-version-file: "{{cookiecutter.project_slug}}/package.json"
       - name: Bare Metal ${{ matrix.script.name }}
         run: sh tests/test_bare.sh ${{ matrix.script.args }}
+
+  smoke-win:
+    strategy:
+      fail-fast: false
+      matrix:
+        script:
+          - name: Compressor
+            args: "frontend_pipeline='Django Compressor'"
+    name: "Windows Smoke Test ${{ matrix.script.name }}"
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+      - name: Install dependencies
+        run: uv sync --locked
+      - name: Bare Metal ${{ matrix.script.name }}
+        run: ./tests/test_generate.ps1
+        shell: pwsh
+        env:
+          COOKIECUTTER_ARGS: ${{ matrix.script.args }}
