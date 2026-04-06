@@ -55,6 +55,8 @@ SUPPORTED_COMBINATIONS = [
     {"open_source_license": "Not open source"},
     {"windows": "y"},
     {"windows": "n"},
+    # Windows without Docker and with django-compressor
+    {"windows": "y", "frontend_pipeline": "Django Compressor", "use_docker": "n"},
     {"editor": "None"},
     {"editor": "PyCharm"},
     {"editor": "VS Code"},
