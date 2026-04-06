@@ -126,4 +126,7 @@ jobs:
       - name: Install dependencies
         run: uv sync --locked
       - name: Bare Metal ${{ matrix.script.name }}
-        run: powershell tests/test_generate.ps1 ${{ matrix.script.args }}
+        run: ./tests/test_generate.ps1
+        shell: pwsh
+        env:
+          COOKIECUTTER_ARGS: ${{ matrix.script.args }}

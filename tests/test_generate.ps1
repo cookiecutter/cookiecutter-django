@@ -9,7 +9,7 @@ New-Item -ItemType Directory -Force -Path .cache/bare | Out-Null
 Set-Location .cache/bare
 
 # create the project using the default settings in cookiecutter.json
-uv run cookiecutter ../../ --no-input --overwrite-if-exists use_docker=n @args
+Invoke-Expression "uv run cookiecutter ../../ --no-input --overwrite-if-exists use_docker=n $env:COOKIECUTTER_ARGS"
 Set-Location my_awesome_project
 
 # Install Python deps
