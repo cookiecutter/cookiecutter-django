@@ -13,4 +13,4 @@ Invoke-Expression "uv run cookiecutter ../../ --no-input --overwrite-if-exists u
 Set-Location my_awesome_project
 
 # Install Python deps
-uv sync
+# uv sync
