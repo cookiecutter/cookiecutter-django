@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.04.06
+
+
+### Fixed
+
+- Fix project generation failure rCSSmin on Windows ([#6491](https://github.com/cookiecutter/cookiecutter-django/pull/6491))
+
+### Updated
+
+- Update django-coverage-plugin to 3.2.2 ([#6489](https://github.com/cookiecutter/cookiecutter-django/pull/6489))
+
+- Update uvicorn to 0.44.0 ([#6490](https://github.com/cookiecutter/cookiecutter-django/pull/6490))
+
 ## 2026.04.03
 
 
