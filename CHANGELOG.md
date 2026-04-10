@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.04.09
+
+
+### Updated
+
+- Update ruff to 0.15.10 ([#6498](https://github.com/cookiecutter/cookiecutter-django/pull/6498))
+
 ## 2026.04.08
 
 
