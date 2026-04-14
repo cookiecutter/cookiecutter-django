@@ -1,18 +1,14 @@
 from __future__ import annotations
 
 import dataclasses
-import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 from hooks.core.actions import Action
 from hooks.core.actions import ActionResult
-from hooks.core.audit import AuditEntry
-from hooks.core.context import Checkpoint
 from hooks.core.context import ExecutionContext
 from hooks.core.context import FailurePolicy
-
 
 TERMINATOR = "\x1b[0m"
 WARNING = "\x1b[1;33m [WARNING]: "
@@ -139,11 +135,7 @@ class ActionExecutor:
         return rolled_back
 
     def rollback_from(self, sequence_number: int) -> int:
-        checkpoints = [
-            cp
-            for cp in self.context.checkpoints
-            if cp.sequence_number >= sequence_number
-        ]
+        checkpoints = [cp for cp in self.context.checkpoints if cp.sequence_number >= sequence_number]
         rolled_back = 0
 
         for checkpoint in reversed(checkpoints):
@@ -201,5 +193,7 @@ class ResumableExecutor(ActionExecutor):
             print(f"{SUCCESS}Generation already complete, nothing to resume{TERMINATOR}")
             return ExecutionResult(success=True, message="Generation already complete")
 
-        print(f"{INFO}Resuming from checkpoint {last_checkpoint}, {len(remaining_actions)} actions remaining{TERMINATOR}")
+        print(
+            f"{INFO}Resuming from checkpoint {last_checkpoint}, {len(remaining_actions)} actions remaining{TERMINATOR}"
+        )
         return self._execute_with_policy(remaining_actions)

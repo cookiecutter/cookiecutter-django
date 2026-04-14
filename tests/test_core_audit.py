@@ -1,12 +1,11 @@
 """Tests for the core audit module."""
 
-import json
-from pathlib import Path
-
-import pytest
-
-from hooks.core.actions import DeleteFileAction, ModifyFileAction
-from hooks.core.audit import AuditEntry, AuditLogger, AuditReport, AuditStatus
+from hooks.core.actions import DeleteFileAction
+from hooks.core.actions import ModifyFileAction
+from hooks.core.audit import AuditEntry
+from hooks.core.audit import AuditLogger
+from hooks.core.audit import AuditReport
+from hooks.core.audit import AuditStatus
 
 
 class TestAuditEntry:

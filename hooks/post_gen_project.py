@@ -1,9 +1,5 @@
-# ruff: noqa: PLR0133
-import os
 import random
-import shutil
 import string
-import subprocess
 import sys
 from pathlib import Path
 
@@ -80,7 +76,6 @@ class SecretGenerationStrategy(FeatureStrategy):
         return True
 
     def plan(self, context: ExecutionContext) -> list:
-        from hooks.core.actions import ModifyFileAction
 
         actions = []
 
@@ -102,14 +97,14 @@ class SecretGenerationStrategy(FeatureStrategy):
                 file_path=production_django_envs_path,
                 modifications={"!!!SET DJANGO_SECRET_KEY!!!": self._generate_secret_key()},
                 description="Set Django secret key in production env",
-            )
+            ),
         )
         actions.append(
             ModifyFileAction(
                 file_path=production_django_envs_path,
                 modifications={"!!!SET DJANGO_ADMIN_URL!!!": self._generate_admin_url()},
                 description="Set Django admin URL in production env",
-            )
+            ),
         )
 
         postgres_password = DEBUG_VALUE if self.debug else self._generate_password()
@@ -118,28 +113,28 @@ class SecretGenerationStrategy(FeatureStrategy):
                 file_path=local_postgres_envs_path,
                 modifications={"!!!SET POSTGRES_USER!!!": self.postgres_user},
                 description="Set Postgres user in local env",
-            )
+            ),
         )
         actions.append(
             ModifyFileAction(
                 file_path=local_postgres_envs_path,
                 modifications={"!!!SET POSTGRES_PASSWORD!!!": postgres_password},
                 description="Set Postgres password in local env",
-            )
+            ),
         )
         actions.append(
             ModifyFileAction(
                 file_path=production_postgres_envs_path,
                 modifications={"!!!SET POSTGRES_USER!!!": self.postgres_user},
                 description="Set Postgres user in production env",
-            )
+            ),
         )
         actions.append(
             ModifyFileAction(
                 file_path=production_postgres_envs_path,
                 modifications={"!!!SET POSTGRES_PASSWORD!!!": postgres_password},
                 description="Set Postgres password in production env",
-            )
+            ),
         )
 
         celery_flower_password = DEBUG_VALUE if self.debug else self._generate_password()
@@ -148,28 +143,28 @@ class SecretGenerationStrategy(FeatureStrategy):
                 file_path=local_django_envs_path,
                 modifications={"!!!SET CELERY_FLOWER_USER!!!": self.celery_flower_user},
                 description="Set Celery Flower user in local env",
-            )
+            ),
         )
         actions.append(
             ModifyFileAction(
                 file_path=local_django_envs_path,
                 modifications={"!!!SET CELERY_FLOWER_PASSWORD!!!": celery_flower_password},
                 description="Set Celery Flower password in local env",
-            )
+            ),
         )
         actions.append(
             ModifyFileAction(
                 file_path=production_django_envs_path,
                 modifications={"!!!SET CELERY_FLOWER_USER!!!": self.celery_flower_user},
                 description="Set Celery Flower user in production env",
-            )
+            ),
         )
         actions.append(
             ModifyFileAction(
                 file_path=production_django_envs_path,
                 modifications={"!!!SET CELERY_FLOWER_PASSWORD!!!": celery_flower_password},
                 description="Set Celery Flower password in production env",
-            )
+            ),
         )
 
         return actions
@@ -185,14 +180,14 @@ class SecretGenerationStrategy(FeatureStrategy):
                 file_path=local_settings_path,
                 modifications={"!!!SET DJANGO_SECRET_KEY!!!": self._generate_secret_key()},
                 description="Set Django secret key in local settings",
-            )
+            ),
         )
         actions.append(
             ModifyFileAction(
                 file_path=test_settings_path,
                 modifications={"!!!SET DJANGO_SECRET_KEY!!!": self._generate_secret_key()},
                 description="Set Django secret key in test settings",
-            )
+            ),
         )
 
         return actions
@@ -229,19 +224,19 @@ class EnvFilesStrategy(FeatureStrategy):
                     DeleteDirectoryAction(
                         dir_path=Path(".envs"),
                         description="Remove .envs directory (no Docker/Heroku)",
-                    )
+                    ),
                 )
                 actions.append(
                     DeleteFileAction(
                         file_path=Path("merge_production_dotenvs_in_dotenv.py"),
                         description="Remove merge dotenvs script",
-                    )
+                    ),
                 )
                 actions.append(
                     DeleteDirectoryAction(
                         dir_path=Path("tests"),
                         description="Remove tests directory (no Docker/Heroku)",
-                    )
+                    ),
                 )
 
         return actions
@@ -265,14 +260,14 @@ class GitignoreStrategy(FeatureStrategy):
                 file_path=Path(".gitignore"),
                 content=".env",
                 description="Add .env to gitignore",
-            )
+            ),
         )
         actions.append(
             AppendFileAction(
                 file_path=Path(".gitignore"),
                 content=".envs/*",
                 description="Add .envs/* to gitignore",
-            )
+            ),
         )
 
         if keep_local_envs:
@@ -281,7 +276,7 @@ class GitignoreStrategy(FeatureStrategy):
                     file_path=Path(".gitignore"),
                     content="!.envs/.local/",
                     description="Keep local envs in VCS",
-                )
+                ),
             )
 
         return actions
@@ -319,7 +314,7 @@ class DependenciesStrategy(FeatureStrategy):
                     ],
                     description="Build uv Docker image",
                     env={"DOCKER_BUILDKIT": "1"},
-                )
+                ),
             )
 
             current_path = Path.cwd().absolute()
@@ -331,21 +326,21 @@ class DependenciesStrategy(FeatureStrategy):
             RunCommandAction(
                 command=[*uv_cmd, "add", "--no-sync", "-r", "requirements/production.txt"],
                 description="Install production dependencies",
-            )
+            ),
         )
 
         actions.append(
             RunCommandAction(
                 command=[*uv_cmd, "add", "--no-sync", "--dev", "-r", "requirements/local.txt"],
                 description="Install development dependencies",
-            )
+            ),
         )
 
         actions.append(
             DeleteDirectoryAction(
                 dir_path=Path("requirements"),
                 description="Remove requirements directory",
-            )
+            ),
         )
 
         uv_image_parent_dir_path = Path("compose/local/uv")
@@ -354,14 +349,16 @@ class DependenciesStrategy(FeatureStrategy):
                 DeleteDirectoryAction(
                     dir_path=uv_image_parent_dir_path,
                     description="Remove uv Docker image directory",
-                )
+                ),
             )
 
         return actions
 
 
 class ProjectGenerationOrchestrator:
-    def __init__(self, config: dict, dry_run: bool = False, failure_policy: FailurePolicy = FailurePolicy.STOP_IMMEDIATELY):
+    def __init__(
+        self, config: dict, dry_run: bool = False, failure_policy: FailurePolicy = FailurePolicy.STOP_IMMEDIATELY
+    ):
         self.config = config
         self.project_slug = config.get("project_slug", "project")
         self.context = ExecutionContext(
@@ -480,8 +477,7 @@ def main():
 
     if cloud_provider == "None" and not use_docker:
         print_warning(
-            "You chose to not use any cloud providers nor Docker, "
-            "media files won't be served in production."
+            "You chose to not use any cloud providers nor Docker, media files won't be served in production.",
         )
 
     use_docker_config = config.get("use_docker", "n").lower() == "y"
@@ -492,7 +488,7 @@ def main():
         print_warning(
             ".env(s) are only utilized when Docker Compose and/or "
             "Heroku support is enabled. Keeping them as requested, but they may not be useful "
-            "in your current setup."
+            "in your current setup.",
         )
 
     success = orchestrator.execute()

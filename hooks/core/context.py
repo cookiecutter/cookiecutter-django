@@ -6,8 +6,6 @@ from enum import Enum
 from pathlib import Path
 from typing import Any
 
-from hooks.core.actions import Action
-from hooks.core.actions import ActionResult
 from hooks.core.audit import AuditEntry
 from hooks.core.audit import AuditLogger
 

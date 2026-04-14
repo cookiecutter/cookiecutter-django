@@ -149,8 +149,8 @@ class AuditReport:
                 "",
                 "## Summary",
                 "",
-                f"| Metric | Count |",
-                f"|--------|-------|",
+                "| Metric | Count |",
+                "|--------|-------|",
                 f"| Total Actions | {self.total_actions} |",
                 f"| Successful | {self.successful_actions} |",
                 f"| Failed | {self.failed_actions} |",
@@ -162,7 +162,7 @@ class AuditReport:
                 "",
                 "## Detailed Actions",
                 "",
-            ]
+            ],
         )
 
         for entry in self.entries:

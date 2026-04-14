@@ -7,13 +7,10 @@ from pathlib import Path
 import pytest
 
 from hooks.core.context import FailurePolicy
-from hooks.post_gen_project import (
-    DependenciesStrategy,
-    EnvFilesStrategy,
-    GitignoreStrategy,
-    ProjectGenerationOrchestrator,
-    SecretGenerationStrategy,
-)
+from hooks.post_gen_project import EnvFilesStrategy
+from hooks.post_gen_project import GitignoreStrategy
+from hooks.post_gen_project import ProjectGenerationOrchestrator
+from hooks.post_gen_project import SecretGenerationStrategy
 
 
 class TestSecretGenerationStrategy:

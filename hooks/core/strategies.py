@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from abc import ABC
 from abc import abstractmethod
-from typing import Any
 
 from hooks.core.actions import Action
 from hooks.core.context import ExecutionContext
@@ -59,7 +58,7 @@ class ConditionalStrategy(FeatureStrategy):
     def plan(self, context: ExecutionContext) -> list[Action]:
         if self.condition(context):
             return self.true_strategy.plan(context)
-        elif self.false_strategy:
+        if self.false_strategy:
             return self.false_strategy.plan(context)
         return []
 

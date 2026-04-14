@@ -6,28 +6,22 @@ from pathlib import Path
 from typing import Any
 
 from hooks.core.actions import Action
-from hooks.core.actions import AppendFileAction
 from hooks.core.actions import DeleteDirectoryAction
 from hooks.core.actions import DeleteFileAction
-from hooks.core.actions import ModifyFileAction
-from hooks.core.actions import RunCommandAction
 from hooks.core.context import ExecutionContext
 from hooks.core.context import FailurePolicy
 from hooks.core.executor import ActionExecutor
 from hooks.core.strategies import FeatureStrategy
-from hooks.strategies import (
-    AsyncStrategy,
-    CeleryStrategy,
-    CIToolStrategy,
-    DockerStrategy,
-    EditorStrategy,
-    FrontendPipelineStrategy,
-    HerokuStrategy,
-    OpenSourceLicenseStrategy,
-    RestApiStrategy,
-    UsernameTypeStrategy,
-)
-
+from hooks.strategies import AsyncStrategy
+from hooks.strategies import CeleryStrategy
+from hooks.strategies import CIToolStrategy
+from hooks.strategies import DockerStrategy
+from hooks.strategies import EditorStrategy
+from hooks.strategies import FrontendPipelineStrategy
+from hooks.strategies import HerokuStrategy
+from hooks.strategies import OpenSourceLicenseStrategy
+from hooks.strategies import RestApiStrategy
+from hooks.strategies import UsernameTypeStrategy
 
 TERMINATOR = "\x1b[0m"
 WARNING = "\x1b[1;33m [WARNING]: "
@@ -45,7 +39,12 @@ except NotImplementedError:
 
 
 class ProjectGenerator:
-    def __init__(self, config: dict[str, Any], dry_run: bool = False, failure_policy: FailurePolicy = FailurePolicy.STOP_IMMEDIATELY):
+    def __init__(
+        self,
+        config: dict[str, Any],
+        dry_run: bool = False,
+        failure_policy: FailurePolicy = FailurePolicy.STOP_IMMEDIATELY,
+    ):
         self.config = config
         self.project_slug = config.get("project_slug", "project")
         self.context = ExecutionContext(
@@ -117,7 +116,7 @@ class ProjectGenerator:
                             dir_path=Path("tests"),
                             description="Remove tests directory (no Docker/Heroku)",
                         ),
-                    ]
+                    ],
                 )
 
         return actions

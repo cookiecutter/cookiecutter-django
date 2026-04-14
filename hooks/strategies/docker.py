@@ -30,7 +30,7 @@ class DockerStrategy(FeatureStrategy):
             DeleteDirectoryAction(
                 dir_path=Path("utility"),
                 description="Remove utility directory (Docker mode)",
-            )
+            ),
         )
 
         cloud_provider = context.get_config("cloud_provider", "")
@@ -39,7 +39,7 @@ class DockerStrategy(FeatureStrategy):
                 DeleteDirectoryAction(
                     dir_path=Path("compose", "production", "nginx"),
                     description="Remove nginx Docker files (cloud provider selected)",
-                )
+                ),
             )
 
         if cloud_provider != "AWS":
@@ -47,7 +47,7 @@ class DockerStrategy(FeatureStrategy):
                 DeleteDirectoryAction(
                     dir_path=Path("compose", "production", "aws"),
                     description="Remove AWS Docker files (non-AWS provider)",
-                )
+                ),
             )
 
         return actions
@@ -59,13 +59,13 @@ class DockerStrategy(FeatureStrategy):
             DeleteDirectoryAction(
                 dir_path=Path(".devcontainer"),
                 description="Remove devcontainer directory",
-            )
+            ),
         )
         actions.append(
             DeleteDirectoryAction(
                 dir_path=Path("compose"),
                 description="Remove compose directory",
-            )
+            ),
         )
 
         for file_name in [
@@ -78,7 +78,7 @@ class DockerStrategy(FeatureStrategy):
                 DeleteFileAction(
                     file_path=Path(file_name),
                     description=f"Remove Docker file: {file_name}",
-                )
+                ),
             )
 
         if context.equals("editor", "PyCharm"):
@@ -87,7 +87,7 @@ class DockerStrategy(FeatureStrategy):
                     DeleteFileAction(
                         file_path=Path(".idea", "runConfigurations", file_name),
                         description=f"Remove PyCharm Docker run config: {file_name}",
-                    )
+                    ),
                 )
 
         return actions

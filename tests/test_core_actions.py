@@ -1,23 +1,13 @@
 """Tests for the core actions module."""
 
 import json
-import os
-import tempfile
-from pathlib import Path
 
-import pytest
-
-from hooks.core.actions import (
-    Action,
-    ActionType,
-    AppendFileAction,
-    CreateDirectoryAction,
-    DeleteDirectoryAction,
-    DeleteFileAction,
-    ModifyFileAction,
-    ModifyJsonFileAction,
-    RunCommandAction,
-)
+from hooks.core.actions import AppendFileAction
+from hooks.core.actions import CreateDirectoryAction
+from hooks.core.actions import DeleteDirectoryAction
+from hooks.core.actions import DeleteFileAction
+from hooks.core.actions import ModifyFileAction
+from hooks.core.actions import ModifyJsonFileAction
 
 
 class TestDeleteFileAction:
@@ -192,8 +182,8 @@ class TestModifyJsonFileAction:
                         "gulp": "4.0.0",
                     },
                     "scripts": {},
-                }
-            )
+                },
+            ),
         )
 
         action = ModifyJsonFileAction(
@@ -214,8 +204,8 @@ class TestModifyJsonFileAction:
                 {
                     "devDependencies": {},
                     "scripts": {"old": "script"},
-                }
-            )
+                },
+            ),
         )
 
         action = ModifyJsonFileAction(
@@ -237,8 +227,8 @@ class TestModifyJsonFileAction:
                     "devDependencies": {},
                     "scripts": {},
                     "babel": {"presets": []},
-                }
-            )
+                },
+            ),
         )
 
         action = ModifyJsonFileAction(

@@ -20,8 +20,7 @@ class FrontendPipelineStrategy(FeatureStrategy):
 
         if pipeline in ["None", "Django Compressor"]:
             return self._plan_no_frontend(use_docker)
-        else:
-            return self._plan_frontend_pipeline(pipeline, use_docker, use_async)
+        return self._plan_frontend_pipeline(pipeline, use_docker, use_async)
 
     def _plan_no_frontend(self, use_docker: bool) -> list:
         actions = []
@@ -30,14 +29,14 @@ class FrontendPipelineStrategy(FeatureStrategy):
             DeleteFileAction(
                 file_path=Path("gulpfile.mjs"),
                 description="Remove Gulp file",
-            )
+            ),
         )
 
         actions.append(
             DeleteDirectoryAction(
                 dir_path=Path("webpack"),
                 description="Remove webpack directory",
-            )
+            ),
         )
 
         vendors_js_path = Path("{{ cookiecutter.project_slug }}", "static", "js", "vendors.js")
@@ -46,28 +45,28 @@ class FrontendPipelineStrategy(FeatureStrategy):
                 DeleteFileAction(
                     file_path=vendors_js_path,
                     description="Remove vendors.js",
-                )
+                ),
             )
 
         actions.append(
             DeleteDirectoryAction(
                 dir_path=Path("{{cookiecutter.project_slug}}", "static", "sass"),
                 description="Remove Sass directory",
-            )
+            ),
         )
 
         actions.append(
             DeleteFileAction(
                 file_path=Path("package.json"),
                 description="Remove package.json",
-            )
+            ),
         )
 
         actions.append(
             DeleteFileAction(
                 file_path=Path(".pre-commit-config.yaml"),
                 description="Remove prettier pre-commit (placeholder)",
-            )
+            ),
         )
 
         if use_docker:
@@ -75,7 +74,7 @@ class FrontendPipelineStrategy(FeatureStrategy):
                 DeleteDirectoryAction(
                     dir_path=Path("compose", "local", "node"),
                     description="Remove Node Dockerfile",
-                )
+                ),
             )
 
         return actions
@@ -89,7 +88,7 @@ class FrontendPipelineStrategy(FeatureStrategy):
                 DeleteFileAction(
                     file_path=project_css_path,
                     description="Remove project.css",
-                )
+                ),
             )
 
         if pipeline == "Gulp":
@@ -106,7 +105,7 @@ class FrontendPipelineStrategy(FeatureStrategy):
             DeleteDirectoryAction(
                 dir_path=Path("webpack"),
                 description="Remove webpack directory (Gulp mode)",
-            )
+            ),
         )
 
         actions.append(
@@ -134,7 +133,7 @@ class FrontendPipelineStrategy(FeatureStrategy):
                     "build": "gulp build",
                 },
                 description="Update package.json for Gulp",
-            )
+            ),
         )
 
         return actions
@@ -146,7 +145,7 @@ class FrontendPipelineStrategy(FeatureStrategy):
             DeleteFileAction(
                 file_path=Path("gulpfile.mjs"),
                 description="Remove Gulp file (Webpack mode)",
-            )
+            ),
         )
 
         remove_dev_deps = [
@@ -176,7 +175,7 @@ class FrontendPipelineStrategy(FeatureStrategy):
                     "dev": "concurrently npm:dev:*",
                     "dev:webpack": "webpack serve --config webpack/dev.config.js",
                     "dev:django": dev_django_cmd,
-                }
+                },
             )
         else:
             remove_dev_deps.append("concurrently")
@@ -187,7 +186,7 @@ class FrontendPipelineStrategy(FeatureStrategy):
                 remove_dev_deps=remove_dev_deps,
                 update_scripts=scripts,
                 description="Update package.json for Webpack",
-            )
+            ),
         )
 
         return actions

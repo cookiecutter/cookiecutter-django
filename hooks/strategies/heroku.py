@@ -37,14 +37,14 @@ class HerokuStrategy(FeatureStrategy):
                 DeleteFileAction(
                     file_path=Path(file_name),
                     description=f"Remove Heroku file: {file_name}",
-                )
+                ),
             )
 
         actions.append(
             DeleteDirectoryAction(
                 dir_path=Path("bin"),
                 description="Remove Heroku bin directory",
-            )
+            ),
         )
 
         return actions
@@ -58,14 +58,14 @@ class HerokuStrategy(FeatureStrategy):
                 file_path=Path(".gitignore"),
                 content=".env",
                 description="Add .env to gitignore",
-            )
+            ),
         )
         actions.append(
             AppendFileAction(
                 file_path=Path(".gitignore"),
                 content=".envs/*",
                 description="Add .envs/* to gitignore",
-            )
+            ),
         )
 
         if keep_local_envs:
@@ -74,7 +74,7 @@ class HerokuStrategy(FeatureStrategy):
                     file_path=Path(".gitignore"),
                     content="!.envs/.local/",
                     description="Keep local envs in VCS",
-                )
+                ),
             )
 
         return actions

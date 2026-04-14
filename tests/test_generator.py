@@ -1,12 +1,9 @@
 """Tests for the generator module."""
 
-import json
-from pathlib import Path
-
-import pytest
-
 from hooks.core.context import FailurePolicy
-from hooks.generator import ProjectGenerator, generate_random_string, generate_random_user
+from hooks.generator import ProjectGenerator
+from hooks.generator import generate_random_string
+from hooks.generator import generate_random_user
 
 
 class TestProjectGenerator:

@@ -21,7 +21,7 @@ class CIToolStrategy(FeatureStrategy):
                 DeleteFileAction(
                     file_path=Path(".travis.yml"),
                     description="Remove Travis CI config",
-                )
+                ),
             )
 
         if ci_tool != "Gitlab":
@@ -29,7 +29,7 @@ class CIToolStrategy(FeatureStrategy):
                 DeleteFileAction(
                     file_path=Path(".gitlab-ci.yml"),
                     description="Remove GitLab CI config",
-                )
+                ),
             )
 
         if ci_tool != "Github":
@@ -37,7 +37,7 @@ class CIToolStrategy(FeatureStrategy):
                 DeleteDirectoryAction(
                     dir_path=Path(".github"),
                     description="Remove GitHub Actions config",
-                )
+                ),
             )
 
         if ci_tool != "Drone":
@@ -45,7 +45,7 @@ class CIToolStrategy(FeatureStrategy):
                 DeleteFileAction(
                     file_path=Path(".drone.yml"),
                     description="Remove Drone CI config",
-                )
+                ),
             )
 
         return actions

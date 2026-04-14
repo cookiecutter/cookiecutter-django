@@ -22,7 +22,7 @@ class OpenSourceLicenseStrategy(FeatureStrategy):
                     DeleteFileAction(
                         file_path=Path(file_name),
                         description=f"Remove open source file: {file_name}",
-                    )
+                    ),
                 )
 
         if license_value != "GPLv3":
@@ -30,7 +30,7 @@ class OpenSourceLicenseStrategy(FeatureStrategy):
                 DeleteFileAction(
                     file_path=Path("COPYING"),
                     description="Remove GPLv3 license file",
-                )
+                ),
             )
 
         return actions

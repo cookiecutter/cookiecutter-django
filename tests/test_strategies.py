@@ -1,10 +1,7 @@
 """Tests for the strategies module."""
 
-from pathlib import Path
-
-import pytest
-
-from hooks.core.actions import DeleteDirectoryAction, DeleteFileAction
+from hooks.core.actions import DeleteDirectoryAction
+from hooks.core.actions import DeleteFileAction
 from hooks.core.context import ExecutionContext
 from hooks.strategies.async_strategy import AsyncStrategy
 from hooks.strategies.celery import CeleryStrategy
@@ -21,7 +18,7 @@ from hooks.strategies.username_type import UsernameTypeStrategy
 def get_path_from_action(action):
     if isinstance(action, DeleteFileAction):
         return str(action.file_path)
-    elif isinstance(action, DeleteDirectoryAction):
+    if isinstance(action, DeleteDirectoryAction):
         return str(action.dir_path)
     return ""
 

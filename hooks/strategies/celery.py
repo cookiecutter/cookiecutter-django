@@ -28,7 +28,7 @@ class CeleryStrategy(FeatureStrategy):
                 DeleteFileAction(
                     file_path=file_path,
                     description=f"Remove Celery file: {file_path}",
-                )
+                ),
             )
 
         if use_docker:
@@ -42,7 +42,7 @@ class CeleryStrategy(FeatureStrategy):
                         dir_path=Path("compose", "production", "django", "celery"),
                         description="Remove production Celery Docker config",
                     ),
-                ]
+                ],
             )
 
         return actions

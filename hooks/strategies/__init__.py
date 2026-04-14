@@ -10,14 +10,14 @@ from hooks.strategies.rest_api import RestApiStrategy
 from hooks.strategies.username_type import UsernameTypeStrategy
 
 __all__ = [
-    "OpenSourceLicenseStrategy",
-    "UsernameTypeStrategy",
-    "EditorStrategy",
-    "DockerStrategy",
-    "HerokuStrategy",
-    "FrontendPipelineStrategy",
-    "CeleryStrategy",
-    "CIToolStrategy",
-    "RestApiStrategy",
     "AsyncStrategy",
+    "CIToolStrategy",
+    "CeleryStrategy",
+    "DockerStrategy",
+    "EditorStrategy",
+    "FrontendPipelineStrategy",
+    "HerokuStrategy",
+    "OpenSourceLicenseStrategy",
+    "RestApiStrategy",
+    "UsernameTypeStrategy",
 ]

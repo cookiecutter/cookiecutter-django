@@ -1,12 +1,11 @@
 """Tests for the core context module."""
 
 import json
-from pathlib import Path
-
-import pytest
 
 from hooks.core.actions import DeleteFileAction
-from hooks.core.context import Checkpoint, ExecutionContext, FailurePolicy
+from hooks.core.context import Checkpoint
+from hooks.core.context import ExecutionContext
+from hooks.core.context import FailurePolicy
 
 
 class TestExecutionContext:

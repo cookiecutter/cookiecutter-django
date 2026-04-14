@@ -1,13 +1,10 @@
 """Tests for the core executor module."""
 
-import json
-from pathlib import Path
-
-import pytest
-
-from hooks.core.actions import DeleteFileAction, ModifyFileAction
-from hooks.core.context import ExecutionContext, FailurePolicy
-from hooks.core.executor import ActionExecutor, ExecutionResult
+from hooks.core.actions import DeleteFileAction
+from hooks.core.context import ExecutionContext
+from hooks.core.context import FailurePolicy
+from hooks.core.executor import ActionExecutor
+from hooks.core.executor import ExecutionResult
 
 
 class TestActionExecutor:
