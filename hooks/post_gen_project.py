@@ -1,16 +1,28 @@
-# ruff: noqa: PLR0133
-import json
-import os
 import random
-import shutil
 import string
-import subprocess
 import sys
 from pathlib import Path
 
+from hooks.core.actions import AppendFileAction
+from hooks.core.actions import DeleteDirectoryAction
+from hooks.core.actions import DeleteFileAction
+from hooks.core.actions import ModifyFileAction
+from hooks.core.context import ExecutionContext
+from hooks.core.context import FailurePolicy
+from hooks.core.executor import ActionExecutor
+from hooks.core.strategies import FeatureStrategy
+from hooks.strategies.async_strategy import AsyncStrategy
+from hooks.strategies.celery import CeleryStrategy
+from hooks.strategies.ci_tool import CIToolStrategy
+from hooks.strategies.docker import DockerStrategy
+from hooks.strategies.editor import EditorStrategy
+from hooks.strategies.frontend_pipeline import FrontendPipelineStrategy
+from hooks.strategies.heroku import HerokuStrategy
+from hooks.strategies.license import OpenSourceLicenseStrategy
+from hooks.strategies.rest_api import RestApiStrategy
+from hooks.strategies.username_type import UsernameTypeStrategy
+
 try:
-    # Inspired by
-    # https://github.com/django/django/blob/main/django/utils/crypto.py
     random = random.SystemRandom()
     using_sysrandom = True
 except NotImplementedError:
@@ -21,244 +33,12 @@ WARNING = "\x1b[1;33m [WARNING]: "
 INFO = "\x1b[1;33m [INFO]: "
 HINT = "\x1b[3;33m"
 SUCCESS = "\x1b[1;32m [SUCCESS]: "
+ERROR = "\x1b[1;31m [ERROR]: "
 
 DEBUG_VALUE = "debug"
 
 
-def remove_open_source_files():
-    file_names = ["CONTRIBUTORS.txt", "LICENSE"]
-    for file_name in file_names:
-        Path(file_name).unlink()
-
-
-def remove_gplv3_files():
-    file_names = ["COPYING"]
-    for file_name in file_names:
-        Path(file_name).unlink()
-
-
-def remove_custom_user_manager_files():
-    users_path = Path("{{cookiecutter.project_slug}}", "users")
-    (users_path / "managers.py").unlink()
-    (users_path / "tests" / "test_managers.py").unlink()
-
-
-def remove_pycharm_files():
-    idea_dir_path = Path(".idea")
-    if idea_dir_path.exists():
-        shutil.rmtree(idea_dir_path)
-
-    docs_dir_path = Path("docs", "pycharm")
-    if docs_dir_path.exists():
-        shutil.rmtree(docs_dir_path)
-
-
-def remove_docker_files():
-    shutil.rmtree(".devcontainer")
-    shutil.rmtree("compose")
-
-    file_names = [
-        "docker-compose.local.yml",
-        "docker-compose.production.yml",
-        ".dockerignore",
-        "justfile",
-    ]
-    for file_name in file_names:
-        Path(file_name).unlink()
-    if "{{ cookiecutter.editor }}" == "PyCharm":
-        file_names = ["docker_compose_up_django.xml", "docker_compose_up_docs.xml"]
-        for file_name in file_names:
-            Path(".idea", "runConfigurations", file_name).unlink()
-
-
-def remove_nginx_docker_files():
-    shutil.rmtree(Path("compose", "production", "nginx"))
-
-
-def remove_utility_files():
-    shutil.rmtree("utility")
-
-
-def remove_heroku_files():
-    file_names = ["Procfile"]
-    for file_name in file_names:
-        if file_name == "requirements.txt" and "{{ cookiecutter.ci_tool }}".lower() == "travis":
-            # Don't remove the file if we are using Travis CI but not using Heroku
-            continue
-        Path(file_name).unlink()
-    shutil.rmtree("bin")
-
-
-def remove_sass_files():
-    shutil.rmtree(Path("{{cookiecutter.project_slug}}", "static", "sass"))
-
-
-def remove_gulp_files():
-    file_names = ["gulpfile.mjs"]
-    for file_name in file_names:
-        Path(file_name).unlink()
-
-
-def remove_webpack_files():
-    shutil.rmtree("webpack")
-    remove_vendors_js()
-
-
-def remove_vendors_js():
-    vendors_js_path = Path("{{ cookiecutter.project_slug }}", "static", "js", "vendors.js")
-    if vendors_js_path.exists():
-        vendors_js_path.unlink()
-
-
-def remove_project_css():
-    project_css_path = Path("{{ cookiecutter.project_slug }}", "static", "css", "project.css")
-    if project_css_path.exists():
-        project_css_path.unlink()
-
-
-def remove_packagejson_file():
-    file_names = ["package.json"]
-    for file_name in file_names:
-        Path(file_name).unlink()
-
-
-def update_package_json(remove_dev_deps=None, remove_keys=None, scripts=None):
-    remove_dev_deps = remove_dev_deps or []
-    remove_keys = remove_keys or []
-    scripts = scripts or {}
-    package_json = Path("package.json")
-    content = json.loads(package_json.read_text())
-    for package_name in remove_dev_deps:
-        content["devDependencies"].pop(package_name)
-    for key in remove_keys:
-        content.pop(key)
-    content["scripts"].update(scripts)
-    updated_content = json.dumps(content, ensure_ascii=False, indent=2) + "\n"
-    package_json.write_text(updated_content)
-
-
-def handle_js_runner(choice, use_docker, use_async):
-    if choice == "Gulp":
-        update_package_json(
-            remove_dev_deps=[
-                "@babel/core",
-                "@babel/preset-env",
-                "babel-loader",
-                "concurrently",
-                "css-loader",
-                "mini-css-extract-plugin",
-                "postcss-loader",
-                "postcss-preset-env",
-                "sass-loader",
-                "webpack",
-                "webpack-bundle-tracker",
-                "webpack-cli",
-                "webpack-dev-server",
-                "webpack-merge",
-            ],
-            remove_keys=["babel"],
-            scripts={
-                "dev": "gulp",
-                "build": "gulp build",
-            },
-        )
-        remove_webpack_files()
-    elif choice == "Webpack":
-        scripts = {
-            "dev": "webpack serve --config webpack/dev.config.js",
-            "build": "webpack --config webpack/prod.config.js",
-        }
-        remove_dev_deps = [
-            "browser-sync",
-            "cssnano",
-            "gulp",
-            "gulp-concat",
-            "gulp-imagemin",
-            "gulp-plumber",
-            "gulp-postcss",
-            "gulp-rename",
-            "gulp-sass",
-            "gulp-uglify-es",
-        ]
-        if not use_docker:
-            dev_django_cmd = (
-                "uvicorn config.asgi:application --reload" if use_async else "python manage.py runserver_plus"
-            )
-            scripts.update(
-                {
-                    "dev": "concurrently npm:dev:*",
-                    "dev:webpack": "webpack serve --config webpack/dev.config.js",
-                    "dev:django": dev_django_cmd,
-                },
-            )
-        else:
-            remove_dev_deps.append("concurrently")
-        update_package_json(remove_dev_deps=remove_dev_deps, scripts=scripts)
-        remove_gulp_files()
-
-
-def remove_prettier_pre_commit():
-    remove_repo_from_pre_commit_config("mirrors-prettier")
-
-
-def remove_repo_from_pre_commit_config(repo_to_remove: str):
-    pre_commit_config = Path(".pre-commit-config.yaml")
-    content = pre_commit_config.read_text().splitlines(keepends=True)
-
-    removing = False
-    new_lines = []
-    for line in content:
-        if removing and "- repo:" in line:
-            removing = False
-        if repo_to_remove in line:
-            removing = True
-        if not removing:
-            new_lines.append(line)
-
-    pre_commit_config.write_text("".join(new_lines))
-
-
-def remove_celery_files():
-    file_paths = [
-        Path("config", "celery_app.py"),
-        Path("{{ cookiecutter.project_slug }}", "users", "tasks.py"),
-        Path("{{ cookiecutter.project_slug }}", "users", "tests", "test_tasks.py"),
-    ]
-    for file_path in file_paths:
-        file_path.unlink()
-
-
-def remove_async_files():
-    file_paths = [
-        Path("config", "asgi.py"),
-        Path("config", "websocket.py"),
-    ]
-    for file_path in file_paths:
-        file_path.unlink()
-
-
-def remove_dottravisyml_file():
-    Path(".travis.yml").unlink()
-
-
-def remove_dotgitlabciyml_file():
-    Path(".gitlab-ci.yml").unlink()
-
-
-def remove_dotgithub_folder():
-    shutil.rmtree(".github")
-
-
-def remove_dotdrone_file():
-    Path(".drone.yml").unlink()
-
-
-def generate_random_string(length, using_digits=False, using_ascii_letters=False, using_punctuation=False):  # noqa: FBT002
-    """
-    Example:
-        opting out for 50 symbol-long, [a-z][A-Z][0-9] string
-        would yield log_2((26+26+50)^50) ~= 334 bit strength.
-    """
+def generate_random_string(length, using_digits=False, using_ascii_letters=False, using_punctuation=False):
     if not using_sysrandom:
         return None
 
@@ -269,329 +49,452 @@ def generate_random_string(length, using_digits=False, using_ascii_letters=False
         symbols += string.ascii_letters
     if using_punctuation:
         all_punctuation = set(string.punctuation)
-        # These symbols can cause issues in environment variables
         unsuitable = {"'", '"', "\\", "$"}
         suitable = all_punctuation.difference(unsuitable)
         symbols += "".join(suitable)
     return "".join([random.choice(symbols) for _ in range(length)])
 
 
-def set_flag(file_path: Path, flag, value=None, formatted=None, *args, **kwargs):
-    if value is None:
-        random_string = generate_random_string(*args, **kwargs)
-        if random_string is None:
-            print(
-                "We couldn't find a secure pseudo-random number generator on your "
-                f"system. Please, make sure to manually {flag} later.",
-            )
-            random_string = flag
-        if formatted is not None:
-            random_string = formatted.format(random_string)
-        value = random_string
-
-    with file_path.open("r+") as f:
-        file_contents = f.read().replace(flag, value)
-        f.seek(0)
-        f.write(file_contents)
-        f.truncate()
-
-    return value
-
-
-def set_django_secret_key(file_path: Path):
-    return set_flag(
-        file_path,
-        "!!!SET DJANGO_SECRET_KEY!!!",
-        length=64,
-        using_digits=True,
-        using_ascii_letters=True,
-    )
-
-
-def set_django_admin_url(file_path: Path):
-    return set_flag(
-        file_path,
-        "!!!SET DJANGO_ADMIN_URL!!!",
-        formatted="{}/",
-        length=32,
-        using_digits=True,
-        using_ascii_letters=True,
-    )
-
-
 def generate_random_user():
     return generate_random_string(length=32, using_ascii_letters=True)
 
 
-def generate_postgres_user(debug=False):  # noqa: FBT002
+def generate_postgres_user(debug=False):
     return DEBUG_VALUE if debug else generate_random_user()
 
 
-def set_postgres_user(file_path, value):
-    return set_flag(file_path, "!!!SET POSTGRES_USER!!!", value=value)
+class SecretGenerationStrategy(FeatureStrategy):
+    name = "secrets"
+    description = "Generate secret keys and credentials"
+
+    def __init__(self, debug=False):
+        self.debug = debug
+        self.postgres_user = DEBUG_VALUE if debug else generate_random_user()
+        self.celery_flower_user = DEBUG_VALUE if debug else generate_random_user()
+
+    def should_apply(self, context: ExecutionContext) -> bool:
+        return True
+
+    def plan(self, context: ExecutionContext) -> list:
+
+        actions = []
+
+        actions.extend(self._plan_env_secrets())
+        actions.extend(self._plan_settings_secrets())
+
+        return actions
+
+    def _plan_env_secrets(self) -> list:
+        actions = []
+
+        local_django_envs_path = Path(".envs", ".local", ".django")
+        production_django_envs_path = Path(".envs", ".production", ".django")
+        local_postgres_envs_path = Path(".envs", ".local", ".postgres")
+        production_postgres_envs_path = Path(".envs", ".production", ".postgres")
+
+        actions.append(
+            ModifyFileAction(
+                file_path=production_django_envs_path,
+                modifications={"!!!SET DJANGO_SECRET_KEY!!!": self._generate_secret_key()},
+                description="Set Django secret key in production env",
+            ),
+        )
+        actions.append(
+            ModifyFileAction(
+                file_path=production_django_envs_path,
+                modifications={"!!!SET DJANGO_ADMIN_URL!!!": self._generate_admin_url()},
+                description="Set Django admin URL in production env",
+            ),
+        )
+
+        postgres_password = DEBUG_VALUE if self.debug else self._generate_password()
+        actions.append(
+            ModifyFileAction(
+                file_path=local_postgres_envs_path,
+                modifications={"!!!SET POSTGRES_USER!!!": self.postgres_user},
+                description="Set Postgres user in local env",
+            ),
+        )
+        actions.append(
+            ModifyFileAction(
+                file_path=local_postgres_envs_path,
+                modifications={"!!!SET POSTGRES_PASSWORD!!!": postgres_password},
+                description="Set Postgres password in local env",
+            ),
+        )
+        actions.append(
+            ModifyFileAction(
+                file_path=production_postgres_envs_path,
+                modifications={"!!!SET POSTGRES_USER!!!": self.postgres_user},
+                description="Set Postgres user in production env",
+            ),
+        )
+        actions.append(
+            ModifyFileAction(
+                file_path=production_postgres_envs_path,
+                modifications={"!!!SET POSTGRES_PASSWORD!!!": postgres_password},
+                description="Set Postgres password in production env",
+            ),
+        )
+
+        celery_flower_password = DEBUG_VALUE if self.debug else self._generate_password()
+        actions.append(
+            ModifyFileAction(
+                file_path=local_django_envs_path,
+                modifications={"!!!SET CELERY_FLOWER_USER!!!": self.celery_flower_user},
+                description="Set Celery Flower user in local env",
+            ),
+        )
+        actions.append(
+            ModifyFileAction(
+                file_path=local_django_envs_path,
+                modifications={"!!!SET CELERY_FLOWER_PASSWORD!!!": celery_flower_password},
+                description="Set Celery Flower password in local env",
+            ),
+        )
+        actions.append(
+            ModifyFileAction(
+                file_path=production_django_envs_path,
+                modifications={"!!!SET CELERY_FLOWER_USER!!!": self.celery_flower_user},
+                description="Set Celery Flower user in production env",
+            ),
+        )
+        actions.append(
+            ModifyFileAction(
+                file_path=production_django_envs_path,
+                modifications={"!!!SET CELERY_FLOWER_PASSWORD!!!": celery_flower_password},
+                description="Set Celery Flower password in production env",
+            ),
+        )
+
+        return actions
+
+    def _plan_settings_secrets(self) -> list:
+        actions = []
+
+        local_settings_path = Path("config", "settings", "local.py")
+        test_settings_path = Path("config", "settings", "test.py")
+
+        actions.append(
+            ModifyFileAction(
+                file_path=local_settings_path,
+                modifications={"!!!SET DJANGO_SECRET_KEY!!!": self._generate_secret_key()},
+                description="Set Django secret key in local settings",
+            ),
+        )
+        actions.append(
+            ModifyFileAction(
+                file_path=test_settings_path,
+                modifications={"!!!SET DJANGO_SECRET_KEY!!!": self._generate_secret_key()},
+                description="Set Django secret key in test settings",
+            ),
+        )
+
+        return actions
+
+    def _generate_secret_key(self) -> str:
+        key = generate_random_string(64, using_digits=True, using_ascii_letters=True)
+        return key if key else "!!!SET DJANGO_SECRET_KEY!!!"
+
+    def _generate_admin_url(self) -> str:
+        key = generate_random_string(32, using_digits=True, using_ascii_letters=True)
+        return f"{key}/" if key else "!!!SET DJANGO_ADMIN_URL!!!/"
+
+    def _generate_password(self) -> str:
+        key = generate_random_string(64, using_digits=True, using_ascii_letters=True)
+        return key if key else "!!!SET PASSWORD!!!"
 
 
-def set_postgres_password(file_path, value=None):
-    return set_flag(
-        file_path,
-        "!!!SET POSTGRES_PASSWORD!!!",
-        value=value,
-        length=64,
-        using_digits=True,
-        using_ascii_letters=True,
-    )
+class EnvFilesStrategy(FeatureStrategy):
+    name = "env_files"
+    description = "Handle .env files configuration"
+
+    def should_apply(self, context: ExecutionContext) -> bool:
+        return True
+
+    def plan(self, context: ExecutionContext) -> list:
+        actions = []
+        use_docker = context.is_enabled("use_docker")
+        use_heroku = context.is_enabled("use_heroku")
+        keep_local_envs = context.is_enabled("keep_local_envs_in_vcs")
+
+        if not use_docker and not use_heroku:
+            if not keep_local_envs:
+                actions.append(
+                    DeleteDirectoryAction(
+                        dir_path=Path(".envs"),
+                        description="Remove .envs directory (no Docker/Heroku)",
+                    ),
+                )
+                actions.append(
+                    DeleteFileAction(
+                        file_path=Path("merge_production_dotenvs_in_dotenv.py"),
+                        description="Remove merge dotenvs script",
+                    ),
+                )
+                actions.append(
+                    DeleteDirectoryAction(
+                        dir_path=Path("tests"),
+                        description="Remove tests directory (no Docker/Heroku)",
+                    ),
+                )
+
+        return actions
 
 
-def set_celery_flower_user(file_path, value):
-    return set_flag(file_path, "!!!SET CELERY_FLOWER_USER!!!", value=value)
+class GitignoreStrategy(FeatureStrategy):
+    name = "gitignore"
+    description = "Update .gitignore file"
 
+    def should_apply(self, context: ExecutionContext) -> bool:
+        use_docker = context.is_enabled("use_docker")
+        use_heroku = context.is_enabled("use_heroku")
+        return use_docker or use_heroku
 
-def set_celery_flower_password(file_path, value=None):
-    return set_flag(
-        file_path,
-        "!!!SET CELERY_FLOWER_PASSWORD!!!",
-        value=value,
-        length=64,
-        using_digits=True,
-        using_ascii_letters=True,
-    )
+    def plan(self, context: ExecutionContext) -> list:
+        actions = []
+        keep_local_envs = context.is_enabled("keep_local_envs_in_vcs")
 
+        actions.append(
+            AppendFileAction(
+                file_path=Path(".gitignore"),
+                content=".env",
+                description="Add .env to gitignore",
+            ),
+        )
+        actions.append(
+            AppendFileAction(
+                file_path=Path(".gitignore"),
+                content=".envs/*",
+                description="Add .envs/* to gitignore",
+            ),
+        )
 
-def append_to_gitignore_file(ignored_line):
-    with Path(".gitignore").open("a") as gitignore_file:
-        gitignore_file.write(ignored_line)
-        gitignore_file.write("\n")
-
-
-def set_flags_in_envs(postgres_user, celery_flower_user, debug=False):  # noqa: FBT002
-    local_django_envs_path = Path(".envs", ".local", ".django")
-    production_django_envs_path = Path(".envs", ".production", ".django")
-    local_postgres_envs_path = Path(".envs", ".local", ".postgres")
-    production_postgres_envs_path = Path(".envs", ".production", ".postgres")
-
-    set_django_secret_key(production_django_envs_path)
-    set_django_admin_url(production_django_envs_path)
-
-    set_postgres_user(local_postgres_envs_path, value=postgres_user)
-    set_postgres_password(local_postgres_envs_path, value=DEBUG_VALUE if debug else None)
-    set_postgres_user(production_postgres_envs_path, value=postgres_user)
-    set_postgres_password(production_postgres_envs_path, value=DEBUG_VALUE if debug else None)
-
-    set_celery_flower_user(local_django_envs_path, value=celery_flower_user)
-    set_celery_flower_password(local_django_envs_path, value=DEBUG_VALUE if debug else None)
-    set_celery_flower_user(production_django_envs_path, value=celery_flower_user)
-    set_celery_flower_password(production_django_envs_path, value=DEBUG_VALUE if debug else None)
-
-
-def set_flags_in_settings_files():
-    set_django_secret_key(Path("config", "settings", "local.py"))
-    set_django_secret_key(Path("config", "settings", "test.py"))
-
-
-def remove_envs_and_associated_files():
-    shutil.rmtree(".envs")
-    Path("merge_production_dotenvs_in_dotenv.py").unlink()
-    shutil.rmtree("tests")
-
-
-def remove_celery_compose_dirs():
-    shutil.rmtree(Path("compose", "local", "django", "celery"))
-    shutil.rmtree(Path("compose", "production", "django", "celery"))
-
-
-def remove_node_dockerfile():
-    shutil.rmtree(Path("compose", "local", "node"))
-
-
-def remove_aws_dockerfile():
-    shutil.rmtree(Path("compose", "production", "aws"))
-
-
-def remove_drf_starter_files():
-    Path("config", "api_router.py").unlink()
-    Path("{{cookiecutter.project_slug}}", "users", "api", "serializers.py").unlink()
-
-
-def remove_ninja_starter_files():
-    Path("config", "api.py").unlink()
-    Path("{{cookiecutter.project_slug}}", "users", "api", "schema.py").unlink()
-
-
-def remove_rest_api_files():
-    remove_drf_starter_files()
-    remove_ninja_starter_files()
-    shutil.rmtree(Path("{{cookiecutter.project_slug}}", "users", "api"))
-    shutil.rmtree(Path("{{cookiecutter.project_slug}}", "users", "tests", "api"))
-
-
-def main():  # noqa: C901, PLR0912, PLR0915
-    debug = "{{ cookiecutter.debug }}".lower() == "y"
-
-    set_flags_in_envs(
-        DEBUG_VALUE if debug else generate_random_user(),
-        DEBUG_VALUE if debug else generate_random_user(),
-        debug=debug,
-    )
-    set_flags_in_settings_files()
-
-    if "{{ cookiecutter.open_source_license }}" == "Not open source":
-        remove_open_source_files()
-    if "{{ cookiecutter.open_source_license}}" != "GPLv3":
-        remove_gplv3_files()
-
-    if "{{ cookiecutter.username_type }}" == "username":
-        remove_custom_user_manager_files()
-
-    if "{{ cookiecutter.editor }}" != "PyCharm":
-        remove_pycharm_files()
-
-    if "{{ cookiecutter.use_docker }}".lower() == "y":
-        remove_utility_files()
-        if "{{ cookiecutter.cloud_provider }}".lower() != "none":
-            remove_nginx_docker_files()
-    else:
-        remove_docker_files()
-
-    if "{{ cookiecutter.use_docker }}".lower() == "y" and "{{ cookiecutter.cloud_provider}}" != "AWS":
-        remove_aws_dockerfile()
-
-    if "{{ cookiecutter.use_heroku }}".lower() == "n":
-        remove_heroku_files()
-
-    if "{{ cookiecutter.use_docker }}".lower() == "n" and "{{ cookiecutter.use_heroku }}".lower() == "n":
-        if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
-            print(
-                INFO + ".env(s) are only utilized when Docker Compose and/or "
-                "Heroku support is enabled. Keeping them as requested, but they may not be useful "
-                "in your current setup." + TERMINATOR,
+        if keep_local_envs:
+            actions.append(
+                AppendFileAction(
+                    file_path=Path(".gitignore"),
+                    content="!.envs/.local/",
+                    description="Keep local envs in VCS",
+                ),
             )
+
+        return actions
+
+
+class DependenciesStrategy(FeatureStrategy):
+    name = "dependencies"
+    description = "Install project dependencies"
+
+    def should_apply(self, context: ExecutionContext) -> bool:
+        return True
+
+    def plan(self, context: ExecutionContext) -> list:
+        from hooks.core.actions import RunCommandAction
+
+        actions = []
+        use_docker = context.is_enabled("use_docker")
+
+        if use_docker:
+            uv_docker_image_path = Path("compose/local/uv/Dockerfile")
+            uv_image_tag = "cookiecutter-django-uv-runner:latest"
+
+            actions.append(
+                RunCommandAction(
+                    command=[
+                        "docker",
+                        "build",
+                        "--load",
+                        "-t",
+                        uv_image_tag,
+                        "-f",
+                        str(uv_docker_image_path),
+                        "-q",
+                        ".",
+                    ],
+                    description="Build uv Docker image",
+                    env={"DOCKER_BUILDKIT": "1"},
+                ),
+            )
+
+            current_path = Path.cwd().absolute()
+            uv_cmd = ["docker", "run", "--rm", "-v", f"{current_path}:/app", uv_image_tag, "uv"]
         else:
-            remove_envs_and_associated_files()
-    else:
-        append_to_gitignore_file(".env")
-        append_to_gitignore_file(".envs/*")
-        if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
-            append_to_gitignore_file("!.envs/.local/")
+            uv_cmd = ["uv"]
 
-    if "{{ cookiecutter.frontend_pipeline }}" in ["None", "Django Compressor"]:
-        remove_gulp_files()
-        remove_webpack_files()
-        remove_sass_files()
-        remove_packagejson_file()
-        remove_prettier_pre_commit()
-        if "{{ cookiecutter.use_docker }}".lower() == "y":
-            remove_node_dockerfile()
-    else:
-        remove_project_css()
-        handle_js_runner(
-            "{{ cookiecutter.frontend_pipeline }}",
-            use_docker=("{{ cookiecutter.use_docker }}".lower() == "y"),
-            use_async=("{{ cookiecutter.use_async }}".lower() == "y"),
+        actions.append(
+            RunCommandAction(
+                command=[*uv_cmd, "add", "--no-sync", "-r", "requirements/production.txt"],
+                description="Install production dependencies",
+            ),
         )
 
-    if "{{ cookiecutter.cloud_provider }}" == "None" and "{{ cookiecutter.use_docker }}".lower() == "n":
-        print(
-            WARNING + "You chose to not use any cloud providers nor Docker, "
-            "media files won't be served in production." + TERMINATOR,
+        actions.append(
+            RunCommandAction(
+                command=[*uv_cmd, "add", "--no-sync", "--dev", "-r", "requirements/local.txt"],
+                description="Install development dependencies",
+            ),
         )
 
-    if "{{ cookiecutter.use_celery }}".lower() == "n":
-        remove_celery_files()
-        if "{{ cookiecutter.use_docker }}".lower() == "y":
-            remove_celery_compose_dirs()
+        actions.append(
+            DeleteDirectoryAction(
+                dir_path=Path("requirements"),
+                description="Remove requirements directory",
+            ),
+        )
 
-    if "{{ cookiecutter.ci_tool }}" != "Travis":
-        remove_dottravisyml_file()
-
-    if "{{ cookiecutter.ci_tool }}" != "Gitlab":
-        remove_dotgitlabciyml_file()
-
-    if "{{ cookiecutter.ci_tool }}" != "Github":
-        remove_dotgithub_folder()
-
-    if "{{ cookiecutter.ci_tool }}" != "Drone":
-        remove_dotdrone_file()
-
-    if "{{ cookiecutter.rest_api }}" == "DRF":
-        remove_ninja_starter_files()
-    elif "{{ cookiecutter.rest_api }}" == "Django Ninja":
-        remove_drf_starter_files()
-    else:
-        remove_rest_api_files()
-
-    if "{{ cookiecutter.use_async }}".lower() == "n":
-        remove_async_files()
-
-    setup_dependencies()
-
-    print(SUCCESS + "Project initialized, keep up the good work!" + TERMINATOR)
-
-
-def setup_dependencies():
-    print("Installing python dependencies using uv...")
-
-    if "{{ cookiecutter.use_docker }}".lower() == "y":
-        # Build a trimmed down Docker image add dependencies with uv
-        uv_docker_image_path = Path("compose/local/uv/Dockerfile")
-        uv_image_tag = "cookiecutter-django-uv-runner:latest"
-        try:
-            subprocess.run(  # noqa: S603
-                [  # noqa: S607
-                    "docker",
-                    "build",
-                    "--load",
-                    "-t",
-                    uv_image_tag,
-                    "-f",
-                    str(uv_docker_image_path),
-                    "-q",
-                    ".",
-                ],
-                check=True,
-                env={
-                    **os.environ,
-                    "DOCKER_BUILDKIT": "1",
-                },
+        uv_image_parent_dir_path = Path("compose/local/uv")
+        if uv_image_parent_dir_path.exists():
+            actions.append(
+                DeleteDirectoryAction(
+                    dir_path=uv_image_parent_dir_path,
+                    description="Remove uv Docker image directory",
+                ),
             )
-        except subprocess.CalledProcessError as e:
-            print(f"Error building Docker image: {e}", file=sys.stderr)
-            sys.exit(1)
 
-        current_path = Path.cwd().absolute()
-        # Use Docker to run the uv command
-        uv_cmd = ["docker", "run", "--rm", "-v", f"{current_path}:/app", uv_image_tag, "uv"]
-    else:
-        # Use uv command directly
-        uv_cmd = ["uv"]
+        return actions
 
-    # Install production dependencies
-    try:
-        subprocess.run([*uv_cmd, "add", "--no-sync", "-r", "requirements/production.txt"], check=True)  # noqa: S603
-    except subprocess.CalledProcessError as e:
-        print(f"Error installing production dependencies: {e}", file=sys.stderr)
+
+class ProjectGenerationOrchestrator:
+    def __init__(
+        self, config: dict, dry_run: bool = False, failure_policy: FailurePolicy = FailurePolicy.STOP_IMMEDIATELY
+    ):
+        self.config = config
+        self.project_slug = config.get("project_slug", "project")
+        self.context = ExecutionContext(
+            project_slug=self.project_slug,
+            cookiecutter_config=config,
+            dry_run=dry_run,
+            failure_policy=failure_policy,
+        )
+        self.executor = ActionExecutor(self.context)
+        self._strategies: list[FeatureStrategy] = []
+        self.debug = config.get("debug", "n").lower() == "y"
+
+    def register_strategy(self, strategy: FeatureStrategy) -> None:
+        self._strategies.append(strategy)
+
+    def register_all_strategies(self) -> None:
+        self._strategies = [
+            SecretGenerationStrategy(debug=self.debug),
+            OpenSourceLicenseStrategy(),
+            UsernameTypeStrategy(),
+            EditorStrategy(),
+            DockerStrategy(),
+            HerokuStrategy(),
+            EnvFilesStrategy(),
+            GitignoreStrategy(),
+            FrontendPipelineStrategy(),
+            CeleryStrategy(),
+            CIToolStrategy(),
+            RestApiStrategy(),
+            AsyncStrategy(),
+            DependenciesStrategy(),
+        ]
+
+    def plan(self) -> list:
+        actions = []
+
+        for strategy in self._strategies:
+            if strategy.should_apply(self.context):
+                strategy_actions = strategy.plan(self.context)
+                actions.extend(strategy_actions)
+
+        return actions
+
+    def execute(self) -> bool:
+        print(f"{INFO}Planning project generation...{TERMINATOR}")
+        actions = self.plan()
+
+        print(f"{INFO}Found {len(actions)} actions to execute{TERMINATOR}")
+
+        if self.context.dry_run:
+            print(f"{INFO}Dry-run mode: showing planned actions{TERMINATOR}")
+            for i, action in enumerate(actions, 1):
+                print(f"  [{i}/{len(actions)}] {action.describe()}")
+            return True
+
+        result = self.executor.execute(actions)
+
+        if result.success:
+            print(f"{SUCCESS}Project initialized, keep up the good work!{TERMINATOR}")
+        else:
+            print(f"{ERROR}Project generation failed: {result.message}{TERMINATOR}")
+            if result.failed_actions:
+                print(f"{ERROR}Failed actions: {', '.join(result.failed_actions)}{TERMINATOR}")
+            if result.rolled_back_count > 0:
+                print(f"{INFO}Rolled back {result.rolled_back_count} actions{TERMINATOR}")
+
+        report_path = Path(".generation_report.md")
+        self.context.save_report(report_path)
+        print(f"{INFO}Generation report saved to {report_path}{TERMINATOR}")
+
+        json_report_path = Path(".generation_report.json")
+        self.context.save_json_report(json_report_path)
+        print(f"{INFO}JSON report saved to {json_report_path}{TERMINATOR}")
+
+        return result.success
+
+    def preview(self) -> str:
+        actions = self.plan()
+        lines = [f"Project Generation Preview for '{self.project_slug}'", "=" * 50, ""]
+
+        for i, action in enumerate(actions, 1):
+            lines.append(f"{i}. {action.describe()}")
+
+        lines.extend(["", f"Total: {len(actions)} actions planned"])
+
+        return "\n".join(lines)
+
+
+def print_warning(message: str) -> None:
+    print(f"{WARNING}{message}{TERMINATOR}")
+
+
+def main():
+    config = {
+        "project_slug": "{{ cookiecutter.project_slug }}",
+        "open_source_license": "{{ cookiecutter.open_source_license }}",
+        "username_type": "{{ cookiecutter.username_type }}",
+        "editor": "{{ cookiecutter.editor }}",
+        "use_docker": "{{ cookiecutter.use_docker }}",
+        "cloud_provider": "{{ cookiecutter.cloud_provider }}",
+        "use_heroku": "{{ cookiecutter.use_heroku }}",
+        "frontend_pipeline": "{{ cookiecutter.frontend_pipeline }}",
+        "use_celery": "{{ cookiecutter.use_celery }}",
+        "ci_tool": "{{ cookiecutter.ci_tool }}",
+        "rest_api": "{{ cookiecutter.rest_api }}",
+        "use_async": "{{ cookiecutter.use_async }}",
+        "keep_local_envs_in_vcs": "{{ cookiecutter.keep_local_envs_in_vcs }}",
+        "debug": "{{ cookiecutter.debug }}",
+    }
+
+    orchestrator = ProjectGenerationOrchestrator(config)
+    orchestrator.register_all_strategies()
+
+    cloud_provider = config.get("cloud_provider", "None")
+    use_docker = config.get("use_docker", "n").lower() == "y"
+
+    if cloud_provider == "None" and not use_docker:
+        print_warning(
+            "You chose to not use any cloud providers nor Docker, media files won't be served in production.",
+        )
+
+    use_docker_config = config.get("use_docker", "n").lower() == "y"
+    use_heroku_config = config.get("use_heroku", "n").lower() == "y"
+    keep_local_envs = config.get("keep_local_envs_in_vcs", "y").lower() == "y"
+
+    if not use_docker_config and not use_heroku_config and keep_local_envs:
+        print_warning(
+            ".env(s) are only utilized when Docker Compose and/or "
+            "Heroku support is enabled. Keeping them as requested, but they may not be useful "
+            "in your current setup.",
+        )
+
+    success = orchestrator.execute()
+
+    if not success:
         sys.exit(1)
-
-    # Install local (development) dependencies
-    try:
-        subprocess.run([*uv_cmd, "add", "--no-sync", "--dev", "-r", "requirements/local.txt"], check=True)  # noqa: S603
-    except subprocess.CalledProcessError as e:
-        print(f"Error installing local dependencies: {e}", file=sys.stderr)
-        sys.exit(1)
-
-    # Remove the requirements directory
-    requirements_dir = Path("requirements")
-    if requirements_dir.exists():
-        try:
-            shutil.rmtree(requirements_dir)
-        except Exception as e:  # noqa: BLE001
-            print(f"Error removing 'requirements' folder: {e}", file=sys.stderr)
-            sys.exit(1)
-
-    uv_image_parent_dir_path = Path("compose/local/uv")
-    if uv_image_parent_dir_path.exists():
-        shutil.rmtree(str(uv_image_parent_dir_path))
-
-    print("Setup complete!")
 
 
 if __name__ == "__main__":
