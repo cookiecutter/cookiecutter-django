@@ -3,17 +3,11 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-from hooks.core import (
-    DEBUG_VALUE,
-    INFO,
-    SUCCESS,
-    TERMINATOR,
-    WARNING,
-    ExecutionContext,
-    FailureStrategy,
-    generate_random_string,
-    generate_random_user,
-)
+from hooks.core import SUCCESS
+from hooks.core import TERMINATOR
+from hooks.core import WARNING
+from hooks.core import ExecutionContext
+from hooks.core import FailureStrategy
 from hooks.strategies import ALL_STRATEGIES
 
 
@@ -39,10 +33,7 @@ def main() -> None:
     context = get_cookiecutter_context()
     debug = context["debug"].lower() == "y"
 
-    if (
-        context["cloud_provider"] == "None"
-        and context["use_docker"].lower() == "n"
-    ):
+    if context["cloud_provider"] == "None" and context["use_docker"].lower() == "n":
         print(
             WARNING + "You chose to not use any cloud providers nor Docker, "
             "media files won't be served in production." + TERMINATOR,

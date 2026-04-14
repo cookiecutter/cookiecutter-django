@@ -1,41 +1,28 @@
 """Tests for the refactored architecture: audit, operations, strategies, rollback"""
 
-import json
 import os
-import subprocess
 from pathlib import Path
 
 import pytest
 
-from hooks.core import (
-    AppendFileOperation,
-    AuditLog,
-    DeleteDirOperation,
-    DeleteFileOperation,
-    DryRunExecutor,
-    ExecutionContext,
-    FailureStrategy,
-    ModifyFileOperation,
-    RealExecutor,
-    RollbackManager,
-    RunCommandOperation,
-    SetFlagOperation,
-)
-from hooks.strategies import (
-    ALL_STRATEGIES,
-    AsyncStrategy,
-    CeleryStrategy,
-    CiToolStrategy,
-    DockerStrategy,
-    EnvsStrategy,
-    FrontendPipelineStrategy,
-    HerokuStrategy,
-    LicenseStrategy,
-    RestApiStrategy,
-    SecretGenerationStrategy,
-    SetupDependenciesStrategy,
-    UsernameTypeStrategy,
-)
+from hooks.core import AppendFileOperation
+from hooks.core import AuditLog
+from hooks.core import DeleteDirOperation
+from hooks.core import DeleteFileOperation
+from hooks.core import ExecutionContext
+from hooks.core import FailureStrategy
+from hooks.core import ModifyFileOperation
+from hooks.core import RealExecutor
+from hooks.core import SetFlagOperation
+from hooks.strategies import ALL_STRATEGIES
+from hooks.strategies import AsyncStrategy
+from hooks.strategies import CeleryStrategy
+from hooks.strategies import CiToolStrategy
+from hooks.strategies import DockerStrategy
+from hooks.strategies import FrontendPipelineStrategy
+from hooks.strategies import LicenseStrategy
+from hooks.strategies import RestApiStrategy
+from hooks.strategies import UsernameTypeStrategy
 
 
 class TestAuditLog:
@@ -43,7 +30,8 @@ class TestAuditLog:
         audit = AuditLog()
         assert len(audit.entries) == 0
 
-        from hooks.core import AuditEntry, OperationType
+        from hooks.core import AuditEntry
+        from hooks.core import OperationType
 
         entry = AuditEntry(
             operation_type=OperationType.DELETE_FILE,
@@ -56,7 +44,8 @@ class TestAuditLog:
 
     def test_generate_report_summary(self):
         audit = AuditLog()
-        from hooks.core import AuditEntry, OperationType
+        from hooks.core import AuditEntry
+        from hooks.core import OperationType
 
         audit.record(AuditEntry(OperationType.DELETE_FILE, "f1.txt", success=True))
         audit.record(AuditEntry(OperationType.DELETE_FILE, "f2.txt", success=True))
@@ -249,26 +238,34 @@ class TestStrategies:
 
     def test_docker_strategy(self):
         strategy = DockerStrategy()
-        ops_with_docker = strategy.collect_operations({
-            "use_docker": "y",
-            "cloud_provider": "AWS",
-        })
-        ops_no_docker = strategy.collect_operations({
-            "use_docker": "n",
-            "cloud_provider": "None",
-        })
+        ops_with_docker = strategy.collect_operations(
+            {
+                "use_docker": "y",
+                "cloud_provider": "AWS",
+            }
+        )
+        ops_no_docker = strategy.collect_operations(
+            {
+                "use_docker": "n",
+                "cloud_provider": "None",
+            }
+        )
         assert len(ops_no_docker) > len(ops_with_docker)
 
     def test_celery_strategy(self):
         strategy = CeleryStrategy()
-        ops_no_celery = strategy.collect_operations({
-            "use_celery": "n",
-            "use_docker": "y",
-        })
-        ops_with_celery = strategy.collect_operations({
-            "use_celery": "y",
-            "use_docker": "y",
-        })
+        ops_no_celery = strategy.collect_operations(
+            {
+                "use_celery": "n",
+                "use_docker": "y",
+            }
+        )
+        ops_with_celery = strategy.collect_operations(
+            {
+                "use_celery": "y",
+                "use_docker": "y",
+            }
+        )
         assert len(ops_no_celery) > len(ops_with_celery)
 
     def test_ci_tool_strategy(self):
@@ -294,11 +291,13 @@ class TestStrategies:
 
     def test_frontend_pipeline_strategy(self):
         strategy = FrontendPipelineStrategy()
-        ops_none = strategy.collect_operations({
-            "frontend_pipeline": "None",
-            "use_docker": "y",
-            "use_async": "n",
-        })
+        ops_none = strategy.collect_operations(
+            {
+                "frontend_pipeline": "None",
+                "use_docker": "y",
+                "use_async": "n",
+            }
+        )
         assert len(ops_none) > 0
 
     def test_all_strategies_produce_operations(self):

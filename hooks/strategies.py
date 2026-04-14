@@ -3,19 +3,16 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
-from hooks.core import (
-    AppendFileOperation,
-    DeleteDirOperation,
-    DeleteFileOperation,
-    ModifyFileOperation,
-    Operation,
-    RunCommandOperation,
-    SetFlagOperation,
-    Strategy,
-    remove_repo_from_pre_commit_modifier,
-    update_package_json_modifier,
-)
-
+from hooks.core import AppendFileOperation
+from hooks.core import DeleteDirOperation
+from hooks.core import DeleteFileOperation
+from hooks.core import ModifyFileOperation
+from hooks.core import Operation
+from hooks.core import RunCommandOperation
+from hooks.core import SetFlagOperation
+from hooks.core import Strategy
+from hooks.core import remove_repo_from_pre_commit_modifier
+from hooks.core import update_package_json_modifier
 
 PROJECT_SLUG = "{{ cookiecutter.project_slug }}"
 
@@ -202,15 +199,15 @@ class FrontendPipelineStrategy(Strategy):
                 ]
                 if not use_docker:
                     dev_django_cmd = (
-                        "uvicorn config.asgi:application --reload"
-                        if use_async
-                        else "python manage.py runserver_plus"
+                        "uvicorn config.asgi:application --reload" if use_async else "python manage.py runserver_plus"
                     )
-                    scripts.update({
-                        "dev": "concurrently npm:dev:*",
-                        "dev:webpack": "webpack serve --config webpack/dev.config.js",
-                        "dev:django": dev_django_cmd,
-                    })
+                    scripts.update(
+                        {
+                            "dev": "concurrently npm:dev:*",
+                            "dev:webpack": "webpack serve --config webpack/dev.config.js",
+                            "dev:django": dev_django_cmd,
+                        }
+                    )
                 else:
                     remove_dev_deps.append("concurrently")
                 operations.append(
@@ -310,11 +307,9 @@ class SecretGenerationStrategy(Strategy):
         return True
 
     def collect_operations(self, context: dict) -> list[Operation]:
-        from hooks.core import (
-            DEBUG_VALUE,
-            generate_random_string,
-            generate_random_user,
-        )
+        from hooks.core import DEBUG_VALUE
+        from hooks.core import generate_random_string
+        from hooks.core import generate_random_user
 
         operations = []
         debug = context["debug"].lower() == "y"
@@ -329,10 +324,14 @@ class SecretGenerationStrategy(Strategy):
             if env_path.exists():
                 if is_production:
                     secret_key = generate_random_string(
-                        length=64, using_digits=True, using_ascii_letters=True,
+                        length=64,
+                        using_digits=True,
+                        using_ascii_letters=True,
                     )
                     admin_url = generate_random_string(
-                        length=32, using_digits=True, using_ascii_letters=True,
+                        length=32,
+                        using_digits=True,
+                        using_ascii_letters=True,
                     )
                     operations.append(
                         SetFlagOperation(env_path, "!!!SET DJANGO_SECRET_KEY!!!", secret_key),
@@ -341,11 +340,23 @@ class SecretGenerationStrategy(Strategy):
                         SetFlagOperation(env_path, "!!!SET DJANGO_ADMIN_URL!!!", f"{admin_url}/"),
                     )
 
-                pg_pwd = DEBUG_VALUE if debug else generate_random_string(
-                    length=64, using_digits=True, using_ascii_letters=True,
+                pg_pwd = (
+                    DEBUG_VALUE
+                    if debug
+                    else generate_random_string(
+                        length=64,
+                        using_digits=True,
+                        using_ascii_letters=True,
+                    )
                 )
-                flower_pwd = DEBUG_VALUE if debug else generate_random_string(
-                    length=64, using_digits=True, using_ascii_letters=True,
+                flower_pwd = (
+                    DEBUG_VALUE
+                    if debug
+                    else generate_random_string(
+                        length=64,
+                        using_digits=True,
+                        using_ascii_letters=True,
+                    )
                 )
                 operations.append(
                     SetFlagOperation(env_path, "!!!SET POSTGRES_USER!!!", postgres_user),
@@ -364,7 +375,9 @@ class SecretGenerationStrategy(Strategy):
             settings_path = Path("config", "settings", settings_file)
             if settings_path.exists():
                 secret_key = generate_random_string(
-                    length=64, using_digits=True, using_ascii_letters=True,
+                    length=64,
+                    using_digits=True,
+                    using_ascii_letters=True,
                 )
                 operations.append(
                     SetFlagOperation(settings_path, "!!!SET DJANGO_SECRET_KEY!!!", secret_key),
@@ -385,10 +398,20 @@ class SetupDependenciesStrategy(Strategy):
             uv_docker_image_path = Path("compose/local/uv/Dockerfile")
             uv_image_tag = "cookiecutter-django-uv-runner:latest"
             operations.append(
-                RunCommandOperation([
-                    "docker", "build", "--load", "-t", uv_image_tag,
-                    "-f", str(uv_docker_image_path), "-q", ".",
-                ], env={**os.environ, "DOCKER_BUILDKIT": "1"}),
+                RunCommandOperation(
+                    [
+                        "docker",
+                        "build",
+                        "--load",
+                        "-t",
+                        uv_image_tag,
+                        "-f",
+                        str(uv_docker_image_path),
+                        "-q",
+                        ".",
+                    ],
+                    env={**os.environ, "DOCKER_BUILDKIT": "1"},
+                ),
             )
             current_path = Path.cwd().absolute()
             uv_cmd = ["docker", "run", "--rm", "-v", f"{current_path}:/app", uv_image_tag, "uv"]

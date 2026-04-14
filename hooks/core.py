@@ -6,12 +6,15 @@ import shutil
 import string
 import subprocess
 import sys
-from abc import ABC, abstractmethod
-from dataclasses import dataclass, field
+from abc import ABC
+from abc import abstractmethod
+from dataclasses import dataclass
+from dataclasses import field
 from datetime import datetime
 from enum import Enum
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
+from typing import Callable
 
 try:
     random = random.SystemRandom()
@@ -58,10 +61,7 @@ class AuditLog:
         total = len(self.entries)
         successful = sum(1 for e in self.entries if e.success)
         failed = sum(1 for e in self.entries if not e.success)
-        by_type = {
-            op_type: sum(1 for e in self.entries if e.operation_type == op_type)
-            for op_type in OperationType
-        }
+        by_type = {op_type: sum(1 for e in self.entries if e.operation_type == op_type) for op_type in OperationType}
         return {
             "summary": {
                 "total_operations": total,
