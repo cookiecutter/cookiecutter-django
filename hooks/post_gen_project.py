@@ -1,4 +1,3 @@
-# ruff: noqa: PLR0133
 """
 Post-generation hook for cookiecutter-django.
 
@@ -29,17 +28,17 @@ This module has been refactored to use a modern, modular architecture:
 """
 
 import sys
-from pathlib import Path
+
+from hooks.config_generators import SecretConfig
+from hooks.config_generators import create_dependency_operations
+from hooks.config_generators import create_flag_operations
+from hooks.config_generators import get_warning_messages
+from hooks.executor import ExecutionMode
+from hooks.executor import TwoPhaseExecutor
 
 # Import our new modules
-from hooks.strategies import ProjectContext, registry
-from hooks.config_generators import (
-    SecretConfig,
-    create_flag_operations,
-    create_dependency_operations,
-    get_warning_messages,
-)
-from hooks.executor import TwoPhaseExecutor, ExecutionMode
+from hooks.strategies import ProjectContext
+from hooks.strategies import registry
 
 # Color constants for terminal output
 TERMINATOR = "\x1b[0m"
@@ -54,7 +53,7 @@ DEBUG_VALUE = "debug"
 def main() -> None:
     """
     Main entry point for post-generation processing.
-    
+
     The flow is:
     1. Create project context from cookiecutter variables
     2. Phase 1 (Decision): Collect all operations in memory
@@ -65,46 +64,46 @@ def main() -> None:
     # Create project context from cookiecutter variables
     context = ProjectContext.from_cookiecutter()
     debug = context.is_yes(context.debug)
-    
+
     # Initialize the two-phase executor
     executor = TwoPhaseExecutor()
-    
+
     # ========================================================================
     # PHASE 1: Decision Phase - Collect all operations in memory
     # ========================================================================
-    
+
     # 1. Generate and set secrets/flags
     secret_config = SecretConfig.generate(debug=debug)
     flag_operations = create_flag_operations(secret_config)
     executor.add_operations(flag_operations)
-    
+
     # 2. Collect operations from all applicable strategies
     strategy_operations = registry.collect_operations(context)
     executor.add_operations(strategy_operations)
-    
+
     # 3. Dependency installation operations
     dependency_operations = create_dependency_operations(
-        use_docker=context.is_yes(context.use_docker)
+        use_docker=context.is_yes(context.use_docker),
     )
     executor.add_operations(dependency_operations)
-    
+
     # ========================================================================
     # Optional: Preview phase - Show what will be done
     # ========================================================================
-    
+
     # Uncomment the following line to enable preview mode:
     # executor.print_preview()
     # response = input("\nContinue? [y/N]: ")
     # if response.lower() != 'y':
     #     print("Aborted.")
     #     return
-    
+
     # ========================================================================
     # PHASE 2: Execution Phase - Execute all operations
     # ========================================================================
-    
+
     print("\nInitializing project...")
-    
+
     try:
         # Execute in real mode with auto-rollback on failure
         audit_log = executor.execute(
@@ -112,18 +111,18 @@ def main() -> None:
             auto_rollback=True,
             confirm=False,  # Set to True for interactive confirmation
         )
-        
+
         # Print change report
         audit_log.print_report()
-        
+
     except Exception as e:
         print(f"\n{WARNING}Error during project initialization: {e}{TERMINATOR}")
         sys.exit(1)
-    
+
     # ========================================================================
     # Print warnings
     # ========================================================================
-    
+
     # Convert context to dict for warning generator
     context_dict = {
         "use_docker": context.use_docker,
@@ -131,11 +130,11 @@ def main() -> None:
         "cloud_provider": context.cloud_provider,
         "keep_local_envs_in_vcs": context.keep_local_envs_in_vcs,
     }
-    
+
     warnings = get_warning_messages(context_dict)
     for warning in warnings:
         print(f"{WARNING}{warning}{TERMINATOR}")
-    
+
     print(f"{SUCCESS}Project initialized, keep up the good work!{TERMINATOR}")
 
 

@@ -8,36 +8,28 @@ Tests cover:
 - Integration with ProjectContext
 """
 
-import json
-from pathlib import Path
-
-import pytest
-
-from hooks.strategies import (
-    ProjectContext,
-    ProjectStrategy,
-    registry,
-    NotOpenSourceStrategy,
-    NotGPLv3Strategy,
-    UsernameAuthStrategy,
-    NonPyCharmStrategy,
-    DockerStrategy,
-    NonDockerStrategy,
-    NonHerokuStrategy,
-    NoFrontendPipelineStrategy,
-    GulpStrategy,
-    WebpackStrategy,
-    NonCeleryStrategy,
-    NoRestAPIStrategy,
-    DRFStrategy,
-    NinjaStrategy,
-    NonAsyncStrategy,
-)
+from hooks.strategies import DockerStrategy
+from hooks.strategies import DRFStrategy
+from hooks.strategies import GulpStrategy
+from hooks.strategies import NinjaStrategy
+from hooks.strategies import NoFrontendPipelineStrategy
+from hooks.strategies import NonAsyncStrategy
+from hooks.strategies import NonCeleryStrategy
+from hooks.strategies import NonDockerStrategy
+from hooks.strategies import NonHerokuStrategy
+from hooks.strategies import NonPyCharmStrategy
+from hooks.strategies import NoRestAPIStrategy
+from hooks.strategies import NotGPLv3Strategy
+from hooks.strategies import NotOpenSourceStrategy
+from hooks.strategies import ProjectContext
+from hooks.strategies import UsernameAuthStrategy
+from hooks.strategies import WebpackStrategy
+from hooks.strategies import registry
 
 
 class TestProjectContext:
     """Tests for ProjectContext."""
-    
+
     def test_context_creation(self):
         """Test creating a project context."""
         context = ProjectContext(
@@ -56,11 +48,11 @@ class TestProjectContext:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         assert context.project_slug == "my_project"
         assert context.is_yes(context.use_docker) is True
         assert context.is_yes(context.use_heroku) is False
-    
+
     def test_is_yes_variations(self):
         """Test is_yes with various inputs."""
         context = ProjectContext(
@@ -79,7 +71,7 @@ class TestProjectContext:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         assert context.is_yes("y") is True
         assert context.is_yes("Y") is True
         assert context.is_yes("n") is False
@@ -88,7 +80,7 @@ class TestProjectContext:
 
 class TestNotOpenSourceStrategy:
     """Tests for NotOpenSourceStrategy."""
-    
+
     def test_applies_to_not_open_source(self):
         """Test strategy applies to not open source."""
         context = ProjectContext(
@@ -107,15 +99,15 @@ class TestNotOpenSourceStrategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = NotOpenSourceStrategy()
         assert strategy.applies_to(context) is True
-        
+
         ops = strategy.get_operations(context)
         assert len(ops) == 2
         assert any("CONTRIBUTORS.txt" in op.describe() for op in ops)
         assert any("LICENSE" in op.describe() for op in ops)
-    
+
     def test_does_not_apply_to_open_source(self):
         """Test strategy does not apply to open source."""
         context = ProjectContext(
@@ -134,14 +126,14 @@ class TestNotOpenSourceStrategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = NotOpenSourceStrategy()
         assert strategy.applies_to(context) is False
 
 
 class TestNotGPLv3Strategy:
     """Tests for NotGPLv3Strategy."""
-    
+
     def test_applies_to_non_gpl(self):
         """Test strategy applies to non-GPL licenses."""
         context = ProjectContext(
@@ -160,10 +152,10 @@ class TestNotGPLv3Strategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = NotGPLv3Strategy()
         assert strategy.applies_to(context) is True
-    
+
     def test_does_not_apply_to_gpl(self):
         """Test strategy does not apply to GPLv3."""
         context = ProjectContext(
@@ -182,14 +174,14 @@ class TestNotGPLv3Strategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = NotGPLv3Strategy()
         assert strategy.applies_to(context) is False
 
 
 class TestUsernameAuthStrategy:
     """Tests for UsernameAuthStrategy."""
-    
+
     def test_applies_to_username_auth(self):
         """Test strategy applies to username auth."""
         context = ProjectContext(
@@ -208,10 +200,10 @@ class TestUsernameAuthStrategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = UsernameAuthStrategy()
         assert strategy.applies_to(context) is True
-        
+
         ops = strategy.get_operations(context)
         assert len(ops) == 2
         assert any("managers.py" in op.describe() for op in ops)
@@ -219,7 +211,7 @@ class TestUsernameAuthStrategy:
 
 class TestNonPyCharmStrategy:
     """Tests for NonPyCharmStrategy."""
-    
+
     def test_applies_to_non_pycharm(self):
         """Test strategy applies to non-PyCharm editors."""
         context = ProjectContext(
@@ -238,10 +230,10 @@ class TestNonPyCharmStrategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = NonPyCharmStrategy()
         assert strategy.applies_to(context) is True
-    
+
     def test_does_not_apply_to_pycharm(self):
         """Test strategy does not apply to PyCharm."""
         context = ProjectContext(
@@ -260,14 +252,14 @@ class TestNonPyCharmStrategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = NonPyCharmStrategy()
         assert strategy.applies_to(context) is False
 
 
 class TestDockerStrategy:
     """Tests for DockerStrategy."""
-    
+
     def test_applies_to_docker(self):
         """Test strategy applies to Docker."""
         context = ProjectContext(
@@ -286,14 +278,14 @@ class TestDockerStrategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = DockerStrategy()
         assert strategy.applies_to(context) is True
-        
+
         ops = strategy.get_operations(context)
         # Should delete utility and nginx (with cloud provider)
         assert len(ops) >= 1
-    
+
     def test_removes_nginx_with_cloud_provider(self):
         """Test that nginx is removed when using cloud provider."""
         context = ProjectContext(
@@ -312,16 +304,16 @@ class TestDockerStrategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = DockerStrategy()
         ops = strategy.get_operations(context)
-        
+
         assert any("nginx" in op.describe() for op in ops)
 
 
 class TestNonDockerStrategy:
     """Tests for NonDockerStrategy."""
-    
+
     def test_applies_to_non_docker(self):
         """Test strategy applies to non-Docker."""
         context = ProjectContext(
@@ -340,10 +332,10 @@ class TestNonDockerStrategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = NonDockerStrategy()
         assert strategy.applies_to(context) is True
-        
+
         ops = strategy.get_operations(context)
         assert len(ops) >= 4  # Multiple files and directories
         assert any(".devcontainer" in op.describe() for op in ops)
@@ -352,7 +344,7 @@ class TestNonDockerStrategy:
 
 class TestNonHerokuStrategy:
     """Tests for NonHerokuStrategy."""
-    
+
     def test_applies_to_non_heroku(self):
         """Test strategy applies to non-Heroku."""
         context = ProjectContext(
@@ -371,17 +363,17 @@ class TestNonHerokuStrategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = NonHerokuStrategy()
         assert strategy.applies_to(context) is True
-        
+
         ops = strategy.get_operations(context)
         assert any("Procfile" in op.describe() for op in ops)
 
 
 class TestNoFrontendPipelineStrategy:
     """Tests for NoFrontendPipelineStrategy."""
-    
+
     def test_applies_to_no_pipeline(self):
         """Test strategy applies to no frontend pipeline."""
         context = ProjectContext(
@@ -400,15 +392,15 @@ class TestNoFrontendPipelineStrategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = NoFrontendPipelineStrategy()
         assert strategy.applies_to(context) is True
-        
+
         ops = strategy.get_operations(context)
         assert len(ops) >= 4
         assert any("gulpfile" in op.describe() for op in ops)
         assert any("webpack" in op.describe() for op in ops)
-    
+
     def test_applies_to_django_compressor(self):
         """Test strategy applies to Django Compressor."""
         context = ProjectContext(
@@ -427,14 +419,14 @@ class TestNoFrontendPipelineStrategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = NoFrontendPipelineStrategy()
         assert strategy.applies_to(context) is True
 
 
 class TestGulpStrategy:
     """Tests for GulpStrategy."""
-    
+
     def test_applies_to_gulp(self):
         """Test strategy applies to Gulp."""
         context = ProjectContext(
@@ -453,10 +445,10 @@ class TestGulpStrategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = GulpStrategy()
         assert strategy.applies_to(context) is True
-        
+
         ops = strategy.get_operations(context)
         # Should delete webpack and modify package.json
         assert len(ops) >= 3
@@ -464,7 +456,7 @@ class TestGulpStrategy:
 
 class TestWebpackStrategy:
     """Tests for WebpackStrategy."""
-    
+
     def test_applies_to_webpack(self):
         """Test strategy applies to Webpack."""
         context = ProjectContext(
@@ -483,10 +475,10 @@ class TestWebpackStrategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = WebpackStrategy()
         assert strategy.applies_to(context) is True
-        
+
         ops = strategy.get_operations(context)
         # Should delete gulpfile and modify package.json
         assert len(ops) >= 2
@@ -494,7 +486,7 @@ class TestWebpackStrategy:
 
 class TestNonCeleryStrategy:
     """Tests for NonCeleryStrategy."""
-    
+
     def test_applies_to_non_celery(self):
         """Test strategy applies to non-Celery."""
         context = ProjectContext(
@@ -513,10 +505,10 @@ class TestNonCeleryStrategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = NonCeleryStrategy()
         assert strategy.applies_to(context) is True
-        
+
         ops = strategy.get_operations(context)
         assert len(ops) == 3
         assert any("celery_app.py" in op.describe() for op in ops)
@@ -524,7 +516,7 @@ class TestNonCeleryStrategy:
 
 class TestNoRestAPIStrategy:
     """Tests for NoRestAPIStrategy."""
-    
+
     def test_applies_to_no_rest_api(self):
         """Test strategy applies to no REST API."""
         context = ProjectContext(
@@ -543,17 +535,17 @@ class TestNoRestAPIStrategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = NoRestAPIStrategy()
         assert strategy.applies_to(context) is True
-        
+
         ops = strategy.get_operations(context)
         assert len(ops) >= 4
 
 
 class TestDRFStrategy:
     """Tests for DRFStrategy."""
-    
+
     def test_applies_to_drf(self):
         """Test strategy applies to DRF."""
         context = ProjectContext(
@@ -572,10 +564,10 @@ class TestDRFStrategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = DRFStrategy()
         assert strategy.applies_to(context) is True
-        
+
         ops = strategy.get_operations(context)
         assert len(ops) == 2
         # Should remove Ninja files
@@ -584,7 +576,7 @@ class TestDRFStrategy:
 
 class TestNinjaStrategy:
     """Tests for NinjaStrategy."""
-    
+
     def test_applies_to_ninja(self):
         """Test strategy applies to Django Ninja."""
         context = ProjectContext(
@@ -603,10 +595,10 @@ class TestNinjaStrategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = NinjaStrategy()
         assert strategy.applies_to(context) is True
-        
+
         ops = strategy.get_operations(context)
         assert len(ops) == 2
         # Should remove DRF files
@@ -615,7 +607,7 @@ class TestNinjaStrategy:
 
 class TestNonAsyncStrategy:
     """Tests for NonAsyncStrategy."""
-    
+
     def test_applies_to_non_async(self):
         """Test strategy applies to non-async."""
         context = ProjectContext(
@@ -634,10 +626,10 @@ class TestNonAsyncStrategy:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategy = NonAsyncStrategy()
         assert strategy.applies_to(context) is True
-        
+
         ops = strategy.get_operations(context)
         assert len(ops) == 2
         assert any("asgi.py" in op.describe() for op in ops)
@@ -645,11 +637,11 @@ class TestNonAsyncStrategy:
 
 class TestStrategyRegistry:
     """Tests for StrategyRegistry."""
-    
+
     def test_registry_has_strategies(self):
         """Test that registry contains strategies."""
         assert len(registry._strategies) > 0
-    
+
     def test_get_applicable_strategies(self):
         """Test getting applicable strategies."""
         context = ProjectContext(
@@ -668,19 +660,19 @@ class TestStrategyRegistry:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         strategies = registry.get_applicable_strategies(context)
-        
+
         # Should have multiple applicable strategies
         assert len(strategies) > 0
-        
+
         # Check specific strategies are included
         strategy_names = [s.get_name() for s in strategies]
         assert "NotOpenSourceStrategy" in strategy_names
         assert "UsernameAuthStrategy" in strategy_names
         assert "NonPyCharmStrategy" in strategy_names
         assert "NonDockerStrategy" in strategy_names
-    
+
     def test_collect_operations(self):
         """Test collecting operations from all strategies."""
         context = ProjectContext(
@@ -699,12 +691,12 @@ class TestStrategyRegistry:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         operations = registry.collect_operations(context)
-        
+
         # Should collect multiple operations
         assert len(operations) > 0
-        
+
         # Check for specific operations
         descriptions = [op.describe() for op in operations]
         assert any("CONTRIBUTORS.txt" in desc for desc in descriptions)
@@ -713,7 +705,7 @@ class TestStrategyRegistry:
 
 class TestStrategyIntegration:
     """Integration tests for strategies."""
-    
+
     def test_full_docker_webpack_setup(self):
         """Test a full Docker + Webpack setup."""
         context = ProjectContext(
@@ -732,19 +724,19 @@ class TestStrategyIntegration:
             keep_local_envs_in_vcs="y",
             debug="n",
         )
-        
+
         operations = registry.collect_operations(context)
-        
+
         # Should have operations from multiple strategies
         assert len(operations) > 0
-        
+
         # Docker strategy should apply
         descriptions = [op.describe() for op in operations]
         assert any("utility" in desc for desc in descriptions)
-        
+
         # Webpack strategy should apply
         assert any("gulpfile" in desc for desc in descriptions)
-    
+
     def test_minimal_setup(self):
         """Test a minimal setup with no optional features."""
         context = ProjectContext(
@@ -763,8 +755,8 @@ class TestStrategyIntegration:
             keep_local_envs_in_vcs="n",
             debug="n",
         )
-        
+
         operations = registry.collect_operations(context)
-        
+
         # Should have many operations (removing lots of files)
         assert len(operations) > 10
