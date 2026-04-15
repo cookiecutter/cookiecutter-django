@@ -1,4 +1,3 @@
-# ruff: noqa: PLR0133
 import json
 import os
 import random
@@ -28,19 +27,19 @@ DEBUG_VALUE = "debug"
 def remove_open_source_files():
     file_names = ["CONTRIBUTORS.txt", "LICENSE"]
     for file_name in file_names:
-        Path(file_name).unlink()
+        Path(file_name).unlink(missing_ok=True)
 
 
 def remove_gplv3_files():
     file_names = ["COPYING"]
     for file_name in file_names:
-        Path(file_name).unlink()
+        Path(file_name).unlink(missing_ok=True)
 
 
 def remove_custom_user_manager_files():
     users_path = Path("{{cookiecutter.project_slug}}", "users")
-    (users_path / "managers.py").unlink()
-    (users_path / "tests" / "test_managers.py").unlink()
+    (users_path / "managers.py").unlink(missing_ok=True)
+    (users_path / "tests" / "test_managers.py").unlink(missing_ok=True)
 
 
 def remove_pycharm_files():
@@ -54,8 +53,8 @@ def remove_pycharm_files():
 
 
 def remove_docker_files():
-    shutil.rmtree(".devcontainer")
-    shutil.rmtree("compose")
+    shutil.rmtree(".devcontainer", ignore_errors=True)
+    shutil.rmtree("compose", ignore_errors=True)
 
     file_names = [
         "docker-compose.local.yml",
@@ -64,43 +63,43 @@ def remove_docker_files():
         "justfile",
     ]
     for file_name in file_names:
-        Path(file_name).unlink()
-    if "{{ cookiecutter.editor }}" == "PyCharm":
+        Path(file_name).unlink(missing_ok=True)
+    if "{{ cookiecutter.editor }}".lower() == "pycharm":
         file_names = ["docker_compose_up_django.xml", "docker_compose_up_docs.xml"]
         for file_name in file_names:
-            Path(".idea", "runConfigurations", file_name).unlink()
+            Path(".idea", "runConfigurations", file_name).unlink(missing_ok=True)
 
 
 def remove_nginx_docker_files():
-    shutil.rmtree(Path("compose", "production", "nginx"))
+    shutil.rmtree(Path("compose", "production", "nginx"), ignore_errors=True)
 
 
 def remove_utility_files():
-    shutil.rmtree("utility")
+    shutil.rmtree("utility", ignore_errors=True)
 
 
 def remove_heroku_files():
-    file_names = ["Procfile"]
+    file_names = ["Procfile", "requirements.txt"]
     for file_name in file_names:
         if file_name == "requirements.txt" and "{{ cookiecutter.ci_tool }}".lower() == "travis":
             # Don't remove the file if we are using Travis CI but not using Heroku
             continue
-        Path(file_name).unlink()
-    shutil.rmtree("bin")
+        Path(file_name).unlink(missing_ok=True)
+    shutil.rmtree("bin", ignore_errors=True)
 
 
 def remove_sass_files():
-    shutil.rmtree(Path("{{cookiecutter.project_slug}}", "static", "sass"))
+    shutil.rmtree(Path("{{cookiecutter.project_slug}}", "static", "sass"), ignore_errors=True)
 
 
 def remove_gulp_files():
     file_names = ["gulpfile.mjs"]
     for file_name in file_names:
-        Path(file_name).unlink()
+        Path(file_name).unlink(missing_ok=True)
 
 
 def remove_webpack_files():
-    shutil.rmtree("webpack")
+    shutil.rmtree("webpack", ignore_errors=True)
     remove_vendors_js()
 
 
@@ -119,7 +118,7 @@ def remove_project_css():
 def remove_packagejson_file():
     file_names = ["package.json"]
     for file_name in file_names:
-        Path(file_name).unlink()
+        Path(file_name).unlink(missing_ok=True)
 
 
 def update_package_json(remove_dev_deps=None, remove_keys=None, scripts=None):
@@ -138,7 +137,7 @@ def update_package_json(remove_dev_deps=None, remove_keys=None, scripts=None):
 
 
 def handle_js_runner(choice, use_docker, use_async):
-    if choice == "Gulp":
+    if choice.lower() == "gulp":
         update_package_json(
             remove_dev_deps=[
                 "@babel/core",
@@ -163,7 +162,7 @@ def handle_js_runner(choice, use_docker, use_async):
             },
         )
         remove_webpack_files()
-    elif choice == "Webpack":
+    elif choice.lower() == "webpack":
         scripts = {
             "dev": "webpack serve --config webpack/dev.config.js",
             "build": "webpack --config webpack/prod.config.js",
@@ -225,7 +224,7 @@ def remove_celery_files():
         Path("{{ cookiecutter.project_slug }}", "users", "tests", "test_tasks.py"),
     ]
     for file_path in file_paths:
-        file_path.unlink()
+        file_path.unlink(missing_ok=True)
 
 
 def remove_async_files():
@@ -234,23 +233,23 @@ def remove_async_files():
         Path("config", "websocket.py"),
     ]
     for file_path in file_paths:
-        file_path.unlink()
+        file_path.unlink(missing_ok=True)
 
 
 def remove_dottravisyml_file():
-    Path(".travis.yml").unlink()
+    Path(".travis.yml").unlink(missing_ok=True)
 
 
 def remove_dotgitlabciyml_file():
-    Path(".gitlab-ci.yml").unlink()
+    Path(".gitlab-ci.yml").unlink(missing_ok=True)
 
 
 def remove_dotgithub_folder():
-    shutil.rmtree(".github")
+    shutil.rmtree(".github", ignore_errors=True)
 
 
 def remove_dotdrone_file():
-    Path(".drone.yml").unlink()
+    Path(".drone.yml").unlink(missing_ok=True)
 
 
 def generate_random_string(length, using_digits=False, using_ascii_letters=False, using_punctuation=False):  # noqa: FBT002
@@ -389,39 +388,39 @@ def set_flags_in_settings_files():
 
 
 def remove_envs_and_associated_files():
-    shutil.rmtree(".envs")
-    Path("merge_production_dotenvs_in_dotenv.py").unlink()
-    shutil.rmtree("tests")
+    shutil.rmtree(".envs", ignore_errors=True)
+    Path("merge_production_dotenvs_in_dotenv.py").unlink(missing_ok=True)
+    shutil.rmtree("tests", ignore_errors=True)
 
 
 def remove_celery_compose_dirs():
-    shutil.rmtree(Path("compose", "local", "django", "celery"))
-    shutil.rmtree(Path("compose", "production", "django", "celery"))
+    shutil.rmtree(Path("compose", "local", "django", "celery"), ignore_errors=True)
+    shutil.rmtree(Path("compose", "production", "django", "celery"), ignore_errors=True)
 
 
 def remove_node_dockerfile():
-    shutil.rmtree(Path("compose", "local", "node"))
+    shutil.rmtree(Path("compose", "local", "node"), ignore_errors=True)
 
 
 def remove_aws_dockerfile():
-    shutil.rmtree(Path("compose", "production", "aws"))
+    shutil.rmtree(Path("compose", "production", "aws"), ignore_errors=True)
 
 
 def remove_drf_starter_files():
-    Path("config", "api_router.py").unlink()
-    Path("{{cookiecutter.project_slug}}", "users", "api", "serializers.py").unlink()
+    Path("config", "api_router.py").unlink(missing_ok=True)
+    Path("{{cookiecutter.project_slug}}", "users", "api", "serializers.py").unlink(missing_ok=True)
 
 
 def remove_ninja_starter_files():
-    Path("config", "api.py").unlink()
-    Path("{{cookiecutter.project_slug}}", "users", "api", "schema.py").unlink()
+    Path("config", "api.py").unlink(missing_ok=True)
+    Path("{{cookiecutter.project_slug}}", "users", "api", "schema.py").unlink(missing_ok=True)
 
 
 def remove_rest_api_files():
     remove_drf_starter_files()
     remove_ninja_starter_files()
-    shutil.rmtree(Path("{{cookiecutter.project_slug}}", "users", "api"))
-    shutil.rmtree(Path("{{cookiecutter.project_slug}}", "users", "tests", "api"))
+    shutil.rmtree(Path("{{cookiecutter.project_slug}}", "users", "api"), ignore_errors=True)
+    shutil.rmtree(Path("{{cookiecutter.project_slug}}", "users", "tests", "api"), ignore_errors=True)
 
 
 def main():  # noqa: C901, PLR0912, PLR0915
@@ -434,15 +433,15 @@ def main():  # noqa: C901, PLR0912, PLR0915
     )
     set_flags_in_settings_files()
 
-    if "{{ cookiecutter.open_source_license }}" == "Not open source":
+    if "{{ cookiecutter.open_source_license }}".lower() == "not open source":
         remove_open_source_files()
-    if "{{ cookiecutter.open_source_license}}" != "GPLv3":
+    if "{{ cookiecutter.open_source_license }}".lower() != "gplv3":
         remove_gplv3_files()
 
-    if "{{ cookiecutter.username_type }}" == "username":
+    if "{{ cookiecutter.username_type }}".lower() == "username":
         remove_custom_user_manager_files()
 
-    if "{{ cookiecutter.editor }}" != "PyCharm":
+    if "{{ cookiecutter.editor }}".lower() != "pycharm":
         remove_pycharm_files()
 
     if "{{ cookiecutter.use_docker }}".lower() == "y":
@@ -452,7 +451,7 @@ def main():  # noqa: C901, PLR0912, PLR0915
     else:
         remove_docker_files()
 
-    if "{{ cookiecutter.use_docker }}".lower() == "y" and "{{ cookiecutter.cloud_provider}}" != "AWS":
+    if "{{ cookiecutter.use_docker }}".lower() == "y" and "{{ cookiecutter.cloud_provider }}".lower() != "aws":
         remove_aws_dockerfile()
 
     if "{{ cookiecutter.use_heroku }}".lower() == "n":
@@ -473,7 +472,7 @@ def main():  # noqa: C901, PLR0912, PLR0915
         if "{{ cookiecutter.keep_local_envs_in_vcs }}".lower() == "y":
             append_to_gitignore_file("!.envs/.local/")
 
-    if "{{ cookiecutter.frontend_pipeline }}" in ["None", "Django Compressor"]:
+    if "{{ cookiecutter.frontend_pipeline }}".lower() in ["none", "django compressor"]:
         remove_gulp_files()
         remove_webpack_files()
         remove_sass_files()
@@ -489,7 +488,7 @@ def main():  # noqa: C901, PLR0912, PLR0915
             use_async=("{{ cookiecutter.use_async }}".lower() == "y"),
         )
 
-    if "{{ cookiecutter.cloud_provider }}" == "None" and "{{ cookiecutter.use_docker }}".lower() == "n":
+    if "{{ cookiecutter.cloud_provider }}".lower() == "none" and "{{ cookiecutter.use_docker }}".lower() == "n":
         print(
             WARNING + "You chose to not use any cloud providers nor Docker, "
             "media files won't be served in production." + TERMINATOR,
@@ -500,21 +499,21 @@ def main():  # noqa: C901, PLR0912, PLR0915
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_celery_compose_dirs()
 
-    if "{{ cookiecutter.ci_tool }}" != "Travis":
+    if "{{ cookiecutter.ci_tool }}".lower() != "travis":
         remove_dottravisyml_file()
 
-    if "{{ cookiecutter.ci_tool }}" != "Gitlab":
+    if "{{ cookiecutter.ci_tool }}".lower() != "gitlab":
         remove_dotgitlabciyml_file()
 
-    if "{{ cookiecutter.ci_tool }}" != "Github":
+    if "{{ cookiecutter.ci_tool }}".lower() != "github":
         remove_dotgithub_folder()
 
-    if "{{ cookiecutter.ci_tool }}" != "Drone":
+    if "{{ cookiecutter.ci_tool }}".lower() != "drone":
         remove_dotdrone_file()
 
-    if "{{ cookiecutter.rest_api }}" == "DRF":
+    if "{{ cookiecutter.rest_api }}".lower() == "drf":
         remove_ninja_starter_files()
-    elif "{{ cookiecutter.rest_api }}" == "Django Ninja":
+    elif "{{ cookiecutter.rest_api }}".lower() == "django ninja":
         remove_drf_starter_files()
     else:
         remove_rest_api_files()
@@ -583,7 +582,7 @@ def setup_dependencies():
     if requirements_dir.exists():
         try:
             shutil.rmtree(requirements_dir)
-        except Exception as e:  # noqa: BLE001
+        except OSError as e:
             print(f"Error removing 'requirements' folder: {e}", file=sys.stderr)
             sys.exit(1)
 
