@@ -1,4 +1,3 @@
-# ruff: noqa: PLR0133
 import json
 import os
 import random

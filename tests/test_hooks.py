@@ -6,8 +6,8 @@ from pathlib import Path
 import pytest
 
 from hooks.post_gen_project import append_to_gitignore_file
-from hooks.post_gen_project import remove_open_source_files
 from hooks.post_gen_project import remove_gplv3_files
+from hooks.post_gen_project import remove_open_source_files
 
 
 @pytest.fixture
@@ -102,4 +102,3 @@ def test_bug6_no_broad_exception_catch():
         content = f.read()
     assert "except Exception as e" not in content
     assert "except OSError as e" in content
-
