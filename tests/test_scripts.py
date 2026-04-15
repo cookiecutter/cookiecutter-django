@@ -11,9 +11,9 @@ class TestBug2NamedTupleLen:
         """Verify DjVersion code doesn't use len() on the NamedTuple"""
         script_path = Path(__file__).parent.parent / "scripts" / "create_django_issue.py"
         source = script_path.read_text(encoding="utf-8")
-        
+
         tree = ast.parse(source)
-        
+
         for node in ast.walk(tree):
             if isinstance(node, ast.Call) and isinstance(node.func, ast.Name):
                 if node.func.id == "len":
@@ -25,7 +25,7 @@ class TestBug2NamedTupleLen:
         """Verify DjVersion is properly defined as NamedTuple"""
         script_path = Path(__file__).parent.parent / "scripts" / "create_django_issue.py"
         source = script_path.read_text(encoding="utf-8")
-        
+
         assert "class DjVersion(NamedTuple):" in source
         assert "major: int" in source
         assert "minor: int" in source

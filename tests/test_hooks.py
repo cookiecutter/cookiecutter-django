@@ -1,37 +1,34 @@
 """Unit tests for the hooks"""
 
 import os
-import shutil
 from pathlib import Path
 
 import pytest
 
-from hooks.post_gen_project import (
-    append_to_gitignore_file,
-    remove_aws_dockerfile,
-    remove_celery_compose_dirs,
-    remove_celery_files,
-    remove_custom_user_manager_files,
-    remove_docker_files,
-    remove_dotdrone_file,
-    remove_dotgithub_folder,
-    remove_dotgitlabciyml_file,
-    remove_dottravisyml_file,
-    remove_drf_starter_files,
-    remove_envs_and_associated_files,
-    remove_gplv3_files,
-    remove_gulp_files,
-    remove_heroku_files,
-    remove_nginx_docker_files,
-    remove_ninja_starter_files,
-    remove_node_dockerfile,
-    remove_open_source_files,
-    remove_packagejson_file,
-    remove_rest_api_files,
-    remove_sass_files,
-    remove_utility_files,
-    remove_webpack_files,
-)
+from hooks.post_gen_project import append_to_gitignore_file
+from hooks.post_gen_project import remove_aws_dockerfile
+from hooks.post_gen_project import remove_celery_compose_dirs
+from hooks.post_gen_project import remove_celery_files
+from hooks.post_gen_project import remove_custom_user_manager_files
+from hooks.post_gen_project import remove_docker_files
+from hooks.post_gen_project import remove_dotdrone_file
+from hooks.post_gen_project import remove_dotgithub_folder
+from hooks.post_gen_project import remove_dotgitlabciyml_file
+from hooks.post_gen_project import remove_dottravisyml_file
+from hooks.post_gen_project import remove_drf_starter_files
+from hooks.post_gen_project import remove_envs_and_associated_files
+from hooks.post_gen_project import remove_gplv3_files
+from hooks.post_gen_project import remove_gulp_files
+from hooks.post_gen_project import remove_heroku_files
+from hooks.post_gen_project import remove_nginx_docker_files
+from hooks.post_gen_project import remove_ninja_starter_files
+from hooks.post_gen_project import remove_node_dockerfile
+from hooks.post_gen_project import remove_open_source_files
+from hooks.post_gen_project import remove_packagejson_file
+from hooks.post_gen_project import remove_rest_api_files
+from hooks.post_gen_project import remove_sass_files
+from hooks.post_gen_project import remove_utility_files
+from hooks.post_gen_project import remove_webpack_files
 
 
 @pytest.fixture
@@ -197,8 +194,8 @@ class TestBug1JinjaTemplateVariableSpacing:
         from hooks import post_gen_project
 
         source = open(post_gen_project.__file__, encoding="utf-8").read()
-        assert '{{ cookiecutter.cloud_provider }}' in source
-        assert '{{ cookiecutter.cloud_provider}}' not in source
+        assert "{{ cookiecutter.cloud_provider }}" in source
+        assert "{{ cookiecutter.cloud_provider}}" not in source
 
 
 class TestBug4CaseInsensitiveComparison:
