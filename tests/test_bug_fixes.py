@@ -4,7 +4,6 @@ import os
 import sys
 from pathlib import Path
 from typing import NamedTuple
-from unittest import mock
 
 import pytest
 
@@ -52,6 +51,7 @@ class TestBug2NamedTupleLen:
 
     def test_namedtuple_fields_is_preferred(self):
         """Test that using _fields is the preferred approach for clarity."""
+
         class TestVersion(NamedTuple):
             major: int
             minor: int
@@ -130,11 +130,11 @@ class TestBug4CaseComparison:
         content = post_gen_path.read_text()
 
         # Find the line comparing cloud_provider with AWS
-        lines = content.split('\n')
+        lines = content.split("\n")
         for i, line in enumerate(lines, 1):
-            if 'cloud_provider' in line and '!=' in line and 'aws' in line.lower():
+            if "cloud_provider" in line and "!=" in line and "aws" in line.lower():
                 # This comparison should now use .lower()
-                assert '.lower()' in line, f"Line {i} should use .lower() for case consistency: {line.strip()}"
+                assert ".lower()" in line, f"Line {i} should use .lower() for case consistency: {line.strip()}"
 
 
 class TestBug5DeadCode:
@@ -182,9 +182,9 @@ class TestBug6BroadException:
         content = post_gen_path.read_text()
 
         # Check for bare 'except Exception' pattern (excluding noqa lines)
-        lines = content.split('\n')
+        lines = content.split("\n")
         for i, line in enumerate(lines, 1):
-            if 'except Exception' in line and 'noqa' not in line:
+            if "except Exception" in line and "noqa" not in line:
                 pytest.fail(f"Line {i} uses overly broad 'except Exception': {line.strip()}")
 
     def test_specific_oserror_used_for_shutil_rmtree(self):
@@ -193,4 +193,4 @@ class TestBug6BroadException:
         content = post_gen_path.read_text()
 
         # After fix, should use OSError instead of Exception
-        assert 'except OSError as e:' in content, "Should use 'except OSError as e:' for shutil.rmtree"
+        assert "except OSError as e:" in content, "Should use 'except OSError as e:' for shutil.rmtree"
