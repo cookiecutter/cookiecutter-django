@@ -219,8 +219,7 @@ class GitHubManager:
             tokens = classifier.split(" ")
             if len(tokens) >= 5 and tokens[2].lower() == "django" and "." in tokens[4]:  # noqa: PLR2004
                 version = DjVersion.parse(tokens[4])
-                if len(version) == 2:  # noqa: PLR2004
-                    supported_dj_versions.append(version)
+                supported_dj_versions.append(version)
 
         if supported_dj_versions:
             if any(v >= needed_dj_version for v in supported_dj_versions):
