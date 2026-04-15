@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.04.14
+
+
+### Updated
+
+- Update pyproject-fmt from v2.21.0 to v2.21.1 ([#6506](https://github.com/cookiecutter/cookiecutter-django/pull/6506))
+
+- Update django-allauth to 65.16.0 ([#6504](https://github.com/cookiecutter/cookiecutter-django/pull/6504))
+
+- Update sentry-sdk to 2.58.0 ([#6503](https://github.com/cookiecutter/cookiecutter-django/pull/6503))
+
+- Update mypy to 1.20.1 ([#6501](https://github.com/cookiecutter/cookiecutter-django/pull/6501))
+
 ## 2026.04.09
 
 
