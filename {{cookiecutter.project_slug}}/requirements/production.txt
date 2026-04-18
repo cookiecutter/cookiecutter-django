@@ -38,7 +38,7 @@ django-anymail[sendgrid]==15.0  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Brevo' %}
 django-anymail[brevo]==15.0  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'SparkPost' %}
-django-anymail[sparkpost]==14.0  # https://github.com/anymail/django-anymail
+django-anymail[sparkpost]==15.0  # https://github.com/anymail/django-anymail
 {%- elif cookiecutter.mail_service == 'Other SMTP' %}
 django-anymail==14.0  # https://github.com/anymail/django-anymail
 {%- endif %}
