@@ -1987,6 +1987,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Peck</td>
+    <td>
+      <a href="https://github.com/johnnypeck">johnnypeck</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Pedro Campos</td>
     <td>
       <a href="https://github.com/pcampos119104">pcampos119104</a>
