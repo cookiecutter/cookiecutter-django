@@ -24,6 +24,8 @@ def main() -> None:
 
 
 def get_requirements_txt_version() -> str:
+    if not REQUIREMENTS_LOCAL_TXT.exists():
+        raise RuntimeError(f"File not found: {REQUIREMENTS_LOCAL_TXT}")
     content = REQUIREMENTS_LOCAL_TXT.read_text()
     for line in content.split("\n"):
         if line.startswith("ruff"):
@@ -32,6 +34,8 @@ def get_requirements_txt_version() -> str:
 
 
 def get_pyproject_toml_version() -> str:
+    if not PYPROJECT_TOML.exists():
+        raise RuntimeError(f"File not found: {PYPROJECT_TOML}")
     data = tomllib.loads(PYPROJECT_TOML.read_text())
     for dependency in data["project"]["dependencies"]:
         if dependency.startswith("ruff=="):

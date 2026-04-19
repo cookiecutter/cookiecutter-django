@@ -22,6 +22,8 @@ def main() -> None:
     """
     Script entry point.
     """
+    if GITHUB_TOKEN is None:
+        raise RuntimeError("GITHUB_TOKEN environment variable is required")
     # Generate changelog for PRs merged yesterday
     merged_date = dt.date.today() - dt.timedelta(days=1)  # noqa: DTZ011
     repo = Github(login_or_token=GITHUB_TOKEN).get_repo(GITHUB_REPO)
@@ -136,6 +138,8 @@ def update_version(file_path: Path, release: str) -> None:
         f'\nversion = "{release}"\n',
         old_content,
     )
+    if updated_content == old_content:
+        raise RuntimeError(f"Could not find version pattern in {file_path}")
     file_path.write_text(updated_content)
 
 
