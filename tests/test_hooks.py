@@ -22,6 +22,6 @@ def test_append_to_gitignore_file(working_directory):
     gitignore_file = working_directory / ".gitignore"
     gitignore_file.write_text("node_modules/\n")
     append_to_gitignore_file(".envs/*")
-    linesep = os.linesep.encode()
+    linesep = b"\n"
     assert gitignore_file.read_bytes() == b"node_modules/" + linesep + b".envs/*" + linesep
     assert gitignore_file.read_text() == "node_modules/\n.envs/*\n"

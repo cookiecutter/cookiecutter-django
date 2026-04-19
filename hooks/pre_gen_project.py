@@ -1,4 +1,3 @@
-# ruff: noqa: PLR0133
 import sys
 
 TERMINATOR = "\x1b[0m"

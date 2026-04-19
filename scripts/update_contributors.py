@@ -43,6 +43,8 @@ def iter_recent_authors():
     Use GitHub API to fetch recent authors rather than
     git CLI to work with GitHub usernames.
     """
+    if GITHUB_TOKEN is None:
+        raise RuntimeError("GITHUB_TOKEN environment variable is required")
     repo = Github(login_or_token=GITHUB_TOKEN, per_page=5).get_repo(GITHUB_REPO)
     recent_pulls = repo.get_pulls(state="closed", sort="updated", direction="desc").get_page(0)
     for pull in recent_pulls:
@@ -73,7 +75,6 @@ class ContributorsJSONFile:
         contributor_data = {
             "name": user.name or user.login,
             "github_login": user.login,
-            "twitter_username": user.twitter_username or "",
         }
         self.content.append(contributor_data)
 
