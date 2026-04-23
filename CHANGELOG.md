@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.04.22
+
+
+### Updated
+
+- Update pre-commit to 4.6.0 ([#6526](https://github.com/cookiecutter/cookiecutter-django/pull/6526))
+
+- Update mypy to 1.20.2 ([#6525](https://github.com/cookiecutter/cookiecutter-django/pull/6525))
+
+- Update uvicorn to 0.45.0 ([#6524](https://github.com/cookiecutter/cookiecutter-django/pull/6524))
+
 ## 2026.04.19
 
 
