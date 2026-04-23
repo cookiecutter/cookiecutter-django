@@ -36,7 +36,7 @@ This can take a while, especially the first time you run this particular command
 
 Generally, if you want to emulate production environment use ``docker-compose.production.yml`` instead. And this is true for any other actions you might need to perform: whenever a switch is required, just do it!
 
-After we have created our initial image we nee to generate a lockfile for our dependencies.
+After we have created our initial image we need to generate a lockfile for our dependencies.
 Docker cannot write to the host system during builds, so we have to run the command to generate the lockfile in the container.
 This is important for reproducible builds and to ensure that the dependencies are installed correctly in the container.
 Updating the lockfile manually is normally not necessary when you add packages through `uv add <package_name>`.
