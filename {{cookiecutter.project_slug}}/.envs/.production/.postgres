@@ -5,3 +5,6 @@ POSTGRES_PORT=5432
 POSTGRES_DB={{ cookiecutter.project_slug }}
 POSTGRES_USER=!!!SET POSTGRES_USER!!!
 POSTGRES_PASSWORD=!!!SET POSTGRES_PASSWORD!!!
+
+#full connection URL 
+DATABASE_URL=postgres://!!!SET POSTGRES_USER!!!:!!!SET POSTGRES_PASSWORD!!!@postgres:5432/{{ cookiecutter.project_slug }}
