@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.04.23
+
+
+### Updated
+
+- Bump traefik from v3.6.13 to v3.6.14 ([#6529](https://github.com/cookiecutter/cookiecutter-django/pull/6529))
+
 ## 2026.04.22
 
 
