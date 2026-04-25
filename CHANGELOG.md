@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.04.24
+
+
+### Documentation
+
+- Fix typo in developing locally with docker ([#6531](https://github.com/cookiecutter/cookiecutter-django/pull/6531))
+
+### Updated
+
+- Update ruff to 0.15.12 ([#6532](https://github.com/cookiecutter/cookiecutter-django/pull/6532))
+
+- Update uvicorn to 0.46.0 ([#6530](https://github.com/cookiecutter/cookiecutter-django/pull/6530))
+
 ## 2026.04.23
 
 
