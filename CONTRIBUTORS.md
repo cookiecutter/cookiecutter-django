@@ -1763,6 +1763,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Mehdi YAHIA CHERIF</td>
+    <td>
+      <a href="https://github.com/Mehdi-YC">Mehdi-YC</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Meraj </td>
     <td>
       <a href="https://github.com/ichbinmeraj">ichbinmeraj</a>
