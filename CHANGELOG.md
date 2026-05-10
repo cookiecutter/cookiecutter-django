@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.05.09
+
+
+### Fixed
+
+- Add home directory for the `django` created user in Docker production ([#6550](https://github.com/cookiecutter/cookiecutter-django/pull/6550))
+
+### Updated
+
+- Bump node from 24.15 to 26.1 ([#6548](https://github.com/cookiecutter/cookiecutter-django/pull/6548))
+
 ## 2026.05.06
 
 
