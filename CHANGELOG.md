@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.05.13
+
+
+### Updated
+
+- Update mypy to 2.0.0 ([#6552](https://github.com/cookiecutter/cookiecutter-django/pull/6552))
+
 ## 2026.05.12
 
 
