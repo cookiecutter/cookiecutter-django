@@ -916,6 +916,13 @@ Listed in alphabetical order.
     <td>fabaff</td>
   </tr>
   <tr>
+    <td>Fabián Falón</td>
+    <td>
+      <a href="https://github.com/fabianfalon">fabianfalon</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>farwill</td>
     <td>
       <a href="https://github.com/farwill">farwill</a>
