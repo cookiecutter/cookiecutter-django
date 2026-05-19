@@ -6,7 +6,8 @@ services:
       context: .
       dockerfile: ./compose/local/docs/Dockerfile
     env_file:
-      - ./.envs/.local/.django
+      - path: ./.envs/.local/.django
+        required: false
     volumes:
       - /app/.venv
       - ./docs:/docs:z
