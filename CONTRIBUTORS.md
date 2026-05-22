@@ -1756,6 +1756,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Matthias Schoettle</td>
+    <td>
+      <a href="https://github.com/mschoettle">mschoettle</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Matthias Sieber</td>
     <td>
       <a href="https://github.com/manonthemat">manonthemat</a>
