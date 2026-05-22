@@ -50,7 +50,7 @@ repos:
     hooks:
       - id: pyproject-fmt
 
-  - repo: https://github.com/Riverside-Healthcare/djLint
+  - repo: https://github.com/djlint/djLint
     rev: v1.36.4
     hooks:
       - id: djlint-reformat-django
