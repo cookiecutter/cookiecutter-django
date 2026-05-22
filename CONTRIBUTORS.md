@@ -1042,6 +1042,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Gourav T</td>
+    <td>
+      <a href="https://github.com/gourav-sraoss">gourav-sraoss</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Grant McLean</td>
     <td>
       <a href="https://github.com/grantm">grantm</a>
@@ -1745,6 +1752,13 @@ Listed in alphabetical order.
     <td>Matthew Sisley</td>
     <td>
       <a href="https://github.com/mjsisley">mjsisley</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Matthias Schoettle</td>
+    <td>
+      <a href="https://github.com/mschoettle">mschoettle</a>
     </td>
     <td></td>
   </tr>
