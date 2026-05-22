@@ -18,6 +18,7 @@ repos:
       - id: debug-statements
       - id: check-builtin-literals
       - id: check-case-conflict
+      - id: check-merge-conflict
       - id: check-docstring-first
       - id: detect-private-key
 
@@ -36,7 +37,7 @@ repos:
 
   # Run the Ruff linter.
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.13
+    rev: v0.15.14
     hooks:
       # Linter
       - id: ruff-check
