@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.05.26
+
+
+### Updated
+
+- Update mypy to 2.1.0 ([#6591](https://github.com/cookiecutter/cookiecutter-django/pull/6591))
+
+- Update django-stubs to 6.0.5 ([#6590](https://github.com/cookiecutter/cookiecutter-django/pull/6590))
+
+- Bump nginx from 1.31.0 to 1.31.1 ([#6589](https://github.com/cookiecutter/cookiecutter-django/pull/6589))
+
+- Update uvicorn to 0.48.0 ([#6588](https://github.com/cookiecutter/cookiecutter-django/pull/6588))
+
 ## 2026.05.22
 
 
