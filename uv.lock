@@ -230,7 +230,7 @@ requires-dist = [
     { name = "requests", specifier = "==2.34.2" },
     { name = "ruff", specifier = "==0.15.14" },
     { name = "sh", marker = "sys_platform != 'win23'", specifier = "==2.2.2" },
-    { name = "tox", specifier = "==4.54.0" },
+    { name = "tox", specifier = "==4.55.0" },
     { name = "tox-uv", specifier = ">=1.17" },
 ]
 
@@ -1142,7 +1142,7 @@ wheels = [
 
 [[package]]
 name = "tox"
-version = "4.54.0"
+version = "4.55.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cachetools" },
@@ -1156,9 +1156,9 @@ dependencies = [
     { name = "tomli-w" },
     { name = "virtualenv" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/17/2c/7ca5edb5ecd6bcc5cc926fe87e62a84dcd3cbd03a32f9d0bee98d2bee7cf/tox-4.54.0.tar.gz", hash = "sha256:21e36fd8256590379620848d0b03b52f4d541b65b749de1a17c3e616978dad58", size = 279256, upload-time = "2026-05-12T19:13:05.937Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/bb/6a/d5807709acd62487b425f147c225cb75c2c22251cac6e51943b07d573636/tox-4.55.0.tar.gz", hash = "sha256:7ede1e1e70f8fe984f7985d7ca58a1e1c15fe9f8715897e38accc607c8de9f70", size = 279415, upload-time = "2026-05-28T05:16:08.099Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/26/18/20cf56a76c5d6117547179db9b5d31cc56e3e90507d1b0b748da74aa95c5/tox-4.54.0-py3-none-any.whl", hash = "sha256:a2d7c1177242ae9c3d9e404039e9f945ce16a3e5dfc66972c643e27d7e764f4b", size = 214527, upload-time = "2026-05-12T19:13:04.334Z" },
+    { url = "https://files.pythonhosted.org/packages/11/77/513bb4464c776eb523696285352b8ef98d8d8228dada6e591b0981f5b8e8/tox-4.55.0-py3-none-any.whl", hash = "sha256:83603a222e7e2ffbeb9e92ed6516e31a0ce355b37aea13c82a2c5344274a9391", size = 214789, upload-time = "2026-05-28T05:16:06.431Z" },
 ]
 
 [[package]]
