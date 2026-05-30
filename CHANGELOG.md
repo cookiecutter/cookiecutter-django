@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.05.29
+
+
+### Updated
+
+- Update django-allauth to 65.18.0 ([#6598](https://github.com/cookiecutter/cookiecutter-django/pull/6598))
+
+- Bump concurrently from 9.2.1 to 10.0.0 ([#6597](https://github.com/cookiecutter/cookiecutter-django/pull/6597))
+
 ## 2026.05.28
 
 
