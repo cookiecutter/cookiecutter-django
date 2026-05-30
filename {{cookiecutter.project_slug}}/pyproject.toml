@@ -23,6 +23,22 @@ dev = [
   "pytest",
 ]
 
+# ==== djLint ====
+[tool.djlint]
+blank_line_after_tag = "load,extends"
+close_void_tags = true
+format_css = true
+format_js = true
+# TODO: remove T002 when fixed https://github.com/djlint/djLint/issues/687
+ignore = "H006,H030,H031,T002"
+include = "H017,H035"
+indent = 2
+max_line_length = 119
+profile = "django"
+css.indent_size = 2
+js.indent_size = 2
+
+# ==== ruff ====
 [tool.ruff]
 # Exclude a variety of commonly ignored directories.
 extend-exclude = [
@@ -90,14 +106,14 @@ lint.ignore = [
 ]
 lint.isort.force-single-line = true
 
+# ==== pyproject-fmt ====
 [tool.pyproject-fmt]
 keep_full_version = true
 
 # ==== pytest ====
-
 [tool.pytest.ini_options]
-minversion = "6.0"
 addopts = "--ds=config.settings.test --reuse-db --import-mode=importlib"
+minversion = "6.0"
 python_files = [
   "tests.py",
   "test_*.py",
@@ -107,14 +123,12 @@ norecursedirs = [ "node_modules" ]
 {%- endif %}
 
 # ==== Coverage ====
-
 [tool.coverage.run]
 include = [ "{{cookiecutter.project_slug}}/**" ]
 omit = [ "*/migrations/*", "*/tests/*" ]
 plugins = [ "django_coverage_plugin" ]
 
 # ==== mypy ====
-
 [tool.mypy]
 python_version = "3.14"
 check_untyped_defs = true
@@ -136,23 +150,3 @@ ignore_errors = true
 
 [tool.django-stubs]
 django_settings_module = "config.settings.test"
-
-# ==== djLint ====
-
-[tool.djlint]
-blank_line_after_tag = "load,extends"
-close_void_tags = true
-format_css = true
-format_js = true
-# TODO: remove T002 when fixed https://github.com/djlint/djLint/issues/687
-ignore = "H006,H030,H031,T002"
-include = "H017,H035"
-indent = 2
-max_line_length = 119
-profile = "django"
-
-[tool.djlint.css]
-indent_size = 2
-
-[tool.djlint.js]
-indent_size = 2
