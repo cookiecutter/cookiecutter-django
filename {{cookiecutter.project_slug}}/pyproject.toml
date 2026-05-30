@@ -111,9 +111,13 @@ lint.isort.force-single-line = true
 keep_full_version = true
 
 # ==== pytest ====
-[tool.pytest.ini_options]
-addopts = "--ds=config.settings.test --reuse-db --import-mode=importlib"
-minversion = "6.0"
+[tool.pytest]
+addopts = [
+  "--ds=config.settings.test",
+  "--reuse-db",
+  "--import-mode=importlib",
+]
+minversion = "9.0"
 python_files = [
   "tests.py",
   "test_*.py",
