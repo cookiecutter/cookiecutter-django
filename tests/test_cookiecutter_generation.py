@@ -449,3 +449,18 @@ def test_pre_commit_without_heroku(cookies, context):
     data = pre_commit_config.read_text()
 
     assert "uv-pre-commit" not in data
+
+
+def test_django_import_export_optional(cookies, context):
+    context.update({"use_django_import_export": "y"})
+    result = cookies.bake(extra_context=context)
+    assert result.exit_code == 0
+
+    pyproject_toml = result.project_path / "pyproject.toml"
+    base_settings = result.project_path / "config" / "settings" / "base.py"
+    users_admin = result.project_path / context["project_slug"] / "users" / "admin.py"
+
+    assert "django-import-export" in pyproject_toml.read_text()
+    assert '"import_export"' in base_settings.read_text()
+    assert "ImportExportMixin" in users_admin.read_text()
+    assert "class UserAdmin(ImportExportMixin, auth_admin.UserAdmin):" in users_admin.read_text()
