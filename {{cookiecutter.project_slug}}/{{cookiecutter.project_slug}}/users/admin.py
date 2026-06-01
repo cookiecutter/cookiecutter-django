@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
 from django.utils.translation import gettext_lazy as _
 {%- if cookiecutter.use_django_import_export == 'y' %}
-from import_export.admin import ImportExportMixin
+from {{ cookiecutter.project_slug }}.contrib.import_export.admin import FKContextImportExportModelAdmin
 {%- endif %}
 
 from .forms import UserAdminChangeForm
@@ -20,7 +20,7 @@ if settings.DJANGO_ADMIN_FORCE_ALLAUTH:
 
 @admin.register(User)
 {%- if cookiecutter.use_django_import_export == 'y' %}
-class UserAdmin(ImportExportMixin, auth_admin.UserAdmin):
+class UserAdmin(FKContextImportExportModelAdmin, auth_admin.UserAdmin):
 {%- else %}
 class UserAdmin(auth_admin.UserAdmin):
 {%- endif %}

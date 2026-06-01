@@ -452,15 +452,44 @@ def test_pre_commit_without_heroku(cookies, context):
 
 
 def test_django_import_export_optional(cookies, context):
+    slug = context["project_slug"]
     context.update({"use_django_import_export": "y"})
     result = cookies.bake(extra_context=context)
     assert result.exit_code == 0
 
     pyproject_toml = result.project_path / "pyproject.toml"
     base_settings = result.project_path / "config" / "settings" / "base.py"
-    users_admin = result.project_path / context["project_slug"] / "users" / "admin.py"
+    users_admin = result.project_path / slug / "users" / "admin.py"
+    contrib_admin = result.project_path / slug / "contrib" / "import_export" / "admin.py"
+    contrib_resources = result.project_path / slug / "contrib" / "import_export" / "resources.py"
 
+    # dependency and app wiring
     assert "django-import-export" in pyproject_toml.read_text()
     assert '"import_export"' in base_settings.read_text()
-    assert "ImportExportMixin" in users_admin.read_text()
-    assert "class UserAdmin(ImportExportMixin, auth_admin.UserAdmin):" in users_admin.read_text()
+
+    # contrib package is present with the generic base classes
+    assert contrib_admin.exists()
+    assert "FKContextImportExportModelAdmin" in contrib_admin.read_text()
+    assert "import_context_fields" in contrib_admin.read_text()
+    assert contrib_resources.exists()
+    assert "ContextInjectingResource" in contrib_resources.read_text()
+    assert "before_import_row" in contrib_resources.read_text()
+
+    # UserAdmin uses the generic base
+    assert "FKContextImportExportModelAdmin" in users_admin.read_text()
+    assert "class UserAdmin(FKContextImportExportModelAdmin, auth_admin.UserAdmin):" in users_admin.read_text()
+
+
+def test_django_import_export_disabled_by_default(cookies, context):
+    result = cookies.bake(extra_context=context)
+    assert result.exit_code == 0
+
+    slug = context["project_slug"]
+    contrib_import_export = result.project_path / slug / "contrib" / "import_export"
+    users_admin = result.project_path / slug / "users" / "admin.py"
+
+    # contrib package must be absent when option is off
+    assert not contrib_import_export.exists()
+    # UserAdmin must not reference import_export at all
+    assert "import_export" not in users_admin.read_text()
+    assert "FKContextImportExportModelAdmin" not in users_admin.read_text()
