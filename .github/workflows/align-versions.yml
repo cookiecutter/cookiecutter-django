@@ -23,8 +23,10 @@ jobs:
       fail-fast: false
       matrix:
         job:
-          - script: scripts/ruff_version.py
+          - script: scripts/python_dependency_version.py ruff
             name: Ruff
+          - script: scripts/python_dependency_version.py djlint
+            name: djLint
           - script: scripts/node_version.py
             name: Node
 
