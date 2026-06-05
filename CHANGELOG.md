@@ -3,6 +3,25 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.06.04
+
+
+### Updated
+
+- Update djlint to 1.38.1 ([#6616](https://github.com/cookiecutter/cookiecutter-django/pull/6616))
+
+- Update djlint to 1.37.0 ([#6613](https://github.com/cookiecutter/cookiecutter-django/pull/6613))
+
+- Update ruff to 0.15.16 ([#6614](https://github.com/cookiecutter/cookiecutter-django/pull/6614))
+
+- Update uvicorn to 0.49.0 ([#6611](https://github.com/cookiecutter/cookiecutter-django/pull/6611))
+
+- Bump node from 26.2 to 26.3 ([#6609](https://github.com/cookiecutter/cookiecutter-django/pull/6609))
+
+- Update hiredis to 3.4.0 ([#6607](https://github.com/cookiecutter/cookiecutter-django/pull/6607))
+
+- Update django to 6.0.6 ([#6606](https://github.com/cookiecutter/cookiecutter-django/pull/6606))
+
 ## 2026.06.02
 
 
