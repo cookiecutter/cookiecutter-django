@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.06.05
+
+
+### Updated
+
+- Update djlint to 1.38.2 ([#6619](https://github.com/cookiecutter/cookiecutter-django/pull/6619))
+
+- Bump traefik from v3.7.1 to v3.7.3 ([#6618](https://github.com/cookiecutter/cookiecutter-django/pull/6618))
+
 ## 2026.06.04
 
 
