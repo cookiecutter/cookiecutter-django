@@ -229,7 +229,7 @@ requires-dist = [
     { name = "pyyaml", specifier = "==6.0.3" },
     { name = "requests", specifier = "==2.34.2" },
     { name = "ruff", specifier = "==0.15.16" },
-    { name = "sh", marker = "sys_platform != 'win23'", specifier = "==2.2.5" },
+    { name = "sh", marker = "sys_platform != 'win23'", specifier = "==2.3.0" },
     { name = "tox", specifier = "==4.55.1" },
     { name = "tox-uv", specifier = ">=1.17" },
 ]
@@ -960,11 +960,11 @@ wheels = [
 
 [[package]]
 name = "sh"
-version = "2.2.5"
+version = "2.3.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/a0/76/3bc4fcf2dec19f9e515545bac706d30b9ff3293fcb03da84ac4463e94321/sh-2.2.5.tar.gz", hash = "sha256:0fbd42f1e8b11663c4a5f7b14f9ce860eb7a7a17167fe022a66b1295de6e7396", size = 43089, upload-time = "2026-06-07T03:44:50.619Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/fa/56/6cedf4704590ac9c8ab57089ffa95895c21e82499981008ad369c43c9cc4/sh-2.3.0.tar.gz", hash = "sha256:402af9087bf8a5557562913ca83d715bfa0646cb93865c5d60c5578b07b17871", size = 135995, upload-time = "2026-06-09T04:22:34.431Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/8a/31/e58e6cd1b1524b4929d3d63ea420758efc018cd1356d81c5d07cbc8f1324/sh-2.2.5-py3-none-any.whl", hash = "sha256:8843c51f1c76f2f373b2ed0ee00a6642d0d64eded8edb79671db78bfdc521bea", size = 43896, upload-time = "2026-06-07T03:44:49.441Z" },
+    { url = "https://files.pythonhosted.org/packages/47/85/d06247fc88ba278227397da5604287e4762f130347dc968f6d205eb15ee6/sh-2.3.0-py3-none-any.whl", hash = "sha256:9b9c51f988fa91ba09e2a78edc48810d0b5a34c8cf383408e4e8c4352169f26e", size = 48045, upload-time = "2026-06-09T04:22:33.069Z" },
 ]
 
 [[package]]
