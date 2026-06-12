@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
     --mount=type=bind,source=uv.lock,target=uv.lock:rw \
-    uv sync --no-install-project
+    uv sync --no-install-project --no-sources
 
 COPY . ${APP_HOME}
 
