@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.06.12
+
+
+### Updated
+
+- Update pyproject-fmt pre-commit hook ([#6631](https://github.com/cookiecutter/cookiecutter-django/pull/6631))
+
+- Bump traefik from v3.7.4 to v3.7.5 ([#6628](https://github.com/cookiecutter/cookiecutter-django/pull/6628))
+
 ## 2026.06.11
 
 
