@@ -43,8 +43,8 @@ jobs:
 
     services:
       {%- if cookiecutter.use_celery == 'y' %}
-      redis:
-        image: redis:7.2
+      valkey:
+        image: valkey/valkey:latest
         ports:
           - 6379:6379
       {%- endif %}
