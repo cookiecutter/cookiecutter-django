@@ -30,6 +30,10 @@ updates:
       interval: "daily"
     labels:
       - "update"
+    groups:
+      babel:
+        patterns:
+          - "@babel/*"
 
   # Enable version updates for Docker
   - package-ecosystem: "docker"
