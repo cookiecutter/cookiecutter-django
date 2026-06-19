@@ -33,14 +33,14 @@ jobs:
     name: "${{ matrix.job.name }} versions"
     steps:
       - name: Checkout with token
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         if: ${{ env.GH_PAT != '' }}
         with:
           token: ${{ env.GH_PAT }}
           ref: ${{ github.head_ref }}
 
       - name: Checkout without token
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         if: ${{ env.GH_PAT == '' }}
         with:
           ref: ${{ github.head_ref }}
