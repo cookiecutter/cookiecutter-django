@@ -3,6 +3,15 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.06.18
+
+
+### Updated
+
+- Bump the babel group across 1 directory with 2 updates ([#6646](https://github.com/cookiecutter/cookiecutter-django/pull/6646))
+
+- Bump nginx from 1.31.1 to 1.31.2 ([#6643](https://github.com/cookiecutter/cookiecutter-django/pull/6643))
+
 ## 2026.06.16
 
 
