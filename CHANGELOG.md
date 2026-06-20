@@ -3,6 +3,17 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.06.19
+
+
+### Updated
+
+- Update django-debug-toolbar to 7.0.0 ([#6649](https://github.com/cookiecutter/cookiecutter-django/pull/6649))
+
+- Update django-environ to 0.14.0 ([#6648](https://github.com/cookiecutter/cookiecutter-django/pull/6648))
+
+- Update ruff to 0.15.18 ([#6647](https://github.com/cookiecutter/cookiecutter-django/pull/6647))
+
 ## 2026.06.18
 
 
