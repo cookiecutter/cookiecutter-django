@@ -1147,6 +1147,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Hesham Elabd</td>
+    <td>
+      <a href="https://github.com/hisham-hussien">hisham-hussien</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>hleroy</td>
     <td>
       <a href="https://github.com/hleroy">hleroy</a>
