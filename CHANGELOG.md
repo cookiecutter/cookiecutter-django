@@ -3,6 +3,21 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.06.21
+
+
+### Fixed
+
+- Skip OpenAPI test file generation when `rest_api` is `None` ([#6652](https://github.com/cookiecutter/cookiecutter-django/pull/6652))
+
+### Updated
+
+- Update `pyproject-fmt` to v2.25.0 ([#6650](https://github.com/cookiecutter/cookiecutter-django/pull/6650))
+
+- Update coverage to 7.14.2 ([#6654](https://github.com/cookiecutter/cookiecutter-django/pull/6654))
+
+- Update pytest to 9.1.1 ([#6653](https://github.com/cookiecutter/cookiecutter-django/pull/6653))
+
 ## 2026.06.19
 
 
