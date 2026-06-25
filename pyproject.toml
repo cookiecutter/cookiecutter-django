@@ -32,7 +32,7 @@ dependencies = [
   "binaryornot==0.6.0",
   "cookiecutter==2.7.1",
   "django-upgrade==1.30.0",
-  "djlint==1.39.2",
+  "djlint==1.39.4",
   "gitpython==3.1.50",
   "jinja2==3.1.6",
   "pre-commit==4.6.0",

@@ -51,7 +51,7 @@ repos:
       - id: pyproject-fmt
 
   - repo: https://github.com/djlint/djLint
-    rev: v1.39.2
+    rev: v1.39.4
     hooks:
       - id: djlint-reformat-django
       - id: djlint-django
