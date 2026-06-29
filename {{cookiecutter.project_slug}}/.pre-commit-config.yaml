@@ -30,7 +30,7 @@ repos:
         exclude: '{{cookiecutter.project_slug}}/templates/'
 
   - repo: https://github.com/adamchainz/django-upgrade
-    rev: '1.30.0'
+    rev: '1.31.1'
     hooks:
       - id: django-upgrade
         args: ['--target-version', '6.0']
@@ -46,12 +46,12 @@ repos:
       - id: ruff-format
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: v2.25.0
+    rev: v2.25.1
     hooks:
       - id: pyproject-fmt
 
   - repo: https://github.com/djlint/djLint
-    rev: v1.39.4
+    rev: v1.39.5
     hooks:
       - id: djlint-reformat-django
       - id: djlint-django
