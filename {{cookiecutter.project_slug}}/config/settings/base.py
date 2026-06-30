@@ -84,6 +84,9 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
+{%- if cookiecutter.use_django_import_export == 'y' %}
+    "import_export",
+{%- endif %}
     "allauth",
     "allauth.account",
     "allauth.mfa",

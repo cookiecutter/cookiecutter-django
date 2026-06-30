@@ -424,6 +424,10 @@ def remove_rest_api_files():
     shutil.rmtree(Path("{{cookiecutter.project_slug}}", "users", "tests", "api"))
 
 
+def remove_import_export_files():
+    shutil.rmtree(Path("{{ cookiecutter.project_slug }}", "contrib", "import_export"))
+
+
 def main():  # noqa: C901, PLR0912, PLR0915
     debug = "{{ cookiecutter.debug }}".lower() == "y"
 
@@ -521,6 +525,9 @@ def main():  # noqa: C901, PLR0912, PLR0915
 
     if "{{ cookiecutter.use_async }}".lower() == "n":
         remove_async_files()
+
+    if "{{ cookiecutter.use_django_import_export }}".lower() == "n":
+        remove_import_export_files()
 
     setup_dependencies()
 
