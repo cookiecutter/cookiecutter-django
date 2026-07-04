@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.07.03
+
+
+### Updated
+
+- Update djlint to 1.40.2 ([#6690](https://github.com/cookiecutter/cookiecutter-django/pull/6690))
+
 ## 2026.07.02
 
 
