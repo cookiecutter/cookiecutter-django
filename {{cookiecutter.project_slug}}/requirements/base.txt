@@ -37,7 +37,7 @@ django-redis==7.0.0  # https://github.com/jazzband/django-redis
 djangorestframework==3.17.1  # https://github.com/encode/django-rest-framework
 django-cors-headers==4.9.0  # https://github.com/adamchainz/django-cors-headers
 # DRF-spectacular for api documentation
-drf-spectacular==0.29.0  # https://github.com/tfranzel/drf-spectacular
+drf-spectacular==0.30.0  # https://github.com/tfranzel/drf-spectacular
 {%- elif cookiecutter.rest_api == 'Django Ninja' %}
 # Django Ninja
 django-ninja==1.6.2  # https://github.com/vitalik/django-ninja
