@@ -3,6 +3,19 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.07.06
+
+
+### Updated
+
+- Update drf-spectacular to 0.30.0 ([#6699](https://github.com/cookiecutter/cookiecutter-django/pull/6699))
+
+- Update uvicorn to 0.50.2 ([#6698](https://github.com/cookiecutter/cookiecutter-django/pull/6698))
+
+- Update uvicorn to 0.50.1 ([#6697](https://github.com/cookiecutter/cookiecutter-django/pull/6697))
+
+- Update djlint to 1.40.3 ([#6694](https://github.com/cookiecutter/cookiecutter-django/pull/6694))
+
 ## 2026.07.03
 
 
