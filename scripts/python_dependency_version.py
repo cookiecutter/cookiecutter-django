@@ -16,6 +16,7 @@ PYPROJECT_TOML = ROOT / "pyproject.toml"
 PRE_COMMIT_REPOS = {
     "ruff": "https://github.com/astral-sh/ruff-pre-commit",
     "djlint": "https://github.com/djlint/djLint",
+    "django-upgrade": "https://github.com/adamchainz/django-upgrade",
 }
 
 
