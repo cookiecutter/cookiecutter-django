@@ -36,6 +36,7 @@
   "frontend_pipeline": ["None", "Django Compressor", "Gulp", "Webpack"],
   "use_celery": "n",
   "use_mailpit": "n",
+  "use_mailtrap_local": "n",
   "use_sentry": "n",
   "use_whitenoise": "n",
   "use_heroku": "n",

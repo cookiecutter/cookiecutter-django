@@ -113,6 +113,41 @@ Now you have your own mail server running locally, ready to receive whatever you
 {%- endif %}
 
 {%- endif %}
+{%- if cookiecutter.use_mailtrap_local == "y" %}
+
+### Email Server
+
+{%- if cookiecutter.use_docker == "y" %}
+
+In development, it is often nice to be able to see emails that are being sent from your application. For that reason local SMTP server [Mailtrap Local](https://github.com/mailtrap/mailtrap-local) with a web interface is available as docker container.
+
+Container mailtrap-local will start automatically when you will run all docker containers.
+Please check [cookiecutter-django Docker documentation](https://cookiecutter-django.readthedocs.io/en/latest/2-local-development/developing-locally-docker.html) for more details how to start all containers.
+
+With Mailtrap Local running, to view messages that are sent by your application, open your browser and go to `http://127.0.0.1:3550`
+{%- else %}
+
+In development, it is often nice to be able to see emails that are being sent from your application. If you choose to use [Mailtrap Local](https://github.com/mailtrap/mailtrap-local) when generating the project a local SMTP server with a web interface will be available.
+
+1.  [Download the latest Mailtrap Local release](https://github.com/mailtrap/mailtrap-local/releases) for your OS.
+
+2.  Copy the binary file to the project root.
+
+3.  Make it executable:
+
+        chmod +x mailtrap-local
+
+4.  Spin up another terminal window and start it there:
+
+        ./mailtrap-local
+
+5.  Check out <http://127.0.0.1:3550/> to see how it goes.
+
+Now you have your own mail server running locally, ready to receive whatever you send it.
+
+{%- endif %}
+
+{%- endif %}
 {%- if cookiecutter.use_sentry == "y" %}
 
 ### Sentry

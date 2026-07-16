@@ -168,6 +168,33 @@ Now you have your own mail server running locally, ready to receive whatever you
 
 .. _`Download the latest Mailpit release`: https://github.com/axllent/mailpit
 
+Mailtrap Local
+~~~~~~~~~~~~~~
+
+.. note:: In order for the project to support `Mailtrap Local`_ it must have been bootstrapped with ``use_mailtrap_local`` set to ``y``.
+
+Mailtrap Local is a Mailpit-compatible local SMTP catcher used to receive emails during development. It is a single self-contained Go binary with no external dependencies and is distributed under the MIT license.
+
+For instance, one of the packages we depend upon, ``django-allauth`` sends verification emails to new users signing up as well as to the existing ones who have not yet verified themselves.
+
+#. `Download the latest Mailtrap Local release`_ for your OS.
+
+#. Copy the binary file to the project root.
+
+#. Make it executable: ::
+
+    chmod +x mailtrap-local
+
+#. Spin up another terminal window and start it there: ::
+
+    ./mailtrap-local
+
+#. Check out `<http://127.0.0.1:3550/>`_ to see how it goes.
+
+Now you have your own mail server running locally, ready to receive whatever you send it.
+
+.. _`Download the latest Mailtrap Local release`: https://github.com/mailtrap/mailtrap-local
+
 Console
 ~~~~~~~
 

@@ -121,6 +121,10 @@ use_celery:
 use_mailpit:
     Indicates whether the project should be configured to use Mailpit_.
 
+use_mailtrap_local:
+    Indicates whether the project should be configured to use `Mailtrap Local`_.
+    Mutually exclusive with ``use_mailpit`` — enable at most one local email catcher.
+
 use_sentry:
     Indicates whether the project should be configured to use Sentry_.
 
@@ -187,6 +191,8 @@ debug:
 .. _Celery: https://github.com/celery/celery
 
 .. _Mailpit: https://github.com/axllent/mailpit
+
+.. _Mailtrap Local: https://github.com/mailtrap/mailtrap-local
 
 .. _Sentry: https://github.com/getsentry/sentry
 
