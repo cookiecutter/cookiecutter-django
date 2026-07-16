@@ -329,6 +329,9 @@ dump.rdb
 {%- if cookiecutter.use_mailpit == 'y' and cookiecutter.use_docker == 'n' %}
 mailpit
 {%- endif %}
+{%- if cookiecutter.use_mailtrap_local == 'y' and cookiecutter.use_docker == 'n' %}
+mailtrap-local
+{%- endif %}
 {{ cookiecutter.project_slug }}/media/
 
 .pytest_cache/

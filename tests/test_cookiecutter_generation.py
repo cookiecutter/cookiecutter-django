@@ -122,6 +122,8 @@ SUPPORTED_COMBINATIONS = [
     {"use_celery": "n"},
     {"use_mailpit": "y"},
     {"use_mailpit": "n"},
+    {"use_mailtrap_local": "y"},
+    {"use_mailtrap_local": "n"},
     {"use_sentry": "y"},
     {"use_sentry": "n"},
     {"use_whitenoise": "y"},
@@ -144,6 +146,7 @@ UNSUPPORTED_COMBINATIONS = [
     {"cloud_provider": "GCP", "mail_service": "Amazon SES"},
     {"cloud_provider": "Azure", "mail_service": "Amazon SES"},
     {"cloud_provider": "None", "mail_service": "Amazon SES"},
+    {"use_mailpit": "y", "use_mailtrap_local": "y"},
 ]
 
 

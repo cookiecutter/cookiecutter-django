@@ -18,6 +18,9 @@ services:
       {%- if cookiecutter.use_mailpit == 'y' %}
       - mailpit
       {%- endif %}
+      {%- if cookiecutter.use_mailtrap_local == 'y' %}
+      - mailtrap-local
+      {%- endif %}
     volumes:
       - /app/.venv
       - .:/app:z
@@ -53,6 +56,15 @@ services:
       - "8025:8025"
 
   {%- endif %}
+  {%- if cookiecutter.use_mailtrap_local == 'y' %}
+
+  mailtrap-local:
+    image: docker.io/mailtrap/mailtrap-local:latest
+    container_name: {{ cookiecutter.project_slug }}_local_mailtrap
+    ports:
+      - "3550:3550"
+
+  {%- endif %}
   {%- if cookiecutter.use_celery == 'y' %}
 
   redis:
@@ -71,6 +83,9 @@ services:
       {%- if cookiecutter.use_mailpit == 'y' %}
       - mailpit
       {%- endif %}
+      {%- if cookiecutter.use_mailtrap_local == 'y' %}
+      - mailtrap-local
+      {%- endif %}
     ports: []
     command: /start-celeryworker
 
@@ -83,6 +98,9 @@ services:
       - postgres
       {%- if cookiecutter.use_mailpit == 'y' %}
       - mailpit
+      {%- endif %}
+      {%- if cookiecutter.use_mailtrap_local == 'y' %}
+      - mailtrap-local
       {%- endif %}
     ports: []
     command: /start-celerybeat
