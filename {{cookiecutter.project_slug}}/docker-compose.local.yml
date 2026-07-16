@@ -63,6 +63,8 @@ services:
     container_name: {{ cookiecutter.project_slug }}_local_mailtrap
     ports:
       - "3550:3550"
+    tmpfs:
+      - /var/lib/mailtrap-local
 
   {%- endif %}
   {%- if cookiecutter.use_celery == 'y' %}
