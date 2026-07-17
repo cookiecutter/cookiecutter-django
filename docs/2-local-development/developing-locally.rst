@@ -141,8 +141,11 @@ Following this structured approach, here's how to add a new app:
 Setup Email Backend
 -------------------
 
+Mail catcher
+~~~~~~~~~~~~
+
 Mailpit
-~~~~~~~
+"""""""
 
 .. note:: In order for the project to support Mailpit_ it must have been bootstrapped with ``mail_catcher`` set to ``Mailpit``.
 
@@ -169,7 +172,7 @@ Now you have your own mail server running locally, ready to receive whatever you
 .. _`Download the latest Mailpit release`: https://github.com/axllent/mailpit
 
 Mailtrap Local
-~~~~~~~~~~~~~~
+""""""""""""""
 
 .. note:: In order for the project to support `Mailtrap Local`_ it must have been bootstrapped with ``mail_catcher`` set to ``Mailtrap Local``.
 
