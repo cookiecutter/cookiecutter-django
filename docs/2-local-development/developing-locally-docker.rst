@@ -216,7 +216,7 @@ Notice that the ``container_name`` is generated dynamically using your project s
 Mailpit
 ~~~~~~~
 
-When developing locally you can go with Mailpit_ for email testing provided ``use_mailpit`` was set to ``y`` on setup. To proceed,
+When developing locally you can go with Mailpit_ for email testing provided ``mail_catcher`` was set to ``Mailpit`` on setup. To proceed,
 
 #. make sure ``<project_slug>_local_mailpit`` container is up and running;
 
@@ -227,7 +227,7 @@ When developing locally you can go with Mailpit_ for email testing provided ``us
 Mailtrap Local
 ~~~~~~~~~~~~~~
 
-When developing locally you can go with `Mailtrap Local`_ for email testing provided ``use_mailtrap_local`` was set to ``y`` on setup. To proceed,
+When developing locally you can go with `Mailtrap Local`_ for email testing provided ``mail_catcher`` was set to ``Mailtrap Local`` on setup. To proceed,
 
 #. make sure ``<project_slug>_local_mailtrap`` container is up and running;
 

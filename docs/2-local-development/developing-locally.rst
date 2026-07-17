@@ -144,7 +144,7 @@ Setup Email Backend
 Mailpit
 ~~~~~~~
 
-.. note:: In order for the project to support Mailpit_ it must have been bootstrapped with ``use_mailpit`` set to ``y``.
+.. note:: In order for the project to support Mailpit_ it must have been bootstrapped with ``mail_catcher`` set to ``Mailpit``.
 
 Mailpit is used to receive emails during development, it is written in Go and has no external dependencies.
 
@@ -171,7 +171,7 @@ Now you have your own mail server running locally, ready to receive whatever you
 Mailtrap Local
 ~~~~~~~~~~~~~~
 
-.. note:: In order for the project to support `Mailtrap Local`_ it must have been bootstrapped with ``use_mailtrap_local`` set to ``y``.
+.. note:: In order for the project to support `Mailtrap Local`_ it must have been bootstrapped with ``mail_catcher`` set to ``Mailtrap Local``.
 
 Mailtrap Local is a Mailpit-compatible local SMTP catcher used to receive emails during development. It is a single self-contained Go binary with no external dependencies and is distributed under the MIT license.
 
@@ -198,7 +198,7 @@ Now you have your own mail server running locally, ready to receive whatever you
 Console
 ~~~~~~~
 
-.. note:: If you have generated your project with ``use_mailpit`` set to ``n`` this will be a default setup.
+.. note:: If you have generated your project with ``mail_catcher`` set to ``None`` this will be a default setup.
 
 Alternatively, deliver emails over console via ``EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'``.
 

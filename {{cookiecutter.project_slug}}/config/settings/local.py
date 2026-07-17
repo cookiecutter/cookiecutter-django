@@ -30,22 +30,22 @@ CACHES = {
 
 # EMAIL
 # ------------------------------------------------------------------------------
-{% if cookiecutter.use_mailpit == 'y' and cookiecutter.use_docker == 'y' -%}
+{% if cookiecutter.mail_catcher == 'Mailpit' and cookiecutter.use_docker == 'y' -%}
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-host
 EMAIL_HOST = env("EMAIL_HOST", default="mailpit")
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-port
 EMAIL_PORT = 1025
-{%- elif cookiecutter.use_mailpit == 'y' and cookiecutter.use_docker == 'n' -%}
+{%- elif cookiecutter.mail_catcher == 'Mailpit' and cookiecutter.use_docker == 'n' -%}
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-host
 EMAIL_HOST = "localhost"
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-port
 EMAIL_PORT = 1025
-{%- elif cookiecutter.use_mailtrap_local == 'y' and cookiecutter.use_docker == 'y' -%}
+{%- elif cookiecutter.mail_catcher == 'Mailtrap Local' and cookiecutter.use_docker == 'y' -%}
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-host
 EMAIL_HOST = env("EMAIL_HOST", default="mailtrap-local")
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-port
 EMAIL_PORT = 3535
-{%- elif cookiecutter.use_mailtrap_local == 'y' and cookiecutter.use_docker == 'n' -%}
+{%- elif cookiecutter.mail_catcher == 'Mailtrap Local' and cookiecutter.use_docker == 'n' -%}
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-host
 EMAIL_HOST = "localhost"
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-port

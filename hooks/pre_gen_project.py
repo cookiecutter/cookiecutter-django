@@ -30,7 +30,3 @@ if "{{ cookiecutter.use_whitenoise }}".lower() == "n" and "{{ cookiecutter.cloud
 if "{{ cookiecutter.mail_service }}" == "Amazon SES" and "{{ cookiecutter.cloud_provider }}" != "AWS":
     print("You should either use AWS or select a different Mail Service for sending emails.")
     sys.exit(1)
-
-if "{{ cookiecutter.use_mailpit }}".lower() == "y" and "{{ cookiecutter.use_mailtrap_local }}".lower() == "y":
-    print("You can enable at most one local email catcher: choose either use_mailpit or use_mailtrap_local, not both.")
-    sys.exit(1)

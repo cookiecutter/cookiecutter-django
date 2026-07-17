@@ -78,7 +78,7 @@ uv run celery -A config.celery_app worker -B -l info
 ```
 
 {%- endif %}
-{%- if cookiecutter.use_mailpit == "y" %}
+{%- if cookiecutter.mail_catcher == "Mailpit" %}
 
 ### Email Server
 
@@ -113,7 +113,7 @@ Now you have your own mail server running locally, ready to receive whatever you
 {%- endif %}
 
 {%- endif %}
-{%- if cookiecutter.use_mailtrap_local == "y" %}
+{%- if cookiecutter.mail_catcher == "Mailtrap Local" %}
 
 ### Email Server
 
