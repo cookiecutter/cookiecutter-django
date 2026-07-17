@@ -326,10 +326,10 @@ tags
 dump.rdb
 
 ### Project template
-{%- if cookiecutter.use_mailpit == 'y' and cookiecutter.use_docker == 'n' %}
+{%- if cookiecutter.mail_catcher == 'Mailpit' and cookiecutter.use_docker == 'n' %}
 mailpit
 {%- endif %}
-{%- if cookiecutter.use_mailtrap_local == 'y' and cookiecutter.use_docker == 'n' %}
+{%- if cookiecutter.mail_catcher == 'Mailtrap Local' and cookiecutter.use_docker == 'n' %}
 mailtrap-local
 {%- endif %}
 {{ cookiecutter.project_slug }}/media/

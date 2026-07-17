@@ -120,10 +120,9 @@ SUPPORTED_COMBINATIONS = [
     {"frontend_pipeline": "Webpack"},
     {"use_celery": "y"},
     {"use_celery": "n"},
-    {"use_mailpit": "y"},
-    {"use_mailpit": "n"},
-    {"use_mailtrap_local": "y"},
-    {"use_mailtrap_local": "n"},
+    {"mail_catcher": "None"},
+    {"mail_catcher": "Mailpit"},
+    {"mail_catcher": "Mailtrap Local"},
     {"use_sentry": "y"},
     {"use_sentry": "n"},
     {"use_whitenoise": "y"},
@@ -146,7 +145,6 @@ UNSUPPORTED_COMBINATIONS = [
     {"cloud_provider": "GCP", "mail_service": "Amazon SES"},
     {"cloud_provider": "Azure", "mail_service": "Amazon SES"},
     {"cloud_provider": "None", "mail_service": "Amazon SES"},
-    {"use_mailpit": "y", "use_mailtrap_local": "y"},
 ]
 
 
