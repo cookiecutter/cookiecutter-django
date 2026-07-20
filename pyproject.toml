@@ -65,6 +65,7 @@ include = "H017,H035"
 indent = 2
 max_line_length = 119
 blank_line_after_tag = "load,extends"
+custom_blocks = "slot"
 close_void_tags = true
 format_css = true
 format_js = true
