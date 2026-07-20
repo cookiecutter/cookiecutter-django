@@ -32,7 +32,7 @@ dependencies = [
   "binaryornot==0.6.0",
   "cookiecutter==2.7.1",
   "django-upgrade==1.31.1",
-  "djlint==1.40.10",
+  "djlint==1.42.0",
   "gitpython==3.1.52",
   "jinja2==3.1.6",
   "pre-commit==4.6.0",
@@ -68,6 +68,7 @@ blank_line_after_tag = "load,extends"
 close_void_tags = true
 format_css = true
 format_js = true
+custom_blocks = "slot"
 ignore_blocks = "raw"
 # TODO: remove T002 when fixed https://github.com/Riverside-Healthcare/djLint/issues/687
 ignore = "H006,H030,H031,T002,T028"
