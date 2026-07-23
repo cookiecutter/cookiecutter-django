@@ -33,7 +33,7 @@ dependencies = [
   "cookiecutter==2.7.1",
   "django-upgrade==1.31.1",
   "djlint==1.42.2",
-  "gitpython==3.1.54",
+  "gitpython==3.1.55",
   "jinja2==3.1.6",
   "pre-commit==4.6.1",
   "pygithub==2.9.1",
