@@ -6,6 +6,9 @@ import ssl
 from pathlib import Path
 
 import environ
+{%- if cookiecutter.use_docker == "y" %}
+from django.core.exceptions import ImproperlyConfigured
+{%- endif %}
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 # {{ cookiecutter.project_slug }}/
@@ -48,7 +51,23 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 {% if cookiecutter.use_docker == "y" -%}
-DATABASES = {"default": env.db("DATABASE_URL")}
+# Prefer a full DATABASE_URL when one is provided, otherwise assemble the
+# connection from the individual POSTGRES_* variables. The latter keeps database
+# settings working for processes that bypass the container entrypoint (e.g.
+# `docker exec`), since those variables are supplied via the compose env_file.
+try:
+    DATABASES = {"default": env.db("DATABASE_URL")}
+except ImproperlyConfigured:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "HOST": env("POSTGRES_HOST"),
+            "NAME": env("POSTGRES_DB"),
+            "PASSWORD": env("POSTGRES_PASSWORD"),
+            "PORT": env.int("POSTGRES_PORT", default=5432),
+            "USER": env("POSTGRES_USER"),
+        },
+    }
 {%- else %}
 DATABASES = {
     "default": env.db(
