@@ -51,7 +51,7 @@ docker compose -f docker-compose.local.yml run --rm django python manage.py make
 # Make sure the check doesn't raise any warnings
 docker compose -f docker-compose.local.yml run --rm \
   -e DJANGO_SECRET_KEY="$(openssl rand -base64 64)" \
-  -e REDIS_URL=redis://redis:6379/0 \
+  -e REDIS_URL=redis://valkey:6379/0 \
   -e DJANGO_AWS_ACCESS_KEY_ID=x \
   -e DJANGO_AWS_SECRET_ACCESS_KEY=x \
   -e DJANGO_AWS_STORAGE_BUCKET_NAME=x \
@@ -70,7 +70,7 @@ docker run --rm \
 --env-file .envs/.local/.postgres \
 --network my_awesome_project_default \
 -e DJANGO_SECRET_KEY="$(openssl rand -base64 64)" \
--e REDIS_URL=redis://redis:6379/0 \
+-e REDIS_URL=redis://valkey:6379/0 \
 -e DJANGO_AWS_ACCESS_KEY_ID=x \
 -e DJANGO_AWS_SECRET_ACCESS_KEY=x \
 -e DJANGO_AWS_STORAGE_BUCKET_NAME=x \
