@@ -48,6 +48,30 @@ Example::
 
 You have probably opted for Docker + Webpack without Whitenoise. This is a know limitation of the combination, which needs a little bit of manual intervention. See the :ref:`dedicated section about it <webpack-whitenoise-limitation>`.
 
+AWS S3: ``AccessControlListNotSupported`` on ``collectstatic``
+---------------------------------------------------------------
+
+Example::
+
+    botocore.exceptions.ClientError: An error occurred (AccessControlListNotSupported) when calling the PutObject operation: The bucket does not allow ACLs
+
+New S3 buckets are created with ACLs disabled (Object Ownership: bucket owner enforced), which is the AWS default and their recommended setting. Since the static files storage no longer sets an ACL on upload, you need to make the ``static`` prefix publicly readable with a bucket policy instead, for example::
+
+    {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Sid": "PublicReadForStaticFiles",
+          "Effect": "Allow",
+          "Principal": "*",
+          "Action": "s3:GetObject",
+          "Resource": "arn:aws:s3:::your-bucket-name/static/*"
+        }
+      ]
+    }
+
+Replace ``your-bucket-name`` with your ``DJANGO_AWS_STORAGE_BUCKET_NAME`` value, and attach the policy under the bucket's Permissions tab.
+
 Others
 ------
 
