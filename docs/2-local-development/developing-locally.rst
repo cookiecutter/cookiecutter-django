@@ -141,10 +141,13 @@ Following this structured approach, here's how to add a new app:
 Setup Email Backend
 -------------------
 
-Mailpit
-~~~~~~~
+Mail catcher
+~~~~~~~~~~~~
 
-.. note:: In order for the project to support Mailpit_ it must have been bootstrapped with ``use_mailpit`` set to ``y``.
+Mailpit
+"""""""
+
+.. note:: In order for the project to support Mailpit_ it must have been bootstrapped with ``mail_catcher`` set to ``Mailpit``.
 
 Mailpit is used to receive emails during development, it is written in Go and has no external dependencies.
 
@@ -168,10 +171,37 @@ Now you have your own mail server running locally, ready to receive whatever you
 
 .. _`Download the latest Mailpit release`: https://github.com/axllent/mailpit
 
+Mailtrap Local
+""""""""""""""
+
+.. note:: In order for the project to support `Mailtrap Local`_ it must have been bootstrapped with ``mail_catcher`` set to ``Mailtrap Local``.
+
+Mailtrap Local is a Mailpit-compatible local SMTP catcher used to receive emails during development. It is a single self-contained Go binary with no external dependencies and is distributed under the MIT license.
+
+For instance, one of the packages we depend upon, ``django-allauth`` sends verification emails to new users signing up as well as to the existing ones who have not yet verified themselves.
+
+#. `Download the latest Mailtrap Local release`_ for your OS.
+
+#. Copy the binary file to the project root.
+
+#. Make it executable: ::
+
+    chmod +x mailtrap-local
+
+#. Spin up another terminal window and start it there: ::
+
+    ./mailtrap-local
+
+#. Check out `<http://127.0.0.1:3550/>`_ to see how it goes.
+
+Now you have your own mail server running locally, ready to receive whatever you send it.
+
+.. _`Download the latest Mailtrap Local release`: https://github.com/mailtrap/mailtrap-local
+
 Console
 ~~~~~~~
 
-.. note:: If you have generated your project with ``use_mailpit`` set to ``n`` this will be a default setup.
+.. note:: If you have generated your project with ``mail_catcher`` set to ``None`` this will be a default setup.
 
 Alternatively, deliver emails over console via ``EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'``.
 

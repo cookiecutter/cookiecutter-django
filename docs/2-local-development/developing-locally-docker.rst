@@ -213,16 +213,30 @@ The ``container_name`` from the yml file can be used to check on containers with
 
 Notice that the ``container_name`` is generated dynamically using your project slug as a prefix
 
-Mailpit
-~~~~~~~
+Mail catcher
+~~~~~~~~~~~~
 
-When developing locally you can go with Mailpit_ for email testing provided ``use_mailpit`` was set to ``y`` on setup. To proceed,
+Mailpit
+"""""""
+
+When developing locally you can go with Mailpit_ for email testing provided ``mail_catcher`` was set to ``Mailpit`` on setup. To proceed,
 
 #. make sure ``<project_slug>_local_mailpit`` container is up and running;
 
 #. open up ``http://127.0.0.1:8025``.
 
 .. _Mailpit: https://github.com/axllent/mailpit/
+
+Mailtrap Local
+""""""""""""""
+
+When developing locally you can go with `Mailtrap Local`_ for email testing provided ``mail_catcher`` was set to ``Mailtrap Local`` on setup. To proceed,
+
+#. make sure ``<project_slug>_local_mailtrap`` container is up and running;
+
+#. open up ``http://127.0.0.1:3550``.
+
+.. _`Mailtrap Local`: https://github.com/mailtrap/mailtrap-local/
 
 .. _`CeleryTasks`:
 

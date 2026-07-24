@@ -15,8 +15,11 @@ services:
       {%- if cookiecutter.use_celery == 'y' %}
       - redis
       {%- endif %}
-      {%- if cookiecutter.use_mailpit == 'y' %}
+      {%- if cookiecutter.mail_catcher == 'Mailpit' %}
       - mailpit
+      {%- endif %}
+      {%- if cookiecutter.mail_catcher == 'Mailtrap Local' %}
+      - mailtrap-local
       {%- endif %}
     volumes:
       - /app/.venv
@@ -44,13 +47,24 @@ services:
     env_file:
       - ./.envs/.local/.postgres
 
-  {%- if cookiecutter.use_mailpit == 'y' %}
+  {%- if cookiecutter.mail_catcher == 'Mailpit' %}
 
   mailpit:
     image: docker.io/axllent/mailpit:latest
     container_name: {{ cookiecutter.project_slug }}_local_mailpit
     ports:
       - "8025:8025"
+
+  {%- endif %}
+  {%- if cookiecutter.mail_catcher == 'Mailtrap Local' %}
+
+  mailtrap-local:
+    image: docker.io/mailtrap/mailtrap-local:latest
+    container_name: {{ cookiecutter.project_slug }}_local_mailtrap
+    ports:
+      - "3550:3550"
+    tmpfs:
+      - /var/lib/mailtrap-local
 
   {%- endif %}
   {%- if cookiecutter.use_celery == 'y' %}
@@ -68,8 +82,11 @@ services:
     depends_on:
       - redis
       - postgres
-      {%- if cookiecutter.use_mailpit == 'y' %}
+      {%- if cookiecutter.mail_catcher == 'Mailpit' %}
       - mailpit
+      {%- endif %}
+      {%- if cookiecutter.mail_catcher == 'Mailtrap Local' %}
+      - mailtrap-local
       {%- endif %}
     ports: []
     command: /start-celeryworker
@@ -81,8 +98,11 @@ services:
     depends_on:
       - redis
       - postgres
-      {%- if cookiecutter.use_mailpit == 'y' %}
+      {%- if cookiecutter.mail_catcher == 'Mailpit' %}
       - mailpit
+      {%- endif %}
+      {%- if cookiecutter.mail_catcher == 'Mailtrap Local' %}
+      - mailtrap-local
       {%- endif %}
     ports: []
     command: /start-celerybeat
