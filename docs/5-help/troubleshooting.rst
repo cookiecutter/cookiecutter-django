@@ -48,29 +48,12 @@ Example::
 
 You have probably opted for Docker + Webpack without Whitenoise. This is a know limitation of the combination, which needs a little bit of manual intervention. See the :ref:`dedicated section about it <webpack-whitenoise-limitation>`.
 
-AWS S3: ``AccessControlListNotSupported`` on ``collectstatic``
----------------------------------------------------------------
+Static files return a 403 in production
+---------------------------------------
 
-Example::
+Your bucket does not allow public reads of the ``static`` prefix. The storages don't set a per-object ACL on upload, so this is granted with a bucket policy (S3), an IAM binding (GCP) or a container access level (Azure). See :ref:`cloud-storage`.
 
-    botocore.exceptions.ClientError: An error occurred (AccessControlListNotSupported) when calling the PutObject operation: The bucket does not allow ACLs
-
-New S3 buckets are created with ACLs disabled (Object Ownership: bucket owner enforced), which is the AWS default and their recommended setting. Since the static files storage no longer sets an ACL on upload, you need to make the ``static`` prefix publicly readable with a bucket policy instead, for example::
-
-    {
-      "Version": "2012-10-17",
-      "Statement": [
-        {
-          "Sid": "PublicReadForStaticFiles",
-          "Effect": "Allow",
-          "Principal": "*",
-          "Action": "s3:GetObject",
-          "Resource": "arn:aws:s3:::your-bucket-name/static/*"
-        }
-      ]
-    }
-
-Replace ``your-bucket-name`` with your ``DJANGO_AWS_STORAGE_BUCKET_NAME`` value, and attach the policy under the bucket's Permissions tab.
+The same page applies if you are upgrading an older project and ``collectstatic`` fails with ``AccessControlListNotSupported`` (S3) or ``Cannot insert legacy ACL for an object when uniform bucket-level access is enabled`` (GCP): drop the ``default_acl`` option from your ``STORAGES`` setting, then configure the bucket as described there.
 
 Others
 ------

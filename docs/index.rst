@@ -28,6 +28,7 @@ Powered by Cookiecutter_, Cookiecutter Django is a project template for jumpstar
    3-deployment/deployment-on-pythonanywhere
    3-deployment/deployment-on-heroku
    3-deployment/deployment-with-docker
+   3-deployment/cloud-storage
 
 .. toctree::
    :maxdepth: 2
