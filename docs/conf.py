@@ -188,7 +188,7 @@ latex_documents = [
         "cookiecutter-django Documentation",
         "cookiecutter-django",
         "manual",
-    )
+    ),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -223,7 +223,7 @@ man_pages = [
         "Cookiecutter Django documentation",
         ["Daniel Roy Greenfeld"],
         1,
-    )
+    ),
 ]
 
 # If true, show URL addresses after external links.
@@ -242,7 +242,7 @@ texinfo_documents = [
         "Cookiecutter Django documentation",
         "Daniel Roy Greenfeld",
         "Cookiecutter Django",
-        "A Cookiecutter template for creating production-ready " "Django projects quickly.",
+        "A Cookiecutter template for creating production-ready Django projects quickly.",
         "Miscellaneous",
     )
 ]

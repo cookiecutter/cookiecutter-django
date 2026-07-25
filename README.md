@@ -1,8 +1,8 @@
 # Cookiecutter Django
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/cookiecutter/cookiecutter-django/ci.yml?branch=master)](https://github.com/cookiecutter/cookiecutter-django/actions/workflows/ci.yml?query=branch%3Amaster)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/cookiecutter/cookiecutter-django/ci.yml?branch=main)](https://github.com/cookiecutter/cookiecutter-django/actions/workflows/ci.yml?query=branch%3Amain)
 [![Documentation Status](https://readthedocs.org/projects/cookiecutter-django/badge/?version=latest)](https://cookiecutter-django.readthedocs.io/en/latest/?badge=latest)
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/cookiecutter/cookiecutter-django/master.svg)](https://results.pre-commit.ci/latest/github/cookiecutter/cookiecutter-django/master)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/cookiecutter/cookiecutter-django/main.svg)](https://results.pre-commit.ci/latest/github/cookiecutter/cookiecutter-django/main)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
 [![Updates](https://pyup.io/repos/github/cookiecutter/cookiecutter-django/shield.svg)](https://pyup.io/repos/github/cookiecutter/cookiecutter-django/)
@@ -19,8 +19,8 @@ production-ready Django projects quickly.
 
 ## Features
 
-- For Django 5.0
-- Works with Python 3.12
+- For Django 6.0
+- Works with Python 3.14
 - Renders Django projects with 100% starting test coverage
 - Twitter [Bootstrap](https://github.com/twbs/bootstrap) v5
 - [12-Factor](https://12factor.net) based settings via [django-environ](https://github.com/joke2k/django-environ)
@@ -51,7 +51,7 @@ _These features can be enabled during initial project setup._
 ## Constraints
 
 - Only maintained 3rd party libraries are used.
-- Uses PostgreSQL everywhere: 12 - 16 ([MySQL fork](https://github.com/mabdullahadeel/cookiecutter-django-mysql) also available).
+- Uses PostgreSQL everywhere: 14 - 18 ([MySQL fork](https://github.com/mabdullahadeel/cookiecutter-django-mysql) also available).
 - Environment variables for configuration (This won't work with Apache/mod_wsgi).
 
 ## Support this Project!
@@ -67,7 +67,7 @@ Projects that provide financial support to the maintainers:
 
 ### Two Scoops of Django
 
-[![Cover of the book "Two Scoops of Django 3.x"](https://f004.backblazeb2.com/file/feldroycom/images/book-TSD3-800.jpg)](https://www.feldroy.com/two-scoops-press#two-scoops-of-django)
+[![Cover of the book "Two Scoops of Django 3.x"](https://f004.backblazeb2.com/file/feldroycom/images/book-TSD3-800.jpg)](https://www.feldroy.com/two-scoops-of-django)
 
 Two Scoops of Django 3.x is the best ice cream-themed Django reference in the universe!
 
@@ -84,11 +84,11 @@ and then editing the results to include your name, email, and various configurat
 
 First, get Cookiecutter. Trust me, it's awesome:
 
-    $ pip install "cookiecutter>=1.7.0"
+    uv tool install "cookiecutter>=1.7.0"
 
 Now run it against this repo:
 
-    $ cookiecutter https://github.com/cookiecutter/cookiecutter-django
+    uvx cookiecutter https://github.com/cookiecutter/cookiecutter-django
 
 You'll be prompted for some values. Provide them, then a Django project will be created for you.
 
@@ -129,12 +129,12 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     Choose from 1, 2, 3 [1]: 1
     use_docker [n]: n
     Select postgresql_version:
-    1 - 16
-    2 - 15
-    3 - 14
-    4 - 13
-    5 - 12
-    Choose from 1, 2, 3, 4, 5 [1]: 1
+    1 - 18
+    2 - 17
+    3 - 16
+    4 - 15
+    5 - 14
+    Choose from 1, 2, 3, 4 [1]: 1
     Select cloud_provider:
     1 - AWS
     2 - GCP
@@ -151,8 +151,12 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     8 - SparkPost
     9 - Other SMTP
     Choose from 1, 2, 3, 4, 5, 6, 7, 8, 9 [1]: 1
+    Select rest_api [None]:
+    1 - None
+    2 - DRF
+    3 - Django Ninja
+    Choose from 1, 2, 3 [1]: 1
     use_async [n]: n
-    use_drf [n]: y
     Select frontend_pipeline:
     1 - None
     2 - Django Compressor
@@ -175,16 +179,16 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
 
 Enter the project and take a look around:
 
-    $ cd reddit/
-    $ ls
+    cd reddit/
+    ls
 
 Create a git repo and push it there:
 
-    $ git init
-    $ git add .
-    $ git commit -m "first awesome commit"
-    $ git remote add origin git@github.com:pydanny/redditclone.git
-    $ git push -u origin master
+    git init
+    git add .
+    git commit -m "first awesome commit"
+    git remote add origin git@github.com:pydanny/redditclone.git
+    git push -u origin main
 
 Now take a look at your repo. Don't forget to carefully look at the generated README. Awesome, right?
 

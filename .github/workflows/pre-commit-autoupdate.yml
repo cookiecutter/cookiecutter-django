@@ -21,23 +21,28 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Install pre-commit
-        run: pip install pre-commit
+      - uses: actions/checkout@v7
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
 
       - name: Autoupdate template
-        run: pre-commit autoupdate
+        # Ignore repos updated by other means
+        run: |
+          uv tool run pre-commit autoupdate \
+            --repo https://github.com/pre-commit/pre-commit-hooks \
+            --repo https://github.com/pre-commit/mirrors-prettier \
+            --repo https://github.com/tox-dev/pyproject-fmt
 
       - name: Autoupdate generated projects
         working-directory: "{{cookiecutter.project_slug}}"
-        run: pre-commit autoupdate
+        run: |
+          uv tool run pre-commit autoupdate \
+            --repo https://github.com/pre-commit/pre-commit-hooks \
+            --repo https://github.com/pre-commit/mirrors-prettier \
+            --repo https://github.com/tox-dev/pyproject-fmt
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: update/pre-commit-autoupdate

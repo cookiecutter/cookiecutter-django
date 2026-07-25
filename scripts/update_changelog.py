@@ -23,7 +23,7 @@ def main() -> None:
     Script entry point.
     """
     # Generate changelog for PRs merged yesterday
-    merged_date = dt.date.today() - dt.timedelta(days=1)
+    merged_date = dt.date.today() - dt.timedelta(days=1)  # noqa: DTZ011
     repo = Github(login_or_token=GITHUB_TOKEN).get_repo(GITHUB_REPO)
     merged_pulls = list(iter_pulls(repo, merged_date))
     print(f"Merged pull requests: {merged_pulls}")
@@ -53,10 +53,11 @@ def main() -> None:
     print(f"Updated version in {setup_py_path}")
 
     # Run uv lock
-    subprocess.run(["uv", "lock"], cwd=ROOT)
+    uv_lock_path = ROOT / "uv.lock"
+    subprocess.run(["uv", "lock", "--no-upgrade"], cwd=ROOT, check=False)  # noqa: S607
 
     # Commit changes, create tag and push
-    update_git_repo([changelog_path, setup_py_path], release)
+    update_git_repo([changelog_path, setup_py_path, uv_lock_path], release)
 
     # Create GitHub release
     github_release = repo.create_git_release(

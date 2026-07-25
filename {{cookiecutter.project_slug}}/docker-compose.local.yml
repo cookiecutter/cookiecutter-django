@@ -19,6 +19,7 @@ services:
       - mailpit
       {%- endif %}
     volumes:
+      - /app/.venv
       - .:/app:z
     env_file:
       - ./.envs/.local/.django
@@ -34,7 +35,11 @@ services:
     image: {{ cookiecutter.project_slug }}_production_postgres
     container_name: {{ cookiecutter.project_slug }}_local_postgres
     volumes:
+      {%- if cookiecutter.postgresql_version|int >= 18 %}
+      - {{ cookiecutter.project_slug }}_local_postgres_data:/var/lib/postgresql/{{ cookiecutter.postgresql_version }}/docker
+      {%- else %}
       - {{ cookiecutter.project_slug }}_local_postgres_data:/var/lib/postgresql/data
+      {%- endif %}
       - {{ cookiecutter.project_slug }}_local_postgres_data_backups:/backups
     env_file:
       - ./.envs/.local/.postgres
@@ -51,12 +56,10 @@ services:
   {%- if cookiecutter.use_celery == 'y' %}
 
   redis:
-    image: docker.io/redis:6
+    image: docker.io/redis:7.2
     container_name: {{ cookiecutter.project_slug }}_local_redis
-    {% if cookiecutter.use_celery == 'y' %}
     volumes:
       - {{ cookiecutter.project_slug }}_local_redis_data:/data
-    {% endif %}
 
   celeryworker:
     <<: *django

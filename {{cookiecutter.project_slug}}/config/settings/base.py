@@ -1,7 +1,6 @@
 # ruff: noqa: ERA001, E501
 """Base settings to build other settings files upon."""
-
-{% if cookiecutter.use_celery == 'y' -%}
+{% if cookiecutter.use_celery == 'y' %}
 import ssl
 {%- endif %}
 from pathlib import Path
@@ -97,11 +96,13 @@ THIRD_PARTY_APPS = [
 {%- if cookiecutter.use_celery == 'y' %}
     "django_celery_beat",
 {%- endif %}
-{%- if cookiecutter.use_drf == "y" %}
+{%- if cookiecutter.rest_api == 'DRF' %}
     "rest_framework",
     "rest_framework.authtoken",
     "corsheaders",
     "drf_spectacular",
+{%- elif cookiecutter.rest_api == 'Django Ninja' %}
+    "corsheaders",
 {%- endif %}
 {%- if cookiecutter.frontend_pipeline == 'Webpack' %}
     "webpack_loader",
@@ -159,7 +160,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-{%- if cookiecutter.use_drf == 'y' %}
+{%- if cookiecutter.rest_api != 'None' %}
     "corsheaders.middleware.CorsMiddleware",
 {%- endif %}
 {%- if cookiecutter.use_whitenoise == 'y' %}
@@ -260,7 +261,7 @@ EMAIL_TIMEOUT = 5
 # Django Admin URL.
 ADMIN_URL = "admin/"
 # https://docs.djangoproject.com/en/dev/ref/settings/#admins
-ADMINS = [("""{{cookiecutter.author_name}}""", "{{cookiecutter.email}}")]
+ADMINS = ['"{{cookiecutter.author_name}}" <{{cookiecutter.email}}>']
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
 # https://cookiecutter-django.readthedocs.io/en/latest/settings.html#other-environment-settings
@@ -332,18 +333,20 @@ CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 CELERY_WORKER_SEND_TASK_EVENTS = True
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#std-setting-task_send_sent_event
 CELERY_TASK_SEND_SENT_EVENT = True
+# https://docs.celeryq.dev/en/stable/userguide/configuration.html#worker-hijack-root-logger
+CELERY_WORKER_HIJACK_ROOT_LOGGER = False
 
 {%- endif %}
 # django-allauth
 # ------------------------------------------------------------------------------
 ACCOUNT_ALLOW_REGISTRATION = env.bool("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)
 # https://docs.allauth.org/en/latest/account/configuration.html
-ACCOUNT_AUTHENTICATION_METHOD = "{{cookiecutter.username_type}}"
+ACCOUNT_LOGIN_METHODS = {"{{cookiecutter.username_type}}"}
 # https://docs.allauth.org/en/latest/account/configuration.html
-ACCOUNT_EMAIL_REQUIRED = True
-{%- if cookiecutter.username_type == "email" %}
-# https://docs.allauth.org/en/latest/account/configuration.html
-ACCOUNT_USERNAME_REQUIRED = False
+{%- if cookiecutter.username_type == "username" %}
+ACCOUNT_SIGNUP_FIELDS = ["email*", "username*", "password1*", "password2*"]
+{%- else %}
+ACCOUNT_SIGNUP_FIELDS = ["email*", "password1*", "password2*"]
 # https://docs.allauth.org/en/latest/account/configuration.html
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 {%- endif %}
@@ -364,7 +367,7 @@ SOCIALACCOUNT_FORMS = {"signup": "{{cookiecutter.project_slug}}.users.forms.User
 INSTALLED_APPS += ["compressor"]
 STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
 {%- endif %}
-{% if cookiecutter.use_drf == "y" -%}
+{% if cookiecutter.rest_api == 'DRF' -%}
 # django-rest-framework
 # -------------------------------------------------------------------------------
 # django-rest-framework - https://www.django-rest-framework.org/api-guide/settings/

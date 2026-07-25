@@ -1,4 +1,4 @@
-# ruff: noqa
+# ruff: noqa: ERA001, PTH100
 # Configuration file for the Sphinx documentation builder.
 #
 # This file only contains a selection of the most common options. For a full
@@ -13,9 +13,10 @@
 
 import os
 import sys
+
 import django
 
-if os.getenv("READTHEDOCS", default=False) == "True":
+if os.getenv("READTHEDOCS", default="False") == "True":
     sys.path.insert(0, os.path.abspath(".."))
     os.environ["DJANGO_READ_DOT_ENV_FILE"] = "True"
     os.environ["USE_DOCKER"] = "no"
@@ -32,7 +33,7 @@ django.setup()
 # -- Project information -----------------------------------------------------
 
 project = "{{ cookiecutter.project_name }}"
-copyright = """{% now 'utc', '%Y' %}, {{ cookiecutter.author_name }}"""
+copyright = """{% now 'utc', '%Y' %}, {{ cookiecutter.author_name }}"""  # noqa: A001
 author = "{{ cookiecutter.author_name }}"
 
 

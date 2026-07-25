@@ -18,7 +18,7 @@
   "windows": "n",
   "editor": ["None", "PyCharm", "VS Code"],
   "use_docker": "n",
-  "postgresql_version": ["16", "15", "14", "13", "12"],
+  "postgresql_version": ["18", "17", "16", "15", "14"],
   "cloud_provider": ["AWS", "GCP", "Azure", "None"],
   "mail_service": [
     "Mailgun",
@@ -31,8 +31,8 @@
     "SparkPost",
     "Other SMTP"
   ],
+  "rest_api": ["None", "DRF", "Django Ninja"],
   "use_async": "n",
-  "use_drf": "n",
   "frontend_pipeline": ["None", "Django Compressor", "Gulp", "Webpack"],
   "use_celery": "n",
   "use_mailpit": "n",

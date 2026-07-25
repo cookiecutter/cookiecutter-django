@@ -8,6 +8,7 @@ services:
     env_file:
       - ./.envs/.local/.django
     volumes:
+      - /app/.venv
       - ./docs:/docs:z
       - ./config:/app/config:z
       - ./{{ cookiecutter.project_slug }}:/app/{{ cookiecutter.project_slug }}:z

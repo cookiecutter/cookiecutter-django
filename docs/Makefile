@@ -3,23 +3,20 @@
 
 # You can set these variables from the command line.
 SPHINXOPTS    =
-SPHINXBUILD   = sphinx-build
+SPHINXBUILD   = uv run --group docs sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build
 
-.PHONY: help clean html livehtml linkcheck
+.PHONY: help clean livehtml linkcheck
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
+	@echo "html        Build the docs as HTML"
 	@awk '/^#/{c=substr($$0,3);next}c&&/^[[:alpha:]][[:alnum:]_-]+:/{print substr($$1,1,index($$1,":")),c}1{c=0}' $(MAKEFILE_LIST) | column -s: -t
 
 # Clean the build output
 clean:
 	-rm -rf $(BUILDDIR)/*
-
-# Build the HTML docs
-html:
-	$(SPHINXBUILD) -b html $(SPHINXOPTS) $(SOURCEDIR) $(BUILDDIR)/html
 
 # Build and serve docs with live reload
 livehtml:
@@ -31,3 +28,8 @@ linkcheck:
 	@echo
 	@echo "Link check complete; look for any errors in the above output " \
 	      "or in $(BUILDDIR)/linkcheck/output.txt."
+
+# Catch-all target: route all unknown targets to Sphinx using the new
+# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+%:
+	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) -c .

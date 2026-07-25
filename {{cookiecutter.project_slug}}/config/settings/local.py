@@ -1,4 +1,3 @@
-# ruff: noqa: E501
 from .base import *  # noqa: F403
 from .base import INSTALLED_APPS
 from .base import MIDDLEWARE
@@ -44,7 +43,8 @@ EMAIL_PORT = 1025
 {%- else -%}
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
 EMAIL_BACKEND = env(
-    "DJANGO_EMAIL_BACKEND", default="django.core.mail.backends.console.EmailBackend",
+    "DJANGO_EMAIL_BACKEND",
+    default="django.core.mail.backends.console.EmailBackend",
 )
 {%- endif %}
 
@@ -66,7 +66,7 @@ MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
 DEBUG_TOOLBAR_CONFIG = {
     "DISABLE_PANELS": [
         "debug_toolbar.panels.redirects.RedirectsPanel",
-        # Disable profiling panel due to an issue with Python 3.12:
+        # Disable profiling panel due to an issue with Python 3.12+:
         # https://github.com/jazzband/django-debug-toolbar/issues/1875
         "debug_toolbar.panels.profiling.ProfilingPanel",
     ],
@@ -79,7 +79,7 @@ if env("USE_DOCKER") == "yes":
     import socket
 
     hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
-    INTERNAL_IPS += [".".join(ip.split(".")[:-1] + ["1"]) for ip in ips]
+    INTERNAL_IPS += [".".join([*ip.split(".")[:-1], "1"]) for ip in ips]
     {%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
     try:
         _, _, ips = socket.gethostbyname_ex("node")

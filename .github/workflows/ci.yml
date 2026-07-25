@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: ["master", "main"]
+    branches: ["main"]
   pull_request:
 
 concurrency:
@@ -22,13 +22,11 @@ jobs:
     name: "pytest ${{ matrix.os }}"
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install uv
-        uses: astral-sh/setup-uv@v4
-        with:
-          enable-cache: "true"
+        uses: astral-sh/setup-uv@v7
       - name: Install dependencies
-        run: uv sync
+        run: uv sync --locked
       - name: Run tests
         run: uv run pytest -n auto tests
 
@@ -40,7 +38,7 @@ jobs:
           - name: Basic
             args: "ci_tool=Gitlab"
           - name: Celery & DRF
-            args: "use_celery=y use_drf=y"
+            args: "use_celery=y rest_api=DRF"
           - name: Gulp
             args: "frontend_pipeline=Gulp"
           - name: Webpack
@@ -53,13 +51,11 @@ jobs:
       COMPOSE_DOCKER_CLI_BUILD: 1
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install uv
-        uses: astral-sh/setup-uv@v4
-        with:
-          enable-cache: "true"
+        uses: astral-sh/setup-uv@v7
       - name: Install dependencies
-        run: uv sync
+        run: uv sync --locked
       - name: Docker ${{ matrix.script.name }}
         run: sh tests/test_docker.sh ${{ matrix.script.args }}
 
@@ -76,16 +72,22 @@ jobs:
             args: "frontend_pipeline=Webpack use_heroku=y"
           - name: Email Username
             args: "username_type=email ci_tool=Github project_name='Something superduper long - the great amazing project' project_slug=my_awesome_project"
+          - name: Email username & DRF
+            args: "username_type=email rest_api=DRF ci_tool=Gitlab"
+          - name: Async & Django-Ninja
+            args: "use_async=y rest_api='Django Ninja'"
+          - name: Async, email username & Django-Ninja
+            args: "use_async=y username_type=email rest_api='Django Ninja'"
 
     name: "Bare metal ${{ matrix.script.name }}"
     runs-on: ubuntu-latest
     services:
       redis:
-        image: redis:5.0
+        image: redis:7.2
         ports:
           - 6379:6379
       postgres:
-        image: postgres:12
+        image: postgres:14
         ports:
           - 5432:5432
         env:
@@ -97,18 +99,34 @@ jobs:
       DATABASE_URL: "postgres://postgres:postgres@localhost:5432/postgres"
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+      - uses: actions/checkout@v7
       - name: Install uv
-        uses: astral-sh/setup-uv@v4
-        with:
-          enable-cache: "true"
+        uses: astral-sh/setup-uv@v7
       - name: Install dependencies
-        run: uv sync
-      - uses: actions/setup-node@v4
+        run: uv sync --locked
+      - uses: actions/setup-node@v7
         with:
-          node-version: "22"
+          node-version-file: "{{cookiecutter.project_slug}}/package.json"
       - name: Bare Metal ${{ matrix.script.name }}
         run: sh tests/test_bare.sh ${{ matrix.script.args }}
+
+  smoke-win:
+    strategy:
+      fail-fast: false
+      matrix:
+        script:
+          - name: Compressor
+            args: "frontend_pipeline='Django Compressor'"
+    name: "Windows Smoke Test ${{ matrix.script.name }}"
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+      - name: Install dependencies
+        run: uv sync --locked
+      - name: Bare Metal ${{ matrix.script.name }}
+        run: ./tests/test_generate.ps1
+        shell: pwsh
+        env:
+          COOKIECUTTER_ARGS: ${{ matrix.script.args }}

@@ -1,9 +1,12 @@
-import glob
+import glob  # noqa: EXE002
 import os
 import re
 import sys
+from collections.abc import Iterable
+from pathlib import Path
 
 import pytest
+import tomllib
 
 try:
     import sh
@@ -22,8 +25,8 @@ elif sys.platform.startswith("darwin") and os.getenv("CI"):
     pytest.skip("skipping slow macOS tests on CI", allow_module_level=True)
 
 # Run auto-fixable styles checks - skipped on CI by default. These can be fixed
-# automatically by running pre-commit after generation however they are tedious
-# to fix in the template, so we don't insist too much in fixing them.
+# automatically by running pre-commit after generation. However, they are tedious
+# to fix in the template, so we don't insist too much on fixing them.
 AUTOFIXABLE_STYLES = os.getenv("AUTOFIXABLE_STYLES") == "1"
 auto_fixable = pytest.mark.skipif(not AUTOFIXABLE_STYLES, reason="auto-fixable")
 
@@ -52,16 +55,18 @@ SUPPORTED_COMBINATIONS = [
     {"open_source_license": "Not open source"},
     {"windows": "y"},
     {"windows": "n"},
+    # Windows without Docker and with django-compressor
+    {"windows": "y", "frontend_pipeline": "Django Compressor", "use_docker": "n"},
     {"editor": "None"},
     {"editor": "PyCharm"},
     {"editor": "VS Code"},
     {"use_docker": "y"},
     {"use_docker": "n"},
+    {"postgresql_version": "18"},
+    {"postgresql_version": "17"},
     {"postgresql_version": "16"},
     {"postgresql_version": "15"},
     {"postgresql_version": "14"},
-    {"postgresql_version": "13"},
-    {"postgresql_version": "12"},
     {"cloud_provider": "AWS", "use_whitenoise": "y"},
     {"cloud_provider": "AWS", "use_whitenoise": "n"},
     {"cloud_provider": "GCP", "use_whitenoise": "y"},
@@ -104,10 +109,11 @@ SUPPORTED_COMBINATIONS = [
     {"cloud_provider": "Azure", "mail_service": "Other SMTP"},
     # Note: cloud_providers GCP, Azure, and None
     # with mail_service Amazon SES is not supported
+    {"rest_api": "None"},
+    {"rest_api": "DRF"},
+    {"rest_api": "Django Ninja"},
     {"use_async": "y"},
     {"use_async": "n"},
-    {"use_drf": "y"},
-    {"use_drf": "n"},
     {"frontend_pipeline": "None"},
     {"frontend_pipeline": "Django Compressor"},
     {"frontend_pipeline": "Gulp"},
@@ -146,21 +152,28 @@ def _fixture_id(ctx):
     return "-".join(f"{key}:{value}" for key, value in ctx.items())
 
 
-def build_files_list(base_dir):
+def build_files_list(base_path: Path):
     """Build a list containing absolute paths to the generated files."""
-    return [os.path.join(dirpath, file_path) for dirpath, subdirs, files in os.walk(base_dir) for file_path in files]
+    excluded_dirs = {".venv", "__pycache__"}
+
+    f = []
+    for dirpath, subdirs, files in base_path.walk():
+        subdirs[:] = [d for d in subdirs if d not in excluded_dirs]
+
+        f.extend(dirpath / file_path for file_path in files)
+    return f
 
 
-def check_paths(paths):
+def check_paths(paths: Iterable[Path]):
     """Method to check all paths have correct substitutions."""
     # Assert that no match is found in any of the files
     for path in paths:
-        if is_binary(path):
+        if is_binary(str(path)):
             continue
 
-        for line in open(path):
-            match = RE_OBJ.search(line)
-            assert match is None, f"cookiecutter variable not replaced in {path}"
+        content = path.read_text()
+        match = RE_OBJ.search(content)
+        assert match is None, f"cookiecutter variable not replaced in {path}"
 
 
 @pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
@@ -173,7 +186,7 @@ def test_project_generation(cookies, context, context_override):
     assert result.project_path.name == context["project_slug"]
     assert result.project_path.is_dir()
 
-    paths = build_files_list(str(result.project_path))
+    paths = build_files_list(result.project_path)
     assert paths
     check_paths(paths)
 
@@ -207,25 +220,13 @@ def test_ruff_format_passes(cookies, context_override):
 
 @auto_fixable
 @pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
-def test_isort_passes(cookies, context_override):
-    """Check whether generated project passes isort style."""
-    result = cookies.bake(extra_context=context_override)
-
-    try:
-        sh.isort(_cwd=str(result.project_path))
-    except sh.ErrorReturnCode as e:
-        pytest.fail(e.stdout.decode())
-
-
-@auto_fixable
-@pytest.mark.parametrize("context_override", SUPPORTED_COMBINATIONS, ids=_fixture_id)
 def test_django_upgrade_passes(cookies, context_override):
     """Check whether generated project passes django-upgrade."""
     result = cookies.bake(extra_context=context_override)
 
     python_files = [
         file_path.removeprefix(f"{result.project_path}/")
-        for file_path in glob.glob(str(result.project_path / "**" / "*.py"), recursive=True)
+        for file_path in glob.glob(str(result.project_path / "**" / "*.py"), recursive=True)  # noqa: PTH207
     ]
     try:
         sh.django_upgrade(
@@ -271,9 +272,9 @@ def test_djlint_check_passes(cookies, context_override):
 
 
 @pytest.mark.parametrize(
-    ["use_docker", "expected_test_script"],
+    ("use_docker", "expected_test_script"),
     [
-        ("n", "pytest"),
+        ("n", "uv run pytest"),
         ("y", "docker compose -f docker-compose.local.yml run django pytest"),
     ],
 )
@@ -286,7 +287,7 @@ def test_travis_invokes_pytest(cookies, context, use_docker, expected_test_scrip
     assert result.project_path.name == context["project_slug"]
     assert result.project_path.is_dir()
 
-    with open(f"{result.project_path}/.travis.yml") as travis_yml:
+    with (result.project_path / ".travis.yml").open() as travis_yml:
         try:
             yml = yaml.safe_load(travis_yml)["jobs"]["include"]
             assert yml[0]["script"] == ["ruff check ."]
@@ -296,9 +297,9 @@ def test_travis_invokes_pytest(cookies, context, use_docker, expected_test_scrip
 
 
 @pytest.mark.parametrize(
-    ["use_docker", "expected_test_script"],
+    ("use_docker", "expected_test_script"),
     [
-        ("n", "pytest"),
+        ("n", "uv run pytest"),
         ("y", "docker compose -f docker-compose.local.yml run django pytest"),
     ],
 )
@@ -311,11 +312,11 @@ def test_gitlab_invokes_precommit_and_pytest(cookies, context, use_docker, expec
     assert result.project_path.name == context["project_slug"]
     assert result.project_path.is_dir()
 
-    with open(f"{result.project_path}/.gitlab-ci.yml") as gitlab_yml:
+    with (result.project_path / ".gitlab-ci.yml").open() as gitlab_yml:
         try:
             gitlab_config = yaml.safe_load(gitlab_yml)
             assert gitlab_config["precommit"]["script"] == [
-                "pre-commit run --show-diff-on-failure --color=always --all-files"
+                "uv run pre-commit run --show-diff-on-failure --color=always --all-files",
             ]
             assert gitlab_config["pytest"]["script"] == [expected_test_script]
         except yaml.YAMLError as e:
@@ -323,9 +324,9 @@ def test_gitlab_invokes_precommit_and_pytest(cookies, context, use_docker, expec
 
 
 @pytest.mark.parametrize(
-    ["use_docker", "expected_test_script"],
+    ("use_docker", "expected_test_script"),
     [
-        ("n", "pytest"),
+        ("n", "uv run pytest"),
         ("y", "docker compose -f docker-compose.local.yml run django pytest"),
     ],
 )
@@ -338,7 +339,7 @@ def test_github_invokes_linter_and_pytest(cookies, context, use_docker, expected
     assert result.project_path.name == context["project_slug"]
     assert result.project_path.is_dir()
 
-    with open(f"{result.project_path}/.github/workflows/ci.yml") as github_yml:
+    with (result.project_path / ".github" / "workflows" / "ci.yml").open() as github_yml:
         try:
             github_config = yaml.safe_load(github_yml)
             linter_present = False
@@ -378,7 +379,7 @@ def test_error_if_incompatible(cookies, context, invalid_context):
 
 
 @pytest.mark.parametrize(
-    ["editor", "pycharm_docs_exist"],
+    ("editor", "pycharm_docs_exist"),
     [
         ("None", False),
         ("PyCharm", True),
@@ -389,9 +390,9 @@ def test_pycharm_docs_removed(cookies, context, editor, pycharm_docs_exist):
     context.update({"editor": editor})
     result = cookies.bake(extra_context=context)
 
-    with open(f"{result.project_path}/docs/index.rst") as f:
-        has_pycharm_docs = "pycharm/configuration" in f.read()
-        assert has_pycharm_docs is pycharm_docs_exist
+    index_rst = result.project_path / "docs" / "index.rst"
+    has_pycharm_docs = "pycharm/configuration" in index_rst.read_text()
+    assert has_pycharm_docs is pycharm_docs_exist
 
 
 def test_trim_domain_email(cookies, context):
@@ -401,7 +402,7 @@ def test_trim_domain_email(cookies, context):
             "use_docker": "y",
             "domain_name": "   example.com   ",
             "email": "  me@example.com  ",
-        }
+        },
     )
     result = cookies.bake(extra_context=context)
 
@@ -411,4 +412,40 @@ def test_trim_domain_email(cookies, context):
     assert "DJANGO_ALLOWED_HOSTS=.example.com" in prod_django_env.read_text()
 
     base_settings = result.project_path / "config" / "settings" / "base.py"
-    assert '"me@example.com"' in base_settings.read_text()
+    assert "<me@example.com>" in base_settings.read_text()
+
+
+def test_pyproject_toml(cookies, context):
+    author_name = "Project Author"
+    author_email = "me@example.com"
+    context.update(
+        {
+            "description": "DESCRIPTION",
+            "domain_name": "example.com",
+            "email": author_email,
+            "author_name": author_name,
+        },
+    )
+    result = cookies.bake(extra_context=context)
+    assert result.exit_code == 0
+
+    pyproject_toml = result.project_path / "pyproject.toml"
+
+    data = tomllib.loads(pyproject_toml.read_text())
+
+    assert data
+    assert data["project"]["authors"][0]["email"] == author_email
+    assert data["project"]["authors"][0]["name"] == author_name
+    assert data["project"]["name"] == context["project_slug"]
+
+
+def test_pre_commit_without_heroku(cookies, context):
+    context.update({"use_heroku": "n"})
+    result = cookies.bake(extra_context=context)
+    assert result.exit_code == 0
+
+    pre_commit_config = result.project_path / ".pre-commit-config.yaml"
+
+    data = pre_commit_config.read_text()
+
+    assert "uv-pre-commit" not in data

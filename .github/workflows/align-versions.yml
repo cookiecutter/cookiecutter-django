@@ -1,0 +1,56 @@
+name: align versions
+
+on:
+  pull_request:
+    paths:
+      - "{{cookiecutter.project_slug}}/requirements/local.txt"
+      - "{{cookiecutter.project_slug}}/compose/local/node/Dockerfile"
+  # Manual trigger
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  run:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request' && (github.event.pull_request.user.login == 'pyup-bot' || github.event.pull_request.user.login == 'dependabot[bot]') }}
+    runs-on: ubuntu-latest
+    env:
+      GH_PAT: ${{ secrets.GH_PAT }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        job:
+          - script: scripts/python_dependency_version.py ruff
+            name: Ruff
+          - script: scripts/python_dependency_version.py djlint
+            name: djLint
+          - script: scripts/python_dependency_version.py django-upgrade
+            name: django-upgrade
+          - script: scripts/node_version.py
+            name: Node
+
+    name: "${{ matrix.job.name }} versions"
+    steps:
+      - name: Checkout with token
+        uses: actions/checkout@v7
+        if: ${{ env.GH_PAT != '' }}
+        with:
+          token: ${{ env.GH_PAT }}
+          ref: ${{ github.head_ref }}
+
+      - name: Checkout without token
+        uses: actions/checkout@v7
+        if: ${{ env.GH_PAT == '' }}
+        with:
+          ref: ${{ github.head_ref }}
+
+      - uses: astral-sh/setup-uv@v7
+
+      - run: uv run ${{ matrix.job.script }}
+
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: Align versions

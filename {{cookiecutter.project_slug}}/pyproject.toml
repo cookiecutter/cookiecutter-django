@@ -1,47 +1,32 @@
-# ==== pytest ====
-[tool.pytest.ini_options]
-minversion = "6.0"
-addopts = "--ds=config.settings.test --reuse-db --import-mode=importlib"
-python_files = [
-    "tests.py",
-    "test_*.py",
+[project]
+name = "{{ cookiecutter.project_slug }}"
+version = "{{ cookiecutter.version }}"
+description = "{{ cookiecutter.description }}"
+readme = "README.md"
+license = { text = "{{ cookiecutter.open_source_license }}" }
+authors = [
+  { name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.email }}" },
 ]
-{%- if cookiecutter.frontend_pipeline == 'Gulp' %}
-norecursedirs = ["node_modules"]
-{%- endif %}
-
-# ==== Coverage ====
-[tool.coverage.run]
-include = ["{{cookiecutter.project_slug}}/**"]
-omit = ["*/migrations/*", "*/tests/*"]
-plugins = ["django_coverage_plugin"]
-
-# ==== mypy ====
-[tool.mypy]
-python_version = "3.12"
-check_untyped_defs = true
-ignore_missing_imports = true
-warn_unused_ignores = true
-warn_redundant_casts = true
-warn_unused_configs = true
-plugins = [
-    "mypy_django_plugin.main",
-{%- if cookiecutter.use_drf == "y" %}
-    "mypy_drf_plugin.main",
-{%- endif %}
+requires-python = "==3.14.*"
+classifiers = [
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+  {# set the an initial indentation for uv to follow #}
+  "django",
 ]
 
-[[tool.mypy.overrides]]
-# Django migrations should not produce any errors:
-module = "*.migrations.*"
-ignore_errors = true
-
-[tool.django-stubs]
-django_settings_module = "config.settings.test"
+[dependency-groups]
+dev = [
+  {# set the an initial indentation for uv to follow #}
+  "pytest",
+]
 
 # ==== djLint ====
 [tool.djlint]
 blank_line_after_tag = "load,extends"
+custom_blocks = "slot"
 close_void_tags = true
 format_css = true
 format_js = true
@@ -51,92 +36,122 @@ include = "H017,H035"
 indent = 2
 max_line_length = 119
 profile = "django"
+css.indent_size = 2
+js.indent_size = 2
 
-[tool.djlint.css]
-indent_size = 2
-
-[tool.djlint.js]
-indent_size = 2
-
+# ==== ruff ====
 [tool.ruff]
-target-version = "py312"
 # Exclude a variety of commonly ignored directories.
 extend-exclude = [
-    "*/migrations/*.py",
-    "staticfiles/*",
+  "*/migrations/*.py",
+  "staticfiles/*",
 ]
 
-[tool.ruff.lint]
-select = [
-  "F",
-  "E",
-  "W",
-  "C90",
-  "I",
-  "N",
-  "UP",
-  "YTT",
-  # "ANN", # flake8-annotations: we should support this in the future but 100+ errors atm
-  "ASYNC",
-  "S",
-  "BLE",
-  "FBT",
-  "B",
+lint.select = [
   "A",
-  "COM",
+  "ASYNC",
+  "B",
+  "BLE",
   "C4",
-  "DTZ",
-  "T10",
+  "C90",
+  "COM",
   "DJ",
+  "DTZ",
+  "E",
   "EM",
+  "ERA",
   "EXE",
+  "F",
   "FA",
-  'ISC',
-  "ICN",
+  "FBT",
+  "FLY",
   "G",
-  'INP',
-  'PIE',
-  "T20",
-  'PYI',
-  'PT',
+  "I",
+  "ICN",
+  "INP",
+  "INT",
+  "ISC",
+  "N",
+  "PD",
+  "PERF",
+  "PGH",
+  "PIE",
+  "PL",
+  "PT",
+  "PTH",
+  "PYI",
   "Q",
-  "RSE",
   "RET",
+  "RSE",
+  "RUF",
+  "S",
+  "SIM",
   "SLF",
   "SLOT",
-  "SIM",
+  "T10",
+  "T20",
+  "TC",
   "TID",
-  "TCH",
-  "INT",
-  # "ARG", # Unused function argument
-  "PTH",
-  "ERA",
-  "PD",
-  "PGH",
-  "PL",
   "TRY",
-  "FLY",
-  # "NPY",
-  # "AIR",
-  "PERF",
-  # "FURB",
-  # "LOG",
-  "RUF",
+  "UP",
+  "W",
+  "YTT",
 ]
-ignore = [
-  "S101", # Use of assert detected https://docs.astral.sh/ruff/rules/assert/
+lint.ignore = [
   "RUF012", # Mutable class attributes should be annotated with `typing.ClassVar`
+  "S101",   # Use of assert detected https://docs.astral.sh/ruff/rules/assert/
   "SIM102", # sometimes it's better to nest
-  "UP038", # Checks for uses of isinstance/issubclass that take a tuple
-          # of types for comparison.
-          # Deactivated because it can make the code slow:
-          # https://github.com/astral-sh/ruff/issues/7871
+  # of types for comparison.
+  # Deactivated because it can make the code slow:
+  # https://github.com/astral-sh/ruff/issues/7871
 ]
-# The fixes in extend-unsafe-fixes will require
-# provide the `--unsafe-fixes` flag when fixing.
-extend-unsafe-fixes = [
-    "UP038",
+lint.isort.force-single-line = true
+
+# ==== pyproject-fmt ====
+[tool.pyproject-fmt]
+keep_full_version = true
+
+# ==== pytest ====
+[tool.pytest]
+addopts = [
+  "--ds=config.settings.test",
+  "--reuse-db",
+  "--import-mode=importlib",
+]
+minversion = "9.0"
+python_files = [
+  "tests.py",
+  "test_*.py",
+]
+{%- if cookiecutter.frontend_pipeline == 'Gulp' %}
+norecursedirs = [ "node_modules" ]
+{%- endif %}
+
+# ==== Coverage ====
+[tool.coverage.run]
+include = [ "{{cookiecutter.project_slug}}/**" ]
+omit = [ "*/migrations/*", "*/tests/*" ]
+plugins = [ "django_coverage_plugin" ]
+
+# ==== mypy ====
+[tool.mypy]
+python_version = "3.14"
+check_untyped_defs = true
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
+plugins = [
+  "mypy_django_plugin.main",
+  {%- if cookiecutter.rest_api == 'DRF' %}
+  "mypy_drf_plugin.main",
+  {%- endif %}
 ]
 
-[tool.ruff.lint.isort]
-force-single-line = true
+[[tool.mypy.overrides]]
+# Django migrations should not produce any errors:
+module = "*.migrations.*"
+ignore_errors = true
+
+[tool.django-stubs]
+django_settings_module = "config.settings.test"

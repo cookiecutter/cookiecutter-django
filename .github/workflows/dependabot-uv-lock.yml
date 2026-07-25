@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - "pyproject.toml"
+  # Manual trigger
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -11,25 +13,23 @@ permissions:
 
 jobs:
   lock:
-    if: ${{ github.actor == 'dependabot[bot]' }}
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request' && (github.event.pull_request.user.login == 'pyup-bot' || github.event.pull_request.user.login == 'dependabot[bot]') }}
     runs-on: ubuntu-latest
     env:
       GH_PAT: ${{ secrets.GH_PAT }}
     steps:
       - name: Checkout with token
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         if: ${{ env.GH_PAT != '' }}
         with:
           token: ${{ env.GH_PAT }}
 
       - name: Checkout without token
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         if: ${{ env.GH_PAT == '' }}
 
-      - uses: astral-sh/setup-uv@v4
-        with:
-          enable-cache: true
+      - uses: astral-sh/setup-uv@v7
       - run: uv lock
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: Regenerate uv.lock

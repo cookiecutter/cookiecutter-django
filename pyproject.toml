@@ -1,6 +1,6 @@
 [project]
 name = "cookiecutter-django"
-version = "2024.11.26"
+version = "2026.07.24"
 description = "A Cookiecutter template for creating production-ready Django projects quickly."
 readme = "README.md"
 keywords = [
@@ -14,39 +14,39 @@ license = { text = "BSD" }
 authors = [
   { name = "Daniel Roy Greenfeld", email = "pydanny@gmail.com" },
 ]
-requires-python = ">=3.12,<3.13"
+requires-python = "==3.14.*"
 classifiers = [
   "Development Status :: 4 - Beta",
   "Environment :: Console",
-  "Framework :: Django :: 5.0",
+  "Framework :: Django :: 6.0",
   "Intended Audience :: Developers",
   "License :: OSI Approved :: BSD License",
   "Natural Language :: English",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.14",
   "Programming Language :: Python :: Implementation :: CPython",
   "Topic :: Software Development",
 ]
 dependencies = [
-  "binaryornot==0.4.4",
-  "cookiecutter==2.6",
-  "django-upgrade==1.21",
-  "djlint==1.35.2",
-  "gitpython==3.1.43",
-  "jinja2==3.1.4",
-  "pre-commit==3.8",
-  "pygithub==2.4",
-  "pytest==8.3.3",
+  "binaryornot==0.6.0",
+  "cookiecutter==2.7.1",
+  "django-upgrade==1.31.1",
+  "djlint==1.42.3",
+  "gitpython==3.1.55",
+  "jinja2==3.1.6",
+  "pre-commit==4.6.1",
+  "pygithub==2.9.1",
+  "pytest==9.1.1",
   "pytest-cookies==0.7",
   "pytest-instafail==0.5",
-  "pytest-xdist==3.6.1",
-  "pyyaml==6.0.2",
-  "requests==2.32.3",
-  "ruff==0.7",
-  "sh==2.0.7; sys_platform!='win23'",
-  "tox==4.21.2",
-  "tox-uv>=1.11.2",
+  "pytest-xdist==3.8.0",
+  "pyyaml==6.0.3",
+  "requests==2.34.2",
+  "ruff==0.16.0",
+  "sh==2.3.0; sys_platform!='win23'",
+  "tox==4.58.0",
+  "tox-uv>=1.17",
 ]
 urls = { Repository = "https://github.com/cookiecutter/cookiecutter-django" }
 
@@ -58,27 +58,99 @@ docs = [
   "sphinx-rtd-theme>=3",
 ]
 
-[tool.black]
+# ==== djLint ====
+[tool.djlint]
+profile = "jinja"
+include = "H017,H035"
+indent = 2
+max_line_length = 119
+blank_line_after_tag = "load,extends"
+close_void_tags = true
+format_css = true
+format_js = true
+custom_blocks = "slot"
+ignore_blocks = "raw"
+# TODO: remove T002 when fixed https://github.com/Riverside-Healthcare/djLint/issues/687
+ignore = "H006,H030,H031,T002,T028"
+css.indent_size = 2
+js.indent_size = 2
+
+[tool.ruff]
+target-version = "py39"
 line-length = 119
-target-version = [
-  'py312',
+# Exclude the template content as most files aren't parseable
+extend-exclude = [
+  "[{]{2}cookiecutter.project_slug[}]{2}/*",
+  "docs/*",
 ]
-
-# ==== isort ====
-
-[tool.isort]
-profile = "black"
-line_length = 119
-known_first_party = [
-  "tests",
-  "scripts",
-  "hooks",
+lint.select = [
+  "A",
+  # "ANN", # flake8-annotations: we should support this in the future but many errors atm
+  "ASYNC",
+  "B",
+  "BLE",
+  "C4",
+  "C90",
+  "COM",
+  "DTZ",
+  "E",
+  "EM",
+  "ERA",
+  "EXE",
+  "F",
+  "FA",
+  "FBT",
+  "FLY",
+  "G",
+  "I",
+  "ICN",
+  "INP",
+  "INT",
+  "ISC",
+  "N",
+  "PD",
+  "PERF",
+  "PGH",
+  "PIE",
+  "PL",
+  "PT",
+  # "ARG", # Unused function argument
+  "PTH",
+  "PYI",
+  "Q",
+  "RET",
+  "RSE",
+  # "FURB",
+  # "LOG",
+  "RUF",
+  "S",
+  "SIM",
+  "SLF",
+  "SLOT",
+  "T10",
+  "TC",
+  "TID",
+  "TRY",
+  "UP",
+  "W",
+  "YTT",
 ]
+lint.ignore = [
+  "EM101",
+  "RUF012", # Mutable class attributes should be annotated with `typing.ClassVar`
+  "S101",   # Use of assert detected https://docs.astral.sh/ruff/rules/assert/
+  "SIM102", # sometimes it's better to nest
+  "TRY003", # Avoid specifying long messages outside the exception class
+]
+lint.isort.force-single-line = true
+
+[tool.pyproject-fmt]
+keep_full_version = true
 
 # ==== pytest ====
-
-[tool.pytest.ini_options]
-addopts = "-v --tb=short"
+[tool.pytest]
+addopts = [ "-v", "--tb=short" ]
+minversion = "9.0"
 norecursedirs = [
   ".tox",
   ".git",
@@ -88,24 +160,3 @@ norecursedirs = [
   "venv",
   "*/{{cookiecutter.project_slug}}/*",
 ]
-
-# ==== djLint ====
-
-[tool.djlint]
-blank_line_after_tag = "load,extends"
-close_void_tags = true
-format_css = true
-format_js = true
-# TODO: remove T002 when fixed https://github.com/Riverside-Healthcare/djLint/issues/687
-ignore = "H006,H030,H031,T002,T028"
-ignore_blocks = "raw"
-include = "H017,H035"
-indent = 2
-max_line_length = 119
-profile = "jinja"
-
-[tool.djlint.css]
-indent_size = 2
-
-[tool.djlint.js]
-indent_size = 2

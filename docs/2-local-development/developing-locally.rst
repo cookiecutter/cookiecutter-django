@@ -1,7 +1,7 @@
 Getting Up and Running Locally
 ==============================
 
-.. index:: pip, virtualenv, PostgreSQL
+.. index:: PostgreSQL
 
 
 Setting Up Development Environment
@@ -9,29 +9,19 @@ Setting Up Development Environment
 
 Make sure to have the following on your host:
 
-* Python 3.12
+* uv https://docs.astral.sh/uv/getting-started/installation/
 * PostgreSQL_.
 * Redis_, if using Celery
 * Cookiecutter_
-
-First things first.
-
-#. Create a virtualenv: ::
-
-    $ python3.12 -m venv <virtual env path>
-
-#. Activate the virtualenv you have just created: ::
-
-    $ source <virtual env path>/bin/activate
 
 #. .. include:: generate-project-block.rst
 
 #. Install development requirements: ::
 
-    $ cd <what you have entered as the project_slug at setup stage>
-    $ pip install -r requirements/local.txt
-    $ git init # A git repo is required for pre-commit to install
-    $ pre-commit install
+    cd <what you have entered as the project_slug at setup stage>
+    uv sync
+    git init # A git repo is required for pre-commit to install
+    uv run pre-commit install
 
    .. note::
 
@@ -40,7 +30,7 @@ First things first.
 
 #. Create a new PostgreSQL database using createdb_: ::
 
-    $ createdb --username=postgres <project_slug>
+    createdb --username=postgres <project_slug>
 
    ``project_slug`` is what you have entered as the project_slug at the setup stage.
 
@@ -54,9 +44,9 @@ First things first.
 
 #. Set the environment variables for your database(s): ::
 
-    $ export POSTGRES_USER=postgres
-    $ export POSTGRES_PASSWORD=
-    $ export POSTGRES_DB=<DB name given to createdb>
+    export POSTGRES_USER=postgres
+    export POSTGRES_PASSWORD=
+    export POSTGRES_DB=<DB name given to createdb>
 
    .. note::
 
@@ -73,15 +63,15 @@ First things first.
 
 #. Apply migrations: ::
 
-    $ python manage.py migrate
+    uv run python manage.py migrate
 
 #. If you're running synchronously, see the application being served through Django development server: ::
 
-    $ python manage.py runserver 0.0.0.0:8000
+    uv run python manage.py runserver 0.0.0.0:8000
 
    or if you're running asynchronously: ::
 
-    $ uvicorn config.asgi:application --host 0.0.0.0 --reload --reload-include '*.html'
+    uv run uvicorn config.asgi:application --host 0.0.0.0 --reload --reload-include '*.html'
 
    If you've opted for Webpack or Gulp as frontend pipeline, please see the :ref:`dedicated section <bare-metal-webpack-gulp>` below.
 
@@ -138,11 +128,11 @@ Following this structured approach, here's how to add a new app:
 
 #. **Create the app** using Django's ``startapp`` command, replacing ``<name-of-the-app>`` with your desired app name: ::
 
-    $ python manage.py startapp <name-of-the-app>
+    uv run python manage.py startapp <name-of-the-app>
 
 #. **Move the app** to the Django Project Root, maintaining the project's two-tier structure: ::
 
-    $ mv <name-of-the-app> <django_project_root>/
+    mv <name-of-the-app> <django_project_root>/
 
 #. **Edit the app's apps.py** change ``name = '<name-of-the-app>'`` to ``name = '<django_project_root>.<name-of-the-app>'``.
 
@@ -168,7 +158,7 @@ For instance, one of the packages we depend upon, ``django-allauth`` sends verif
 
 #. Make it executable: ::
 
-    $ chmod +x mailpit
+    chmod +x mailpit
 
 #. Spin up another terminal window and start it there: ::
 
@@ -201,24 +191,24 @@ If the project is configured to use Celery as a task scheduler then, by default,
 
 Next, make sure `redis-server` is installed (per the `Getting started with Redis`_ guide) and run the server in one terminal::
 
-    $ redis-server
+    redis-server
 
 Start the Celery worker by running the following command in another terminal::
 
-    $ celery -A config.celery_app worker --loglevel=info
+    uv run celery -A config.celery_app worker --loglevel=info
 
 That Celery worker should be running whenever your app is running, typically as a background process,
 so that it can pick up any tasks that get queued. Learn more from the `Celery Workers Guide`_.
 
 The project comes with a simple task for manual testing purposes, inside `<project_slug>/users/tasks.py`. To queue that task locally, start the Django shell, import the task, and call `delay()` on it::
 
-    $ python manage.py shell
+    uv run python manage.py shell
     >> from <project_slug>.users.tasks import get_users_count
     >> get_users_count.delay()
 
 You can also use Django admin to queue up tasks, thanks to the `django-celerybeat`_ package.
 
-.. _Getting started with Redis: https://redis.io/docs/getting-started/
+.. _Getting started with Redis: https://redis.io/docs/latest/get-started/
 .. _Celery Workers Guide: https://docs.celeryq.dev/en/stable/userguide/workers.html
 .. _django-celerybeat: https://django-celery-beat.readthedocs.io/en/latest/
 
@@ -233,11 +223,11 @@ If you've opted for Gulp or Webpack as front-end pipeline, the project comes con
 #. Make sure that `Node.js`_ v18 is installed on your machine.
 #. In the project root, install the JS dependencies with::
 
-    $ npm install
+    npm install
 
 #. Now - with your virtualenv activated - start the application by running::
 
-    $ npm run dev
+    npm run dev
 
    This will start 2 processes in parallel: the static assets build loop on one side, and the Django server on the other.
 

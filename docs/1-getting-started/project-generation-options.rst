@@ -66,11 +66,11 @@ use_docker:
 postgresql_version:
     Select a PostgreSQL_ version to use. The choices are:
 
-    1. 16
-    2. 15
-    3. 14
-    4. 13
-    5. 12
+    1. 18
+    2. 17
+    3. 16
+    4. 15
+    5. 14
 
 cloud_provider:
     Select a cloud provider for static & media files. The choices are:
@@ -95,11 +95,15 @@ mail_service:
     8. SparkPost_
     9. `Other SMTP`_
 
+rest_api:
+    Select a REST API framework to use. The choices are:
+
+    1. None
+    2. `Django Rest Framework`_
+    3. `Django Ninja`_
+
 use_async:
     Indicates whether the project should use web sockets with Uvicorn + Gunicorn.
-
-use_drf:
-    Indicates whether the project should be configured to use `Django Rest Framework`_.
 
 frontend_pipeline:
     Select a pipeline to compile and optimise frontend assets (JS, CSS, ...):
@@ -137,10 +141,7 @@ ci_tool:
     5. `Drone CI`_
 
 keep_local_envs_in_vcs:
-    Indicates whether the project's ``.envs/.local/`` should be kept in VCS
-    (comes in handy when working in teams where local environment reproducibility
-    is strongly encouraged).
-    Note: .env(s) are only utilized when Docker Compose and/or Heroku support is enabled.
+    Indicates whether the project’s .envs/.local/ should be kept in VCS (comes in handy when working in teams where local environment reproducibility is strongly encouraged).
 
 debug:
     Indicates whether the project should be configured for debugging.
@@ -150,7 +151,7 @@ debug:
 .. _MIT: https://opensource.org/licenses/MIT
 .. _BSD: https://opensource.org/licenses/BSD-3-Clause
 .. _GPLv3: https://www.gnu.org/licenses/gpl.html
-.. _Apache Software License 2.0: http://www.apache.org/licenses/LICENSE-2.0
+.. _Apache Software License 2.0: https://www.apache.org/licenses/LICENSE-2.0
 
 .. _PyCharm: https://www.jetbrains.com/pycharm/
 .. _VS Code: https://github.com/microsoft/vscode
@@ -179,6 +180,7 @@ debug:
 .. _Other SMTP: https://anymail.readthedocs.io/en/stable/
 
 .. _Django Rest Framework: https://github.com/encode/django-rest-framework/
+.. _Django Ninja: https://github.com/vitalik/django-ninja
 
 .. _Django Compressor: https://github.com/django-compressor/django-compressor
 

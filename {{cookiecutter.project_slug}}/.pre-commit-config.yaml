@@ -1,12 +1,13 @@
 exclude: '^docs/|/migrations/|devcontainer.json'
 default_stages: [pre-commit]
+minimum_pre_commit_version: "3.2.0"
 
 default_language_version:
-  python: python3.12
+  python: python3.14
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -17,6 +18,7 @@ repos:
       - id: debug-statements
       - id: check-builtin-literals
       - id: check-case-conflict
+      - id: check-merge-conflict
       - id: check-docstring-first
       - id: detect-private-key
 
@@ -28,23 +30,28 @@ repos:
         exclude: '{{cookiecutter.project_slug}}/templates/'
 
   - repo: https://github.com/adamchainz/django-upgrade
-    rev: '1.22.1'
+    rev: '1.31.1'
     hooks:
       - id: django-upgrade
-        args: ['--target-version', '5.0']
+        args: ['--target-version', '6.0']
 
   # Run the Ruff linter.
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.8.0
+    rev: v0.16.0
     hooks:
       # Linter
-      - id: ruff
+      - id: ruff-check
         args: [--fix, --exit-non-zero-on-fix]
       # Formatter
       - id: ruff-format
 
-  - repo: https://github.com/Riverside-Healthcare/djLint
-    rev: v1.36.1
+  - repo: https://github.com/tox-dev/pyproject-fmt
+    rev: v2.25.3
+    hooks:
+      - id: pyproject-fmt
+
+  - repo: https://github.com/djlint/djLint
+    rev: v1.42.3
     hooks:
       - id: djlint-reformat-django
       - id: djlint-django

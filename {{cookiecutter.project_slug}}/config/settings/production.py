@@ -17,7 +17,7 @@ from .base import *  # noqa: F403
 from .base import DATABASES
 from .base import INSTALLED_APPS
 from .base import REDIS_URL
-{%- if cookiecutter.use_drf == "y" %}
+{%- if cookiecutter.rest_api == 'DRF' %}
 from .base import SPECTACULAR_SETTINGS
 {%- endif %}
 from .base import env
@@ -205,6 +205,7 @@ STATIC_URL = f"https://storage.googleapis.com/{GS_BUCKET_NAME}/static/"
 {%- elif cookiecutter.cloud_provider == 'Azure' %}
 MEDIA_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/media/"
 {%- if cookiecutter.use_whitenoise == 'n' %}
+COLLECTFASTA_STRATEGY = "collectfasta.strategies.azure.AzureBlobStrategy"
 STATIC_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/static/"
 {%- endif %}
 {%- endif %}
@@ -324,7 +325,7 @@ COMPRESS_FILTERS = {
     "js": ["compressor.filters.jsmin.JSMinFilter"],
 }
 {% endif %}
-{%- if cookiecutter.use_whitenoise == 'n' and cookiecutter.cloud_provider in ('AWS', 'GCP') -%}
+{%- if cookiecutter.use_whitenoise == 'n' and cookiecutter.cloud_provider in ('AWS', 'GCP', 'Azure') -%}
 # Collectfasta
 # ------------------------------------------------------------------------------
 # https://github.com/jasongi/collectfasta#installation
@@ -435,7 +436,7 @@ sentry_sdk.init(
     traces_sample_rate=env.float("SENTRY_TRACES_SAMPLE_RATE", default=0.0),
 )
 {% endif %}
-{% if cookiecutter.use_drf == "y" -%}
+{% if cookiecutter.rest_api == 'DRF' -%}
 
 # django-rest-framework
 # -------------------------------------------------------------------------------
