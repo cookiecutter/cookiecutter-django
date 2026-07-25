@@ -61,8 +61,8 @@ jobs:
       {%- endif %}
       POSTGRES_USER: 'postgres'
       POSTGRES_PASSWORD: 'postgres'
+      POSTGRES_HOST: 'localhost'
       POSTGRES_DB: 'postgres'
-      POSTGRES_HOST: 'postgres'
 
     {%- endif %}
 
