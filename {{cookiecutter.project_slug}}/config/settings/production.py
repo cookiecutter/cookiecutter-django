@@ -141,8 +141,6 @@ STORAGES = {
         "BACKEND": "storages.backends.s3.S3Storage",
         "OPTIONS": {
             "location": "static",
-            # New S3 buckets have ACLs disabled, so objects must not be written
-            # with an ACL. Grant public read access via a bucket policy instead.
         },
     },
     {%- endif %}
