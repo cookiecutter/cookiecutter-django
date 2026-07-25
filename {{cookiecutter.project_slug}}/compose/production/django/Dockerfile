@@ -122,7 +122,8 @@ ENV PATH="/app/.venv/bin:$PATH"
 
 USER django
 
-RUN DJANGO_SETTINGS_MODULE="config.settings.test" \
+RUN DATABASE_URL="postgres://dummy" \
+  DJANGO_SETTINGS_MODULE="config.settings.test" \
   python manage.py compilemessages
 
 ENTRYPOINT ["/entrypoint"]
