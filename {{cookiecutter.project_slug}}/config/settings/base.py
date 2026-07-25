@@ -48,7 +48,7 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-if (db_url := env.db("DATABASE_URL", default=None)) is not None:
+if db_url := env.db("DATABASE_URL", default=None):
     DATABASES = {"default": db_url}
 else:
     DATABASES = {
