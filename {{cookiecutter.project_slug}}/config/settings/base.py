@@ -1,5 +1,6 @@
 # ruff: noqa: ERA001, E501
 """Base settings to build other settings files upon."""
+import os
 {% if cookiecutter.use_celery == 'y' %}
 import ssl
 {%- endif %}
@@ -48,8 +49,8 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-if db_url := env.db("DATABASE_URL", default=None):
-    DATABASES = {"default": db_url}
+if os.getenv("DATABASE_URL", default=None):
+    DATABASES = {"default": env.db("DATABASE_URL")}
 else:
     DATABASES = {
         "default": {
