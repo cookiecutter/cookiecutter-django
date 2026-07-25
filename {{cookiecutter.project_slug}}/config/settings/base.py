@@ -1,7 +1,7 @@
 # ruff: noqa: ERA001, E501
 """Base settings to build other settings files upon."""
 import os
-{% if cookiecutter.use_celery == 'y' %}
+{%- if cookiecutter.use_celery == 'y' %}
 import ssl
 {%- endif %}
 from pathlib import Path
