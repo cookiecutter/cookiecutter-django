@@ -1,6 +1,6 @@
 [project]
 name = "cookiecutter-django"
-version = "2026.07.09"
+version = "2026.07.24"
 description = "A Cookiecutter template for creating production-ready Django projects quickly."
 readme = "README.md"
 keywords = [
@@ -32,10 +32,10 @@ dependencies = [
   "binaryornot==0.6.0",
   "cookiecutter==2.7.1",
   "django-upgrade==1.31.1",
-  "djlint==1.40.4",
-  "gitpython==3.1.50",
+  "djlint==1.42.3",
+  "gitpython==3.1.55",
   "jinja2==3.1.6",
-  "pre-commit==4.6.0",
+  "pre-commit==4.6.1",
   "pygithub==2.9.1",
   "pytest==9.1.1",
   "pytest-cookies==0.7",
@@ -43,9 +43,9 @@ dependencies = [
   "pytest-xdist==3.8.0",
   "pyyaml==6.0.3",
   "requests==2.34.2",
-  "ruff==0.15.20",
+  "ruff==0.16.0",
   "sh==2.3.0; sys_platform!='win23'",
-  "tox==4.56.4",
+  "tox==4.58.0",
   "tox-uv>=1.17",
 ]
 urls = { Repository = "https://github.com/cookiecutter/cookiecutter-django" }
@@ -68,6 +68,7 @@ blank_line_after_tag = "load,extends"
 close_void_tags = true
 format_css = true
 format_js = true
+custom_blocks = "slot"
 ignore_blocks = "raw"
 # TODO: remove T002 when fixed https://github.com/Riverside-Healthcare/djLint/issues/687
 ignore = "H006,H030,H031,T002,T028"

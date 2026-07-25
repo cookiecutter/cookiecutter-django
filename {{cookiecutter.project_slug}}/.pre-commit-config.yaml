@@ -37,7 +37,7 @@ repos:
 
   # Run the Ruff linter.
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.20
+    rev: v0.16.0
     hooks:
       # Linter
       - id: ruff-check
@@ -46,12 +46,12 @@ repos:
       - id: ruff-format
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: v2.25.1
+    rev: v2.25.3
     hooks:
       - id: pyproject-fmt
 
   - repo: https://github.com/djlint/djLint
-    rev: v1.40.4
+    rev: v1.42.3
     hooks:
       - id: djlint-reformat-django
       - id: djlint-django

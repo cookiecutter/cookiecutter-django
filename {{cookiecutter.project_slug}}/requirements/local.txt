@@ -11,8 +11,8 @@ watchfiles==1.2.0  # https://github.com/samuelcolvin/watchfiles
 
 # Testing
 # ------------------------------------------------------------------------------
-mypy==2.1.0  # https://github.com/python/mypy
-django-stubs[compatible-mypy]==6.0.6  # https://github.com/typeddjango/django-stubs
+mypy==2.3.0  # https://github.com/python/mypy
+django-stubs[compatible-mypy]==6.0.7  # https://github.com/typeddjango/django-stubs
 pytest==9.1.1  # https://github.com/pytest-dev/pytest
 pytest-sugar==1.1.1  # https://github.com/Teemu/pytest-sugar
 {%- if cookiecutter.rest_api == 'DRF' %}
@@ -26,11 +26,11 @@ sphinx-autobuild==2025.8.25 # https://github.com/GaretJax/sphinx-autobuild
 
 # Code quality
 # ------------------------------------------------------------------------------
-ruff==0.15.20  # https://github.com/astral-sh/ruff
-coverage==7.15.0  # https://github.com/nedbat/coveragepy
+ruff==0.16.0  # https://github.com/astral-sh/ruff
+coverage==7.15.2  # https://github.com/nedbat/coveragepy
 django-upgrade==1.31.1  # https://github.com/adamchainz/django-upgrade
-djlint==1.40.4  # https://github.com/djlint/djLint
-pre-commit==4.6.0  # https://github.com/pre-commit/pre-commit
+djlint==1.42.3  # https://github.com/djlint/djLint
+pre-commit==4.6.1  # https://github.com/pre-commit/pre-commit
 
 # Django
 # ------------------------------------------------------------------------------
