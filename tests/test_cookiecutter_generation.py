@@ -256,6 +256,7 @@ def test_djlint_lint_passes(cookies, context_override):
             _cwd=str(result.project_path),
         )
     except sh.ErrorReturnCode as e:
+        print((result.project_path / "my_awesome_project/templates/base.html").read_text())
         pytest.fail(e.stdout.decode())
 
 
