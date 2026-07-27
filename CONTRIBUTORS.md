@@ -2330,6 +2330,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Tem Revil</td>
+    <td>
+      <a href="https://github.com/TemRevil">TemRevil</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Tharushan</td>
     <td>
       <a href="https://github.com/Tharushan">Tharushan</a>
