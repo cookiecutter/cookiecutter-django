@@ -55,6 +55,11 @@ Run these commands to deploy the project to Heroku:
 Notes
 -----
 
+Static & Media Files
+++++++++++++++++++++
+
+Setting the credentials above is not enough on its own: the bucket also needs to allow public reads of the ``static`` prefix, otherwise your static files will return a ``403``. See :ref:`cloud-storage`.
+
 Email Service
 +++++++++++++
 

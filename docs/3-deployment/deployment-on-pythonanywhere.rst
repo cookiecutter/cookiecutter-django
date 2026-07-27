@@ -74,6 +74,8 @@ Add these env variables:
 
 .. note:: The AWS details are not required if you're using whitenoise or the built-in PythonAnywhere static files service, but you do need to set them to blank, as above.
 
+.. note:: If you are using S3, the bucket also needs to allow public reads of the ``static`` prefix, otherwise your static files will return a ``403``. See :ref:`cloud-storage`.
+
 
 Database setup
 --------------
