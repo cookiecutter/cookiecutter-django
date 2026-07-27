@@ -95,8 +95,10 @@ jobs:
 
     env:
       REDIS_URL: "redis://localhost:6379/0"
-      # postgres://user:password@host:port/database
-      DATABASE_URL: "postgres://postgres:postgres@localhost:5432/postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_HOST: "localhost"
+      POSTGRES_DB: "postgres"
 
     steps:
       - uses: actions/checkout@v7

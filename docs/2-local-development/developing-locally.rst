@@ -44,7 +44,9 @@ Make sure to have the following on your host:
 
 #. Set the environment variables for your database(s): ::
 
-    export DATABASE_URL=postgres://postgres:<password>@127.0.0.1:5432/<DB name given to createdb>
+    export POSTGRES_USER=postgres
+    export POSTGRES_PASSWORD=
+    export POSTGRES_DB=<DB name given to createdb>
 
    .. note::
 
