@@ -44,7 +44,7 @@ dependencies = [
   "pyyaml==6.0.3",
   "requests==2.34.2",
   "ruff==0.16.0",
-  "sh==2.3.0; sys_platform!='win23'",
+  "sh==2.4.0; sys_platform!='win23'",
   "tox==4.58.0",
   "tox-uv>=1.17",
 ]
