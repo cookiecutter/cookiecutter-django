@@ -15,6 +15,9 @@ classifiers = [
 dependencies = [
   {# set the an initial indentation for uv to follow #}
   "django",
+  {%- if cookiecutter.use_django_import_export == 'y' %}
+  "django-import-export",
+  {%- endif %}
 ]
 
 [dependency-groups]

@@ -3,6 +3,9 @@ from django.conf import settings
 from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
 from django.utils.translation import gettext_lazy as _
+{%- if cookiecutter.use_django_import_export == 'y' %}
+from {{ cookiecutter.project_slug }}.contrib.import_export.admin import FKContextImportExportModelAdmin
+{%- endif %}
 
 from .forms import UserAdminChangeForm
 from .forms import UserAdminCreationForm
@@ -16,7 +19,11 @@ if settings.DJANGO_ADMIN_FORCE_ALLAUTH:
 
 
 @admin.register(User)
+{%- if cookiecutter.use_django_import_export == 'y' %}
+class UserAdmin(FKContextImportExportModelAdmin, auth_admin.UserAdmin):
+{%- else %}
 class UserAdmin(auth_admin.UserAdmin):
+{%- endif %}
     form = UserAdminChangeForm
     add_form = UserAdminCreationForm
     fieldsets = (
