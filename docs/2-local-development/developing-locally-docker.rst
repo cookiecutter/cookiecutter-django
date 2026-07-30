@@ -236,7 +236,7 @@ When developing locally you can go with `Mailtrap Local`_ for email testing prov
 
 #. open up ``http://127.0.0.1:3550``.
 
-.. _`Mailtrap Local`: https://github.com/mailtrap/mailtrap-local/
+.. _Mailtrap Local: https://github.com/mailtrap/mailtrap-local/
 
 .. _`CeleryTasks`:
 
