@@ -2414,6 +2414,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Toms Sokolovs</td>
+    <td>
+      <a href="https://github.com/tsokolovs">tsokolovs</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Tosinibikunle</td>
     <td>
       <a href="https://github.com/Tosinibikunle">Tosinibikunle</a>
