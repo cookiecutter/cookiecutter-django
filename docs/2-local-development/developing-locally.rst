@@ -146,14 +146,14 @@ Setup Email Backend
 Mail catcher
 ~~~~~~~~~~~~
 
+During local development it is useful to see the emails your project sends instead of delivering them for real. For instance, one of the packages we depend upon, ``django-allauth`` sends verification emails to new users signing up as well as to the existing ones who have not yet verified themselves. A mail catcher is a local SMTP server that accepts those emails and shows them in a web interface.
+
 Mailpit
 """""""
 
 .. note:: In order for the project to support Mailpit_ it must have been bootstrapped with ``mail_catcher`` set to ``Mailpit``.
 
-Mailpit is used to receive emails during development, it is written in Go and has no external dependencies.
-
-For instance, one of the packages we depend upon, ``django-allauth`` sends verification emails to new users signing up as well as to the existing ones who have not yet verified themselves.
+Mailpit is written in Go and has no external dependencies.
 
 #. `Download the latest Mailpit release`_ for your OS.
 
@@ -178,9 +178,7 @@ Mailtrap Local
 
 .. note:: In order for the project to support `Mailtrap Local`_ it must have been bootstrapped with ``mail_catcher`` set to ``Mailtrap Local``.
 
-Mailtrap Local is a Mailpit-compatible local SMTP catcher used to receive emails during development. It is a single self-contained Go binary with no external dependencies and is distributed under the MIT license.
-
-For instance, one of the packages we depend upon, ``django-allauth`` sends verification emails to new users signing up as well as to the existing ones who have not yet verified themselves.
+Mailtrap Local is a single self-contained Go binary with no external dependencies and is distributed under the MIT license.
 
 #. `Download the latest Mailtrap Local release`_ for your OS.
 
