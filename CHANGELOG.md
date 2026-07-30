@@ -3,6 +3,21 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.07.29
+
+
+### Updated
+
+- Update pyproject-fmt from v2.25.4 to v2.26.0 ([#6765](https://github.com/cookiecutter/cookiecutter-django/pull/6765))
+
+- Update django-crispy-forms to 2.7 ([#6769](https://github.com/cookiecutter/cookiecutter-django/pull/6769))
+
+- Update uvicorn to 0.52.0 ([#6768](https://github.com/cookiecutter/cookiecutter-django/pull/6768))
+
+- Update djangorestframework-stubs to 3.17.1 ([#6767](https://github.com/cookiecutter/cookiecutter-django/pull/6767))
+
+- Update djlint to 1.43.1 ([#6766](https://github.com/cookiecutter/cookiecutter-django/pull/6766))
+
 ## 2026.07.27
 
 
