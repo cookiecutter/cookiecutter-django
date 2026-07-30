@@ -118,8 +118,12 @@ Both Gulp and Webpack support Bootstrap recompilation with real-time variables a
 use_celery:
     Indicates whether the project should be configured to use Celery_.
 
-use_mailpit:
-    Indicates whether the project should be configured to use Mailpit_.
+mail_catcher:
+    Select a local email catcher to receive emails during development. The choices are:
+
+    1. None
+    2. Mailpit_
+    3. `Mailtrap Local`_
 
 use_sentry:
     Indicates whether the project should be configured to use Sentry_.
@@ -187,6 +191,8 @@ debug:
 .. _Celery: https://github.com/celery/celery
 
 .. _Mailpit: https://github.com/axllent/mailpit
+
+.. _Mailtrap Local: https://github.com/mailtrap/mailtrap-local
 
 .. _Sentry: https://github.com/getsentry/sentry
 
