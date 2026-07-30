@@ -146,7 +146,7 @@ Setup Email Backend
 Mail catcher
 ~~~~~~~~~~~~
 
-During local development it is useful to see the emails your project sends instead of delivering them for real. For instance, one of the packages we depend upon, ``django-allauth`` sends verification emails to new users signing up as well as to the existing ones who have not yet verified themselves. A mail catcher is a local SMTP server that accepts those emails and shows them in a web interface.
+During local development it is useful to see the emails your project sends instead of delivering them for real. A mail catcher is a local SMTP server that accepts those emails and shows them in a web interface. For instance, one of the packages we depend upon, ``django-allauth``, sends verification emails to new users signing up as well as to the existing ones who have not yet verified themselves.
 
 Mailpit
 """""""
