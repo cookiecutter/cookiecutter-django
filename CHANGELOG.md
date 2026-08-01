@@ -3,6 +3,21 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.07.31
+
+
+### Fixed
+
+- Fix uv lock file Python requirement ([#6773](https://github.com/cookiecutter/cookiecutter-django/pull/6773))
+
+### Updated
+
+- Update django-anymail to 15.1 ([#6772](https://github.com/cookiecutter/cookiecutter-django/pull/6772))
+
+- Update ruff to 0.16.1 ([#6771](https://github.com/cookiecutter/cookiecutter-django/pull/6771))
+
+- Update redis to 8.1.0 ([#6770](https://github.com/cookiecutter/cookiecutter-django/pull/6770))
+
 ## 2026.07.30
 
 
