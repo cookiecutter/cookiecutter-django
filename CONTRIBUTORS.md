@@ -2407,6 +2407,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Tom Couch</td>
+    <td>
+      <a href="https://github.com/tcouch">tcouch</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Tom Offermann</td>
     <td>
       <a href="https://github.com/"></a>
