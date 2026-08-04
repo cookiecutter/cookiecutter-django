@@ -26,7 +26,7 @@ dev = [
 # ==== djLint ====
 [tool.djlint]
 blank_line_after_tag = "load,extends"
-custom_blocks = "slot"
+custom_blocks = "element,slot"
 close_void_tags = true
 format_css = true
 format_js = true

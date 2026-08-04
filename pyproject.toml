@@ -68,7 +68,7 @@ blank_line_after_tag = "load,extends"
 close_void_tags = true
 format_css = true
 format_js = true
-custom_blocks = "slot"
+custom_blocks = "element,slot"
 ignore_blocks = "raw"
 # TODO: remove T002 when fixed https://github.com/Riverside-Healthcare/djLint/issues/687
 ignore = "H006,H030,H031,T002,T028"
