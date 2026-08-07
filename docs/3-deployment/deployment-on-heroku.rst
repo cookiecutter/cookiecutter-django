@@ -110,10 +110,10 @@ Or add the DSN for your account, if you already have one:
 .. _Sentry add-on: https://elements.heroku.com/addons/sentry
 
 
-Gulp or Webpack
-+++++++++++++++
+Gulp, Webpack or Vite
++++++++++++++++++++++
 
-If you've opted for Gulp or Webpack as frontend pipeline, you'll most likely need to setup
+If you've opted for Gulp, Webpack or Vite as frontend pipeline, you'll most likely need to setup
 your app to use `multiple buildpacks`_: one for Python & one for Node.js:
 
 .. code-block:: bash

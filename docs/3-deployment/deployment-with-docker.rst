@@ -88,10 +88,10 @@ You can read more about this feature and how to configure it, at `Automatic HTTP
 
 .. _webpack-whitenoise-limitation:
 
-Webpack without Whitenoise limitation
--------------------------------------
+Webpack or Vite without Whitenoise limitation
+---------------------------------------------
 
-If you opt for Webpack without Whitenoise, Webpack needs to know the static URL at build time, when running ``docker compose build`` (See ``webpack/prod.config.js``). Depending on your setup, this URL may come from the following environment variables:
+If you opt for Webpack or Vite without Whitenoise, the bundler needs to know the static URL at build time, when running ``docker compose build`` (See ``webpack/prod.config.js`` or ``vite.config.mjs``). Depending on your setup, this URL may come from the following environment variables:
 
 - ``AWS_STORAGE_BUCKET_NAME``
 - ``DJANGO_AWS_S3_CUSTOM_DOMAIN``

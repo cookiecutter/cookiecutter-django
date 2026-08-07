@@ -116,7 +116,7 @@ services:
     command: /start-flower
 
   {%- endif %}
-  {%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
+  {%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack', 'Vite'] %}
 
   node:
     build:
@@ -132,10 +132,15 @@ services:
       - /app/node_modules
     command: npm run dev
     ports:
+      {%- if cookiecutter.frontend_pipeline == 'Vite' %}
+      # The browser loads the assets from the ViteJS dev server directly
+      - '5173:5173'
+      {%- else %}
       - '3000:3000'
       {%- if cookiecutter.frontend_pipeline == 'Gulp' %}
       # Expose browsersync UI: https://www.browsersync.io/docs/options/#option-ui
       - '3001:3001'
+      {%- endif %}
       {%- endif %}
 
   {%- endif %}
