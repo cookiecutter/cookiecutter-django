@@ -37,7 +37,7 @@ Configuring the Stack
 
 The majority of services above are configured through the use of environment variables. Just check out :ref:`envs` and you will know the drill.
 
-If you generated the project with a cloud provider, the bucket holding your static files needs to allow public reads of the ``static`` prefix, otherwise your static files will return a ``403``. See :ref:`cloud-storage`.
+If you generated the project with a cloud provider, the bucket holding your static files needs to allow public reads of the ``static`` prefix, otherwise your static files will return a ``403``. See :ref:`cloud-storage`. It may also need a CORS configuration, if you picked Vite as your frontend pipeline or your styles pull in web fonts: see :ref:`cloud-storage-cors`.
 
 To obtain logs and information about crashes in a production setup, make sure that you have access to an external Sentry instance (e.g. by creating an account with `sentry.io`_), and set the ``SENTRY_DSN`` variable. Logs of level `logging.ERROR` are sent as Sentry events. Therefore, in order to send a Sentry event use:
 

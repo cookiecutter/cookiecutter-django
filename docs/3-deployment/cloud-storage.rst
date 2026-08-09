@@ -99,6 +99,73 @@ Azure has no per-blob ACL to set; anonymous access is granted at the container l
 
 .. _stored access policy: https://learn.microsoft.com/en-us/rest/api/storageservices/define-stored-access-policy
 
+.. _cloud-storage-cors:
+
+Allowing cross-origin requests
+------------------------------
+
+Public reads are enough for most files, but a few kinds of asset are fetched by the browser in *CORS mode*, and those also need the bucket to answer with an ``Access-Control-Allow-Origin`` header. A bucket has no CORS configuration until you add one, so it sends no such header, the browser discards the response, and the asset silently fails to apply.
+
+You need a CORS configuration if your project serves any of:
+
+- **ES module scripts**, which is how ``{% vite_asset %}`` renders bundles if you picked Vite as your frontend pipeline. The page renders, but no JavaScript runs and the console reports ``CORS Missing Allowed Origin``.
+- **Web fonts** referenced from ``url()`` inside a stylesheet, whichever frontend pipeline you picked.
+- Anything you load with an explicit ``crossorigin`` attribute or a `Subresource Integrity`_ hash.
+
+Substitute your own bucket name and the origin your site is served from:
+
+.. code-block:: bash
+
+    BUCKET=your-bucket-name
+    ORIGIN=https://example.com
+
+    cat > /tmp/cors.json <<EOF
+    {
+      "CORSRules": [
+        {
+          "AllowedMethods": ["GET", "HEAD"],
+          "AllowedOrigins": ["$ORIGIN"],
+          "AllowedHeaders": ["*"],
+          "MaxAgeSeconds": 3600
+        }
+      ]
+    }
+    EOF
+
+    aws s3api put-bucket-cors --bucket $BUCKET --cors-configuration file:///tmp/cors.json
+
+On Google Cloud Storage:
+
+.. code-block:: bash
+
+    cat > /tmp/cors.json <<EOF
+    [
+      {
+        "origin": ["$ORIGIN"],
+        "method": ["GET", "HEAD"],
+        "responseHeader": ["Content-Type"],
+        "maxAgeSeconds": 3600
+      }
+    ]
+    EOF
+
+    gcloud storage buckets update gs://$BUCKET --cors-file=/tmp/cors.json
+
+On Azure Storage, CORS is set per storage account rather than per container:
+
+.. code-block:: bash
+
+    az storage cors add --services b --methods GET HEAD \
+        --origins $ORIGIN --allowed-headers '*' --max-age 3600 \
+        --account-name your-account-name
+
+To confirm a real asset now answers correctly, ask for it with an ``Origin`` header::
+
+    curl -sSI -H "Origin: $ORIGIN" https://$BUCKET.s3.amazonaws.com/static/<some-asset> \
+        | grep -i access-control-allow-origin
+
+.. _Subresource Integrity: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
+
 Keeping media private
 ---------------------
 

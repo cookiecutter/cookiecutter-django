@@ -60,6 +60,8 @@ Static & Media Files
 
 Setting the credentials above is not enough on its own: the bucket also needs to allow public reads of the ``static`` prefix, otherwise your static files will return a ``403``. See :ref:`cloud-storage`.
 
+If you picked Vite as your frontend pipeline, or your styles pull in web fonts, the bucket needs a CORS configuration on top of that, or the browser will refuse the assets even though they return a ``200``. See :ref:`cloud-storage-cors`.
+
 Email Service
 +++++++++++++
 

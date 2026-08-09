@@ -55,6 +55,17 @@ Your bucket does not allow public reads of the ``static`` prefix. The storages d
 
 The same page applies if you are upgrading an older project and ``collectstatic`` fails with ``AccessControlListNotSupported`` (S3) or ``Cannot insert legacy ACL for an object when uniform bucket-level access is enabled`` (GCP): drop the ``default_acl`` option from your ``STORAGES`` setting, then configure the bucket as described there.
 
+No JavaScript runs in production, with a CORS error in the console
+------------------------------------------------------------------
+
+Example::
+
+    CORS Missing Allowed Origin
+
+The bundles return ``200``, they open fine in a browser tab, and the stylesheet from the same directory loads without complaint, only the scripts fail.
+
+Your bucket has no CORS configuration. If you picked Vite as your frontend pipeline, the bundles are ES modules, and those are always fetched in CORS mode, so the browser requires an ``Access-Control-Allow-Origin`` header that a fresh bucket does not send. Web fonts are subject to the same rule on every frontend pipeline. See :ref:`cloud-storage-cors`.
+
 Others
 ------
 
