@@ -122,7 +122,7 @@ python_files = [
   "tests.py",
   "test_*.py",
 ]
-{%- if cookiecutter.frontend_pipeline in ['Gulp', 'Vite'] %}
+{%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack', 'Vite'] %}
 norecursedirs = [ "node_modules" ]
 {%- endif %}
 
