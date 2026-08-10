@@ -3,6 +3,21 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.8.9
+
+
+### Updated
+
+- Update ruff to 0.16.2 ([#6794](https://github.com/cookiecutter/cookiecutter-django/pull/6794))
+
+- Update djangorestframework to 3.18.0 ([#6793](https://github.com/cookiecutter/cookiecutter-django/pull/6793))
+
+- Update django-stubs to 6.0.9 ([#6792](https://github.com/cookiecutter/cookiecutter-django/pull/6792))
+
+- Update hiredis to 3.4.1 ([#6791](https://github.com/cookiecutter/cookiecutter-django/pull/6791))
+
+- Update djlint to 1.44.2 ([#6796](https://github.com/cookiecutter/cookiecutter-django/pull/6796))
+
 ## 2026.08.06
 
 
