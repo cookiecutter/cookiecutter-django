@@ -11,6 +11,14 @@ accept and merge pull requests.
     <th>Github</th>
     <th>Twitter</th>
   </tr>
+   <tr>
+    <td>Ankit Poudyal</td>
+    <td>
+      <a href="https://github.com/0Ankit0">0Ankit0</a>
+    </td>
+    <td>-</td>
+  </tr>
+  <tr>
   <tr>
     <td>Daniel Roy Greenfeld</td>
     <td>
