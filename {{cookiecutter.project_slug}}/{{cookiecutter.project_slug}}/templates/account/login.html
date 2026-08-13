@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load account %}
+
+{% block title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-background">
+    <c-card class='w-[400px]'>
+        <c-card.header>
+            <c-card.title>{% trans "Sign In" %}</c-card.title>
+            <c-card.description>
+                {% if socialaccount %}
+                    {% trans "Please sign in with one of your existing third party accounts or sign in with your email address and password." %}
+                {% else %}
+                    {% trans "Please sign in with your email address and password." %}
+                {% endif %}
+            </c-card.description>
+        </c-card.header>
+
+        <form method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            <c-card.content class='space-y-4'>
+                {% if form.non_field_errors %}
+                    <c-alert variant="destructive">
+                        <c-alert.description>
+                            {{ form.non_field_errors }}
+                        </c-alert.description>
+                    </c-alert>
+                {% endif %}
+
+                <div class='space-y-2'>
+                    <c-label for="{{ form.login.id_for_label }}">
+                        {{ form.login.label }}
+                    </c-label>
+                    <c-input
+                        type="{{ form.login.field.widget.input_type }}"
+                        name="{{ form.login.name }}"
+                        id="{{ form.login.id_for_label }}"
+                        placeholder="Enter your email"
+                        value="{{ form.login.value|default:'' }}"
+                        {{ form.login.field.required|yesno:'required,' }}
+                        class="{{ form.login.errors|yesno:'border-destructive,' }}"
+                    />
+                    {% if form.login.errors %}
+                        <div class="text-destructive text-xs">
+                            {{ form.login.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class='space-y-2'>
+                    <c-label for="{{ form.password.id_for_label }}">
+                        {{ form.password.label }}
+                    </c-label>
+                    <c-input
+                        type="password"
+                        name="{{ form.password.name }}"
+                        id="{{ form.password.id_for_label }}"
+                        placeholder="Enter your password"
+                        {{ form.password.field.required|yesno:'required,' }}
+                        class="{{ form.password.errors|yesno:'border-destructive,' }}"
+                    />
+                    {% if form.password.errors %}
+                        <div class="text-destructive text-xs">
+                            {{ form.password.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                {% if form.remember %}
+                    <div class="flex items-center space-x-2">
+                        <c-checkbox
+                            name="{{ form.remember.name }}"
+                            id="{{ form.remember.id_for_label }}"
+                            {{ form.remember.value|yesno:'checked,' }}
+                        />
+                        <c-label for="{{ form.remember.id_for_label }}" class="text-sm font-normal">
+                            {{ form.remember.label }}
+                        </c-label>
+                    </div>
+                {% endif %}
+            </c-card.content>
+
+            <c-card.footer class='flex flex-col space-y-3'>
+                <c-button type="submit" class="w-full">
+                    {% trans "Sign In" %}
+                </c-button>
+
+                <div class="text-center text-sm text-muted-foreground">
+                    <a href="{% url 'account_reset_password' %}" class="text-primary hover:underline">
+                        {% trans "Forgot Password?" %}
+                    </a>
+                </div>
+
+                <div class="text-center text-sm text-muted-foreground">
+                    {% trans "Don't have an account?" %}
+                    <a href="{% url 'account_signup' %}" class="text-primary hover:underline">
+                        {% trans "Sign up" %}
+                    </a>
+                </div>
+            </c-card.footer>
+        </form>
+    </c-card>
+</div>
+{% endblock %}

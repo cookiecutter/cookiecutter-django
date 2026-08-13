@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Confirm Email Address" %}{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-background">
+    <c-card class='w-[400px]'>
+        <c-card.header>
+            <c-card.title>{% trans "Confirm Email Address" %}</c-card.title>
+            <c-card.description>
+                {% if confirmation %}
+                    {% blocktrans with confirmation.email_address.email as email %}Please confirm that <strong>{{ email }}</strong> is your email address.{% endblocktrans %}
+                {% else %}
+                    {% trans "This email confirmation link has expired or is invalid." %}
+                {% endif %}
+            </c-card.description>
+        </c-card.header>
+
+        {% if confirmation %}
+            <form method="POST" action="{% url 'account_confirm_email' confirmation.key %}">
+                {% csrf_token %}
+                <c-card.footer class='flex flex-col space-y-3 pt-6'>
+                    <c-button type="submit" class="w-full">
+                        {% trans "Confirm" %}
+                    </c-button>
+                </c-card.footer>
+            </form>
+        {% else %}
+            <c-card.footer class='flex flex-col space-y-3 pt-6'>
+                <c-button onclick="window.location.href='{% url 'account_email' %}'" class="w-full">
+                    {% trans "Request New Confirmation" %}
+                </c-button>
+
+                <div class="text-center text-sm text-muted-foreground">
+                    <a href="{% url 'account_login' %}" class="text-primary hover:underline">
+                        {% trans "Back to Sign In" %}
+                    </a>
+                </div>
+            </c-card.footer>
+        {% endif %}
+    </c-card>
+</div>
+{% endblock %}

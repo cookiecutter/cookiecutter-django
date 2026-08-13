@@ -1,0 +1,61 @@
+<c-vars shortcut_key="k"></c-vars>
+
+<div
+  x-data="{
+    open: false,
+
+    toggleDialog() {
+      this.open = !this.open;
+      if (this.open) {
+        document.body.classList.add('overflow-hidden');
+        // Focus the input when dialog opens
+        this.$nextTick(() => {
+          this.$refs.dialogContent.querySelector('input')?.focus();
+        });
+      } else {
+        document.body.classList.remove('overflow-hidden');
+      }
+    }
+  }"
+  @keydown.window="if (event.key === '{{ shortcut_key }}' && (event.metaKey || event.ctrlKey)) {
+    event.preventDefault();
+    toggleDialog();
+  }"
+  {{ attrs }}
+>
+  <div @click="toggleDialog" class="{% if class %}{{ class }}{% endif %}">
+    {{ trigger_slot }}
+  </div>
+
+  <div
+    x-show="open"
+    x-transition:enter="ease-out duration-300"
+    x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-100"
+    x-transition:leave="ease-in duration-200"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0"
+    class="fixed inset-0 z-50 bg-background/80 backdrop-blur-xs"
+    @click="toggleDialog"
+    x-cloak
+  ></div>
+
+  <div
+    x-show="open"
+    x-transition:enter="ease-out duration-300"
+    x-transition:enter-start="opacity-0 scale-95"
+    x-transition:enter-end="opacity-100 scale-100"
+    x-transition:leave="ease-in duration-200"
+    x-transition:leave-start="opacity-100 scale-100"
+    x-transition:leave-end="opacity-0 scale-95"
+    class="fixed left-[50%] top-[50%] z-50 w-full max-w-lg translate-x-[-50%] translate-y-[-50%] border bg-background p-6 shadow-lg sm:rounded-lg md:w-full"
+    x-cloak
+    @click.away="toggleDialog"
+    @close-command="toggleDialog"
+    x-ref="dialogContent"
+  >
+    <c-command>
+      {{ slot }}
+    </c-command>
+  </div>
+</div>

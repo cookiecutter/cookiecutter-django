@@ -1,11 +1,20 @@
-{% raw %}{% extends "base.html" %}
+{% extends "base.html" %}
 
 {% block title %}Server Error{% endblock title %}
 {% block content %}
-  <h1>Ooops!!! 500</h1>
-  <h3>Looks like something went wrong!</h3>
-  <p>
-    We track these errors automatically, but if the problem persists feel free to contact us. In the meantime, try refreshing.
-  </p>
+  <div class="py-6">
+    <c-card class="mx-auto w-full max-w-2xl">
+      <c-card.header>
+        <c-card.title>Oops, server error (500)</c-card.title>
+        <c-card.description>
+          Looks like something went wrong. We track these errors automatically, but if the problem persists feel free to contact us.
+        </c-card.description>
+      </c-card.header>
+      <c-card.content>
+        <a href="{% url 'home' %}">
+          <c-button variant="outline">Back to home</c-button>
+        </a>
+      </c-card.content>
+    </c-card>
+  </div>
 {% endblock content %}
-{%- endraw %}

@@ -1,0 +1,31 @@
+<li
+    @click="$dispatch('close-dropdown'); open = false"
+    class="
+    {% if class %}
+        {{ class }}
+    {% endif %}
+    relative
+    flex
+    cursor-default
+    select-none
+    items-center
+    rounded-xs
+    gap-2
+    px-2
+    py-1.5
+    text-sm
+    outline-hidden
+    transition-colors
+    focus:bg-accent
+    focus:text-accent-foreground
+    hover:bg-accent
+    hover:text-accent-foreground
+    data-disabled:pointer-events-none
+    data-disabled:opacity-50
+    [&>svg]:size-4
+    [&>svg]:shrink-0
+    "
+    {{ attrs }}
+>
+  {{ slot }}
+</li>

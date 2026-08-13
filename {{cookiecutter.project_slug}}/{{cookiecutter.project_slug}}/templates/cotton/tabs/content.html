@@ -1,0 +1,13 @@
+<c-vars value></c-vars>
+<div
+  role="tabpanel"
+  x-show="activeTab === '{{ value }}'"
+  x-transition:enter="transition ease-out duration-200"
+  x-transition:enter-start="opacity-0"
+  x-transition:enter-end="opacity-100"
+  class="mt-2 ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 {% if class %}{{ class }}{% endif %}"
+  x-bind:data-state="activeTab === '{{ value }}' ? 'active' : 'inactive'"
+  {{ attrs }}
+>
+  {{ slot }}
+</div>

@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db.models import CharField
 {%- if cookiecutter.username_type == "email" %}
 from django.db.models import EmailField
+from django.db import models
 {%- endif %}
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
@@ -13,7 +14,60 @@ from django.utils.translation import gettext_lazy as _
 
 from .managers import UserManager
 {%- endif %}
+{%- if cookiecutter.use_tenants == 'y' %}
+from tenant_users.tenants.models import UserProfile
+{%- endif %}
 
+{%- if cookiecutter.use_tenants == 'y' %}
+class User(UserProfile):
+    """
+    Default custom user model for django-template.
+    If adding fields that need to be filled at user signup,
+    check forms.SignupForm and forms.SocialSignupForms accordingly.
+    """
+
+    name = CharField(_("Name of User"), blank=True, max_length=255)
+    avatar = models.ImageField(
+        upload_to="avatars/",
+        blank=True,
+        null=True,
+    )
+
+    avatar_thumbnail = ImageSpecField(
+        source="avatar",
+        processors=[
+            Transpose(),
+            ResizeToFill(200, 200),
+        ],
+        format="WEBP",
+        options={
+            "quality": 80,
+        },
+    )
+    bio = models.TextField(
+        blank=True,
+    )
+
+    timezone = models.CharField(
+        max_length=50,
+        default="UTC",
+    )
+
+    language = models.CharField(
+        max_length=10,
+        default="en",
+    )
+
+    def get_absolute_url(self) -> str:
+        """Get URL for user's detail view.
+
+        Returns:
+            str: URL for user detail.
+
+        """
+        return reverse("users:detail", kwargs={"pk": self.pk})
+
+{%- else %}
 
 class User(AbstractUser):
     """
@@ -48,3 +102,5 @@ class User(AbstractUser):
         {%- else %}
         return reverse("users:detail", kwargs={"username": self.username})
         {%- endif %}
+
+{%- endif %}

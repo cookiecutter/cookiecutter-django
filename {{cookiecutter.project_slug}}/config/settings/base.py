@@ -52,6 +52,18 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 if os.getenv("DATABASE_URL", default=None):
     DATABASES = {"default": env.db("DATABASE_URL")}
 else:
+    {%- if cookiecutter.use_tenants == 'y' %}
+    DATABASES = {
+        "default": {
+            "ENGINE": "django_tenants.postgresql_backend",
+            "NAME": env("POSTGRES_DB"),
+            "USER": env("POSTGRES_USER"),
+            "PASSWORD": env("POSTGRES_PASSWORD"),
+            "HOST": env("POSTGRES_HOST"),
+            "PORT": env("POSTGRES_PORT", default="5432"),
+        }
+    }
+    {%- endif %}
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
@@ -63,6 +75,11 @@ else:
         },
     }
 
+{%- if cookiecutter.use_tenants == 'y' %}
+DATABASES["default"]["ENGINE"] = "django_tenants.postgresql_backend"
+DATABASE_ROUTERS = ("django_tenants.routers.TenantSyncRouter",)
+{%- endif %}
+
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 # https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEFAULT_AUTO_FIELD
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -73,6 +90,15 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 ROOT_URLCONF = "config.urls"
 # https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
 WSGI_APPLICATION = "config.wsgi.application"
+
+{%- if cookiecutter.use_tenants == 'y' %}
+# TENANCY
+# ------------------------------------------------------------------------------
+TENANT_MODEL = "tenants.Tenant"
+TENANT_DOMAIN_MODEL = "tenants.Domain"
+TENANT_USERS_DOMAIN = env("DJANGO_TENANT_USERS_DOMAIN", default="localhost")
+PUBLIC_SCHEMA_URLCONF = "config.urls"
+{%- endif %}
 
 # APPS
 # ------------------------------------------------------------------------------
@@ -87,6 +113,77 @@ DJANGO_APPS = [
     "django.contrib.admin",
     "django.forms",
 ]
+{%- if cookiecutter.use_tenants == 'y' %}
+THIRD_PARTY_SHARED_APPS = [
+    "django_tenants",
+    "tenant_users.tenants",
+    "tenant_users.permissions",
+    
+    "django_tailwind_cli",
+    "django_cotton",
+    "crispy_forms",
+    "imagekit",
+    "crispy_bootstrap5",
+    "allauth",
+    "allauth.account",
+    "allauth.mfa",
+    "allauth.socialaccount",
+    "corsheaders",
+{%- if cookiecutter.use_celery == 'y' %}
+    "django_celery_beat",
+{%- endif %}
+]
+
+THIRD_PARTY_TENANT_APPS = [
+    "tenant_users.permissions",
+    "django_cotton",
+    "crispy_forms",
+    "crispy_bootstrap5",
+    {%- if cookiecutter.rest_api == 'DRF' %}
+    "rest_framework",
+    "rest_framework.authtoken",
+    "corsheaders",
+    "drf_spectacular",
+{%- elif cookiecutter.rest_api == 'Django Ninja' %}
+    "corsheaders",
+{%- endif %}
+{%- if cookiecutter.frontend_pipeline == 'Webpack' %}
+    "webpack_loader",
+{%- endif %}
+]
+
+LOCAL_SHARED_APPS = [
+    "django_template.tenants",
+    "django_template.users",
+    "django_template.controlroom_sentry",
+]
+
+LOCAL_TENANT_APPS: list[str] = []
+
+{%- endif %}
+
+{%- if cookiecutter.use_control_room == 'y' %}
+THIRD_PARTY_SHARED_APPS += [
+    "dj_control_room_base",
+    "dj_redis_panel",
+    "dj_cache_panel",
+    "dj_urls_panel",
+    "dj_celery_panel",
+    "dj_signals_panel",
+
+]
+{%- endif %}
+
+{%- if cookiecutter.use_tenants == 'y' %}
+SHARED_APPS = DJANGO_APPS + THIRD_PARTY_SHARED_APPS + LOCAL_SHARED_APPS
+TENANT_APPS = DJANGO_APPS + THIRD_PARTY_TENANT_APPS + LOCAL_TENANT_APPS
+
+# https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
+INSTALLED_APPS = SHARED_APPS + [
+    app for app in TENANT_APPS if app not in SHARED_APPS
+]
+{% else %}
+
 THIRD_PARTY_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
@@ -117,6 +214,8 @@ LOCAL_APPS = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
+{%- endif %}
+
 # MIGRATIONS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
@@ -126,7 +225,11 @@ MIGRATION_MODULES = {"sites": "{{ cookiecutter.project_slug }}.contrib.sites.mig
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#authentication-backends
 AUTHENTICATION_BACKENDS = [
+{%- if cookiecutter.use_tenants == 'y' %}
+    "tenant_users.permissions.backend.UserBackend",
+{%- else %}
     "django.contrib.auth.backends.ModelBackend",
+{%- endif %}
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
@@ -160,6 +263,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
 MIDDLEWARE = [
+{%- if cookiecutter.use_tenants == 'y' %}
+    "django_tenants.middleware.main.TenantMainMiddleware",
+{%- endif %}
     "django.middleware.security.SecurityMiddleware",
 {%- if cookiecutter.rest_api != 'None' %}
     "corsheaders.middleware.CorsMiddleware",
@@ -294,6 +400,21 @@ LOGGING = {
 
 REDIS_URL = env("REDIS_URL", default="redis://{% if cookiecutter.use_docker == 'y' %}redis{%else%}localhost{% endif %}:6379/0")
 REDIS_SSL = REDIS_URL.startswith("rediss://")
+
+{%- if cookiecutter.use_control_room == 'y' %}
+# Django Control Room
+# ------------------------------------------------------------------------------
+DJ_CONTROL_ROOM_SETTINGS = {
+    "REGISTER_PANELS_IN_ADMIN": env.bool("CR_REGISTER_PANELS", default=False),
+    "PANEL_ADMIN_REGISTRATION": {
+        "dj_redis_panel": env.bool("CR_REGISTER_REDIS_PANEL", default=False),
+        "dj_cache_panel": env.bool("CR_REGISTER_CACHE_PANEL", default=False),
+        "dj_urls_panel": env.bool("CR_REGISTER_URLS_PANEL", default=False),
+        "dj_celery_panel": env.bool("CR_REGISTER_CELERY_PANEL", default=False),
+        "controlroom_sentry": env.bool("CR_REGISTER_SENTRY_PANEL", default=False),
+    },
+}
+{%- endif %}
 
 {% if cookiecutter.use_celery == 'y' -%}
 # Celery

@@ -1,3 +1,23 @@
-{% raw %}{% extends "base.html" %}
+{% extends "base.html" %}
 
-{% endraw %}
+{% block title %}
+	About
+{% endblock title %}
+
+{% block content %}
+	<div class="py-6">
+		<c-card class="mx-auto w-full max-w-3xl">
+			<c-card.header>
+				<c-card.title>About This Template</c-card.title>
+				<c-card.description>Custom Django starter with multi-tenancy and reusable cotton components.</c-card.description>
+			</c-card.header>
+			<c-card.content class="space-y-3 text-sm text-muted-foreground">
+				<p>Authentication is tenant-aware via django-tenant-users.</p>
+				<p>UI composition uses cotton components generated from shadcn-django.</p>
+				<p>Tailwind styles are sourced from <span class="font-medium">input.css</span> and compiled to static output.</p>
+			</c-card.content>
+		</c-card>
+	</div>
+{% endblock content %}
+
+

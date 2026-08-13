@@ -5,6 +5,9 @@ from .base import MIDDLEWARE
 from .base import WEBPACK_LOADER
 {%- endif %}
 from .base import env
+{%- if cookiecutter.use_control_room == 'y' %}
+from urllib.parse import urlparse
+{%- endif %}
 
 # GENERAL
 # ------------------------------------------------------------------------------
@@ -115,6 +118,48 @@ if env("USE_DOCKER") == "yes":
 INSTALLED_APPS += ["django_extensions"]
 {% if cookiecutter.use_celery == 'y' -%}
 
+{%- if cookiecutter.use_control_room == 'y' %}
+# Django Control Room
+# ------------------------------------------------------------------------------
+DJ_CONTROL_ROOM_SETTINGS = {
+    **DJ_CONTROL_ROOM_SETTINGS,
+    "REGISTER_PANELS_IN_ADMIN": env.bool("CR_REGISTER_PANELS", default=True),
+    "PANEL_ADMIN_REGISTRATION": {
+        "dj_redis_panel": env.bool("CR_REGISTER_REDIS_PANEL", default=True),
+        "dj_cache_panel": env.bool("CR_REGISTER_CACHE_PANEL", default=True),
+        "dj_urls_panel": env.bool("CR_REGISTER_URLS_PANEL", default=True),
+        "dj_signals_panel": env.bool("CR_REGISTER_SIGNALS_PANEL", default=True),
+        "dj_celery_panel": env.bool("CR_REGISTER_CELERY_PANEL", default=True),
+        "controlroom_sentry": env.bool("CR_REGISTER_SENTRY_PANEL", default=True),
+    },
+}
+REDIS_URL = env.str("REDIS_URL", default="redis://redis:6379/0") 
+redis_url = urlparse(url=REDIS_URL) 
+DJ_REDIS_PANEL_SETTINGS = {
+     "ALLOW_KEY_DELETE": False, 
+     "ALLOW_KEY_EDIT": False, 
+     "ALLOW_TTL_UPDATE": False, 
+     "CURSOR_PAGINATED_SCAN": False, 
+     "CURSOR_PAGINATED_COLLECTIONS": False, 
+     "socket_timeout": 5.0, 
+     "socket_connect_timeout": 5.0, 
+     "INSTANCES": { 
+         "local_redis": { 
+             "description": "Local Redis Instance", 
+             "host": redis_url.hostname or "redis", 
+             "port": redis_url.port or 6379, 
+             "features": { 
+                 "ALLOW_KEY_DELETE": True, 
+                 "ALLOW_KEY_EDIT": True, 
+                 "ALLOW_TTL_UPDATE": True, 
+                 "CURSOR_PAGINATED_SCAN": True, 
+                 "CURSOR_PAGINATED_COLLECTIONS": True, 
+            }, 
+        }, 
+    }, 
+}
+{%- endif %}
+
 # Celery
 # ------------------------------------------------------------------------------
 {% if cookiecutter.use_docker == 'n' -%}
@@ -131,5 +176,16 @@ CELERY_TASK_EAGER_PROPAGATES = True
 WEBPACK_LOADER["DEFAULT"]["CACHE"] = not DEBUG
 
 {%- endif %}
+
+# Adding local file storage for development
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
+
 # Your stuff...
 # ------------------------------------------------------------------------------

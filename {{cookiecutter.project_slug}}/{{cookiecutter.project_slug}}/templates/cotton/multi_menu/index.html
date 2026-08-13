@@ -1,0 +1,10 @@
+<c-vars label="Menu"></c-vars>
+
+<c-dropdown_menu>
+  <c-dropdown_menu.trigger>
+    <c-button variant="outline" size="sm">{{ label }}</c-button>
+  </c-dropdown_menu.trigger>
+  <c-dropdown_menu.content class="w-64">
+    {{ slot }}
+  </c-dropdown_menu.content>
+</c-dropdown_menu>

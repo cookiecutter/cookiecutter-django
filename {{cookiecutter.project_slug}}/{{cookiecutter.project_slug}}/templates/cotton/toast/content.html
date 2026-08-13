@@ -1,0 +1,27 @@
+<c-vars type="default" title description></c-vars>
+
+<div class="
+    group pointer-events-auto relative flex w-full items-center justify-between space-x-2 overflow-hidden rounded-md border p-4 pr-6 shadow-lg transition-all
+
+    {% if type == 'default' %}border bg-background text-foreground
+    {% elif type == 'destructive' %}destructive group border-destructive bg-destructive text-destructive-foreground
+    {% endif %}
+    "
+    role="alert"
+>
+  <div class="flex flex-row w-full items-center space-x-6">
+    <div class="grid gap-1">
+        <p class="text-sm font-semibold [&+div]:text-xs">{{ title }}</p>
+        <p class="text-sm opacity-90 ">{{ description }}</p>
+        <button
+            @click="hide"
+            class="absolute right-1 top-1 rounded-md p-1 text-foreground/50 opacity-0 transition-opacity hover:text-foreground focus:opacity-100 focus:outline-hidden focus:ring-1 group-hover:opacity-100 group-[.destructive]:text-red-300 hover:group-[.destructive]:text-red-50 focus:group-[.destructive]:ring-red-400 focus:group-[.destructive]:ring-offset-red-600"
+        >
+        <svg alt="Close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-4">
+        <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
+        </svg>
+        </button>
+    </div>
+    {{ slot }}
+  </div>
+</div>

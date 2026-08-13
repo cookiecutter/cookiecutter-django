@@ -1,0 +1,20 @@
+<c-vars brand="App"></c-vars>
+
+<header class="border-b bg-card/60 {% if class %}{{ class }}{% endif %}" {{ attrs }}>
+  <div class="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-3">
+    <div class="flex items-center gap-3">
+      <a href="/" class="text-base font-semibold tracking-tight">{{ brand }}</a>
+      {% if slots.nav %}
+        <nav class="hidden items-center gap-1 md:flex">{{ slots.nav|safe }}</nav>
+      {% endif %}
+    </div>
+    <div class="flex items-center gap-2">
+      {% if slots.actions %}
+        {{ slots.actions|safe }}
+      {% endif %}
+      {% if slots.mobile %}
+        <div class="md:hidden">{{ slots.mobile|safe }}</div>
+      {% endif %}
+    </div>
+  </div>
+</header>

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Change Email" %}{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-background">
+    <c-card class='w-[400px]'>
+        <c-card.header>
+            <c-card.title>{% trans "Change Email" %}</c-card.title>
+            <c-card.description>
+                {% trans "Enter your new email address below." %}
+            </c-card.description>
+        </c-card.header>
+
+        <form method="POST">
+            {% csrf_token %}
+            <c-card.content class='space-y-4'>
+                {% if form.non_field_errors %}
+                    <c-alert variant="destructive">
+                        <c-alert.description>
+                            {{ form.non_field_errors }}
+                        </c-alert.description>
+                    </c-alert>
+                {% endif %}
+
+                <div class='space-y-2'>
+                    <c-label for="{{ form.email.id_for_label }}">
+                        {{ form.email.label }}
+                    </c-label>
+                    <c-input
+                        type="email"
+                        name="{{ form.email.name }}"
+                        id="{{ form.email.id_for_label }}"
+                        placeholder="Enter new email address"
+                        value="{{ form.email.value|default:'' }}"
+                        {{ form.email.field.required|yesno:'required,' }}
+                        class="{{ form.email.errors|yesno:'border-destructive,' }}"
+                    />
+                    {% if form.email.errors %}
+                        <div class="text-destructive text-xs">
+                            {{ form.email.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+            </c-card.content>
+
+            <c-card.footer class='flex flex-col space-y-3'>
+                <c-button type="submit" class="w-full">
+                    {% trans "Change Email" %}
+                </c-button>
+            </c-card.footer>
+        </form>
+    </c-card>
+</div>
+{% endblock %}

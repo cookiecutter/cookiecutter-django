@@ -1,0 +1,8 @@
+<div
+  class="max-h-[300px] overflow-y-auto overflow-x-hidden
+  {% if class %}{{ class }}{% endif %}"
+  x-ref="listbox"
+  {{ attrs }}
+>
+  {{ slot }}
+</div>

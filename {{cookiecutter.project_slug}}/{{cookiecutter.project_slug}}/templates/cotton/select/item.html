@@ -1,0 +1,22 @@
+<c-vars value></c-vars>
+
+<div
+  data-value="{{ value }}"
+  @click="select('{{ value }}', $el.textContent.trim())"
+  class="relative flex w-full cursor-default select-none items-center rounded-xs py-1.5 pl-8 pr-2 text-sm outline-hidden focus:bg-accent focus:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 hover:bg-accent hover:text-accent-foreground {% if class %}{{ class }}{% endif %}"
+  x-bind:class="{'bg-accent text-accent-foreground': value === '{{ value }}'}"
+  role="option"
+  x-bind:data-state="value === '{{ value }}' ? 'checked' : 'unchecked'"
+  {{ attrs }}
+>
+  <!-- Check mark icon -->
+  <span
+    class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center"
+    x-bind:class="{'opacity-100': value === '{{ value }}', 'opacity-0': value !== '{{ value }}'}"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+  </span>
+  {{ slot }}
+</div>

@@ -1,0 +1,31 @@
+<c-vars default_open="false"></c-vars>
+
+<div
+  x-data="{
+    open: {{ default_open|lower }},
+
+    showDialog() {
+      this.open = true;
+      document.body.classList.add('overflow-hidden');
+    },
+
+    hideDialog() {
+      this.open = false;
+      document.body.classList.remove('overflow-hidden');
+    }
+  }"
+  x-init="
+    $watch('open', value => {
+      if (value) {
+        document.body.classList.add('overflow-hidden');
+      } else {
+        document.body.classList.remove('overflow-hidden');
+      }
+    })
+  "
+  @show-dialog.window="showDialog()"
+  @keydown.escape.window="if (open) hideDialog()"
+  {{ attrs }}
+>
+  {{ slot }}
+</div>

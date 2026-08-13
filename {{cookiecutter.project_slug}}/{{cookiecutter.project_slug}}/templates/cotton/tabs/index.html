@@ -1,0 +1,12 @@
+<div
+  x-data="{
+    activeTab: '{{ default_value }}',
+    setActiveTab(value) {
+      this.activeTab = value;
+    }
+  }"
+  class="{% if class %}{{ class }}{% endif %}"
+  {{ attrs }}
+>
+  {{ slot }}
+</div>

@@ -1,3 +1,30 @@
-{% raw %}{% extends "base.html" %}
+{% extends "base.html" %}
 
-{% endraw %}
+{% block content %}
+	<div class="py-6">
+		<c-card class="mx-auto w-full max-w-3xl">
+			<c-card.header>
+				<c-card.title class="text-2xl">Multi-tenant Django template</c-card.title>
+				<c-card.description>
+					Built with django-tenants, django-tenant-users, django-cotton, and shadcn-django components.
+				</c-card.description>
+			</c-card.header>
+			<c-card.content class="space-y-4">
+				<p class="text-sm text-muted-foreground">
+					Use tenant domains under <c-badge variant="outline">.localhost</c-badge> for local development, for example
+					<span class="font-medium">acme.localhost</span>.
+				</p>
+				<div class="flex flex-wrap gap-2">
+					<a href="/admin/">
+						<c-button>Open Admin</c-button>
+					</a>
+					<a href="/api/docs/">
+						<c-button variant="outline">Open API Docs</c-button>
+					</a>
+				</div>
+			</c-card.content>
+		</c-card>
+	</div>
+{% endblock content %}
+
+

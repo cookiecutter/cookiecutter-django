@@ -1,0 +1,9 @@
+<c-vars toast_target></c-vars>
+
+<div
+    @click="$dispatch('show-toast', '{{ toast_target }}')"
+    class="{% if class %}{{ class }}{% endif %}"
+    x-data
+>
+  {{ slot }}
+</div>

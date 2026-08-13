@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Sign Up Closed" %}{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-background">
+    <c-card class='w-[400px]'>
+        <c-card.header>
+            <c-card.title>{% trans "Sign Up Closed" %}</c-card.title>
+            <c-card.description>
+                {% trans "We are sorry, but the sign up is currently closed." %}
+            </c-card.description>
+        </c-card.header>
+
+        <c-card.footer class='flex flex-col space-y-3 pt-6'>
+            <c-button onclick="window.location.href='{% url 'account_login' %}'" class="w-full" variant="outline">
+                {% trans "Back to Sign In" %}
+            </c-button>
+        </c-card.footer>
+    </c-card>
+</div>
+{% endblock %}

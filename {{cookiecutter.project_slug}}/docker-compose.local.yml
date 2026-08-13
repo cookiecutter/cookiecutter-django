@@ -1,6 +1,8 @@
 volumes:
   {{ cookiecutter.project_slug }}_local_postgres_data: {}
   {{ cookiecutter.project_slug }}_local_postgres_data_backups: {}
+  {{ cookiecutter.project_slug }}_local_redis_data: {}
+  {{ cookiecutter.project_slug }}_local_python_venv: {}
   {% if cookiecutter.use_celery == 'y' %}{{ cookiecutter.project_slug }}_local_redis_data: {}{% endif %}
 
 services:
@@ -11,10 +13,8 @@ services:
     image: {{ cookiecutter.project_slug }}_local_django
     container_name: {{ cookiecutter.project_slug }}_local_django
     depends_on:
-      - postgres
-      {%- if cookiecutter.use_celery == 'y' %}
-      - redis
-      {%- endif %}
+      migrations:
+        condition: service_completed_successfully
       {%- if cookiecutter.mail_catcher == 'Mailpit' %}
       - mailpit
       {%- endif %}
@@ -22,14 +22,34 @@ services:
       - mailtrap-local
       {%- endif %}
     volumes:
-      - /app/.venv
+      - {{ cookiecutter.project_slug }}_local_python_venv:/app/.venv
       - .:/app:z
     env_file:
       - ./.envs/.local/.django
       - ./.envs/.local/.postgres
     ports:
       - '8000:8000'
-    command: /start
+    command: ["/bin/bash", "/app/compose/local/django/start"]
+
+  migrations:
+      <<: *django
+      image: django_template_local_migrations
+      container_name: django_template_local_migrations
+      depends_on:
+        postgres:
+          condition: service_healthy
+      ports: []
+      command: ["/bin/bash", "/app/compose/local/django/start-migrations"]
+
+  tailwind:
+    <<: *django
+    image: django_template_local_tailwind
+    container_name: django_template_local_tailwind
+    depends_on:
+      migrations:
+        condition: service_completed_successfully
+    ports: []
+    command: ["/bin/bash", "/app/compose/local/django/start-tailwind"]
 
   postgres:
     build:
@@ -80,8 +100,8 @@ services:
     image: {{ cookiecutter.project_slug }}_local_celeryworker
     container_name: {{ cookiecutter.project_slug }}_local_celeryworker
     depends_on:
-      - redis
-      - postgres
+      migrations:
+        condition: service_completed_successfully
       {%- if cookiecutter.mail_catcher == 'Mailpit' %}
       - mailpit
       {%- endif %}
@@ -89,15 +109,15 @@ services:
       - mailtrap-local
       {%- endif %}
     ports: []
-    command: /start-celeryworker
+    command: ["/bin/bash", "/app/compose/local/django/celery/worker/start"]
 
   celerybeat:
     <<: *django
     image: {{ cookiecutter.project_slug }}_local_celerybeat
     container_name: {{ cookiecutter.project_slug }}_local_celerybeat
     depends_on:
-      - redis
-      - postgres
+      migrations:
+        condition: service_completed_successfully
       {%- if cookiecutter.mail_catcher == 'Mailpit' %}
       - mailpit
       {%- endif %}
@@ -105,7 +125,7 @@ services:
       - mailtrap-local
       {%- endif %}
     ports: []
-    command: /start-celerybeat
+    command: ["/bin/bash", "/app/compose/local/django/celery/beat/start"]
 
   flower:
     <<: *django

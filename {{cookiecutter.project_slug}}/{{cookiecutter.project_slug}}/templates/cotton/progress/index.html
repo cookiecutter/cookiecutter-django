@@ -1,0 +1,21 @@
+<c-vars value min="0" max="100"></c-vars>
+<div
+    class="
+    relative h-2 w-full overflow-hidden rounded-full bg-primary/20
+    {% if class %}
+        {{ class }}
+    {% endif %}
+    "
+    role="progressbar"
+    aria-valuenow="{{ value }}"
+    aria-valuemin="{{ min }}"
+    aria-valuemax="{{ max }}"
+    {{ attrs }}
+>
+    <div
+		class="h-full w-full flex-1 bg-primary transition-all"
+		style="width: {% widthratio value max 100 %}%"
+	>
+	{{ slot }}
+	</div>
+</div>

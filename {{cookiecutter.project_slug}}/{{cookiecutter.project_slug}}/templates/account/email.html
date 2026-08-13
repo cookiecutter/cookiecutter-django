@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Email Addresses" %}{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-background">
+    <c-card class='w-[500px]'>
+        <c-card.header>
+            <c-card.title>{% trans "Email Addresses" %}</c-card.title>
+            <c-card.description>
+                {% trans "Manage the email addresses associated with your account." %}
+            </c-card.description>
+        </c-card.header>
+
+        <c-card.content class='space-y-6'>
+            {% if emailaddresses %}
+                <div class="space-y-3">
+                    {% for emailaddress in emailaddresses %}
+                        <div class="flex items-center justify-between p-3 border rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-sm">{{ emailaddress.email }}</span>
+                                {% if emailaddress.primary %}
+                                    <c-badge>{% trans "Primary" %}</c-badge>
+                                {% endif %}
+                                {% if emailaddress.verified %}
+                                    <c-badge variant="outline">{% trans "Verified" %}</c-badge>
+                                {% else %}
+                                    <c-badge variant="destructive">{% trans "Unverified" %}</c-badge>
+                                {% endif %}
+                            </div>
+                            <form method="POST" action="{% url 'account_email' %}" class="flex items-center space-x-2">
+                                {% csrf_token %}
+                                <input type="hidden" name="email" value="{{ emailaddress.email }}">
+                                {% if not emailaddress.primary %}
+                                    <c-button type="submit" name="action_primary" variant="ghost" size="sm">
+                                        {% trans "Make Primary" %}
+                                    </c-button>
+                                {% endif %}
+                                {% if not emailaddress.verified %}
+                                    <c-button type="submit" name="action_send" variant="ghost" size="sm">
+                                        {% trans "Re-send" %}
+                                    </c-button>
+                                {% endif %}
+                                <c-button type="submit" name="action_remove" variant="ghost" size="sm" class="text-destructive hover:text-destructive">
+                                    {% trans "Remove" %}
+                                </c-button>
+                            </form>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <c-alert>
+                    <c-alert.description>
+                        {% trans "You currently have no email addresses associated with your account." %}
+                    </c-alert.description>
+                </c-alert>
+            {% endif %}
+
+            <c-separator />
+
+            <form method="POST" action="{% url 'account_email' %}" class="space-y-4">
+                {% csrf_token %}
+                <h3 class="text-lg font-medium">{% trans "Add Email Address" %}</h3>
+
+                {% if form.non_field_errors %}
+                    <c-alert variant="destructive">
+                        <c-alert.description>
+                            {{ form.non_field_errors }}
+                        </c-alert.description>
+                    </c-alert>
+                {% endif %}
+
+                <div class='space-y-2'>
+                    <c-label for="{{ form.email.id_for_label }}">
+                        {{ form.email.label }}
+                    </c-label>
+                    <c-input
+                        type="email"
+                        name="{{ form.email.name }}"
+                        id="{{ form.email.id_for_label }}"
+                        placeholder="Enter new email address"
+                        value="{{ form.email.value|default:'' }}"
+                        {{ form.email.field.required|yesno:'required,' }}
+                        class="{{ form.email.errors|yesno:'border-destructive,' }}"
+                    />
+                    {% if form.email.errors %}
+                        <div class="text-destructive text-xs">
+                            {{ form.email.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <c-button type="submit" name="action_add">
+                    {% trans "Add Email" %}
+                </c-button>
+            </form>
+        </c-card.content>
+    </c-card>
+</div>
+{% endblock %}

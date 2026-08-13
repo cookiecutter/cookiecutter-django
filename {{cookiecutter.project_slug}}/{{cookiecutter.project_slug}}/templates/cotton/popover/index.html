@@ -1,0 +1,14 @@
+<c-vars default_open="false"></c-vars>
+
+<div
+  x-data="{
+    open: {{ default_open|lower }},
+    showPopover() { this.open = true; },
+    hidePopover() { this.open = false; },
+    togglePopover() { this.open = !this.open; }
+  }"
+  class="{% if class %}{{ class }}{% endif %}"
+  {{ attrs }}
+>
+  {{ slot }}
+</div>

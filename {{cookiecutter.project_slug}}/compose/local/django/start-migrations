@@ -1,0 +1,52 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+
+uv sync 
+
+{%- if cookiecutter.use_tenants == 'y' %}
+
+python manage.py migrate_schemas --shared
+
+if ! python manage.py shell -c '
+import sys
+
+from django.db import connection
+
+with connection.cursor() as cursor:
+    cursor.execute(
+        "SELECT to_regclass(%s)",
+        ["public.django_celery_beat_crontabschedule"],
+    )
+    sys.exit(not bool(cursor.fetchone()[0]))
+'; then
+  # django_celery_beat used to be a tenant app. django-tenants consequently
+  # recorded its migrations in public without creating its tables. Reset only
+  # that app's migration history and apply it now as a shared app.
+  python manage.py migrate_schemas --shared django_celery_beat zero --fake --noinput
+  python manage.py migrate_schemas --shared django_celery_beat --noinput
+fi
+
+if ! python manage.py shell -c '
+import sys
+
+from django_tenants.utils import get_public_schema_name, get_tenant_model
+
+sys.exit(
+    not get_tenant_model()
+    .objects.filter(schema_name=get_public_schema_name())
+    .exists()
+)
+'; then
+  python manage.py create_public_tenant \
+    --domain_url "${DJANGO_TENANT_USERS_DOMAIN:-localhost}" \
+    --owner_email "${DJANGO_PUBLIC_TENANT_OWNER_EMAIL:-admin@example.com}"
+fi
+
+python manage.py migrate_schemas
+{%- else %}
+python manage.py migrate
+{%- endif %}

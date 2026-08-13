@@ -1,6 +1,11 @@
-{% raw %}{% load allauth %}
+{% load allauth %}
 
-<span class="badge {% if 'success' in attrs.tags %}bg-success{% endif %} {% if 'warning' in attrs.tags %}bg-warning{% endif %} {% if 'secondary' in attrs.tags %}bg-secondary{% endif %} {% if 'danger' in attrs.tags %}bg-danger{% endif %} {% if 'primary' in attrs.tags %}bg-primary{% endif %}">
+<c-badge
+  {% if 'success' in attrs.tags %}variant="secondary"
+  {% elif 'warning' in attrs.tags %}variant="outline"
+  {% elif 'danger' in attrs.tags %}variant="destructive"
+  {% else %}variant="default"{% endif %}
+>
   {% slot %}
 {% endslot %}
-</span>{% endraw %}
+</c-badge>

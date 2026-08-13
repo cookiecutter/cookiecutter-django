@@ -1,0 +1,45 @@
+<div
+    x-data="{
+    isVisible: false,
+    timeoutId: null,
+
+    show() {
+        this.$dispatch('toast-hide-others', '{{ id }}');
+        this.isVisible = true;
+        // Clear any existing timeout
+        if (this.timeoutId) {
+            clearTimeout(this.timeoutId);
+        }
+
+        // Auto-hide after duration
+        this.timeoutId = setTimeout(() => {
+            this.hide();
+        }, 3000);
+    },
+
+    hide() {
+        this.isVisible = false;
+    }
+  }"
+    @toast-hide-others.window="if($event.detail !== '{{ id }}') hide()"
+    @show-toast.window="
+    if($event.detail === '{{ id }}' || $event.detail.value === '{{ id }}') {
+        show();
+    } else {
+        hide();
+    }"
+    x-show="isVisible"
+    x-cloak
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="opacity-0 transform translate-y-full"
+    x-transition:enter-end="opacity-100 transform translate-y-0"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100 transform translate-x-0"
+    x-transition:leave-end="opacity-0 transform translate-x-full"
+    class="{% if class %}{{ class }}{% endif %} fixed bottom-5 right-5"
+    style="display: none;"
+    role="alert"
+    {{ attrs }}
+>
+  {{ slot }}
+</div>

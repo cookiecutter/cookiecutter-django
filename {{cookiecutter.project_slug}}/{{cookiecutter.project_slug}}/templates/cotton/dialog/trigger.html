@@ -1,0 +1,20 @@
+<c-vars as_child="false"></c-vars>
+
+{% if as_child == "true" %}
+  <div
+    @click.stop="$dispatch('show-dialog')"
+    class="{% if class %}{{ class }}{% endif %}"
+    {{ attrs }}
+  >
+    {{ slot }}
+  </div>
+{% else %}
+  <c-button
+    variant="outline"
+    @click.stop="showDialog()"
+    class="{% if class %}{{ class }}{% endif %}"
+    {{ attrs }}
+  >
+    {{ slot }}
+  </c-button>
+{% endif %}

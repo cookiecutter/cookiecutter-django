@@ -1,0 +1,27 @@
+<c-vars placeholder></c-vars>
+
+<div class="flex items-center border-b px-3" cmdk-input-wrapper="">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="mr-2 size-4 shrink-0 opacity-50"
+  >
+    <circle cx="11" cy="11" r="8"></circle>
+    <path d="m21 21-4.3-4.3"></path>
+  </svg>
+  <input
+    x-model="search"
+    type="text"
+    class="flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-hidden placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50
+    {% if class %}{{ class }}{% endif %}"
+    placeholder="{{ placeholder }}"
+    {{ attrs }}
+  />
+</div>

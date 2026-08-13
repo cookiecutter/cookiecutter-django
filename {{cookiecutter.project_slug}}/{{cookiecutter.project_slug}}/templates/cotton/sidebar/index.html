@@ -1,0 +1,10 @@
+<c-vars title="Navigation"></c-vars>
+
+<aside class="h-full w-72 border-r bg-card {% if class %}{{ class }}{% endif %}" {{ attrs }}>
+  <div class="px-4 py-4">
+    <h2 class="text-sm font-semibold uppercase tracking-wide text-muted-foreground">{{ title }}</h2>
+  </div>
+  <nav class="space-y-1 px-2 pb-4">
+    {{ slot }}
+  </nav>
+</aside>

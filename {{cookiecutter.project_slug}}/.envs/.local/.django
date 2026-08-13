@@ -2,6 +2,21 @@
 # ------------------------------------------------------------------------------
 USE_DOCKER=yes
 IPYTHONDIR=/app/.ipython
+DJANGO_SETTINGS_MODULE=config.settings.local
+DJANGO_RUN_MIGRATIONS=True
+
+{%- if cookiecutter.use_tenants == 'y' %}
+DJANGO_TENANT_USERS_DOMAIN=localhost
+DJANGO_PUBLIC_TENANT_OWNER_EMAIL=admin@example.com
+{%- endif %}
+
+{%- if cookiecutter.use_control_room == 'y' %}
+CR_REGISTER_PANELS=True
+CR_REGISTER_REDIS_PANEL=True
+CR_REGISTER_CACHE_PANEL=True
+CR_REGISTER_URLS_PANEL=True
+CR_REGISTER_CELERY_PANEL=True
+{%- endif %}
 
 {%- if cookiecutter.use_celery == 'y' %}
 # Redis

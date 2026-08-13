@@ -1,6 +1,7 @@
-{% raw %}{% extends "base.html" %}
+{% extends "base.html" %}
 {% load i18n %}
-{% block bodyclass %}bg-light{% endblock bodyclass %}
+
+{% block bodyclass %}bg-background{% endblock bodyclass %}
 
 {% block css %}{{ block.super }}{% endblock css %}
 {% block title %}
@@ -9,23 +10,21 @@
   {% endblock head_title %}
 {% endblock title %}
 {% block body %}
-  <div class="d-flex justify-content-center h-100 py-4">
-    <div class="col-md-4 py-4 my-4 px-4">
+  <div class="mx-auto w-full max-w-md py-10">
+    <c-card>
+      <c-card.content class="space-y-4 pt-6">
       {% if messages %}
         {% for message in messages %}
-          <div class="alert alert-dismissible {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+          <c-alert {% if message.tags == "error" %}variant="destructive"{% elif message.tags == "warning" %}variant="warning"{% elif message.tags == "success" %}variant="success"{% endif %}>
             {{ message }}
-            <button type="button"
-                    class="btn-close"
-                    data-bs-dismiss="alert"
-                    aria-label="Close"></button>
-          </div>
+          </c-alert>
         {% endfor %}
       {% endif %}
       {% block content %}
       {% endblock content %}
       {% block extra_body %}
       {% endblock extra_body %}
-    </div>
+      </c-card.content>
+    </c-card>
   </div>
-{% endblock body %}{% endraw %}
+{% endblock body %}

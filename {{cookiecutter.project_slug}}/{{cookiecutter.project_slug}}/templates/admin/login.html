@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "Admin Sign In" %}{% endblock %}
+
+{% block bodyclass %}bg-muted/30{% endblock bodyclass %}
+
+{% block content %}
+<div class="mx-auto flex min-h-[70vh] w-full max-w-md items-center justify-center">
+  <c-card class="w-full">
+    <c-card.header>
+      <c-card.title>{% trans "Django Admin" %}</c-card.title>
+      <c-card.description>{% trans "Sign in with an account that has admin access." %}</c-card.description>
+    </c-card.header>
+
+    <form action="{{ app_path }}" method="post" id="login-form" novalidate>
+      {% csrf_token %}
+      <c-card.content class="space-y-4">
+        {% if form.errors and not form.non_field_errors %}
+          <c-alert variant="destructive">
+            <c-alert.title>{% trans "Sign in failed" %}</c-alert.title>
+            <c-alert.description>{% trans "Please correct the errors below and try again." %}</c-alert.description>
+          </c-alert>
+        {% endif %}
+
+        {% if form.non_field_errors %}
+          <c-alert variant="destructive">
+            <c-alert.description>{{ form.non_field_errors }}</c-alert.description>
+          </c-alert>
+        {% endif %}
+
+        <div class="space-y-2">
+          <c-label for="id_username">{{ form.username.label }}</c-label>
+          <c-input id="id_username" name="username" type="text" autocomplete="username" required value="{{ form.username.value|default:'' }}"></c-input>
+          {% if form.username.errors %}
+            <p class="text-xs text-destructive">{{ form.username.errors|striptags }}</p>
+          {% endif %}
+        </div>
+
+        <div class="space-y-2">
+          <c-label for="id_password">{{ form.password.label }}</c-label>
+          <c-input id="id_password" name="password" type="password" autocomplete="current-password" required></c-input>
+          {% if form.password.errors %}
+            <p class="text-xs text-destructive">{{ form.password.errors|striptags }}</p>
+          {% endif %}
+          <p class="text-xs text-muted-foreground">
+            {% blocktranslate %}Forgot your password? Use the password reset flow from the account pages.{% endblocktranslate %}
+          </p>
+        </div>
+
+        {% if next %}
+          <input type="hidden" name="next" value="{{ next }}">
+        {% endif %}
+      </c-card.content>
+
+      <c-card.footer class="flex flex-col items-stretch gap-3">
+        <c-button type="submit" class="w-full">{% trans "Sign In" %}</c-button>
+        <a href="{% url 'account_login' %}" class="text-center text-sm text-muted-foreground underline underline-offset-4">
+          {% trans "Back to Account Login" %}
+        </a>
+      </c-card.footer>
+    </form>
+  </c-card>
+</div>
+{% endblock content %}

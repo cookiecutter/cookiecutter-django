@@ -1,0 +1,13 @@
+<c-vars value></c-vars>
+
+<div
+  x-show="isOpen('{{ value }}')"
+  x-collapse.duration.300ms
+  x-cloak
+  class="overflow-hidden text-sm"
+  {{ attrs }}
+>
+  <div class="pb-4 pt-0 {% if class %}{{ class }}{% endif %}">
+    {{ slot }}
+  </div>
+</div>

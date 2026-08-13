@@ -1,0 +1,19 @@
+<c-vars orientation="horizontal" decorative="true" />
+
+<div
+    class="
+    shrink-0
+    bg-border
+    {% if orientation == 'horizontal' %}
+        h-[1px] w-full
+    {% else %}
+        h-full w-[1px]
+    {% endif %}
+    {% if class %}
+        {{ class }}
+    {% endif %}
+    "
+    role="{% if decorative %}none{% else %}separator{% endif %}"
+    aria-orientation="{{ orientation }}"
+    {{ attrs }}
+></div>

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Confirm Access" %}{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-background">
+    <c-card class='w-[400px]'>
+        <c-card.header>
+            <c-card.title>{% trans "Confirm Access" %}</c-card.title>
+            <c-card.description>
+                {% trans "Please re-enter your password to confirm your identity." %}
+            </c-card.description>
+        </c-card.header>
+
+        <form method="POST">
+            {% csrf_token %}
+            <c-card.content class='space-y-4'>
+                {% if form.non_field_errors %}
+                    <c-alert variant="destructive">
+                        <c-alert.description>
+                            {{ form.non_field_errors }}
+                        </c-alert.description>
+                    </c-alert>
+                {% endif %}
+
+                <div class='space-y-2'>
+                    <c-label for="{{ form.password.id_for_label }}">
+                        {{ form.password.label }}
+                    </c-label>
+                    <c-input
+                        type="password"
+                        name="{{ form.password.name }}"
+                        id="{{ form.password.id_for_label }}"
+                        placeholder="Enter your password"
+                        {{ form.password.field.required|yesno:'required,' }}
+                        class="{{ form.password.errors|yesno:'border-destructive,' }}"
+                    />
+                    {% if form.password.errors %}
+                        <div class="text-destructive text-xs">
+                            {{ form.password.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+            </c-card.content>
+
+            <c-card.footer class='flex flex-col space-y-3'>
+                <c-button type="submit" class="w-full">
+                    {% trans "Confirm" %}
+                </c-button>
+            </c-card.footer>
+        </form>
+    </c-card>
+</div>
+{% endblock %}

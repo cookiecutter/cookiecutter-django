@@ -1,0 +1,14 @@
+<c-table.row>
+    <c-table.cell
+      class="
+        p-4 whitespace-nowrap align-middle text-sm text-foreground',
+        {% if class %}
+          {{ class }}
+        {% endif %}
+      "
+    >
+      <div class="flex items-center justify-center py-10">
+        {{ slot}}
+      </div>
+    </c-table.cell>
+</c-table.row>

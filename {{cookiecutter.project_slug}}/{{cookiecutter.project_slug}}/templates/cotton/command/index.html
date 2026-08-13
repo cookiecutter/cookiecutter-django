@@ -1,0 +1,66 @@
+<div
+  x-data="{
+    search: '',
+    selectedIndex: -1,
+    value: '',
+    items: [],
+    open: true,
+    hasResults: true,
+
+    init() {
+      this.$watch('search', value => {
+        this.selectedIndex = -1;
+        this.filterItems();
+      });
+
+      this.$nextTick(() => {
+        this.filterItems();
+        // Get all items for keyboard navigation
+        this.items = Array.from(this.$refs.listbox?.querySelectorAll('[data-value]') || []);
+      });
+    },
+
+    filterItems() {
+      const query = this.search.toLowerCase();
+      const elements = Array.from(this.$refs.listbox?.querySelectorAll('[data-value]') || []);
+
+      elements.forEach(item => {
+        const value = item.textContent.trim().toLowerCase();
+        const matches = !query || value.includes(query);
+        item.style.display = matches ? 'flex' : 'none';
+      });
+
+      // Check if we have any visible items for empty state
+      this.hasResults = elements.some(el => el.style.display !== 'none');
+    },
+
+    onKeyDown(e) {
+      const visibleItems = Array.from(this.$refs.listbox?.querySelectorAll('[data-value]') || [])
+        .filter(el => el.style.display !== 'none');
+
+      if (e.key === 'ArrowDown') {
+        this.selectedIndex = Math.min(this.selectedIndex + 1, visibleItems.length - 1);
+        if (this.selectedIndex === -1 && visibleItems.length > 0) {
+          this.selectedIndex = 0;
+        }
+        visibleItems[this.selectedIndex]?.scrollIntoView({ block: 'nearest' });
+        e.preventDefault();
+      } else if (e.key === 'ArrowUp') {
+        this.selectedIndex = Math.max(this.selectedIndex - 1, 0);
+        visibleItems[this.selectedIndex]?.scrollIntoView({ block: 'nearest' });
+        e.preventDefault();
+      } else if (e.key === 'Enter' && this.selectedIndex > -1) {
+        visibleItems[this.selectedIndex]?.click();
+        e.preventDefault();
+      } else if (e.key === 'Escape') {
+        this.$dispatch('close-command');
+      }
+    }
+  }"
+  @keydown="onKeyDown"
+  class="flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground
+  {% if class %}{{ class }}{% endif %}"
+  {{ attrs }}
+>
+  {{ slot }}
+</div>

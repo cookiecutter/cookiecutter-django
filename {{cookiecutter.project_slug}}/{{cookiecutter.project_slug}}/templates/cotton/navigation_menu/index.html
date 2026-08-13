@@ -1,0 +1,17 @@
+<nav
+  x-data="{
+    activeIndex: null,
+    setActiveIndex(index) {
+      this.activeIndex = index === this.activeIndex ? null : index;
+    },
+    closeAll() {
+      this.activeIndex = null;
+    }
+  }"
+  @click.away="closeAll()"
+  @keydown.escape.window="closeAll()"
+  class="relative z-10 {% if class %}{{ class }}{% endif %}"
+  {{ attrs }}
+>
+  {{ slot }}
+</nav>

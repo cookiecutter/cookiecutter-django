@@ -1,0 +1,7 @@
+<a
+  href="{{ href|default:'#' }}"
+  class="flex items-center rounded-md px-3 py-2 text-sm transition-colors hover:bg-accent hover:text-accent-foreground {% if active %}bg-accent text-accent-foreground{% else %}text-muted-foreground{% endif %} {% if class %}{{ class }}{% endif %}"
+  {{ attrs }}
+>
+  {{ slot }}
+</a>

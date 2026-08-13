@@ -1,0 +1,33 @@
+<c-vars type="single" collapsible="false" open="{}"></c-vars>
+
+<div
+  x-data="{
+    open: {{ open }},
+    type: '{{ type }}',
+    collapsible: {{ collapsible|lower }},
+
+    toggle(value) {
+      if (this.type === 'single') {
+        // For single type, close all others when one is opened
+        if (this.collapsible && this.open[value]) {
+          this.open[value] = false;
+        } else {
+          const newOpen = {};
+          newOpen[value] = true;
+          this.open = newOpen;
+        }
+      } else {
+        // For multiple type, toggle the clicked one
+        this.open[value] = !this.open[value];
+      }
+    },
+
+    isOpen(value) {
+      return !!this.open[value];
+    }
+  }"
+  class="{% if class %}{{ class }}{% endif %}"
+  {{ attrs }}
+>
+  {{ slot }}
+</div>

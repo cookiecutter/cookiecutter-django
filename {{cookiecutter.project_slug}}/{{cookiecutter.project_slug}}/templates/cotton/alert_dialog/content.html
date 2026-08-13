@@ -1,0 +1,33 @@
+<div
+  x-show="open"
+  x-transition:enter="ease-out duration-300"
+  x-transition:enter-start="opacity-0"
+  x-transition:enter-end="opacity-100"
+  x-transition:leave="ease-in duration-200"
+  x-transition:leave-start="opacity-100"
+  x-transition:leave-end="opacity-0"
+  class="fixed inset-0 z-50 flex items-center justify-center"
+  x-cloak
+  role="dialog"
+  aria-modal="true"
+>
+  <!-- Backdrop -->
+  <div class="fixed inset-0 bg-background/80 backdrop-blur-xs" aria-hidden="true" @click="hideDialog"></div>
+
+  <!-- Dialog -->
+  <div
+    x-transition:enter="ease-out duration-300"
+    x-transition:enter-start="opacity-0 scale-95"
+    x-transition:enter-end="opacity-100 scale-100"
+    x-transition:leave="ease-in duration-200"
+    x-transition:leave-start="opacity-100 scale-100"
+    x-transition:leave-end="opacity-0 scale-95"
+    @click.away="hideDialog"
+    class="fixed z-50 grid w-full max-w-lg gap-4 border bg-background p-6 shadow-lg sm:rounded-lg md:w-full {% if class %}{{ class }}{% endif %}"
+    x-init="$nextTick(() => { $el.querySelector('button, [tabindex], input, select, textarea') && $el.querySelector('button, [tabindex], input, select, textarea').focus() })"
+    tabindex="-1"
+    {{ attrs }}
+  >
+    {{ slot }}
+  </div>
+</div>

@@ -1,19 +1,21 @@
-{% raw %}{% load allauth %}
+{% load allauth %}
 
 <section>
-  <div class="card mb-4">
-    <div class="card-body">
-      <h2 class="card-title">
+  <c-card class="mb-4">
+    <c-card.header>
+      <c-card.title>
         {% slot title %}
       {% endslot %}
-    </h2>
-    {% slot body %}
-  {% endslot %}
-  {% if slots.actions %}
-    <ul>
-      {% for action in slots.actions %}<li>{{ action }}</li>{% endfor %}
-    </ul>
-  {% endif %}
-</div>
-</div>
-</section>{% endraw %}
+      </c-card.title>
+    </c-card.header>
+    <c-card.content>
+      {% slot body %}
+      {% endslot %}
+      {% if slots.actions %}
+        <ul class="mt-4 space-y-2">
+          {% for action in slots.actions %}<li>{{ action }}</li>{% endfor %}
+        </ul>
+      {% endif %}
+    </c-card.content>
+  </c-card>
+</section>

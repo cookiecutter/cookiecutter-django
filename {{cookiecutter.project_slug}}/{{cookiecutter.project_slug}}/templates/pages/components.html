@@ -1,0 +1,748 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Component Showcase
+{% endblock title %}
+
+{% block content %}
+  <div class="space-y-8 py-6">
+    <c-card>
+      <c-card.header>
+        <c-card.title class="text-2xl">Component Showcase</c-card.title>
+        <c-card.description>
+          Live previews for all cotton components in this project. Each block includes a show code and copy code action.
+        </c-card.description>
+      </c-card.header>
+      <c-card.content class="flex flex-wrap gap-2">
+        <c-badge variant="outline">Reusable</c-badge>
+        <c-badge variant="outline">Copy Ready</c-badge>
+        <c-badge variant="outline">Alpine Driven</c-badge>
+      </c-card.content>
+    </c-card>
+
+    <c-card>
+      <c-card.header>
+        <c-card.title>Find Components Fast</c-card.title>
+        <c-card.description>Search by name and filter by category.</c-card.description>
+      </c-card.header>
+      <c-card.content class="grid gap-3 md:grid-cols-[1fr_240px_auto_auto] md:items-end">
+        <div class="space-y-2">
+          <c-label for="component-search">Search</c-label>
+          <c-input id="component-search" placeholder="Try: dialog, menu, form, sidebar"></c-input>
+        </div>
+        <div class="space-y-2">
+          <c-label for="component-category">Category</c-label>
+          <select id="component-category" class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm">
+            <option value="all">All categories</option>
+            <option value="feedback">Feedback</option>
+            <option value="inputs">Inputs</option>
+            <option value="navigation">Navigation</option>
+            <option value="overlay">Overlay</option>
+            <option value="layout">Layout</option>
+            <option value="data">Data display</option>
+            <option value="custom">Custom wrappers</option>
+            <option value="complex">Complex compositions</option>
+          </select>
+        </div>
+        <button id="component-reset" type="button">
+          <c-button variant="outline">Reset</c-button>
+        </button>
+        <p id="component-results" class="text-sm text-muted-foreground">Showing all components</p>
+      </c-card.content>
+    </c-card>
+
+    <section id="component-grid" class="grid gap-6 lg:grid-cols-2">
+      <c-card id="accordion">
+        <c-card.header><c-card.title>Accordion</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <c-accordion type="single" collapsible="true" open="{'item1': true}">
+            <c-accordion.item value="item1">
+              <c-accordion.trigger value="item1">What is this?</c-accordion.trigger>
+              <c-accordion.content value="item1">A collapsible component section.</c-accordion.content>
+            </c-accordion.item>
+            <c-accordion.item value="item2">
+              <c-accordion.trigger value="item2">Why use it?</c-accordion.trigger>
+              <c-accordion.content value="item2">Great for FAQs and grouped details.</c-accordion.content>
+            </c-accordion.item>
+          </c-accordion>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-accordion" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-accordion" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-accordion"><c-accordion type="single" collapsible="true"><c-accordion.item value="item1"><c-accordion.trigger value="item1">Heading</c-accordion.trigger><c-accordion.content value="item1">Content</c-accordion.content></c-accordion.item></c-accordion></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="alert">
+        <c-card.header><c-card.title>Alert</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <c-alert>
+            <c-alert.title>Heads up</c-alert.title>
+            <c-alert.description>Default alert for important information.</c-alert.description>
+          </c-alert>
+          <c-alert variant="destructive">
+            <c-alert.title>Destructive</c-alert.title>
+            <c-alert.description>Use for irreversible or risky actions.</c-alert.description>
+          </c-alert>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-alert" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-alert" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-alert"><c-alert><c-alert.title>Heads up</c-alert.title><c-alert.description>Message</c-alert.description></c-alert></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="alert-dialog">
+        <c-card.header><c-card.title>Alert Dialog</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <c-alert_dialog>
+            <c-alert_dialog.trigger><c-button variant="destructive">Delete Project</c-button></c-alert_dialog.trigger>
+            <c-alert_dialog.content>
+              <c-alert_dialog.header>
+                <c-alert_dialog.title>Confirm deletion</c-alert_dialog.title>
+                <c-alert_dialog.description>This cannot be undone.</c-alert_dialog.description>
+              </c-alert_dialog.header>
+              <c-alert_dialog.footer>
+                <c-alert_dialog.cancel>Cancel</c-alert_dialog.cancel>
+                <c-alert_dialog.action variant="destructive">Delete</c-alert_dialog.action>
+              </c-alert_dialog.footer>
+            </c-alert_dialog.content>
+          </c-alert_dialog>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-alert-dialog" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-alert-dialog" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-alert-dialog"><c-alert_dialog><c-alert_dialog.trigger><c-button>Open</c-button></c-alert_dialog.trigger><c-alert_dialog.content>...</c-alert_dialog.content></c-alert_dialog></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="badge">
+        <c-card.header><c-card.title>Badge</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <div class="flex flex-wrap gap-2">
+            <c-badge>Default</c-badge>
+            <c-badge variant="secondary">Secondary</c-badge>
+            <c-badge variant="outline">Outline</c-badge>
+            <c-badge variant="destructive">Destructive</c-badge>
+          </div>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-badge" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-badge" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-badge"><c-badge variant="outline">New</c-badge></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="button">
+        <c-card.header><c-card.title>Button</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <div class="flex flex-wrap gap-2">
+            <c-button>Default</c-button>
+            <c-button variant="outline">Outline</c-button>
+            <c-button variant="secondary">Secondary</c-button>
+            <c-button variant="ghost">Ghost</c-button>
+            <c-button variant="link">Link</c-button>
+          </div>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-button" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-button" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-button"><c-button variant="outline">Save</c-button></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="card">
+        <c-card.header><c-card.title>Card</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <c-card>
+            <c-card.header>
+              <c-card.title>Starter Plan</c-card.title>
+              <c-card.description>Great for prototypes.</c-card.description>
+            </c-card.header>
+            <c-card.content><p class="text-sm text-muted-foreground">Includes core features and docs.</p></c-card.content>
+            <c-card.footer><c-button size="sm">Choose Plan</c-button></c-card.footer>
+          </c-card>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-card" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-card" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-card"><c-card><c-card.header><c-card.title>Title</c-card.title></c-card.header><c-card.content>Body</c-card.content></c-card></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="checkbox">
+        <c-card.header><c-card.title>Checkbox</c-card.title></c-card.header>
+        <c-card.content class="space-y-4">
+          <label class="flex items-center gap-2"><c-checkbox checked="true"></c-checkbox><span class="text-sm">Enable email notifications</span></label>
+          <label class="flex items-center gap-2"><c-checkbox></c-checkbox><span class="text-sm">Enable product updates</span></label>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-checkbox" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-checkbox" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-checkbox"><label><c-checkbox checked="true"></c-checkbox> Enable feature</label></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="combobox">
+        <c-card.header><c-card.title>Combobox</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <c-combobox button_text="Pick a framework" width="w-[260px]" options='[{"label":"Django","value":"django"},{"label":"FastAPI","value":"fastapi"},{"label":"Flask","value":"flask"}]'></c-combobox>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-combobox" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-combobox" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-combobox"><c-combobox options='[{"label":"Django","value":"django"}]' button_text="Pick"></c-combobox></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="command">
+        <c-card.header><c-card.title>Command</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <c-command class="border rounded-md">
+            <c-command.input placeholder="Type a command..."></c-command.input>
+            <c-command.list>
+              <c-command.empty>No command found.</c-command.empty>
+              <c-command.group heading="Quick Actions">
+                <c-command.item value="new-project">New Project <c-command.shortcut>NP</c-command.shortcut></c-command.item>
+                <c-command.item value="deploy">Deploy <c-command.shortcut>DP</c-command.shortcut></c-command.item>
+              </c-command.group>
+            </c-command.list>
+          </c-command>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-command" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-command" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-command"><c-command><c-command.input placeholder="Search" /><c-command.list><c-command.item value="x">Item</c-command.item></c-command.list></c-command></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="command-dialog">
+        <c-card.header><c-card.title>Command Dialog</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <c-command_dialog shortcut_key="k">
+            <c-slot name="trigger_slot"><c-button variant="outline">Open Command Dialog</c-button></c-slot>
+            <c-command.input placeholder="Jump to..."></c-command.input>
+            <c-command.list>
+              <c-command.group heading="Pages">
+                <c-command.item value="home">Home</c-command.item>
+                <c-command.item value="settings">Settings</c-command.item>
+              </c-command.group>
+            </c-command.list>
+          </c-command_dialog>
+          <p class="text-xs text-muted-foreground">Tip: Use Cmd/Ctrl + K.</p>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-command-dialog" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-command-dialog" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-command-dialog"><c-command_dialog><c-slot name="trigger_slot"><c-button>Open</c-button></c-slot><c-command.input placeholder="Search" /></c-command_dialog></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="dialog">
+        <c-card.header><c-card.title>Dialog</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <c-dialog>
+            <c-dialog.trigger>Create Workspace</c-dialog.trigger>
+            <c-dialog.content>
+              <c-dialog.header>
+                <c-dialog.title>Create new workspace</c-dialog.title>
+                <c-dialog.description>Name and initialize your workspace.</c-dialog.description>
+              </c-dialog.header>
+              <div class="space-y-2">
+                <c-input placeholder="Workspace name"></c-input>
+                <c-textarea>Optional notes...</c-textarea>
+              </div>
+              <c-dialog.footer>
+                <c-button variant="outline">Cancel</c-button>
+                <c-button>Create</c-button>
+              </c-dialog.footer>
+            </c-dialog.content>
+          </c-dialog>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-dialog" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-dialog" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-dialog"><c-dialog><c-dialog.trigger>Open</c-dialog.trigger><c-dialog.content>...</c-dialog.content></c-dialog></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="dropdown-menu">
+        <c-card.header><c-card.title>Dropdown Menu</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <c-dropdown_menu>
+            <c-dropdown_menu.trigger><c-button variant="outline">Open Menu</c-button></c-dropdown_menu.trigger>
+            <c-dropdown_menu.content>
+              <c-dropdown_menu.item>Profile</c-dropdown_menu.item>
+              <c-dropdown_menu.item>Billing</c-dropdown_menu.item>
+              <c-dropdown_menu.separator></c-dropdown_menu.separator>
+              <c-dropdown_menu.item>Sign out</c-dropdown_menu.item>
+            </c-dropdown_menu.content>
+          </c-dropdown_menu>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-dropdown-menu" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-dropdown-menu" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-dropdown-menu"><c-dropdown_menu><c-dropdown_menu.trigger><c-button>Open</c-button></c-dropdown_menu.trigger><c-dropdown_menu.content><c-dropdown_menu.item>Item</c-dropdown_menu.item></c-dropdown_menu.content></c-dropdown_menu></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="form">
+        <c-card.header><c-card.title>Form Primitives</c-card.title></c-card.header>
+        <c-card.content class="space-y-4">
+          <c-form.field>
+            <c-form.label>Project Name</c-form.label>
+            <c-input placeholder="Acme Platform"></c-input>
+            <c-form.description>Used across tenant dashboards.</c-form.description>
+          </c-form.field>
+          <c-form.field>
+            <c-form.label>Environment</c-form.label>
+            <c-select>
+              <c-select.trigger><c-select.value placeholder="Select environment"></c-select.value></c-select.trigger>
+              <c-select.content>
+                <c-select.item value="dev">Development</c-select.item>
+                <c-select.item value="prod">Production</c-select.item>
+              </c-select.content>
+            </c-select>
+          </c-form.field>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-form" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-form" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-form"><c-form.field><c-form.label>Label</c-form.label><c-input placeholder="Value"></c-input><c-form.description>Helper text</c-form.description></c-form.field></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="input-label-textarea">
+        <c-card.header><c-card.title>Input, Label, Textarea</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <c-label for="demo-email">Email</c-label>
+          <c-input id="demo-email" placeholder="name@example.com"></c-input>
+          <c-label for="demo-notes">Notes</c-label>
+          <c-textarea id="demo-notes">Write details here...</c-textarea>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-input-label-textarea" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-input-label-textarea" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-input-label-textarea"><c-label for="email">Email</c-label><c-input id="email" placeholder="name@example.com"></c-input><c-textarea>Details</c-textarea></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="multi-menu">
+        <c-card.header><c-card.title>Multi Menu (Custom)</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <c-multi_menu label="Project Actions">
+            <c-multi_menu.section title="General">
+              <c-multi_menu.item href="#">Overview</c-multi_menu.item>
+              <c-multi_menu.item href="#">Analytics</c-multi_menu.item>
+            </c-multi_menu.section>
+            <c-multi_menu.section title="Danger Zone">
+              <c-multi_menu.item href="#">Archive</c-multi_menu.item>
+              <c-multi_menu.item href="#">Delete</c-multi_menu.item>
+            </c-multi_menu.section>
+          </c-multi_menu>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-multi-menu" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-multi-menu" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-multi-menu"><c-multi_menu label="Actions"><c-multi_menu.section title="General"><c-multi_menu.item href="#">Overview</c-multi_menu.item></c-multi_menu.section></c-multi_menu></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="navbar">
+        <c-card.header><c-card.title>Navbar (Custom)</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <c-navbar brand="Acme Console" class="rounded-md border">
+            <c-slot name="nav">
+              <c-navbar.link href="#" active="true">Dashboard</c-navbar.link>
+              <c-navbar.link href="#">Tenants</c-navbar.link>
+            </c-slot>
+            <c-slot name="actions">
+              <c-button size="sm" variant="outline">Invite</c-button>
+            </c-slot>
+          </c-navbar>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-navbar" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-navbar" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-navbar"><c-navbar brand="Acme"><c-slot name="nav"><c-navbar.link href="#">Home</c-navbar.link></c-slot></c-navbar></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="navigation-menu">
+        <c-card.header><c-card.title>Navigation Menu</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <c-navigation_menu>
+            <c-navigation_menu.list>
+              <c-navigation_menu.item>
+                <c-navigation_menu.trigger index="products">Products</c-navigation_menu.trigger>
+                <c-navigation_menu.content index="products" class="w-[320px]">
+                  <div class="grid gap-2">
+                    <c-navigation_menu.link href="#">Starter</c-navigation_menu.link>
+                    <c-navigation_menu.link href="#">Enterprise</c-navigation_menu.link>
+                  </div>
+                </c-navigation_menu.content>
+              </c-navigation_menu.item>
+              <c-navigation_menu.item><c-navigation_menu.link href="#">Docs</c-navigation_menu.link></c-navigation_menu.item>
+            </c-navigation_menu.list>
+          </c-navigation_menu>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-navigation-menu" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-navigation-menu" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-navigation-menu"><c-navigation_menu><c-navigation_menu.list><c-navigation_menu.item><c-navigation_menu.link href="#">Docs</c-navigation_menu.link></c-navigation_menu.item></c-navigation_menu.list></c-navigation_menu></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="popover">
+        <c-card.header><c-card.title>Popover</c-card.title></c-card.header>
+        <c-card.content class="space-y-3 relative min-h-32">
+          <c-popover>
+            <c-popover.trigger><c-button variant="outline">Open Popover</c-button></c-popover.trigger>
+            <c-popover.content>
+              <p class="text-sm">Popover body content for quick context.</p>
+            </c-popover.content>
+          </c-popover>
+          <div class="flex gap-2 pt-14"><c-button class="js-show-code" data-code="code-popover" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-popover" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-popover"><c-popover><c-popover.trigger><c-button>Open</c-button></c-popover.trigger><c-popover.content>Text</c-popover.content></c-popover></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="progress">
+        <c-card.header><c-card.title>Progress</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <c-progress value="72"></c-progress>
+          <p class="text-sm text-muted-foreground">72% migration complete.</p>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-progress" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-progress" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-progress"><c-progress value="72"></c-progress></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="select">
+        <c-card.header><c-card.title>Select</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <c-select class="max-w-xs">
+            <c-select.trigger><c-select.value placeholder="Pick a region"></c-select.value></c-select.trigger>
+            <c-select.content>
+              <c-select.item value="us-east">US East</c-select.item>
+              <c-select.item value="eu-west">EU West</c-select.item>
+            </c-select.content>
+          </c-select>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-select" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-select" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-select"><c-select><c-select.trigger><c-select.value placeholder="Pick" /></c-select.trigger><c-select.content><c-select.item value="a">Option A</c-select.item></c-select.content></c-select></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="separator">
+        <c-card.header><c-card.title>Separator</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <div class="space-y-2 text-sm">
+            <p>Profile settings</p>
+            <c-separator></c-separator>
+            <p>Billing settings</p>
+          </div>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-separator" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-separator" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-separator"><p>Block A</p><c-separator></c-separator><p>Block B</p></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="sheet">
+        <c-card.header><c-card.title>Sheet</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <c-sheet>
+            <c-sheet.trigger><c-button variant="outline">Open Right Sheet</c-button></c-sheet.trigger>
+            <c-sheet.content side="right">
+              <c-sheet.header>
+                <c-sheet.title>Activity Panel</c-sheet.title>
+                <c-sheet.description>Recent project events and notifications.</c-sheet.description>
+              </c-sheet.header>
+              <div class="mt-4 space-y-2 text-sm text-muted-foreground">
+                <p>Tenant created</p>
+                <p>Migration completed</p>
+              </div>
+            </c-sheet.content>
+          </c-sheet>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-sheet" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-sheet" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-sheet"><c-sheet><c-sheet.trigger>Open</c-sheet.trigger><c-sheet.content side="right">...</c-sheet.content></c-sheet></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="sidebar">
+        <c-card.header><c-card.title>Sidebar (Custom)</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <div class="h-56 overflow-hidden rounded-md border">
+            <c-sidebar title="Workspace">
+              <c-sidebar.group title="Main">
+                <c-sidebar.item href="#" active="true">Overview</c-sidebar.item>
+                <c-sidebar.item href="#">Tenants</c-sidebar.item>
+              </c-sidebar.group>
+              <c-sidebar.group title="Admin">
+                <c-sidebar.item href="#">Security</c-sidebar.item>
+                <c-sidebar.item href="#">Audit Logs</c-sidebar.item>
+              </c-sidebar.group>
+            </c-sidebar>
+          </div>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-sidebar" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-sidebar" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-sidebar"><c-sidebar title="Workspace"><c-sidebar.item href="#">Overview</c-sidebar.item></c-sidebar></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="table">
+        <c-card.header><c-card.title>Table</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <c-table>
+            <c-table.caption>Recent tenant activity.</c-table.caption>
+            <c-table.header>
+              <c-table.row>
+                <c-table.head>Tenant</c-table.head>
+                <c-table.head>Status</c-table.head>
+                <c-table.head>Last Updated</c-table.head>
+              </c-table.row>
+            </c-table.header>
+            <c-table.body>
+              <c-table.row><c-table.cell>Acme</c-table.cell><c-table.cell><c-badge>Active</c-badge></c-table.cell><c-table.cell>2 min ago</c-table.cell></c-table.row>
+              <c-table.row><c-table.cell>Globex</c-table.cell><c-table.cell><c-badge variant="secondary">Pending</c-badge></c-table.cell><c-table.cell>1 hour ago</c-table.cell></c-table.row>
+            </c-table.body>
+          </c-table>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-table" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-table" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-table"><c-table><c-table.header><c-table.row><c-table.head>Name</c-table.head></c-table.row></c-table.header><c-table.body><c-table.row><c-table.cell>Value</c-table.cell></c-table.row></c-table.body></c-table></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="tabs">
+        <c-card.header><c-card.title>Tabs</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <c-tabs default_value="overview" class="w-full">
+            <c-tabs.list class="grid grid-cols-3">
+              <c-tabs.trigger value="overview">Overview</c-tabs.trigger>
+              <c-tabs.trigger value="integrations">Integrations</c-tabs.trigger>
+              <c-tabs.trigger value="logs">Logs</c-tabs.trigger>
+            </c-tabs.list>
+            <c-tabs.content value="overview"><p class="text-sm text-muted-foreground">Overview content.</p></c-tabs.content>
+            <c-tabs.content value="integrations"><p class="text-sm text-muted-foreground">Integrations content.</p></c-tabs.content>
+            <c-tabs.content value="logs"><p class="text-sm text-muted-foreground">Logs content.</p></c-tabs.content>
+          </c-tabs>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-tabs" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-tabs" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-tabs"><c-tabs default_value="a"><c-tabs.list><c-tabs.trigger value="a">A</c-tabs.trigger></c-tabs.list><c-tabs.content value="a">Panel</c-tabs.content></c-tabs></script>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="toast">
+        <c-card.header><c-card.title>Toast</c-card.title></c-card.header>
+        <c-card.content class="space-y-3">
+          <div class="flex gap-2">
+            <c-toast.trigger toast_target="toast-default"><c-button variant="outline">Show Toast</c-button></c-toast.trigger>
+            <c-toast.trigger toast_target="toast-danger"><c-button variant="destructive">Show Error Toast</c-button></c-toast.trigger>
+          </div>
+          <c-toast id="toast-default"><c-toast.content title="Saved" description="Your changes were stored."></c-toast.content></c-toast>
+          <c-toast id="toast-danger"><c-toast.content type="destructive" title="Failed" description="Unable to save right now."></c-toast.content></c-toast>
+          <div class="flex gap-2"><c-button class="js-show-code" data-code="code-toast" size="sm" variant="outline">Show Code</c-button><c-button class="js-copy-code" data-code="code-toast" size="sm">Copy Code</c-button></div>
+          <pre class="js-code-view hidden rounded-md border bg-muted p-3 text-xs"></pre>
+          <script type="text/plain" id="code-toast"><c-toast.trigger toast_target="toast-1"><c-button>Show Toast</c-button></c-toast.trigger><c-toast id="toast-1"><c-toast.content title="Done" description="Saved" /></c-toast></script>
+        </c-card.content>
+      </c-card>
+    </section>
+
+    <section class="space-y-4" id="complex">
+      <h2 class="text-xl font-semibold">Complex Useful Compositions</h2>
+
+      <c-card id="complex-admin-shell">
+        <c-card.header>
+          <c-card.title>1. Admin Shell (Navbar + Sidebar + Tabs + Table)</c-card.title>
+          <c-card.description>Common SaaS control panel composition.</c-card.description>
+        </c-card.header>
+        <c-card.content class="space-y-4">
+          <div class="overflow-hidden rounded-md border">
+            <c-navbar brand="Tenant Console" class="border-0"></c-navbar>
+            <div class="grid grid-cols-[220px_1fr]">
+              <c-sidebar title="Sections" class="w-full border-r">
+                <c-sidebar.item href="#" active="true">Dashboard</c-sidebar.item>
+                <c-sidebar.item href="#">Users</c-sidebar.item>
+                <c-sidebar.item href="#">Billing</c-sidebar.item>
+              </c-sidebar>
+              <div class="p-4">
+                <c-tabs default_value="tenants">
+                  <c-tabs.list class="grid grid-cols-2 max-w-sm">
+                    <c-tabs.trigger value="tenants">Tenants</c-tabs.trigger>
+                    <c-tabs.trigger value="activity">Activity</c-tabs.trigger>
+                  </c-tabs.list>
+                  <c-tabs.content value="tenants">
+                    <c-table>
+                      <c-table.header>
+                        <c-table.row><c-table.head>Name</c-table.head><c-table.head>Status</c-table.head></c-table.row>
+                      </c-table.header>
+                      <c-table.body>
+                        <c-table.row><c-table.cell>Acme</c-table.cell><c-table.cell><c-badge>Active</c-badge></c-table.cell></c-table.row>
+                      </c-table.body>
+                    </c-table>
+                  </c-tabs.content>
+                  <c-tabs.content value="activity"><p class="text-sm text-muted-foreground">Activity stream panel.</p></c-tabs.content>
+                </c-tabs>
+              </div>
+            </div>
+          </div>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="complex-settings-wizard">
+        <c-card.header>
+          <c-card.title>2. Settings Wizard (Accordion + Form + Validation)</c-card.title>
+          <c-card.description>Step-like settings grouped by area.</c-card.description>
+        </c-card.header>
+        <c-card.content>
+          <c-accordion type="multiple" collapsible="true" open="{'profile': true}">
+            <c-accordion.item value="profile">
+              <c-accordion.trigger value="profile">Profile</c-accordion.trigger>
+              <c-accordion.content value="profile">
+                <c-form.field>
+                  <c-form.label>Display Name</c-form.label>
+                  <c-input placeholder="Platform Team"></c-input>
+                </c-form.field>
+              </c-accordion.content>
+            </c-accordion.item>
+            <c-accordion.item value="notifications">
+              <c-accordion.trigger value="notifications">Notifications</c-accordion.trigger>
+              <c-accordion.content value="notifications">
+                <label class="flex items-center gap-2"><c-checkbox checked="true"></c-checkbox><span class="text-sm">Send deployment alerts</span></label>
+              </c-accordion.content>
+            </c-accordion.item>
+          </c-accordion>
+        </c-card.content>
+      </c-card>
+
+      <c-card id="complex-action-center">
+        <c-card.header>
+          <c-card.title>3. Action Center (Menus + Dialog + Sheet + Toast)</c-card.title>
+          <c-card.description>Dense actions with safe confirmation flows.</c-card.description>
+        </c-card.header>
+        <c-card.content class="flex flex-wrap gap-2">
+          <c-dropdown_menu>
+            <c-dropdown_menu.trigger><c-button variant="outline">Quick Menu</c-button></c-dropdown_menu.trigger>
+            <c-dropdown_menu.content>
+              <c-dropdown_menu.item>Duplicate</c-dropdown_menu.item>
+              <c-dropdown_menu.item>Archive</c-dropdown_menu.item>
+            </c-dropdown_menu.content>
+          </c-dropdown_menu>
+          <c-dialog>
+            <c-dialog.trigger>Rename</c-dialog.trigger>
+            <c-dialog.content>
+              <c-dialog.header><c-dialog.title>Rename Project</c-dialog.title></c-dialog.header>
+              <c-input placeholder="New project name"></c-input>
+            </c-dialog.content>
+          </c-dialog>
+          <c-sheet>
+            <c-sheet.trigger><c-button variant="outline">Open Activity Sheet</c-button></c-sheet.trigger>
+            <c-sheet.content side="left"><c-sheet.title>Activity</c-sheet.title></c-sheet.content>
+          </c-sheet>
+          <c-toast.trigger toast_target="toast-complex"><c-button>Toast Action</c-button></c-toast.trigger>
+          <c-toast id="toast-complex"><c-toast.content title="Action queued" description="Background task started."></c-toast.content></c-toast>
+        </c-card.content>
+      </c-card>
+    </section>
+  </div>
+{% endblock content %}
+
+{% block inline_javascript %}
+  {{ block.super }}
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const getCode = (id) => document.getElementById(id)?.textContent?.trim() || "";
+
+      const categoryMap = {
+        accordion: "layout",
+        alert: "feedback",
+        "alert-dialog": "overlay",
+        badge: "data",
+        button: "inputs",
+        card: "layout",
+        checkbox: "inputs",
+        combobox: "inputs",
+        command: "inputs",
+        "command-dialog": "overlay",
+        dialog: "overlay",
+        "dropdown-menu": "navigation",
+        form: "inputs",
+        "input-label-textarea": "inputs",
+        "multi-menu": "custom",
+        navbar: "custom",
+        "navigation-menu": "navigation",
+        popover: "overlay",
+        progress: "feedback",
+        select: "inputs",
+        separator: "layout",
+        sheet: "overlay",
+        sidebar: "custom",
+        table: "data",
+        tabs: "layout",
+        toast: "feedback",
+        "complex-admin-shell": "complex",
+        "complex-settings-wizard": "complex",
+        "complex-action-center": "complex"
+      };
+
+      const searchInput = document.getElementById("component-search");
+      const categoryInput = document.getElementById("component-category");
+      const resetBtn = document.getElementById("component-reset");
+      const results = document.getElementById("component-results");
+      const cards = Array.from(document.querySelectorAll("[id]"))
+        .filter((el) => Object.prototype.hasOwnProperty.call(categoryMap, el.id));
+
+      const applyFilter = () => {
+        const q = (searchInput?.value || "").trim().toLowerCase();
+        const cat = categoryInput?.value || "all";
+        let visible = 0;
+
+        cards.forEach((card) => {
+          const title = card.querySelector("h3")?.textContent?.toLowerCase() || card.id.toLowerCase();
+          const matchesSearch = !q || title.includes(q) || card.id.toLowerCase().includes(q);
+          const matchesCategory = cat === "all" || categoryMap[card.id] === cat;
+          const show = matchesSearch && matchesCategory;
+          card.style.display = show ? "" : "none";
+          if (show) visible += 1;
+        });
+
+        if (results) {
+          results.textContent = `Showing ${visible} component blocks`;
+        }
+      };
+
+      searchInput?.addEventListener("input", applyFilter);
+      categoryInput?.addEventListener("change", applyFilter);
+      resetBtn?.addEventListener("click", () => {
+        if (searchInput) searchInput.value = "";
+        if (categoryInput) categoryInput.value = "all";
+        applyFilter();
+      });
+      applyFilter();
+
+      const bindAction = (selector, fallbackLabel, handler) => {
+        document.querySelectorAll(selector).forEach((anchor) => {
+          const targets = [anchor];
+          const sibling = anchor.nextElementSibling;
+          if (sibling && sibling.tagName === "BUTTON") {
+            targets.push(sibling);
+          }
+
+          targets.forEach((target) => {
+            target.addEventListener("click", (event) => {
+              event.preventDefault();
+              handler(anchor, target, fallbackLabel);
+            });
+          });
+        });
+      };
+
+      bindAction(".js-show-code", "Show Code", (anchor) => {
+        const codeId = anchor.getAttribute("data-code");
+        const card = anchor.closest(".space-y-3, .space-y-4, .space-y-6") || anchor.parentElement?.parentElement;
+        const view = card?.querySelector(".js-code-view");
+        if (!view) return;
+        const code = getCode(codeId);
+        const isHidden = view.classList.contains("hidden");
+        if (isHidden) {
+          view.textContent = code;
+          view.classList.remove("hidden");
+        } else {
+          view.classList.add("hidden");
+        }
+      });
+
+      bindAction(".js-copy-code", "Copy Code", async (anchor, target, fallbackLabel) => {
+        const codeId = anchor.getAttribute("data-code");
+        const code = getCode(codeId);
+        if (!code) return;
+        try {
+          await navigator.clipboard.writeText(code);
+        } catch {
+          const area = document.createElement("textarea");
+          area.value = code;
+          area.style.position = "fixed";
+          area.style.left = "-9999px";
+          document.body.appendChild(area);
+          area.select();
+          document.execCommand("copy");
+          document.body.removeChild(area);
+        }
+
+        const original = (target.textContent || fallbackLabel).trim() || fallbackLabel;
+        target.textContent = "Copied";
+        setTimeout(() => {
+          target.textContent = original;
+        }, 1000);
+      });
+    });
+  </script>
+{% endblock inline_javascript %}

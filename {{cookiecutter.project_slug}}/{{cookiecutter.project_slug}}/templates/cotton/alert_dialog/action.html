@@ -1,0 +1,10 @@
+<c-vars variant="default" />
+
+<c-button
+  @click="hideDialog"
+  variant="{{ variant }}"
+  class="{% if class %}{{ class }}{% endif %}"
+  {{ attrs }}
+>
+  {{ slot }}
+</c-button>

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Verify Your Email Address" %}{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-background">
+    <c-card class='w-[400px]'>
+        <c-card.header>
+            <c-card.title>{% trans "Verify Your Email Address" %}</c-card.title>
+            <c-card.description>
+                {% trans "We have sent you an email to verify your email address. Please click the link in that email to complete your registration." %}
+            </c-card.description>
+        </c-card.header>
+
+        <c-card.content class='space-y-4'>
+            <c-alert>
+                <c-alert.description>
+                    {% trans "If you don't see the email, please check your spam folder." %}
+                </c-alert.description>
+            </c-alert>
+        </c-card.content>
+
+        <c-card.footer class='flex flex-col space-y-3'>
+            <c-button onclick="window.location.href='{% url 'account_login' %}'" class="w-full" variant="outline">
+                {% trans "Back to Sign In" %}
+            </c-button>
+        </c-card.footer>
+    </c-card>
+</div>
+{% endblock %}

@@ -1,12 +1,5 @@
-{% raw %}
-{% load static i18n {% endraw %}
 
-{%- if cookiecutter.frontend_pipeline == 'Django Compressor' %}compress{%- endif %}{% raw %}%}{% endraw %}
-  {%- if cookiecutter.frontend_pipeline == 'Webpack' %}{% raw %}
-    {% load render_bundle from webpack_loader %}
-
-  {% endraw %}
-{%- endif %}{% raw %}<!DOCTYPE html>
+{% load static i18n compress %}<!DOCTYPE html>
 {% get_current_language as LANGUAGE_CODE %}
 <html lang="{{ LANGUAGE_CODE }}">
   <head>
@@ -14,173 +7,82 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>
       {% block title %}
-      {% endraw %}{{ cookiecutter.project_name }}{% raw %}
+      django-template
     {% endblock title %}
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-        content="{% endraw %}{{ cookiecutter.description }}{% raw %}" />
+        content="A common django template" />
   <meta name="author"
-        content="{% endraw %}{{ cookiecutter.author_name }}{% raw %}" />
+        content="Ankit Poudyal" />
   <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}" />
   {% block css %}
-  {%- endraw %}
-  {%- if cookiecutter.frontend_pipeline in ['None', 'Django Compressor'] %}
-    {%- raw %}
-    <!-- Latest compiled and minified Bootstrap CSS -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
-          integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer" />
-  {%- endraw %}
-{%- endif %}
-{%- raw %}
-<!-- Your stuff: Third-party CSS libraries go here -->
-<!-- This file stores project-specific CSS -->
-{%- endraw %}
-{% if cookiecutter.frontend_pipeline == 'None' %}
-  {% raw %}
-  <link href="{% static 'css/project.css' %}" rel="stylesheet" />
-{%- endraw %}
-{% elif cookiecutter.frontend_pipeline == 'Django Compressor' %}
-{% raw %}
-{% compress css %}
-  <link href="{% static 'css/project.css' %}" rel="stylesheet" />
-{% endcompress %}
-{%- endraw %}
-{% elif cookiecutter.frontend_pipeline == 'Gulp' %}
-{% raw %}
-<link href="{% static 'css/project.min.css' %}" rel="stylesheet" />
-{%- endraw %}
-{% elif cookiecutter.frontend_pipeline == "Webpack" %}
-{% raw %}
-{% render_bundle 'project' 'css' %}
-{%- endraw %}
-{% endif %}
-{% raw %}
-{% endblock css %}
-<!-- Le javascript
-    ================================================== -->
+    <link href="{% static 'css/output.css' %}" rel="stylesheet" />
+    {% compress css %}
+      <link href="{% static 'css/project.css' %}" rel="stylesheet" />
+    {% endcompress %}
+  {% endblock css %}
 {# Placed at the top of the document so pages load faster with defer #}
 {% block javascript %}
-{%- endraw %}
-{% if cookiecutter.frontend_pipeline == 'Gulp' %}
-  {% raw %}
-  <!-- Vendor dependencies bundled as one file -->
-  <script defer src="{% static 'js/vendors.min.js' %}"></script>
-{%- endraw %}
-{% elif cookiecutter.frontend_pipeline == "Webpack" %}
-{% raw %}
-<!-- Vendor dependencies bundled as one file -->
-{% render_bundle 'vendors' 'js' attrs='defer' %}
-{%- endraw %}
-{% else %}
-{% raw %}
-<!-- Bootstrap JS -->
-<script defer
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
-        integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"></script>
-<!-- Your stuff: Third-party javascript libraries go here -->
-{%- endraw %}
-{% endif %}
-{% raw %}
-<!-- place project specific Javascript in this file -->
-{%- endraw %}
-{% if cookiecutter.frontend_pipeline == 'None' %}
-  {% raw %}
-  <script defer src="{% static 'js/project.js' %}"></script>
-{%- endraw %}
-{% elif cookiecutter.frontend_pipeline == 'Django Compressor' %}
-{% raw %}
-{% compress js %}
-  <script defer src="{% static 'js/project.js' %}"></script>
-{% endcompress %}
-{%- endraw %}
-{% elif cookiecutter.frontend_pipeline == 'Gulp' %}
-{% raw %}
-<script defer src="{% static 'js/project.min.js' %}"></script>
-{%- endraw %}
-{% elif cookiecutter.frontend_pipeline == "Webpack" %}
-{% raw %}
-{% render_bundle 'project' 'js' attrs='defer' %}
-{%- endraw %}
-{% endif %}
-{% raw %}
+
+<script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  {% compress js %}
+    <script defer src="{% static 'js/project.js' %}"></script>
+  {% endcompress %}
+
 {% endblock javascript %}
 </head>
-<body class="{% block bodyclass %}{% endblock bodyclass %}">
+<body class="min-h-screen bg-background text-foreground {% block bodyclass %}{% endblock bodyclass %}">
   {% block body %}
-  <div class="mb-1">
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-      <div class="container-fluid">
-        <button class="navbar-toggler navbar-toggler-right"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="{% url 'home' %}">{% endraw %}{{ cookiecutter.project_name }}{% raw %}</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'home' %}">Home <span class="visually-hidden">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">About</a>
-            </li>
-            {% if request.user.is_authenticated %}
-              <li class="nav-item">
-                <a class="nav-link"
-                   href="{% endraw %}{% if cookiecutter.username_type == "email" %}{% raw %}{% url 'users:detail' request.user.pk %}{% endraw %}{% else %}{% raw %}{% url 'users:detail' request.user.username %}{% endraw %}{% endif %}{% raw %}">{% translate "My Profile" %}</a>
-              </li>
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a class="nav-link" href="{% url 'account_logout' %}">{% translate "Sign Out" %}</a>
-              </li>
-            {% else %}
-              {% if ACCOUNT_ALLOW_REGISTRATION %}
-                <li class="nav-item">
-                  {# URL provided by django-allauth/account/urls.py #}
-                  <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% translate "Sign Up" %}</a>
-                </li>
-              {% endif %}
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
-                <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% translate "Sign In" %}</a>
-              </li>
-            {% endif %}
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
-  <div class="container">
+  <c-navbar brand="django-template">
+    <c-slot name="nav">
+      <c-navbar.link href="{% url 'home' %}">Home</c-navbar.link>
+      <c-navbar.link href="{% url 'about' %}">About</c-navbar.link>
+      <c-navbar.link href="{% url 'components' %}">Components</c-navbar.link>
+    </c-slot>
+    <c-slot name="actions">
+      {% if request.user.is_authenticated %}
+        <c-navbar.link href="{% url 'users:detail' request.user.pk %}">{% translate "My Profile" %}</c-navbar.link>
+        <c-navbar.link href="{% url 'account_logout' %}">{% translate "Sign Out" %}</c-navbar.link>
+      {% else %}
+        {% if ACCOUNT_ALLOW_REGISTRATION %}
+          <c-navbar.link id="sign-up-link" href="{% url 'account_signup' %}">{% translate "Sign Up" %}</c-navbar.link>
+        {% endif %}
+        <c-navbar.link id="log-in-link" href="{% url 'account_login' %}">{% translate "Sign In" %}</c-navbar.link>
+      {% endif %}
+      <c-multi_menu label="Quick Links">
+        <c-multi_menu.section title="Project">
+          <c-multi_menu.item href="{% url 'home' %}">Home</c-multi_menu.item>
+          <c-multi_menu.item href="{% url 'about' %}">About</c-multi_menu.item>
+          <c-multi_menu.item href="{% url 'components' %}">Components</c-multi_menu.item>
+        </c-multi_menu.section>
+        <c-multi_menu.section title="Platform">
+          <c-multi_menu.item href="/admin/">Admin</c-multi_menu.item>
+          <c-multi_menu.item href="/api/docs/">API Docs</c-multi_menu.item>
+        </c-multi_menu.section>
+      </c-multi_menu>
+    </c-slot>
+  </c-navbar>
+  <div class="mx-auto w-full max-w-5xl px-4 py-6">
     {% if messages %}
-      {% for message in messages %}
-        <div class="alert alert-dismissible {% if message.tags %}alert-{{ message.tags }}{% endif %}">
-          {{ message }}
-          <button type="button"
-                  class="btn-close"
-                  data-bs-dismiss="alert"
-                  aria-label="Close"></button>
-        </div>
-      {% endfor %}
+      <div class="mb-6 grid gap-2">
+        {% for message in messages %}
+          <c-alert {% if message.tags == "error" %}variant="destructive"{% elif message.tags == "warning" %}variant="warning"{% elif message.tags == "success" %}variant="success"{% endif %}>
+            {{ message }}
+          </c-alert>
+        {% endfor %}
+      </div>
     {% endif %}
+
     {% block main %}
       {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
+        <p class="text-muted-foreground">Use this document as a way to quick start any new project.</p>
       {% endblock content %}
     {% endblock main %}
-
   </div>
+
   {% endblock body %}
-  <!-- /container -->
   {% block modal %}
   {% endblock modal %}
   {% block inline_javascript %}
@@ -196,4 +98,3 @@
   {% endblock inline_javascript %}
 </body>
 </html>
-{%- endraw %}

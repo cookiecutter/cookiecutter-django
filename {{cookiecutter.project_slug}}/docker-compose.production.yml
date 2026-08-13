@@ -39,7 +39,27 @@ services:
     env_file:
       - ./.envs/.production/.django
       - ./.envs/.production/.postgres
-    command: /start
+    command: ["/bin/bash", "/app/compose/production/django/start"]
+
+  migrations:
+      <<: *django
+      image: django_template_production_migrations
+      container_name: django_template_production_migrations
+      depends_on:
+        postgres:
+          condition: service_healthy
+      ports: []
+      command: ["/bin/bash", "/app/compose/production/django/start-migrations"]
+
+  tailwind:
+    <<: *django
+    image: django_template_production_tailwind
+    container_name: django_template_production_tailwind
+    depends_on:
+      migrations:
+        condition: service_completed_successfully
+    ports: []
+    command: ["/bin/bash", "/app/compose/production/django/start-tailwind"]
 
   postgres:
     build:
@@ -85,17 +105,13 @@ services:
   celeryworker:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_celeryworker
-    command: /start-celeryworker
+    command: ["/bin/bash", "/app/compose/production/django/celery/worker/start"]
 
   celerybeat:
     <<: *django
     image: {{ cookiecutter.project_slug }}_production_celerybeat
-    command: /start-celerybeat
+    command: ["/bin/bash", "/app/compose/production/django/celery/beat/start"]
 
-  flower:
-    <<: *django
-    image: {{ cookiecutter.project_slug }}_production_flower
-    command: /start-flower
   {%- endif %}
   {%- if cookiecutter.cloud_provider == 'AWS' %}
 

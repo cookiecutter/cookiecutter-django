@@ -1,0 +1,7 @@
+<div
+  x-data="{ open: false }"
+  @close-dropdown.window="if ($event.target.closest('[x-data]') === $el || $el.contains($event.target)) open = false"
+  {{ attrs }}
+>
+  {{ slot }}
+</div>

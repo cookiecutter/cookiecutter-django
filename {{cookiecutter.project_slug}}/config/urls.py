@@ -17,6 +17,8 @@ from rest_framework.authtoken.views import obtain_auth_token
 from .api import api
 {%- endif %}
 
+admin_base = settings.ADMIN_URL.rstrip("/") + "/"
+
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
     path(
@@ -24,6 +26,20 @@ urlpatterns = [
         TemplateView.as_view(template_name="pages/about.html"),
         name="about",
     ),
+    path(
+        "components/",
+        TemplateView.as_view(template_name="pages/components.html"),
+        name="components",
+    ),
+{%- if cookiecutter.use_control_room == 'y' %} 
+    path(f"{admin_base}dj-redis-panel/", include("dj_redis_panel.urls")),
+    path(f"{admin_base}dj-cache-panel/", include("dj_cache_panel.urls")),
+    path(f"{admin_base}dj-urls-panel/", include("dj_urls_panel.urls")),
+    path(f"{admin_base}dj-celery-panel/", include("dj_celery_panel.urls")),
+    path(f"{admin_base}dj-signals-panel/", include("dj_signals_panel.urls")),
+    path(f"{admin_base}dj-control-room/", include("dj_control_room.urls")),
+{% endif %}
+
     # Django Admin, use {% raw %}{% url 'admin:index' %}{% endraw %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management

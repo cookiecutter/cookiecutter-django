@@ -1,0 +1,11 @@
+<c-vars error></c-vars>
+
+<c-label
+    class="
+    {% if class %}{{ class }}{% endif %}
+    {% if error %}text-destructive{% endif %}
+    "
+    {{ attrs }}
+>
+    {{ slot }}
+</c-label>

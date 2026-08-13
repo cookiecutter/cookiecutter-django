@@ -1,36 +1,25 @@
-{% raw %}{% extends "base.html" %}
+{% extends "base.html" %}
 
 {% load crispy_forms_tags %}
 
 {% block title %}
-{% endraw %}
-{% if cookiecutter.username_type == "email" %}
-  {% raw %}{{ user.name }}{% endraw %}
-{% else %}
-  {% raw %}{{ user.username }}{% endraw %}
-{% endif %}
-{% raw %}
+  {{ user.email }}
 {% endblock title %}
+
 {% block content %}
-  <h1>
-  {% endraw %}
-  {% if cookiecutter.username_type == "email" %}
-    {% raw %}{{ user.name }}{% endraw %}
-  {% else %}
-    {% raw %}{{ user.username }}{% endraw %}
-  {% endif %}
-  {% raw %}
-</h1>
-<form class="form-horizontal"
-      method="post"
-      action="{% url 'users:update' %}">
-  {% csrf_token %}
-  {{ form|crispy }}
-  <div class="control-group">
-    <div class="controls">
-      <button type="submit" class="btn btn-primary">Update</button>
-    </div>
+  <div class="py-6">
+    <c-card class="mx-auto w-full max-w-2xl">
+      <c-card.header>
+        <c-card.title>{{ user.email }}</c-card.title>
+        <c-card.description>Update your profile details.</c-card.description>
+      </c-card.header>
+      <c-card.content>
+        <form method="post" action="{% url 'users:update' %}" class="space-y-4">
+          {% csrf_token %}
+          {{ form|crispy }}
+          <c-button type="submit">Update</c-button>
+        </form>
+      </c-card.content>
+    </c-card>
   </div>
-</form>
 {% endblock content %}
-{%- endraw %}

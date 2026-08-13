@@ -328,6 +328,23 @@ COMPRESS_FILTERS = {
 # https://github.com/jasongi/collectfasta#installation
 INSTALLED_APPS = ["collectfasta", *INSTALLED_APPS]
 {% endif %}
+
+{%- if cookiecutter.use_control_room == 'y' %}
+# Django Control Room
+# ------------------------------------------------------------------------------
+DJ_CONTROL_ROOM_SETTINGS = {
+    **DJ_CONTROL_ROOM_SETTINGS,
+    "REGISTER_PANELS_IN_ADMIN": env.bool("CR_REGISTER_PANELS", default=False),
+    "PANEL_ADMIN_REGISTRATION": {
+        "dj_redis_panel": env.bool("CR_REGISTER_REDIS_PANEL", default=False),
+        "dj_cache_panel": env.bool("CR_REGISTER_CACHE_PANEL", default=False),
+        "dj_urls_panel": env.bool("CR_REGISTER_URLS_PANEL", default=False),
+        "dj_celery_panel": env.bool("CR_REGISTER_CELERY_PANEL", default=False),
+        "controlroom_sentry": env.bool("CR_REGISTER_SENTRY_PANEL", default=False),
+    },
+}
+{%- endif %}
+
 # LOGGING
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#logging

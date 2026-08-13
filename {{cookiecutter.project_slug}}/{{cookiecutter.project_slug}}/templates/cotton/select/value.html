@@ -1,0 +1,8 @@
+<c-vars placeholder="Select an option"></c-vars>
+
+<span
+  class="block truncate {% if class %}{{ class }}{% endif %}"
+  x-text="displayText || '{{ placeholder }}'"
+  {{ attrs }}
+>
+</span>

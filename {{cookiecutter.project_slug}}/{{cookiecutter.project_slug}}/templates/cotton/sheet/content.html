@@ -1,0 +1,58 @@
+<c-vars side="right"></c-vars>
+
+<!-- Backdrop (clicking on this should close the sheet) -->
+<div
+  x-show="open"
+  x-transition:enter="ease-out duration-300"
+  x-transition:enter-start="opacity-0"
+  x-transition:enter-end="opacity-100"
+  x-transition:leave="ease-in duration-200"
+  x-transition:leave-start="opacity-100"
+  x-transition:leave-end="opacity-0"
+  class="fixed inset-0 z-50 bg-background/80 backdrop-blur-xs"
+  aria-hidden="true"
+  x-cloak
+  @click="hideSheet()"
+></div>
+
+<!-- Sheet Content -->
+<div
+  x-show="open"
+  class="fixed z-50 bg-background p-6 shadow-lg border
+    {% if side == 'right' %}inset-y-0 right-0 h-full {% if not class or 'w-' not in class %}w-3/4 max-w-sm{% endif %}
+    {% elif side == 'left' %}inset-y-0 left-0 h-full {% if not class or 'w-' not in class %}w-3/4 max-w-sm{% endif %}
+    {% elif side == 'top' %}inset-x-0 top-0 w-full {% if not class or 'h-' not in class %}h-auto{% endif %}
+    {% elif side == 'bottom' %}inset-x-0 bottom-0 w-full {% if not class or 'h-' not in class %}h-auto{% endif %}
+    {% endif %}
+    {% if class %}{{ class }}{% endif %}"
+  x-transition:enter="transform transition ease-out duration-300"
+  x-transition:enter-start="{% if side == 'right' %}translate-x-full{% elif side == 'left' %}-translate-x-full{% elif side == 'top' %}-translate-y-full{% elif side == 'bottom' %}translate-y-full{% endif %}"
+  x-transition:enter-end="translate-x-0 translate-y-0"
+  x-transition:leave="transform transition ease-in duration-200"
+  x-transition:leave-start="translate-x-0 translate-y-0"
+  x-transition:leave-end="{% if side == 'right' %}translate-x-full{% elif side == 'left' %}-translate-x-full{% elif side == 'top' %}-translate-y-full{% elif side == 'bottom' %}translate-y-full{% endif %}"
+  role="dialog"
+  aria-modal="true"
+  x-cloak
+  @click.away="hideSheet()"
+  {{ attrs }}
+>
+  <!-- Close Button -->
+  <c-button
+      type="button"
+      variant="ghost"
+      class="absolute right-4 top-4 rounded-xs opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-hidden focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary"
+      @click="hideSheet()"
+    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+      <path d="M18 6 6 18"></path>
+      <path d="m6 6 12 12"></path>
+    </svg>
+    <span class="sr-only">Close</span>
+  </c-button>
+
+  <!-- Content -->
+  <div class="pt-4">
+    {{ slot }}
+  </div>
+</div>

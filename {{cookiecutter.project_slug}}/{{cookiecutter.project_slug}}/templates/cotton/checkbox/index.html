@@ -1,0 +1,24 @@
+<input
+    type="checkbox"
+    class="
+    size-4
+    shrink-0
+    rounded-sm
+    bg-primary
+    text-primary-foreground accent-primary
+    border border-primary
+    ring-offset-background
+    focus-visible:outline-hidden
+    focus-visible:ring-2
+    focus-visible:ring-ring
+    focus-visible:ring-offset-2
+    disabled:cursor-not-allowed
+    disabled:opacity-50
+    {% if class %}
+        {{ class }}
+    {% endif %}
+    "
+    {{ attrs }}
+>
+    {{ slot }}
+</input>

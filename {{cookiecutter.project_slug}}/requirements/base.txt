@@ -19,7 +19,16 @@ flower==2.0.1  # https://github.com/mher/flower
 uvicorn[standard]==0.52.1  # https://github.com/Kludex/uvicorn
 uvicorn-worker==0.4.0  # https://github.com/Kludex/uvicorn-worker
 {%- endif %}
-
+django-cotton>=2.7.2
+django-tailwind-cli>=4.6.2
+{%- if cookiecutter.use_tenants == 'y' %}
+django-tenant-users>=2.2.1
+django-tenants>=3.10.2
+{%- endif %}
+{%- if cookiecutter.use_control_room == 'y'  %}
+dj-control-room[cache,celery,redis,urls]>=1.6.0
+dj-signals-panel>=0.6.0
+{%- endif %}
 # Django
 # ------------------------------------------------------------------------------
 django==6.0.8  # pyup: < 6.1 # https://www.djangoproject.com/
