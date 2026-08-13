@@ -1,3 +1,5 @@
+{% raw %}
 <div @click="open = !open" class="outline-hidden {% if class %}{{ class }}{% endif %}" {{ attrs }}>
     {{ slot }}
 </div>
+{%- endraw %}

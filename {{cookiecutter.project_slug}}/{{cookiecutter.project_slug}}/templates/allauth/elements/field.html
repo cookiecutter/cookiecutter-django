@@ -1,3 +1,4 @@
+{% raw %}
 {% load allauth %}
 {% load crispy_forms_tags %}
 
@@ -55,3 +56,4 @@
 {% if slots.help_text %}
   <div class="-mt-2 mb-4 text-sm text-muted-foreground">{% slot help_text %}{% endslot %}</div>
 {% endif %}
+{%- endraw %}
