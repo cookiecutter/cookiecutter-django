@@ -16,8 +16,8 @@
   "username_type": ["username", "email"],
   "timezone": "UTC",
   "windows": "n",
-  "editor": ["None", "PyCharm", "VS Code"],
-  "use_docker": "n",
+  "editor": [ "VS Code", "PyCharm", "None"],
+  "use_docker": "y",
   "postgresql_version": ["18", "17", "16", "15", "14"],
   "cloud_provider": ["AWS", "GCP", "Azure", "None"],
   "mail_service": [
@@ -31,18 +31,18 @@
     "SparkPost",
     "Other SMTP"
   ],
-  "rest_api": ["None", "DRF", "Django Ninja"],
-  "use_async": "n",
+  "rest_api": [ "DRF", "Django Ninja","None"],
+  "use_async": "y",
   "use_tenants": "y",
   "use_control_room": "y",
   "use_django_unfold": "y",
-  "frontend_pipeline": ["None", "Django Compressor", "Gulp", "Webpack"],
-  "use_celery": "n",
-  "mail_catcher": ["None", "Mailpit", "Mailtrap Local"],
-  "use_sentry": "n",
-  "use_whitenoise": "n",
+  "frontend_pipeline": [ "Django Compressor", "Gulp", "Webpack", "None"],
+  "use_celery": "y",
+  "mail_catcher": [ "Mailpit", "Mailtrap Local", "None"],
+  "use_sentry": "y",
+  "use_whitenoise": "y",
   "use_heroku": "n",
-  "ci_tool": ["None", "Travis", "Gitlab", "Github", "Drone"],
+  "ci_tool": ["Github", "Travis", "Gitlab", "Drone", "None"],
   "keep_local_envs_in_vcs": "y",
-  "debug": "n"
+  "debug": "y"
 }
