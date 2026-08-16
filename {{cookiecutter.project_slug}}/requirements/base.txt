@@ -55,3 +55,7 @@ django-cors-headers==4.9.0  # https://github.com/adamchainz/django-cors-headers
 {%- if cookiecutter.frontend_pipeline == 'Webpack' %}
 django-webpack-loader==3.2.4  # https://github.com/django-webpack/django-webpack-loader
 {%- endif %}
+
+{%- if cookiecutter.use_django_unfold == 'y' %}
+django-unfold==0.104.1  
+{%- endif %}

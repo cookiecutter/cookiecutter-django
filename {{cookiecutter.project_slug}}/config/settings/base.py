@@ -5,6 +5,10 @@ import os
 import ssl
 {%- endif %}
 from pathlib import Path
+{%- if cookiecutter.use_django_unfold == 'y' %}
+from django.utils.translation import gettext_lazy as _
+from django.urls import reverse_lazy
+{%- endif %}
 
 import environ
 
@@ -110,6 +114,9 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # "django.contrib.humanize", # Handy template tags
+{%- if cookiecutter.use_django_unfold == 'y' %}
+    "unfold",
+{%- endif %}
     "django.contrib.admin",
     "django.forms",
 ]
@@ -527,6 +534,31 @@ WEBPACK_LOADER = {
     },
 }
 
+{%- endif %}
+
+{%- if cookiecutter.use_django_unfold == 'y' %}
+# Django Unfold 
+UNFOLD = {
+    "SIDEBAR": {
+        "show_search": True,
+        "show_all_applications": True,
+    },
+    "SITE_DROPDOWN": [
+        {
+            "icon": "diamond",
+            "title": _("My site 1"),
+            "link": "https://example.com",
+            "attrs": {
+                "target": "_blank",
+            },
+        },
+        {
+            "icon": "diamond",
+            "title": _("My site 2"),
+            "link": reverse_lazy("admin:index"),
+        },
+    ]
+}
 {%- endif %}
 # Your stuff...
 # ------------------------------------------------------------------------------

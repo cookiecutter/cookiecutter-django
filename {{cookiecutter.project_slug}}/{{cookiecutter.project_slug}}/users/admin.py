@@ -7,6 +7,9 @@ from django.utils.translation import gettext_lazy as _
 from .forms import UserAdminChangeForm
 from .forms import UserAdminCreationForm
 from .models import User
+{%- if cookiecutter.use_django_unfold == 'y' %}
+from unfold.admin import ModelAdmin
+{%- endif %}
 
 if settings.DJANGO_ADMIN_FORCE_ALLAUTH:
     # Force the `admin` sign in process to go through the `django-allauth` workflow:
@@ -16,7 +19,11 @@ if settings.DJANGO_ADMIN_FORCE_ALLAUTH:
 
 
 @admin.register(User)
+{%- if cookiecutter.use_django_unfold == 'y' %}
+class UserAdmin(ModelAdmin,auth_admin.UserAdmin):
+{%- else %}
 class UserAdmin(auth_admin.UserAdmin):
+{%- endif %}
     form = UserAdminChangeForm
     add_form = UserAdminCreationForm
     fieldsets = (
