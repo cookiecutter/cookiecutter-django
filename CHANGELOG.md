@@ -3,6 +3,31 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.8.14
+
+
+### Updated
+
+- Update django-debug-toolbar to 7.1.1 ([#6814](https://github.com/cookiecutter/cookiecutter-django/pull/6814))
+
+- Update uvicorn to 0.52.3 ([#6810](https://github.com/cookiecutter/cookiecutter-django/pull/6810))
+
+- Update ruff to 0.16.3 ([#6809](https://github.com/cookiecutter/cookiecutter-django/pull/6809))
+
+- Update django-allauth to 65.19.1 ([#6808](https://github.com/cookiecutter/cookiecutter-django/pull/6808))
+
+- Update sentry-sdk to 2.68.0 ([#6807](https://github.com/cookiecutter/cookiecutter-django/pull/6807))
+
+- Update pyproject-fmt from v2.27.0 to v2.27.1 ([#6805](https://github.com/cookiecutter/cookiecutter-django/pull/6805))
+
+- Update djangorestframework-stubs to 3.18.0 ([#6804](https://github.com/cookiecutter/cookiecutter-django/pull/6804))
+
+- Update pre-commit to 4.6.2 ([#6802](https://github.com/cookiecutter/cookiecutter-django/pull/6802))
+
+- Update django-debug-toolbar to 7.1.0 ([#6801](https://github.com/cookiecutter/cookiecutter-django/pull/6801))
+
+- Update pytest-django to 4.14.0 ([#6800](https://github.com/cookiecutter/cookiecutter-django/pull/6800))
+
 ## 2026.8.9
 
 

@@ -28,14 +28,14 @@ repos:
         args: ["--tab-width", "2"]
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.16.2
+    rev: v0.16.3
     hooks:
       - id: ruff
         args: [--fix, --exit-non-zero-on-fix]
       - id: ruff-format
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: v2.27.0
+    rev: v2.27.1
     hooks:
       - id: pyproject-fmt
 
