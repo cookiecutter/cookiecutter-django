@@ -130,7 +130,6 @@ DJ_CONTROL_ROOM_SETTINGS = {
         "dj_urls_panel": env.bool("CR_REGISTER_URLS_PANEL", default=True),
         "dj_signals_panel": env.bool("CR_REGISTER_SIGNALS_PANEL", default=True),
         "dj_celery_panel": env.bool("CR_REGISTER_CELERY_PANEL", default=True),
-        "controlroom_sentry": env.bool("CR_REGISTER_SENTRY_PANEL", default=True),
     },
 }
 REDIS_URL = env.str("REDIS_URL", default="redis://redis:6379/0") 

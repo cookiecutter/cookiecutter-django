@@ -162,7 +162,6 @@ THIRD_PARTY_TENANT_APPS = [
 LOCAL_SHARED_APPS = [
     "{{cookiecutter.project_slug}}.tenants",
     "{{cookiecutter.project_slug}}.users",
-    "{{cookiecutter.project_slug}}.controlroom_sentry",
 ]
 
 LOCAL_TENANT_APPS: list[str] = []
@@ -418,7 +417,6 @@ DJ_CONTROL_ROOM_SETTINGS = {
         "dj_cache_panel": env.bool("CR_REGISTER_CACHE_PANEL", default=False),
         "dj_urls_panel": env.bool("CR_REGISTER_URLS_PANEL", default=False),
         "dj_celery_panel": env.bool("CR_REGISTER_CELERY_PANEL", default=False),
-        "controlroom_sentry": env.bool("CR_REGISTER_SENTRY_PANEL", default=False),
     },
 }
 {%- endif %}
