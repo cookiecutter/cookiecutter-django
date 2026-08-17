@@ -8,6 +8,7 @@ DJANGO_RUN_MIGRATIONS=True
 {%- if cookiecutter.use_tenants == 'y' %}
 DJANGO_TENANT_USERS_DOMAIN=localhost
 DJANGO_PUBLIC_TENANT_OWNER_EMAIL=admin@example.com
+DJANGO_PUBLIC_TENANT_OWNER_PASSWORD=Admin@123
 {%- endif %}
 
 {%- if cookiecutter.use_control_room == 'y' %}

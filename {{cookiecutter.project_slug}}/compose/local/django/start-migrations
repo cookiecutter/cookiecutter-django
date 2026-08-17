@@ -41,9 +41,10 @@ sys.exit(
     .exists()
 )
 '; then
-  python manage.py create_public_tenant \
+  python manage.py setup_local_tenant \
     --domain_url "${DJANGO_TENANT_USERS_DOMAIN:-localhost}" \
-    --owner_email "${DJANGO_PUBLIC_TENANT_OWNER_EMAIL:-admin@example.com}"
+    --owner_email "${DJANGO_PUBLIC_TENANT_OWNER_EMAIL:-admin@example.com}" \
+    --owner_password "${DJANGO_PUBLIC_TENANT_OWNER_PASSWORD:-Admin@123}" 
 fi
 
 python manage.py migrate_schemas
