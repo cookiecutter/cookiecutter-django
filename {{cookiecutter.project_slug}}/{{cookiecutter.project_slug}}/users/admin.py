@@ -26,6 +26,32 @@ class UserAdmin(auth_admin.UserAdmin):
 {%- endif %}
     form = UserAdminChangeForm
     add_form = UserAdminCreationForm
+{%- if cookiecutter.use_tenants == "y" %}
+    filter_horizontal: tuple[str,...] = ()
+    fieldsets = (
+        {%- if cookiecutter.username_type == "email" %}
+        (None, {"fields": ("email", "password")}),
+        (_("Personal info"), {"fields": ("name",)}),
+        {%- else %}
+        (None, {"fields": ("username", "password")}),
+        (_("Personal info"), {"fields": ("name", "email")}),
+        {%- endif %}
+        (
+            _("Permissions"),
+            {
+                "fields": (
+                    "is_active",
+                    "is_verified",
+                ),
+            },
+        ),
+        (_("Important dates"), {"fields": ("last_login")}),
+    )
+    readonly_fields = ("last_login", "is_verified")
+    list_filter = ("is_active", "is_verified")
+    ordering = ["email"]
+    search_fields = ["name", "email"]
+{% else %}
     fieldsets = (
         {%- if cookiecutter.username_type == "email" %}
         (None, {"fields": ("email", "password")}),
@@ -48,10 +74,11 @@ class UserAdmin(auth_admin.UserAdmin):
         ),
         (_("Important dates"), {"fields": ("last_login", "date_joined")}),
     )
-    list_display = ["{{cookiecutter.username_type}}", "name", "is_superuser"]
-    search_fields = ["name"]
-    {%- if cookiecutter.username_type == "email" %}
     ordering = ["id"]
+    search_fields = ["name"]
+{%- endif %}
+    list_display = ["{{cookiecutter.username_type}}", "name", "is_superuser"]
+    {%- if cookiecutter.username_type == "email" %}
     add_fieldsets = (
         (
             None,
