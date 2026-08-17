@@ -40,10 +40,12 @@ class Migration(migrations.Migration):
             model_name='user',
             name='user_permissions',
         ),
+{%- if cookiecutter.username_type == "username" -%}
         migrations.RemoveField(
             model_name='user',
             name='username',
         ),
+{%- endif %-}
         migrations.AddField(
             model_name='user',
             name='is_verified',
