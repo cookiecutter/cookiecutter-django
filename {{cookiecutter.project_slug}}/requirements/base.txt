@@ -59,3 +59,5 @@ django-webpack-loader==3.2.4  # https://github.com/django-webpack/django-webpack
 {%- if cookiecutter.use_django_unfold == 'y' %}
 django-unfold==0.104.1  
 {%- endif %}
+
+django-imagekit>=6.1.0
