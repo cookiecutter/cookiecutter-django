@@ -43,8 +43,8 @@ services:
 
   migrations:
       <<: *django
-      image: django_template_production_migrations
-      container_name: django_template_production_migrations
+      image: {{cookiecutter.project_slug}}_production_migrations
+      container_name: {{cookiecutter.project_slug}}_production_migrations
       depends_on:
         postgres:
           condition: service_healthy
@@ -53,8 +53,8 @@ services:
 
   tailwind:
     <<: *django
-    image: django_template_production_tailwind
-    container_name: django_template_production_tailwind
+    image: {{cookiecutter.project_slug}}_production_tailwind
+    container_name: {{cookiecutter.project_slug}}_production_tailwind
     depends_on:
       migrations:
         condition: service_completed_successfully

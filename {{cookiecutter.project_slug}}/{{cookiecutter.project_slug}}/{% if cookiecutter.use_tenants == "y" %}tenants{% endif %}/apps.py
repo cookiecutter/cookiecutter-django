@@ -3,5 +3,5 @@ from django.apps import AppConfig
 
 class TenantsConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "django_template.tenants"
+    name = "{{cookiecutter.project_slug}}.tenants"
     label = "tenants"

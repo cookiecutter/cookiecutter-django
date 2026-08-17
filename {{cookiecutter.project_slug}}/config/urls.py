@@ -17,7 +17,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 from .api import api
 {%- endif %}
 {%- if cookiecutter.use_django_unfold == 'y' %}
-import django_template.contrib.admin
+import {{cookiecutter.project_slug}}.contrib.admin
 admin.autodiscover()
 
 {% endif %}

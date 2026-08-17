@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
 from django.db import transaction
 
-from django_template.tenants.models import Tenant, Domain
+from {{cookiecutter.project_slug}}.tenants.models import Tenant, Domain
 
 
 class Command(BaseCommand):

@@ -160,9 +160,9 @@ THIRD_PARTY_TENANT_APPS = [
 ]
 
 LOCAL_SHARED_APPS = [
-    "django_template.tenants",
-    "django_template.users",
-    "django_template.controlroom_sentry",
+    "{{cookiecutter.project_slug}}.tenants",
+    "{{cookiecutter.project_slug}}.users",
+    "{{cookiecutter.project_slug}}.controlroom_sentry",
 ]
 
 LOCAL_TENANT_APPS: list[str] = []

@@ -29,8 +29,8 @@ services:
 
   migrations:
       <<: *django
-      image: django_template_local_migrations
-      container_name: django_template_local_migrations
+      image: {{cookiecutter.project_slug}}_local_migrations
+      container_name: {{cookiecutter.project_slug}}_local_migrations
       depends_on:
         postgres:
           condition: service_healthy
@@ -39,8 +39,8 @@ services:
 
   tailwind:
     <<: *django
-    image: django_template_local_tailwind
-    container_name: django_template_local_tailwind
+    image: {{cookiecutter.project_slug}}_local_tailwind
+    container_name: {{cookiecutter.project_slug}}_local_tailwind
     depends_on:
       migrations:
         condition: service_completed_successfully
