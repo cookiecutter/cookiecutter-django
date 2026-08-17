@@ -1,7 +1,6 @@
 volumes:
   {{ cookiecutter.project_slug }}_local_postgres_data: {}
   {{ cookiecutter.project_slug }}_local_postgres_data_backups: {}
-  {{ cookiecutter.project_slug }}_local_redis_data: {}
   {{ cookiecutter.project_slug }}_local_python_venv: {}
   {% if cookiecutter.use_celery == 'y' %}{{ cookiecutter.project_slug }}_local_redis_data: {}{% endif %}
 
@@ -15,9 +14,6 @@ services:
     depends_on:
       migrations:
         condition: service_completed_successfully
-      {%- if cookiecutter.mail_catcher == 'Mailpit' %}
-      - mailpit
-      {%- endif %}
       {%- if cookiecutter.mail_catcher == 'Mailtrap Local' %}
       - mailtrap-local
       {%- endif %}
@@ -102,9 +98,6 @@ services:
     depends_on:
       migrations:
         condition: service_completed_successfully
-      {%- if cookiecutter.mail_catcher == 'Mailpit' %}
-      - mailpit
-      {%- endif %}
       {%- if cookiecutter.mail_catcher == 'Mailtrap Local' %}
       - mailtrap-local
       {%- endif %}
@@ -118,9 +111,6 @@ services:
     depends_on:
       migrations:
         condition: service_completed_successfully
-      {%- if cookiecutter.mail_catcher == 'Mailpit' %}
-      - mailpit
-      {%- endif %}
       {%- if cookiecutter.mail_catcher == 'Mailtrap Local' %}
       - mailtrap-local
       {%- endif %}
