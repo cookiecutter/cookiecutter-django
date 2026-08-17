@@ -8,7 +8,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>
       {% block title %}
-      django-template
+{% endraw %}
+      {{ cookiecutter.project_slug }}
+{% raw %}
     {% endblock title %}
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,7 +38,9 @@
 </head>
 <body class="min-h-screen bg-background text-foreground {% block bodyclass %}{% endblock bodyclass %}">
   {% block body %}
-  <c-navbar brand="django-template">
+{% endraw %}
+  <c-navbar brand="{{ cookiecutter.project_slug}}">
+{% raw %}
     <c-slot name="nav">
       <c-navbar.link href="{% url 'home' %}">Home</c-navbar.link>
       <c-navbar.link href="{% url 'about' %}">About</c-navbar.link>

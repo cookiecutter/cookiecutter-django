@@ -6,8 +6,10 @@ from django.contrib.auth.models import AbstractUser
 from django.db.models import CharField
 {%- if cookiecutter.username_type == "email" %}
 from django.db.models import EmailField
-from django.db import models
 {%- endif %}
+from django.db import models
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill, Transpose
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 {%- if cookiecutter.username_type == "email" %}
@@ -21,7 +23,7 @@ from tenant_users.tenants.models import UserProfile
 {%- if cookiecutter.use_tenants == 'y' %}
 class User(UserProfile):
     """
-    Default custom user model for django-template.
+    Default custom user model for {{cookiecutter.project_slug}}.
     If adding fields that need to be filled at user signup,
     check forms.SignupForm and forms.SocialSignupForms accordingly.
     """
