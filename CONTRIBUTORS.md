@@ -181,6 +181,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Africanus12</td>
+    <td>
+      <a href="https://github.com/Africanus12">Africanus12</a>
+    </td>
+    <td>Rufus87078959</td>
+  </tr>
+  <tr>
     <td>Agam Dua</td>
     <td>
       <a href="https://github.com/"></a>
