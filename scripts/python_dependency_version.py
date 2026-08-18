@@ -62,6 +62,10 @@ def update_package_version(package_name: str, old_version: str, new_version: str
             f"repo: {repo_url}\n    rev: v{old_version}",
             f"repo: {repo_url}\n    rev: v{new_version}",
         )
+        new_content = new_content.replace(
+            f"repo: {repo_url}\n    rev: '{old_version}'",
+            f"repo: {repo_url}\n    rev: '{new_version}'",
+        )
         config_file.write_text(new_content)
 
 
