@@ -1,6 +1,10 @@
 from allauth.account.forms import SignupForm
 from allauth.socialaccount.forms import SignupForm as SocialSignupForm
+{%- if cookiecutter.use_django_unfold == 'y' %}
+from unfold import forms as admin_forms
+{%- else %}
 from django.contrib.auth import forms as admin_forms
+{%- endif %}
 {%- if cookiecutter.username_type == "email" %}
 from django.forms import EmailField
 {%- endif %}
@@ -16,8 +20,11 @@ class UserAdminChangeForm(admin_forms.UserChangeForm):
         field_classes = {"email": EmailField}
         {%- endif %}
 
-
+{%- if cookiecutter.use_django_unfold == 'y' %}
+class UserAdmin(admin_forms.UserCreationForm):
+{%- else %}
 class UserAdminCreationForm(admin_forms.AdminUserCreationForm):
+{%- endif %}
     """
     Form for User Creation in the Admin Area.
     To change user signup, see UserSignupForm and UserSocialSignupForm.
