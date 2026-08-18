@@ -36,6 +36,7 @@
   "use_tenants": "y",
   "use_control_room": "y",
   "use_django_unfold": "y",
+  "use_saas_boilerplate": "y",
   "frontend_pipeline": [ "Django Compressor", "Gulp", "Webpack", "None"],
   "use_celery": "y",
   "mail_catcher": [ "Mailpit", "Mailtrap Local", "None"],

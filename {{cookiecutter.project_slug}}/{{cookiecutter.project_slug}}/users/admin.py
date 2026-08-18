@@ -3,7 +3,11 @@ from django.conf import settings
 from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
 from django.utils.translation import gettext_lazy as _
-
+from typing import Any
+from allauth.account.models import EmailAddress
+from allauth.account.internal.flows.email_verification import (
+    send_verification_email_to_address,
+)
 from .forms import UserAdminChangeForm
 from .forms import UserAdminCreationForm
 from .models import User
@@ -89,3 +93,40 @@ class UserAdmin(auth_admin.UserAdmin):
         ),
     )
     {%- endif %}
+{% if cookiecutter.use_tenants == 'y' %}
+    def delete_model(self, request, obj):
+        User.objects.delete_user(obj)
+{% endif %}
+    def save_model(self, request: Any, obj: Model, form: Any, change: bool) -> None:
+        super().save_model(
+            request,
+            obj,
+            form,
+            change,
+        )
+
+        # Only send the email when a NEW user is created.
+        if change:
+            return
+
+        if not isinstance(obj, User):
+            return
+
+        if not obj.email:
+            return
+        email_address, created = EmailAddress.objects.get_or_create(
+            user=obj,
+            email=obj.email,
+            defaults={
+                "primary": True,
+                "verified": False,
+            },
+        )
+        if email_address.verified:
+            return
+
+        send_verification_email_to_address(
+            request=request,
+            address=email_address,
+        )
+

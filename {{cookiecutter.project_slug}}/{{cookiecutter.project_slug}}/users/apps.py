@@ -10,3 +10,6 @@ class UsersConfig(AppConfig):
         """
         Override this method in subclasses to run code when Django starts.
         """
+{% if cookiecutter.use_tenants == "y" %}
+        from {{ cookiecutter.project_slug }}.users import signals  # noqa: F401
+{% endif %}
