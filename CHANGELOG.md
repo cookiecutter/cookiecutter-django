@@ -3,6 +3,29 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.8.18
+
+
+### Fixed
+
+- Fix GitHub CI when Docker is on and `keep_local_envs_in_vcs` is off ([#6817](https://github.com/cookiecutter/cookiecutter-django/pull/6817))
+
+### Updated
+
+- Update django-upgrade to 1.32.0 ([#6822](https://github.com/cookiecutter/cookiecutter-django/pull/6822))
+
+- Update pyproject-fmt from 2.27.1 to 2.28.0 ([#6818](https://github.com/cookiecutter/cookiecutter-django/pull/6818))
+
+- Update gunicorn to 26.1.0 ([#6824](https://github.com/cookiecutter/cookiecutter-django/pull/6824))
+
+- Update mypy to 2.3.1 ([#6823](https://github.com/cookiecutter/cookiecutter-django/pull/6823))
+
+- Update django-ninja to 1.6.3 ([#6820](https://github.com/cookiecutter/cookiecutter-django/pull/6820))
+
+- Update flower to 2.1.0 ([#6816](https://github.com/cookiecutter/cookiecutter-django/pull/6816))
+
+- Update django-stubs to 6.1.0 ([#6803](https://github.com/cookiecutter/cookiecutter-django/pull/6803))
+
 ## 2026.8.14
 
 
