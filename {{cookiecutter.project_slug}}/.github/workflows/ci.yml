@@ -71,6 +71,32 @@ jobs:
         uses: actions/checkout@v6
       {%- if cookiecutter.use_docker == 'y' %}
 
+      # When keep_local_envs_in_vcs is off, .envs/.local/* are not in the repo.
+      # Create minimal dummy files so Docker Compose / Django / Postgres work in CI.
+      - name: Ensure local env files exist for Docker Compose
+        run: |
+          mkdir -p .envs/.local
+          if [ ! -f .envs/.local/.django ]; then
+            cat <<'EOF' > .envs/.local/.django
+          USE_DOCKER=yes
+          IPYTHONDIR=/app/.ipython
+          {%- if cookiecutter.use_celery == 'y' %}
+          REDIS_URL=redis://redis:6379/0
+          CELERY_FLOWER_USER=debug
+          CELERY_FLOWER_PASSWORD=debug
+          {%- endif %}
+          EOF
+          fi
+          if [ ! -f .envs/.local/.postgres ]; then
+            cat <<'EOF' > .envs/.local/.postgres
+          POSTGRES_HOST=postgres
+          POSTGRES_PORT=5432
+          POSTGRES_DB=ci
+          POSTGRES_USER=debug
+          POSTGRES_PASSWORD=debug
+          EOF
+          fi
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
