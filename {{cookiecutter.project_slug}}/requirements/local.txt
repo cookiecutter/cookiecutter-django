@@ -16,7 +16,7 @@ django-stubs[compatible-mypy]==6.1.0  # https://github.com/typeddjango/django-st
 pytest==9.1.1  # https://github.com/pytest-dev/pytest
 pytest-sugar==1.1.1  # https://github.com/Teemu/pytest-sugar
 {%- if cookiecutter.rest_api == 'DRF' %}
-djangorestframework-stubs==3.18.0  # https://github.com/typeddjango/djangorestframework-stubs
+djangorestframework-stubs==3.18.1  # https://github.com/typeddjango/djangorestframework-stubs
 {%- endif %}
 
 # Documentation
@@ -26,7 +26,7 @@ sphinx-autobuild==2025.8.25 # https://github.com/GaretJax/sphinx-autobuild
 
 # Code quality
 # ------------------------------------------------------------------------------
-ruff==0.16.3  # https://github.com/astral-sh/ruff
+ruff==0.16.5  # https://github.com/astral-sh/ruff
 coverage==7.15.4  # https://github.com/nedbat/coveragepy
 django-upgrade==1.32.0  # https://github.com/adamchainz/django-upgrade
 djlint==1.44.2  # https://github.com/djlint/djLint
