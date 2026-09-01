@@ -42,7 +42,7 @@ def main() -> None:
     print(f"Summary of changes: {release_changes_summary}")
 
     # Update CHANGELOG.md file
-    release = f"{merged_date:%Y.%m.%d}"
+    release = f"{merged_date.year}.{merged_date.month}.{merged_date.day}"
     changelog_path = ROOT / "CHANGELOG.md"
     write_changelog(changelog_path, release, release_changes_summary)
     print(f"Wrote {changelog_path}")

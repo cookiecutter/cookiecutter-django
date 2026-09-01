@@ -3,6 +3,69 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.8.18
+
+
+### Fixed
+
+- Fix GitHub CI when Docker is on and `keep_local_envs_in_vcs` is off ([#6817](https://github.com/cookiecutter/cookiecutter-django/pull/6817))
+
+### Updated
+
+- Update django-upgrade to 1.32.0 ([#6822](https://github.com/cookiecutter/cookiecutter-django/pull/6822))
+
+- Update pyproject-fmt from 2.27.1 to 2.28.0 ([#6818](https://github.com/cookiecutter/cookiecutter-django/pull/6818))
+
+- Update gunicorn to 26.1.0 ([#6824](https://github.com/cookiecutter/cookiecutter-django/pull/6824))
+
+- Update mypy to 2.3.1 ([#6823](https://github.com/cookiecutter/cookiecutter-django/pull/6823))
+
+- Update django-ninja to 1.6.3 ([#6820](https://github.com/cookiecutter/cookiecutter-django/pull/6820))
+
+- Update flower to 2.1.0 ([#6816](https://github.com/cookiecutter/cookiecutter-django/pull/6816))
+
+- Update django-stubs to 6.1.0 ([#6803](https://github.com/cookiecutter/cookiecutter-django/pull/6803))
+
+## 2026.8.14
+
+
+### Updated
+
+- Update django-debug-toolbar to 7.1.1 ([#6814](https://github.com/cookiecutter/cookiecutter-django/pull/6814))
+
+- Update uvicorn to 0.52.3 ([#6810](https://github.com/cookiecutter/cookiecutter-django/pull/6810))
+
+- Update ruff to 0.16.3 ([#6809](https://github.com/cookiecutter/cookiecutter-django/pull/6809))
+
+- Update django-allauth to 65.19.1 ([#6808](https://github.com/cookiecutter/cookiecutter-django/pull/6808))
+
+- Update sentry-sdk to 2.68.0 ([#6807](https://github.com/cookiecutter/cookiecutter-django/pull/6807))
+
+- Update pyproject-fmt from v2.27.0 to v2.27.1 ([#6805](https://github.com/cookiecutter/cookiecutter-django/pull/6805))
+
+- Update djangorestframework-stubs to 3.18.0 ([#6804](https://github.com/cookiecutter/cookiecutter-django/pull/6804))
+
+- Update pre-commit to 4.6.2 ([#6802](https://github.com/cookiecutter/cookiecutter-django/pull/6802))
+
+- Update django-debug-toolbar to 7.1.0 ([#6801](https://github.com/cookiecutter/cookiecutter-django/pull/6801))
+
+- Update pytest-django to 4.14.0 ([#6800](https://github.com/cookiecutter/cookiecutter-django/pull/6800))
+
+## 2026.8.9
+
+
+### Updated
+
+- Update ruff to 0.16.2 ([#6794](https://github.com/cookiecutter/cookiecutter-django/pull/6794))
+
+- Update djangorestframework to 3.18.0 ([#6793](https://github.com/cookiecutter/cookiecutter-django/pull/6793))
+
+- Update django-stubs to 6.0.9 ([#6792](https://github.com/cookiecutter/cookiecutter-django/pull/6792))
+
+- Update hiredis to 3.4.1 ([#6791](https://github.com/cookiecutter/cookiecutter-django/pull/6791))
+
+- Update djlint to 1.44.2 ([#6796](https://github.com/cookiecutter/cookiecutter-django/pull/6796))
+
 ## 2026.08.06
 
 

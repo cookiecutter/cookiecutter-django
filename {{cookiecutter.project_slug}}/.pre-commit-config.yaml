@@ -30,14 +30,14 @@ repos:
         exclude: '{{cookiecutter.project_slug}}/templates/'
 
   - repo: https://github.com/adamchainz/django-upgrade
-    rev: '1.31.1'
+    rev: '1.32.0'
     hooks:
       - id: django-upgrade
         args: ['--target-version', '6.0']
 
   # Run the Ruff linter.
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.16.1
+    rev: v0.16.5
     hooks:
       # Linter
       - id: ruff-check
@@ -46,12 +46,12 @@ repos:
       - id: ruff-format
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: v2.27.0
+    rev: v2.29.2
     hooks:
       - id: pyproject-fmt
 
   - repo: https://github.com/djlint/djLint
-    rev: v1.43.2
+    rev: v1.44.2
     hooks:
       - id: djlint-reformat-django
       - id: djlint-django
