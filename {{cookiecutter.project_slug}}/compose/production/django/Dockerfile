@@ -3,9 +3,8 @@ FROM docker.io/node:26.5-bookworm-slim AS client-builder
 
 ARG APP_HOME=/app
 WORKDIR ${APP_HOME}
-
-COPY ./package.json ${APP_HOME}
-RUN npm install && npm cache clean --force
+COPY ./package.json ./package-lock.json ${APP_HOME}
+RUN npm ci && npm cache clean --force
 COPY . ${APP_HOME}
 {%- if cookiecutter.frontend_pipeline == 'Webpack' and cookiecutter.use_whitenoise == 'n' %}
 {%- if cookiecutter.cloud_provider == 'AWS' %}
