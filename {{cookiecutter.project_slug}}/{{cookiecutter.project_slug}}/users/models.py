@@ -30,21 +30,15 @@ class User(UserProfile):
 
     name = CharField(_("Name of User"), blank=True, max_length=255)
     avatar = models.ImageField(
-        upload_to="avatars/",
+        upload_to="avatars/source/",
         blank=True,
         null=True,
     )
-
-    avatar_thumbnail = ImageSpecField(
-        source="avatar",
-        processors=[
-            Transpose(),
-            ResizeToFill(200, 200),
-        ],
-        format="WEBP",
-        options={
-            "quality": 80,
-        },
+    avatar_thumbnail = models.ImageField(
+        upload_to="avatars/thumbnail/",
+        blank=True,
+        null=True,
+        editable=False,
     )
     bio = models.TextField(
         blank=True,

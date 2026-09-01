@@ -31,3 +31,16 @@ REDIS_URL=redis://redis:6379/0
 CELERY_FLOWER_USER=!!!SET CELERY_FLOWER_USER!!!
 CELERY_FLOWER_PASSWORD=!!!SET CELERY_FLOWER_PASSWORD!!!
 {%- endif %}
+
+{%- if cookiecutter.cloud_provider == 'AWS' %}
+# AWS
+# ------------------------------------------------------------------------------
+AWS_ENDPOINT_URL=http://floci:4566
+AWS_DEFAULT_REGION=us-east-1
+AWS_ACCESS_KEY_ID={{cookiecutter.project_slug}}
+AWS_SECRET_ACCESS_KEY={{cookiecutter.project_slug}}
+DJANGO_AWS_ACCESS_KEY_ID={{cookiecutter.project_slug}}
+DJANGO_AWS_SECRET_ACCESS_KEY={{cookiecutter.project_slug}}
+DJANGO_AWS_S3_REGION_NAME=us-east-1
+DJANGO_AWS_STORAGE_BUCKET_NAME={{cookiecutter.project_slug}}-media
+{%- endif %}

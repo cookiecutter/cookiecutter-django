@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Image optimization Lambda for {{ cookiecutter.project_slug }} user avatars.
+
+Parameters:
+  MediaBucketName:
+    Type: String
+
+Resources:
+  AvatarProcessor:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: {{ cookiecutter.project_slug }}-avatar-processor
+      Runtime: python3.12
+      Handler: lambda_function.lambda_handler
+      CodeUri: .
+      MemorySize: 512
+      Timeout: 30
+      Policies:
+        - S3ReadPolicy:
+            BucketName: !Ref MediaBucketName
+        - S3WritePolicy:
+            BucketName: !Ref MediaBucketName
+      Environment:
+        Variables:
+          AWS_REGION: !Ref AWS::Region
+
+Outputs:
+  AvatarProcessorFunctionName:
+    Value: !Ref AvatarProcessor

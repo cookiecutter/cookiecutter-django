@@ -3,6 +3,7 @@ volumes:
   {{ cookiecutter.project_slug }}_local_postgres_data_backups: {}
   {{ cookiecutter.project_slug }}_local_python_venv: {}
   {% if cookiecutter.use_celery == 'y' %}{{ cookiecutter.project_slug }}_local_redis_data: {}{% endif %}
+  {%- if cookiecutter.cloud_provider == 'AWS' %}{{ cookiecutter.project_slug }}_local_floci_data: {}{% endif %}
 
 services:
   django:{% if cookiecutter.use_celery == 'y' %} &django{% endif %}
@@ -16,6 +17,12 @@ services:
         condition: service_completed_successfully
       {%- if cookiecutter.mail_catcher == 'Mailtrap Local' %}
       - mailtrap-local
+      {%- endif %}
+      {%- if cookiecutter.cloud_provider == 'AWS' %}
+      floci:
+        condition: service_healthy
+      aws-init:
+        condition: service_completed_successfully
       {%- endif %}
     volumes:
       - {{ cookiecutter.project_slug }}_local_python_venv:/app/.venv
@@ -34,6 +41,12 @@ services:
       depends_on:
         postgres:
           condition: service_healthy
+      {%- if cookiecutter.cloud_provider == 'AWS' %}
+        floci:
+          condition: service_healthy
+        aws-init:
+          condition: service_completed_successfully
+      {%- endif %}
       ports: []
       command: ["/bin/bash", "/app/compose/local/django/start-migrations"]
 
@@ -68,6 +81,52 @@ services:
       timeout: 5s
       retries: 5
       start_period: 10s
+
+{%- if cookiecutter.cloud_provider == 'AWS' %}
+  floci:
+    image: floci/floci:latest
+    container_name: {{ cookiecutter.project_slug }}_local_floci
+    environment:
+      FLOCI_HOSTNAME: floci
+      FLOCI_STORAGE_MODE: persistent
+      FLOCI_SERVICES_LAMBDA_HOT_RELOAD_ENABLED: "true"
+      FLOCI_SERVICES_LAMBDA_HOT_RELOAD_ALLOWED_PATHS: "${PWD}/infra/aws/avatar_processor"
+    volumes:
+      - {{ cookiecutter.project_slug }}_local_floci_data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "4566:4566"
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:4566/_localstack/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 5s
+
+  aws-init:
+    image: floci/floci:latest-compat
+    container_name: {{ cookiecutter.project_slug }}_local_aws_init
+    depends_on:
+      floci:
+        condition: service_healthy
+    volumes:
+      - ${PWD}/infra/aws/avatar_processor:/lambda_code
+    environment:
+      AWS_ENDPOINT_URL: http://floci:4566
+      AWS_DEFAULT_REGION: us-east-1
+      AWS_ACCESS_KEY_ID: {{cookiecutter.project_slug}}
+      AWS_SECRET_ACCESS_KEY: {{cookiecutter.project_slug}}
+      FLOCI_AVATAR_LAMBDA_PATH: /lambda_code
+      FLOCI_AVATAR_LAMBDA_HOST_PATH: ${PWD}/infra/aws/avatar_processor
+    command: >-
+      sh -c "until aws --endpoint-url http://floci:4566 sts get-caller-identity >/dev/null 2>&1; do sleep 1; done;
+      python -m pip install --disable-pip-version-check --no-cache-dir -r /lambda_code/requirements.txt -t /lambda_code/vendor >/dev/null;
+      aws --endpoint-url http://floci:4566 s3api head-bucket --bucket {{ cookiecutter.project_slug }}-media >/dev/null 2>&1 ||
+      aws --endpoint-url http://floci:4566 s3api create-bucket --bucket {{ cookiecutter.project_slug }}-media;
+      aws --endpoint-url http://floci:4566 lambda get-function --function-name {{ cookiecutter.project_slug }}-avatar-processor >/dev/null 2>&1 ||
+      aws --endpoint-url http://floci:4566 lambda create-function --function-name {{ cookiecutter.project_slug }}-avatar-processor --runtime python3.12 --role arn:aws:iam::000000000000:role/lambda-role --handler lambda_function.lambda_handler --code S3Bucket=hot-reload,S3Key=$${FLOCI_AVATAR_LAMBDA_HOST_PATH}; exit 0"
+    restart: "no"
+{%- endif %}
 
   {%- if cookiecutter.mail_catcher == 'Mailpit' %}
 
@@ -123,13 +182,13 @@ services:
     ports: []
     command: ["/bin/bash", "/app/compose/local/django/celery/beat/start"]
 
-  flower:
-    <<: *django
-    image: {{ cookiecutter.project_slug }}_local_flower
-    container_name: {{ cookiecutter.project_slug }}_local_flower
-    ports:
-      - '5555:5555'
-    command: /start-flower
+  # flower: replaced flower with controlroom.
+  #   <<: *django
+  #   image: {{ cookiecutter.project_slug }}_local_flower
+  #   container_name: {{ cookiecutter.project_slug }}_local_flower
+  #   ports:
+  #     - '5555:5555'
+  #   command: /start-flower
 
   {%- endif %}
   {%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}

@@ -33,29 +33,17 @@ class UserAdmin(auth_admin.UserAdmin):
 {%- if cookiecutter.use_tenants == "y" %}
     filter_horizontal: tuple[str,...] = ()
     fieldsets = (
-        {%- if cookiecutter.username_type == "email" %}
         (None, {"fields": ("email", "password")}),
         (_("Personal info"), {"fields": ("name",)}),
-        {%- else %}
-        (None, {"fields": ("username", "password")}),
-        (_("Personal info"), {"fields": ("name", "email")}),
-        {%- endif %}
-        (
-            _("Permissions"),
-            {
-                "fields": (
-                    "is_active",
-                    "is_verified",
-                ),
-            },
-        ),
-        (_("Important dates"), {"fields": ("last_login")}),
+        (_("Permissions"), {"fields": ("is_active", "is_verified")}),
+        (_("Important dates"), {"fields": ("last_login",)}),
     )
     readonly_fields = ("last_login", "is_verified")
+    list_display = ["email", "name", "is_active", "is_verified"]
     list_filter = ("is_active", "is_verified")
     ordering = ["email"]
     search_fields = ["name", "email"]
-{% else %}
+{%- else -%}
     fieldsets = (
         {%- if cookiecutter.username_type == "email" %}
         (None, {"fields": ("email", "password")}),
@@ -80,8 +68,8 @@ class UserAdmin(auth_admin.UserAdmin):
     )
     ordering = ["id"]
     search_fields = ["name"]
-{%- endif %}
     list_display = ["{{cookiecutter.username_type}}", "name", "is_superuser"]
+{%- endif %}
     {%- if cookiecutter.username_type == "email" %}
     add_fieldsets = (
         (

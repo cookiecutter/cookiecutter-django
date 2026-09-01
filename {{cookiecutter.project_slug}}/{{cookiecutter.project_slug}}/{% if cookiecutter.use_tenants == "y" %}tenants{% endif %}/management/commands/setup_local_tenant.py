@@ -31,10 +31,10 @@ class Command(BaseCommand):
         try:
             if owner_password is not None:
                 create_public_tenant(
-                    domain_url=domain_url, owner_email=owner_email, password=owner_password
+                    domain_url=domain_url, owner_email=owner_email, password=owner_password, is_superuser=True, is_staff=True
                 )
             else:
-                create_public_tenant(domain_url=domain_url, owner_email=owner_email)
+                create_public_tenant(domain_url=domain_url, owner_email=owner_email, is_superuser=True, is_staff=True)
             self.stdout.write(
                 self.style.SUCCESS(
                     f"Successfully created public tenant with Domain URL ({domain_url}) and Owner ({owner_email})"
