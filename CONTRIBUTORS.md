@@ -2092,6 +2092,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Priti Yadav</td>
+    <td>
+      <a href="https://github.com/Priti2008">Priti2008</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Pulse-Mind</td>
     <td>
       <a href="https://github.com/pulse-mind">pulse-mind</a>
