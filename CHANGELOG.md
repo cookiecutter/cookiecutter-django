@@ -3,6 +3,23 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.9.3
+
+
+### Updated
+
+- Bump nginx from 1.31.4 to 1.31.5 ([#6855](https://github.com/cookiecutter/cookiecutter-django/pull/6855))
+
+- Update djlint to 1.45.0 ([#6854](https://github.com/cookiecutter/cookiecutter-django/pull/6854))
+
+- Update crispy-bootstrap5 to 2026.9 ([#6853](https://github.com/cookiecutter/cookiecutter-django/pull/6853))
+
+- Update pyproject-fmt from v2.29.2 to v2.29.3 ([#6852](https://github.com/cookiecutter/cookiecutter-django/pull/6852))
+
+- Update django-debug-toolbar to 8.0.0 ([#6851](https://github.com/cookiecutter/cookiecutter-django/pull/6851))
+
+- Update django-allauth to 65.19.2 ([#6850](https://github.com/cookiecutter/cookiecutter-django/pull/6850))
+
 ## 2026.9.1
 
 
