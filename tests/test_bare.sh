@@ -20,18 +20,18 @@ sudo utility/install_os_dependencies.sh install
 # Install Python deps
 uv sync
 
-# run the project's tests
-uv run pytest
-
-# Make sure the check doesn't raise any warnings
-uv run python manage.py check --fail-level WARNING
-
-# Run npm build script if package.json is present
+# Build the frontend assets if present, some checks below expect them to exist
 if [ -f "package.json" ]
 then
     npm install
     npm run build
 fi
+
+# run the project's tests
+uv run pytest
+
+# Make sure the check doesn't raise any warnings
+uv run python manage.py check --fail-level WARNING
 
 # Generate the HTML for the documentation
 cd docs && uv run make html

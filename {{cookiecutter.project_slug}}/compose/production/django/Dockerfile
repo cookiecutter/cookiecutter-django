@@ -1,4 +1,4 @@
-{% if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] -%}
+{% if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack', 'Vite'] -%}
 FROM docker.io/node:26.5-bookworm-slim AS client-builder
 
 ARG APP_HOME=/app
@@ -6,7 +6,7 @@ WORKDIR ${APP_HOME}
 COPY ./package.json ./package-lock.json ${APP_HOME}
 RUN npm ci && npm cache clean --force
 COPY . ${APP_HOME}
-{%- if cookiecutter.frontend_pipeline == 'Webpack' and cookiecutter.use_whitenoise == 'n' %}
+{%- if cookiecutter.frontend_pipeline in ['Webpack', 'Vite'] and cookiecutter.use_whitenoise == 'n' %}
 {%- if cookiecutter.cloud_provider == 'AWS' %}
 ARG DJANGO_AWS_STORAGE_BUCKET_NAME
 ENV DJANGO_AWS_STORAGE_BUCKET_NAME=${DJANGO_AWS_STORAGE_BUCKET_NAME}
@@ -44,7 +44,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=uv.lock,target=uv.lock \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
     uv sync --locked --no-install-project --no-dev
-{%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
+{%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack', 'Vite'] %}
 COPY --from=client-builder ${APP_HOME} ${APP_HOME}
 {% else %}
 COPY . ${APP_HOME}
