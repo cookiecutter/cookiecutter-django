@@ -36,6 +36,12 @@ docker compose -f docker-compose.local.yml run django uv lock
 
 docker compose -f docker-compose.local.yml build
 
+# Build the frontend assets if present, some checks below expect them to exist
+if [ -f "package.json" ]
+then
+    docker compose -f docker-compose.local.yml run --rm node npm run build
+fi
+
 # run the project's type checks
 docker compose -f docker-compose.local.yml run --rm django mypy my_awesome_project
 
@@ -78,9 +84,3 @@ docker run --rm \
 -e MAILGUN_API_KEY=x \
 -e MAILGUN_DOMAIN=x \
 django-prod python manage.py check --settings=config.settings.production --deploy --database default --fail-level WARNING
-
-# Run npm build script if package.json is present
-if [ -f "package.json" ]
-then
-    docker compose -f docker-compose.local.yml run --rm node npm run build
-fi

@@ -40,6 +40,12 @@ MEDIA_URL = "http://media.testserver/"
 # ------------------------------------------------------------------------------
 WEBPACK_LOADER["DEFAULT"]["LOADER_CLASS"] = "webpack_loader.loaders.FakeWebpackLoader"  # noqa: F405
 
+{%- elif cookiecutter.frontend_pipeline == 'Vite' %}
+# django-vite
+# ------------------------------------------------------------------------------
+# Render asset URLs pointing at the dev server, so the tests don't need a build
+DJANGO_VITE["default"]["dev_mode"] = True  # noqa: F405
+
 {%- endif %}
 # Your stuff...
 # ------------------------------------------------------------------------------

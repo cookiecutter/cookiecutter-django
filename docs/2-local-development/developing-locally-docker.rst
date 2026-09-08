@@ -90,7 +90,7 @@ To run the docs with local services just use::
 
     docker compose -f docker-compose.local.yml -f docker-compose.docs.yml up
 
-The site should start and be accessible at http://localhost:3000 if you selected Webpack or Gulp as frontend pipeline and http://localhost:8000 otherwise.
+The site should start and be accessible at http://localhost:3000 if you selected Webpack or Gulp as frontend pipeline and http://localhost:8000 otherwise, Vite included.
 
 Execute Management Commands
 ---------------------------
@@ -271,8 +271,17 @@ If you've opted for Gulp or Webpack as front-end pipeline, the project comes con
 
 The stack comes with a dedicated node service to build the static assets, watch for changes and proxy requests to the Django app with live reloading scripts injected in the response. For everything to work smoothly, you need to access the application at the port served by the node service, which is http://localhost:3000 by default.
 
+Using Vite
+~~~~~~~~~~
+
+If you've opted for Vite as front-end pipeline, the project comes configured with `Sass`_ compilation and `hot module replacement`_. As you change your Sass/JS source files, Vite pushes the updated styles and scripts to the browser without refreshing the page. Changes to your Django templates trigger a full page reload.
+
+The stack comes with a dedicated node service running the Vite dev server. Unlike Gulp and Webpack, it does not proxy the Django app: `django-vite`_ makes your templates load the assets from the dev server, so you keep accessing the application at http://localhost:8000. The dev server itself is published on http://localhost:5173, but there is no page to see there.
+
 .. _Sass: https://sass-lang.com/
 .. _live reloading: https://browsersync.io
+.. _hot module replacement: https://vite.dev/guide/features.html#hot-module-replacement
+.. _django-vite: https://github.com/MrBin99/django-vite
 
 
 Using Just for Docker Commands

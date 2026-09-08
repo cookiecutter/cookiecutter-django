@@ -351,3 +351,6 @@ vendors.js
 {{ cookiecutter.project_slug }}/static/webpack_bundles/
 webpack-stats.json
 {%- endif %}
+{%- if cookiecutter.frontend_pipeline == 'Vite' %}
+{{ cookiecutter.project_slug }}/static/vite_bundles/
+{%- endif %}

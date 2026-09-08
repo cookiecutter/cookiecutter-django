@@ -175,7 +175,7 @@ See detailed [cookiecutter-django Heroku documentation](https://cookiecutter-dja
 See detailed [cookiecutter-django Docker documentation](https://cookiecutter-django.readthedocs.io/en/latest/3-deployment/deployment-with-docker.html).
 
 {%- endif %}
-{%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
+{%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack', 'Vite'] %}
 
 ### Custom Bootstrap Compilation
 

@@ -75,7 +75,7 @@ updates:
           - 'minor'
           - 'patch'
 
-{%- if cookiecutter.frontend_pipeline == 'Gulp' %}
+{%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack', 'Vite'] %}
 
   # Enable version updates for javascript/npm
   - package-ecosystem: 'npm'

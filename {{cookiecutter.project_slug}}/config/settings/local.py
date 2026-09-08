@@ -1,4 +1,7 @@
 from .base import *  # noqa: F403
+{%- if cookiecutter.frontend_pipeline == 'Vite' %}
+from .base import DJANGO_VITE
+{%- endif %}
 from .base import INSTALLED_APPS
 from .base import MIDDLEWARE
 {%- if cookiecutter.frontend_pipeline == 'Webpack' %}
@@ -129,6 +132,13 @@ CELERY_TASK_EAGER_PROPAGATES = True
 # django-webpack-loader
 # ------------------------------------------------------------------------------
 WEBPACK_LOADER["DEFAULT"]["CACHE"] = not DEBUG
+
+{%- elif cookiecutter.frontend_pipeline == 'Vite' %}
+# django-vite
+# ------------------------------------------------------------------------------
+# Serve the assets from the ViteJS dev server, with hot module replacement.
+# Set to False to serve the assets built by `npm run build` instead.
+DJANGO_VITE["default"]["dev_mode"] = env.bool("DJANGO_VITE_DEV_MODE", default=True)
 
 {%- endif %}
 # Your stuff...
