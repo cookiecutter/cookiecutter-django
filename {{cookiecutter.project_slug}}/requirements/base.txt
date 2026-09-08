@@ -1,4 +1,4 @@
-python-slugify==8.0.4  # https://github.com/un33k/python-slugify
+python-slugify==9.0.0  # https://github.com/un33k/python-slugify
 Pillow==12.3.0  # https://github.com/python-pillow/Pillow
 argon2-cffi==25.1.0  # https://github.com/hynek/argon2_cffi
 {%- if cookiecutter.use_whitenoise == 'y' %}
