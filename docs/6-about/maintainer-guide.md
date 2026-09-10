@@ -6,7 +6,7 @@ This document is intended for maintainers of the template.
 
 We use 2 separate services to keep our dependencies up-to-date:
 
-- Dependabot, which manages updates of Python deps of the template, GitHub actions, npm packages and Docker images.
+- Dependabot, which manages updates of Python deps of the template, GitHub actions and Docker images.
 - PyUp, which manages the Python deps for the generated project.
 
 We don't use Dependabot for the generated project deps because our requirements files are templated, and Dependabot fails to parse them. PyUp is -AFAIK- the only service out there that supports having Jinja tags in the requirements file.
@@ -89,7 +89,7 @@ With that in mind, when merging changes, it's a good idea to set the labels and 
 
 #### Limitations
 
-- Dependabot updates for npm & Docker have a verbose title, try to rename them to be more readable: `Bump webpack-dev-server from 4.15.1 to 5.0.2 in /{{cookiecutter.project_slug}}` -> `Bump webpack-dev-server to 5.0.2`
+- Dependabot updates for Docker have a verbose title, try to rename them to be more readable: `Bump traefik from v3.7.12 to v3.7.13 in /{{cookiecutter.project_slug}}/compose/production/traefik` -> `Bump traefik to v3.7.13`
 - ~~Dependencies updates for the template repo (tox, cookiecutter, etc...) don't need to appear in changelog, and need to be labelled as `project infrastructure` manually. By default, they come from PyUp labelled as `update`.~~
 
 ### Update contributors

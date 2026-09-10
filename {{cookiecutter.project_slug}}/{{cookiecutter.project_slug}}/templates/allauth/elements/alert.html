@@ -1,7 +1,7 @@
-{% raw %}{% load i18n %}
-{% load allauth %}
+{% raw %}{% load allauth %}
 
-<div class="alert alert-error">
+<article role="alert" class="message message-{{ attrs.level|default:'error' }}">
   {% slot message %}
-{% endslot %}
-</div>{% endraw %}
+  {% endslot %}
+</article>
+{%- endraw %}

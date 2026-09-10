@@ -22,14 +22,13 @@ production-ready Django projects quickly.
 - For Django 6.0
 - Works with Python 3.14
 - Renders Django projects with 100% starting test coverage
-- Twitter [Bootstrap](https://github.com/twbs/bootstrap) v5
+- Server-rendered frontend with [htmx](https://htmx.org) (via [django-htmx](https://github.com/adamchainz/django-htmx)) and a vendored, pinned [Pico CSS](https://picocss.com) — no Node.js toolchain
 - [12-Factor](https://12factor.net) based settings via [django-environ](https://github.com/joke2k/django-environ)
 - Secure by default. We believe in SSL.
 - Optimized development and production settings
 - Registration via [django-allauth](https://github.com/pennersr/django-allauth)
 - Comes with custom user model ready to go
 - Optional basic ASGI setup for Websockets
-- Optional custom static build using Gulp or Webpack
 - Send emails via [Anymail](https://github.com/anymail/django-anymail) (using [Mailgun](http://www.mailgun.com/) by default or Amazon SES if AWS is selected cloud provider, but switchable)
 - Media storage using Amazon S3, Google Cloud Storage, Azure Storage or nginx
 - Docker support using [docker-compose](https://github.com/docker/compose) for development and production (using [Traefik](https://traefik.io/) with [LetsEncrypt](https://letsencrypt.org/) support)
@@ -157,12 +156,6 @@ Answer the prompts with your own desired [options](http://cookiecutter-django.re
     3 - Django Ninja
     Choose from 1, 2, 3 [1]: 1
     use_async [n]: n
-    Select frontend_pipeline:
-    1 - None
-    2 - Django Compressor
-    3 - Gulp
-    4 - Webpack
-    Choose from 1, 2, 3, 4 [1]: 1
     use_celery [n]: y
     Select mail_catcher:
     1 - None

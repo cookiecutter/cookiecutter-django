@@ -1,0 +1,38 @@
+{% raw %}{% load i18n %}
+
+{% comment %}
+Profile card. Rendered inside users/user_detail.html for normal requests and on its own
+for htmx requests (see HtmxTemplateMixin), in which case the messages are swapped out-of-band.
+{% endcomment %}
+{% if request.htmx %}
+  {% include "partials/messages.html" %}
+{% endif %}
+<article id="user-profile">
+  <header>
+    <h1>{% endraw %}{% if cookiecutter.username_type == "email" %}{% raw %}{{ object.name }}{% endraw %}{% else %}{% raw %}{{ object.username }}{% endraw %}{% endif %}{% raw %}</h1>
+  </header>
+  {% endraw %}
+  {%- if cookiecutter.username_type == "username" %}
+  {%- raw %}
+  {% if object.name %}
+    <p>{{ object.name }}</p>
+  {% endif %}
+  {%- endraw %}
+  {%- endif %}
+  {%- raw %}
+  {% if object == request.user %}
+    <footer>
+      {# Works without JavaScript through href; htmx swaps the edit form into this card #}
+      <a role="button"
+         href="{% url 'users:update' %}"
+         hx-get="{% url 'users:update' %}"
+         hx-target="#user-profile"
+         hx-swap="outerHTML"
+         hx-push-url="true">{% translate "My Info" %}</a>
+      <a role="button" class="secondary" href="{% url 'account_email' %}">{% translate "E-Mail" %}</a>
+      <a role="button" class="secondary" href="{% url 'mfa_index' %}">{% translate "MFA" %}</a>
+      {# Your Stuff: Custom user template urls #}
+    </footer>
+  {% endif %}
+</article>
+{%- endraw %}

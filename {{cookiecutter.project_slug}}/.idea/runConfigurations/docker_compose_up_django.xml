@@ -10,9 +10,6 @@
             <option value="celeryworker"/>
             <option value="celerybeat"/>
             {%- endif %}
-            {%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
-            <option value="node"/>
-            {%- endif %}
           </list>
         </option>
         <option name="sourceFilePath" value="docker-compose.local.yml"/>

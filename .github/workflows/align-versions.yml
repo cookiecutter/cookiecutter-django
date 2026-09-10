@@ -4,7 +4,6 @@ on:
   pull_request:
     paths:
       - "{{cookiecutter.project_slug}}/requirements/local.txt"
-      - "{{cookiecutter.project_slug}}/compose/local/node/Dockerfile"
   # Manual trigger
   workflow_dispatch:
 
@@ -29,8 +28,6 @@ jobs:
             name: djLint
           - script: scripts/python_dependency_version.py django-upgrade
             name: django-upgrade
-          - script: scripts/node_version.py
-            name: Node
 
     name: "${{ matrix.job.name }} versions"
     steps:

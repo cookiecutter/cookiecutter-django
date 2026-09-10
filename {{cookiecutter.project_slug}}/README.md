@@ -44,9 +44,13 @@ To run the tests, check your test coverage, and generate an HTML coverage report
 
     uv run pytest
 
-### Live reloading and Sass CSS compilation
+### Frontend
 
-Moved to [Live reloading and SASS compilation](https://cookiecutter-django.readthedocs.io/en/latest/2-local-development/developing-locally.html#using-webpack-or-gulp).
+The frontend is server-rendered Django templates enhanced with [htmx](https://htmx.org) (via
+[django-htmx](https://django-htmx.readthedocs.io)) and styled with [Pico CSS](https://picocss.com).
+There is no Node.js toolchain: htmx ships with django-htmx and Pico CSS is vendored under
+`{{cookiecutter.project_slug}}/static/vendor/pico/` together with its version, licence and SHA-256
+metadata. See the [frontend guide](https://cookiecutter-django.readthedocs.io/en/latest/4-guides/frontend.html).
 
 {%- if cookiecutter.use_celery == "y" %}
 
@@ -175,14 +179,4 @@ See detailed [cookiecutter-django Heroku documentation](https://cookiecutter-dja
 See detailed [cookiecutter-django Docker documentation](https://cookiecutter-django.readthedocs.io/en/latest/3-deployment/deployment-with-docker.html).
 
 {%- endif %}
-{%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
 
-### Custom Bootstrap Compilation
-
-The generated CSS is set up with automatic Bootstrap recompilation with variables of your choice.
-Bootstrap v5 is installed using npm and customised by tweaking your variables in `static/sass/custom_bootstrap_vars`.
-
-You can find a list of available variables [in the bootstrap source](https://github.com/twbs/bootstrap/blob/v5.1.3/scss/_variables.scss), or get explanations on them in the [Bootstrap docs](https://getbootstrap.com/docs/5.1/customize/sass/).
-
-Bootstrap's javascript as well as its dependencies are concatenated into a single file: `static/js/vendors.js`.
-{%- endif %}

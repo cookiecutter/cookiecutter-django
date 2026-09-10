@@ -10,14 +10,16 @@ from django.views.generic import DetailView
 from django.views.generic import RedirectView
 from django.views.generic import UpdateView
 
+from {{ cookiecutter.project_slug }}.htmx import HtmxTemplateMixin
 from {{ cookiecutter.project_slug }}.users.models import User
 
 if TYPE_CHECKING:
     from django.db.models import QuerySet
 
 
-class UserDetailView(LoginRequiredMixin, DetailView):
+class UserDetailView(LoginRequiredMixin, HtmxTemplateMixin, DetailView):
     model = User
+    htmx_template_name = "users/partials/user_detail.html"
     {%- if cookiecutter.username_type == "email" %}
     slug_field = "id"
     slug_url_kwarg = "id"
@@ -30,9 +32,15 @@ class UserDetailView(LoginRequiredMixin, DetailView):
 user_detail_view = UserDetailView.as_view()
 
 
-class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+class UserUpdateView(
+    LoginRequiredMixin,
+    SuccessMessageMixin,
+    HtmxTemplateMixin,
+    UpdateView,
+):
     model = User
     fields = ["name"]
+    htmx_template_name = "users/partials/user_form.html"
     success_message = _("Information successfully updated")
 
     def get_success_url(self) -> str:

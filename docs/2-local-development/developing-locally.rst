@@ -73,7 +73,7 @@ Make sure to have the following on your host:
 
     uv run uvicorn config.asgi:application --host 0.0.0.0 --reload --reload-include '*.html'
 
-   If you've opted for Webpack or Gulp as frontend pipeline, please see the :ref:`dedicated section <bare-metal-webpack-gulp>` below.
+   There is no frontend build step: htmx and Pico CSS are served as static files. See the :ref:`frontend guide <frontend-guide>` for details.
 
 .. _PostgreSQL: https://www.postgresql.org/download/
 .. _Redis: https://redis.io/download
@@ -240,33 +240,6 @@ You can also use Django admin to queue up tasks, thanks to the `django-celerybea
 .. _Celery Workers Guide: https://docs.celeryq.dev/en/stable/userguide/workers.html
 .. _django-celerybeat: https://django-celery-beat.readthedocs.io/en/latest/
 
-
-.. _bare-metal-webpack-gulp:
-
-Using Webpack or Gulp
----------------------
-
-If you've opted for Gulp or Webpack as front-end pipeline, the project comes configured with `Sass`_ compilation and `live reloading`_. As you change your Sass/JS source files, the task runner will automatically rebuild the corresponding CSS and JS assets and reload them in your browser without refreshing the page.
-
-#. Make sure that `Node.js`_ v18 is installed on your machine.
-#. In the project root, install the JS dependencies with::
-
-    npm install
-
-#. Now - with your virtualenv activated - start the application by running::
-
-    npm run dev
-
-   This will start 2 processes in parallel: the static assets build loop on one side, and the Django server on the other.
-
-#. Access your application at the address of the ``node`` service in order to see your correct styles. This is http://localhost:3000 by default.
-
-   .. note:: Do NOT access the application using the Django port (8000 by default), as it will result in broken styles and 404s when accessing static assets.
-
-
-.. _Node.js: http://nodejs.org/download/
-.. _Sass: https://sass-lang.com/
-.. _live reloading: https://browsersync.io
 
 Summary
 -------

@@ -1,13 +1,78 @@
-/* These styles are generated from project.scss. */
+/* Project-specific styles. Pico CSS (static/vendor/pico/) provides the base styling. */
 
-.alert-debug {
-  color: black;
-  background-color: white;
-  border-color: #d6e9c6;
+/* Django messages, rendered by templates/partials/messages.html */
+.message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--pico-spacing);
+  padding: calc(var(--pico-spacing) * 0.75) var(--pico-spacing);
+  border-left: 0.25rem solid var(--pico-primary);
 }
 
-.alert-error {
-  color: #b94a48;
-  background-color: #f2dede;
-  border-color: #eed3d7;
+.message-success {
+  border-left-color: var(--pico-ins-color);
+}
+
+.message-warning {
+  border-left-color: var(--pico-mark-background-color);
+}
+
+.message-error {
+  border-left-color: var(--pico-del-color);
+}
+
+.message-debug {
+  border-left-color: var(--pico-muted-color);
+}
+
+.message [data-dismiss] {
+  margin: 0;
+  padding: 0.125rem 0.625rem;
+  line-height: 1;
+}
+
+/* Form errors, rendered by templates/django/forms/field.html */
+.errorlist {
+  margin: calc(var(--pico-spacing) * -0.75) 0 var(--pico-spacing);
+  padding: 0;
+  list-style: none;
+  color: var(--pico-del-color);
+  font-size: 0.875em;
+}
+
+.errorlist.nonfield {
+  margin-top: 0;
+}
+
+/* Narrow, centred card used by the django-allauth entrance pages (sign in, sign up, ...) */
+.entrance {
+  max-width: 28rem;
+  margin-inline: auto;
+}
+
+/* Badges, rendered by templates/allauth/elements/badge.html */
+.badge {
+  font-size: 0.75em;
+}
+
+.badge-success {
+  background-color: var(--pico-ins-color);
+  color: var(--pico-primary-inverse);
+}
+
+.badge-danger {
+  background-color: var(--pico-del-color);
+  color: var(--pico-primary-inverse);
+}
+
+/* htmx request indicator: https://htmx.org/attributes/hx-indicator/ */
+.htmx-indicator {
+  opacity: 0;
+  transition: opacity 200ms ease-in;
+}
+
+.htmx-request .htmx-indicator,
+.htmx-request.htmx-indicator {
+  opacity: 1;
 }

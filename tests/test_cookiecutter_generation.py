@@ -1,4 +1,6 @@
 import glob  # noqa: EXE002
+import hashlib
+import json
 import os
 import re
 import sys
@@ -18,6 +20,33 @@ from cookiecutter.exceptions import FailedHookException
 
 PATTERN = r"{{(\s?cookiecutter)[.](.*?)}}"
 RE_OBJ = re.compile(PATTERN)
+# <script src="http(s)://..."> or <link href="http(s)://...">
+RE_REMOTE_ASSET = re.compile(r"<(?:script|link)\b[^>]*\b(?:src|href)=[\"']https?://", re.IGNORECASE)
+
+# Paths that must never be generated any more (Node.js / asset pipeline leftovers)
+FRONTEND_TOOLCHAIN_PATHS = [
+    "package.json",
+    "package-lock.json",
+    "gulpfile.mjs",
+    "webpack",
+    "compose/local/node",
+    "my_test_project/static/sass",
+    "my_test_project/static/js/vendors.js",
+]
+# Case-insensitive tokens that must not appear in any generated text file
+FRONTEND_TOOLCHAIN_TOKENS = [
+    "bootstrap",
+    "crispy",
+    "compressor",
+    "compress_",
+    "webpack",
+    "gulp",
+    "node_modules",
+    "docker.io/node",
+    "npm ",
+    "cdnjs",
+    "sass",
+]
 
 if sys.platform.startswith("win"):
     pytest.skip("sh doesn't support windows", allow_module_level=True)
@@ -55,8 +84,6 @@ SUPPORTED_COMBINATIONS = [
     {"open_source_license": "Not open source"},
     {"windows": "y"},
     {"windows": "n"},
-    # Windows without Docker and with django-compressor
-    {"windows": "y", "frontend_pipeline": "Django Compressor", "use_docker": "n"},
     {"editor": "None"},
     {"editor": "PyCharm"},
     {"editor": "VS Code"},
@@ -114,10 +141,6 @@ SUPPORTED_COMBINATIONS = [
     {"rest_api": "Django Ninja"},
     {"use_async": "y"},
     {"use_async": "n"},
-    {"frontend_pipeline": "None"},
-    {"frontend_pipeline": "Django Compressor"},
-    {"frontend_pipeline": "Gulp"},
-    {"frontend_pipeline": "Webpack"},
     {"use_celery": "y"},
     {"use_celery": "n"},
     {"mail_catcher": "None"},
@@ -450,3 +473,57 @@ def test_pre_commit_without_heroku(cookies, context):
     data = pre_commit_config.read_text()
 
     assert "uv-pre-commit" not in data
+
+
+def test_frontend_stack(cookies, context):
+    """Generated project uses django-htmx + vendored Pico CSS and has no Node.js/asset pipeline leftovers."""
+    result = cookies.bake(extra_context=context)
+    assert result.exit_code == 0
+
+    for path in FRONTEND_TOOLCHAIN_PATHS:
+        assert not (result.project_path / path).exists(), f"{path} should not be generated"
+
+    offenders = []
+    for path in build_files_list(result.project_path):
+        if "static/vendor/" in path.as_posix() or is_binary(str(path)):
+            continue
+        content = path.read_text().lower()
+        offenders.extend(f"{path}: {token}" for token in FRONTEND_TOOLCHAIN_TOKENS if token in content)
+    assert offenders == []
+
+    settings = (result.project_path / "config" / "settings" / "base.py").read_text()
+    assert '"django_htmx",' in settings
+    assert '"django_htmx.middleware.HtmxMiddleware",' in settings
+    assert "django-htmx==" in (result.project_path / "pyproject.toml").read_text()
+
+    base_html = (result.project_path / "my_test_project" / "templates" / "base.html").read_text()
+    assert "{% htmx_script %}" in base_html
+    assert 'hx-headers=\'{"X-CSRFToken": "{{ csrf_token }}"}\'' in base_html
+    assert "vendor/pico/pico.min.css" in base_html
+
+
+def test_no_remote_assets(cookies, context):
+    """No stylesheet or script is loaded from a CDN or any other remote host."""
+    result = cookies.bake(extra_context=context)
+    assert result.exit_code == 0
+
+    offenders = [
+        path
+        for path in build_files_list(result.project_path)
+        if path.suffix == ".html" and RE_REMOTE_ASSET.search(path.read_text())
+    ]
+    assert offenders == []
+
+
+def test_vendored_pico_intact(cookies, context):
+    """The vendored Pico CSS is copied byte-for-byte and matches its recorded checksum."""
+    result = cookies.bake(extra_context=context)
+    assert result.exit_code == 0
+
+    vendor_dir = result.project_path / "my_test_project" / "static" / "vendor" / "pico"
+    metadata = json.loads((vendor_dir / "pico.json").read_text())
+    css = (vendor_dir / metadata["file"]).read_bytes()
+
+    assert hashlib.sha256(css).hexdigest() == metadata["sha256"]
+    assert f"v{metadata['version']}".encode() in css[:300]
+    assert (vendor_dir / "LICENSE.md").read_text().startswith("MIT License")

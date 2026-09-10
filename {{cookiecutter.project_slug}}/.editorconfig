@@ -12,7 +12,7 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size = 4
 
-[*.{html,css,scss,json,yml,xml,toml}]
+[*.{html,css,json,yml,xml,toml}]
 indent_style = space
 indent_size = 2
 
@@ -25,3 +25,8 @@ indent_style = tab
 [default.conf]
 indent_style = space
 indent_size = 2
+
+# Vendored third-party assets are kept byte-for-byte identical to upstream
+[{{cookiecutter.project_slug}}/static/vendor/**]
+insert_final_newline = false
+trim_trailing_whitespace = false

@@ -90,7 +90,7 @@ To run the docs with local services just use::
 
     docker compose -f docker-compose.local.yml -f docker-compose.docs.yml up
 
-The site should start and be accessible at http://localhost:3000 if you selected Webpack or Gulp as frontend pipeline and http://localhost:8000 otherwise.
+The site should start and be accessible at http://localhost:8000.
 
 Execute Management Commands
 ---------------------------
@@ -264,17 +264,6 @@ By default, it's enabled both in local and production environments (``docker-com
 
 .. _`Flower`: https://github.com/mher/flower
 
-Using Webpack or Gulp
-~~~~~~~~~~~~~~~~~~~~~
-
-If you've opted for Gulp or Webpack as front-end pipeline, the project comes configured with `Sass`_ compilation and `live reloading`_. As you change your Sass/JS source files, the task runner will automatically rebuild the corresponding CSS and JS assets and reload them in your browser without refreshing the page.
-
-The stack comes with a dedicated node service to build the static assets, watch for changes and proxy requests to the Django app with live reloading scripts injected in the response. For everything to work smoothly, you need to access the application at the port served by the node service, which is http://localhost:3000 by default.
-
-.. _Sass: https://sass-lang.com/
-.. _live reloading: https://browsersync.io
-
-
 Using Just for Docker Commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -321,10 +310,10 @@ Here is a link to an article on `how to add HTTPS using Nginx`_ to your local do
 
 .. _`how to add HTTPS using Nginx`: https://afroshok.com/cookiecutter-https
 
-Webpack
-~~~~~~~
+nginx-proxy with mkcert
+~~~~~~~~~~~~~~~~~~~~~~~
 
-If you are using Webpack, first install `mkcert`_. It is a simple by design tool that hides all the arcane knowledge required to generate valid TLS certificates. It works for any hostname or IP, including localhost. It supports macOS, Linux, and Windows, and Firefox, Chrome and Java. It even works on mobile devices with a couple manual steps. See https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/
+First install `mkcert`_. It is a simple by design tool that hides all the arcane knowledge required to generate valid TLS certificates. It works for any hostname or IP, including localhost. It supports macOS, Linux, and Windows, and Firefox, Chrome and Java. It even works on mobile devices with a couple manual steps. See https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/
 
 .. _`mkcert`:  https://github.com/FiloSottile/mkcert/blob/master/README.md#supported-root-stores
 
@@ -345,21 +334,14 @@ Assuming that you registered your local hostname as ``my-dev-env.local``, the ce
         - ./certs:/etc/nginx/certs
       restart: always
       depends_on:
-        - node
+        - django
       environment:
         - VIRTUAL_HOST=my-dev-env.local
-        - VIRTUAL_PORT=3000
+        - VIRTUAL_PORT=8000
 
 2. Add the local secure domain to the ``config/settings/local.py``. You should allow the new hostname ::
 
     ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "my-dev-env.local"]
-
-3. Add the following configuration to the ``devServer`` section of ``webpack/dev.config.js`` ::
-
-    client: {
-      webSocketURL: 'auto://0.0.0.0:0/ws', // note the `:0` after `0.0.0.0`
-    },
-
 
 Rebuild your ``docker`` application. ::
 

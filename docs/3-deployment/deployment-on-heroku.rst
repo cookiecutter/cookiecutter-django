@@ -108,22 +108,3 @@ Or add the DSN for your account, if you already have one:
     heroku config:set SENTRY_DSN=https://xxxx@sentry.io/12345
 
 .. _Sentry add-on: https://elements.heroku.com/addons/sentry
-
-
-Gulp or Webpack
-+++++++++++++++
-
-If you've opted for Gulp or Webpack as frontend pipeline, you'll most likely need to setup
-your app to use `multiple buildpacks`_: one for Python & one for Node.js:
-
-.. code-block:: bash
-
-    heroku buildpacks:add --index 1 heroku/nodejs
-
-At time of writing, this should do the trick: during deployment,
-the Heroku should run ``npm install`` and then ``npm build``,
-which run the SASS compilation & JS bundling.
-
-If things don't work, please refer to the Heroku docs.
-
-.. _multiple buildpacks: https://devcenter.heroku.com/articles/managing-buildpacks

@@ -30,7 +30,6 @@ jobs:
         run: |
           uv tool run pre-commit autoupdate \
             --repo https://github.com/pre-commit/pre-commit-hooks \
-            --repo https://github.com/pre-commit/mirrors-prettier \
             --repo https://github.com/tox-dev/pyproject-fmt
 
       - name: Autoupdate generated projects
@@ -38,7 +37,6 @@ jobs:
         run: |
           uv tool run pre-commit autoupdate \
             --repo https://github.com/pre-commit/pre-commit-hooks \
-            --repo https://github.com/pre-commit/mirrors-prettier \
             --repo https://github.com/tox-dev/pyproject-fmt
 
       - name: Create Pull Request

@@ -1,9 +1,6 @@
 from .base import *  # noqa: F403
 from .base import INSTALLED_APPS
 from .base import MIDDLEWARE
-{%- if cookiecutter.frontend_pipeline == 'Webpack' %}
-from .base import WEBPACK_LOADER
-{%- endif %}
 from .base import env
 
 # GENERAL
@@ -90,14 +87,6 @@ if env("USE_DOCKER") == "yes":
 
     hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
     INTERNAL_IPS += [".".join([*ip.split(".")[:-1], "1"]) for ip in ips]
-    {%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
-    try:
-        _, _, ips = socket.gethostbyname_ex("node")
-        INTERNAL_IPS.extend(ips)
-    except socket.gaierror:
-        # The node container isn't started (yet?)
-        pass
-    {%- endif %}
     {%- if cookiecutter.windows == 'y' %}
     # RunServerPlus
     # ------------------------------------------------------------------------------
@@ -123,12 +112,6 @@ CELERY_TASK_ALWAYS_EAGER = True
 {%- endif %}
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#task-eager-propagates
 CELERY_TASK_EAGER_PROPAGATES = True
-
-{%- endif %}
-{%- if cookiecutter.frontend_pipeline == 'Webpack' %}
-# django-webpack-loader
-# ------------------------------------------------------------------------------
-WEBPACK_LOADER["DEFAULT"]["CACHE"] = not DEBUG
 
 {%- endif %}
 # Your stuff...

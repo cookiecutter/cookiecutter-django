@@ -39,10 +39,6 @@ jobs:
             args: "ci_tool=Gitlab"
           - name: Celery & DRF
             args: "use_celery=y rest_api=DRF"
-          - name: Gulp
-            args: "frontend_pipeline=Gulp"
-          - name: Webpack
-            args: "frontend_pipeline=Webpack"
 
     name: "Docker ${{ matrix.script.name }}"
     runs-on: ubuntu-latest
@@ -65,11 +61,9 @@ jobs:
       matrix:
         script:
           - name: Celery
-            args: "use_celery=y frontend_pipeline='Django Compressor'"
-          - name: Gulp
-            args: "frontend_pipeline=Gulp"
-          - name: Webpack
-            args: "frontend_pipeline=Webpack use_heroku=y"
+            args: "use_celery=y"
+          - name: Heroku
+            args: "use_heroku=y"
           - name: Email Username
             args: "username_type=email ci_tool=Github project_name='Something superduper long - the great amazing project' project_slug=my_awesome_project"
           - name: Email username & DRF
@@ -106,9 +100,6 @@ jobs:
         uses: astral-sh/setup-uv@v7
       - name: Install dependencies
         run: uv sync --locked
-      - uses: actions/setup-node@v7
-        with:
-          node-version-file: "{{cookiecutter.project_slug}}/package.json"
       - name: Bare Metal ${{ matrix.script.name }}
         run: sh tests/test_bare.sh ${{ matrix.script.args }}
 
@@ -117,8 +108,8 @@ jobs:
       fail-fast: false
       matrix:
         script:
-          - name: Compressor
-            args: "frontend_pipeline='Django Compressor'"
+          - name: Windows
+            args: "windows=y"
     name: "Windows Smoke Test ${{ matrix.script.name }}"
     runs-on: windows-latest
     steps:

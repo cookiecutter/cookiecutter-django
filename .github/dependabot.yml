@@ -22,26 +22,12 @@ updates:
     labels:
       - "project infrastructure"
 
-  # Update npm packages
-  - package-ecosystem: "npm"
-    directories:
-      - "{{cookiecutter.project_slug}}/"
-    schedule:
-      interval: "daily"
-    labels:
-      - "update"
-    groups:
-      babel:
-        patterns:
-          - "@babel/*"
-
   # Enable version updates for Docker
   - package-ecosystem: "docker"
     directories:
       - "{{cookiecutter.project_slug}}/compose/local/django/"
       - "{{cookiecutter.project_slug}}/compose/local/docs/"
       - "{{cookiecutter.project_slug}}/compose/production/django/"
-      - "{{cookiecutter.project_slug}}/compose/local/node/"
       - "{{cookiecutter.project_slug}}/compose/production/aws/"
       - "{{cookiecutter.project_slug}}/compose/production/postgres/"
       - "{{cookiecutter.project_slug}}/compose/production/nginx/"

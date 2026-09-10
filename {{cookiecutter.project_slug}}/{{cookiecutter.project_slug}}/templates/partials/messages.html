@@ -1,0 +1,15 @@
+{% raw %}{% load i18n %}
+
+{# Rendered on every page by base.html; htmx partials include it too so it is swapped out-of-band #}
+<div id="messages"{% if request.htmx %} hx-swap-oob="true"{% endif %}>
+  {% for message in messages %}
+    <article role="alert" class="message message-{{ message.level_tag }}">
+      <span>{{ message }}</span>
+      <button type="button"
+              class="secondary outline"
+              data-dismiss
+              aria-label="{% translate 'Dismiss' %}">×</button>
+    </article>
+  {% endfor %}
+</div>
+{%- endraw %}

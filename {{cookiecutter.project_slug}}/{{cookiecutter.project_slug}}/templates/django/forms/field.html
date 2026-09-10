@@ -1,0 +1,34 @@
+{% raw %}{% comment %}
+Renders a single form field with Pico CSS markup. Django uses this template for every
+field rendered through {{ form }} / form.as_div (see FORM_RENDERER in config/settings/base.py).
+Django adds aria-invalid and aria-describedby to the widget automatically.
+{% endcomment %}
+{% if field.use_fieldset %}
+  <fieldset{% if field.aria_describedby %} aria-describedby="{{ field.aria_describedby }}"{% endif %}>
+    {% if field.label %}{{ field.legend_tag }}{% endif %}
+    {{ field }}
+    {{ field.errors }}
+    {% if field.help_text %}
+      <small id="{{ field.auto_id }}_helptext">{{ field.help_text|safe }}</small>
+    {% endif %}
+  </fieldset>
+{% elif field.widget_type == "checkbox" %}
+  <label for="{{ field.id_for_label }}">
+    {{ field }}
+    {{ field.label }}
+  </label>
+  {{ field.errors }}
+  {% if field.help_text %}
+    <small id="{{ field.auto_id }}_helptext">{{ field.help_text|safe }}</small>
+  {% endif %}
+{% else %}
+  {% if field.label %}
+    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+  {% endif %}
+  {{ field }}
+  {{ field.errors }}
+  {% if field.help_text %}
+    <small id="{{ field.auto_id }}_helptext">{{ field.help_text|safe }}</small>
+  {% endif %}
+{% endif %}
+{%- endraw %}

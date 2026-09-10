@@ -1,27 +1,3 @@
-{% if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] -%}
-FROM docker.io/node:26.5-bookworm-slim AS client-builder
-
-ARG APP_HOME=/app
-WORKDIR ${APP_HOME}
-COPY ./package.json ./package-lock.json ${APP_HOME}
-RUN npm ci && npm cache clean --force
-COPY . ${APP_HOME}
-{%- if cookiecutter.frontend_pipeline == 'Webpack' and cookiecutter.use_whitenoise == 'n' %}
-{%- if cookiecutter.cloud_provider == 'AWS' %}
-ARG DJANGO_AWS_STORAGE_BUCKET_NAME
-ENV DJANGO_AWS_STORAGE_BUCKET_NAME=${DJANGO_AWS_STORAGE_BUCKET_NAME}
-ARG DJANGO_AWS_S3_CUSTOM_DOMAIN
-ENV DJANGO_AWS_S3_CUSTOM_DOMAIN=${DJANGO_AWS_S3_CUSTOM_DOMAIN}
-{%- elif cookiecutter.cloud_provider == 'GCP' %}
-ARG DJANGO_GCP_STORAGE_BUCKET_NAME
-ENV DJANGO_GCP_STORAGE_BUCKET_NAME=${DJANGO_GCP_STORAGE_BUCKET_NAME}
-{%- elif cookiecutter.cloud_provider == 'Azure' %}
-ARG DJANGO_AZURE_ACCOUNT_NAME
-ENV DJANGO_AZURE_ACCOUNT_NAME=${DJANGO_AZURE_ACCOUNT_NAME}
-{%- endif %}
-{%- endif %}
-RUN npm run build
-{%- endif %}
 # define an alias for the specific python version used in this file.
 FROM ghcr.io/astral-sh/uv:python3.14-bookworm-slim AS python-build-stage
 
@@ -44,11 +20,8 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=uv.lock,target=uv.lock \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
     uv sync --locked --no-install-project --no-dev
-{%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
-COPY --from=client-builder ${APP_HOME} ${APP_HOME}
-{% else %}
+
 COPY . ${APP_HOME}
-{%- endif %}
 
 RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=uv.lock,target=uv.lock \

@@ -50,7 +50,7 @@ sh tests/test_docker.sh use_celery=y use_drf=y   # with options
 
 # Bare metal (needs PostgreSQL and Redis running)
 sh tests/test_bare.sh
-sh tests/test_bare.sh use_celery=y frontend_pipeline=Gulp
+sh tests/test_bare.sh use_celery=y use_heroku=y
 ```
 
 ### Generate a project locally for debugging
@@ -66,13 +66,13 @@ uv run cookiecutter . --no-input --output-dir=/tmp/debug
 1. User runs `cookiecutter` — prompted with options from `cookiecutter.json`
 2. `hooks/pre_gen_project.py` validates input (project_slug format, conflicting options)
 3. Jinja2 renders all files under `{{cookiecutter.project_slug}}/` with user choices
-4. `hooks/post_gen_project.py` (~550 lines) removes files not needed for the chosen options, generates random secrets, and adjusts config files
+4. `hooks/post_gen_project.py` (~550 lines) removes files not needed for the chosen options, generates random secrets, and installs dependencies with uv
 
 ### Key Files
 
-- **`cookiecutter.json`** — All template variables and their choices (project name, Docker, Celery, cloud provider, frontend pipeline, etc.)
+- **`cookiecutter.json`** — All template variables and their choices (project name, Docker, Celery, cloud provider, REST API, etc.)
 - **`hooks/pre_gen_project.py`** — Pre-generation validation (uses Jinja2 syntax at the top for context manipulation)
-- **`hooks/post_gen_project.py`** — Post-generation cleanup: removes files based on user choices, generates Django secret key, sets DB credentials, modifies package.json and .pre-commit-config.yaml
+- **`hooks/post_gen_project.py`** — Post-generation cleanup: removes files based on user choices, generates Django secret key, sets DB credentials, runs `uv add` for the requirements
 - **`{{cookiecutter.project_slug}}/`** — The template directory; files here use Jinja2 conditionals (`{% if cookiecutter.use_celery == 'y' %}`) to include/exclude content
 
 ### Test Structure
@@ -90,6 +90,7 @@ The generated Django project uses:
 - `<project_slug>/users/` — Custom user model (username or email-based auth via django-allauth)
 - `compose/` — Docker configs for local and production
 - `requirements/` — Not used; dependencies managed via `pyproject.toml` + `uv.lock`
+- `<project_slug>/templates/` — Semantic HTML styled by the vendored Pico CSS (`<project_slug>/static/vendor/pico/`, pinned with SHA-256 metadata); htmx is loaded through django-htmx's `{% htmx_script %}`. No Node.js, Bootstrap or asset pipeline.
 
 ## Conventions
 

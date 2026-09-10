@@ -105,16 +105,6 @@ rest_api:
 use_async:
     Indicates whether the project should use web sockets with Uvicorn + Gunicorn.
 
-frontend_pipeline:
-    Select a pipeline to compile and optimise frontend assets (JS, CSS, ...):
-
-    1. None
-    2. `Django Compressor`_
-    3. `Gulp`_
-    4. `Webpack`_
-
-Both Gulp and Webpack support Bootstrap recompilation with real-time variables alteration.
-
 use_celery:
     Indicates whether the project should be configured to use Celery_.
 
@@ -166,9 +156,6 @@ debug:
 
 .. _PostgreSQL: https://www.postgresql.org/docs/
 
-.. _Gulp: https://github.com/gulpjs/gulp
-.. _Webpack: https://webpack.js.org
-
 .. _AWS: https://aws.amazon.com/s3/
 .. _GCP: https://cloud.google.com/storage/
 .. _Azure: https://azure.microsoft.com/en-us/products/storage/blobs/
@@ -185,8 +172,6 @@ debug:
 
 .. _Django Rest Framework: https://github.com/encode/django-rest-framework/
 .. _Django Ninja: https://github.com/vitalik/django-ninja
-
-.. _Django Compressor: https://github.com/django-compressor/django-compressor
 
 .. _Celery: https://github.com/celery/celery
 

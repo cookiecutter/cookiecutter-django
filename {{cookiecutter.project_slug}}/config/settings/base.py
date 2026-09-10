@@ -88,8 +88,6 @@ DJANGO_APPS = [
     "django.forms",
 ]
 THIRD_PARTY_APPS = [
-    "crispy_forms",
-    "crispy_bootstrap5",
     "allauth",
     "allauth.account",
     "allauth.mfa",
@@ -105,9 +103,7 @@ THIRD_PARTY_APPS = [
 {%- elif cookiecutter.rest_api == 'Django Ninja' %}
     "corsheaders",
 {%- endif %}
-{%- if cookiecutter.frontend_pipeline == 'Webpack' %}
-    "webpack_loader",
-{%- endif %}
+    "django_htmx",
 ]
 
 LOCAL_APPS = [
@@ -173,6 +169,8 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
+    # https://django-htmx.readthedocs.io/en/latest/installation.html
+    "django_htmx.middleware.HtmxMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
 ]
@@ -227,11 +225,8 @@ TEMPLATES = [
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#form-renderer
+# Form fields are rendered with the Pico CSS markup in templates/django/forms/field.html
 FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
-
-# http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
-CRISPY_TEMPLATE_PACK = "bootstrap5"
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 # FIXTURES
 # ------------------------------------------------------------------------------
@@ -361,13 +356,6 @@ ACCOUNT_FORMS = {"signup": "{{cookiecutter.project_slug}}.users.forms.UserSignup
 SOCIALACCOUNT_ADAPTER = "{{cookiecutter.project_slug}}.users.adapters.SocialAccountAdapter"
 # https://docs.allauth.org/en/latest/socialaccount/configuration.html
 SOCIALACCOUNT_FORMS = {"signup": "{{cookiecutter.project_slug}}.users.forms.UserSocialSignupForm"}
-{% if cookiecutter.frontend_pipeline == 'Django Compressor' -%}
-# django-compressor
-# ------------------------------------------------------------------------------
-# https://django-compressor.readthedocs.io/en/latest/quickstart/#installation
-INSTALLED_APPS += ["compressor"]
-STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
-{%- endif %}
 {% if cookiecutter.rest_api == 'DRF' -%}
 # django-rest-framework
 # -------------------------------------------------------------------------------
@@ -393,19 +381,6 @@ SPECTACULAR_SETTINGS = {
     "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAdminUser"],
     "SCHEMA_PATH_PREFIX": "/api/",
 }
-{%- endif %}
-{%- if cookiecutter.frontend_pipeline == 'Webpack' %}
-# django-webpack-loader
-# ------------------------------------------------------------------------------
-WEBPACK_LOADER = {
-    "DEFAULT": {
-        "CACHE": not DEBUG,
-        "STATS_FILE": BASE_DIR / "webpack-stats.json",
-        "POLL_INTERVAL": 0.1,
-        "IGNORE": [r".+\.hot-update.js", r".+\.map"],
-    },
-}
-
 {%- endif %}
 # Your stuff...
 # ------------------------------------------------------------------------------

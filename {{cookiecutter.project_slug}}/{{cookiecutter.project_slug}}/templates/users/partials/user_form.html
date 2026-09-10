@@ -1,0 +1,36 @@
+{% raw %}{% load i18n %}
+
+{% comment %}
+Profile edit form. Rendered inside users/user_form.html for normal requests and on its own
+for htmx requests (see HtmxTemplateMixin). Without JavaScript the form posts normally and the
+view redirects to the profile; with htmx the redirect is followed and the profile card is
+swapped back in place.
+{% endcomment %}
+{% if request.htmx %}
+  {% include "partials/messages.html" %}
+{% endif %}
+<article id="user-profile">
+  <header>
+    <h1>{% endraw %}{% if cookiecutter.username_type == "email" %}{% raw %}{{ user.name }}{% endraw %}{% else %}{% raw %}{{ user.username }}{% endraw %}{% endif %}{% raw %}</h1>
+  </header>
+  <form method="post"
+        action="{% url 'users:update' %}"
+        hx-post="{% url 'users:update' %}"
+        hx-target="#user-profile"
+        hx-swap="outerHTML"
+        hx-push-url="true">
+    {% csrf_token %}
+    {{ form }}
+    <div role="group">
+      <button type="submit">{% translate "Update" %}</button>
+      <a role="button"
+         class="secondary"
+         href="{{ user.get_absolute_url }}"
+         hx-get="{{ user.get_absolute_url }}"
+         hx-target="#user-profile"
+         hx-swap="outerHTML"
+         hx-push-url="true">{% translate "Cancel" %}</a>
+    </div>
+  </form>
+</article>
+{%- endraw %}

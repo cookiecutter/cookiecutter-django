@@ -122,9 +122,6 @@ python_files = [
   "tests.py",
   "test_*.py",
 ]
-{%- if cookiecutter.frontend_pipeline == 'Gulp' %}
-norecursedirs = [ "node_modules" ]
-{%- endif %}
 
 # ==== Coverage ====
 [tool.coverage.run]

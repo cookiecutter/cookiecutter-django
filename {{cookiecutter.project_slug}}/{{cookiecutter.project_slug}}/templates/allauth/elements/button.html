@@ -1,20 +1,14 @@
 {% raw %}{% load allauth %}
 
 {% comment %} djlint:off {% endcomment %}
-<{% if attrs.href %}a href="{{ attrs.href }}"{% else %}button{% endif %}
-                      {% if attrs.form %}form="{{ attrs.form }}"{% endif %}
-                      {% if attrs.id %}id="{{ attrs.id }}"{% endif %}
-                      {% if attrs.name %}name="{{ attrs.name }}"{% endif %}
-                      {% if attrs.type %}type="{{ attrs.type }}"{% endif %}
-                      class="btn
-{% if 'success' in attrs.tags %}btn-success
-{% elif 'warning' in attrs.tags %}btn-warning
-{% elif 'secondary' in attrs.tags %}btn-secondary
-{% elif 'danger' in attrs.tags %}btn-danger
-{% elif 'primary' in attrs.tags %}btn-primary
-{% else %}btn-primary
-{% endif %}"
+<{% if attrs.href %}a href="{{ attrs.href }}" role="button"{% else %}button{% endif %}
+  {% if attrs.form %}form="{{ attrs.form }}"{% endif %}
+  {% if attrs.id %}id="{{ attrs.id }}"{% endif %}
+  {% if attrs.name %}name="{{ attrs.name }}"{% endif %}
+  {% if attrs.value %}value="{{ attrs.value }}"{% endif %}
+  {% if attrs.type %}type="{{ attrs.type }}"{% endif %}
+  {% if 'danger' in attrs.tags or 'delete' in attrs.tags %}class="contrast"{% elif 'link' in attrs.tags %}class="secondary outline"{% elif 'secondary' in attrs.tags %}class="secondary"{% endif %}
 >
   {% slot %}
   {% endslot %}
-  </{% if attrs.href %}a{% else %}button{% endif %}>{% endraw %}
+</{% if attrs.href %}a{% else %}button{% endif %}>{% endraw %}

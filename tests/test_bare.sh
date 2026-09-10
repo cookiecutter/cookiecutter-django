@@ -26,12 +26,5 @@ uv run pytest
 # Make sure the check doesn't raise any warnings
 uv run python manage.py check --fail-level WARNING
 
-# Run npm build script if package.json is present
-if [ -f "package.json" ]
-then
-    npm install
-    npm run build
-fi
-
 # Generate the HTML for the documentation
 cd docs && uv run make html

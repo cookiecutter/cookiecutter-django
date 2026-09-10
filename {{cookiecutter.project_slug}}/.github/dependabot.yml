@@ -41,7 +41,6 @@ updates:
   - package-ecosystem: 'docker'
     # Look for a `Dockerfile` in the listed directories
     directories:
-      - 'compose/local/node/'
       - 'compose/production/aws/'
       - 'compose/production/postgres/'
       - 'compose/production/traefik/'
@@ -75,19 +74,3 @@ updates:
           - 'minor'
           - 'patch'
 
-{%- if cookiecutter.frontend_pipeline == 'Gulp' %}
-
-  # Enable version updates for javascript/npm
-  - package-ecosystem: 'npm'
-    # Look for a `packages.json` in the `root` directory
-    directory: '/'
-    # Every weekday
-    schedule:
-      interval: 'daily'
-    groups:
-      javascript:
-        update-types:
-          - 'minor'
-          - 'patch'
-
-{%- endif %}

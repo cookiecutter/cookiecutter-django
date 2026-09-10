@@ -1,0 +1,9 @@
+{
+  "name": "@picocss/pico",
+  "version": "2.1.1",
+  "license": "MIT",
+  "homepage": "https://picocss.com",
+  "source": "https://github.com/picocss/pico/blob/v2.1.1/css/pico.min.css",
+  "file": "pico.min.css",
+  "sha256": "fbc9a63fc9fc9f72d12fd7fc9806e11fa9f77ae4f9cad146b27003a1119ba3db"
+}
