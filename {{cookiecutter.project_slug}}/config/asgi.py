@@ -8,9 +8,12 @@ https://docs.djangoproject.com/en/dev/howto/deployment/asgi/
 
 """
 
+from __future__ import annotations
+
 import os
 import sys
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 from django.core.asgi import get_asgi_application
 
@@ -28,8 +31,13 @@ django_application = get_asgi_application()
 # Import websocket application here, so apps from django_application are loaded first
 from config.websocket import websocket_application  # noqa: E402
 
+if TYPE_CHECKING:
+    from config.websocket import ASGIReceive
+    from config.websocket import ASGIScope
+    from config.websocket import ASGISend
 
-async def application(scope, receive, send):
+
+async def application(scope: ASGIScope, receive: ASGIReceive, send: ASGISend) -> None:
     if scope["type"] == "http":
         await django_application(scope, receive, send)
     elif scope["type"] == "websocket":

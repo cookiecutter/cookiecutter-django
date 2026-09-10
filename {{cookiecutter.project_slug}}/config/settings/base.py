@@ -5,8 +5,15 @@ import os
 import ssl
 {%- endif %}
 from pathlib import Path
+{%- if cookiecutter.rest_api == 'DRF' %}
+from typing import Any
+{%- endif %}
 
+import django_stubs_ext
 import environ
+
+# Let Django's generic classes be subscripted at runtime, e.g. ``DetailView[User]``.
+django_stubs_ext.monkeypatch()
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 # {{ cookiecutter.project_slug }}/
@@ -374,7 +381,7 @@ CORS_URLS_REGEX = r"^/api/.*$"
 
 # By Default swagger ui is available only to admin user(s). You can change permission classes to change that
 # See more configuration options at https://drf-spectacular.readthedocs.io/en/latest/settings.html#settings
-SPECTACULAR_SETTINGS = {
+SPECTACULAR_SETTINGS: dict[str, Any] = {
     "TITLE": "{{ cookiecutter.project_name }} API",
     "DESCRIPTION": "Documentation of API endpoints of {{ cookiecutter.project_name }}",
     "VERSION": "1.0.0",

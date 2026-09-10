@@ -34,11 +34,13 @@ steps:
   - docker-compose -f docker-compose.docs.yml build
   - docker-compose -f docker-compose.local.yml run --rm django python manage.py migrate
   - docker-compose -f docker-compose.local.yml up -d
+  - docker-compose -f docker-compose.local.yml run --rm django mypy .
   - docker-compose -f docker-compose.local.yml run django pytest
   {%- else %}
   image: ghcr.io/astral-sh/uv:python3.14
   commands:
   - uv sync --locked
+  - uv run mypy .
   - uv run pytest
   {%- endif%}
 

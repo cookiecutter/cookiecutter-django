@@ -45,6 +45,33 @@ If you're running the project locally with Docker, use these commands instead: :
 
    The configuration for ``coverage`` can be found in ``pyproject.toml``. You can find out more about `configuring`_ ``coverage``.
 
+Type checking
+-------------
+
+The generated project is type checked with mypy_ in strict mode. The django-stubs_ plugin (and the
+djangorestframework-stubs_ plugin when DRF is selected) teaches mypy about models, querysets, forms and
+views, so ``User.objects.get(...)`` returns a ``User`` and a ``DetailView[User]`` knows its ``object``.
+Run the check from the project root: ::
+
+   $ uv run mypy .
+
+If you set up your project to `develop locally with docker`_, run: ::
+
+   $ docker compose -f docker-compose.local.yml run --rm django mypy .
+
+The same check runs before every ``git push`` through a pre-commit hook, and as its own job in the
+CI pipeline. The configuration lives under ``[tool.mypy]`` in ``pyproject.toml``.
+
+Shared request types live in ``<project_slug>/typedefs.py``. Declare ``request: AuthenticatedHttpRequest``
+on a view protected by ``LoginRequiredMixin`` (or use it as the ``request`` parameter of a function view
+decorated with ``login_required``) and ``request.user`` is a ``User`` in every method, with no
+``is_authenticated`` asserts. ``HtmxHttpRequest`` and ``AuthenticatedHtmxRequest`` do the same for the
+``htmx`` attribute added by django-htmx.
+
+Third-party packages without type information are listed in a ``[[tool.mypy.overrides]]`` block with
+``ignore_missing_imports``. When you add a dependency, check whether a stubs package exists for it before
+adding it there.
+
 .. seealso::
 
    For unit tests, run: ::
@@ -59,3 +86,6 @@ If you're running the project locally with Docker, use these commands instead: :
 .. _customize: https://docs.pytest.org/en/latest/customize.html
 .. _unittest: https://docs.python.org/3/library/unittest.html#module-unittest
 .. _configuring: https://coverage.readthedocs.io/en/latest/config.html
+.. _mypy: https://mypy.readthedocs.io/en/stable/
+.. _django-stubs: https://github.com/typeddjango/django-stubs
+.. _djangorestframework-stubs: https://github.com/typeddjango/djangorestframework-stubs

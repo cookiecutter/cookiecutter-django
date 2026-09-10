@@ -54,7 +54,7 @@ class TestUserUpdateView:
         request = rf.get("/fake-url/")
         request.user = user
 
-        view.request = request
+        view.setup(request)
 
         {%- if cookiecutter.username_type == "email" %}
         assert view.get_success_url() == f"/users/{user.pk}/"
@@ -67,7 +67,7 @@ class TestUserUpdateView:
         request = rf.get("/fake-url/")
         request.user = user
 
-        view.request = request
+        view.setup(request)
 
         assert view.get_object() == user
 
@@ -80,7 +80,7 @@ class TestUserUpdateView:
         MessageMiddleware(self.dummy_get_response).process_request(request)
         request.user = user
 
-        view.request = request
+        view.setup(request)
 
         # Initialize the form
         form = UserAdminChangeForm()
@@ -169,7 +169,7 @@ class TestUserRedirectView:
         request = rf.get("/fake-url")
         request.user = user
 
-        view.request = request
+        view.setup(request)
 
         {%- if cookiecutter.username_type == "email" %}
         assert view.get_redirect_url() == f"/users/{user.pk}/"

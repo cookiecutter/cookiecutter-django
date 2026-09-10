@@ -18,6 +18,9 @@ pytest-sugar==1.1.1  # https://github.com/Teemu/pytest-sugar
 {%- if cookiecutter.rest_api == 'DRF' %}
 djangorestframework-stubs==3.18.1  # https://github.com/typeddjango/djangorestframework-stubs
 {%- endif %}
+{%- if cookiecutter.use_celery == 'y' %}
+celery-types==0.26.0  # https://github.com/sbdchd/celery-types
+{%- endif %}
 
 # Documentation
 # ------------------------------------------------------------------------------

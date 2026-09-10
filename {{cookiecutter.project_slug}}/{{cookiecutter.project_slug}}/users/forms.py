@@ -9,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 from .models import User
 
 
-class UserAdminChangeForm(admin_forms.UserChangeForm):
+class UserAdminChangeForm(admin_forms.UserChangeForm[User]):
     class Meta(admin_forms.UserChangeForm.Meta):
         model = User
         {%- if cookiecutter.username_type == "email" %}
@@ -17,7 +17,7 @@ class UserAdminChangeForm(admin_forms.UserChangeForm):
         {%- endif %}
 
 
-class UserAdminCreationForm(admin_forms.AdminUserCreationForm):
+class UserAdminCreationForm(admin_forms.AdminUserCreationForm[User]):
     """
     Form for User Creation in the Admin Area.
     To change user signup, see UserSignupForm and UserSocialSignupForm.

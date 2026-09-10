@@ -295,14 +295,28 @@ def test_djlint_check_passes(cookies, context_override):
         pytest.fail(e.stdout.decode())
 
 
+# (use_docker, type-check command, test command) as the generated CI configs must invoke them.
+CI_SCRIPT_CASES = [
+    ("n", "uv run mypy .", "uv run pytest"),
+    (
+        "y",
+        "docker compose -f docker-compose.local.yml run --rm django mypy .",
+        "docker compose -f docker-compose.local.yml run django pytest",
+    ),
+]
+
+
 @pytest.mark.parametrize(
-    ("use_docker", "expected_test_script"),
-    [
-        ("n", "uv run pytest"),
-        ("y", "docker compose -f docker-compose.local.yml run django pytest"),
-    ],
+    ("use_docker", "expected_typecheck_script", "expected_test_script"),
+    CI_SCRIPT_CASES,
 )
-def test_travis_invokes_pytest(cookies, context, use_docker, expected_test_script):
+def test_travis_invokes_mypy_and_pytest(
+    cookies,
+    context,
+    use_docker,
+    expected_typecheck_script,
+    expected_test_script,
+):
     context.update({"ci_tool": "Travis", "use_docker": use_docker})
     result = cookies.bake(extra_context=context)
 
@@ -315,19 +329,22 @@ def test_travis_invokes_pytest(cookies, context, use_docker, expected_test_scrip
         try:
             yml = yaml.safe_load(travis_yml)["jobs"]["include"]
             assert yml[0]["script"] == ["ruff check ."]
-            assert yml[1]["script"] == [expected_test_script]
+            assert yml[1]["script"] == [expected_typecheck_script, expected_test_script]
         except yaml.YAMLError as e:
             pytest.fail(str(e))
 
 
 @pytest.mark.parametrize(
-    ("use_docker", "expected_test_script"),
-    [
-        ("n", "uv run pytest"),
-        ("y", "docker compose -f docker-compose.local.yml run django pytest"),
-    ],
+    ("use_docker", "expected_typecheck_script", "expected_test_script"),
+    CI_SCRIPT_CASES,
 )
-def test_gitlab_invokes_precommit_and_pytest(cookies, context, use_docker, expected_test_script):
+def test_gitlab_invokes_precommit_mypy_and_pytest(
+    cookies,
+    context,
+    use_docker,
+    expected_typecheck_script,
+    expected_test_script,
+):
     context.update({"ci_tool": "Gitlab", "use_docker": use_docker})
     result = cookies.bake(extra_context=context)
 
@@ -342,19 +359,25 @@ def test_gitlab_invokes_precommit_and_pytest(cookies, context, use_docker, expec
             assert gitlab_config["precommit"]["script"] == [
                 "uv run pre-commit run --show-diff-on-failure --color=always --all-files",
             ]
-            assert gitlab_config["pytest"]["script"] == [expected_test_script]
+            assert gitlab_config["pytest"]["script"] == [
+                expected_typecheck_script,
+                expected_test_script,
+            ]
         except yaml.YAMLError as e:
             pytest.fail(e)
 
 
 @pytest.mark.parametrize(
-    ("use_docker", "expected_test_script"),
-    [
-        ("n", "uv run pytest"),
-        ("y", "docker compose -f docker-compose.local.yml run django pytest"),
-    ],
+    ("use_docker", "expected_typecheck_script", "expected_test_script"),
+    CI_SCRIPT_CASES,
 )
-def test_github_invokes_linter_and_pytest(cookies, context, use_docker, expected_test_script):
+def test_github_invokes_linter_mypy_and_pytest(
+    cookies,
+    context,
+    use_docker,
+    expected_typecheck_script,
+    expected_test_script,
+):
     context.update({"ci_tool": "Github", "use_docker": use_docker})
     result = cookies.bake(extra_context=context)
 
@@ -372,11 +395,12 @@ def test_github_invokes_linter_and_pytest(cookies, context, use_docker, expected
                     linter_present = True
             assert linter_present
 
-            expected_test_script_present = False
-            for action_step in github_config["jobs"]["pytest"]["steps"]:
-                if action_step.get("run") == expected_test_script:
-                    expected_test_script_present = True
-            assert expected_test_script_present
+            typecheck_steps = [step.get("run") for step in github_config["jobs"]["typecheck"]["steps"]]
+            assert expected_typecheck_script in typecheck_steps
+
+            pytest_steps = [step.get("run") for step in github_config["jobs"]["pytest"]["steps"]]
+            assert expected_test_script in pytest_steps
+            assert expected_typecheck_script not in pytest_steps
         except yaml.YAMLError as e:
             pytest.fail(e)
 
@@ -461,6 +485,25 @@ def test_pyproject_toml(cookies, context):
     assert data["project"]["authors"][0]["email"] == author_email
     assert data["project"]["authors"][0]["name"] == author_name
     assert data["project"]["name"] == context["project_slug"]
+
+
+@pytest.mark.parametrize("rest_api", ["None", "DRF", "Django Ninja"])
+def test_strict_typing_setup(cookies, context, rest_api):
+    """The generated project is type checked in strict mode with the right plugins and request types."""
+    context.update({"rest_api": rest_api})
+    result = cookies.bake(extra_context=context)
+    assert result.exit_code == 0
+
+    pyproject = (result.project_path / "pyproject.toml").read_text()
+    assert "strict = true" in pyproject
+    assert "mypy_django_plugin.main" in pyproject
+    assert ("mypy_drf_plugin.main" in pyproject) is (rest_api == "DRF")
+    assert ("runtime-evaluated-decorators" in pyproject) is (rest_api == "Django Ninja")
+
+    typedefs = (result.project_path / context["project_slug"] / "typedefs.py").read_text()
+    assert "class AuthenticatedHttpRequest(HttpRequest):" in typedefs
+    assert "class AuthenticatedHtmxRequest(" in typedefs
+    assert ("class AuthenticatedApiRequest(Request):" in typedefs) is (rest_api == "DRF")
 
 
 def test_pre_commit_without_heroku(cookies, context):

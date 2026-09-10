@@ -37,7 +37,7 @@ docker compose -f docker-compose.local.yml run django uv lock
 docker compose -f docker-compose.local.yml build
 
 # run the project's type checks
-docker compose -f docker-compose.local.yml run --rm django mypy my_awesome_project
+docker compose -f docker-compose.local.yml run --rm django mypy .
 
 # run the project's tests
 docker compose -f docker-compose.local.yml run --rm django pytest

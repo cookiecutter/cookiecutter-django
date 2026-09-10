@@ -25,6 +25,7 @@ jobs:
         - docker compose -f docker-compose.local.yml run --rm django python manage.py migrate
         - docker compose -f docker-compose.local.yml up -d
       script:
+        - docker compose -f docker-compose.local.yml run --rm django mypy .
         - docker compose -f docker-compose.local.yml run django pytest
       after_failure:
         - docker compose -f docker-compose.local.yml logs
@@ -43,5 +44,6 @@ jobs:
         - pip install uv
         - uv sync
       script:
+        - uv run mypy .
         - uv run pytest
     {%- endif %}

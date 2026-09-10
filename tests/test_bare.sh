@@ -20,6 +20,9 @@ sudo utility/install_os_dependencies.sh install
 # Install Python deps
 uv sync
 
+# run the project's type checks
+uv run mypy .
+
 # run the project's tests
 uv run pytest
 

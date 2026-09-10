@@ -5,6 +5,13 @@ from {{ cookiecutter.project_slug }}.users.models import User
 
 
 class UpdateUserSchema(ModelSchema):
+    # Declared explicitly so the fields are visible to the type checker; the
+    # annotations mirror what ``ModelSchema`` derives from the model.
+    name: str | None = None
+    {%- if cookiecutter.username_type == "username" %}
+    username: str
+    {%- endif %}
+
     class Meta:
         model = User
         {%- if cookiecutter.username_type == "email" %}
@@ -26,7 +33,7 @@ class UserSchema(ModelSchema):
         {%- endif %}
 
     @staticmethod
-    def resolve_url(obj: User):
+    def resolve_url(obj: User) -> str:
         {%- if cookiecutter.username_type == "email" %}
         return reverse("api:retrieve_user", kwargs={"pk": obj.pk})
         {%- else %}

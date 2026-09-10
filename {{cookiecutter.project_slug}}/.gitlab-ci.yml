@@ -39,6 +39,7 @@ pytest:
     - docker compose -f docker-compose.local.yml run --rm django python manage.py migrate
     - docker compose -f docker-compose.local.yml up -d
   script:
+    - docker compose -f docker-compose.local.yml run --rm django mypy .
     - docker compose -f docker-compose.local.yml run django pytest
   {%- else %}
   image: ghcr.io/astral-sh/uv:python3.14
@@ -47,5 +48,6 @@ pytest:
   before_script:
     - uv sync --locked
   script:
+    - uv run mypy .
     - uv run pytest
   {%- endif %}

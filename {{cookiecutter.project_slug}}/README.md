@@ -28,9 +28,16 @@ For convenience, you can keep your normal user logged in on Chrome and your supe
 
 ### Type checks
 
-Running type checks with mypy:
+The project is type checked with mypy in strict mode. Run it from the project root:
+{%- if cookiecutter.use_docker == "y" %}
 
-    uv run mypy {{cookiecutter.project_slug}}
+    docker compose -f docker-compose.local.yml run --rm django mypy .
+{%- else %}
+
+    uv run mypy .
+{%- endif %}
+
+The same check runs before every `git push` through pre-commit, and in CI. Shared request types live in `{{cookiecutter.project_slug}}/typedefs.py`.
 
 ### Test coverage
 

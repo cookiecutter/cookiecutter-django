@@ -31,18 +31,18 @@
             "settings": {
                 "editor.formatOnSave": true,
                 "[python]": {
-                    "analysis.autoImportCompletions": true,
-                    "analysis.typeCheckingMode": "basic",
-                    "defaultInterpreterPath": "/usr/local/bin/python",
                     "editor.codeActionsOnSave": {
                         "source.organizeImports": "always"
                     },
-                    "editor.defaultFormatter": "charliermarsh.ruff",
-                    "languageServer": "Pylance",
-                    "linting.enabled": true,
-                    "linting.mypyEnabled": true,
-                    "linting.mypyPath": "/usr/local/bin/mypy",
-                }
+                    "editor.defaultFormatter": "charliermarsh.ruff"
+                },
+                "python.analysis.autoImportCompletions": true,
+                "python.analysis.typeCheckingMode": "basic",
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.languageServer": "Pylance",
+                // mypy is the type checker of record: run the project's pinned
+                // mypy so the django-stubs plugin from pyproject.toml is used.
+                "mypy-type-checker.importStrategy": "fromEnvironment"
             },
             // https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_vs-code-specific-properties
             // Add the IDs of extensions you want installed when the container is created.
@@ -52,6 +52,7 @@
                 // python
                 "ms-python.python",
                 "ms-python.vscode-pylance",
+                "ms-python.mypy-type-checker",
                 "charliermarsh.ruff",
                 // django
                 "batisteo.vscode-django"

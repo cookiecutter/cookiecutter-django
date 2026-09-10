@@ -48,6 +48,7 @@ extend-exclude = [
 
 lint.select = [
   "A",
+  "ANN",
   "ASYNC",
   "B",
   "BLE",
@@ -97,6 +98,7 @@ lint.select = [
   "YTT",
 ]
 lint.ignore = [
+  "ANN401", # Any is the honest annotation for pass-through *args/**kwargs
   "RUF012", # Mutable class attributes should be annotated with `typing.ClassVar`
   "S101",   # Use of assert detected https://docs.astral.sh/ruff/rules/assert/
   "SIM102", # sometimes it's better to nest
@@ -104,7 +106,27 @@ lint.ignore = [
   # Deactivated because it can make the code slow:
   # https://github.com/astral-sh/ruff/issues/7871
 ]
+lint.per-file-ignores."**/conftest.py" = [ "ANN" ]
+lint.per-file-ignores."**/tests/**" = [ "ANN" ]
 lint.isort.force-single-line = true
+{%- if cookiecutter.rest_api == 'Django Ninja' %}
+# django-ninja evaluates view annotations at import time to build the OpenAPI
+# schema, so imports used only in those annotations must stay at runtime.
+lint.flake8-type-checking.runtime-evaluated-decorators = [
+  "ninja.NinjaAPI.api_operation",
+  "ninja.NinjaAPI.delete",
+  "ninja.NinjaAPI.get",
+  "ninja.NinjaAPI.patch",
+  "ninja.NinjaAPI.post",
+  "ninja.NinjaAPI.put",
+  "ninja.Router.api_operation",
+  "ninja.Router.delete",
+  "ninja.Router.get",
+  "ninja.Router.patch",
+  "ninja.Router.post",
+  "ninja.Router.put",
+]
+{%- endif %}
 
 # ==== pyproject-fmt ====
 [tool.pyproject-fmt]
@@ -132,11 +154,18 @@ plugins = [ "django_coverage_plugin" ]
 # ==== mypy ====
 [tool.mypy]
 python_version = "3.14"
-check_untyped_defs = true
-ignore_missing_imports = true
-warn_unused_ignores = true
-warn_redundant_casts = true
-warn_unused_configs = true
+# Strict mode: every function is annotated and every call is checked.
+strict = true
+warn_unreachable = true
+# django-allauth ships no type information, so its adapters and forms are
+# subclassed from ``Any``. Keep that permitted.
+disallow_subclassing_any = false
+enable_error_code = [
+  "ignore-without-code",
+  "possibly-undefined",
+  "redundant-expr",
+  "truthy-bool",
+]
 plugins = [
   "mypy_django_plugin.main",
   {%- if cookiecutter.rest_api == 'DRF' %}
@@ -148,6 +177,31 @@ plugins = [
 # Django migrations should not produce any errors:
 module = "*.migrations.*"
 ignore_errors = true
+
+[[tool.mypy.overrides]]
+# Test bodies are still checked, but signatures may stay unannotated:
+module = [ "*.tests.*", "tests.*", "*.conftest", "conftest" ]
+disallow_incomplete_defs = false
+disallow_untyped_calls = false
+disallow_untyped_decorators = false
+disallow_untyped_defs = false
+
+[[tool.mypy.overrides]]
+# factory-boy re-exports its API from the package root without ``__all__``:
+module = "factory.*"
+implicit_reexport = true
+
+[[tool.mypy.overrides]]
+# Third-party packages that ship neither stubs nor a ``py.typed`` marker.
+# Add a dependency here only after checking that no stubs package exists for it.
+module = [
+  "allauth.*",
+  {%- if cookiecutter.use_celery == 'y' %}
+  "django_celery_beat.*",
+  {%- endif %}
+  "environ.*",
+]
+ignore_missing_imports = true
 
 [tool.django-stubs]
 django_settings_module = "config.settings.test"

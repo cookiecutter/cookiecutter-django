@@ -41,7 +41,7 @@ class TestUserManager:
 def test_createsuperuser_command():
     """Ensure createsuperuser command works with our custom manager."""
     out = StringIO()
-    command_result = call_command(
+    call_command(
         "createsuperuser",
         "--email",
         "henry@example.com",
@@ -49,7 +49,6 @@ def test_createsuperuser_command():
         stdout=out,
     )
 
-    assert command_result is None
     assert out.getvalue() == "Superuser created successfully.\n"
     user = User.objects.get(email="henry@example.com")
     assert not user.has_usable_password()

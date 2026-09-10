@@ -36,6 +36,91 @@ jobs:
       - name: Run pre-commit
         uses: pre-commit/action@v3.0.1
 
+  typecheck:
+    runs-on: ubuntu-latest
+    {%- if cookiecutter.use_docker == 'n' %}
+
+    # The django-stubs mypy plugin imports the Django settings, which read these.
+    env:
+      {%- if cookiecutter.use_celery == 'y' %}
+      REDIS_URL: 'redis://localhost:6379/0'
+      {%- endif %}
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'postgres'
+      POSTGRES_HOST: 'localhost'
+      POSTGRES_DB: 'postgres'
+
+    {%- endif %}
+
+    steps:
+      - name: Checkout Code Repository
+        uses: actions/checkout@v6
+      {%- if cookiecutter.use_docker == 'y' %}
+
+      # When keep_local_envs_in_vcs is off, .envs/.local/* are not in the repo.
+      # Create minimal dummy files so Docker Compose / Django / Postgres work in CI.
+      - name: Ensure local env files exist for Docker Compose
+        run: |
+          mkdir -p .envs/.local
+          if [ ! -f .envs/.local/.django ]; then
+            cat <<'EOF' > .envs/.local/.django
+          USE_DOCKER=yes
+          IPYTHONDIR=/app/.ipython
+          {%- if cookiecutter.use_celery == 'y' %}
+          REDIS_URL=redis://redis:6379/0
+          CELERY_FLOWER_USER=debug
+          CELERY_FLOWER_PASSWORD=debug
+          {%- endif %}
+          EOF
+          fi
+          if [ ! -f .envs/.local/.postgres ]; then
+            cat <<'EOF' > .envs/.local/.postgres
+          POSTGRES_HOST=postgres
+          POSTGRES_PORT=5432
+          POSTGRES_DB=ci
+          POSTGRES_USER=debug
+          POSTGRES_PASSWORD=debug
+          EOF
+          fi
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build local backend
+        uses: docker/bake-action@v6
+        with:
+          push: false
+          load: true
+          files: docker-compose.local.yml
+          targets: django
+          set: |
+            django.cache-from=type=gha,scope=django-cached-tests
+            postgres.cache-from=type=gha,scope=postgres-cached-tests
+
+      - name: Run type checks
+        run: docker compose -f docker-compose.local.yml run --rm django mypy .
+
+      - name: Tear down the Stack
+        run: docker compose -f docker-compose.local.yml down
+      {%- else %}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: "true"
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: ".python-version"
+
+      - name: Install dependencies
+        run: uv sync --locked
+
+      - name: Run type checks
+        run: uv run mypy .
+      {%- endif %}
+
   # With no caching at all the entire ci process takes 3m to complete!
   pytest:
     runs-on: ubuntu-latest

@@ -22,7 +22,7 @@ class TestUserViewSet:
         request = api_rf.get("/fake-url/")
         request.user = user
 
-        view.request = request
+        view.setup(request)
 
         assert user in view.get_queryset()
 
@@ -31,7 +31,7 @@ class TestUserViewSet:
         request = api_rf.get("/fake-url/")
         request.user = user
 
-        view.request = request
+        view.setup(request)
 
         response = view.me(request)  # type: ignore[misc,call-arg,arg-type]
 

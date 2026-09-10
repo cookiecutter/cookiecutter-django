@@ -1,18 +1,22 @@
 # ruff: noqa: E501
-{% if cookiecutter.use_sentry == 'y' -%}
+{%- if cookiecutter.use_sentry == 'y' %}
 import logging
+{%- endif %}
+{%- if cookiecutter.mail_service in ('Amazon SES', 'Other SMTP') %}
+from typing import Any
+{%- endif %}
+{%- if cookiecutter.use_sentry == 'y' %}
 
 import sentry_sdk
-
 {%- if cookiecutter.use_celery == 'y' %}
 from sentry_sdk.integrations.celery import CeleryIntegration
-
 {%- endif %}
 from sentry_sdk.integrations.django import DjangoIntegration
 from sentry_sdk.integrations.logging import LoggingIntegration
 from sentry_sdk.integrations.redis import RedisIntegration
-
-{% endif -%}
+{%- endif %}
+{%- if cookiecutter.use_sentry == 'y' or cookiecutter.mail_service in ('Amazon SES', 'Other SMTP') %}
+{% endif %}
 from .base import *  # noqa: F403
 from .base import DATABASES
 from .base import INSTALLED_APPS
@@ -245,7 +249,7 @@ ANYMAIL = {
 {%- elif cookiecutter.mail_service == 'Amazon SES' %}
 # https://anymail.readthedocs.io/en/stable/esps/amazon_ses/
 EMAIL_BACKEND = "anymail.backends.amazon_ses.EmailBackend"
-ANYMAIL = {}
+ANYMAIL: dict[str, Any] = {}
 {%- elif cookiecutter.mail_service == 'Mailjet' %}
 # https://anymail.readthedocs.io/en/stable/esps/mailjet/
 EMAIL_BACKEND = "anymail.backends.mailjet.EmailBackend"
@@ -291,7 +295,7 @@ ANYMAIL = {
 {%- elif cookiecutter.mail_service == 'Other SMTP' %}
 # https://anymail.readthedocs.io/en/stable/esps
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-ANYMAIL = {}
+ANYMAIL: dict[str, Any] = {}
 {%- endif %}
 
 {% if cookiecutter.use_whitenoise == 'n' and cookiecutter.cloud_provider in ('AWS', 'GCP', 'Azure') -%}
