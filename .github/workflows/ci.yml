@@ -43,6 +43,8 @@ jobs:
             args: "frontend_pipeline=Gulp"
           - name: Webpack
             args: "frontend_pipeline=Webpack"
+          - name: Vite
+            args: "frontend_pipeline=Vite"
 
     name: "Docker ${{ matrix.script.name }}"
     runs-on: ubuntu-latest
@@ -70,6 +72,8 @@ jobs:
             args: "frontend_pipeline=Gulp"
           - name: Webpack
             args: "frontend_pipeline=Webpack use_heroku=y"
+          - name: Vite
+            args: "frontend_pipeline=Vite use_heroku=y"
           - name: Email Username
             args: "username_type=email ci_tool=Github project_name='Something superduper long - the great amazing project' project_slug=my_awesome_project"
           - name: Email username & DRF
