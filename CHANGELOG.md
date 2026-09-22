@@ -3,6 +3,29 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.9.21
+
+
+### Updated
+
+- Update watchfiles to 1.3.0 ([#6886](https://github.com/cookiecutter/cookiecutter-django/pull/6886))
+
+- Update djlint to 1.46.2 ([#6884](https://github.com/cookiecutter/cookiecutter-django/pull/6884))
+
+- Update django-ninja to 1.7.1 ([#6883](https://github.com/cookiecutter/cookiecutter-django/pull/6883))
+
+- Update python-slugify to 9.1.0 ([#6882](https://github.com/cookiecutter/cookiecutter-django/pull/6882))
+
+- Update psycopg to 3.3.6 ([#6880](https://github.com/cookiecutter/cookiecutter-django/pull/6880))
+
+- Update ruff to 0.16.8 ([#6878](https://github.com/cookiecutter/cookiecutter-django/pull/6878))
+
+- Update django-allauth to 65.19.4 ([#6879](https://github.com/cookiecutter/cookiecutter-django/pull/6879))
+
+- Bump nginx from 1.31.5 to 1.31.6 ([#6877](https://github.com/cookiecutter/cookiecutter-django/pull/6877))
+
+- Update sentry-sdk to 2.69.2 ([#6876](https://github.com/cookiecutter/cookiecutter-django/pull/6876))
+
 ## 2026.9.14
 
 
