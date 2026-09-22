@@ -60,6 +60,8 @@ Static & Media Files
 
 Setting the credentials above is not enough on its own: the bucket also needs to allow public reads of the ``static`` prefix, otherwise your static files will return a ``403``. See :ref:`cloud-storage`.
 
+If you picked Vite as your frontend pipeline, or your styles pull in web fonts, the bucket needs a CORS configuration on top of that, or the browser will refuse the assets even though they return a ``200``. See :ref:`cloud-storage-cors`.
+
 Email Service
 +++++++++++++
 
@@ -110,10 +112,10 @@ Or add the DSN for your account, if you already have one:
 .. _Sentry add-on: https://elements.heroku.com/addons/sentry
 
 
-Gulp or Webpack
-+++++++++++++++
+Gulp, Webpack or Vite
++++++++++++++++++++++
 
-If you've opted for Gulp or Webpack as frontend pipeline, you'll most likely need to setup
+If you've opted for Gulp, Webpack or Vite as frontend pipeline, you'll most likely need to setup
 your app to use `multiple buildpacks`_: one for Python & one for Node.js:
 
 .. code-block:: bash

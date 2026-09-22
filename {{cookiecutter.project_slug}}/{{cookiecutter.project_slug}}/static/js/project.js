@@ -1,4 +1,4 @@
-{%- if cookiecutter.frontend_pipeline == 'Webpack' -%}
+{%- if cookiecutter.frontend_pipeline in ['Webpack', 'Vite'] -%}
 import '../sass/project.scss';
 
 {% endif -%}

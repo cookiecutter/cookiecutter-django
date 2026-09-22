@@ -1,5 +1,9 @@
 @import 'custom_bootstrap_vars';
+{%- if cookiecutter.frontend_pipeline == 'Vite' %}
+@import 'bootstrap/scss/bootstrap';
+{%- else %}
 @import '~bootstrap/scss/bootstrap';
+{%- endif %}
 
 // project specific CSS goes here
 

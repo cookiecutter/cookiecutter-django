@@ -33,7 +33,7 @@
   ],
   "rest_api": ["None", "DRF", "Django Ninja"],
   "use_async": "n",
-  "frontend_pipeline": ["None", "Django Compressor", "Gulp", "Webpack"],
+  "frontend_pipeline": ["None", "Django Compressor", "Gulp", "Webpack", "Vite"],
   "use_celery": "n",
   "mail_catcher": ["None", "Mailpit", "Mailtrap Local"],
   "use_sentry": "n",
