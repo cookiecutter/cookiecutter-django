@@ -6,7 +6,7 @@ IPYTHONDIR=/app/.ipython
 {%- if cookiecutter.use_celery == 'y' %}
 # Redis
 # ------------------------------------------------------------------------------
-REDIS_URL=redis://redis:6379/0
+REDIS_URL=redis://valkey:6379/0
 
 # Celery
 # ------------------------------------------------------------------------------
