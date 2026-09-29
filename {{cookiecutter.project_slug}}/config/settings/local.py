@@ -1,4 +1,3 @@
-# ruff: noqa: E501
 from .base import *  # noqa: F403
 from .base import INSTALLED_APPS
 from .base import MIDDLEWARE
@@ -31,20 +30,31 @@ CACHES = {
 
 # EMAIL
 # ------------------------------------------------------------------------------
-{% if cookiecutter.use_mailpit == 'y' and cookiecutter.use_docker == 'y' -%}
+{% if cookiecutter.mail_catcher == 'Mailpit' and cookiecutter.use_docker == 'y' -%}
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-host
 EMAIL_HOST = env("EMAIL_HOST", default="mailpit")
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-port
 EMAIL_PORT = 1025
-{%- elif cookiecutter.use_mailpit == 'y' and cookiecutter.use_docker == 'n' -%}
+{%- elif cookiecutter.mail_catcher == 'Mailpit' and cookiecutter.use_docker == 'n' -%}
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-host
 EMAIL_HOST = "localhost"
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-port
 EMAIL_PORT = 1025
+{%- elif cookiecutter.mail_catcher == 'Mailtrap Local' and cookiecutter.use_docker == 'y' -%}
+# https://docs.djangoproject.com/en/dev/ref/settings/#email-host
+EMAIL_HOST = env("EMAIL_HOST", default="mailtrap-local")
+# https://docs.djangoproject.com/en/dev/ref/settings/#email-port
+EMAIL_PORT = 3535
+{%- elif cookiecutter.mail_catcher == 'Mailtrap Local' and cookiecutter.use_docker == 'n' -%}
+# https://docs.djangoproject.com/en/dev/ref/settings/#email-host
+EMAIL_HOST = "localhost"
+# https://docs.djangoproject.com/en/dev/ref/settings/#email-port
+EMAIL_PORT = 3535
 {%- else -%}
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
 EMAIL_BACKEND = env(
-    "DJANGO_EMAIL_BACKEND", default="django.core.mail.backends.console.EmailBackend",
+    "DJANGO_EMAIL_BACKEND",
+    default="django.core.mail.backends.console.EmailBackend",
 )
 {%- endif %}
 
@@ -66,7 +76,7 @@ MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
 DEBUG_TOOLBAR_CONFIG = {
     "DISABLE_PANELS": [
         "debug_toolbar.panels.redirects.RedirectsPanel",
-        # Disable profiling panel due to an issue with Python 3.12:
+        # Disable profiling panel due to an issue with Python 3.12+:
         # https://github.com/jazzband/django-debug-toolbar/issues/1875
         "debug_toolbar.panels.profiling.ProfilingPanel",
     ],
@@ -79,7 +89,7 @@ if env("USE_DOCKER") == "yes":
     import socket
 
     hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
-    INTERNAL_IPS += [".".join(ip.split(".")[:-1] + ["1"]) for ip in ips]
+    INTERNAL_IPS += [".".join([*ip.split(".")[:-1], "1"]) for ip in ips]
     {%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
     try:
         _, _, ips = socket.gethostbyname_ex("node")

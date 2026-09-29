@@ -10,20 +10,20 @@ from .models import User
 
 
 class UserAdminChangeForm(admin_forms.UserChangeForm):
-    class Meta(admin_forms.UserChangeForm.Meta):  # type: ignore[name-defined]
+    class Meta(admin_forms.UserChangeForm.Meta):
         model = User
         {%- if cookiecutter.username_type == "email" %}
         field_classes = {"email": EmailField}
         {%- endif %}
 
 
-class UserAdminCreationForm(admin_forms.UserCreationForm):
+class UserAdminCreationForm(admin_forms.AdminUserCreationForm):
     """
     Form for User Creation in the Admin Area.
     To change user signup, see UserSignupForm and UserSocialSignupForm.
     """
 
-    class Meta(admin_forms.UserCreationForm.Meta):  # type: ignore[name-defined]
+    class Meta(admin_forms.UserCreationForm.Meta):
         model = User
         {%- if cookiecutter.username_type == "email" %}
         fields = ("email",)

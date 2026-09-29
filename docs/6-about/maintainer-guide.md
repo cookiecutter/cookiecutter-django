@@ -40,7 +40,7 @@ For example, at time of writing, we use Django 4.2, but the latest version of Dj
 
 Here are a few current and past limitations of the script
 
-- When a new dependency is added to the template, the script fails to update an existing issue
+- ~~When a new dependency is added to the template, the script fails to update an existing issue~~
 - Not sure what happens when a deps is removed
 - ~~Unable to parse classifiers without minor version~~
 - ~~Creates an issue even if we are on the latest version~~
@@ -96,9 +96,9 @@ With that in mind, when merging changes, it's a good idea to set the labels and 
 
 `update-contributors.yml`
 
-Runs on each push to master branch. List the 5 most recently merged pull requests and extract their author. If any of the authors is a new one, updates the `.github/contributors.json`, regenerate the `CONTRIBUTORS.md` from it, and push back the changes to master.
+Runs on each push to main branch. List the 5 most recently merged pull requests and extract their author. If any of the authors is a new one, updates the `.github/contributors.json`, regenerate the `CONTRIBUTORS.md` from it, and push back the changes to master.
 
 #### Limitations
 
-- If you merge a pull request from a new contributor, and merge another one right after, the push to master will fail as the remote will be out of date.
+- If you merge a pull request from a new contributor, and merge another one right after, the push to main will fail as the remote will be out of date.
 - If you merge more than 5 pull requests in a row like this, the new contributor might fail to be added.

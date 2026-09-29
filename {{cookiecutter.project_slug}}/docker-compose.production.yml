@@ -47,7 +47,11 @@ services:
       dockerfile: ./compose/production/postgres/Dockerfile
     image: {{ cookiecutter.project_slug }}_production_postgres
     volumes:
+      {%- if cookiecutter.postgresql_version|int >= 18 %}
+      - production_postgres_data:/var/lib/postgresql/{{ cookiecutter.postgresql_version }}/docker
+      {%- else %}
       - production_postgres_data:/var/lib/postgresql/data
+      {%- endif %}
       - production_postgres_data_backups:/backups
     env_file:
       - ./.envs/.production/.postgres
@@ -69,7 +73,7 @@ services:
       {%- endif %}
 
   redis:
-    image: docker.io/redis:6
+    image: docker.io/redis:7.2
     {% if cookiecutter.use_celery == 'y' %}
     volumes:
       - production_redis_data:/data

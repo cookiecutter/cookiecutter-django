@@ -22,7 +22,7 @@ Moved to [settings](https://cookiecutter-django.readthedocs.io/en/latest/1-getti
 
 - To create a **superuser account**, use this command:
 
-      $ python manage.py createsuperuser
+      uv run python manage.py createsuperuser
 
 For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
 
@@ -30,19 +30,19 @@ For convenience, you can keep your normal user logged in on Chrome and your supe
 
 Running type checks with mypy:
 
-    $ mypy {{cookiecutter.project_slug}}
+    uv run mypy {{cookiecutter.project_slug}}
 
 ### Test coverage
 
 To run the tests, check your test coverage, and generate an HTML coverage report:
 
-    $ coverage run -m pytest
-    $ coverage html
-    $ open htmlcov/index.html
+    uv run coverage run -m pytest
+    uv run coverage html
+    uv run open htmlcov/index.html
 
 #### Running tests with pytest
 
-    $ pytest
+    uv run pytest
 
 ### Live reloading and Sass CSS compilation
 
@@ -58,7 +58,7 @@ To run a celery worker:
 
 ```bash
 cd {{cookiecutter.project_slug}}
-celery -A config.celery_app worker -l info
+uv run celery -A config.celery_app worker -l info
 ```
 
 Please note: For Celery's import magic to work, it is important _where_ the celery commands are run. If you are in the same folder with _manage.py_, you should be right.
@@ -67,18 +67,18 @@ To run [periodic tasks](https://docs.celeryq.dev/en/stable/userguide/periodic-ta
 
 ```bash
 cd {{cookiecutter.project_slug}}
-celery -A config.celery_app beat
+uv run celery -A config.celery_app beat
 ```
 
 or you can embed the beat service inside a worker with the `-B` option (not recommended for production use):
 
 ```bash
 cd {{cookiecutter.project_slug}}
-celery -A config.celery_app worker -B -l info
+uv run celery -A config.celery_app worker -B -l info
 ```
 
 {%- endif %}
-{%- if cookiecutter.use_mailpit == "y" %}
+{%- if cookiecutter.mail_catcher == "Mailpit" %}
 
 ### Email Server
 
@@ -100,13 +100,48 @@ In development, it is often nice to be able to see emails that are being sent fr
 
 3.  Make it executable:
 
-        $ chmod +x mailpit
+        chmod +x mailpit
 
 4.  Spin up another terminal window and start it there:
 
         ./mailpit
 
 5.  Check out <http://127.0.0.1:8025/> to see how it goes.
+
+Now you have your own mail server running locally, ready to receive whatever you send it.
+
+{%- endif %}
+
+{%- endif %}
+{%- if cookiecutter.mail_catcher == "Mailtrap Local" %}
+
+### Email Server
+
+{%- if cookiecutter.use_docker == "y" %}
+
+In development, it is often nice to be able to see emails that are being sent from your application. For that reason local SMTP server [Mailtrap Local](https://github.com/mailtrap/mailtrap-local) with a web interface is available as docker container.
+
+Container mailtrap-local will start automatically when you will run all docker containers.
+Please check [cookiecutter-django Docker documentation](https://cookiecutter-django.readthedocs.io/en/latest/2-local-development/developing-locally-docker.html) for more details how to start all containers.
+
+With Mailtrap Local running, to view messages that are sent by your application, open your browser and go to `http://127.0.0.1:3550`
+{%- else %}
+
+In development, it is often nice to be able to see emails that are being sent from your application. If you choose to use [Mailtrap Local](https://github.com/mailtrap/mailtrap-local) when generating the project a local SMTP server with a web interface will be available.
+
+1.  [Download the latest Mailtrap Local release](https://github.com/mailtrap/mailtrap-local/releases) for your OS.
+
+2.  Copy the binary file to the project root.
+
+3.  Make it executable:
+
+        chmod +x mailtrap-local
+
+4.  Spin up another terminal window and start it there:
+
+        ./mailtrap-local
+
+5.  Check out <http://127.0.0.1:3550/> to see how it goes.
 
 Now you have your own mail server running locally, ready to receive whatever you send it.
 

@@ -1,7 +1,10 @@
-# ruff: noqa
-import os
-from collections.abc import Sequence
+from __future__ import annotations
+
 from pathlib import Path
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Sequence
 
 BASE_DIR = Path(__file__).parent.resolve()
 PRODUCTION_DOTENVS_DIR = BASE_DIR / ".envs" / ".production"
@@ -19,7 +22,7 @@ def merge(
     merged_content = ""
     for merge_file in files_to_merge:
         merged_content += merge_file.read_text()
-        merged_content += os.linesep
+        merged_content += "\n"
     output_file.write_text(merged_content)
 
 

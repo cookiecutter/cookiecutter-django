@@ -13,7 +13,9 @@ import os
 import re
 import sys
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, NamedTuple
+from typing import TYPE_CHECKING
+from typing import Any
+from typing import NamedTuple
 
 import requests
 from github import Github
@@ -59,7 +61,7 @@ class DjVersion(NamedTuple):
 def get_package_info(package: str) -> dict:
     """Get package metadata using PyPI API."""
     # "django" converts to "Django" on redirect
-    r = requests.get(f"https://pypi.org/pypi/{package}/json", allow_redirects=True)
+    r = requests.get(f"https://pypi.org/pypi/{package}/json", allow_redirects=True)  # noqa: S113
     if not r.ok:
         print(f"Couldn't find package: {package}")
         sys.exit(1)
@@ -201,8 +203,9 @@ class GitHubManager:
         # If issue previously existed, find package and skip any gtg, manually
         # updated packages, or known releases that will happen but haven't yet
         if issue := self.existing_issues.get(needed_dj_version):
-            if index := issue.body.find(package_name):
-                name, _current, prev_compat, ok = (s.strip() for s in issue.body[index:].split("|", 4)[:4])
+            if (index := issue.body.find(package_name)) > 0:
+                print(f"Found {package_name} at {index=}")
+                _name, _current, prev_compat, ok = (s.strip() for s in issue.body[index:].split("|", 4)[:4])
                 if ok in ("✅", "❓", "🕒"):
                     return prev_compat, ok
 
@@ -214,9 +217,9 @@ class GitHubManager:
         for classifier in package_info["info"]["classifiers"]:
             # Usually in the form of "Framework :: Django :: 3.2"
             tokens = classifier.split(" ")
-            if len(tokens) >= 5 and tokens[2].lower() == "django" and "." in tokens[4]:
+            if len(tokens) >= 5 and tokens[2].lower() == "django" and "." in tokens[4]:  # noqa: PLR2004
                 version = DjVersion.parse(tokens[4])
-                if len(version) == 2:
+                if len(version) == 2:  # noqa: PLR2004
                     supported_dj_versions.append(version)
 
         if supported_dj_versions:

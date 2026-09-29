@@ -11,6 +11,8 @@ updates:
       interval: "daily"
     labels:
       - "project infrastructure"
+    ignore:
+      - dependency-name: "ruff" # updated via PyUp
 
   # Update GitHub actions in workflows
   - package-ecosystem: "github-actions"
@@ -22,11 +24,16 @@ updates:
 
   # Update npm packages
   - package-ecosystem: "npm"
-    directory: "{{cookiecutter.project_slug}}/"
+    directories:
+      - "{{cookiecutter.project_slug}}/"
     schedule:
       interval: "daily"
     labels:
       - "update"
+    groups:
+      babel:
+        patterns:
+          - "@babel/*"
 
   # Enable version updates for Docker
   - package-ecosystem: "docker"
@@ -34,18 +41,6 @@ updates:
       - "{{cookiecutter.project_slug}}/compose/local/django/"
       - "{{cookiecutter.project_slug}}/compose/local/docs/"
       - "{{cookiecutter.project_slug}}/compose/production/django/"
-    schedule:
-      interval: "daily"
-    ignore:
-      - dependency-name: "*"
-        update-types:
-          - "version-update:semver-major"
-          - "version-update:semver-minor"
-    labels:
-      - "update"
-
-  - package-ecosystem: "docker"
-    directories:
       - "{{cookiecutter.project_slug}}/compose/local/node/"
       - "{{cookiecutter.project_slug}}/compose/production/aws/"
       - "{{cookiecutter.project_slug}}/compose/production/postgres/"
@@ -55,3 +50,5 @@ updates:
       interval: "daily"
     labels:
       - "update"
+
+  # NOTE: Package ecosystem "docker-compose" can't handle Jinja tags in yml files
