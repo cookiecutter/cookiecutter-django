@@ -3,6 +3,33 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.9.28
+
+
+### Updated
+
+- Update coverage to 7.16.2 ([#6902](https://github.com/cookiecutter/cookiecutter-django/pull/6902))
+
+- Update sentry-sdk to 2.71.0 ([#6903](https://github.com/cookiecutter/cookiecutter-django/pull/6903))
+
+- Bump amazon/aws-cli from 2.36.1 to 2.37.3 ([#6900](https://github.com/cookiecutter/cookiecutter-django/pull/6900))
+
+- Update werkzeug to 3.1.9 ([#6899](https://github.com/cookiecutter/cookiecutter-django/pull/6899))
+
+- Update python-slugify to 9.1.2 ([#6898](https://github.com/cookiecutter/cookiecutter-django/pull/6898))
+
+- Update collectfasta to 3.3.5 ([#6897](https://github.com/cookiecutter/cookiecutter-django/pull/6897))
+
+- Update uvicorn to 0.54.0 ([#6894](https://github.com/cookiecutter/cookiecutter-django/pull/6894))
+
+- Update ruff to 0.16.9 ([#6893](https://github.com/cookiecutter/cookiecutter-django/pull/6893))
+
+- Update flower to 2.2.0 ([#6890](https://github.com/cookiecutter/cookiecutter-django/pull/6890))
+
+- Update hiredis to 3.4.2 ([#6889](https://github.com/cookiecutter/cookiecutter-django/pull/6889))
+
+- Update sentry-sdk to 2.70.0 ([#6888](https://github.com/cookiecutter/cookiecutter-django/pull/6888))
+
 ## 2026.9.21
 
 
