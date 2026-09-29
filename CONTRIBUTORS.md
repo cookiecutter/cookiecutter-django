@@ -181,6 +181,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Africanus12</td>
+    <td>
+      <a href="https://github.com/Africanus12">Africanus12</a>
+    </td>
+    <td>Rufus87078959</td>
+  </tr>
+  <tr>
     <td>Agam Dua</td>
     <td>
       <a href="https://github.com/"></a>
@@ -2085,6 +2092,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Priti Yadav</td>
+    <td>
+      <a href="https://github.com/Priti2008">Priti2008</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Pulse-Mind</td>
     <td>
       <a href="https://github.com/pulse-mind">pulse-mind</a>
@@ -2330,6 +2344,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Tem Revil</td>
+    <td>
+      <a href="https://github.com/TemRevil">TemRevil</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Tharushan</td>
     <td>
       <a href="https://github.com/Tharushan">Tharushan</a>
@@ -2400,9 +2421,23 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Tom Couch</td>
+    <td>
+      <a href="https://github.com/tcouch">tcouch</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Tom Offermann</td>
     <td>
       <a href="https://github.com/"></a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Toms Sokolovs</td>
+    <td>
+      <a href="https://github.com/tsokolovs">tsokolovs</a>
     </td>
     <td></td>
   </tr>

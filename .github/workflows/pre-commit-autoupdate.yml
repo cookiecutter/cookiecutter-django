@@ -26,11 +26,20 @@ jobs:
         uses: astral-sh/setup-uv@v7
 
       - name: Autoupdate template
-        run: uv tool run pre-commit autoupdate
+        # Ignore repos updated by other means
+        run: |
+          uv tool run pre-commit autoupdate \
+            --repo https://github.com/pre-commit/pre-commit-hooks \
+            --repo https://github.com/pre-commit/mirrors-prettier \
+            --repo https://github.com/tox-dev/pyproject-fmt
 
       - name: Autoupdate generated projects
         working-directory: "{{cookiecutter.project_slug}}"
-        run: uv tool run pre-commit autoupdate
+        run: |
+          uv tool run pre-commit autoupdate \
+            --repo https://github.com/pre-commit/pre-commit-hooks \
+            --repo https://github.com/pre-commit/mirrors-prettier \
+            --repo https://github.com/tox-dev/pyproject-fmt
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8

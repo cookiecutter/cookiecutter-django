@@ -16,6 +16,7 @@ PYPROJECT_TOML = ROOT / "pyproject.toml"
 PRE_COMMIT_REPOS = {
     "ruff": "https://github.com/astral-sh/ruff-pre-commit",
     "djlint": "https://github.com/djlint/djLint",
+    "django-upgrade": "https://github.com/adamchainz/django-upgrade",
 }
 
 
@@ -60,6 +61,10 @@ def update_package_version(package_name: str, old_version: str, new_version: str
         new_content = config_file.read_text().replace(
             f"repo: {repo_url}\n    rev: v{old_version}",
             f"repo: {repo_url}\n    rev: v{new_version}",
+        )
+        new_content = new_content.replace(
+            f"repo: {repo_url}\n    rev: '{old_version}'",
+            f"repo: {repo_url}\n    rev: '{new_version}'",
         )
         config_file.write_text(new_content)
 
