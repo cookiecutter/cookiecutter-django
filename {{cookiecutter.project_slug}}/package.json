@@ -28,7 +28,7 @@
     "postcss-preset-env": "^11.3.0",
     "sass": "^1.93.1",
     "sass-loader": "^17.0.0",
-    "webpack": "^5.82.0",
+    "webpack": "^5.111.1",
     "webpack-bundle-tracker": "^3.0.1",
     "webpack-cli": "^7.0.2",
     "webpack-dev-server": "^5.0.2",
