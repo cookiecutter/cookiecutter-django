@@ -396,6 +396,26 @@ def test_pycharm_docs_removed(cookies, context, editor, pycharm_docs_exist):
     assert has_pycharm_docs is pycharm_docs_exist
 
 
+@pytest.mark.parametrize(
+    ("frontend_pipeline", "package_jsons_exist"),
+    [
+        ("None", False),
+        ("Django Compressor", False),
+        ("Gulp", True),
+        ("Webpack", True),
+    ],
+)
+def test_package_jsons_removed(cookies, context, frontend_pipeline, package_jsons_exist):
+    context.update({"frontend_pipeline": frontend_pipeline})
+    result = cookies.bake(extra_context=context)
+
+    package_json = result.project_path / "package.json"
+    package_lock_json = result.project_path / "package-lock.json"
+
+    has_package_jsons = package_json.exists() or package_lock_json.exists()
+    assert has_package_jsons is package_jsons_exist
+
+
 def test_trim_domain_email(cookies, context):
     """Check that leading and trailing spaces are trimmed in domain and email."""
     context.update(
