@@ -1,4 +1,4 @@
-import glob
+import glob  # noqa: EXE002
 import os
 import re
 import sys
