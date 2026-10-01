@@ -400,7 +400,7 @@ def test_pycharm_docs_removed(cookies, context, editor, pycharm_docs_exist):
     ("frontend_pipeline", "package_jsons_exist"),
     [
         ("None", False),
-        ("Django Compressor", True),
+        ("Django Compressor", False),
         ("Gulp", True),
         ("Webpack", True),
     ],
