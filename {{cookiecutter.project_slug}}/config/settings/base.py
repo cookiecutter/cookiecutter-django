@@ -403,6 +403,7 @@ WEBPACK_LOADER = {
         "STATS_FILE": BASE_DIR / "webpack-stats.json",
         "POLL_INTERVAL": 0.1,
         "IGNORE": [r".+\.hot-update.js", r".+\.map"],
+        "BUNDLE_DIR_NAME": "webpack_bundles/",
     },
 }
 
