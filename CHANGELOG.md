@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.10.1
+
+
+### Changed
+
+- Remove package-lock.json with package.json ([#6921](https://github.com/cookiecutter/cookiecutter-django/pull/6921))
+
 ## 2026.9.29
 
 
