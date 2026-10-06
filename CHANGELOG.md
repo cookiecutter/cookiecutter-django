@@ -3,6 +3,23 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.10.5
+
+
+### Updated
+
+- Update pyproject-fmt from v2.30.0 to v2.30.1 ([#6933](https://github.com/cookiecutter/cookiecutter-django/pull/6933))
+
+- Update mypy to 2.4.0 ([#6942](https://github.com/cookiecutter/cookiecutter-django/pull/6942))
+
+- Bump sass from 1.105.0 to 1.105.1 ([#6938](https://github.com/cookiecutter/cookiecutter-django/pull/6938))
+
+- Bump cssnano from 8.0.10 to 9.1.2 ([#6936](https://github.com/cookiecutter/cookiecutter-django/pull/6936))
+
+- Bump postcss-preset-env from 11.5.0 to 11.5.5 ([#6935](https://github.com/cookiecutter/cookiecutter-django/pull/6935))
+
+- Update django-stubs to 6.1.2 ([#6941](https://github.com/cookiecutter/cookiecutter-django/pull/6941))
+
 ## 2026.10.3
 
 
