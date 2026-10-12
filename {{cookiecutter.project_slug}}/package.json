@@ -2,6 +2,9 @@
   "name": "{{cookiecutter.project_slug}}",
   "version": "{{ cookiecutter.version }}",
   "devDependencies": {
+    "@rspack/cli": "^2.2.8",
+    "@rspack/core": "^2.2.8",
+    "@rspack/dev-server": "^2.2.1",
     "@babel/core": "^8.0.6",
     "@babel/preset-env": "^8.0.6",
     "@popperjs/core": "^2.10.2",

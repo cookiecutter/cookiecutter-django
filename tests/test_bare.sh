@@ -31,6 +31,10 @@ if [ -f "package.json" ]
 then
     npm install
     npm run build
+    if [ -d "rspack" ]
+    then
+        npm run rspack:build
+    fi
 fi
 
 # Generate the HTML for the documentation
