@@ -101,6 +101,9 @@ def remove_gulp_files():
 
 def remove_webpack_files():
     shutil.rmtree("webpack")
+    rspack_dir = Path("rspack")
+    if rspack_dir.exists():
+        shutil.rmtree(rspack_dir)
     remove_vendors_js()
 
 
@@ -150,6 +153,9 @@ def handle_js_runner(choice, use_docker, use_async):
                 "postcss-loader",
                 "postcss-preset-env",
                 "sass-loader",
+                "@rspack/cli",
+                "@rspack/core",
+                "@rspack/dev-server",
                 "webpack",
                 "webpack-bundle-tracker",
                 "webpack-cli",
@@ -167,6 +173,7 @@ def handle_js_runner(choice, use_docker, use_async):
         scripts = {
             "dev": "webpack serve --config webpack/dev.config.js",
             "build": "webpack --config webpack/prod.config.js",
+            "rspack:build": "rspack build --config rspack/prod.config.js",
         }
         remove_dev_deps = [
             "browser-sync",
@@ -189,10 +196,12 @@ def handle_js_runner(choice, use_docker, use_async):
                     "dev": "concurrently npm:dev:*",
                     "dev:webpack": "webpack serve --config webpack/dev.config.js",
                     "dev:django": dev_django_cmd,
+                    "rspack:dev": ('concurrently npm:dev:django "rspack serve --config rspack/dev.config.js"'),
                 },
             )
         else:
             remove_dev_deps.append("concurrently")
+            scripts["rspack:dev"] = "rspack serve --config rspack/dev.config.js"
         update_package_json(remove_dev_deps=remove_dev_deps, scripts=scripts)
         remove_gulp_files()
 

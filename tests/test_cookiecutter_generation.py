@@ -1,4 +1,5 @@
-import glob  # noqa: EXE002
+import glob
+import json
 import os
 import re
 import sys
@@ -414,6 +415,42 @@ def test_package_jsons_removed(cookies, context, frontend_pipeline, package_json
 
     has_package_jsons = package_json.exists() or package_lock_json.exists()
     assert has_package_jsons is package_jsons_exist
+
+
+@pytest.mark.parametrize(
+    ("frontend_pipeline", "rspack_expected"),
+    [
+        ("None", False),
+        ("Django Compressor", False),
+        ("Gulp", False),
+        ("Webpack", True),
+    ],
+)
+def test_rspack_files_and_scripts(cookies, context, frontend_pipeline, rspack_expected):
+    context.update({"frontend_pipeline": frontend_pipeline})
+    result = cookies.bake(extra_context=context)
+
+    rspack_dir = result.project_path / "rspack"
+    assert rspack_dir.exists() is rspack_expected
+
+    package_json = result.project_path / "package.json"
+    if not package_json.exists():
+        return
+
+    content = json.loads(package_json.read_text())
+    dev_deps = content.get("devDependencies", {})
+    scripts = content.get("scripts", {})
+
+    if rspack_expected:
+        assert "rspack:build" in scripts
+        assert "rspack:dev" in scripts
+        assert "@rspack/core" in dev_deps
+        assert "@rspack/cli" in dev_deps
+        assert "@rspack/dev-server" in dev_deps
+    else:
+        assert "@rspack/core" not in dev_deps
+        assert "@rspack/cli" not in dev_deps
+        assert "@rspack/dev-server" not in dev_deps
 
 
 def test_trim_domain_email(cookies, context):

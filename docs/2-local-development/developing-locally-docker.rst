@@ -271,6 +271,8 @@ If you've opted for Gulp or Webpack as front-end pipeline, the project comes con
 
 The stack comes with a dedicated node service to build the static assets, watch for changes and proxy requests to the Django app with live reloading scripts injected in the response. For everything to work smoothly, you need to access the application at the port served by the node service, which is http://localhost:3000 by default.
 
+To try the optional Rspack dev server instead of Webpack, change the ``node`` service ``command`` in ``docker-compose.local.yml`` from ``npm run dev`` to ``npm run rspack:dev``.
+
 .. _Sass: https://sass-lang.com/
 .. _live reloading: https://browsersync.io
 

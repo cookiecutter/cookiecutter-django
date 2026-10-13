@@ -263,6 +263,29 @@ If you've opted for Gulp or Webpack as front-end pipeline, the project comes con
 
    .. note:: Do NOT access the application using the Django port (8000 by default), as it will result in broken styles and 404s when accessing static assets.
 
+Trying Rspack (experimental)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you selected **Webpack** as the front-end pipeline, the template also ships an optional `Rspack`_ configuration alongside Webpack. Webpack remains the default; Rspack is opt-in for evaluation (see `issue #5707`_).
+
+Production build::
+
+    npm run rspack:build
+
+Development (Rspack dev server with the same proxy setup as Webpack)::
+
+    npm run rspack:dev
+
+When not using Docker, ``rspack:dev`` starts Django and the Rspack dev server together (similar to ``npm run dev`` for Webpack).
+
+Both bundlers write ``webpack-stats.json`` for ``django-webpack-loader``. Do not run Webpack and Rspack dev servers on port 3000 at the same time.
+
+On the default template (Bootstrap, ``project`` / ``vendors`` entries), a local spike measured production builds at roughly **~4.9s** (Webpack) vs **~3.3s** (Rspack) on Windows — an orientation only, not a guarantee for your project. See the `Rspack migration guide`_ for plugin compatibility and limitations.
+
+.. _Rspack: https://rspack.dev/
+.. _issue #5707: https://github.com/cookiecutter/cookiecutter-django/issues/5707
+.. _Rspack migration guide: https://rspack.dev/guide/migration/webpack
+
 
 .. _Node.js: http://nodejs.org/download/
 .. _Sass: https://sass-lang.com/
