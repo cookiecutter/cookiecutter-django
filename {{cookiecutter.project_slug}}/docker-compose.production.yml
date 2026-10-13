@@ -15,7 +15,6 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/django/Dockerfile
-      
     image: {{ cookiecutter.project_slug }}_production_django
     {%- if cookiecutter.cloud_provider == 'None' %}
     volumes:
