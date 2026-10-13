@@ -117,7 +117,7 @@ def remove_project_css():
 
 
 def remove_packagejson_file():
-    file_names = ["package.json"]
+    file_names = ["package.json", "package-lock.json"]
     for file_name in file_names:
         Path(file_name).unlink()
 
