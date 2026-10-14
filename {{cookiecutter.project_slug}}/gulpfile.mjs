@@ -12,7 +12,6 @@ import browserSyncLib from 'browser-sync';
 import concat from 'gulp-concat';
 import tildeImporter from 'node-sass-tilde-importer';
 import cssnano from 'cssnano';
-import pixrem from 'pixrem';
 import plumber from 'gulp-plumber';
 import postcss from 'gulp-postcss';
 import rename from 'gulp-rename';
@@ -56,7 +55,6 @@ const paths = pathsConfig();
 function styles() {
   const processCss = [
     autoprefixer(), // adds vendor prefixes
-    pixrem(), // add fallbacks for rem units
   ];
 
   const minifyCss = [
