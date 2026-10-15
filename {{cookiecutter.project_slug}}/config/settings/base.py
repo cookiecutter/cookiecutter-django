@@ -107,6 +107,8 @@ THIRD_PARTY_APPS = [
 {%- endif %}
 {%- if cookiecutter.frontend_pipeline == 'Webpack' %}
     "webpack_loader",
+{%- elif cookiecutter.frontend_pipeline == 'Vite' %}
+    "django_vite",
 {%- endif %}
 ]
 
@@ -404,6 +406,21 @@ WEBPACK_LOADER = {
         "POLL_INTERVAL": 0.1,
         "IGNORE": [r".+\.hot-update.js", r".+\.map"],
         "BUNDLE_DIR_NAME": "webpack_bundles/",
+    },
+}
+
+{%- elif cookiecutter.frontend_pipeline == 'Vite' %}
+# django-vite
+# ------------------------------------------------------------------------------
+# https://github.com/MrBin99/django-vite#configuration
+DJANGO_VITE = {
+    "default": {
+        # Serve assets from the ViteJS dev server instead of the built manifest
+        "dev_mode": False,
+        "dev_server_port": 5173,
+        # This should mirror `staticUrlPrefix` in vite.config.mjs
+        "static_url_prefix": "vite_bundles",
+        "manifest_path": APPS_DIR / "static" / "vite_bundles" / "manifest.json",
     },
 }
 

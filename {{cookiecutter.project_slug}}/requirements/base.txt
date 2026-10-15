@@ -45,4 +45,6 @@ django-cors-headers==4.9.0  # https://github.com/adamchainz/django-cors-headers
 {%- endif %}
 {%- if cookiecutter.frontend_pipeline == 'Webpack' %}
 django-webpack-loader==3.2.4  # https://github.com/django-webpack/django-webpack-loader
+{%- elif cookiecutter.frontend_pipeline == 'Vite' %}
+django-vite==3.1.0  # https://github.com/MrBin99/django-vite
 {%- endif %}
