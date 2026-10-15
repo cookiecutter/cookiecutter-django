@@ -2,25 +2,7 @@ import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import fullReload from 'vite-plugin-full-reload';
 import autoprefixer from 'autoprefixer';
-import pixrem from 'pixrem';
 import postcssPresetEnv from 'postcss-preset-env';
-
-// This variable should mirror the one from config/settings/production.py
-{%- if cookiecutter.use_whitenoise == 'n' %}
-{%- if cookiecutter.cloud_provider == 'AWS' %}
-const s3BucketName = process.env.DJANGO_AWS_STORAGE_BUCKET_NAME;
-const awsS3Domain = process.env.DJANGO_AWS_S3_CUSTOM_DOMAIN
-  ? process.env.DJANGO_AWS_S3_CUSTOM_DOMAIN
-  : `${s3BucketName}.s3.amazonaws.com`;
-const staticUrl = `https://${awsS3Domain}/static/`;
-{%- elif cookiecutter.cloud_provider == 'GCP' %}
-const staticUrl = `https://storage.googleapis.com/${process.env.DJANGO_GCP_STORAGE_BUCKET_NAME}/static/`;
-{%- elif cookiecutter.cloud_provider == 'Azure' %}
-const staticUrl = `https://${process.env.DJANGO_AZURE_ACCOUNT_NAME}.blob.core.windows.net/static/`;
-{%- endif %}
-{%- else %}
-const staticUrl = '/static/';
-{%- endif %}
 
 const appDir = '{{cookiecutter.project_slug}}';
 
@@ -28,11 +10,12 @@ const appDir = '{{cookiecutter.project_slug}}';
 const staticUrlPrefix = 'vite_bundles';
 
 // django-vite serves dev assets from STATIC_URL + static_url_prefix, so the dev
-// server has to be mounted there too. In production, `base` only rewrites the
-// references between built files (CSS url(), dynamic imports, ...) because
-// django-vite renders the script and link tags itself.
+// server has to be mounted there too. In production, a relative `base` makes the
+// references between built files (CSS url(), dynamic imports, ...) resolve at
+// runtime, wherever the static files are served from, because django-vite
+// renders the script and link tags itself.
 const devBase = `/static/${staticUrlPrefix}/`;
-const buildBase = `${staticUrl}${staticUrlPrefix}/`;
+const buildBase = './';
 
 export default defineConfig(({ command }) => ({
   base: command === 'serve' ? devBase : buildBase,
@@ -51,7 +34,7 @@ export default defineConfig(({ command }) => ({
   },
   css: {
     postcss: {
-      plugins: [postcssPresetEnv(), autoprefixer(), pixrem()],
+      plugins: [postcssPresetEnv(), autoprefixer()],
     },
   },
   server: {

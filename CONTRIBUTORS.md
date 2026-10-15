@@ -1497,6 +1497,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Kimberly Meechan</td>
+    <td>
+      <a href="https://github.com/K-Meech">K-Meech</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>krati yadav</td>
     <td>
       <a href="https://github.com/krati5">krati5</a>
@@ -2496,6 +2503,13 @@ Listed in alphabetical order.
       <a href="https://github.com/reyesvicente">reyesvicente</a>
     </td>
     <td>highcenburg</td>
+  </tr>
+  <tr>
+    <td>Vijaya Rawat</td>
+    <td>
+      <a href="https://github.com/vijayarawat">vijayarawat</a>
+    </td>
+    <td></td>
   </tr>
   <tr>
     <td>Vikas Yadav</td>
