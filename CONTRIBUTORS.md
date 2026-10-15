@@ -2505,6 +2505,13 @@ Listed in alphabetical order.
     <td>highcenburg</td>
   </tr>
   <tr>
+    <td>Vijaya Rawat</td>
+    <td>
+      <a href="https://github.com/vijayarawat">vijayarawat</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Vikas Yadav</td>
     <td>
       <a href="https://github.com/vik-y">vik-y</a>
