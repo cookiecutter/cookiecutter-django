@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.10.15
+
+
+### Fixed
+
+- Resolve webpack `publicPath` at runtime instead of build time ([#6895](https://github.com/cookiecutter/cookiecutter-django/pull/6895))
+
 ## 2026.10.14
 
 
