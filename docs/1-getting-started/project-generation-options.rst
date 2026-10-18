@@ -112,8 +112,11 @@ frontend_pipeline:
     2. `Django Compressor`_
     3. `Gulp`_
     4. `Webpack`_
+    5. `Vite`_
 
-Both Gulp and Webpack support Bootstrap recompilation with real-time variables alteration.
+Gulp, Webpack and Vite all support Bootstrap recompilation with real-time variables alteration.
+The Vite pipeline is integrated with Django through `django-vite`_, and serves the assets from
+the Vite dev server with hot module replacement during development.
 
 use_celery:
     Indicates whether the project should be configured to use Celery_.
@@ -168,6 +171,8 @@ debug:
 
 .. _Gulp: https://github.com/gulpjs/gulp
 .. _Webpack: https://webpack.js.org
+.. _Vite: https://vite.dev
+.. _django-vite: https://github.com/MrBin99/django-vite
 
 .. _AWS: https://aws.amazon.com/s3/
 .. _GCP: https://cloud.google.com/storage/

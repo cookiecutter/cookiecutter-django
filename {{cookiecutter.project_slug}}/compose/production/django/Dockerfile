@@ -1,4 +1,4 @@
-{% if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] -%}
+{% if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack', 'Vite'] -%}
 FROM docker.io/node:26.5-bookworm-slim AS client-builder
 
 ARG APP_HOME=/app
@@ -30,7 +30,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=uv.lock,target=uv.lock \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
     uv sync --locked --no-install-project --no-dev
-{%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack'] %}
+{%- if cookiecutter.frontend_pipeline in ['Gulp', 'Webpack', 'Vite'] %}
 COPY --from=client-builder ${APP_HOME} ${APP_HOME}
 {% else %}
 COPY . ${APP_HOME}

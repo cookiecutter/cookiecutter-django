@@ -73,7 +73,7 @@ Make sure to have the following on your host:
 
     uv run uvicorn config.asgi:application --host 0.0.0.0 --reload --reload-include '*.html'
 
-   If you've opted for Webpack or Gulp as frontend pipeline, please see the :ref:`dedicated section <bare-metal-webpack-gulp>` below.
+   If you've opted for Webpack or Gulp as frontend pipeline, please see the :ref:`dedicated section <bare-metal-webpack-gulp>` below. For Vite, see :ref:`this one <bare-metal-vite>`.
 
 .. _PostgreSQL: https://www.postgresql.org/download/
 .. _Redis: https://redis.io/download
@@ -264,9 +264,37 @@ If you've opted for Gulp or Webpack as front-end pipeline, the project comes con
    .. note:: Do NOT access the application using the Django port (8000 by default), as it will result in broken styles and 404s when accessing static assets.
 
 
+.. _bare-metal-vite:
+
+Using Vite
+----------
+
+If you've opted for Vite as front-end pipeline, the project comes configured with `Sass`_ compilation and `hot module replacement`_. As you change your Sass/JS source files, Vite pushes the updated styles and scripts to the browser without refreshing the page. Changes to your Django templates trigger a full page reload.
+
+Unlike Gulp and Webpack, the Vite dev server does not proxy the Django app. `django-vite`_ makes your templates point at the dev server, so you keep browsing the Django development server as usual.
+
+#. Make sure that `Node.js`_ is installed on your machine.
+#. In the project root, install the JS dependencies with::
+
+    npm install
+
+#. Now - with your virtualenv activated - start the application by running::
+
+    npm run dev
+
+   This will start 2 processes in parallel: the Vite dev server on one side, and the Django server on the other.
+
+#. Access your application at the address of the Django server, http://localhost:8000 by default.
+
+   .. note:: The Vite dev server (http://localhost:5173 by default) only serves the assets, there is no page to see there.
+
+To check the production build of your assets locally, run ``npm run build`` and set ``DJANGO_VITE_DEV_MODE=False`` in your environment. Django will then serve the compiled files from your app's ``static/vite_bundles/`` directory instead of the dev server.
+
 .. _Node.js: http://nodejs.org/download/
 .. _Sass: https://sass-lang.com/
 .. _live reloading: https://browsersync.io
+.. _hot module replacement: https://vite.dev/guide/features.html#hot-module-replacement
+.. _django-vite: https://github.com/MrBin99/django-vite
 
 Summary
 -------

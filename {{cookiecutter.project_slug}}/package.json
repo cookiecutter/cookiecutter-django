@@ -27,6 +27,8 @@
     "postcss-preset-env": "^11.6.1",
     "sass": "^1.105.1",
     "sass-loader": "^17.0.1",
+    "vite": "^8.2.1",
+    "vite-plugin-full-reload": "^1.2.0",
     "webpack": "^5.111.1",
     "webpack-bundle-tracker": "^3.0.1",
     "webpack-cli": "^7.0.2",

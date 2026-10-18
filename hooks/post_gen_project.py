@@ -99,9 +99,17 @@ def remove_gulp_files():
         Path(file_name).unlink()
 
 
-def remove_webpack_files():
+def remove_webpack_config_files():
     shutil.rmtree("webpack")
+
+
+def remove_webpack_files():
+    remove_webpack_config_files()
     remove_vendors_js()
+
+
+def remove_vite_files():
+    Path("vite.config.mjs").unlink()
 
 
 def remove_vendors_js():
@@ -137,25 +145,45 @@ def update_package_json(remove_dev_deps=None, remove_keys=None, scripts=None):
     package_json.write_text(updated_content)
 
 
+# Dev dependencies that are only useful to a single frontend pipeline, and are
+# therefore removed from package.json when another one is selected.
+GULP_DEV_DEPS = [
+    "browser-sync",
+    "cssnano",
+    "gulp",
+    "gulp-concat",
+    "gulp-imagemin",
+    "gulp-plumber",
+    "gulp-postcss",
+    "gulp-rename",
+    "gulp-sass",
+    "gulp-uglify-es",
+    "node-sass-tilde-importer",
+]
+
+WEBPACK_DEV_DEPS = [
+    "@babel/core",
+    "@babel/preset-env",
+    "babel-loader",
+    "css-loader",
+    "mini-css-extract-plugin",
+    "postcss-loader",
+    "sass-loader",
+    "webpack",
+    "webpack-bundle-tracker",
+    "webpack-cli",
+    "webpack-dev-server",
+    "webpack-merge",
+]
+
+VITE_DEV_DEPS = ["vite", "vite-plugin-full-reload"]
+
+
 def handle_js_runner(choice, use_docker, use_async):
+    dev_django_cmd = "uvicorn config.asgi:application --reload" if use_async else "python manage.py runserver_plus"
     if choice == "Gulp":
         update_package_json(
-            remove_dev_deps=[
-                "@babel/core",
-                "@babel/preset-env",
-                "babel-loader",
-                "concurrently",
-                "css-loader",
-                "mini-css-extract-plugin",
-                "postcss-loader",
-                "postcss-preset-env",
-                "sass-loader",
-                "webpack",
-                "webpack-bundle-tracker",
-                "webpack-cli",
-                "webpack-dev-server",
-                "webpack-merge",
-            ],
+            remove_dev_deps=[*WEBPACK_DEV_DEPS, *VITE_DEV_DEPS, "concurrently", "postcss-preset-env"],
             remove_keys=["babel"],
             scripts={
                 "dev": "gulp",
@@ -163,27 +191,14 @@ def handle_js_runner(choice, use_docker, use_async):
             },
         )
         remove_webpack_files()
+        remove_vite_files()
     elif choice == "Webpack":
         scripts = {
             "dev": "webpack serve --config webpack/dev.config.js",
             "build": "webpack --config webpack/prod.config.js",
         }
-        remove_dev_deps = [
-            "browser-sync",
-            "cssnano",
-            "gulp",
-            "gulp-concat",
-            "gulp-imagemin",
-            "gulp-plumber",
-            "gulp-postcss",
-            "gulp-rename",
-            "gulp-sass",
-            "gulp-uglify-es",
-        ]
+        remove_dev_deps = [*GULP_DEV_DEPS, *VITE_DEV_DEPS]
         if not use_docker:
-            dev_django_cmd = (
-                "uvicorn config.asgi:application --reload" if use_async else "python manage.py runserver_plus"
-            )
             scripts.update(
                 {
                     "dev": "concurrently npm:dev:*",
@@ -195,6 +210,27 @@ def handle_js_runner(choice, use_docker, use_async):
             remove_dev_deps.append("concurrently")
         update_package_json(remove_dev_deps=remove_dev_deps, scripts=scripts)
         remove_gulp_files()
+        remove_vite_files()
+    elif choice == "Vite":
+        scripts = {
+            "dev": "vite",
+            "build": "vite build",
+        }
+        remove_dev_deps = [*GULP_DEV_DEPS, *WEBPACK_DEV_DEPS]
+        if not use_docker:
+            scripts.update(
+                {
+                    "dev": "concurrently npm:dev:*",
+                    "dev:vite": "vite",
+                    "dev:django": dev_django_cmd,
+                },
+            )
+        else:
+            remove_dev_deps.append("concurrently")
+        update_package_json(remove_dev_deps=remove_dev_deps, remove_keys=["babel"], scripts=scripts)
+        remove_gulp_files()
+        # Vite uses static/js/vendors.js as an entry point, so it must be kept
+        remove_webpack_config_files()
 
 
 def remove_prettier_pre_commit():
@@ -476,6 +512,7 @@ def main():  # noqa: C901, PLR0912, PLR0915
     if "{{ cookiecutter.frontend_pipeline }}" in ["None", "Django Compressor"]:
         remove_gulp_files()
         remove_webpack_files()
+        remove_vite_files()
         remove_sass_files()
         remove_packagejson_file()
         remove_prettier_pre_commit()

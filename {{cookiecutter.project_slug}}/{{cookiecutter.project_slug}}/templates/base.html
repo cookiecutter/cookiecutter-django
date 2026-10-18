@@ -6,6 +6,10 @@
     {% load render_bundle from webpack_loader %}
 
   {% endraw %}
+{%- elif cookiecutter.frontend_pipeline == 'Vite' %}{% raw %}
+  {% load django_vite %}
+
+{% endraw %}
 {%- endif %}{% raw %}<!DOCTYPE html>
 {% get_current_language as LANGUAGE_CODE %}
 <html lang="{{ LANGUAGE_CODE }}">
@@ -57,6 +61,10 @@
 {% raw %}
 {% render_bundle 'project' 'css' %}
 {%- endraw %}
+{% elif cookiecutter.frontend_pipeline == "Vite" %}
+{% raw %}
+{# The stylesheets are imported by static/js/project.js, django-vite renders them with the JS below #}
+{%- endraw %}
 {% endif %}
 {% raw %}
 {% endblock css %}
@@ -74,6 +82,13 @@
 {% raw %}
 <!-- Vendor dependencies bundled as one file -->
 {% render_bundle 'vendors' 'js' attrs='defer' %}
+{%- endraw %}
+{% elif cookiecutter.frontend_pipeline == "Vite" %}
+{% raw %}
+<!-- Enables hot module replacement, only rendered when dev_mode is on -->
+{% vite_hmr_client %}
+<!-- Vendor dependencies bundled as one file -->
+{% vite_asset '{% endraw %}{{ cookiecutter.project_slug }}{% raw %}/static/js/vendors.js' %}
 {%- endraw %}
 {% else %}
 {% raw %}
@@ -106,6 +121,10 @@
 {% elif cookiecutter.frontend_pipeline == "Webpack" %}
 {% raw %}
 {% render_bundle 'project' 'js' attrs='defer' %}
+{%- endraw %}
+{% elif cookiecutter.frontend_pipeline == "Vite" %}
+{% raw %}
+{% vite_asset '{% endraw %}{{ cookiecutter.project_slug }}{% raw %}/static/js/project.js' %}
 {%- endraw %}
 {% endif %}
 {% raw %}
