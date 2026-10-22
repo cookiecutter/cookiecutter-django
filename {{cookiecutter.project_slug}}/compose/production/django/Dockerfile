@@ -95,8 +95,9 @@ RUN chmod +x /start-flower
 COPY --from=python-build-stage --chown=django:django ${APP_HOME} ${APP_HOME}
 
 {%- if cookiecutter.cloud_provider == 'None' %}
-# explicitly create the media folder before changing ownership below
-RUN mkdir -p ${APP_HOME}/{{ cookiecutter.project_slug }}/media
+# explicitly create the media folder and make django its owner (nginx serves it, django writes uploads)
+RUN mkdir -p ${APP_HOME}/{{ cookiecutter.project_slug }}/media \
+  && chown django:django ${APP_HOME}/{{ cookiecutter.project_slug }}/media
 {%- endif %}
 
 # make django owner of the WORKDIR directory as well.
