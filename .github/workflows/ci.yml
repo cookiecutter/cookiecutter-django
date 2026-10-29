@@ -46,9 +46,6 @@ jobs:
 
     name: "Docker ${{ matrix.script.name }}"
     runs-on: ubuntu-latest
-    env:
-      DOCKER_BUILDKIT: 1
-      COMPOSE_DOCKER_CLI_BUILD: 1
 
     steps:
       - uses: actions/checkout@v7
