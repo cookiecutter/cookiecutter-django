@@ -1,12 +1,12 @@
 python-slugify==9.1.3  # https://github.com/un33k/python-slugify
-Pillow==12.3.0  # https://github.com/python-pillow/Pillow
+Pillow==13.0.0  # https://github.com/python-pillow/Pillow
 argon2-cffi==25.1.0  # https://github.com/hynek/argon2_cffi
 {%- if cookiecutter.use_whitenoise == 'y' %}
 whitenoise==6.12.0  # https://github.com/evansd/whitenoise
 {%- endif %}
 redis==8.1.0  # https://github.com/redis/redis-py
 {%- if cookiecutter.use_docker == "y" or cookiecutter.windows == "n" %}
-hiredis==3.4.2  # https://github.com/redis/hiredis-py
+hiredis==3.5.0  # https://github.com/redis/hiredis-py
 {%- endif %}
 {%- if cookiecutter.use_celery == "y" %}
 celery==5.6.3  # pyup: < 6.0  # https://github.com/celery/celery

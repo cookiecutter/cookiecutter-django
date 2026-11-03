@@ -21,6 +21,13 @@ if hasattr(project_slug, "isidentifier"):
 
 assert project_slug == project_slug.lower(), f"'{project_slug}' project slug should be all lowercase"
 
+if project_slug == "ninja" and "{{ cookiecutter.rest_api }}" == "Django Ninja":
+    print(
+        "ERROR: project_slug 'ninja' conflicts with Django Ninja's 'ninja' import package. "
+        "Choose a different project_slug, such as 'ninja_app', and rerun Cookiecutter.",
+    )
+    sys.exit(1)
+
 assert "\\" not in "{{ cookiecutter.author_name }}", "Don't include backslashes in author name."
 
 if "{{ cookiecutter.use_whitenoise }}".lower() == "n" and "{{ cookiecutter.cloud_provider }}" == "None":
