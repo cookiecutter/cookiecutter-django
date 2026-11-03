@@ -77,7 +77,8 @@ jobs:
             args: "use_async=y username_type=email rest_api='Django Ninja'"
 
     name: "Bare metal ${{ matrix.script.name }}"
-    runs-on: ubuntu-latest
+    # Match the existing requirements-jammy.apt dependency list.
+    runs-on: ubuntu-22.04
     services:
       redis:
         image: redis:7.2
