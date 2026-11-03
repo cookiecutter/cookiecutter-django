@@ -358,8 +358,18 @@ def test_github_invokes_linter_and_pytest(cookies, context, use_docker, expected
             pytest.fail(e)
 
 
-@pytest.mark.parametrize("slug", ["project slug", "Project_Slug"])
-def test_invalid_slug(cookies, context, slug):
+@pytest.mark.parametrize(
+    ("slug", "error"),
+    [
+        ("project slug", "not a valid Python identifier"),
+        ("Project_Slug", "should be all lowercase"),
+        ("class", "Python keyword"),
+        ("async", "Python keyword"),
+        ("json", "standard-library module"),
+        ("logging", "standard-library module"),
+    ],
+)
+def test_invalid_slug(cookies, context, capfd, slug, error):
     """Invalid slug should fail pre-generation hook."""
     context.update({"project_slug": slug})
 
@@ -367,6 +377,7 @@ def test_invalid_slug(cookies, context, slug):
 
     assert result.exit_code != 0
     assert isinstance(result.exception, FailedHookException)
+    assert error in capfd.readouterr().err
 
 
 @pytest.mark.parametrize("invalid_context", UNSUPPORTED_COMBINATIONS)
