@@ -524,6 +524,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Charan Rathore</td>
+    <td>
+      <a href="https://github.com/charan-rathore">charan-rathore</a>
+    </td>
+    <td>huesofbanter</td>
+  </tr>
+  <tr>
     <td>Charlie Macfarlane Brodie</td>
     <td>
       <a href="https://github.com/tannart">tannart</a>
