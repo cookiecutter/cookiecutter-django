@@ -26,7 +26,7 @@ if keyword.iskeyword(project_slug):
     sys.exit(f"ERROR: '{project_slug}' is a Python keyword. Choose another project slug.")
 if project_slug in sys.stdlib_module_names:
     sys.exit(f"ERROR: '{project_slug}' shadows a standard-library module. Choose another project slug.")
-    
+
 if project_slug == "ninja" and "{{ cookiecutter.rest_api }}" == "Django Ninja":
     print(
         "ERROR: project_slug 'ninja' conflicts with Django Ninja's 'ninja' import package. "
