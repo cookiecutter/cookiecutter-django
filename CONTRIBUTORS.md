@@ -2232,6 +2232,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Sam Darwin</td>
+    <td>
+      <a href="https://github.com/sdarwin">sdarwin</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Sascha</td>
     <td>
       <a href="https://github.com/saschalalala">saschalalala</a>
