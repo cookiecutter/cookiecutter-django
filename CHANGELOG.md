@@ -3,6 +3,55 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.11.3
+
+
+### Changed
+
+- Remove obsolete `DOCKER_BUILDKIT` and `COMPOSE_DOCKER_CLI_BUILD`  ([#7020](https://github.com/cookiecutter/cookiecutter-django/pull/7020))
+
+### Fixed
+
+- Fix media folder ownership in production Dockerfile ([#7003](https://github.com/cookiecutter/cookiecutter-django/pull/7003))
+
+- Fix Dockerfile mount options for `uv.lock` ([#6987](https://github.com/cookiecutter/cookiecutter-django/pull/6987))
+
+### Updated
+
+- Update django to 6.0.10 ([#7044](https://github.com/cookiecutter/cookiecutter-django/pull/7044))
+
+- Bump nginx from 1.31.6 to 1.31.8 ([#7009](https://github.com/cookiecutter/cookiecutter-django/pull/7009))
+
+- Bump fast-uri from 3.1.8 to 3.1.9 ([#7008](https://github.com/cookiecutter/cookiecutter-django/pull/7008))
+
+- Bump cssnano from 9.6.0 to 9.9.0 ([#6991](https://github.com/cookiecutter/cookiecutter-django/pull/6991))
+
+- Bump sass from 1.105.1 to 1.107.1 ([#6986](https://github.com/cookiecutter/cookiecutter-django/pull/6986))
+
+- Update sentry-sdk to 2.73.0 ([#6998](https://github.com/cookiecutter/cookiecutter-django/pull/6998))
+
+- Bump webpack from 5.111.1 to 5.112.0 ([#6984](https://github.com/cookiecutter/cookiecutter-django/pull/6984))
+
+- Update psycopg to 3.3.7 ([#7036](https://github.com/cookiecutter/cookiecutter-django/pull/7036))
+
+- Bump qs from 6.16.0 to 6.17.1 ([#7022](https://github.com/cookiecutter/cookiecutter-django/pull/7022))
+
+- Update ruff to 0.17.3 ([#7041](https://github.com/cookiecutter/cookiecutter-django/pull/7041))
+
+- Update pillow to 13.0.0 ([#6979](https://github.com/cookiecutter/cookiecutter-django/pull/6979))
+
+- Bump postcss from 8.5.29 to 8.5.30 ([#6976](https://github.com/cookiecutter/cookiecutter-django/pull/6976))
+
+- Update hiredis to 3.5.0 ([#6972](https://github.com/cookiecutter/cookiecutter-django/pull/6972))
+
+- Update sphinx to 9.2.0 ([#6997](https://github.com/cookiecutter/cookiecutter-django/pull/6997))
+
+- Bump launch-editor from 2.14.1 to 2.14.2 ([#6996](https://github.com/cookiecutter/cookiecutter-django/pull/6996))
+
+- Update pytest to 9.2.0 ([#7016](https://github.com/cookiecutter/cookiecutter-django/pull/7016))
+
+- Bump amazon/aws-cli from 2.37.5 to 2.39.3 ([#7035](https://github.com/cookiecutter/cookiecutter-django/pull/7035))
+
 ## 2026.10.15
 
 

@@ -524,6 +524,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Charan Rathore</td>
+    <td>
+      <a href="https://github.com/charan-rathore">charan-rathore</a>
+    </td>
+    <td>huesofbanter</td>
+  </tr>
+  <tr>
     <td>Charlie Macfarlane Brodie</td>
     <td>
       <a href="https://github.com/tannart">tannart</a>
@@ -2228,6 +2235,13 @@ Listed in alphabetical order.
     <td>Sam Collins</td>
     <td>
       <a href="https://github.com/MightySCollins">MightySCollins</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Sam Darwin</td>
+    <td>
+      <a href="https://github.com/sdarwin">sdarwin</a>
     </td>
     <td></td>
   </tr>
