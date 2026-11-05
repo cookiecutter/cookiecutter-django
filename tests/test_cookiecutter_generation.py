@@ -500,3 +500,32 @@ def test_production_dockerfile_media_ownership(cookies, context, cloud_provider,
     assert (f"mkdir -p {media_dir}" in dockerfile) is creates_media_dir
     # The directory is created as root, so django must own it to write uploads.
     assert (f"chown django:django {media_dir}" in dockerfile) is creates_media_dir
+
+
+def test_shell_scripts_are_checked_out_with_lf(cookies, context):
+    """Shell scripts must keep LF line endings, even on Windows with core.autocrlf."""
+    context.update(
+        {
+            "editor": "VS Code",
+            "use_docker": "y",
+            "cloud_provider": "AWS",
+            "use_celery": "y",
+            "use_heroku": "y",
+        },
+    )
+    result = cookies.bake(extra_context=context)
+    assert result.exit_code == 0
+
+    project_path = result.project_path
+    scripts = [
+        path.relative_to(project_path).as_posix()
+        for path in build_files_list(project_path)
+        if path.suffix == ".sh" or (not is_binary(str(path)) and path.read_text().startswith("#!"))
+    ]
+    assert "compose/production/django/entrypoint" in scripts
+    assert ".devcontainer/bashrc.override.sh" in scripts
+
+    sh.git("init", _cwd=str(project_path))
+    output = sh.git("check-attr", "eol", "--", *scripts, _cwd=str(project_path))
+
+    assert output.splitlines() == [f"{script}: eol: lf" for script in scripts]
