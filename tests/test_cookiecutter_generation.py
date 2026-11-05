@@ -358,8 +358,18 @@ def test_github_invokes_linter_and_pytest(cookies, context, use_docker, expected
             pytest.fail(e)
 
 
-@pytest.mark.parametrize("slug", ["project slug", "Project_Slug"])
-def test_invalid_slug(cookies, context, slug):
+@pytest.mark.parametrize(
+    ("slug", "error"),
+    [
+        ("project slug", "not a valid Python identifier"),
+        ("Project_Slug", "should be all lowercase"),
+        ("class", "Python keyword"),
+        ("async", "Python keyword"),
+        ("json", "standard-library module"),
+        ("logging", "standard-library module"),
+    ],
+)
+def test_invalid_slug(cookies, context, capfd, slug, error):
     """Invalid slug should fail pre-generation hook."""
     context.update({"project_slug": slug})
 
@@ -367,6 +377,7 @@ def test_invalid_slug(cookies, context, slug):
 
     assert result.exit_code != 0
     assert isinstance(result.exception, FailedHookException)
+    assert error in capfd.readouterr().err
 
 
 @pytest.mark.parametrize("invalid_context", UNSUPPORTED_COMBINATIONS)
@@ -470,3 +481,22 @@ def test_pre_commit_without_heroku(cookies, context):
     data = pre_commit_config.read_text()
 
     assert "uv-pre-commit" not in data
+
+
+@pytest.mark.parametrize(
+    ("cloud_provider", "creates_media_dir"),
+    [("None", True), ("AWS", False)],
+)
+def test_production_dockerfile_media_ownership(cookies, context, cloud_provider, creates_media_dir):
+    context.update(
+        {"use_docker": "y", "cloud_provider": cloud_provider, "mail_service": "Other SMTP", "use_whitenoise": "y"},
+    )
+    result = cookies.bake(extra_context=context)
+    assert result.exit_code == 0
+
+    dockerfile = (result.project_path / "compose" / "production" / "django" / "Dockerfile").read_text()
+    media_dir = "${APP_HOME}/my_test_project/media"
+
+    assert (f"mkdir -p {media_dir}" in dockerfile) is creates_media_dir
+    # The directory is created as root, so django must own it to write uploads.
+    assert (f"chown django:django {media_dir}" in dockerfile) is creates_media_dir

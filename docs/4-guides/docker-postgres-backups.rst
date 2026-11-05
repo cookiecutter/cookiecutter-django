@@ -16,7 +16,7 @@ Creating a Backup
 
 To create a backup, run::
 
-    $ docker compose -f docker-compose.local.yml exec postgres backup
+    $ docker compose -f docker-compose.local.yml exec -T postgres backup
 
 Assuming your project's database is named ``my_project`` here is what you will see: ::
 
@@ -31,7 +31,7 @@ Viewing the Existing Backups
 
 To list existing backups, ::
 
-    $ docker compose -f docker-compose.local.yml exec postgres backups
+    $ docker compose -f docker-compose.local.yml exec -T postgres backups
 
 These are the sample contents of ``/backups``: ::
 

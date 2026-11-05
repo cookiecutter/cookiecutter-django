@@ -1,4 +1,5 @@
 # ruff: noqa: PLR0133
+import keyword
 import sys
 
 TERMINATOR = "\x1b[0m"
@@ -20,6 +21,18 @@ if hasattr(project_slug, "isidentifier"):
     assert project_slug.isidentifier(), f"'{project_slug}' project slug is not a valid Python identifier."
 
 assert project_slug == project_slug.lower(), f"'{project_slug}' project slug should be all lowercase"
+
+if keyword.iskeyword(project_slug):
+    sys.exit(f"ERROR: '{project_slug}' is a Python keyword. Choose another project slug.")
+if project_slug in sys.stdlib_module_names:
+    sys.exit(f"ERROR: '{project_slug}' shadows a standard-library module. Choose another project slug.")
+
+if project_slug == "ninja" and "{{ cookiecutter.rest_api }}" == "Django Ninja":
+    print(
+        "ERROR: project_slug 'ninja' conflicts with Django Ninja's 'ninja' import package. "
+        "Choose a different project_slug, such as 'ninja_app', and rerun Cookiecutter.",
+    )
+    sys.exit(1)
 
 assert "\\" not in "{{ cookiecutter.author_name }}", "Don't include backslashes in author name."
 
