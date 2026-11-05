@@ -545,6 +545,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Chirag_gupta</td>
+    <td>
+      <a href="https://github.com/chirag-gupta7">chirag-gupta7</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Chris Curvey</td>
     <td>
       <a href="https://github.com/ccurvey">ccurvey</a>
