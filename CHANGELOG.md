@@ -3,6 +3,31 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.11.4
+
+
+### Updated
+
+- Bump traefik from v3.7.14 to v3.7.16 ([#7011](https://github.com/cookiecutter/cookiecutter-django/pull/7011))
+
+- Update psycopg to 3.3.8 ([#7056](https://github.com/cookiecutter/cookiecutter-django/pull/7056))
+
+- Bump postcss from 8.5.30 to 8.5.32 ([#7055](https://github.com/cookiecutter/cookiecutter-django/pull/7055))
+
+- Bump webpack-dev-server from 6.0.0 to 6.1.0 ([#7053](https://github.com/cookiecutter/cookiecutter-django/pull/7053))
+
+- Bump sass-loader from 17.0.1 to 17.1.0 ([#7051](https://github.com/cookiecutter/cookiecutter-django/pull/7051))
+
+- Bump autoprefixer from 10.6.1 to 10.6.2 ([#7049](https://github.com/cookiecutter/cookiecutter-django/pull/7049))
+
+- Bump @babel/core from 8.0.7 to 8.0.10 in the babel group ([#7047](https://github.com/cookiecutter/cookiecutter-django/pull/7047))
+
+- Update djlint to 1.49.9 ([#7046](https://github.com/cookiecutter/cookiecutter-django/pull/7046))
+
+- Update django-allauth to 65.21.1 ([#7023](https://github.com/cookiecutter/cookiecutter-django/pull/7023))
+
+- Update django-ninja to 1.7.3 ([#7019](https://github.com/cookiecutter/cookiecutter-django/pull/7019))
+
 ## 2026.11.3
 
 
