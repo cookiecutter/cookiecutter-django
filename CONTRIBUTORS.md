@@ -384,6 +384,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Asish Kumar</td>
+    <td>
+      <a href="https://github.com/officialasishkumar">officialasishkumar</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>asmo</td>
     <td>
       <a href="https://github.com/a5m0">a5m0</a>
