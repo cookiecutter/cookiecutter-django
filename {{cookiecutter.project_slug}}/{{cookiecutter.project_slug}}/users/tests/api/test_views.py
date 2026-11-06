@@ -22,7 +22,7 @@ class TestUserViewSet:
         request = api_rf.get("/fake-url/")
         request.user = user
 
-        view.request = request
+        view.request = request  # type: ignore[assignment]
 
         assert user in view.get_queryset()
 
@@ -31,9 +31,9 @@ class TestUserViewSet:
         request = api_rf.get("/fake-url/")
         request.user = user
 
-        view.request = request
+        view.request = request  # type: ignore[assignment]
 
-        response = view.me(request)  # type: ignore[misc,call-arg,arg-type]
+        response = view.me(request)
 
         assert response.data == {
             {%- if cookiecutter.username_type == "email" %}
