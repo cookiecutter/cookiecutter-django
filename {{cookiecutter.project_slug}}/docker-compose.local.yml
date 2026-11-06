@@ -22,7 +22,6 @@ services:
       - mailtrap-local
       {%- endif %}
     volumes:
-      - /app/.venv
       - .:/app:z
     env_file:
       - path: ./.envs/.local/.django

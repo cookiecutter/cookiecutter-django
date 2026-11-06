@@ -384,6 +384,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Asish Kumar</td>
+    <td>
+      <a href="https://github.com/officialasishkumar">officialasishkumar</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>asmo</td>
     <td>
       <a href="https://github.com/a5m0">a5m0</a>
@@ -541,6 +548,13 @@ Listed in alphabetical order.
     <td>Charlie Smith</td>
     <td>
       <a href="https://github.com/chuckus">chuckus</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Chirag_gupta</td>
+    <td>
+      <a href="https://github.com/chirag-gupta7">chirag-gupta7</a>
     </td>
     <td></td>
   </tr>

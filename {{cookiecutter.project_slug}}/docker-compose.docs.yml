@@ -9,7 +9,6 @@ services:
       - path: ./.envs/.local/.django
         required: false
     volumes:
-      - /app/.venv
       - ./docs:/docs:z
       - ./config:/app/config:z
       - ./{{ cookiecutter.project_slug }}:/app/{{ cookiecutter.project_slug }}:z

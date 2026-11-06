@@ -3,6 +3,58 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.11.5
+
+
+### Changed
+
+- Reject project slugs that conflict with Python keywords or standard-library modules ([#7042](https://github.com/cookiecutter/cookiecutter-django/pull/7042))
+
+### Fixed
+
+- Fix stale virtualenv in local Docker after adding a dependency ([#7030](https://github.com/cookiecutter/cookiecutter-django/pull/7030))
+
+### Documentation
+
+- Add `-T` flag to Docker postgres backup command for non-interactive use ([#7057](https://github.com/cookiecutter/cookiecutter-django/pull/7057))
+
+### Updated
+
+- Update pyproject-fmt from v2.30.3 to v2.30.6 ([#7059](https://github.com/cookiecutter/cookiecutter-django/pull/7059))
+
+- Update coverage to 7.17.2 ([#7058](https://github.com/cookiecutter/cookiecutter-django/pull/7058))
+
+- Bump postcss-preset-env from 11.6.1 to 11.6.2 ([#7062](https://github.com/cookiecutter/cookiecutter-django/pull/7062))
+
+- Bump webpack from 5.112.0 to 5.112.2 ([#7061](https://github.com/cookiecutter/cookiecutter-django/pull/7061))
+
+- Bump webpack-cli from 7.2.3 to 7.3.1 ([#7060](https://github.com/cookiecutter/cookiecutter-django/pull/7060))
+
+## 2026.11.4
+
+
+### Updated
+
+- Bump traefik from v3.7.14 to v3.7.16 ([#7011](https://github.com/cookiecutter/cookiecutter-django/pull/7011))
+
+- Update psycopg to 3.3.8 ([#7056](https://github.com/cookiecutter/cookiecutter-django/pull/7056))
+
+- Bump postcss from 8.5.30 to 8.5.32 ([#7055](https://github.com/cookiecutter/cookiecutter-django/pull/7055))
+
+- Bump webpack-dev-server from 6.0.0 to 6.1.0 ([#7053](https://github.com/cookiecutter/cookiecutter-django/pull/7053))
+
+- Bump sass-loader from 17.0.1 to 17.1.0 ([#7051](https://github.com/cookiecutter/cookiecutter-django/pull/7051))
+
+- Bump autoprefixer from 10.6.1 to 10.6.2 ([#7049](https://github.com/cookiecutter/cookiecutter-django/pull/7049))
+
+- Bump @babel/core from 8.0.7 to 8.0.10 in the babel group ([#7047](https://github.com/cookiecutter/cookiecutter-django/pull/7047))
+
+- Update djlint to 1.49.9 ([#7046](https://github.com/cookiecutter/cookiecutter-django/pull/7046))
+
+- Update django-allauth to 65.21.1 ([#7023](https://github.com/cookiecutter/cookiecutter-django/pull/7023))
+
+- Update django-ninja to 1.7.3 ([#7019](https://github.com/cookiecutter/cookiecutter-django/pull/7019))
+
 ## 2026.11.3
 
 

@@ -1,1 +1,10 @@
 * text=auto
+
+# Scripts run by Linux shells (in Docker containers, dev containers or on the
+# server) break with CRLF line endings. Always check them out with LF, even on
+# Windows with core.autocrlf enabled. Most scripts under bin/ and compose/
+# have no file extension, so match these directories as a whole.
+*.sh text eol=lf
+bin/** text eol=lf
+compose/** text eol=lf
+manage.py text eol=lf
