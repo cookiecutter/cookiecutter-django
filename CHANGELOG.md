@@ -3,6 +3,33 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.11.5
+
+
+### Changed
+
+- Reject project slugs that conflict with Python keywords or standard-library modules ([#7042](https://github.com/cookiecutter/cookiecutter-django/pull/7042))
+
+### Fixed
+
+- Fix stale virtualenv in local Docker after adding a dependency ([#7030](https://github.com/cookiecutter/cookiecutter-django/pull/7030))
+
+### Documentation
+
+- Add `-T` flag to Docker postgres backup command for non-interactive use ([#7057](https://github.com/cookiecutter/cookiecutter-django/pull/7057))
+
+### Updated
+
+- Update pyproject-fmt from v2.30.3 to v2.30.6 ([#7059](https://github.com/cookiecutter/cookiecutter-django/pull/7059))
+
+- Update coverage to 7.17.2 ([#7058](https://github.com/cookiecutter/cookiecutter-django/pull/7058))
+
+- Bump postcss-preset-env from 11.6.1 to 11.6.2 ([#7062](https://github.com/cookiecutter/cookiecutter-django/pull/7062))
+
+- Bump webpack from 5.112.0 to 5.112.2 ([#7061](https://github.com/cookiecutter/cookiecutter-django/pull/7061))
+
+- Bump webpack-cli from 7.2.3 to 7.3.1 ([#7060](https://github.com/cookiecutter/cookiecutter-django/pull/7060))
+
 ## 2026.11.4
 
 
