@@ -3,6 +3,25 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.11.6
+
+
+### Fixed
+
+- Check out shell scripts with LF line endings on Windows ([#7063](https://github.com/cookiecutter/cookiecutter-django/pull/7063))
+
+### Updated
+
+- Update djangorestframework-stubs to 3.18.2 ([#7032](https://github.com/cookiecutter/cookiecutter-django/pull/7032))
+
+- Update ruff to 0.17.4 ([#7066](https://github.com/cookiecutter/cookiecutter-django/pull/7066))
+
+- Update celery to 5.7.0 ([#7065](https://github.com/cookiecutter/cookiecutter-django/pull/7065))
+
+- Update sentry-sdk to 2.74.0 ([#7064](https://github.com/cookiecutter/cookiecutter-django/pull/7064))
+
+- Bump @babel/core from 8.0.10 to 8.1.0 ([#7067](https://github.com/cookiecutter/cookiecutter-django/pull/7067))
+
 ## 2026.11.5
 
 
