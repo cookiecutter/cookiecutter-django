@@ -5,6 +5,7 @@ on:
     paths:
       - "{{cookiecutter.project_slug}}/requirements/local.txt"
       - "{{cookiecutter.project_slug}}/compose/local/node/Dockerfile"
+      - "{{cookiecutter.project_slug}}/package-lock.json"
   # Manual trigger
   workflow_dispatch:
 
@@ -31,6 +32,8 @@ jobs:
             name: django-upgrade
           - script: scripts/node_version.py
             name: Node
+          - script: scripts/cdnjs_assets_version.py
+            name: CDNjs assets
 
     name: "${{ matrix.job.name }} versions"
     steps:
