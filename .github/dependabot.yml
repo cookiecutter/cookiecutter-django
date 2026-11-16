@@ -1,5 +1,5 @@
 # Config for Dependabot updates. See Documentation here:
-# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+# https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference
 
 version: 2
 enable-beta-ecosystems: true
@@ -13,6 +13,10 @@ updates:
       - "project infrastructure"
     ignore:
       - dependency-name: "ruff" # updated via PyUp
+    groups:
+      tox:
+        patterns:
+          - "tox*"
 
   # Update GitHub actions in workflows
   - package-ecosystem: "github-actions"
