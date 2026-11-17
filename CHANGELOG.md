@@ -3,6 +3,45 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.11.16
+
+
+### Changed
+
+- Add spanish translation ([#7005](https://github.com/cookiecutter/cookiecutter-django/pull/7005))
+
+### Updated
+
+- Bump bootstrap from 5.3.8 to 5.3.9 ([#7100](https://github.com/cookiecutter/cookiecutter-django/pull/7100))
+
+- Bump @babel/core from 8.1.0 to 8.1.2 ([#7099](https://github.com/cookiecutter/cookiecutter-django/pull/7099))
+
+- Bump sass from 1.107.1 to 1.108.2 ([#7097](https://github.com/cookiecutter/cookiecutter-django/pull/7097))
+
+- Bump concurrently from 10.0.6 to 10.0.7 ([#7080](https://github.com/cookiecutter/cookiecutter-django/pull/7080))
+
+- Bump traefik from v3.7.16 to v3.7.18 ([#7096](https://github.com/cookiecutter/cookiecutter-django/pull/7096))
+
+- Bump amazon/aws-cli from 2.39.3 to 2.40.2 ([#7095](https://github.com/cookiecutter/cookiecutter-django/pull/7095))
+
+- Update gunicorn to 27.0.1 ([#7089](https://github.com/cookiecutter/cookiecutter-django/pull/7089))
+
+- Update ruff to 0.17.5 ([#7088](https://github.com/cookiecutter/cookiecutter-django/pull/7088))
+
+- Update djlint to 1.50.4 ([#7094](https://github.com/cookiecutter/cookiecutter-django/pull/7094))
+
+- Update django-allauth to 65.22.1 ([#7090](https://github.com/cookiecutter/cookiecutter-django/pull/7090))
+
+- Update sentry-sdk to 2.75.0 ([#7087](https://github.com/cookiecutter/cookiecutter-django/pull/7087))
+
+- Update coverage to 7.17.3 ([#7086](https://github.com/cookiecutter/cookiecutter-django/pull/7086))
+
+- Update django-compressor to 4.7.0 ([#7085](https://github.com/cookiecutter/cookiecutter-django/pull/7085))
+
+- Update psycopg to 3.3.9 ([#7084](https://github.com/cookiecutter/cookiecutter-django/pull/7084))
+
+- Update django-ninja to 1.8.0 ([#7070](https://github.com/cookiecutter/cookiecutter-django/pull/7070))
+
 ## 2026.11.6
 
 
