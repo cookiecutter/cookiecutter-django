@@ -427,6 +427,14 @@ def test_package_jsons_removed(cookies, context, frontend_pipeline, package_json
     assert has_package_jsons is package_jsons_exist
 
 
+@pytest.mark.parametrize(("use_docker", "docs_compose_exists"), [("y", True), ("n", False)])
+def test_docs_compose_removed_without_docker(cookies, context, use_docker, docs_compose_exists):
+    context.update({"use_docker": use_docker})
+    result = cookies.bake(extra_context=context)
+
+    assert (result.project_path / "docker-compose.docs.yml").exists() is docs_compose_exists
+
+
 def test_trim_domain_email(cookies, context):
     """Check that leading and trailing spaces are trimmed in domain and email."""
     context.update(

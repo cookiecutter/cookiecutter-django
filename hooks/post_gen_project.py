@@ -60,6 +60,7 @@ def remove_docker_files():
     file_names = [
         "docker-compose.local.yml",
         "docker-compose.production.yml",
+        "docker-compose.docs.yml",
         ".dockerignore",
         "justfile",
     ]
