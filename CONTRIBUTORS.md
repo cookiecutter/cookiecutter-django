@@ -2344,6 +2344,13 @@ Listed in alphabetical order.
     <td></td>
   </tr>
   <tr>
+    <td>Surya S</td>
+    <td>
+      <a href="https://github.com/imsurya26">imsurya26</a>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Sławek Ehlert</td>
     <td>
       <a href="https://github.com/slafs">slafs</a>
