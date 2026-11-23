@@ -92,9 +92,6 @@ jobs:
           EOF
           fi
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
       - name: Build and cache local backend
         uses: docker/bake-action@v6
         with:
