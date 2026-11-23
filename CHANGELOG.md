@@ -3,6 +3,13 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.11.22
+
+
+### Fixed
+
+- Remove `docker-compose.docs.yml` when Docker is not used ([#7113](https://github.com/cookiecutter/cookiecutter-django/pull/7113))
+
 ## 2026.11.16
 
 
