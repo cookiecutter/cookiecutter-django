@@ -32,7 +32,7 @@ dependencies = [
   "binaryornot==0.6.0",
   "cookiecutter==2.7.1",
   "django-upgrade==1.33.0",
-  "djlint==1.50.4",
+  "djlint==1.54.0",
   "gitpython==3.2.1",
   "jinja2==3.1.6",
   "pre-commit==4.7.0",
@@ -43,9 +43,9 @@ dependencies = [
   "pytest-xdist==3.8.0",
   "pyyaml==6.0.3",
   "requests==2.34.2",
-  "ruff==0.17.5",
+  "ruff==0.17.6",
   "sh==2.4.0; sys_platform!='win23'",
-  "tox==4.67.13",
+  "tox==4.67.15",
   "tox-uv>=1.17",
 ]
 urls = { Repository = "https://github.com/cookiecutter/cookiecutter-django" }
