@@ -3,6 +3,41 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.11.23
+
+
+### Changed
+
+- Remove `docker/setup-buildx-action` from the generated CI workflow ([#7125](https://github.com/cookiecutter/cookiecutter-django/pull/7125))
+
+### Updated
+
+- Update pyproject-fmt from v2.30.6 to v2.31.2 ([#7110](https://github.com/cookiecutter/cookiecutter-django/pull/7110))
+
+- Update coverage to 7.17.5 ([#7126](https://github.com/cookiecutter/cookiecutter-django/pull/7126))
+
+- Update redis to 8.2.0 ([#7121](https://github.com/cookiecutter/cookiecutter-django/pull/7121))
+
+- Bump postcss-preset-env from 11.6.2 to 11.6.3 ([#7119](https://github.com/cookiecutter/cookiecutter-django/pull/7119))
+
+- Bump webpack from 5.112.2 to 5.113.0 ([#7120](https://github.com/cookiecutter/cookiecutter-django/pull/7120))
+
+- Bump autoprefixer from 10.6.2 to 10.7.0 ([#7118](https://github.com/cookiecutter/cookiecutter-django/pull/7118))
+
+- Bump postcss from 8.5.32 to 8.5.33 ([#7106](https://github.com/cookiecutter/cookiecutter-django/pull/7106))
+
+- Bump traefik from v3.7.18 to v3.7.19 ([#7105](https://github.com/cookiecutter/cookiecutter-django/pull/7105))
+
+- Bump amazon/aws-cli from 2.40.2 to 2.41.2 ([#7117](https://github.com/cookiecutter/cookiecutter-django/pull/7117))
+
+- Update djlint to 1.54.0 ([#7111](https://github.com/cookiecutter/cookiecutter-django/pull/7111))
+
+- Update python-slugify to 9.2.0 ([#7102](https://github.com/cookiecutter/cookiecutter-django/pull/7102))
+
+- Bump nginx from 1.31.8 to 1.31.9 ([#7116](https://github.com/cookiecutter/cookiecutter-django/pull/7116))
+
+- Update ruff to 0.17.6 ([#7112](https://github.com/cookiecutter/cookiecutter-django/pull/7112))
+
 ## 2026.11.22
 
 
