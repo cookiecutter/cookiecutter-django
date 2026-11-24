@@ -2,7 +2,7 @@
   "name": "{{cookiecutter.project_slug}}",
   "version": "{{ cookiecutter.version }}",
   "devDependencies": {
-    "@babel/core": "^8.1.2",
+    "@babel/core": "^8.1.3",
     "@babel/preset-env": "^8.0.7",
     "@popperjs/core": "^2.10.2",
     "autoprefixer": "^10.7.0",
