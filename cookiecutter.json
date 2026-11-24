@@ -36,6 +36,7 @@
   "frontend_pipeline": ["None", "Django Compressor", "Gulp", "Webpack"],
   "use_celery": "n",
   "mail_catcher": ["None", "Mailpit", "Mailtrap Local"],
+  "use_mockatoo": "n",
   "use_sentry": "n",
   "use_whitenoise": "n",
   "use_heroku": "n",

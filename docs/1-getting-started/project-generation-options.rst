@@ -125,6 +125,11 @@ mail_catcher:
     2. Mailpit_
     3. `Mailtrap Local`_
 
+use_mockatoo:
+    Indicates whether the local and test settings should add GitHub social sign-in through Mockatoo_,
+    a hosted mock OAuth provider, so sign-in works without registering an OAuth app.
+    Production settings are unchanged.
+
 use_sentry:
     Indicates whether the project should be configured to use Sentry_.
 
@@ -193,6 +198,8 @@ debug:
 .. _Mailpit: https://github.com/axllent/mailpit
 
 .. _Mailtrap Local: https://github.com/mailtrap/mailtrap-local
+
+.. _Mockatoo: https://mockatoo.globalunderdog.com/docs/django
 
 .. _Sentry: https://github.com/getsentry/sentry
 

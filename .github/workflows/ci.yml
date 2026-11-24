@@ -75,6 +75,8 @@ jobs:
             args: "use_async=y rest_api='Django Ninja'"
           - name: Async, email username & Django-Ninja
             args: "use_async=y username_type=email rest_api='Django Ninja'"
+          - name: Mockatoo
+            args: "use_mockatoo=y"
 
     name: "Bare metal ${{ matrix.script.name }}"
     # Match the existing requirements-jammy.apt dependency list.
@@ -97,6 +99,9 @@ jobs:
       POSTGRES_PASSWORD: "postgres"
       POSTGRES_HOST: "localhost"
       POSTGRES_DB: "postgres"
+      # The full Mockatoo sign-in test runs only when these secrets are set
+      MOCKATOO_TEST_EMAIL: ${{ secrets.MOCKATOO_TEST_EMAIL }}
+      MOCKATOO_TEST_PASSWORD: ${{ secrets.MOCKATOO_TEST_PASSWORD }}
 
     steps:
       - uses: actions/checkout@v7
