@@ -411,8 +411,9 @@ SENTRY_DSN = env("SENTRY_DSN")
 SENTRY_LOG_LEVEL = env.int("DJANGO_SENTRY_LOG_LEVEL", logging.INFO)
 
 sentry_logging = LoggingIntegration(
-    level=SENTRY_LOG_LEVEL,  # Capture info and above as breadcrumbs
+    breadcrumb_level=SENTRY_LOG_LEVEL,  # Capture info and above as breadcrumbs
     event_level=logging.ERROR,  # Send errors as events
+    level=None,  # Don't send records as Sentry logs; set a level to enable
 )
 
 {%- if cookiecutter.use_celery == 'y' %}
@@ -431,6 +432,9 @@ sentry_sdk.init(
     integrations=integrations,
     environment=env("SENTRY_ENVIRONMENT", default="production"),
     traces_sample_rate=env.float("SENTRY_TRACES_SAMPLE_RATE", default=0.0),
+    # Don't send user details or request/response bodies by default.
+    # https://docs.sentry.io/platforms/python/data-management/data-collected/
+    data_collection={"user_info": False, "http_bodies": []},
 )
 {% endif %}
 {% if cookiecutter.rest_api == 'DRF' -%}
