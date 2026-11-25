@@ -23,7 +23,7 @@
     "mini-css-extract-plugin": "^2.4.5",
     "node-sass-tilde-importer": "^1.0.2",
     "postcss": "^8.5.33",
-    "postcss-loader": "^8.0.0",
+    "postcss-loader": "^8.2.2",
     "postcss-preset-env": "^11.6.3",
     "sass": "^1.108.2",
     "sass-loader": "^17.1.1",
