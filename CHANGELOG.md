@@ -3,6 +3,21 @@ All enhancements and patches to Cookiecutter Django will be documented in this f
 
 <!-- GENERATOR_PLACEHOLDER -->
 
+## 2026.11.24
+
+
+### Updated
+
+- Update django-anymail to 15.3 ([#7134](https://github.com/cookiecutter/cookiecutter-django/pull/7134))
+
+- Update sentry-sdk to 3.0.0 ([#7123](https://github.com/cookiecutter/cookiecutter-django/pull/7123))
+
+- Bump sass-loader from 17.1.0 to 17.1.1 ([#7130](https://github.com/cookiecutter/cookiecutter-django/pull/7130))
+
+- Bump @babel/core from 8.1.2 to 8.1.3 ([#7129](https://github.com/cookiecutter/cookiecutter-django/pull/7129))
+
+- Bump amazon/aws-cli from 2.41.2 to 2.42.1 ([#7128](https://github.com/cookiecutter/cookiecutter-django/pull/7128))
+
 ## 2026.11.23
 
 
