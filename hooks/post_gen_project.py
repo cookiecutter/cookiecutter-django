@@ -229,6 +229,10 @@ def remove_celery_files():
         file_path.unlink()
 
 
+def remove_mockatoo_files():
+    Path("{{ cookiecutter.project_slug }}", "users", "tests", "test_mockatoo.py").unlink()
+
+
 def remove_async_files():
     file_paths = [
         Path("config", "asgi.py"),
@@ -500,6 +504,9 @@ def main():  # noqa: C901, PLR0912, PLR0915
         remove_celery_files()
         if "{{ cookiecutter.use_docker }}".lower() == "y":
             remove_celery_compose_dirs()
+
+    if "{{ cookiecutter.use_mockatoo }}".lower() == "n":
+        remove_mockatoo_files()
 
     if "{{ cookiecutter.ci_tool }}" != "Travis":
         remove_dottravisyml_file()

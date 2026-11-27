@@ -3,6 +3,9 @@ With these settings, tests run faster.
 """
 
 from .base import *  # noqa: F403
+{%- if cookiecutter.use_mockatoo == 'y' %}
+from .base import INSTALLED_APPS
+{%- endif %}
 from .base import TEMPLATES
 from .base import env
 
@@ -40,6 +43,22 @@ MEDIA_URL = "http://media.testserver/"
 # ------------------------------------------------------------------------------
 WEBPACK_LOADER["DEFAULT"]["LOADER_CLASS"] = "webpack_loader.loaders.FakeWebpackLoader"  # noqa: F405
 
+{%- endif %}
+{%- if cookiecutter.use_mockatoo == 'y' %}
+
+# Mockatoo
+# ------------------------------------------------------------------------------
+# GitHub sign-in through Mockatoo, a mock OAuth provider, so no OAuth app is needed.
+# https://mockatoo.globalunderdog.com/docs/django
+INSTALLED_APPS += ["allauth.socialaccount.providers.github"]
+# https://docs.allauth.org/en/latest/socialaccount/providers/github.html
+SOCIALACCOUNT_PROVIDERS = {
+    "github": {
+        "GITHUB_URL": "https://app.mockatoo.globalunderdog.com/github",
+        "SCOPE": ["user:email"],
+        "APPS": [{"client_id": "mockatoo", "secret": "mockatoo-secret"}],
+    },
+}
 {%- endif %}
 # Your stuff...
 # ------------------------------------------------------------------------------

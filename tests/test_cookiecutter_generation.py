@@ -123,6 +123,8 @@ SUPPORTED_COMBINATIONS = [
     {"mail_catcher": "None"},
     {"mail_catcher": "Mailpit"},
     {"mail_catcher": "Mailtrap Local"},
+    {"use_mockatoo": "y"},
+    {"use_mockatoo": "n"},
     {"use_sentry": "y"},
     {"use_sentry": "n"},
     {"use_whitenoise": "y"},
